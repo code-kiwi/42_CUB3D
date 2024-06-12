@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 11:54:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 13:50:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#define PI 3.14159265358
+
 typedef struct s_vector
 {
 	float	x;
@@ -24,7 +26,7 @@ typedef struct s_vector
 
 typedef struct s_map
 {
-	char	**tiles;
+	char	tiles[13][20];
 	size_t	length_x;
 	size_t	length_y;
 }	t_map;
@@ -33,5 +35,9 @@ bool		is_in_bounds(t_vector *position, t_map *map);
 void		copy(t_vector *dest, t_vector *src);
 t_vector	vector_error(void);
 int			sign(float value);
+void		vector_print(t_vector *vector);
+void		vector_init(t_vector *vector, float x, float y);
+void		get_slope(t_vector *slope, float angle_rad);
+float		raycast(t_vector position, t_vector *slope, t_map *map);
 
 #endif
