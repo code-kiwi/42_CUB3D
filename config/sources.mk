@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/12 10:48:10 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/12 12:41:20 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,20 @@
 
 # GENERAL
 NAME					=	cub3D
+EXECUTABLE_DIR			=	./
+NAME_EXECUTABLE			=	$(addprefix $(EXECUTABLE_DIR), $(NAME))
+
 CC						=	cc
 ifndef NOFLAGS
 	CFLAGS				=	-Wall -Werror -Wextra -g
 endif
-HFLAGS					=	-I$(HEADERS_DIR) -I$(LIBFT_HEADERS_DIR)
+HFLAGS					=	-I$(HEADERS_DIR) -I$(LIBFT_HEADERS_DIR) -I$(MLX_DIR)
 FSFLAGS					=	-fsanitize=address
 EXT_LIB_FLAGS			=	-lm
 
 # HEADERS
 HEADERS_DIR				=	includes/
-HEADERS_FILES			=	cub3d.h
+HEADERS_FILES			=	cub3d.h mlx_api.h
 HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
 # LIBFT
@@ -52,9 +55,16 @@ MAIN_DIR				=	main/
 MAIN_FILE				=	cub3d.c
 MAIN					=	$(addprefix $(MAIN_DIR), $(MAIN_FILE))
 
+# MLX_API
+MLX_API_DIR				=	mlx_api/
+MLX_API_FILES			=	t_image_utils.c	\
+							t_mlx_init.c	\
+							t_mlx_destroy.c
+MLX_API					=	$(addprefix $(MLX_API_DIR), $(MLX_API_FILES))
+
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	$(MAIN)
+SRCS_FILES				=	$(MAIN) $(MLX_API)
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
