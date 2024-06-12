@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/12 12:41:20 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/12 14:54:50 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,9 +62,14 @@ MLX_API_FILES			=	t_image_utils.c	\
 							t_mlx_destroy.c
 MLX_API					=	$(addprefix $(MLX_API_DIR), $(MLX_API_FILES))
 
+# GAME_LOOP
+GAME_LOOP_DIR				=	game_loop/
+GAME_LOOP_FILES				=	game_loop.c
+GAME_LOOP					=	$(addprefix $(GAME_LOOP_DIR), $(GAME_LOOP_FILES))
+
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	$(MAIN) $(MLX_API)
+SRCS_FILES				=	$(MAIN) $(MLX_API) $(GAME_LOOP)
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
