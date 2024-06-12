@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:43:55 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 15:07:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 15:40:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ bool	read_map(t_map *map, char *filename)
 	if (map->tiles == NULL)
 		return (false);
 	map->length_y = array_length((void **)map->tiles);
-	map->length_x = ft_strlen(map->tiles[0]);
+	map->length_x = 20;
 	return (true);
 }
