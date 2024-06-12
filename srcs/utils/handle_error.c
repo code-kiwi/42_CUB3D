@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   handle_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 16:30:30 by mhotting         ###   ########.fr       */
+/*   Created: 2024/06/12 15:52:09 by mhotting          #+#    #+#             */
+/*   Updated: 2024/06/12 16:45:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "cub3d.h"
-#include "mlx_api.h"
+#include "libft.h"
 
-#include "mlx.h"
-
-int	main(void)
+void	error_print(char *err_msg)
 {
-	t_cub_data	data;
+	if (err_msg != NULL)
+		ft_dprintf(STDERR_FILENO, ERR_MSG_LITERALS, err_msg);
+	else
+		ft_dprintf(STDERR_FILENO, ERR_MSG_BASIC);
+}
 
-	if (!t_cub_data_init(&data))
-		error_exit(&data, ERR_MSG_DATA_INIT);
-	if (!t_mlx_init(&data.mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
-		error_exit(&data, ERR_MSG_MLX_INIT);
-	mlx_loop_hook(data.mlx.mlx_ptr, game_loop, &data);
-	mlx_loop(data.mlx.mlx_ptr);
-	return (0);
+void	error_exit(t_cub_data *data, char *err_msg)
+{
+	if (data != NULL)
+		t_cub_data_destroy(data);
+	if (err_msg != NULL)
+		error_print(err_msg);
+	exit(EXIT_FAILURE);
 }

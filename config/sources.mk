@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/12 14:54:50 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/12 16:48:04 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,21 +55,32 @@ MAIN_DIR				=	main/
 MAIN_FILE				=	cub3d.c
 MAIN					=	$(addprefix $(MAIN_DIR), $(MAIN_FILE))
 
+# CUB_DATA
+CUB_DATA_DIR			=	cub_data/
+CUB_DATA_FILE			=	t_cub_data_destroy.c	\
+								t_cub_data_init.c
+CUB_DATA				=	$(addprefix $(CUB_DATA_DIR), $(CUB_DATA_FILE))
+
 # MLX_API
 MLX_API_DIR				=	mlx_api/
-MLX_API_FILES			=	t_image_utils.c	\
-							t_mlx_init.c	\
+MLX_API_FILES			=	t_image_utils.c			\
+							t_mlx_init.c			\
 							t_mlx_destroy.c
 MLX_API					=	$(addprefix $(MLX_API_DIR), $(MLX_API_FILES))
 
 # GAME_LOOP
-GAME_LOOP_DIR				=	game_loop/
-GAME_LOOP_FILES				=	game_loop.c
-GAME_LOOP					=	$(addprefix $(GAME_LOOP_DIR), $(GAME_LOOP_FILES))
+GAME_LOOP_DIR			=	game_loop/
+GAME_LOOP_FILES			=	game_loop.c
+GAME_LOOP				=	$(addprefix $(GAME_LOOP_DIR), $(GAME_LOOP_FILES))
+
+# UTILS
+UTILS_DIR				=	utils/
+UTILS_FILE				=	handle_error.c
+UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	$(MAIN) $(MLX_API) $(GAME_LOOP)
+SRCS_FILES				=	$(MAIN) $(MLX_API) $(GAME_LOOP) $(UTILS) $(CUB_DATA)
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL

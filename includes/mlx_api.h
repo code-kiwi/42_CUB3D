@@ -6,13 +6,14 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 15:08:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/12 16:43:47 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MLX_API_H
 # define MLX_API_H
 
+# include <stdlib.h>
 # include <stdbool.h>
 
 # define EVENT_LOOP_FRAME_TARGET	1000

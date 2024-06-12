@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 15:06:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/12 16:42:11 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 #include "mlx_api.h"
 #include "libft.h"
 
-int	game_loop(t_mlx *mlx)
+int	game_loop(t_cub_data *data)
 {
-	if (mlx == NULL)
-		return (-1);
-	mlx->event_loop_counter++;
-	if (mlx->event_loop_counter == EVENT_LOOP_FRAME_TARGET)
+	if (data == NULL)
+		error_exit(data, ERR_MSG_GAME_LOOP);
+	data->mlx.event_loop_counter++;
+	if (data->mlx.event_loop_counter == EVENT_LOOP_FRAME_TARGET)
 	{
-		mlx->event_loop_counter = 0;
+		data->mlx.event_loop_counter = 0;
 		ft_printf("LOOP\n");
 	}
 	return (0);
