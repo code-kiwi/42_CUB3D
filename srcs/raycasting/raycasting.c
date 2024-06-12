@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:59:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 14:15:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 14:42:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ float	raycast(t_vector position, t_vector *slope, t_map *map)
 	calculate_inital_sum(&sum_length, &unit_length, &position);
 	while (true)
 	{
-		printf(" inside : ");
-		vector_print(&sum_length);
 		if (sum_length.x <= sum_length.y)
 		{
 			position.x += sign(slope->x);

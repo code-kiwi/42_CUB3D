@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/12 11:50:31 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/12 14:57:21 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,8 @@ SRCS_FILES				=	$(MAIN)					\
 							raycasting/raycasting.c \
 							utils/math.c			\
 							utils/vector.c			\
-							map/map.c
+							map/map.c				\
+							utils/array.c
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
