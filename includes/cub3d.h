@@ -6,17 +6,17 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 14:54:53 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 15:00:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-#include <stdlib.h>
-#include <stdbool.h>
+# include <stdlib.h>
+# include <stdbool.h>
 
-#define PI 3.14159265358
+# define PI 3.14159265358
 
 typedef struct s_vector
 {

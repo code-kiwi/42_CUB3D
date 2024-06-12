@@ -6,70 +6,34 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 14:55:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 15:09:53 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	double_array_copy(char dest[13][20], char src[13][20], size_t size_x, size_t size_y)
-{
-	for (size_t i = 0; i < size_y; i ++)
-	{
-		for (size_t j = 0; j < size_x; j ++)
-		{
-			dest[i][j] = src[i][j];
-		}
-	}
-}
-
 #include <stdio.h>
-
-// int	main(void)
-// {
-// 	t_map	map;
-// 	float	length;
-
-// 	char tiles[13][20] = 
-// 	{
-// 		{'1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1' ,'1', '1', '1', '1', '1', '1', '1'},
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1'},
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1'},
-// 		{'1', '0', '0', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '0', '1'},
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1'},
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1'},
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1'},
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1'},
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '1', '0', '0', '1'},
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1'},
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1'},
-// 		{'1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1'},
-// 		{'1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'}
-// 	};
-// 	t_vector	intersection;
-// 	t_vector	position;
-// 	t_vector	slope;
-
-// 	vector_init(&position, 2, 2);
-// 	get_slope(&slope, 19 * PI / 10);
-// 	vector_print(&slope);
-// 	double_array_copy(map.tiles, tiles, 20, 13);
-// 	map.length_x = 20;
-// 	map.length_y = 13;
-// 	length = raycast(position, &slope, &map);
-// 	printf("length : %f\n", length);
-// 	vector_init(&intersection, position.x + slope.x * length, position.y - slope.y * length);
-// 	vector_print(&intersection);
-// }
 
 int	main(int argc, char **argv)
 {
-	t_map	map;
+	t_map		map;
+	float		length;
+	t_vector	intersection;
+	t_vector	position;
+	t_vector	slope;
 
 	if (argc != 2)
 		return (EXIT_FAILURE);
 	read_map(&map, argv[1]);
 	print_str_array(map.tiles);
+	vector_init(&position, 2, 2);
+	get_slope(&slope, 19 * PI / 10);
+	vector_print(&slope);
+	length = raycast(position, &slope, &map);
+	printf("length : %f\n", length);
+	vector_init(&intersection, position.x + slope.x * length,
+		position.y - slope.y * length);
+	vector_print(&intersection);
 	free_array(map.tiles);
 	return (EXIT_SUCCESS);
 }

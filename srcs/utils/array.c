@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:43:57 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 14:58:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 15:07:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ size_t	array_length(void **array)
 		index++;
 	return (index);
 }
+
 void	print_str_array(char **array)
 {
 	size_t	index;

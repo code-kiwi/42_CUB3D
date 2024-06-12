@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:59:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 14:42:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 15:06:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,15 @@ void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
 	sum_length->y *= unit_length->y;
 }
 
-#include <stdio.h>
+bool	is_wall(t_vector *position, t_map *map)
+{
+	int	tile_x;
+	int	tile_y;
+
+	tile_x = (int)floorf(position->x);
+	tile_y = (int)floorf(position->y);
+	return (map->tiles[tile_y][tile_x] == '1');
+}
 
 float	raycast(t_vector position, t_vector *slope, t_map *map)
 {
@@ -43,14 +51,14 @@ float	raycast(t_vector position, t_vector *slope, t_map *map)
 		if (sum_length.x <= sum_length.y)
 		{
 			position.x += sign(slope->x);
-			if (map->tiles[(int)floorf(position.y)][(int)floorf(position.x)] == '1')
+			if (is_wall(&position, map))
 				return (sum_length.x);
 			sum_length.x += unit_length.x;
 		}
 		else
 		{
 			position.y -= sign(slope->y);
-			if (map->tiles[(int)floorf(position.y)][(int)floorf(position.x)] == '1')
+			if (is_wall(&position, map))
 				return (sum_length.y);
 			sum_length.y += unit_length.y;
 		}
@@ -59,4 +67,3 @@ float	raycast(t_vector position, t_vector *slope, t_map *map)
 	}
 	return (-1);
 }
-

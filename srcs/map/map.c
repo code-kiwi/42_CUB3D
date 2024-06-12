@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:43:55 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 14:58:51 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 15:07:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ bool	read_map(t_map *map, char *filename)
 	int		fd;
 
 	fd = open(filename, O_RDONLY);
-	if (fd ==-1)
+	if (fd == -1)
 		return (false);
 	map->tiles = read_tiles(fd, 0);
 	if (map->tiles == NULL)

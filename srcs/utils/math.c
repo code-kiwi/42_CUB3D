@@ -6,13 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:42:52 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 11:43:42 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 15:06:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	sign(float value)
 {
-	if(value < 0)
+	if (value < 0)
 		return (-1);
 	return (1);
 }
