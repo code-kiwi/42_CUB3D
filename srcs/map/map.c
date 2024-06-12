@@ -6,11 +6,11 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:43:55 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 11:44:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 11:52:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d"
+#include "cub3d.h"
 
 bool	is_in_bounds(t_vector *position, t_map *map)
 {

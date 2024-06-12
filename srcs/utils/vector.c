@@ -6,11 +6,11 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:42:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 11:43:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 11:52:36 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d"
+#include "cub3d.h"
 
 void	copy(t_vector *dest, t_vector *src)
 {
@@ -18,7 +18,7 @@ void	copy(t_vector *dest, t_vector *src)
 	dest->y = src->y;
 }
 
-t_vector	vector_error()
+t_vector	vector_error(void)
 {
 	t_vector	error;
 
