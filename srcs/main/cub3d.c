@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 15:58:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 19:23:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,30 @@
 
 #include <stdio.h>
 
+void	init_params(t_param *param)
+{
+	param->fov = 60;
+	param->height = 920;
+	param->width = 1;
+}
+
 int	main(int argc, char **argv)
 {
-	t_map		map;
-	float		length;
-	t_vector	intersection;
-	t_vector	position;
-	t_vector	slope;
+	t_game		game;
 
 	if (argc != 2)
 		return (EXIT_FAILURE);
-	if (!read_map(&map, argv[1]))
+	if (!read_map(&game.map, argv[1]))
 		return (EXIT_FAILURE);
-	print_str_array(map.tiles);
-	vector_init(&position, 1, 1);
-	get_slope(&slope, 6 * PI / 4);
-	vector_print("position : ", &position);
-	vector_print("slope : ", &slope);
-	length = raycast(position, &slope, &map);
-	printf("length : %f\n", length);
-	vector_init(&intersection, position.x + slope.x * length,
-		position.y - slope.y * length);
-	vector_print("intersection : ", &intersection);
-	free_array(map.tiles);
-	free(map.lines_lengths);
+	init_params(&game.param);
+	game.player_rotation_rad = 7 * PI / 4;
+	print_str_array(game.map.tiles);
+	vector_init(&game.player_position, 1, 1);
+	vector_print("position : ", &game.player_position);
+
+	draw_walls(&game);
+
+	free_array(game.map.tiles);
+	free(game.map.lines_lengths);
 	return (EXIT_SUCCESS);
 }

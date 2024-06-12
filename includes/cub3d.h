@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 15:50:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 19:06:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,21 @@ typedef struct s_map
 	size_t	lines_count;
 }	t_map;
 
+typedef struct s_param
+{
+	float	fov;
+	size_t	width;
+	size_t	height;
+}	t_param;
+
+typedef struct s_game
+{
+	t_map		map;
+	t_param		param;
+	t_vector	player_position;
+	float		player_rotation_rad;
+}	t_game;
+
 bool		is_in_bounds(t_vector *position, t_map *map);
 void		copy(t_vector *dest, t_vector *src);
 t_vector	vector_error(void);
@@ -43,5 +58,6 @@ size_t		array_length(void **array);
 size_t		print_str_array(char **array);
 bool		read_map(t_map *map, char *filename);
 void		free_array(char **array);
+void		draw_walls(t_game *game);
 
 #endif
