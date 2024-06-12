@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/12 16:48:04 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/12 17:51:42 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ EXT_LIB_FLAGS			=	-lm
 
 # HEADERS
 HEADERS_DIR				=	includes/
-HEADERS_FILES			=	cub3d.h mlx_api.h
+HEADERS_FILES			=	cub3d.h mlx_api.h event_handlers.h
 HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
 # LIBFT
@@ -65,13 +65,21 @@ CUB_DATA				=	$(addprefix $(CUB_DATA_DIR), $(CUB_DATA_FILE))
 MLX_API_DIR				=	mlx_api/
 MLX_API_FILES			=	t_image_utils.c			\
 							t_mlx_init.c			\
-							t_mlx_destroy.c
+							t_mlx_destroy.c			\
+							t_mlx_hook.c
 MLX_API					=	$(addprefix $(MLX_API_DIR), $(MLX_API_FILES))
 
 # GAME_LOOP
 GAME_LOOP_DIR			=	game_loop/
 GAME_LOOP_FILES			=	game_loop.c
 GAME_LOOP				=	$(addprefix $(GAME_LOOP_DIR), $(GAME_LOOP_FILES))
+
+# EVENT_HANDLERS
+EVENT_HANDLERS_DIR		=	event_handlers/
+EVENT_HANDLERS_FILES	=	add_event_handler.c		\
+							destroy_handler.c		\
+							keyboard_handler.c
+EVENT_HANDLERS			=	$(addprefix $(EVENT_HANDLERS_DIR), $(EVENT_HANDLERS_FILES))
 
 # UTILS
 UTILS_DIR				=	utils/
@@ -80,7 +88,8 @@ UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	$(MAIN) $(MLX_API) $(GAME_LOOP) $(UTILS) $(CUB_DATA)
+SRCS_FILES				=	$(MAIN) $(MLX_API) $(GAME_LOOP) $(UTILS)	\
+							$(CUB_DATA) $(EVENT_HANDLERS)
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL

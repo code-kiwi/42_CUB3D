@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop.c                                        :+:      :+:    :+:   */
+/*   destroy_handler.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 17:39:01 by mhotting         ###   ########.fr       */
+/*   Created: 2024/06/12 17:45:49 by mhotting          #+#    #+#             */
+/*   Updated: 2024/06/12 17:53:13 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 #include "cub3d.h"
-#include "mlx_api.h"
-#include "libft.h"
 
-int	game_loop(t_cub_data *data)
+int	destroy_handler(t_cub_data *data)
 {
 	if (data == NULL)
-		error_exit(data, ERR_MSG_GAME_LOOP);
-	data->mlx.event_loop_counter++;
-	if (data->mlx.event_loop_counter == EVENT_LOOP_FRAME_TARGET)
-	{
-		data->mlx.event_loop_counter = 0;
-	}
+		error_exit(NULL, ERROR_MSG_ARG);
+	t_cub_data_destroy(data);
+	exit(EXIT_SUCCESS);
 	return (0);
 }

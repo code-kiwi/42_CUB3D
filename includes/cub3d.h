@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 16:45:51 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:17:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 # define ERR_MSG_BASIC		"Cub3D - Error\n"
 # define ERR_MSG_LITERALS	"Cub3D - Error: %s\n"
+# define ERROR_MSG_ARG		"Bad argument given to the function"
 # define ERR_MSG_DATA_INIT	"Impossible to intialize the t_cub_data structure"
 # define ERR_MSG_MLX_INIT	"Impossible to intialize the t_mlx structure"
 # define ERR_MSG_GAME_LOOP	"Game loop failed"
