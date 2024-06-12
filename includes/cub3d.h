@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 15:40:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 15:50:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ typedef struct s_vector
 typedef struct s_map
 {
 	char	**tiles;
-	size_t	length_x;
-	size_t	length_y;
+	size_t	*lines_lengths;
+	size_t	lines_count;
 }	t_map;
 
 bool		is_in_bounds(t_vector *position, t_map *map);

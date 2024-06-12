@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:43:55 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 15:40:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 15:56:22 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 
 #include <fcntl.h>
 #include <errno.h>
+#include <math.h>
 
 bool	is_in_bounds(t_vector *position, t_map *map)
 {
 	if (position->x < 0
 		|| position->y < 0
-		|| position->x > map->length_x
-		|| position->y > map->length_y)
+		|| position->x > map->lines_lengths[(int)floorf(position->y)]
+		|| position->y > map->lines_count)
 		return (false);
 	return (true);
 }
@@ -52,14 +53,27 @@ char	**read_tiles(int fd, size_t map_size_y)
 bool	read_map(t_map *map, char *filename)
 {
 	int		fd;
+	size_t	index;
 
+	index = 0;
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (false);
 	map->tiles = read_tiles(fd, 0);
 	if (map->tiles == NULL)
+		return (close(fd), false);
+	map->lines_count = array_length((void **)map->tiles);
+	map->lines_lengths = ft_calloc(map->lines_count, sizeof(char *));
+	if (map->lines_lengths == NULL)
+	{
+		free_array(map->tiles);
+		close(fd);
 		return (false);
-	map->length_y = array_length((void **)map->tiles);
-	map->length_x = 20;
+	}
+	while (map->tiles[index])
+	{
+		map->lines_lengths[index] = ft_strlen(map->tiles[index]);
+		index++;
+	}
 	return (true);
 }
