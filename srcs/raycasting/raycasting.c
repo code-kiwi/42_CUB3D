@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:59:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 15:06:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 15:14:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ bool	is_wall(t_vector *position, t_map *map)
 	int	tile_x;
 	int	tile_y;
 
-	tile_x = (int)floorf(position->x);
-	tile_y = (int)floorf(position->y);
+	tile_x = floorf(position->x);
+	tile_y = floorf(position->y);
 	return (map->tiles[tile_y][tile_x] == '1');
 }
 

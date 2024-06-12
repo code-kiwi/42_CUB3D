@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:42:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 15:06:44 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/12 15:11:41 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ t_vector	vector_error(void)
 	return (error);
 }
 
-void	vector_print(t_vector *vector)
+void	vector_print(char *prefix, t_vector *vector)
 {
+	if (prefix != NULL)
+		printf("%s", prefix);
 	printf("x : %f, y : %f\n", vector->x, vector->y);
 	fflush(stdout);
 }
