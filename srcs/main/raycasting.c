@@ -1,17 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 11:19:38 by brappo           ###   ########.fr       */
+/*   Created: 2024/06/12 10:59:07 by brappo            #+#    #+#             */
+/*   Updated: 2024/06/12 11:05:53 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+typedef struct s_vector
+{
+	float	x;
+	float	y;
+}	t_vector;
 
+t_vector	calculate_unit_length(t_vector slope)
+{
+	t_vector	unit_length;
 
-#endif
+	unit_length.x = 
+}
+
+t_vector	raycast(t_vector position, t_vector slope)
+{
+	t_vector	unit_length;
+
+	unit_length = calculate_unit_length(slope);
+}
