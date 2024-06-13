@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 09:39:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/13 11:23:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_game
 	t_param		param;
 	t_vector	player_position;
 	float		player_rotation_rad;
-	char		textures[4];
+	char		*textures[6];
 }	t_game;
 
 bool		is_in_bounds(t_vector *position, t_map *map);
@@ -56,9 +56,11 @@ void		vector_init(t_vector *vector, float x, float y);
 void		get_slope(t_vector *slope, float angle_rad);
 float		raycast(t_vector position, t_vector *slope, t_map *map);
 size_t		array_length(void **array);
-size_t		print_str_array(char **array);
-bool		read_map(t_map *map, char *filename);
-void		free_array(char **array);
+void		print_str_array(char **array, size_t length);
+bool		read_map(t_game *game, char *filename);
+void		free_array(char **array, size_t length, bool free_container);
 void		draw_walls(t_game *game);
+ssize_t		find_str_in_array(char **array, char *str, size_t length);
+bool		read_elements(t_game *game, int fd);
 
 #endif

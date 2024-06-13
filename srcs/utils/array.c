@@ -6,11 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:43:57 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 15:07:01 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/13 11:23:27 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
+#include "libft.h"
 
 #include <stdio.h>
 
@@ -26,27 +28,43 @@ size_t	array_length(void **array)
 	return (index);
 }
 
-void	print_str_array(char **array)
+void	print_str_array(char **array, size_t length)
 {
 	size_t	index;
 
 	index = 0;
-	while (array[index])
+	while (index < length)
 	{
 		printf("%s\n", array[index]);
 		index++;
 	}
 }
 
-void	free_array(char **array)
+void	free_array(char **array, size_t length, bool free_container)
 {
 	size_t	index;
 
 	index = 0;
-	while (array[index])
+	while (index < length)
 	{
-		free(array[index]);
+		if (array[index] != NULL)
+			free(array[index]);
 		index++;
 	}
-	free(array);
+	if (free_container)
+		free(array);
+}
+
+ssize_t	find_str_in_array(char **array, char *str, size_t length)
+{
+	size_t	index;
+
+	index = 0;
+	while (index < length)
+	{
+		if (ft_strcmp(array[index], str) == 0)
+			return (index);
+		index++;
+	}
+	return (-1);
 }

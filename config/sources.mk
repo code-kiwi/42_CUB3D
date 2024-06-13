@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/12 18:51:45 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/13 10:54:37 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,13 +54,14 @@ MAIN					=	$(addprefix $(MAIN_DIR), $(MAIN_FILE))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	$(MAIN)					\
-							basic_render/raycasting.c \
-							utils/math.c			\
-							utils/vector.c			\
-							map/map.c				\
-							utils/array.c			\
-							basic_render/draw_walls.c
+SRCS_FILES				=	$(MAIN)						\
+							basic_render/raycasting.c 	\
+							utils/math.c				\
+							utils/vector.c				\
+							map/map.c					\
+							utils/array.c				\
+							basic_render/draw_walls.c	\
+							map/read_elements.c
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:43:55 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/13 10:15:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/13 11:27:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,19 @@ char	**read_tiles(int fd, size_t map_size_y)
 		tiles = ft_calloc(map_size_y + 1, sizeof(char *));
 		return (tiles);
 	}
-	tiles = read_tiles(fd, map_size_y + 1);
+	if (line[0] == '\n')
+		tiles = read_tiles(fd, map_size_y);
+	else
+		tiles = read_tiles(fd, map_size_y + 1);
 	if (tiles == NULL)
 	{
 		free(line);
 		return (NULL);
 	}
-	tiles[map_size_y] = line;
+	if (line[0] == '\n')
+		free(line);
+	else
+		tiles[map_size_y] = line;
 	return (tiles);
 }
 
@@ -61,7 +67,7 @@ bool	get_lines_lengths(t_map *map)
 	map->lines_lengths = ft_calloc(map->lines_count, sizeof(char *));
 	if (map->lines_lengths == NULL)
 	{
-		free_array(map->tiles);
+		free_array(map->tiles, map->lines_count, true);
 		return (false);
 	}
 	while (map->tiles[index])
@@ -72,16 +78,21 @@ bool	get_lines_lengths(t_map *map)
 	return (true);
 }
 
-bool	read_map(t_map *map, char *filename)
+bool	read_map(t_game *game, char *filename)
 {
 	int		fd;
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (false);
-	map->tiles = read_tiles(fd, 0);
-	if (map->tiles == NULL
-		|| !get_lines_lengths(map))
+	if (!read_elements(game, fd))
+	{
+		close(fd);
+		return (false);
+	}
+	game->map.tiles = read_tiles(fd, 0);
+	if (game->map.tiles == NULL
+		|| !get_lines_lengths(&game->map))
 	{
 		close(fd);
 		return (false);
