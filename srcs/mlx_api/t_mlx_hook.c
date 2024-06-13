@@ -23,7 +23,7 @@
  * @return true on SUCCESS, false on ERROR
 */
 bool	t_mlx_add_hook(
-	t_mlx *mlx, int (*handler)(void *), void *data, enum e_hook_type hook_type
+	t_mlx *mlx, int (*handler)(), void *data, enum e_hook_type hook_type
 )
 {
 	if (mlx == NULL || handler == NULL)

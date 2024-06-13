@@ -93,7 +93,7 @@ enum e_hook_type
 // t_mlx functions
 bool	t_mlx_init(t_mlx *mlx, int win_width, int win_height, char *title);
 void	t_mlx_destroy(t_mlx *mlx);
-bool	t_mlx_add_hook(t_mlx *mlx, int (*handler)(void *), void *data, \
+bool	t_mlx_add_hook(t_mlx *mlx, int (*handler)(), void *data, \
 			enum e_hook_type hook_type);
 bool	t_mlx_render(t_mlx *mlx);
 

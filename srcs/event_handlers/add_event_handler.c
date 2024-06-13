@@ -29,12 +29,9 @@ bool	add_event_handlers(t_cub_data *data)
 	if (data == NULL)
 		return (false);
 	if (
-		!t_mlx_add_hook(&data->mlx, (int (*)(void *))destroy_handler, data, \
-			HOOK_DESTROY)
-		|| !t_mlx_add_hook(&data->mlx, (int (*)(void *))keyboard_handler, \
-			data, HOOK_KEY)
-		|| !t_mlx_add_hook(&data->mlx, (int (*)(void *))game_loop, data, \
-			HOOK_LOOP)
+		!t_mlx_add_hook(&data->mlx, destroy_handler, data, HOOK_DESTROY)
+		|| !t_mlx_add_hook(&data->mlx, keyboard_handler, data, HOOK_KEY)
+		|| !t_mlx_add_hook(&data->mlx, game_loop, data, HOOK_LOOP)
 	)
 		return (false);
 	return (true);
