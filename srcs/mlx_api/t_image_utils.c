@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 14:19:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 17:14:17 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 #include "mlx.h"
 #include "libft.h"
 
+/**
+ * @brief Allocates and initializes a t_image_instance using the mlx
+ * @param mlx_ptr A pointer to an mlx instance, required for creating the mlx
+ * image
+ * @param img_width The image width
+ * @param img_height The image height
+ * @return A pointer to the created image, NULL in case of ERROR
+*/
 t_image	*t_image_init(void *mlx_ptr, int img_width, int img_height)
 {
 	t_image	*img;
@@ -45,6 +53,11 @@ t_image	*t_image_init(void *mlx_ptr, int img_width, int img_height)
 	return (img);
 }
 
+/**
+ * @brief Destroys properly the given t_image instance
+ * @param mlx_ptr The mlx pointer associated to the image to destroy
+ * @param img The t_image instance to destroy
+*/
 void	t_image_destroy(void *mlx_ptr, t_image *img)
 {
 	if (mlx_ptr == NULL || img == NULL || img->ptr == NULL)
@@ -53,6 +66,12 @@ void	t_image_destroy(void *mlx_ptr, t_image *img)
 	free(img);
 }
 
+/**
+ * @brief Clears the given t_image instance
+ * 
+ * Clearing means that the image pixels will all be black
+ * @param img The image to clear
+*/
 void	t_image_clear(t_image *img)
 {
 	int	i;

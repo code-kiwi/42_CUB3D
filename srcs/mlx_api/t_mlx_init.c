@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:36:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 14:18:10 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 17:35:57 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,15 @@
 #include "mlx_api.h"
 #include "libft.h"
 
+/**
+ * @brief Initializes the given t_mlx instance''s images
+ * 
+ * Both img1 and img2 will be initalized, the buffer image will be set as img2
+ * @param mlx The t_mlx instance whose images will be initialized
+ * @param img_width The image width
+ * @param img_height The image height
+ * @return true on SUCCESS, false on ERROR
+*/
 static bool	t_mlx_init_images(t_mlx *mlx, int img_width, int img_height)
 {
 	if (mlx == NULL || mlx->mlx_ptr == NULL || img_width < 0 || img_height < 0)
@@ -31,9 +40,23 @@ static bool	t_mlx_init_images(t_mlx *mlx, int img_width, int img_height)
 		mlx->img1 = NULL;
 		return (false);
 	}
+	mlx->img_buff = mlx->img2;
 	return (true);
 }
 
+/**
+ * @brief Initializes the given t_mlx instance
+ * 
+ * Steps:
+ * 	- creates the mlx pointer
+ * 	- creates the images
+ * 	- creates the window
+ * @param mlx The t_mlx instance to initialize
+ * @param win_width The window width
+ * @param win_height The window height
+ * @param title The window title
+ * @return true on SUCCESS, false on ERROR
+*/
 bool	t_mlx_init(t_mlx *mlx, int win_width, int win_height, char *title)
 {
 	if (mlx == NULL || win_width < 0 || win_height < 0)
@@ -47,7 +70,6 @@ bool	t_mlx_init(t_mlx *mlx, int win_width, int win_height, char *title)
 		t_mlx_destroy(mlx);
 		return (false);
 	}
-	mlx->img_buff = mlx->img2;
 	mlx->mlx_win = mlx_new_window(mlx->mlx_ptr, win_width, win_height, title);
 	if (mlx->mlx_win == NULL)
 	{

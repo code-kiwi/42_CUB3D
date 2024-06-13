@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:36:36 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 17:31:51 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 17:15:05 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 #include "mlx_api.h"
 #include "mlx.h"
 
+/**
+ * @brief Destroys properly a t_mlx instance
+ * @param mlx The t_mlx instance to destroy
+*/
 void	t_mlx_destroy(t_mlx *mlx)
 {
 	if (mlx == NULL)
