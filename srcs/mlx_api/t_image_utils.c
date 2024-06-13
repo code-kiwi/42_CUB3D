@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 15:05:32 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 12:41:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ t_image	*t_image_init(void *mlx_ptr, size_t img_width, size_t img_height)
 		free(img);
 		return (NULL);
 	}
+	img->width = img_width;
+	img->height = img_height;
 	return (img);
 }
 
@@ -49,4 +51,24 @@ void	t_image_destroy(void *mlx_ptr, t_image *img)
 		return ;
 	mlx_destroy_image(mlx_ptr, img->ptr);
 	free(img);
+}
+
+void	t_image_clear(t_image *img)
+{
+	size_t	i;
+	size_t	j;
+
+	if (img == NULL)
+		return ;
+	i = 0;
+	while (i < img->height)
+	{
+		j = 0;
+		while (j < img->width)
+		{
+			t_mlx_draw_pixel(img, i, j, 0);
+			j++;
+		}
+		i++;
+	}
 }

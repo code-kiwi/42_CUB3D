@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop.c                                        :+:      :+:    :+:   */
+/*   t_mlx_render.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 12:42:59 by mhotting         ###   ########.fr       */
+/*   Created: 2024/06/13 10:49:37 by mhotting          #+#    #+#             */
+/*   Updated: 2024/06/13 12:42:19 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdbool.h>
 
-#include "cub3d.h"
 #include "mlx_api.h"
-#include "libft.h"
+#include "mlx.h"
 
-int	game_loop(t_cub_data *data)
+bool	t_mlx_render(t_mlx *mlx)
 {
-	if (data == NULL)
-		error_exit(data, ERR_MSG_GAME_LOOP);
-	data->mlx.event_loop_counter++;
-	if (data->mlx.event_loop_counter == EVENT_LOOP_FRAME_TARGET)
-	{
-		if (!t_mlx_render(&data->mlx))
-			error_exit(data, ERR_MSG_RENDER);
-	}
-	return (0);
+	if (mlx == NULL || mlx->img_buff == NULL)
+		return (false);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->mlx_win, \
+		mlx->img_buff->ptr, 0, 0);
+	if (mlx->img_buff == mlx->img1)
+		mlx->img_buff = mlx->img2;
+	else
+		mlx->img_buff = mlx->img1;
+	t_image_clear(mlx->img_buff);
+	return (true);
 }

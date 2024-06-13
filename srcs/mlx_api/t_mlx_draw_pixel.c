@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_loop.c                                        :+:      :+:    :+:   */
+/*   t_mlx_draw_pixel.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 12:42:59 by mhotting         ###   ########.fr       */
+/*   Created: 2024/06/13 11:08:26 by mhotting          #+#    #+#             */
+/*   Updated: 2024/06/13 12:42:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-#include "cub3d.h"
 #include "mlx_api.h"
-#include "libft.h"
+#include "mlx.h"
 
-int	game_loop(t_cub_data *data)
+bool	t_mlx_draw_pixel(t_image *img, size_t x, size_t y, unsigned int color)
 {
-	if (data == NULL)
-		error_exit(data, ERR_MSG_GAME_LOOP);
-	data->mlx.event_loop_counter++;
-	if (data->mlx.event_loop_counter == EVENT_LOOP_FRAME_TARGET)
-	{
-		if (!t_mlx_render(&data->mlx))
-			error_exit(data, ERR_MSG_RENDER);
-	}
-	return (0);
+	char	*dest;
+
+	if (img == NULL)
+		return (false);
+	if (x < 0 || x >= img->width || y < 0 || y > img->height)
+		return (true);
+	dest = img->addr + (y * img->line_len + x * img->bpp / 8);
+	*(unsigned int *) dest = color;
+	return (true);
 }

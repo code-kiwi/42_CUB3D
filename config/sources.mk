@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/12 17:51:42 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/13 11:54:02 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,9 @@ MLX_API_DIR				=	mlx_api/
 MLX_API_FILES			=	t_image_utils.c			\
 							t_mlx_init.c			\
 							t_mlx_destroy.c			\
-							t_mlx_hook.c
+							t_mlx_hook.c			\
+							t_mlx_render.c			\
+							t_mlx_draw_pixel.c
 MLX_API					=	$(addprefix $(MLX_API_DIR), $(MLX_API_FILES))
 
 # GAME_LOOP

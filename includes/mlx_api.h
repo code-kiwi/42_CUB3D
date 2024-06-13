@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 17:43:26 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 12:28:59 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <stdbool.h>
+# include <stdint.h>
 
 # define EVENT_LOOP_FRAME_TARGET	1000
 
@@ -26,8 +27,9 @@
 # define KEY_S 						115
 # define KEY_D 						100
 
-typedef struct s_mlx	t_mlx;
-typedef struct s_image	t_image;
+typedef struct s_mlx		t_mlx;
+typedef struct s_image		t_image;
+typedef union u_argb_color	t_argb_color;
 
 struct s_mlx
 {
@@ -35,6 +37,7 @@ struct s_mlx
 	void	*mlx_win;
 	t_image	*img1;
 	t_image	*img2;
+	t_image	*img_buff;
 	size_t	event_loop_counter;
 };
 
@@ -45,6 +48,20 @@ struct s_image
 	int		bpp;
 	int		line_len;
 	int		endian;
+	size_t	width;
+	size_t	height;
+};
+
+union u_argb_color
+{
+	uint32_t	val;
+	struct s_rgba
+	{
+		uint8_t	b;
+		uint8_t	g;
+		uint8_t	r;
+		uint8_t	a;
+	} rgba;
 };
 
 enum e_mlx_event
@@ -70,13 +87,16 @@ enum e_hook_type
 bool	t_mlx_init(t_mlx *mlx, size_t win_width, size_t win_height, \
 			char *title);
 void	t_mlx_destroy(t_mlx *mlx);
+bool	t_mlx_add_hook(t_mlx *mlx, int (*handler)(void *), void *data, \
+			enum e_hook_type hook_type);
+bool	t_mlx_render(t_mlx *mlx);
 
 // t_image functions
 t_image	*t_image_init(void *mlx_ptr, size_t img_width, size_t img_height);
 void	t_image_destroy(void *mlx_ptr, t_image *img);
+void	t_image_clear(t_image *img);
 
-// hook functios
-bool	t_mlx_add_hook(t_mlx *mlx, int (*handler)(void *), void *data, \
-			enum e_hook_type hook_type);
+// Draw functions
+bool	t_mlx_draw_pixel(t_image *img, size_t x, size_t y, unsigned int color);
 
 #endif

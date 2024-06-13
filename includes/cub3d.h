@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 17:56:45 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 10:48:49 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define ERR_MSG_MLX_INIT	"Impossible to intialize the t_mlx structure"
 # define ERR_MSG_GAME_LOOP	"Game loop failed"
 # define ERR_MSG_HOOKS		"Impossible to add event handling"
+# define ERR_MSG_RENDER		"Rendering error"
 
 typedef struct s_cub_data	t_cub_data;
 typedef struct s_mlx		t_mlx;
