@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:43:55 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/13 11:27:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/13 11:34:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ bool	get_lines_lengths(t_map *map)
 		return (false);
 	map->lines_lengths = ft_calloc(map->lines_count, sizeof(char *));
 	if (map->lines_lengths == NULL)
-	{
-		free_array(map->tiles, map->lines_count, true);
 		return (false);
-	}
 	while (map->tiles[index])
 	{
 		map->lines_lengths[index] = ft_strlen(map->tiles[index]);
@@ -91,9 +88,16 @@ bool	read_map(t_game *game, char *filename)
 		return (false);
 	}
 	game->map.tiles = read_tiles(fd, 0);
-	if (game->map.tiles == NULL
-		|| !get_lines_lengths(&game->map))
+	if (game->map.tiles == NULL)
 	{
+		free_array(game->textures, 6, false);
+		close(fd);
+		return (false);
+	}
+	if (!get_lines_lengths(&game->map))
+	{
+		free_array(game->textures, 6, false);
+		free_array(game->map.tiles, game->map.lines_count, true);
 		close(fd);
 		return (false);
 	}
