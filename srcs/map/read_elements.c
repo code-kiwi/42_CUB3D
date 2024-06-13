@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 00:14:21 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/14 00:35:40 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "map.h"
 #include "libft.h"
 
-bool	parse_element(t_game *game, char *element, char **identifier)
+static bool	parse_element(t_game *game, char *element, char **identifier)
 {
 	char	*info;
 	ssize_t	identifier_index;
@@ -35,14 +35,14 @@ bool	parse_element(t_game *game, char *element, char **identifier)
 	return (true);
 }
 
-void	init_identifier(char **identifier)
+static void	init_identifier(char **identifier)
 {
-	identifier[0] = "NO";
-	identifier[1] = "SO";
-	identifier[2] = "WE";
-	identifier[3] = "EA";
-	identifier[4] = "F";
-	identifier[5] = "C";
+	identifier[0] = ID_NORTH;
+	identifier[1] = ID_SOUTH;
+	identifier[2] = ID_WEST;
+	identifier[3] = ID_EAST;
+	identifier[4] = ID_FLOOR;
+	identifier[5] = ID_CEILING;
 }
 
 bool	read_elements(t_game *game, int fd)
