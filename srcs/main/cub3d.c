@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 00:11:36 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/14 01:12:17 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	main(int argc, char **argv)
 	init_params(&game.param);
 	game.player_rotation_rad = 7 * PI / 4;
 	print_str_array(game.map.tiles, game.map.lines_count);
-	vector_init(&game.player_position, 1, 1);
-	vector_print("position : ", &game.player_position);
+	t_vector_init(&game.player_position, 1, 1);
+	t_vector_print("position : ", &game.player_position);
 	draw_walls(&game);
 	free_array(game.map.tiles, game.map.lines_count, true);
 	free_array(game.map.textures, 6, false);

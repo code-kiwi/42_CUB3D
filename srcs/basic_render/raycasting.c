@@ -6,13 +6,14 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:59:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 00:45:39 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/14 01:06:11 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
 #include "cub3d.h"
+#include "vector.h"
 
 void	calculate_unit_length(t_vector *unit_length, t_vector *slope)
 {

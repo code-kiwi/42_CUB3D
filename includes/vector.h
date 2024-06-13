@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_in_bounds.c                                     :+:      :+:    :+:   */
+/*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 00:54:27 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/14 01:13:16 by codekiwi         ###   ########.fr       */
+/*   Created: 2024/06/14 01:02:00 by codekiwi          #+#    #+#             */
+/*   Updated: 2024/06/14 01:12:35 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-#include <math.h>
+#ifndef VECTOR_H
+# define VECTOR_H
 
-#include "cub3d.h"
-#include "map.h"
-#include "vector.h"
+typedef struct s_vector	t_vector;
 
-bool	is_in_bounds(t_vector *position, t_map *map)
+struct s_vector
 {
-	if (position->x < 0
-		|| position->y < 0
-		|| position->x > map->lines_lengths[(int)floorf(position->y)]
-		|| position->y > map->lines_count)
-		return (false);
-	return (true);
-}
+	float	x;
+	float	y;
+};
+
+// t_vector functions
+void		t_vector_copy(t_vector *dest, t_vector *src);
+t_vector	t_vector_error(void);
+void		t_vector_print(char *prefix, t_vector *vector);
+void		t_vector_init(t_vector *vector, float x, float y);
+void		t_vector_get_slope(t_vector *slope, float angle_rad);
+
+#endif

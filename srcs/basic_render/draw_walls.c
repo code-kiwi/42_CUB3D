@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/13 09:32:25 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 01:12:38 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	get_intersection(float angle, t_vector *position, t_map *map)
 	t_vector	intersection;
 	t_vector	slope;
 
-	get_slope(&slope, angle);
+	t_vector_get_slope(&slope, angle);
 	length = raycast(*position, &slope, map);
-	vector_init(&intersection, position->x + position->x * length,
+	t_vector_init(&intersection, position->x + position->x * length,
 		position->y - position->y * length);
 	printf("length = %f\n", length);
-	vector_print("intersection : ", &intersection);
+	t_vector_print("intersection : ", &intersection);
 }
 
 void	draw_walls(t_game *game)
