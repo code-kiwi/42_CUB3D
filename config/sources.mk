@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources.mk                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/13 15:03:49 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/14 00:56:46 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,8 @@ BASIC_RENDER			=	$(addprefix $(BASIC_RENDER_DIR), $(BASIC_RENDER_FILE))
 
 # MAP
 MAP_DIR					=	map/
-MAP_FILE				=	map.c				\
+MAP_FILE				=	read_map.c			\
+							is_in_bounds.c		\
 							read_elements.c		\
 							is_valid.c
 MAP						=	$(addprefix $(MAP_DIR), $(MAP_FILE))
