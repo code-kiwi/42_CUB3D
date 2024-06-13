@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 15:54:08 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/13 15:58:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <stdbool.h>
 
 # define PI 3.14159265358
-# define ERROR_WALLS "Error : map not surrounded by walls\n"
-# define ERROR_ELEM "ERROR : map elements not valid\n"
-# define ERROR_IDENTIFIER "ERROR : unknown identifier\n"
+# define ERROR_WALLS "Error\nMap not surrounded by walls\n"
+# define ERROR_ELEM "Error\nMap elements not valid\n"
+# define ERROR_IDENTIFIER "Error\nUnknown identifier\n"
 
 typedef struct s_vector
 {
