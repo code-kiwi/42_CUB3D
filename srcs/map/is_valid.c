@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:42:52 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 00:13:05 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/14 00:17:47 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "map.h"
 #include "libft.h"
 
-bool	check_surrounding_tile(t_map *map, size_t x, size_t y)
+static bool	check_surrounding_tile(t_map *map, size_t x, size_t y)
 {
 	if (map->tiles[y][x] != ' ')
 		return (true);
@@ -33,7 +33,7 @@ bool	check_surrounding_tile(t_map *map, size_t x, size_t y)
 	return (true);
 }
 
-bool	check_map_edge(t_map *map)
+static bool	check_map_edge(t_map *map)
 {
 	size_t	index;
 

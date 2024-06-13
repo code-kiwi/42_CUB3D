@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:43:55 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 00:12:54 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/14 00:19:09 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool	is_in_bounds(t_vector *position, t_map *map)
 	return (true);
 }
 
-char	**read_tiles(int fd, size_t map_size_y)
+static char	**read_tiles(int fd, size_t map_size_y)
 {
 	char	*line;
 	char	**tiles;
@@ -57,7 +57,7 @@ char	**read_tiles(int fd, size_t map_size_y)
 	return (tiles);
 }
 
-bool	get_lines_lengths(t_map *map)
+static bool	get_lines_lengths(t_map *map)
 {
 	size_t	index;
 
