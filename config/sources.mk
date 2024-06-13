@@ -52,17 +52,29 @@ MAIN_DIR				=	main/
 MAIN_FILE				=	cub3d.c
 MAIN					=	$(addprefix $(MAIN_DIR), $(MAIN_FILE))
 
+# BASIC_RENDER
+BASIC_RENDER_DIR		=	basic_render/
+BASIC_RENDER_FILE		=	raycasting.c		\
+							draw_walls.c
+BASIC_RENDER			=	$(addprefix $(BASIC_RENDER_DIR), $(BASIC_RENDER_FILE))
+
+# MAP
+MAP_DIR					=	map/
+MAP_FILE				=	map.c				\
+							read_elements.c		\
+							is_valid.c
+MAP						=	$(addprefix $(MAP_DIR), $(MAP_FILE))
+
+# UTILS
+UTILS_DIR				=	utils/
+UTILS_FILE				=	math.c				\
+							vector.c			\
+							array.c
+UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
+
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	$(MAIN)						\
-							basic_render/raycasting.c 	\
-							utils/math.c				\
-							utils/vector.c				\
-							map/map.c					\
-							utils/array.c				\
-							basic_render/draw_walls.c	\
-							map/read_elements.c			\
-							map/is_valid.c
+SRCS_FILES				=	$(MAIN) $(MAP) $(BASIC_RENDER) $(UTILS)
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
