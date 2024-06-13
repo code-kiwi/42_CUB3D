@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 12:41:44 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 13:59:10 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	t_image_clear(t_image *img)
 		j = 0;
 		while (j < img->width)
 		{
-			t_mlx_draw_pixel(img, i, j, 0);
+			t_mlx_draw_pixel(img, (t_mlx_coords){i, j}, 0);
 			j++;
 		}
 		i++;

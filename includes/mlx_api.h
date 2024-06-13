@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 12:28:59 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 13:57:36 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 typedef struct s_mlx		t_mlx;
 typedef struct s_image		t_image;
 typedef union u_argb_color	t_argb_color;
+typedef struct s_mlx_coords	t_mlx_coords;
 
 struct s_mlx
 {
@@ -62,6 +63,12 @@ union u_argb_color
 		uint8_t	r;
 		uint8_t	a;
 	} rgba;
+};
+
+struct s_mlx_coords
+{
+	size_t	x;
+	size_t	y;
 };
 
 enum e_mlx_event
@@ -97,6 +104,6 @@ void	t_image_destroy(void *mlx_ptr, t_image *img);
 void	t_image_clear(t_image *img);
 
 // Draw functions
-bool	t_mlx_draw_pixel(t_image *img, size_t x, size_t y, unsigned int color);
+bool	t_mlx_draw_pixel(t_image *img, t_mlx_coords coords, unsigned int color);
 
 #endif
