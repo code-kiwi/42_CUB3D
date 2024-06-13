@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_mlx_draw_pixel.c                                 :+:      :+:    :+:   */
+/*   t_mlx_draw_line.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/13 11:08:26 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 14:15:49 by mhotting         ###   ########.fr       */
+/*   Created: 2024/06/13 14:04:21 by mhotting          #+#    #+#             */
+/*   Updated: 2024/06/13 14:20:47 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <math.h>
 
 #include "mlx_api.h"
 #include "mlx.h"
 
-bool	t_mlx_draw_pixel(t_image *img, t_mlx_coords coords, unsigned int color)
+bool	t_mlx_draw_line(
+	t_image *img,
+	t_mlx_coords coords_start,
+	t_mlx_coords coords_end,
+	unsigned int color
+)
 {
-	char	*dest;
+	int	dx;
+	int	dy;
+	int	sx;
+	int	sy;
+	int	err;
 
 	if (img == NULL)
 		return (false);
-	if (
-		coords.x < 0 || coords.x >= img->width
-		|| coords.y < 0 || coords.y > img->height
-	)
-		return (true);
-	dest = img->addr + (coords.y * img->line_len + coords.x * img->bpp / 8);
-	*(unsigned int *) dest = color;
+	dx = abs(coords_end.x - coords_start.x);
 	return (true);
 }

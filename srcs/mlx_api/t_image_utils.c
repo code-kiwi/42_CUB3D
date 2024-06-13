@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 13:59:10 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 14:19:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 #include "mlx.h"
 #include "libft.h"
 
-t_image	*t_image_init(void *mlx_ptr, size_t img_width, size_t img_height)
+t_image	*t_image_init(void *mlx_ptr, int img_width, int img_height)
 {
 	t_image	*img;
 
-	if (mlx_ptr == NULL)
+	if (mlx_ptr == NULL || img_width < 0 || img_height < 0)
 		return (NULL);
 	img = (t_image *) ft_calloc(1, sizeof(t_image));
 	if (img == NULL)
@@ -55,8 +55,8 @@ void	t_image_destroy(void *mlx_ptr, t_image *img)
 
 void	t_image_clear(t_image *img)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	if (img == NULL)
 		return ;

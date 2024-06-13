@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 13:57:36 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 14:19:16 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ struct s_image
 	int		bpp;
 	int		line_len;
 	int		endian;
-	size_t	width;
-	size_t	height;
+	int		width;
+	int		height;
 };
 
 union u_argb_color
@@ -67,8 +67,8 @@ union u_argb_color
 
 struct s_mlx_coords
 {
-	size_t	x;
-	size_t	y;
+	int	x;
+	int	y;
 };
 
 enum e_mlx_event
@@ -91,15 +91,14 @@ enum e_hook_type
 };
 
 // t_mlx functions
-bool	t_mlx_init(t_mlx *mlx, size_t win_width, size_t win_height, \
-			char *title);
+bool	t_mlx_init(t_mlx *mlx, int win_width, int win_height, char *title);
 void	t_mlx_destroy(t_mlx *mlx);
 bool	t_mlx_add_hook(t_mlx *mlx, int (*handler)(void *), void *data, \
 			enum e_hook_type hook_type);
 bool	t_mlx_render(t_mlx *mlx);
 
 // t_image functions
-t_image	*t_image_init(void *mlx_ptr, size_t img_width, size_t img_height);
+t_image	*t_image_init(void *mlx_ptr, int img_width, int img_height);
 void	t_image_destroy(void *mlx_ptr, t_image *img);
 void	t_image_clear(t_image *img);
 
