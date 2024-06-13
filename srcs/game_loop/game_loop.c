@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 15:42:27 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:46:28 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	game_loop(t_cub_data *data)
 		t_mlx_draw_line(data->mlx.img_buff, (t_mlx_coords){WIN_WIDTH / 2, WIN_HEIGHT / 2}, (t_mlx_coords){WIN_WIDTH / 2, WIN_HEIGHT}, color);
 		t_mlx_draw_line(data->mlx.img_buff, (t_mlx_coords){WIN_WIDTH / 2, WIN_HEIGHT / 2}, (t_mlx_coords){0, WIN_HEIGHT / 2}, color);
 		t_mlx_draw_line(data->mlx.img_buff, (t_mlx_coords){WIN_WIDTH / 2, WIN_HEIGHT / 2}, (t_mlx_coords){WIN_WIDTH, WIN_HEIGHT / 2}, color);
-		t_mlx_draw_rectangle(data->mlx.img_buff, (t_mlx_coords){0, 0}, (t_mlx_coords){WIN_WIDTH, WIN_HEIGHT}, color);
+		t_mlx_draw_rectangle(data->mlx.img_buff, (t_mlx_coords){100, 100}, (t_mlx_coords){WIN_WIDTH - 200, WIN_HEIGHT - 200}, color);
 		if (!t_mlx_render(&data->mlx))
 			error_exit(data, ERR_MSG_RENDER);
 	}
