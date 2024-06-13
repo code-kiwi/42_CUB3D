@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 14:02:03 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:23:18 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ int	game_loop(t_cub_data *data)
 	data->mlx.event_loop_counter++;
 	if (data->mlx.event_loop_counter == EVENT_LOOP_FRAME_TARGET)
 	{
+		int	color = 0xFF00FF;
+		t_mlx_draw_line(data->mlx.img_buff, (t_mlx_coords){WIN_WIDTH / 2, WIN_HEIGHT / 2}, (t_mlx_coords){WIN_WIDTH, 0}, color);
+		t_mlx_draw_line(data->mlx.img_buff, (t_mlx_coords){WIN_WIDTH / 2, WIN_HEIGHT / 2}, (t_mlx_coords){0, 0}, color);
+		t_mlx_draw_line(data->mlx.img_buff, (t_mlx_coords){WIN_WIDTH / 2, WIN_HEIGHT / 2}, (t_mlx_coords){0, WIN_HEIGHT}, color);
+		t_mlx_draw_line(data->mlx.img_buff, (t_mlx_coords){WIN_WIDTH / 2, WIN_HEIGHT / 2}, (t_mlx_coords){WIN_WIDTH, WIN_HEIGHT}, color);
+		t_mlx_draw_line(data->mlx.img_buff, (t_mlx_coords){WIN_WIDTH / 2, WIN_HEIGHT / 2}, (t_mlx_coords){WIN_WIDTH / 2, 0}, color);
+		t_mlx_draw_line(data->mlx.img_buff, (t_mlx_coords){WIN_WIDTH / 2, WIN_HEIGHT / 2}, (t_mlx_coords){WIN_WIDTH / 2, WIN_HEIGHT}, color);
+		t_mlx_draw_line(data->mlx.img_buff, (t_mlx_coords){WIN_WIDTH / 2, WIN_HEIGHT / 2}, (t_mlx_coords){0, WIN_HEIGHT / 2}, color);
+		t_mlx_draw_line(data->mlx.img_buff, (t_mlx_coords){WIN_WIDTH / 2, WIN_HEIGHT / 2}, (t_mlx_coords){WIN_WIDTH, WIN_HEIGHT / 2}, color);
 		if (!t_mlx_render(&data->mlx))
 			error_exit(data, ERR_MSG_RENDER);
 	}

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 14:19:16 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 14:53:48 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,7 @@ void	t_image_clear(t_image *img);
 
 // Draw functions
 bool	t_mlx_draw_pixel(t_image *img, t_mlx_coords coords, unsigned int color);
+bool	t_mlx_draw_line(t_image *img, t_mlx_coords coords_start, \
+			t_mlx_coords coords_end, unsigned int color);
 
 #endif
