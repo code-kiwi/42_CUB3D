@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/13 11:28:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 00:11:36 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 		printf("error reading map");
 		return (EXIT_FAILURE);
 	}
-	print_str_array(game.textures, 6);
+	print_str_array(game.map.textures, 6);
 	init_params(&game.param);
 	game.player_rotation_rad = 7 * PI / 4;
 	print_str_array(game.map.tiles, game.map.lines_count);
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 	vector_print("position : ", &game.player_position);
 	draw_walls(&game);
 	free_array(game.map.tiles, game.map.lines_count, true);
-	free_array(game.textures, 6, false);
+	free_array(game.map.textures, 6, false);
 	free(game.map.lines_lengths);
 	return (EXIT_SUCCESS);
 }

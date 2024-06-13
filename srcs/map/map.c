@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:43:55 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/13 15:30:01 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 00:12:54 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <math.h>
 
 #include "cub3d.h"
+#include "map.h"
 #include "libft.h"
 
 bool	is_in_bounds(t_vector *position, t_map *map)
@@ -93,7 +94,7 @@ bool	read_map(t_game *game, char *filename)
 		|| !get_lines_lengths(&game->map)
 		|| !is_map_valid(&game->map))
 	{
-		free_array(game->textures, 6, false);
+		free_array(game->map.textures, 6, false);
 		free_array(game->map.tiles, game->map.lines_count, true);
 		free(game->map.lines_lengths);
 		return (false);
