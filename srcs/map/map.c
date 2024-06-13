@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "libft.h"
-
 #include <fcntl.h>
 #include <errno.h>
 #include <math.h>
+
+#include "cub3d.h"
+#include "libft.h"
 
 bool	is_in_bounds(t_vector *position, t_map *map)
 {

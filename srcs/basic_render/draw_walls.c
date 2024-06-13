@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-
 #include <stdio.h> 
+
+#include "cub3d.h"
 
 void	get_intersection(float angle, t_vector *position, t_map *map)
 {

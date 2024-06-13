@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-
 #include <stdio.h>
+
+#include "cub3d.h"
 
 void	init_params(t_param *param)
 {

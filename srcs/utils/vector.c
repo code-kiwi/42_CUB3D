@@ -10,11 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "math.h"
+#include <stdio.h>
+#include <math.h>
 
 #include "cub3d.h"
-
-#include <stdio.h>
 
 void	copy(t_vector *dest, t_vector *src)
 {
