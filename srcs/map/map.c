@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:43:55 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/13 11:34:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/13 15:30:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,17 +88,14 @@ bool	read_map(t_game *game, char *filename)
 		return (false);
 	}
 	game->map.tiles = read_tiles(fd, 0);
-	if (game->map.tiles == NULL)
-	{
-		free_array(game->textures, 6, false);
-		close(fd);
-		return (false);
-	}
-	if (!get_lines_lengths(&game->map))
+	close(fd);
+	if (game->map.tiles == NULL
+		|| !get_lines_lengths(&game->map)
+		|| !is_map_valid(&game->map))
 	{
 		free_array(game->textures, 6, false);
 		free_array(game->map.tiles, game->map.lines_count, true);
-		close(fd);
+		free(game->map.lines_lengths);
 		return (false);
 	}
 	return (true);

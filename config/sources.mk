@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/13 10:54:37 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/13 15:03:49 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,8 @@ SRCS_FILES				=	$(MAIN)						\
 							map/map.c					\
 							utils/array.c				\
 							basic_render/draw_walls.c	\
-							map/read_elements.c
+							map/read_elements.c			\
+							map/is_valid.c
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL

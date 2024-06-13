@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:43:57 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/13 11:23:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/13 15:01:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	free_array(char **array, size_t length, bool free_container)
 	size_t	index;
 
 	index = 0;
+	if (array == NULL)
+		return ;
 	while (index < length)
 	{
 		if (array[index] != NULL)

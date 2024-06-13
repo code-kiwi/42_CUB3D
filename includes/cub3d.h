@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 11:23:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/13 15:03:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ void		free_array(char **array, size_t length, bool free_container);
 void		draw_walls(t_game *game);
 ssize_t		find_str_in_array(char **array, char *str, size_t length);
 bool		read_elements(t_game *game, int fd);
+bool		is_map_valid(t_map *map);
 
 #endif

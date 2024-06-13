@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/13 11:27:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/13 11:38:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,18 @@ bool	parse_element(t_game *game, char *element, char **identifier)
 	information = ft_strchr(element, ' ');
 	if (information != element + 1
 		&& information != element + 2)
+	{
+		write(STDOUT_FILENO, "unknown element identifier", 27);
 		return (false);
+	}
 	*information = '\0';
 	information++;
 	identifier_index = find_str_in_array(identifier, element, 6);
 	if (identifier_index == -1)
+	{
+		write(STDOUT_FILENO, "unknown element identifier", 27);
 		return (false);
+	}
 	game->textures[identifier_index] = ft_strdup(information);
 	free(element);
 	if (game->textures[identifier_index] == NULL)
