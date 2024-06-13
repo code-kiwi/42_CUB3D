@@ -6,14 +6,14 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:04:21 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 15:20:45 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:25:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdbool.h>
 #include <math.h>
 
 #include "mlx_api.h"
-#include "mlx.h"
 
 static void	t_mlx_draw_line_init(
 	t_mlx_coords coords_start, t_mlx_coords coords_end,
