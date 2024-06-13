@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:43:55 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 15:56:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/13 09:56:35 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,7 @@ char	**read_tiles(int fd, size_t map_size_y)
 	{
 		if (errno != 0)
 			return (NULL);
-		tiles = malloc((map_size_y + 1) * sizeof(char *));
-		if (tiles == NULL)
-			return (NULL);
-		tiles[map_size_y] = NULL;
+		tiles = ft_calloc(map_size_y + 1, sizeof(char *));
 		return (tiles);
 	}
 	tiles = read_tiles(fd, map_size_y + 1);
@@ -50,30 +47,39 @@ char	**read_tiles(int fd, size_t map_size_y)
 	return (tiles);
 }
 
-bool	read_map(t_map *map, char *filename)
+bool	get_lines_lengths(t_map *map)
 {
-	int		fd;
 	size_t	index;
 
 	index = 0;
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-		return (false);
-	map->tiles = read_tiles(fd, 0);
-	if (map->tiles == NULL)
-		return (close(fd), false);
 	map->lines_count = array_length((void **)map->tiles);
 	map->lines_lengths = ft_calloc(map->lines_count, sizeof(char *));
 	if (map->lines_lengths == NULL)
 	{
 		free_array(map->tiles);
-		close(fd);
 		return (false);
 	}
 	while (map->tiles[index])
 	{
 		map->lines_lengths[index] = ft_strlen(map->tiles[index]);
 		index++;
+	}
+	return (true);
+}
+
+bool	read_map(t_map *map, char *filename)
+{
+	int		fd;
+
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		return (false);
+	map->tiles = read_tiles(fd, 0);
+	if (map->tiles == NULL
+		|| !get_lines_lengths(map))
+	{
+		close(fd);
+		return (false);
 	}
 	return (true);
 }

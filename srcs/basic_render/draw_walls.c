@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 19:24:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/13 09:32:25 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ void	draw_walls(t_game *game)
 	float		angle;
 
 	index = 0;
-	angle_by_pixel = game->param.fov / game->param.width;
-	angle = game->player_rotation_rad + game->param.fov / 2;
+	angle_by_pixel = game->param.fov / (game->param.width -1);
+	angle = game->player_rotation_rad + (game->param.fov / 2);
 	while (index < game->param.width)
 	{
+		printf("angle degrees : %f\n", angle * 180 / PI);
 		get_intersection(angle, &game->player_position, &game->map);
-		angle += angle_by_pixel;
+		angle -= angle_by_pixel;
 		index++;
 	}
 }

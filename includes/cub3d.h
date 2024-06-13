@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/12 19:06:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/13 09:39:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_game
 	t_param		param;
 	t_vector	player_position;
 	float		player_rotation_rad;
+	char		textures[4];
 }	t_game;
 
 bool		is_in_bounds(t_vector *position, t_map *map);

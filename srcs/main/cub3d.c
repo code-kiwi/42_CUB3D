@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/12 19:23:46 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/13 09:39:42 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 void	init_params(t_param *param)
 {
-	param->fov = 60;
+	param->fov = PI / 2;
 	param->height = 920;
-	param->width = 1;
+	param->width = 3;
 }
 
 int	main(int argc, char **argv)
