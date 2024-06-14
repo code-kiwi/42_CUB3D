@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 00:35:40 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/14 09:05:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "map.h"
 #include "libft.h"
 
-static bool	parse_element(t_game *game, char *element, char **identifier)
+static bool	parse_element(t_map *map, char *element, char **identifier)
 {
 	char	*info;
 	ssize_t	identifier_index;
@@ -27,9 +27,9 @@ static bool	parse_element(t_game *game, char *element, char **identifier)
 	identifier_index = find_str_in_array(identifier, element, 6);
 	if (identifier_index == -1)
 		return (ft_putstr_fd(ERROR_IDENTIFIER, STDOUT_FILENO), false);
-	game->map.textures[identifier_index] = ft_strdup(info);
+	map->textures[identifier_index] = ft_strdup(info);
 	free(element);
-	if (game->map.textures[identifier_index] == NULL)
+	if (map->textures[identifier_index] == NULL)
 		return (false);
 	identifier[identifier_index] = "";
 	return (true);
@@ -45,7 +45,7 @@ static void	init_identifier(char **identifier)
 	identifier[5] = ID_CEILING;
 }
 
-bool	read_elements(t_game *game, int fd)
+bool	read_elements(t_map *map, int fd)
 {
 	char			*line;
 	unsigned int	elements_read;
@@ -53,7 +53,7 @@ bool	read_elements(t_game *game, int fd)
 
 	elements_read = 0;
 	init_identifier(identifier);
-	ft_bzero(game->map.textures, 6 * sizeof(char *));
+	ft_bzero(map->textures, 6 * sizeof(char *));
 	while (elements_read < 6)
 	{
 		line = get_next_line(fd);
@@ -63,9 +63,9 @@ bool	read_elements(t_game *game, int fd)
 			free(line);
 		else
 		{
-			if (!parse_element(game, line, identifier))
+			if (!parse_element(map, line, identifier))
 			{
-				free_array(game->map.textures, 6, false);
+				free_array(map->textures, 6, false);
 				return (false);
 			}
 			elements_read++;

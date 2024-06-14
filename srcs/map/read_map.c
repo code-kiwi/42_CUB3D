@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/14 00:56:08 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/14 09:12:05 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,17 @@ static char	**read_tiles(int fd, size_t map_size_y)
 		return (tiles);
 	}
 	if (line[0] == '\n')
-		tiles = read_tiles(fd, map_size_y);
-	else
-		tiles = read_tiles(fd, map_size_y + 1);
+	{
+		free(line);
+		return (read_tiles(fd, map_size_y));
+	}
+	tiles = read_tiles(fd, map_size_y + 1);
 	if (tiles == NULL)
 	{
 		free(line);
 		return (NULL);
 	}
-	if (line[0] == '\n')
-		free(line);
-	else
-		tiles[map_size_y] = line;
+	tiles[map_size_y] = line;
 	return (tiles);
 }
 
@@ -65,27 +64,27 @@ static bool	get_lines_lengths(t_map *map)
 	return (true);
 }
 
-bool	read_map(t_game *game, char *filename)
+bool	read_map(t_map *map, char *filename)
 {
 	int		fd;
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (false);
-	if (!read_elements(game, fd))
+	if (!read_elements(map, fd))
 	{
 		close(fd);
 		return (false);
 	}
-	game->map.tiles = read_tiles(fd, 0);
+	map->tiles = read_tiles(fd, 0);
 	close(fd);
-	if (game->map.tiles == NULL
-		|| !get_lines_lengths(&game->map)
-		|| !is_map_valid(&game->map))
+	if (map->tiles == NULL
+		|| !get_lines_lengths(map)
+		|| !is_map_valid(map))
 	{
-		free_array(game->map.textures, 6, false);
-		free_array(game->map.tiles, game->map.lines_count, true);
-		free(game->map.lines_lengths);
+		free_array(map->textures, 6, false);
+		free_array(map->tiles, map->lines_count, true);
+		free(map->lines_lengths);
 		return (false);
 	}
 	return (true);

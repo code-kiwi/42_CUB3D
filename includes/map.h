@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/14 00:40:15 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/14 09:08:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ struct s_map
 };
 
 // Map functions
-bool		read_map(t_game *game, char *filename);
+bool		read_map(t_map *map, char *filename);
 bool		is_map_valid(t_map *map);
-bool		read_elements(t_game *game, int fd);
+bool		read_elements(t_map *map, int fd);
 bool		is_in_bounds(t_vector *position, t_map *map);
 
 #endif

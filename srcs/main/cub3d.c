@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 01:12:17 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/14 09:09:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (EXIT_FAILURE);
-	if (!read_map(&game, argv[1]))
+	if (!read_map(&game.map, argv[1]))
 	{
 		printf("error reading map");
 		return (EXIT_FAILURE);
