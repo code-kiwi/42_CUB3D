@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 14:52:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 16:35:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool	t_player_init(t_player *player, t_map *map)
 	player->orientation = 7 * PI / 4;
 	player->walk_dir = NONE;
 	player->turn_direction = 0;
-	player->move_speed = 0.01;
-	player->rotation_speed = PI / 12;
+	player->move_speed = 0.1;
+	player->rotation_speed = PI / 48;
 	return (true);
 }

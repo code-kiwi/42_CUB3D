@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources.mk                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
+#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/14 15:18:13 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/14 15:33:27 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,8 @@ MAP						=	$(addprefix $(MAP_DIR), $(MAP_FILES))
 
 # PLAYER
 PLAYER_DIR				=	player/
-PLAYER_FILES			=	t_player_init.c
+PLAYER_FILES			=	t_player_init.c	\
+							update_player.c
 PLAYER					=	$(addprefix $(PLAYER_DIR), $(PLAYER_FILES))
 
 # RAY
