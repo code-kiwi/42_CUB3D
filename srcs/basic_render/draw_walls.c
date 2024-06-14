@@ -6,15 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 14:48:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 14:55:04 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 #include "math.h"
-
-#include <stdio.h>
 
 #define SCREEN_DISTANCE 1
 #define WALL_HEIGHT 800

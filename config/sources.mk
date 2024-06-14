@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources.mk                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
+#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/14 13:28:31 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/14 14:56:32 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ EVENT_HANDLERS			=	$(addprefix $(EVENT_HANDLERS_DIR), $(EVENT_HANDLERS_FILES))
 
 # BASIC_RENDER
 BASIC_RENDER_DIR		=	basic_render/
-BASIC_RENDER_FILES		=		
+BASIC_RENDER_FILES		=	draw_walls.c	
 BASIC_RENDER			=	$(addprefix $(BASIC_RENDER_DIR), $(BASIC_RENDER_FILES))
 
 # MAP
@@ -101,8 +101,8 @@ PLAYER					=	$(addprefix $(PLAYER_DIR), $(PLAYER_FILES))
 
 # RAY
 RAY_DIR					=	ray/
-RAY_FILES				=	raycasting.c		\
-							draw_walls.c
+RAY_FILES				=	raycasting.c	\
+							cast_rays.c
 RAY						=	$(addprefix $(RAY_DIR), $(RAY_FILES))
 
 # VECTOR
