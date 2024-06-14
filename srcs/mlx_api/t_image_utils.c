@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_image_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 14:32:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/15 00:11:13 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,27 @@ void	t_image_clear(t_image *img)
 		}
 		i++;
 	}
+}
+
+/**
+ * @brief import a xpm file into the struct image
+ * @param image the results
+ * @return false for error, otherwise true
+*/
+bool	t_image_import_file(t_image *image, char *filename, void *mlx)
+{
+	if (image == NULL)
+		return (false);
+	image->ptr = mlx_xpm_file_to_image(mlx, filename,
+		&image->width, &image->height);
+	if (image->ptr == NULL)
+		return (false);
+	image->addr = mlx_get_data_addr(image->ptr, &image->bpp,
+		&image->line_len, &image->endian);
+	if (image->addr == NULL)
+	{
+		mlx_destroy_image(mlx, image->ptr);
+		return (false);
+	}
+	return (true);
 }

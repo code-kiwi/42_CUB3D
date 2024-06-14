@@ -14,6 +14,7 @@
 
 #include "cub3d.h"
 #include "mlx_api.h"
+#include "mlx.h"
 
 /**
  * @brief Destroys the given t_game
@@ -21,8 +22,16 @@
 */
 void	t_game_destroy(t_game *game)
 {
+	size_t	index;
+
 	if (game == NULL)
 		return ;
+	index = 0;
+	while (index < MAP_NB_TEXTURES)
+	{
+		mlx_destroy_image(game->mlx.mlx_ptr, game->textures[index].ptr);
+		index++;
+	}
 	t_mlx_destroy(&game->mlx);
 	free_array(game->map.tiles, game->map.lines_count, true);
 	free_array(game->map.textures, MAP_NB_IDS, false);

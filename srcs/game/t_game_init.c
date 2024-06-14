@@ -14,6 +14,35 @@
 #include "player.h"
 #include "event_handlers.h"
 #include "libft.h"
+#include "mlx.h"
+
+#include <stdio.h>
+
+bool	init_textures(t_game *game)
+{
+	size_t	index;
+	char	*filename;
+
+	index = 0;
+	while (index < MAP_NB_TEXTURES)
+	{
+		filename = game->map.textures[index];
+		if (filename == NULL
+			|| filename[0] == '\0')
+		{
+			error_print(ERR_MISSING_TEXTURES);
+			return (false);
+		}
+		filename[ft_strlen(filename) - 1] = '\0';
+		if (!t_image_import_file(&game->textures[index], filename, game->mlx.mlx_ptr))
+		{
+			error_print(ERR_INIT_TEXTURES);
+			return (false);
+		}
+		index++;
+	}
+	return (true);
+}
 
 /**
  * @brief Initializes the given t_game
@@ -28,6 +57,8 @@ bool	t_game_init(t_game *game)
 		return (error_print(ERR_PLAYER_INIT), false);
 	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
 		return (error_print(ERR_MLX_INIT), false);
+	if (!init_textures(game))
+		return (false);
 	if (!add_event_handlers(game))
 		return (error_print(ERR_HOOKS), false);
 	return (true);

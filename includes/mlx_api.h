@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 19:56:34 by root             ###   ########.fr       */
+/*   Updated: 2024/06/15 00:08:47 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ bool	t_mlx_render(t_mlx *mlx);
 t_image	*t_image_init(void *mlx_ptr, int img_width, int img_height);
 void	t_image_destroy(void *mlx_ptr, t_image *img);
 void	t_image_clear(t_image *img);
+bool	t_image_import_file(t_image *image, char *filename, void *mlx);
 
 // Draw functions
 bool	t_mlx_draw_pixel(t_image *img, t_mlx_coords coords, unsigned int color);
