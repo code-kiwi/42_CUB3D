@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:57:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 13:31:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 14:56:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_map	t_map;
 
 struct s_ray
 {
-	float		angle;
+	float		angle_from_orientation;
 	float		length;
 	t_vector	intersection;
 	bool		is_vertical;
@@ -31,6 +31,6 @@ struct s_ray
 
 // Raycasting functions
 float		raycast(t_vector position, t_vector *slope, t_map *map);
-void		draw_walls(t_player *player, t_map *map);
+void		cast_rays(t_player *player, t_map *map, t_ray *rays);
 
 #endif
