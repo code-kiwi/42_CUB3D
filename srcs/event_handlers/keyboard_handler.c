@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:45:44 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 10:34:57 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 11:25:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 int	keyboard_handler(int key, t_game *data)
 {
 	if (data == NULL)
-		error_exit(NULL, ERROR_MSG_ARG);
+		error_exit(NULL, ERR_MSG_ARG);
 	if (key == KEY_ESC)
 		return (destroy_handler(data));
 	else

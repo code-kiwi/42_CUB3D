@@ -33,7 +33,6 @@ bool	t_game_init(t_game *game)
 	init_params(&game->param);
 	game->player_rotation_rad = 7 * PI / 4;
 	t_vector_init(&game->player_position, 1, 1);
-
 	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
 		return (error_print(ERR_MSG_MLX_INIT), false);
 	if (!add_event_handlers(game))

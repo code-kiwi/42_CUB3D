@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 10:44:13 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 11:20:58 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@
 # define WIN_WIDTH			800
 # define WIN_HEIGHT			600
 
-# define ERR_MSG_BASIC		"Cub3D - Error\n"
-# define ERR_MSG_LITERALS	"Cub3D - Error: %s\n"
-# define ERROR_MSG_ARG		"Bad argument given to the function"
+# define ERR_MSG_BASIC		"Error\n"
+# define ERR_MSG_LITERALS	"Error\n%s\n"
+# define ERR_MSG_ARG		"Bad argument given to the function"
 # define ERR_MSG_GAME_INIT	"Impossible to intialize the t_game structure"
 # define ERR_MSG_MLX_INIT	"Impossible to intialize the t_mlx structure"
 # define ERR_MSG_GAME_LOOP	"Game loop failed"
 # define ERR_MSG_HOOKS		"Impossible to add event handling"
 # define ERR_MSG_RENDER		"Rendering error"
-
-# define ERROR_WALLS "Error\nMap not surrounded by walls\n"
-# define ERROR_ELEM "Error\nMap elements not valid\n"
-# define ERROR_IDENTIFIER "Error\nUnknown identifier\n"
+# define ERR_MSG_MAP_READ	"Map reading"
+# define ERR_MSG_WALLS		"Map not surrounded by walls"
+# define ERR_MSG_ELEM		"Map elements not valid"
+# define ERR_MSG_IDENTIFIER "Map unknown identifier"
 
 typedef struct s_game	t_game;
 typedef struct s_mlx	t_mlx;
