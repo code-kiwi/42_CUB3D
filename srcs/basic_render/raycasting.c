@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:59:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 01:06:11 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/14 09:30:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 #include "cub3d.h"
 #include "vector.h"
 
-void	calculate_unit_length(t_vector *unit_length, t_vector *slope)
+static void	calculate_unit_length(t_vector *unit_length, t_vector *slope)
 {
 	unit_length->x = sqrt(1 + pow((slope->y / slope->x), 2));
 	unit_length->y = sqrt(1 + pow((slope->x / slope->y), 2));
 }
 
-void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
+static void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
 	t_vector *position)
 {
 	sum_length->x = 1 - modff(position->x, &position->x);
@@ -30,7 +30,7 @@ void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
 	sum_length->y *= unit_length->y;
 }
 
-bool	is_wall(t_vector *position, t_map *map)
+static bool	is_wall(t_vector *position, t_map *map)
 {
 	int	tile_x;
 	int	tile_y;
