@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:57:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 14:56:06 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 17:02:08 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ struct s_ray
 
 // Raycasting functions
 float		raycast(t_vector position, t_vector *slope, t_map *map);
-void		cast_rays(t_player *player, t_map *map, t_ray *rays);
+bool		cast_rays(t_player *player, t_map *map, t_ray *rays);
 
 #endif

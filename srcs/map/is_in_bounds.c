@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_in_bounds.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:54:27 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/14 13:31:15 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:02:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ bool	is_in_bounds(t_vector *position, t_map *map)
 {
 	if (position->x < 0
 		|| position->y < 0
-		|| position->x > map->lines_lengths[(int)floorf(position->y)]
-		|| position->y > map->lines_count)
+		|| position->y > map->lines_count
+		|| position->x > map->lines_lengths[(int)floorf(position->y)])
 		return (false);
 	return (true);
 }
