@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources.mk                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/14 14:56:32 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/14 15:18:13 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,8 +57,8 @@ MAIN					=	$(addprefix $(MAIN_DIR), $(MAIN_FILES))
 
 # GAME
 GAME_DIR				=	game/
-GAME_FILES				=	t_game_destroy.c	\
-							t_game_init.c		\
+GAME_FILES				=	t_game_destroy.c		\
+							t_game_init.c			\
 							game_loop.c
 GAME					=	$(addprefix $(GAME_DIR), $(GAME_FILES))
 
@@ -78,7 +78,9 @@ MLX_API					=	$(addprefix $(MLX_API_DIR), $(MLX_API_FILES))
 EVENT_HANDLERS_DIR		=	event_handlers/
 EVENT_HANDLERS_FILES	=	add_event_handler.c		\
 							destroy_handler.c		\
-							keyboard_handler.c
+							key_release_handler.c	\
+							key_press_handler.c
+
 EVENT_HANDLERS			=	$(addprefix $(EVENT_HANDLERS_DIR), $(EVENT_HANDLERS_FILES))
 
 # BASIC_RENDER
@@ -88,9 +90,9 @@ BASIC_RENDER			=	$(addprefix $(BASIC_RENDER_DIR), $(BASIC_RENDER_FILES))
 
 # MAP
 MAP_DIR					=	map/
-MAP_FILES				=	read_map.c			\
-							is_in_bounds.c		\
-							read_elements.c		\
+MAP_FILES				=	read_map.c				\
+							is_in_bounds.c			\
+							read_elements.c			\
 							is_valid.c
 MAP						=	$(addprefix $(MAP_DIR), $(MAP_FILES))
 
@@ -101,7 +103,7 @@ PLAYER					=	$(addprefix $(PLAYER_DIR), $(PLAYER_FILES))
 
 # RAY
 RAY_DIR					=	ray/
-RAY_FILES				=	raycasting.c	\
+RAY_FILES				=	raycasting.c			\
 							cast_rays.c
 RAY						=	$(addprefix $(RAY_DIR), $(RAY_FILES))
 
@@ -112,8 +114,8 @@ VECTOR					=	$(addprefix $(VECTOR_DIR), $(VECTOR_FILE))
 
 # UTILS
 UTILS_DIR				=	utils/
-UTILS_FILE				=	math.c				\
-							array.c				\
+UTILS_FILE				=	math.c					\
+							array.c					\
 							handle_error.c
 UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
 

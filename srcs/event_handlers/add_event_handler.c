@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:25:06 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 10:34:50 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:15:07 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ bool	add_event_handlers(t_game *data)
 		return (false);
 	if (
 		!t_mlx_add_hook(&data->mlx, destroy_handler, data, HOOK_DESTROY)
-		|| !t_mlx_add_hook(&data->mlx, keyboard_handler, data, HOOK_KEY)
+		|| !t_mlx_add_hook(&data->mlx, key_release_handler, data, \
+			HOOK_KEY_RELEASE)
+		|| !t_mlx_add_hook(&data->mlx, key_press_handler, data, HOOK_KEY_PRESS)
 		|| !t_mlx_add_hook(&data->mlx, game_loop, data, HOOK_LOOP)
 	)
 		return (false);

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 10:45:11 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:11:49 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ struct s_mlx_coords
 
 enum e_mlx_event
 {
-	MLX_ON_KEYDOWN = 2,
-	MLX_ON_KEYUP = 3,
+	MLX_ON_KEYPRESS = 2,
+	MLX_ON_KEYRELEASE = 3,
 	MLX_ON_MOUSEDOWN = 4,
 	MLX_ON_MOUSEUP = 5,
 	MLX_ON_MOUSEMOVE = 6,
@@ -86,6 +86,8 @@ enum e_hook_type
 {
 	HOOK_DESTROY,
 	HOOK_KEY,
+	HOOK_KEY_RELEASE,
+	HOOK_KEY_PRESS,
 	HOOK_MOUSE,
 	HOOK_LOOP
 };

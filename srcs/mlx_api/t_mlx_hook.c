@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:02:47 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 10:47:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:14:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ bool	t_mlx_add_hook(
 		return (false);
 	if (hook_type == HOOK_DESTROY)
 		mlx_hook(mlx->mlx_win, MLX_ON_DESTROY, (1L << 3), handler, data);
-	else if (hook_type == HOOK_KEY)
-		mlx_key_hook(mlx->mlx_win, handler, data);
+	else if (hook_type == HOOK_KEY_RELEASE)
+		mlx_hook(mlx->mlx_win, MLX_ON_KEYRELEASE, (1L << 0), handler, data);
+	else if (hook_type == HOOK_KEY_PRESS)
+		mlx_hook(mlx->mlx_win, MLX_ON_KEYPRESS, (1L << 1), handler, data);
 	else if (hook_type == HOOK_MOUSE)
 		mlx_mouse_hook(mlx->mlx_win, handler, data);
 	else if (hook_type == HOOK_LOOP)
