@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 09:21:44 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:32:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 
 	info = ft_strchr(element, ' ');
 	if (info != element + 1 && info != element + 2)
-		return (ft_putstr_fd(ERROR_IDENTIFIER, STDOUT_FILENO), false);
+		return (error_print(ERR_IDENTIFIER), false);
 	*info = '\0';
 	info++;
 	identifier_index = find_str_in_array(identifier, element, MAP_NB_IDS);
 	if (identifier_index == -1)
-		return (ft_putstr_fd(ERROR_IDENTIFIER, STDOUT_FILENO), false);
+		return (error_print(ERR_IDENTIFIER), false);
 	map->textures[identifier_index] = ft_strdup(info);
 	free(element);
 	if (map->textures[identifier_index] == NULL)

@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   t_game_destroy.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 12:32:38 by mhotting         ###   ########.fr       */
+/*   Created: 2024/06/12 16:01:50 by mhotting          #+#    #+#             */
+/*   Updated: 2024/06/13 17:01:12 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+
 #include "cub3d.h"
 #include "mlx_api.h"
 
-#include "mlx.h"
-
-#include <stdio.h>
-
-int	main(int argc, char **argv)
+/**
+ * @brief Destroys the given t_game
+ * @param game The structure to destroy
+*/
+void	t_game_destroy(t_game *game)
 {
-	t_game	game;
-
-	if (argc != 2)
-		return (EXIT_FAILURE);
-	ft_memset(&game, 0, sizeof(t_game));
-	if (!read_map(&game.map, argv[1]))
-		error_exit(&game, ERR_MAP_READ);
-	if (!t_game_init(&game))
-		error_exit(&game, ERR_GAME_INIT);
-	mlx_loop(game.mlx.mlx_ptr);
-	t_game_destroy(&game);
-	return (0);
+	if (game == NULL)
+		return ;
+	t_mlx_destroy(&game->mlx);
+	free_array(game->map.tiles, game->map.lines_count, true);
+	free_array(game->map.textures, MAP_NB_IDS, false);
+	free(game->map.lines_lengths);
 }

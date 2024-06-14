@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   keyboard_handler.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
+/*   Created: 2024/06/12 17:45:44 by mhotting          #+#    #+#             */
 /*   Updated: 2024/06/14 12:32:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+
 #include "cub3d.h"
-#include "mlx_api.h"
+#include "event_handlers.h"
+#include "libft.h"
 
-#include "mlx.h"
-
-#include <stdio.h>
-
-int	main(int argc, char **argv)
+/**
+ * @brief Handles the keyboard pressed keys
+ * @param data The t_game which contains project data to affect
+ * @param key The integer value of the pressed key
+ * @return A dummy integer
+*/
+int	keyboard_handler(int key, t_game *data)
 {
-	t_game	game;
-
-	if (argc != 2)
-		return (EXIT_FAILURE);
-	ft_memset(&game, 0, sizeof(t_game));
-	if (!read_map(&game.map, argv[1]))
-		error_exit(&game, ERR_MAP_READ);
-	if (!t_game_init(&game))
-		error_exit(&game, ERR_GAME_INIT);
-	mlx_loop(game.mlx.mlx_ptr);
-	t_game_destroy(&game);
+	if (data == NULL)
+		error_exit(NULL, ERR_ARG);
+	if (key == KEY_ESC)
+		return (destroy_handler(data));
+	else
+		ft_printf("Key pressed: %d\n", key);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:35:12 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/12 10:59:38 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/13 15:21:09 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,9 @@ init_submodule:
 
 -include $(DEPS)
 
+run: all
+	$(NAME_EXECUTABLE) $(ARGS)
+
 clean:
 	rm -rf $(OBJS_MAIN_DIR)
 	rm -rf $(DEPS_MAIN_DIR)
@@ -72,4 +75,4 @@ re: fclean all
 
 rre: ffclean re
 
-.PHONY: all clean fclean re clean-libft clean-mlx fclean-libft fclean-mlx ffclean rre bonus FORCE fsanitize init_submodule
+.PHONY: all clean fclean re run clean-libft clean-mlx fclean-libft fclean-mlx ffclean rre bonus FORCE fsanitize init_submodule

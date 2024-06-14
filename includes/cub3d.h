@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 09:25:55 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 13:25:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,56 @@
 # define CUB3D_H
 
 # include <stdlib.h>
-# include <stdbool.h>
 # include <sys/types.h>
+# include <stdbool.h>
 
+# include "mlx_api.h"
 # include "map.h"
 # include "vector.h"
+# include "player.h"
+# include "ray.h"
 
 # define PI 3.14159265358
-# define ERROR_WALLS "Error\nMap not surrounded by walls\n"
-# define ERROR_ELEM "Error\nMap elements not valid\n"
-# define ERROR_IDENTIFIER "Error\nUnknown identifier\n"
+
+# define WIN_TITLE			"Cub3D"
+# define WIN_WIDTH			800
+# define WIN_HEIGHT			600
+
+# define ERR_BASIC			"Error\n"
+# define ERR_LITERALS		"Error\n%s\n"
+# define ERR_ARG			"Bad argument given to the function"
+# define ERR_GAME_INIT		"Impossible to intialize the t_game structure"
+# define ERR_MLX_INIT		"Impossible to intialize the t_mlx structure"
+# define ERR_GAME_LOOP		"Game loop failed"
+# define ERR_HOOKS			"Impossible to add event handling"
+# define ERR_RENDER			"Rendering error"
+# define ERR_MAP_READ		"Map reading"
+# define ERR_WALLS			"Map not surrounded by walls"
+# define ERR_ELEM			"Map elements not valid"
+# define ERR_IDENTIFIER		"Map unknown identifier"
+# define ERR_PLAYER_INIT	"Player init failed"
 
 typedef struct s_game	t_game;
-typedef struct s_param	t_param;
-
-struct s_param
-{
-	float	fov;
-	size_t	width;
-	size_t	height;
-};
+typedef struct s_mlx	t_mlx;
 
 struct s_game
 {
+	t_mlx		mlx;
+	t_player	player;
 	t_map		map;
-	t_param		param;
 	t_vector	player_position;
+	t_ray		rays[WIN_WIDTH];
 	float		player_rotation_rad;
 };
 
-// Raycasting functions
-float		raycast(t_vector position, t_vector *slope, t_map *map);
-void		draw_walls(t_game *game);
+// Game functions
+int			game_loop(t_game *game);
+bool		t_game_init(t_game *game);
+void		t_game_destroy(t_game *game);
 
 // Utils functions
+void		error_print(char *err_msg);
+void		error_exit(t_game *game, char *err_msg);
 size_t		array_length(void **array);
 int			sign(float value);
 ssize_t		find_str_in_array(char **array, char *str, size_t length);
