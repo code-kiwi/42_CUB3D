@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 19:45:32 by root             ###   ########.fr       */
+/*   Updated: 2024/06/14 20:41:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ bool	t_player_init(t_player *player, t_map *map)
 	player->walk_dir = NONE;
 	player->turn_direction = 0;
 	player->move_speed = 0.1;
-	player->rotation_speed = PI / 48;
+	player->rotation_speed = PI / 95;
 	return (true);
 }

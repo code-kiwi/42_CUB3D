@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 18:36:29 by root             ###   ########.fr       */
+/*   Updated: 2024/06/14 20:38:55 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define PI 3.14159265358
 
 # define WIN_TITLE			"Cub3D"
-# define WIN_WIDTH			800
-# define WIN_HEIGHT			500
+# define WIN_WIDTH			1900
+# define WIN_HEIGHT			1000
 
 # define ERR_BASIC			"Error\n"
 # define ERR_LITERALS		"Error\n%s\n"
@@ -60,7 +60,6 @@ struct s_game
 int			game_loop(t_game *game);
 bool		t_game_init(t_game *game);
 void		t_game_destroy(t_game *game);
-void		update_player(t_player *player);
 
 bool		draw_walls(t_image *screen, t_ray *rays);
 

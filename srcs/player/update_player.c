@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 18:33:47 by root             ###   ########.fr       */
+/*   Updated: 2024/06/14 20:37:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,24 @@ static void	update_look(t_player *player)
 		player->orientation -= player->rotation_speed;
 }
 
-static void	update_position(t_player *player)
+static void	update_position(t_player *player, t_map *map)
 {
-	float	new_angle;
+	float		new_angle;
+	t_vector	save_position;
 
 	if (player->walk_dir != NONE)
 	{
+		save_position = player->position;
 		new_angle = player->orientation + player->walk_dir * PI / 2;
 		player->position.x += cos(new_angle) * player->move_speed;
 		player->position.y -= sin(new_angle) * player->move_speed;
+		if (is_wall(&player->position, map))
+			player->position = save_position;
 	}
 }
 
-void	update_player(t_player *player)
+void	update_player(t_player *player, t_map *map)
 {
 	update_look(player);
-	update_position(player);
+	update_position(player, map);
 }
