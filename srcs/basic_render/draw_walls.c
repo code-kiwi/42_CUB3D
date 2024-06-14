@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/15 00:06:44 by root             ###   ########.fr       */
+/*   Updated: 2024/06/15 00:45:06 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,14 @@ bool	t_mlx_draw_pixel_2(t_image *img, t_mlx_coords *coords, unsigned int color)
 
 static bool	draw_texture_column(t_image *screen, t_mlx_coords *start, int end, t_image *texture)
 {
-	bool	error;
+	bool		error;
+	char		*color;
 
 	error = false;
 	while (start->y < end)
 	{
-		error = !t_mlx_draw_pixel_2(screen, start, 0x0000FF00) | error;
+		color = texture->addr + (start->y % texture->height * texture->line_len + start->x % texture->width * (texture->bpp / 8));
+		error = !t_mlx_draw_pixel_2(screen, start, *color) | error;
 		start->y++;
 	}
 	return (!error);
