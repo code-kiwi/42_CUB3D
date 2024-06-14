@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:25:06 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 17:03:19 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 10:34:50 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 #include "libft.h"
 
 /**
- * @brief Adds all the event handlers to the given t_cub_data structure
+ * @brief Adds all the event handlers to the given t_game structure
  * 
  * Adds loop, destroy and keyboard handlers
- * @param data The t_cub_data instance which needs the handlers
+ * @param data The t_game instance which needs the handlers
  * @return true on SUCCESS, false on ERROR
 */
-bool	add_event_handlers(t_cub_data *data)
+bool	add_event_handlers(t_game *data)
 {
 	if (data == NULL)
 		return (false);

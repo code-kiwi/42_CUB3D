@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/13 15:38:08 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/14 10:36:35 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ EXT_LIB_FLAGS			=	-lm
 
 # HEADERS
 HEADERS_DIR				=	includes/
-HEADERS_FILES			=	cub3d.h mlx_api.h event_handlers.h
+HEADERS_FILES			=	cub3d.h mlx_api.h event_handlers.h map.h vector.h
 HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
 # LIBFT
@@ -55,11 +55,11 @@ MAIN_DIR				=	main/
 MAIN_FILE				=	cub3d.c
 MAIN					=	$(addprefix $(MAIN_DIR), $(MAIN_FILE))
 
-# CUB_DATA
-CUB_DATA_DIR			=	cub_data/
-CUB_DATA_FILE			=	t_cub_data_destroy.c	\
-								t_cub_data_init.c
-CUB_DATA				=	$(addprefix $(CUB_DATA_DIR), $(CUB_DATA_FILE))
+# GAME
+GAME_DIR				=	cub_data/
+GAME_FILE				=	t_game_destroy.c	\
+							t_game_init.c
+GAME					=	$(addprefix $(GAME_DIR), $(GAME_FILE))
 
 # MLX_API
 MLX_API_DIR				=	mlx_api/
@@ -88,12 +88,37 @@ EVENT_HANDLERS			=	$(addprefix $(EVENT_HANDLERS_DIR), $(EVENT_HANDLERS_FILES))
 # UTILS
 UTILS_DIR				=	utils/
 UTILS_FILE				=	handle_error.c
+
+# BASIC_RENDER
+BASIC_RENDER_DIR		=	basic_render/
+BASIC_RENDER_FILE		=	raycasting.c		\
+							draw_walls.c
+BASIC_RENDER			=	$(addprefix $(BASIC_RENDER_DIR), $(BASIC_RENDER_FILE))
+
+# MAP
+MAP_DIR					=	map/
+MAP_FILE				=	read_map.c			\
+							is_in_bounds.c		\
+							read_elements.c		\
+							is_valid.c
+MAP						=	$(addprefix $(MAP_DIR), $(MAP_FILE))
+
+# VECTOR
+VECTOR_DIR				=	vector/
+VECTOR_FILE				=	vector.c
+VECTOR					=	$(addprefix $(VECTOR_DIR), $(VECTOR_FILE))
+
+# UTILS
+UTILS_DIR				=	utils/
+UTILS_FILE				=	math.c				\
+							array.c
 UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
 SRCS_FILES				=	$(MAIN) $(MLX_API) $(GAME_LOOP) $(UTILS)	\
-							$(CUB_DATA) $(EVENT_HANDLERS)
+							$(GAME) $(EVENT_HANDLERS)
+SRCS_FILES				=	$(MAIN) $(MAP) $(BASIC_RENDER) $(VECTOR) $(UTILS)
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL

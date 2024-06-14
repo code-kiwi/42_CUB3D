@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 17:08:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 10:35:11 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
  * @param data The project's data
  * @return A dummy integer
 */
-int	game_loop(t_cub_data *data)
+int	game_loop(t_game *data)
 {
 	static t_mlx_coords rect = {0, 0};
 

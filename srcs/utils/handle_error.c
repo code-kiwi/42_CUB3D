@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:52:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 17:40:04 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 10:35:29 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ void	error_print(char *err_msg)
 }
 
 /**
- * @brief Destroys the given t_cub_data pointer, prints the err_msg and exits
+ * @brief Destroys the given t_game pointer, prints the err_msg and exits
  * @param data The project's data to destroy
  * @param err_msg The error message to display
 */
-void	error_exit(t_cub_data *data, char *err_msg)
+void	error_exit(t_game *data, char *err_msg)
 {
 	if (data != NULL)
-		t_cub_data_destroy(data);
+		t_game_destroy(data);
 	if (err_msg != NULL)
 		error_print(err_msg);
 	exit(EXIT_FAILURE);
