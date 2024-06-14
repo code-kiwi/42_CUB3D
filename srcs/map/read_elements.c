@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 09:05:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 09:21:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 		return (ft_putstr_fd(ERROR_IDENTIFIER, STDOUT_FILENO), false);
 	*info = '\0';
 	info++;
-	identifier_index = find_str_in_array(identifier, element, 6);
+	identifier_index = find_str_in_array(identifier, element, MAP_NB_IDS);
 	if (identifier_index == -1)
 		return (ft_putstr_fd(ERROR_IDENTIFIER, STDOUT_FILENO), false);
 	map->textures[identifier_index] = ft_strdup(info);
@@ -49,12 +49,12 @@ bool	read_elements(t_map *map, int fd)
 {
 	char			*line;
 	unsigned int	elements_read;
-	char			*identifier[6];
+	char			*identifier[MAP_NB_IDS];
 
 	elements_read = 0;
 	init_identifier(identifier);
-	ft_bzero(map->textures, 6 * sizeof(char *));
-	while (elements_read < 6)
+	ft_bzero(map->textures, MAP_NB_IDS * sizeof(char *));
+	while (elements_read < MAP_NB_IDS)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
@@ -65,7 +65,7 @@ bool	read_elements(t_map *map, int fd)
 		{
 			if (!parse_element(map, line, identifier))
 			{
-				free_array(map->textures, 6, false);
+				free_array(map->textures, MAP_NB_IDS, false);
 				return (false);
 			}
 			elements_read++;

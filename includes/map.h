@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/14 09:08:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 09:20:55 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define ID_CEILING			"C"
 
 # define MAP_ALLOWED_CHARS	" 01NSEW\n"
+# define MAP_NB_IDS			6
 
 typedef struct s_game	t_game;
 typedef struct s_map	t_map;
@@ -37,7 +38,7 @@ struct s_map
 	char	**tiles;
 	size_t	*lines_lengths;
 	size_t	lines_count;
-	char	*textures[6];
+	char	*textures[MAP_NB_IDS];
 };
 
 // Map functions

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/14 09:12:05 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 09:23:47 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ bool	read_map(t_map *map, char *filename)
 		|| !get_lines_lengths(map)
 		|| !is_map_valid(map))
 	{
-		free_array(map->textures, 6, false);
+		free_array(map->textures, MAP_NB_IDS, false);
 		free_array(map->tiles, map->lines_count, true);
 		free(map->lines_lengths);
 		return (false);
