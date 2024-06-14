@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:52:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 10:46:54 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:32:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 void	error_print(char *err_msg)
 {
 	if (err_msg != NULL)
-		ft_dprintf(STDERR_FILENO, ERR_MSG_LITERALS, err_msg);
+		ft_dprintf(STDERR_FILENO, ERR_LITERALS, err_msg);
 	else
-		ft_dprintf(STDERR_FILENO, ERR_MSG_BASIC);
+		ft_dprintf(STDERR_FILENO, ERR_BASIC);
 }
 
 /**

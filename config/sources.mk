@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/14 11:07:22 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/14 12:53:23 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,8 +52,8 @@ MLX_FLAGS				=	-L$(MLX_DIR) -lmlx_Linux -lXext -lX11
 
 # MAIN
 MAIN_DIR				=	main/
-MAIN_FILE				=	cub3d.c
-MAIN					=	$(addprefix $(MAIN_DIR), $(MAIN_FILE))
+MAIN_FILES				=	cub3d.c
+MAIN					=	$(addprefix $(MAIN_DIR), $(MAIN_FILES))
 
 # GAME
 GAME_DIR				=	game/
@@ -87,17 +87,22 @@ EVENT_HANDLERS			=	$(addprefix $(EVENT_HANDLERS_DIR), $(EVENT_HANDLERS_FILES))
 
 # BASIC_RENDER
 BASIC_RENDER_DIR		=	basic_render/
-BASIC_RENDER_FILE		=	raycasting.c		\
+BASIC_RENDER_FILES		=	raycasting.c		\
 							draw_walls.c
-BASIC_RENDER			=	$(addprefix $(BASIC_RENDER_DIR), $(BASIC_RENDER_FILE))
+BASIC_RENDER			=	$(addprefix $(BASIC_RENDER_DIR), $(BASIC_RENDER_FILES))
 
 # MAP
 MAP_DIR					=	map/
-MAP_FILE				=	read_map.c			\
+MAP_FILES				=	read_map.c			\
 							is_in_bounds.c		\
 							read_elements.c		\
 							is_valid.c
-MAP						=	$(addprefix $(MAP_DIR), $(MAP_FILE))
+MAP						=	$(addprefix $(MAP_DIR), $(MAP_FILES))
+
+# PLAYER
+PLAYER_DIR				=	player/
+PLAYER_FILES			=	t_player_init.c
+PLAYER					=	$(addprefix $(PLAYER_DIR), $(PLAYER_FILES))
 
 # VECTOR
 VECTOR_DIR				=	vector/
@@ -113,7 +118,9 @@ UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	$(MAIN) $(MLX_API) $(GAME_LOOP) $(UTILS) $(GAME) $(EVENT_HANDLERS) $(MAP) $(BASIC_RENDER) $(VECTOR)
+SRCS_FILES				=	$(MAIN) $(MLX_API) $(GAME_LOOP) $(UTILS) $(GAME)	\
+							$(EVENT_HANDLERS) $(MAP) $(BASIC_RENDER) $(VECTOR)	\
+							$(PLAYER)
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL

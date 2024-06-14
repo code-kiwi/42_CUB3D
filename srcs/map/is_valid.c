@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:42:52 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 11:27:09 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:32:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,16 @@ bool	is_map_valid(t_map *map)
 
 	y = 0;
 	if (!check_map_edge(map))
-		return (error_print(ERR_MSG_WALLS), false);
+		return (error_print(ERR_WALLS), false);
 	while (y < map->lines_count)
 	{
 		x = 0;
 		while (x < map->lines_lengths[y])
 		{
 			if (!ft_strchr(MAP_ALLOWED_CHARS, map->tiles[y][x]))
-				return (error_print(ERR_MSG_ELEM), false);
+				return (error_print(ERR_ELEM), false);
 			if (!check_surrounding_tile(map, x, y))
-				return (error_print(ERR_MSG_WALLS), false);
+				return (error_print(ERR_WALLS), false);
 			x++;
 		}
 		y++;

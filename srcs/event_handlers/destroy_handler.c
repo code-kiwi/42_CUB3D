@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:45:49 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 11:25:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:32:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 int	destroy_handler(t_game *game)
 {
 	if (game == NULL)
-		error_exit(NULL, ERR_MSG_ARG);
+		error_exit(NULL, ERR_ARG);
 	t_game_destroy(game);
 	exit(EXIT_SUCCESS);
 	return (0);
