@@ -15,6 +15,7 @@
 #include "cub3d.h"
 #include "mlx_api.h"
 
+#include <stdio.h>
 /**
  * @brief Destroys the given t_game
  * @param game The structure to destroy
@@ -24,4 +25,8 @@ void	t_game_destroy(t_game *game)
 	if (game == NULL)
 		return ;
 	t_mlx_destroy(&game->mlx);
+	printf("DESTROY\n");
+	free_array(game->map.tiles, game->map.lines_count, true);
+	free_array(game->map.textures, MAP_NB_IDS, false);
+	free(game->map.lines_lengths);
 }

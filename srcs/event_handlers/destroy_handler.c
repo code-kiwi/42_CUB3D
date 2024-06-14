@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:45:49 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 10:34:55 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 11:12:13 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 
 /**
  * @brief Destroys the given t_game instance and exits the program
- * @param data The t_game instance to destroy before exiting
+ * @param game The t_game instance to destroy before exiting
  * @return A dummy integer
 */
-int	destroy_handler(t_game *data)
+int	destroy_handler(t_game *game)
 {
-	if (data == NULL)
+	if (game == NULL)
 		error_exit(NULL, ERROR_MSG_ARG);
-	t_game_destroy(data);
+	t_game_destroy(game);
 	exit(EXIT_SUCCESS);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/14 10:36:35 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/14 11:07:22 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,10 +56,10 @@ MAIN_FILE				=	cub3d.c
 MAIN					=	$(addprefix $(MAIN_DIR), $(MAIN_FILE))
 
 # GAME
-GAME_DIR				=	cub_data/
-GAME_FILE				=	t_game_destroy.c	\
+GAME_DIR				=	game/
+GAME_FILES				=	t_game_destroy.c	\
 							t_game_init.c
-GAME					=	$(addprefix $(GAME_DIR), $(GAME_FILE))
+GAME					=	$(addprefix $(GAME_DIR), $(GAME_FILES))
 
 # MLX_API
 MLX_API_DIR				=	mlx_api/
@@ -85,10 +85,6 @@ EVENT_HANDLERS_FILES	=	add_event_handler.c		\
 							keyboard_handler.c
 EVENT_HANDLERS			=	$(addprefix $(EVENT_HANDLERS_DIR), $(EVENT_HANDLERS_FILES))
 
-# UTILS
-UTILS_DIR				=	utils/
-UTILS_FILE				=	handle_error.c
-
 # BASIC_RENDER
 BASIC_RENDER_DIR		=	basic_render/
 BASIC_RENDER_FILE		=	raycasting.c		\
@@ -111,14 +107,13 @@ VECTOR					=	$(addprefix $(VECTOR_DIR), $(VECTOR_FILE))
 # UTILS
 UTILS_DIR				=	utils/
 UTILS_FILE				=	math.c				\
-							array.c
+							array.c				\
+							handle_error.c
 UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	$(MAIN) $(MLX_API) $(GAME_LOOP) $(UTILS)	\
-							$(GAME) $(EVENT_HANDLERS)
-SRCS_FILES				=	$(MAIN) $(MAP) $(BASIC_RENDER) $(VECTOR) $(UTILS)
+SRCS_FILES				=	$(MAIN) $(MLX_API) $(GAME_LOOP) $(UTILS) $(GAME) $(EVENT_HANDLERS) $(MAP) $(BASIC_RENDER) $(VECTOR)
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
