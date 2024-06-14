@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 10:45:11 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 14:46:03 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ enum e_hook_type
 {
 	HOOK_DESTROY,
 	HOOK_KEY,
+	HOOK_KEY_UP,
+	HOOK_KEY_DOWN,
 	HOOK_MOUSE,
 	HOOK_LOOP
 };
