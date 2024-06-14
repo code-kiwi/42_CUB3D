@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 15:11:49 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 16:18:35 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdbool.h>
 # include <stdint.h>
 
-# define EVENT_LOOP_FRAME_TARGET	1000
+# define EVENT_LOOP_FRAME_TARGET	100
 
 # define KEY_ESC 					65307
 # define KEY_LEFT 					65361
