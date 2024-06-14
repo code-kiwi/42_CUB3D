@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources.mk                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/13 15:03:49 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/14 01:08:57 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ EXT_LIB_FLAGS			=	-lm
 
 # HEADERS
 HEADERS_DIR				=	includes/
-HEADERS_FILES			=	cub3d.h
+HEADERS_FILES			=	cub3d.h map.h vector.h
 HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
 # LIBFT
@@ -52,17 +52,34 @@ MAIN_DIR				=	main/
 MAIN_FILE				=	cub3d.c
 MAIN					=	$(addprefix $(MAIN_DIR), $(MAIN_FILE))
 
+# BASIC_RENDER
+BASIC_RENDER_DIR		=	basic_render/
+BASIC_RENDER_FILE		=	raycasting.c		\
+							draw_walls.c
+BASIC_RENDER			=	$(addprefix $(BASIC_RENDER_DIR), $(BASIC_RENDER_FILE))
+
+# MAP
+MAP_DIR					=	map/
+MAP_FILE				=	read_map.c			\
+							is_in_bounds.c		\
+							read_elements.c		\
+							is_valid.c
+MAP						=	$(addprefix $(MAP_DIR), $(MAP_FILE))
+
+# VECTOR
+VECTOR_DIR				=	vector/
+VECTOR_FILE				=	vector.c
+VECTOR					=	$(addprefix $(VECTOR_DIR), $(VECTOR_FILE))
+
+# UTILS
+UTILS_DIR				=	utils/
+UTILS_FILE				=	math.c				\
+							array.c
+UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
+
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	$(MAIN)						\
-							basic_render/raycasting.c 	\
-							utils/math.c				\
-							utils/vector.c				\
-							map/map.c					\
-							utils/array.c				\
-							basic_render/draw_walls.c	\
-							map/read_elements.c			\
-							map/is_valid.c
+SRCS_FILES				=	$(MAIN) $(MAP) $(BASIC_RENDER) $(VECTOR) $(UTILS)
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL

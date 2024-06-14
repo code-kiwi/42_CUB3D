@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:59:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/13 10:26:08 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 01:06:11 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
 #include "cub3d.h"
+#include "vector.h"
 
 void	calculate_unit_length(t_vector *unit_length, t_vector *slope)
 {
@@ -36,7 +37,7 @@ bool	is_wall(t_vector *position, t_map *map)
 
 	tile_x = floorf(position->x);
 	tile_y = floorf(position->y);
-	return (map->tiles[tile_y][tile_x] == '1');
+	return (map->tiles[tile_y][tile_x] == ID_WALL);
 }
 
 float	raycast(t_vector position, t_vector *slope, t_map *map)

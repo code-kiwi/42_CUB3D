@@ -11,10 +11,9 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "libft.h"
-
-#include <stdio.h>
 
 size_t	array_length(void **array)
 {
