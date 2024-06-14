@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:59:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 09:30:37 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 11:38:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "cub3d.h"
 #include "vector.h"
+#include "map.h"
 
 static void	calculate_unit_length(t_vector *unit_length, t_vector *slope)
 {
@@ -28,16 +29,6 @@ static void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
 	sum_length->y = 1 - modff(position->y, &position->y);
 	sum_length->x *= unit_length->x;
 	sum_length->y *= unit_length->y;
-}
-
-static bool	is_wall(t_vector *position, t_map *map)
-{
-	int	tile_x;
-	int	tile_y;
-
-	tile_x = floorf(position->x);
-	tile_y = floorf(position->y);
-	return (map->tiles[tile_y][tile_x] == ID_WALL);
 }
 
 float	raycast(t_vector position, t_vector *slope, t_map *map)
