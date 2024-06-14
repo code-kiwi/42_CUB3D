@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/14 12:53:23 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/14 13:28:31 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,8 @@ MAIN					=	$(addprefix $(MAIN_DIR), $(MAIN_FILES))
 # GAME
 GAME_DIR				=	game/
 GAME_FILES				=	t_game_destroy.c	\
-							t_game_init.c
+							t_game_init.c		\
+							game_loop.c
 GAME					=	$(addprefix $(GAME_DIR), $(GAME_FILES))
 
 # MLX_API
@@ -73,11 +74,6 @@ MLX_API_FILES			=	t_image_utils.c			\
 							t_mlx_draw_rectangle.c
 MLX_API					=	$(addprefix $(MLX_API_DIR), $(MLX_API_FILES))
 
-# GAME_LOOP
-GAME_LOOP_DIR			=	game_loop/
-GAME_LOOP_FILES			=	game_loop.c
-GAME_LOOP				=	$(addprefix $(GAME_LOOP_DIR), $(GAME_LOOP_FILES))
-
 # EVENT_HANDLERS
 EVENT_HANDLERS_DIR		=	event_handlers/
 EVENT_HANDLERS_FILES	=	add_event_handler.c		\
@@ -87,8 +83,7 @@ EVENT_HANDLERS			=	$(addprefix $(EVENT_HANDLERS_DIR), $(EVENT_HANDLERS_FILES))
 
 # BASIC_RENDER
 BASIC_RENDER_DIR		=	basic_render/
-BASIC_RENDER_FILES		=	raycasting.c		\
-							draw_walls.c
+BASIC_RENDER_FILES		=		
 BASIC_RENDER			=	$(addprefix $(BASIC_RENDER_DIR), $(BASIC_RENDER_FILES))
 
 # MAP
@@ -104,6 +99,12 @@ PLAYER_DIR				=	player/
 PLAYER_FILES			=	t_player_init.c
 PLAYER					=	$(addprefix $(PLAYER_DIR), $(PLAYER_FILES))
 
+# RAY
+RAY_DIR					=	ray/
+RAY_FILES				=	raycasting.c		\
+							draw_walls.c
+RAY						=	$(addprefix $(RAY_DIR), $(RAY_FILES))
+
 # VECTOR
 VECTOR_DIR				=	vector/
 VECTOR_FILE				=	vector.c
@@ -118,9 +119,9 @@ UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	$(MAIN) $(MLX_API) $(GAME_LOOP) $(UTILS) $(GAME)	\
-							$(EVENT_HANDLERS) $(MAP) $(BASIC_RENDER) $(VECTOR)	\
-							$(PLAYER)
+SRCS_FILES				=	$(MAIN) $(MLX_API) $(UTILS) $(GAME) $(VECTOR)	\
+							$(EVENT_HANDLERS) $(MAP) $(BASIC_RENDER)		\
+							$(PLAYER) $(RAY)
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL

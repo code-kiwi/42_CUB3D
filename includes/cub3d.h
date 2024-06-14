@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 12:50:43 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 13:25:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "map.h"
 # include "vector.h"
 # include "player.h"
+# include "ray.h"
 
 # define PI 3.14159265358
 
@@ -51,17 +52,12 @@ struct s_game
 	t_player	player;
 	t_map		map;
 	t_vector	player_position;
+	t_ray		rays[WIN_WIDTH];
 	float		player_rotation_rad;
 };
 
 // Game functions
 int			game_loop(t_game *game);
-
-// Raycasting functions
-float		raycast(t_vector position, t_vector *slope, t_map *map);
-void		draw_walls(t_player *player, t_map *map);
-
-// t_game functions
 bool		t_game_init(t_game *game);
 void		t_game_destroy(t_game *game);
 
