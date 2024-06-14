@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/14 09:23:47 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 10:15:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static bool	get_lines_lengths(t_map *map)
 	map->lines_count = array_length((void **)map->tiles);
 	if (map->lines_count == 0)
 		return (false);
-	map->lines_lengths = ft_calloc(map->lines_count, sizeof(char *));
+	map->lines_lengths = ft_calloc(map->lines_count, sizeof(size_t));
 	if (map->lines_lengths == NULL)
 		return (false);
 	while (map->tiles[index])
