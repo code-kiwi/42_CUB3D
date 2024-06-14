@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/14 15:08:34 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/14 15:18:13 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,14 +78,14 @@ MLX_API					=	$(addprefix $(MLX_API_DIR), $(MLX_API_FILES))
 EVENT_HANDLERS_DIR		=	event_handlers/
 EVENT_HANDLERS_FILES	=	add_event_handler.c		\
 							destroy_handler.c		\
-							key_release_handler.c		\
+							key_release_handler.c	\
 							key_press_handler.c
 
 EVENT_HANDLERS			=	$(addprefix $(EVENT_HANDLERS_DIR), $(EVENT_HANDLERS_FILES))
 
 # BASIC_RENDER
 BASIC_RENDER_DIR		=	basic_render/
-BASIC_RENDER_FILES		=		
+BASIC_RENDER_FILES		=	draw_walls.c	
 BASIC_RENDER			=	$(addprefix $(BASIC_RENDER_DIR), $(BASIC_RENDER_FILES))
 
 # MAP
@@ -104,7 +104,7 @@ PLAYER					=	$(addprefix $(PLAYER_DIR), $(PLAYER_FILES))
 # RAY
 RAY_DIR					=	ray/
 RAY_FILES				=	raycasting.c			\
-							draw_walls.c
+							cast_rays.c
 RAY						=	$(addprefix $(RAY_DIR), $(RAY_FILES))
 
 # VECTOR
