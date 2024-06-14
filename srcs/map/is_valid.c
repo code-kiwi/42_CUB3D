@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:42:52 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/13 15:48:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 09:22:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ bool	is_map_valid(t_map *map)
 		{
 			if (!ft_strchr(" 01NSEW\n", map->tiles[y][x]))
 				return (ft_putstr_fd(ERROR_ELEM, STDOUT_FILENO), false);
-			if (check_surrounding_tile(map, x, y))
+			if (!check_surrounding_tile(map, x, y))
 				return (ft_putstr_fd(ERROR_WALLS, STDOUT_FILENO), false);
 			x++;
 		}
