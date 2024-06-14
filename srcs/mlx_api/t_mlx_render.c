@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:49:37 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 17:37:31 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 16:06:43 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ bool	t_mlx_render(t_mlx *mlx)
 		mlx->img_buff = mlx->img2;
 	else
 		mlx->img_buff = mlx->img1;
-	t_image_clear(mlx->img_buff);
 	return (true);
 }
