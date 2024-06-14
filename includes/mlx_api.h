@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 10:26:42 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 10:45:11 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ enum e_hook_type
 // t_mlx functions
 bool	t_mlx_init(t_mlx *mlx, int win_width, int win_height, char *title);
 void	t_mlx_destroy(t_mlx *mlx);
-bool	t_mlx_add_hook(t_mlx *mlx, int (*handler)(), void *data, \
+bool	t_mlx_add_hook(t_mlx *mlx, int (*handler)(), void *game, \
 			enum e_hook_type hook_type);
 bool	t_mlx_render(t_mlx *mlx);
 

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 10:42:43 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 10:44:13 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,19 @@ struct s_game
 };
 
 // Game functions
-int			game_loop(t_game *data);
+int			game_loop(t_game *game);
 
 // Raycasting functions
 float		raycast(t_vector position, t_vector *slope, t_map *map);
 void		draw_walls(t_game *game);
 
 // t_game functions
-bool		t_game_init(t_game *data);
-void		t_game_destroy(t_game *data);
+bool		t_game_init(t_game *game);
+void		t_game_destroy(t_game *game);
 
 // Utils functions
 void		error_print(char *err_msg);
-void		error_exit(t_game *data, char *err_msg);
+void		error_exit(t_game *game, char *err_msg);
 size_t		array_length(void **array);
 int			sign(float value);
 ssize_t		find_str_in_array(char **array, char *str, size_t length);
