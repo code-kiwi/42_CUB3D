@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 14:56:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 15:08:07 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int			game_loop(t_game *game);
 bool		t_game_init(t_game *game);
 void		t_game_destroy(t_game *game);
 
-bool		draw_walls(t_image *screen, t_ray *rays);;
+bool		draw_walls(t_image *screen, t_ray *rays);
 
 // Utils functions
 void		error_print(char *err_msg);

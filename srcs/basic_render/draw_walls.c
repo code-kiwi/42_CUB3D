@@ -6,17 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 14:55:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 15:08:22 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 #include "math.h"
-
-#define SCREEN_DISTANCE 1
-#define WALL_HEIGHT 800
-#define VIEW_HEIGHT 400
 
 static bool	draw_wall_column(size_t column, t_ray *ray, t_image *screen)
 {
@@ -26,10 +22,10 @@ static bool	draw_wall_column(size_t column, t_ray *ray, t_image *screen)
 	bool	error;
 
 	error = false;
-	perceived_height = SCREEN_DISTANCE * WALL_HEIGHT;
+	perceived_height = WIN_HEIGHT;
 	perceived_height /= (ray->length * cos(ray->angle_from_orientation));
-	wall_start = floorf(VIEW_HEIGHT - perceived_height / 2);
-	ground_start = floorf(VIEW_HEIGHT + perceived_height / 2);
+	wall_start = floorf((WIN_HEIGHT - perceived_height) / 2);
+	ground_start = floorf((WIN_HEIGHT + perceived_height) / 2);
 	if (wall_start < 0)
 		wall_start = 0;
 	else
