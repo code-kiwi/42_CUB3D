@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 17:02:35 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 19:55:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	game_loop(t_game *game)
 	game->mlx.event_loop_counter++;
 	if (game->mlx.event_loop_counter >= EVENT_LOOP_FRAME_TARGET)
 	{
-		ft_printf("LOOP\n");
 		update_player(&game->player);
 		if (!cast_rays(&game->player, &game->map, game->rays))
 			error_exit(game, "Ran in a wall");

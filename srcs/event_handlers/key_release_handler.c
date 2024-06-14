@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_release_handler.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:15:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 16:28:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 19:56:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ int	key_release_handler(int key, t_game *data)
 		data->player.walk_dir = NONE;
 	if (key == KEY_ESC)
 		return (destroy_handler(data));
-	ft_printf("Key release: %d\n", key);
 	return (0);
 }

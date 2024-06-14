@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press_handler.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 16:28:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 19:56:13 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,5 @@ int	key_press_handler(int key, t_game *data)
 		data->player.walk_dir = WALK_LEFT;
 	else if (key == KEY_D)
 		data->player.walk_dir = WALK_RIGHT;
-	ft_printf("Key press: %d\n", key);
 	return (0);
 }

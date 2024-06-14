@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_api.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 16:14:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 19:56:34 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdbool.h>
 # include <stdint.h>
 
-# define EVENT_LOOP_FRAME_TARGET	0
+# define EVENT_LOOP_FRAME_TARGET	100
 
 # define KEY_ESC 					65307
 # define KEY_LEFT 					65361

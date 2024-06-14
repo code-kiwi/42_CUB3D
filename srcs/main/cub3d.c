@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 15:31:57 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/14 19:55:30 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ int	main(int argc, char **argv)
 		error_exit(&game, ERR_MAP_READ);
 	if (!t_game_init(&game))
 		error_exit(&game, ERR_GAME_INIT);
+	cast_rays(&game.player, &game.map, game.rays);
+	draw_walls(game.mlx.img_buff, game.rays);
+	t_mlx_render(&game.mlx);
 	mlx_loop(game.mlx.mlx_ptr);
 	t_game_destroy(&game);
 	return (0);
