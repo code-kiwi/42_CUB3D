@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 19:55:34 by root             ###   ########.fr       */
+/*   Updated: 2024/06/15 10:06:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static bool	set_ray(t_ray *result, float angle, t_player *player, t_map *map)
 	float	intersection_y;
 
 	t_vector_get_slope(&result->slope, angle);
-	result->length = raycast(player->position, &result->slope, map);
+	result->length = raycast(player->position, &result->slope, map, &result->is_vertical);
 	if (result->length < 0)
 		return (false);
 	intersection_x = player->position.x + player->position.x * result->length;

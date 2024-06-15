@@ -39,7 +39,7 @@ static void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
 	sum_length->y *= unit_length->y;
 }
 
-float	raycast(t_vector position, t_vector *slope, t_map *map)
+float	raycast(t_vector position, t_vector *slope, t_map *map, bool *is_vertical)
 {
 	t_vector	unit_length;
 	t_vector	sum_length;
@@ -54,7 +54,10 @@ float	raycast(t_vector position, t_vector *slope, t_map *map)
 			if (!is_in_bounds(&position, map))
 				break ;
 			if (is_wall(&position, map))
+			{
+				*is_vertical = false;
 				return (sum_length.x);
+			}
 			sum_length.x += unit_length.x;
 		}
 		else
@@ -63,7 +66,10 @@ float	raycast(t_vector position, t_vector *slope, t_map *map)
 			if (!is_in_bounds(&position, map))
 				break ;
 			if (is_wall(&position, map))
+			{
+				*is_vertical = true;
 				return (sum_length.y);
+			}
 			sum_length.y += unit_length.y;
 		}
 	}
