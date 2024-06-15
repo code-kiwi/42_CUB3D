@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 16:18:05 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/16 02:53:45 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 # include "player.h"
 # include "ray.h"
 
-# define PI 3.14159265358
+# define PI 				3.14159265358
 
 # define WIN_TITLE			"Cub3D"
-# define WIN_WIDTH			2560
-# define WIN_HEIGHT			1240
+# define WIN_WIDTH			1920
+# define WIN_HEIGHT			1000
 
 # define ERR_BASIC			"Error\n"
 # define ERR_LITERALS		"Error\n%s\n"
@@ -61,7 +61,7 @@ int			game_loop(t_game *game);
 bool		t_game_init(t_game *game);
 void		t_game_destroy(t_game *game);
 
-bool		draw_walls(t_image *screen, t_ray *rays);
+void		draw_walls(t_image *screen, t_ray *rays);
 
 // Utils functions
 void		error_print(char *err_msg);

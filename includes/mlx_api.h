@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_api.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 16:18:35 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/16 15:51:05 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdbool.h>
 # include <stdint.h>
 
-# define EVENT_LOOP_FRAME_TARGET	100
+# define EVENT_LOOP_FRAME_TARGET	1
 
 # define KEY_ESC 					65307
 # define KEY_LEFT 					65361
@@ -67,8 +67,8 @@ union u_argb_color
 
 struct s_mlx_coords
 {
-	int	x;
-	int	y;
+	int16_t	x;
+	int16_t	y;
 };
 
 enum e_mlx_event
@@ -105,10 +105,15 @@ void	t_image_destroy(void *mlx_ptr, t_image *img);
 void	t_image_clear(t_image *img);
 
 // Draw functions
-bool	t_mlx_draw_pixel(t_image *img, t_mlx_coords coords, unsigned int color);
-bool	t_mlx_draw_line(t_image *img, t_mlx_coords coords_start, \
-			t_mlx_coords coords_end, unsigned int color);
-bool	t_mlx_draw_rectangle(t_image *img, t_mlx_coords coords, \
-			t_mlx_coords size, unsigned int color);
+void	t_mlx_draw_pixel(t_image *img, t_mlx_coords *coords, \
+			uint32_t color);
+void	t_mlx_draw_pixel_secured(t_image *img, t_mlx_coords *coords, \
+			uint32_t color);
+void	t_mlx_draw_line(t_image *img, t_mlx_coords coords_start, \
+			t_mlx_coords coords_end, uint32_t color);
+void	t_mlx_draw_rectangle(t_image *img, t_mlx_coords *coords, \
+			t_mlx_coords *size, uint32_t color);
+void	t_mlx_draw_rectangle2(t_image *img, t_mlx_coords *coords, \
+			t_mlx_coords *size, uint32_t color);
 
 #endif

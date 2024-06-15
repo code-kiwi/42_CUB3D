@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_image_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 14:32:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/15 12:19:27 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,20 +74,19 @@ void	t_image_destroy(void *mlx_ptr, t_image *img)
 */
 void	t_image_clear(t_image *img)
 {
-	int	i;
-	int	j;
+	t_mlx_coords	coords;
 
 	if (img == NULL)
 		return ;
-	i = 0;
-	while (i < img->height)
+	coords.y = 0;
+	while (coords.y < img->height)
 	{
-		j = 0;
-		while (j < img->width)
+		coords.x = 0;
+		while (coords.x < img->width)
 		{
-			t_mlx_draw_pixel(img, (t_mlx_coords){j, i}, 0);
-			j++;
+			t_mlx_draw_pixel(img, &coords, 0);
+			coords.x++;
 		}
-		i++;
+		coords.y++;
 	}
 }
