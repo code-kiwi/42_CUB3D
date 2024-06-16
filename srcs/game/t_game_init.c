@@ -15,6 +15,7 @@
 #include "event_handlers.h"
 #include "libft.h"
 #include "mlx.h"
+#include "mlx_api.h"
 
 #include <stdio.h>
 
@@ -45,6 +46,39 @@ bool	init_textures(t_game *game)
 	return (true);
 }
 
+bool	init_color(unsigned int *color_result, char *color)
+{
+	char			**components;
+	size_t			index;
+	size_t			length;
+	t_argb_color	color_value;
+
+	if (!color || color[0] == '\n' || !*color)
+		return (false);
+	components = ft_split(color, ",\n");
+	length = array_length((void **)components);
+	if (components == NULL || length != 3)
+		return (free_array(components, length, true), false);
+	index = 0;
+	while (index < 3)
+	{
+		if (!is_number(components[index]) || components[index][0] == '-'
+			|| ft_atoi(components[index]) > 255)
+		{
+			free_array(components, 3, true);
+			return (false);
+		}
+		index++;
+	}
+	color_value.rgba.a = 255;
+	color_value.rgba.r = ft_atoi(components[0]);
+	color_value.rgba.g = ft_atoi(components[1]);
+	color_value.rgba.b = ft_atoi(components[2]);
+	*color_result = color_value.val;
+	free_array(components, 3, true);
+	return (true);
+}
+
 /**
  * @brief Initializes the given t_game
  * @param game The structure to init
@@ -62,5 +96,9 @@ bool	t_game_init(t_game *game)
 		return (false);
 	if (!add_event_handlers(game))
 		return (error_print(ERR_HOOKS), false);
+	if (!init_color(&game->ground_color, game->map.textures[4]))
+		return (false);
+	if (!init_color(&game->ceiling_color, game->map.textures[5]))
+		return (false);
 	return (true);
 }

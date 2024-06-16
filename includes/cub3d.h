@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/16 15:39:43 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 16:33:28 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,15 @@ typedef struct s_column	t_column;
 
 struct s_game
 {
-	t_mlx		mlx;
-	t_player	player;
-	t_map		map;
-	t_vector	player_position;
-	t_ray		rays[WIN_WIDTH];
-	float		player_rotation_rad;
-	t_image		textures[4];
+	t_mlx			mlx;
+	t_player		player;
+	t_map			map;
+	t_vector		player_position;
+	t_ray			rays[WIN_WIDTH];
+	float			player_rotation_rad;
+	t_image			textures[4];
+	unsigned int	ceiling_color;
+	unsigned int	ground_color;
 };
 
 struct	s_column
@@ -75,7 +77,7 @@ bool		t_game_init(t_game *game);
 void		t_game_destroy(t_game *game);
 
 // Render functions
-bool		draw_walls(t_image *screen, t_ray *rays, t_image textures[4]);
+bool		draw_walls(t_game *game);
 bool		draw_color_column(t_image *screen, t_mlx_coords *coords,
 				unsigned int color, int end);
 bool		draw_texture_column(t_image *screen, t_column *column, int wall_end,
@@ -90,5 +92,6 @@ ssize_t		find_str_in_array(char **array, char *str, size_t length);
 void		free_array(char **array, size_t length, bool free_container);
 void		print_str_array(char **array, size_t length);
 int			min(int a, int b);
+bool		is_number(char *str);
 
 #endif

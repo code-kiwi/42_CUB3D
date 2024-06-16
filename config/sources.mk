@@ -6,7 +6,7 @@
 #    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/16 15:25:53 by root             ###   ########.fr        #
+#    Updated: 2024/06/16 16:21:39 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,7 +118,8 @@ VECTOR					=	$(addprefix $(VECTOR_DIR), $(VECTOR_FILE))
 UTILS_DIR				=	utils/
 UTILS_FILE				=	math.c					\
 							array.c					\
-							handle_error.c
+							handle_error.c			\
+							number.c
 UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
 
 # SOURCES GENERAL
