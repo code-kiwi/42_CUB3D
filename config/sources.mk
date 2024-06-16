@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources.mk                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/14 15:33:27 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/16 15:25:53 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,7 +85,8 @@ EVENT_HANDLERS			=	$(addprefix $(EVENT_HANDLERS_DIR), $(EVENT_HANDLERS_FILES))
 
 # BASIC_RENDER
 BASIC_RENDER_DIR		=	basic_render/
-BASIC_RENDER_FILES		=	draw_walls.c	
+BASIC_RENDER_FILES		=	draw_walls.c			\
+							draw_column.c
 BASIC_RENDER			=	$(addprefix $(BASIC_RENDER_DIR), $(BASIC_RENDER_FILES))
 
 # MAP

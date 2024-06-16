@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/16 14:50:11 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 15:26:29 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_MISSING_TEXTURES	"Missing textures"
 
-typedef struct s_game			t_game;
-typedef struct s_mlx			t_mlx;
-typedef struct s_wall_column	t_wall_column;
+typedef struct s_game	t_game;
+typedef struct s_mlx	t_mlx;
+typedef struct s_column	t_column;
 
 struct s_game
 {
@@ -60,7 +60,7 @@ struct s_game
 	t_image		textures[4];
 };
 
-struct	s_wall_column
+struct	s_column
 {
 	t_image			*texture;
 	size_t			texture_start;
@@ -75,7 +75,11 @@ int			game_loop(t_game *game);
 bool		t_game_init(t_game *game);
 void		t_game_destroy(t_game *game);
 
+// Render functions
 bool		draw_walls(t_image *screen, t_ray *rays, t_image *texture);
+bool		draw_texture_column(t_image *screen, t_column *column, int wall_end);
+bool		draw_color_column(t_image *screen, t_mlx_coords *coords,
+				unsigned int color, int end);
 
 // Utils functions
 void		error_print(char *err_msg);
