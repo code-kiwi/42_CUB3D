@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/16 15:49:34 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 18:05:08 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,6 @@ static t_image	*get_texture(t_image textures[4], t_ray *ray)
 		else
 			return (&textures[0]);
 	}
-}
-
-char	*get_color(t_image *image, size_t x, size_t y)
-{
-	return (image->addr + x * image->line_len + y * (image->bpp / 8));
-}
-
-bool	t_mlx_draw_pixel_2(t_image *img, t_mlx_coords *coords,
-	unsigned int color)
-{
-	char	*dest;
-
-	dest = img->addr + (coords->y * img->line_len + coords->x * img->bpp / 8);
-	*(unsigned int *) dest = color;
-	return (true);
 }
 
 static int	pixel_column_on_texture(t_ray *ray, int texture_width)
@@ -74,9 +59,9 @@ bool	draw_texture_column(t_image *screen, t_column *column, int wall_end,
 	scale_y = column->perceived_height / texture->height;
 	while (column->coords.y < wall_end)
 	{
-		color = get_color(texture, texture_column,
+		color = t_mlx_get_pixel(texture, texture_column,
 				(int)floor(column->texture_start / scale_y));
-		if (!t_mlx_draw_pixel_2(screen, &column->coords, *(unsigned int *)color))
+		if (!t_mlx_draw_pixel(screen, &column->coords, *(unsigned int *)color))
 			return (false);
 		column->coords.y++;
 		column->texture_start++;
@@ -89,7 +74,7 @@ bool	draw_color_column(t_image *screen, t_mlx_coords *coords,
 {
 	while (coords->y < end)
 	{
-		if (!t_mlx_draw_pixel_2(screen, coords, color))
+		if (!t_mlx_draw_pixel(screen, coords, color))
 			return (false);
 		coords->y++;
 	}

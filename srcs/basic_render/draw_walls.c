@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/16 16:33:44 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 18:06:00 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ static bool	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	wall_end = floorf((WIN_HEIGHT + column.perceived_height) / 2);
 	if (wall_end > WIN_HEIGHT)
 		wall_end = WIN_HEIGHT;
-	draw_color_column(game->mlx.img_buff, &column.coords, game->ground_color, wall_start);
+	draw_color_column(game->mlx.img_buff, &column.coords,
+		game->ground_color, wall_start);
 	column.texture_start = column.coords.y - wall_start;
 	draw_texture_column(game->mlx.img_buff, &column, wall_end, game->textures);
-	draw_color_column(game->mlx.img_buff, &column.coords, game->ceiling_color, WIN_HEIGHT);
+	draw_color_column(game->mlx.img_buff, &column.coords,
+		game->ceiling_color, WIN_HEIGHT);
 	return (true);
 }
 

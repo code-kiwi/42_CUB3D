@@ -46,12 +46,27 @@ bool	init_textures(t_game *game)
 	return (true);
 }
 
+bool	set_color(unsigned int *result, int r, int g, int b)
+{
+	t_argb_color	color;
+
+	if (r < 0 || g < 0 || b < 0
+		|| r > 255 || g > 255 || b > 255)
+		return (false);
+	color.rgba.a = 255;
+	color.rgba.r = r;
+	color.rgba.g = g;
+	color.rgba.b = b;
+	*result = color.val;
+	return (true);
+}
+
 bool	init_color(unsigned int *color_result, char *color)
 {
 	char			**components;
 	size_t			index;
 	size_t			length;
-	t_argb_color	color_value;
+	bool			error;
 
 	if (!color || color[0] == '\n' || !*color)
 		return (false);
@@ -60,23 +75,16 @@ bool	init_color(unsigned int *color_result, char *color)
 	if (components == NULL || length != 3)
 		return (free_array(components, length, true), false);
 	index = 0;
+	error = false;
 	while (index < 3)
 	{
-		if (!is_number(components[index]) || components[index][0] == '-'
-			|| ft_atoi(components[index]) > 255)
-		{
-			free_array(components, 3, true);
-			return (false);
-		}
+		error = !is_number(components[index]) | error;
 		index++;
 	}
-	color_value.rgba.a = 255;
-	color_value.rgba.r = ft_atoi(components[0]);
-	color_value.rgba.g = ft_atoi(components[1]);
-	color_value.rgba.b = ft_atoi(components[2]);
-	*color_result = color_value.val;
+	error = set_color(color_result, atoi(components[0]), atoi(components[1]),
+			atoi(components[2])) | error;
 	free_array(components, 3, true);
-	return (true);
+	return (error);
 }
 
 /**

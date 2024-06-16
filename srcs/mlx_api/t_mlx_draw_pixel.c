@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_draw_pixel.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:08:26 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 17:28:05 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/16 18:01:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,21 @@
  * @return true on SUCCESS, false on ERROR
  * @note If the coordinate is not valid onto the image, the nothing happens
 */
-bool	t_mlx_draw_pixel(t_image *img, t_mlx_coords coords, unsigned int color)
+bool	t_mlx_draw_pixel(t_image *img, t_mlx_coords *coords, unsigned int color)
 {
 	char	*dest;
 
-	if (img == NULL)
-		return (false);
-	if (
-		coords.x < 0 || coords.x >= img->width
-		|| coords.y < 0 || coords.y > img->height
-	)
-		return (true);
-	dest = img->addr + (coords.y * img->line_len + coords.x * img->bpp / 8);
+	dest = img->addr + (coords->y * img->line_len + coords->x * img->bpp / 8);
 	*(unsigned int *) dest = color;
 	return (true);
+}
+
+/**
+ * @return The pixel adresses
+ * @param x The column of the pixel
+ * @param y The row of the pixel
+ */
+char	*t_mlx_get_pixel(t_image *image, size_t x, size_t y)
+{
+	return (image->addr + x * image->line_len + y * (image->bpp / 8));
 }

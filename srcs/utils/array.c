@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:43:57 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/15 00:23:41 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 17:46:39 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ void	free_array(char **array, size_t length, bool free_container)
 	while (index < length)
 	{
 		if (array[index] != NULL)
+		{
 			free(array[index]);
+			array[index] = NULL;
+		}
 		index++;
 	}
 	if (free_container)

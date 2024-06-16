@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/15 00:29:10 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 17:47:13 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,12 @@ bool	read_elements(t_map *map, int fd)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
-		{
-			free_array(map->textures, MAP_NB_IDS, false);
 			return (false);
-		}
 		if (line[0] != '\n')
 		{
 			if (!parse_element(map, line, identifier))
 			{
-				get_next_line(-1);
 				free(line);
-				free_array(map->textures, MAP_NB_IDS, false);
 				return (false);
 			}
 			elements_read++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_draw_line.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:04:21 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 17:25:12 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/16 18:02:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ bool	t_mlx_draw_line(
 	err = dxy.x - dxy.y;
 	while (!t_mlx_draw_line_is_done(coords_start, coords_end, sxy))
 	{
-		t_mlx_draw_pixel(img, coords_start, color);
+		t_mlx_draw_pixel(img, &coords_start, color);
 		if (coords_start.x == coords_end.x && coords_start.y == coords_end.y)
 			break ;
 		if (2 * err > -dxy.y)
