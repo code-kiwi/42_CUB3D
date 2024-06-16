@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 10:59:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 16:57:51y robrappo         ###   ########.fr       */
+/*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
+/*   Updated: 2024/06/16 15:04:13 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ static void	calculate_unit_length(t_vector *unit_length, t_vector *slope)
 	unit_length->x = sqrt(1 + pow((slope->y / slope->x), 2));
 	unit_length->y = sqrt(1 + pow((slope->x / slope->y), 2));
 }
-
-#include <stdio.h>
 
 static void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
 	t_vector *position, t_vector *slope)
@@ -39,7 +37,8 @@ static void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
 	sum_length->y *= unit_length->y;
 }
 
-float	raycast(t_vector position, t_vector *slope, t_map *map, bool *is_vertical)
+float	raycast(t_vector position, t_vector *slope, t_map *map,
+	bool *is_vertical)
 {
 	t_vector	unit_length;
 	t_vector	sum_length;

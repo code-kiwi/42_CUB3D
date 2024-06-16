@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_render.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:49:37 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 15:42:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/16 14:54:37 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ bool	t_mlx_render(t_mlx *mlx)
 		mlx->img_buff = mlx->img2;
 	else
 		mlx->img_buff = mlx->img1;
-	//t_image_clear(mlx->img_buff);
 	return (true);
 }

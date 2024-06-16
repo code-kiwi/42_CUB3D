@@ -34,7 +34,8 @@ bool	init_textures(t_game *game)
 			return (false);
 		}
 		filename[ft_strlen(filename) - 1] = '\0';
-		if (!t_image_import_file(&game->textures[index], filename, game->mlx.mlx_ptr))
+		if (!t_image_import_file(&game->textures[index], filename,
+				game->mlx.mlx_ptr))
 		{
 			error_print(ERR_INIT_TEXTURES);
 			return (false);

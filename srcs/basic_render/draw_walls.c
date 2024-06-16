@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/16 14:52:51 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 15:04:48 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include "math.h"
 #include <stdio.h>
 
-bool	t_mlx_draw_pixel_2(t_image *img, t_mlx_coords *coords, unsigned int color)
+bool	t_mlx_draw_pixel_2(t_image *img, t_mlx_coords *coords,
+	unsigned int color)
 {
 	char	*dest;
 
@@ -35,7 +36,7 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 	else
 		texture_relative_position = modf(ray->intersection.x, &temp);
 	column = floorf(texture_relative_position * texture_width);
-	return(column);
+	return (column);
 }
 
 char	*get_color(t_image *image, size_t x, size_t y)
@@ -50,12 +51,15 @@ static bool	draw_texture_column(t_image *screen, t_wall_column *wall_column)
 	int			ground_start;
 	float		scale_y;
 
-	texture_column = pixel_column_on_texture(wall_column->ray, wall_column->texture->width);
-	ground_start = min(floorf((WIN_HEIGHT + wall_column->perceived_height) / 2), WIN_HEIGHT);
+	texture_column = pixel_column_on_texture(wall_column->ray,
+			wall_column->texture->width);
+	ground_start = min(floorf((WIN_HEIGHT + wall_column->perceived_height) / 2),
+			WIN_HEIGHT);
 	scale_y = wall_column->perceived_height / wall_column->texture->height;
 	while (wall_column->coords.y < ground_start)
 	{
-		color = get_color(wall_column->texture, texture_column, (int)floor(wall_column->texture_start / scale_y));
+		color = get_color(wall_column->texture, texture_column,
+				(int)floor(wall_column->texture_start / scale_y));
 		if (!t_mlx_draw_pixel_2(screen, &wall_column->coords, *color))
 			return (false);
 		wall_column->coords.y++;
@@ -64,14 +68,16 @@ static bool	draw_texture_column(t_image *screen, t_wall_column *wall_column)
 	return (true);
 }
 
-static bool	draw_wall_column(size_t column, t_ray *ray, t_image *screen, t_image *texture)
+static bool	draw_wall_column(size_t column, t_ray *ray, t_image *screen,
+	t_image *texture)
 {
 	t_wall_column	wall_column;
 	int				wall_start;
 
 	wall_column.texture = texture;
-	wall_column.perceived_height = WIN_HEIGHT / (ray->length * cos(ray->angle_from_orientation));
-	wall_column.coords.y =  0;
+	wall_column.perceived_height = WIN_HEIGHT
+		/ (ray->length * cos(ray->angle_from_orientation));
+	wall_column.coords.y = 0;
 	wall_column.coords.x = column;
 	wall_column.ray = ray;
 	wall_start = floorf((WIN_HEIGHT - wall_column.perceived_height) / 2);
@@ -81,7 +87,7 @@ static bool	draw_wall_column(size_t column, t_ray *ray, t_image *screen, t_image
 			return (false);
 		wall_column.coords.y++;
 	}
-	wall_column.texture_start = wall_column.coords.y- wall_start;
+	wall_column.texture_start = wall_column.coords.y - wall_start;
 	draw_texture_column(screen, &wall_column);
 	while (wall_column.coords.y < WIN_HEIGHT)
 	{

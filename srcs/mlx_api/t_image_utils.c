@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/15 00:11:13 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 14:54:20 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,11 @@ bool	t_image_import_file(t_image *image, char *filename, void *mlx)
 	if (image == NULL)
 		return (false);
 	image->ptr = mlx_xpm_file_to_image(mlx, filename,
-		&image->width, &image->height);
+			&image->width, &image->height);
 	if (image->ptr == NULL)
 		return (false);
 	image->addr = mlx_get_data_addr(image->ptr, &image->bpp,
-		&image->line_len, &image->endian);
+			&image->line_len, &image->endian);
 	if (image->addr == NULL)
 	{
 		mlx_destroy_image(mlx, image->ptr);
