@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/16 15:40:51 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 15:49:34 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 bool	draw_texture_column(t_image *screen, t_column *column, int wall_end,
 	t_image textures[4])
 {
-	char		*color;
-	int			texture_column;
-	float		scale_y;
-	t_image		*texture;
+	char	*color;
+	int		texture_column;
+	float	scale_y;
+	t_image	*texture;
 
 	texture = get_texture(textures, column->ray);
 	texture_column = pixel_column_on_texture(column->ray, texture->width);
@@ -76,7 +76,7 @@ bool	draw_texture_column(t_image *screen, t_column *column, int wall_end,
 	{
 		color = get_color(texture, texture_column,
 				(int)floor(column->texture_start / scale_y));
-		if (!t_mlx_draw_pixel_2(screen, &column->coords, *color))
+		if (!t_mlx_draw_pixel_2(screen, &column->coords, *(unsigned int *)color))
 			return (false);
 		column->coords.y++;
 		column->texture_start++;
