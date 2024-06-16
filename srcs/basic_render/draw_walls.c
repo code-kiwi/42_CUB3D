@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/16 15:27:41 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 15:39:36 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 #include <stdio.h>
 
 static bool	draw_wall_column(size_t column_index, t_ray *ray, t_image *screen,
-	t_image *texture)
+	t_image textures[4])
 {
 	t_column	column;
 	int			wall_start;
 	int			wall_end;
 
-	column.texture = texture;
 	column.perceived_height = WIN_HEIGHT
 		/ (ray->length * cos(ray->angle_from_orientation));
 	column.coords.y = 0;
@@ -34,19 +33,19 @@ static bool	draw_wall_column(size_t column_index, t_ray *ray, t_image *screen,
 		wall_end = WIN_HEIGHT;
 	draw_color_column(screen, &column.coords, 0x00FF0000, wall_start);
 	column.texture_start = column.coords.y - wall_start;
-	draw_texture_column(screen, &column, wall_end);
+	draw_texture_column(screen, &column, wall_end, textures);
 	draw_color_column(screen, &column.coords, 0x000000FF, WIN_HEIGHT);
 	return (true);
 }
 
-bool	draw_walls(t_image *screen, t_ray *rays, t_image *texture)
+bool	draw_walls(t_image *screen, t_ray *rays, t_image textures[4])
 {
 	size_t	index;
 
 	index = 0;
 	while (index < WIN_WIDTH)
 	{
-		if (!draw_wall_column(index, &rays[index], screen, texture))
+		if (!draw_wall_column(index, &rays[index], screen, textures))
 			return (false);
 		index++;
 	}

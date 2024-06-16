@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/16 13:39:37 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 15:39:29 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	game_loop(t_game *game)
 		update_player(&game->player, &game->map);
 		if (!cast_rays(&game->player, &game->map, game->rays))
 			error_exit(game, "Ran in a wall");
-		if (!draw_walls(game->mlx.img_buff, game->rays, &game->textures[0]))
+		if (!draw_walls(game->mlx.img_buff, game->rays, game->textures))
 			error_exit(game, ERR_RENDER);
 		if (!t_mlx_render(&game->mlx))
 			error_exit(game, ERR_RENDER);

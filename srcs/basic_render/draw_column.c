@@ -6,13 +6,31 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/16 15:28:11 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 15:40:51 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 #include <math.h>
+
+static t_image	*get_texture(t_image textures[4], t_ray *ray)
+{
+	if (ray->is_vertical)
+	{
+		if (ray->slope.x > 0)
+			return (&textures[3]);
+		else
+			return (&textures[1]);
+	}
+	else
+	{
+		if (ray->slope.y > 0)
+			return (&textures[2]);
+		else
+			return (&textures[0]);
+	}
+}
 
 char	*get_color(t_image *image, size_t x, size_t y)
 {
@@ -43,18 +61,20 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 	return (column);
 }
 
-bool	draw_texture_column(t_image *screen, t_column *column, int wall_end)
+bool	draw_texture_column(t_image *screen, t_column *column, int wall_end,
+	t_image textures[4])
 {
 	char		*color;
 	int			texture_column;
 	float		scale_y;
+	t_image		*texture;
 
-	texture_column = pixel_column_on_texture(column->ray,
-			column->texture->width);
-	scale_y = column->perceived_height / column->texture->height;
+	texture = get_texture(textures, column->ray);
+	texture_column = pixel_column_on_texture(column->ray, texture->width);
+	scale_y = column->perceived_height / texture->height;
 	while (column->coords.y < wall_end)
 	{
-		color = get_color(column->texture, texture_column,
+		color = get_color(texture, texture_column,
 				(int)floor(column->texture_start / scale_y));
 		if (!t_mlx_draw_pixel_2(screen, &column->coords, *color))
 			return (false);

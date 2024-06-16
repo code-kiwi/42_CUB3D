@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/16 15:26:29 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 15:39:43 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ struct s_game
 
 struct	s_column
 {
-	t_image			*texture;
 	size_t			texture_start;
 	size_t			column;
 	t_mlx_coords	coords;
@@ -76,10 +75,11 @@ bool		t_game_init(t_game *game);
 void		t_game_destroy(t_game *game);
 
 // Render functions
-bool		draw_walls(t_image *screen, t_ray *rays, t_image *texture);
-bool		draw_texture_column(t_image *screen, t_column *column, int wall_end);
+bool		draw_walls(t_image *screen, t_ray *rays, t_image textures[4]);
 bool		draw_color_column(t_image *screen, t_mlx_coords *coords,
 				unsigned int color, int end);
+bool		draw_texture_column(t_image *screen, t_column *column, int wall_end,
+	t_image textures[4]);
 
 // Utils functions
 void		error_print(char *err_msg);
