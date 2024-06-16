@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/15 10:06:04 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 11:40:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static bool	set_ray(t_ray *result, float angle, t_player *player, t_map *map)
 	result->length = raycast(player->position, &result->slope, map, &result->is_vertical);
 	if (result->length < 0)
 		return (false);
-	intersection_x = player->position.x + player->position.x * result->length;
-	intersection_y = player->position.y - player->position.y * result->length;
+	intersection_x = player->position.x + result->slope.x * result->length;
+	intersection_y = player->position.y - result->slope.y * result->length;
 	t_vector_init(&result->intersection, intersection_x, intersection_y);
 	result->angle_from_orientation = fabsf(player->orientation - angle);
 	return (true);

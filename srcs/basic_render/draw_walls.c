@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/15 10:55:50 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 12:13:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static bool	draw_texture_column(t_image *screen, t_mlx_coords *start, int end, t
 	error = false;
 	while (start->y < end)
 	{
-		color = texture->addr + (texture_column * texture->line_len + (int)floorf(start->y / scale_y) * (texture->bpp / 8));
+		color = texture->addr + (texture_column * texture->line_len + (int)floor(start->y / scale_y) * (texture->bpp / 8));
 		error = !t_mlx_draw_pixel_2(screen, start, *color) | error;
 		start->y++;
 	}
@@ -50,7 +50,7 @@ int	pixel_column_on_texture(t_ray *ray, int texture_width)
 	double	temp;
 
 	if (ray->is_vertical)
-		texture_relative_position = modf(-ray->intersection.y, &temp);
+		texture_relative_position = modf(ray->intersection.y, &temp);
 	else
 		texture_relative_position = modf(ray->intersection.x, &temp);
 	column = floor(texture_relative_position * texture_width);

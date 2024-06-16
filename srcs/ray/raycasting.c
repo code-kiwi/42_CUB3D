@@ -55,7 +55,7 @@ float	raycast(t_vector position, t_vector *slope, t_map *map, bool *is_vertical)
 				break ;
 			if (is_wall(&position, map))
 			{
-				*is_vertical = false;
+				*is_vertical = true;
 				return (sum_length.x);
 			}
 			sum_length.x += unit_length.x;
@@ -67,7 +67,7 @@ float	raycast(t_vector position, t_vector *slope, t_map *map, bool *is_vertical)
 				break ;
 			if (is_wall(&position, map))
 			{
-				*is_vertical = true;
+				*is_vertical = false;
 				return (sum_length.y);
 			}
 			sum_length.y += unit_length.y;
