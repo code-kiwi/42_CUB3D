@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 23:54:20 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 14:50:11 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_MISSING_TEXTURES	"Missing textures"
 
-typedef struct s_game	t_game;
-typedef struct s_mlx	t_mlx;
+typedef struct s_game			t_game;
+typedef struct s_mlx			t_mlx;
+typedef struct s_wall_column	t_wall_column;
 
 struct s_game
 {
@@ -57,6 +58,16 @@ struct s_game
 	t_ray		rays[WIN_WIDTH];
 	float		player_rotation_rad;
 	t_image		textures[4];
+};
+
+struct	s_wall_column
+{
+	t_image			*texture;
+	size_t			texture_start;
+	size_t			column;
+	t_mlx_coords	coords;
+	t_ray			*ray;
+	float			perceived_height;
 };
 
 // Game functions
@@ -74,5 +85,6 @@ int			sign(float value);
 ssize_t		find_str_in_array(char **array, char *str, size_t length);
 void		free_array(char **array, size_t length, bool free_container);
 void		print_str_array(char **array, size_t length);
+int			min(int a, int b);
 
 #endif
