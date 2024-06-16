@@ -19,7 +19,7 @@
 
 #include <stdio.h>
 
-bool	init_textures(t_game *game)
+static bool	init_textures(t_game *game)
 {
 	size_t	index;
 	char	*filename;
@@ -46,22 +46,7 @@ bool	init_textures(t_game *game)
 	return (true);
 }
 
-bool	set_color(unsigned int *result, int r, int g, int b)
-{
-	t_argb_color	color;
-
-	if (r < 0 || g < 0 || b < 0
-		|| r > 255 || g > 255 || b > 255)
-		return (false);
-	color.rgba.a = 255;
-	color.rgba.r = r;
-	color.rgba.g = g;
-	color.rgba.b = b;
-	*result = color.val;
-	return (true);
-}
-
-bool	init_color(unsigned int *color_result, char *color)
+static bool	init_color(unsigned int *color_result, char *color)
 {
 	char			**components;
 	size_t			index;
@@ -72,7 +57,7 @@ bool	init_color(unsigned int *color_result, char *color)
 		return (false);
 	components = ft_split(color, ",\n");
 	length = array_length((void **)components);
-	if (components == NULL || length != 3)
+	if (length != 3)
 		return (free_array(components, length, true), false);
 	index = 0;
 	error = false;
@@ -104,9 +89,8 @@ bool	t_game_init(t_game *game)
 		return (false);
 	if (!add_event_handlers(game))
 		return (error_print(ERR_HOOKS), false);
-	if (!init_color(&game->ground_color, game->map.textures[4]))
-		return (false);
-	if (!init_color(&game->ceiling_color, game->map.textures[5]))
-		return (false);
+	if (!init_color(&game->ground_color, game->map.textures[4])
+		|| !init_color(&game->ceiling_color, game->map.textures[5]))
+		return (error_print(ERR_COLOR_INIT), false);
 	return (true);
 }

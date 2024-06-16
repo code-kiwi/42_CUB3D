@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/16 18:02:16 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 19:14:09 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,6 @@ bool	t_mlx_draw_line(t_image *img, t_mlx_coords coords_start, \
 bool	t_mlx_draw_rectangle(t_image *img, t_mlx_coords coords, \
 			t_mlx_coords size, unsigned int color);
 char	*t_mlx_get_pixel(t_image *image, size_t x, size_t y);
+bool	set_color(unsigned int *result, int r, int g, int b);
 
 #endif

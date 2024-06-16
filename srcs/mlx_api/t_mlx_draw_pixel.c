@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:08:26 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/16 18:01:49 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 19:13:40 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,19 @@ bool	t_mlx_draw_pixel(t_image *img, t_mlx_coords *coords, unsigned int color)
 char	*t_mlx_get_pixel(t_image *image, size_t x, size_t y)
 {
 	return (image->addr + x * image->line_len + y * (image->bpp / 8));
+}
+
+bool	set_color(unsigned int *result, int r, int g, int b)
+{
+	t_argb_color	color;
+
+	if (r < 0 || g < 0 || b < 0
+		|| r > 255 || g > 255 || b > 255)
+		return (false);
+	color.rgba.a = 255;
+	color.rgba.r = r;
+	color.rgba.g = g;
+	color.rgba.b = b;
+	*result = color.val;
+	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/16 16:33:28 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 21:52:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 # define ERR_PLAYER_INIT		"Player init failed"
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_MISSING_TEXTURES	"Missing textures"
+# define ERR_COLOR_INIT			"Error reading wall or ground color"
 
 typedef struct s_game	t_game;
 typedef struct s_mlx	t_mlx;
@@ -81,7 +82,7 @@ bool		draw_walls(t_game *game);
 bool		draw_color_column(t_image *screen, t_mlx_coords *coords,
 				unsigned int color, int end);
 bool		draw_texture_column(t_image *screen, t_column *column, int wall_end,
-	t_image textures[4]);
+				t_image textures[4]);
 
 // Utils functions
 void		error_print(char *err_msg);

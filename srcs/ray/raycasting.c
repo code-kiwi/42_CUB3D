@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/16 18:18:51 by root             ###   ########.fr       */
+/*   Updated: 2024/06/16 22:06:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,25 +50,15 @@ float	raycast(t_vector position, t_vector *slope, t_map *map,
 		if (sum_length.x <= sum_length.y)
 		{
 			position.x += sign(slope->x);
-			if (!is_in_bounds(&position, map))
-				break ;
 			if (is_wall(&position, map))
-			{
-				*is_vertical = true;
-				return (sum_length.x);
-			}
+				return (*is_vertical = true, sum_length.x);
 			sum_length.x += unit_length.x;
 		}
 		else
 		{
 			position.y -= sign(slope->y);
-			if (!is_in_bounds(&position, map))
-				break ;
 			if (is_wall(&position, map))
-			{
-				*is_vertical = false;
-				return (sum_length.y);
-			}
+				return (*is_vertical = false, sum_length.y);
 			sum_length.y += unit_length.y;
 		}
 	}
