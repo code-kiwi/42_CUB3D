@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_image_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/16 18:04:18 by root             ###   ########.fr       */
+/*   Updated: 2024/06/17 11:54:04 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,31 +64,6 @@ void	t_image_destroy(void *mlx_ptr, t_image *img)
 		return ;
 	mlx_destroy_image(mlx_ptr, img->ptr);
 	free(img);
-}
-
-/**
- * @brief Clears the given t_image instance
- * 
- * Clearing means that the image pixels will all be black
- * @param img The image to clear
-*/
-void	t_image_clear(t_image *img)
-{
-	t_mlx_coords	coords;
-
-	if (img == NULL)
-		return ;
-	coords.y = 0;
-	while (coords.y < img->height)
-	{
-		coords.x = 0;
-		while (coords.x < img->width)
-		{
-			t_mlx_draw_pixel(img, &coords, 0);
-			coords.x++;
-		}
-		coords.y++;
-	}
 }
 
 /**

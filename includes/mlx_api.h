@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/17 11:42:44 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/17 11:49:01 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,12 +106,14 @@ void	t_image_clear(t_image *img);
 bool	t_image_import_file(t_image *image, char *filename, void *mlx);
 
 // Draw functions
-bool	t_mlx_draw_pixel(t_image *img, t_mlx_coords *coords,
-			unsigned int color);
-bool	t_mlx_draw_line(t_image *img, t_mlx_coords coords_start, \
-			t_mlx_coords coords_end, unsigned int color);
-bool	t_mlx_draw_rectangle(t_image *img, t_mlx_coords coords, \
-			t_mlx_coords size, unsigned int color);
+void	t_mlx_draw_pixel(t_image *img, t_mlx_coords *coords, \
+			uint32_t color);
+void	t_mlx_draw_pixel_secured(t_image *img, t_mlx_coords *coords, \
+			uint32_t color);
+void	t_mlx_draw_line(t_image *img, t_mlx_coords coords_start, \
+			t_mlx_coords coords_end, uint32_t color);
+void	t_mlx_draw_rectangle(t_image *img, t_mlx_coords *coords, \
+			t_mlx_coords *size, uint32_t color);
 char	*t_mlx_get_pixel(t_image *image, size_t x, size_t y);
 bool	set_color(unsigned int *result, int r, int g, int b);
 
