@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   number.c                                           :+:      :+:    :+:   */
+/*   free_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/16 16:10:14 by root              #+#    #+#             */
-/*   Updated: 2024/06/17 18:47:01 by brappo           ###   ########.fr       */
+/*   Created: 2024/06/17 17:39:48 by brappo            #+#    #+#             */
+/*   Updated: 2024/06/17 18:58:05 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-#include <stdlib.h>
+#include "cub3d.h"
+#include "get_next_line.h"
 
-bool	is_number(char *str)
+void	free_map(t_map *map)
 {
-	size_t	index;
-
-	if (str == NULL)
-		return (false);
-	index = 0;
-	if (str[index] == '-')
-		index++;
-	if (str[index] == '\0')
-		return (false);
-	while (str[index])
-	{
-		if (str[index] < '0' || str[index] > '9')
-			return (false);
-		index++;
-	}
-	return (true);
+	free_array(map->textures, MAP_NB_IDS, false);
+	free_array(map->tiles, map->lines_count, true);
+	map->tiles = NULL;
+	free(map->lines_lengths);
+	map->lines_lengths = NULL;
+	get_next_line(-1);
 }

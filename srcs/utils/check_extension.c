@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:21:14 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/17 15:31:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/17 18:57:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ bool	check_extension(char *filename, char *extension)
 		extension_pos--;
 	if (extension_pos == -1)
 		return (false);
-	return (ft_strcmp(filename + extension_pos, extension) == 0); 
+	return (ft_strcmp(filename + extension_pos, extension) == 0);
 }

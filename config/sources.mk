@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/17 15:31:11 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/17 17:42:26 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,8 @@ MAP_DIR					=	map/
 MAP_FILES				=	read_map.c				\
 							is_in_bounds.c			\
 							read_elements.c			\
-							is_valid.c
+							is_valid.c				\
+							free_map.c
 MAP						=	$(addprefix $(MAP_DIR), $(MAP_FILES))
 
 # PLAYER

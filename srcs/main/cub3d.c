@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/17 15:39:42 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/17 17:41:17 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int argc, char **argv)
 	{
 		if (errno != 0)
 			perror(ERR_SYSTEM);
+		t_game_destroy(&game);
 		return (EXIT_FAILURE);
 	}
 	mlx_loop(game.mlx.mlx_ptr);

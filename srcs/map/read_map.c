@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/17 15:43:10 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/17 18:31:04 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,13 @@ static bool	get_lines_lengths(t_map *map)
 	while (map->tiles[index])
 	{
 		map->lines_lengths[index] = ft_strlen(map->tiles[index]);
+		if (map->lines_lengths[index] == 0)
+			return (error_print(ERR_EMPTY_LINE), false);
+		if (map->tiles[index][map->lines_lengths[index] - 1] == '\n')
+			map->lines_lengths[index]--;
 		index++;
 	}
 	return (true);
-}
-
-static void	free_map(t_map *map)
-{
-	free_array(map->textures, MAP_NB_IDS, false);
-	free_array(map->tiles, map->lines_count, true);
-	free(map->lines_lengths);
-	get_next_line(-1);
 }
 
 bool	read_map(t_map *map, char *filename)

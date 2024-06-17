@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/17 15:26:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/17 17:40:24 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ bool		read_elements(t_map *map, int fd);
 bool		is_in_bounds(t_vector *position, t_map *map);
 bool		is_wall(t_vector *position, t_map *map);
 bool		check_extension(char *filename, char *extension);
+void		free_map(t_map *map);
 
 #endif

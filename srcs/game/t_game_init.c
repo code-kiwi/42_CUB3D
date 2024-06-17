@@ -42,29 +42,30 @@ static bool	init_textures(t_game *game)
 static bool	init_color(unsigned int *color_result, char *color)
 {
 	char			**components;
-	size_t			index;
-	size_t			length;
+	ssize_t			index;
 	bool			error;
+	size_t			length;
 
-	if (!color || color[0] == '\n' || !*color)
-		return (false);
 	components = ft_split(color, ",\n");
+	if (components == NULL)
+		return (NULL);
 	length = array_length((void **)components);
 	if (length != 3)
-		return (free_array(components, length, true), false);
-	index = 0;
-	error = false;
-	while (index < 3)
 	{
-		error = !is_number(components[index]) | error;
-		index++;
+		free_array(components, length, true);
+		return (error_print(ERR_MISSING_COLOR), false);
 	}
+	index = -1;
+	error = false;
+	while (++index < 3 && !error)
+		error = !is_number(components[index])
+			|| (ft_strlen(components[index]) > 3) || error;
 	error = set_color(color_result, atoi(components[0]), atoi(components[1]),
-			atoi(components[2])) | error;
+			atoi(components[2])) || error;
 	free_array(components, 3, true);
-	if (!error)
-		error_print(ERR_COLOR_COMPONENT);
-	return (error);
+	if (error)
+		error_print(ERR_BAD_COLOR);
+	return (!error);
 }
 
 /**
@@ -78,14 +79,14 @@ bool	t_game_init(t_game *game)
 		return (false);
 	if (!t_player_init(&game->player, &game->map))
 		return (false);
-	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
-		return (error_print(ERR_MLX_INIT), false);
+	if (!init_color(&game->ground_color, game->map.textures[4])
+		|| !init_color(&game->ceiling_color, game->map.textures[5]))
+		return (false);
 	if (!init_textures(game))
 		return (false);
 	if (!add_event_handlers(game))
 		return (error_print(ERR_HOOKS), false);
-	if (!init_color(&game->ground_color, game->map.textures[4])
-		|| !init_color(&game->ceiling_color, game->map.textures[5]))
+	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
 		return (false);
 	return (true);
 }
