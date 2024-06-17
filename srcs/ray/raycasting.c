@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/16 22:06:49 by root             ###   ########.fr       */
+/*   Updated: 2024/06/17 13:56:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ float	raycast(t_vector position, t_vector *slope, t_map *map,
 
 	calculate_unit_length(&unit_length, slope);
 	calculate_inital_sum(&sum_length, &unit_length, &position, slope);
-	while (true)
+	while (sum_length.x < MAX_DISTANCE || sum_length.y < MAX_DISTANCE)
 	{
 		if (sum_length.x <= sum_length.y)
 		{
@@ -62,5 +62,5 @@ float	raycast(t_vector position, t_vector *slope, t_map *map,
 			sum_length.y += unit_length.y;
 		}
 	}
-	return (-1);
+	return (MAX_DISTANCE);
 }

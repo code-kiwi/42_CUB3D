@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/16 17:46:58 by root             ###   ########.fr       */
+/*   Updated: 2024/06/17 14:40:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "map.h"
 #include "libft.h"
 
-static char	**read_tiles(int fd, size_t map_size_y)
+static char	**read_tiles(int fd, size_t map_size_y, bool skip_empty_line)
 {
 	char	*line;
 	char	**tiles;
@@ -30,12 +30,12 @@ static char	**read_tiles(int fd, size_t map_size_y)
 		tiles = ft_calloc(map_size_y + 1, sizeof(char *));
 		return (tiles);
 	}
-	if (line[0] == '\n')
+	if (line[0] == '\n' && skip_empty_line)
 	{
 		free(line);
-		return (read_tiles(fd, map_size_y));
+		return (read_tiles(fd, map_size_y, true));
 	}
-	tiles = read_tiles(fd, map_size_y + 1);
+	tiles = read_tiles(fd, map_size_y + 1, false);
 	if (tiles == NULL)
 	{
 		free(line);
@@ -64,7 +64,7 @@ static bool	get_lines_lengths(t_map *map)
 	return (true);
 }
 
-void	free_map(t_map *map)
+static void	free_map(t_map *map)
 {
 	free_array(map->textures, MAP_NB_IDS, false);
 	free_array(map->tiles, map->lines_count, true);
@@ -86,7 +86,7 @@ bool	read_map(t_map *map, char *filename)
 		close(fd);
 		return (false);
 	}
-	map->tiles = read_tiles(fd, 0);
+	map->tiles = read_tiles(fd, 0, true);
 	close(fd);
 	if (map->tiles == NULL
 		|| !get_lines_lengths(map)

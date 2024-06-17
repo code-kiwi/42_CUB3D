@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/17 11:32:26 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/17 14:50:07 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define WIN_TITLE				"Cub3D"
 # define WIN_WIDTH				1900
 # define WIN_HEIGHT				1000
+# define MAX_DISTANCE			200
 
 # define ERR_BASIC				"Error\n"
 # define ERR_LITERALS			"Error\n%s\n"
@@ -46,6 +47,9 @@
 # define ERR_MISSING_TEXTURES	"Missing textures"
 # define ERR_COLOR_INIT			"Error reading wall or ground color"
 # define ERR_CAST_RAYS			"Ran in a wall"
+# define ERR_MULTIPLE_PLAYERS	"Multiple players on the map"
+# define ERR_MISSING_PLAYER		"Missing player"
+# define ERR_EMPTY_LINE			"Empty line in the map content"
 
 typedef struct s_game	t_game;
 typedef struct s_mlx	t_mlx;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:42:52 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 12:32:38 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/17 14:53:00 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ bool	is_map_valid(t_map *map)
 	while (y < map->lines_count)
 	{
 		x = 0;
+		if (map->tiles[y][0] == '\n')
+			return (error_print(ERR_EMPTY_LINE), false);
 		while (x < map->lines_lengths[y])
 		{
 			if (!ft_strchr(MAP_ALLOWED_CHARS, map->tiles[y][x]))

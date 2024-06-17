@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/17 11:34:30 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/17 14:54:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 		return (error_print(ERR_IDENTIFIER), false);
 	*info = '\0';
 	info++;
+	while (*info == ' ')
+		info++;
 	identifier_index = find_str_in_array(identifier, element, MAP_NB_IDS);
 	if (identifier_index == -1)
 		return (error_print(ERR_IDENTIFIER), false);
