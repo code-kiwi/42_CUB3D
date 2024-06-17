@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources.mk                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/16 16:21:39 by root             ###   ########.fr        #
+#    Updated: 2024/06/17 11:41:28 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,8 +70,10 @@ MLX_API_FILES			=	t_image_utils.c			\
 							t_mlx_hook.c			\
 							t_mlx_render.c			\
 							t_mlx_draw_pixel.c		\
+							t_mlx_get_pixel.c		\
 							t_mlx_draw_line.c		\
-							t_mlx_draw_rectangle.c
+							t_mlx_draw_rectangle.c	\
+							t_argb_color_utils.c
 MLX_API					=	$(addprefix $(MLX_API_DIR), $(MLX_API_FILES))
 
 # EVENT_HANDLERS

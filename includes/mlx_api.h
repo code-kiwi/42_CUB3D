@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_api.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/16 19:14:09 by root             ###   ########.fr       */
+/*   Updated: 2024/06/17 11:42:44 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ union u_argb_color
 
 struct s_mlx_coords
 {
-	int	x;
-	int	y;
+	int16_t	x;
+	int16_t	y;
 };
 
 enum e_mlx_event
