@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_column.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/16 18:05:08 by root             ###   ########.fr       */
+/*   Updated: 2024/06/17 11:32:09 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 	return (column);
 }
 
-bool	draw_texture_column(t_image *screen, t_column *column, int wall_end,
+void	draw_texture_column(t_image *screen, t_column *column, int wall_end,
 	t_image textures[4])
 {
 	char	*color;
@@ -61,22 +61,18 @@ bool	draw_texture_column(t_image *screen, t_column *column, int wall_end,
 	{
 		color = t_mlx_get_pixel(texture, texture_column,
 				(int)floor(column->texture_start / scale_y));
-		if (!t_mlx_draw_pixel(screen, &column->coords, *(unsigned int *)color))
-			return (false);
+		t_mlx_draw_pixel(screen, &column->coords, *(unsigned int *)color);
 		column->coords.y++;
 		column->texture_start++;
 	}
-	return (true);
 }
 
-bool	draw_color_column(t_image *screen, t_mlx_coords *coords,
+void	draw_color_column(t_image *screen, t_mlx_coords *coords,
 	unsigned int color, int end)
 {
 	while (coords->y < end)
 	{
-		if (!t_mlx_draw_pixel(screen, coords, color))
-			return (false);
+		t_mlx_draw_pixel(screen, coords, color);
 		coords->y++;
 	}
-	return (true);
 }

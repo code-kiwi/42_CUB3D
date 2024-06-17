@@ -17,8 +17,6 @@
 #include "mlx.h"
 #include "mlx_api.h"
 
-#include <stdio.h>
-
 static bool	init_textures(t_game *game)
 {
 	size_t	index;
@@ -28,8 +26,7 @@ static bool	init_textures(t_game *game)
 	while (index < MAP_NB_TEXTURES)
 	{
 		filename = game->map.textures[index];
-		if (filename == NULL
-			|| filename[0] == '\0')
+		if (filename == NULL || filename[0] == '\0')
 		{
 			error_print(ERR_MISSING_TEXTURES);
 			return (false);
