@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press_handler.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 19:56:13 by root             ###   ########.fr       */
+/*   Updated: 2024/06/17 09:21:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int	key_press_handler(int key, t_game *data)
 	else if (key == KEY_LEFT)
 		data->player.turn_direction = -1;
 	else if (key == KEY_W)
-		data->player.walk_dir = WALK_UP;
+		data->player.is_walking[FRONT] = true;
 	else if (key == KEY_S)
-		data->player.walk_dir = WALK_DOWN;
+		data->player.is_walking[BACK] = true;
 	else if (key == KEY_A)
-		data->player.walk_dir = WALK_LEFT;
+		data->player.is_walking[LEFT] = true;
 	else if (key == KEY_D)
-		data->player.walk_dir = WALK_RIGHT;
+		data->player.is_walking[RIGHT] = true;
 	return (0);
 }
