@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/14 23:33:46 by root             ###   ########.fr       */
+/*   Updated: 2024/06/17 15:26:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ bool		is_map_valid(t_map *map);
 bool		read_elements(t_map *map, int fd);
 bool		is_in_bounds(t_vector *position, t_map *map);
 bool		is_wall(t_vector *position, t_map *map);
+bool		check_extension(char *filename, char *extension);
 
 #endif

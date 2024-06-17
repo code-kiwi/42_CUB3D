@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/17 14:50:07 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/17 15:58:17 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,22 @@
 # define ERR_GAME_LOOP			"Game loop failed"
 # define ERR_HOOKS				"Impossible to add event handling"
 # define ERR_RENDER				"Rendering error"
-# define ERR_MAP_READ			"Map reading"
 # define ERR_WALLS				"Map not surrounded by walls"
 # define ERR_ELEM				"Map elements not valid"
 # define ERR_IDENTIFIER			"Map unknown identifier"
-# define ERR_PLAYER_INIT		"Player init failed"
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_MISSING_TEXTURES	"Missing textures"
-# define ERR_COLOR_INIT			"Error reading wall or ground color"
 # define ERR_CAST_RAYS			"Ran in a wall"
 # define ERR_MULTIPLE_PLAYERS	"Multiple players on the map"
 # define ERR_MISSING_PLAYER		"Missing player"
 # define ERR_EMPTY_LINE			"Empty line in the map content"
+# define ERR_MAP_EXTENSION		"bad map extension, expected '.cub'"
+# define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
+# define ERR_ARGUMENTS			"Bad arguments, expected one argument"
+# define ERR_SYSTEM				"External function error"
+# define ERR_MAP_EMPTY			"Missing map content"
+# define ERR_COLOR_COMPONENT	"Color should be a number in range [0, 255]"
+# define ERR_PLAYER_QUIT_MAP	"Player out of bounds of the map"
 
 typedef struct s_game	t_game;
 typedef struct s_mlx	t_mlx;

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/17 14:40:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/17 15:43:10 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static bool	get_lines_lengths(t_map *map)
 	index = 0;
 	map->lines_count = array_length((void **)map->tiles);
 	if (map->lines_count == 0)
-		return (false);
+		return (error_print(ERR_MAP_EMPTY), false);
 	map->lines_lengths = ft_calloc(map->lines_count, sizeof(size_t));
 	if (map->lines_lengths == NULL)
 		return (false);
@@ -77,6 +77,8 @@ bool	read_map(t_map *map, char *filename)
 	int		fd;
 
 	ft_bzero(map, sizeof(t_map));
+	if (!check_extension(filename, ".cub"))
+		return (error_print(ERR_MAP_EXTENSION), false);
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (false);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/17 11:32:51 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/17 15:58:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	game_loop(t_game *game)
 		draw_walls(game);
 		if (!t_mlx_render(&game->mlx))
 			error_exit(game, ERR_RENDER);
+		if (!is_in_bounds(&game->player.position, &game->map))
+			error_exit(game, ERR_PLAYER_QUIT_MAP);
 		game->mlx.event_loop_counter = 0;
 	}
 	return (0);
