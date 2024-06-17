@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_player_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/17 09:09:23 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/17 12:10:36 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@
 #include "cub3d.h"
 #include "player.h"
 #include "map.h"
+#include "libft.h"
 
 bool	t_player_init(t_player *player, t_map *map)
 {
-	size_t	index;
-
 	if (player == NULL || map == NULL)
 		return (false);
 	player->fov_angle = FOV_ANGLE_DEFAULT;
@@ -32,11 +31,6 @@ bool	t_player_init(t_player *player, t_map *map)
 	player->move_speed[2] = 0.05;
 	player->move_speed[3] = 0.05;
 	player->rotation_speed = PI / 95;
-	index = 0;
-	while (index < 4)
-	{
-		player->is_walking[index] = false;
-		index++;
-	}
+	ft_memset(player->is_walking, 0, 4 * sizeof(bool));
 	return (true);
 }

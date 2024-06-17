@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/16 16:33:01 by root             ###   ########.fr       */
+/*   Updated: 2024/06/17 11:32:51 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ int	game_loop(t_game *game)
 	{
 		update_player(&game->player, &game->map);
 		if (!cast_rays(&game->player, &game->map, game->rays))
-			error_exit(game, "Ran in a wall");
-		if (!draw_walls(game))
-			error_exit(game, ERR_RENDER);
+			error_exit(game, ERR_CAST_RAYS);
+		draw_walls(game);
 		if (!t_mlx_render(&game->mlx))
 			error_exit(game, ERR_RENDER);
 		game->mlx.event_loop_counter = 0;

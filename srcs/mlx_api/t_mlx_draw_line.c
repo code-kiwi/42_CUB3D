@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_draw_line.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:04:21 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/16 18:02:56 by root             ###   ########.fr       */
+/*   Updated: 2024/06/17 11:52:24 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdint.h>
 #include <stdbool.h>
 #include <math.h>
 
@@ -27,17 +28,17 @@
  * @param sxy The sxy pointer whose values have to be intialized
 */
 static void	t_mlx_draw_line_init(
-	t_mlx_coords coords_start, t_mlx_coords coords_end,
+	t_mlx_coords *coords_start, t_mlx_coords *coords_end,
 	t_mlx_coords *dxy, t_mlx_coords *sxy
 )
 {
-	dxy->x = abs(coords_end.x - coords_start.x);
-	dxy->y = abs(coords_end.y - coords_start.y);
+	dxy->x = abs(coords_end->x - coords_start->x);
+	dxy->y = abs(coords_end->y - coords_start->y);
 	sxy->x = -1;
-	if (coords_start.x < coords_end.x)
+	if (coords_start->x < coords_end->x)
 		sxy->x = 1;
 	sxy->y = -1;
-	if (coords_start.y < coords_end.y)
+	if (coords_start->y < coords_end->y)
 		sxy->y = 1;
 }
 
@@ -52,19 +53,18 @@ static void	t_mlx_draw_line_init(
  * @param coords_curr The current (x, y) coordinate
  * @param coords_end The line ending point (x, y) coordinate
  * @param sxy The (x, y) coordinate evolution
- * @return true if the line drawing is done, else false
  * 
 */
 static bool	t_mlx_draw_line_is_done(
-	t_mlx_coords coords_curr, t_mlx_coords coords_end,
-	t_mlx_coords sxy
+	t_mlx_coords *coords_curr, t_mlx_coords *coords_end,
+	t_mlx_coords *sxy
 )
 {
 	return (
-		(sxy.x == -1 && coords_curr.x < coords_end.x)
-		|| (sxy.x == 1 && coords_curr.x > coords_end.x)
-		|| (sxy.y == -1 && coords_curr.y < coords_end.y)
-		|| (sxy.y == 1 && coords_curr.y > coords_end.y)
+		(sxy->x == -1 && coords_curr->x < coords_end->x)
+		|| (sxy->x == 1 && coords_curr->x > coords_end->x)
+		|| (sxy->y == -1 && coords_curr->y < coords_end->y)
+		|| (sxy->y == 1 && coords_curr->y > coords_end->y)
 	);
 }
 
@@ -79,22 +79,20 @@ static bool	t_mlx_draw_line_is_done(
  * @param color The color of the line
  * @return true on SUCCESS, false on ERROR
 */
-bool	t_mlx_draw_line(
+void	t_mlx_draw_line(
 	t_image *img,
 	t_mlx_coords coords_start,
 	t_mlx_coords coords_end,
-	unsigned int color
+	uint32_t color
 )
 {
 	t_mlx_coords	dxy;
 	t_mlx_coords	sxy;
 	int				err;
 
-	if (img == NULL)
-		return (false);
-	t_mlx_draw_line_init(coords_start, coords_end, &dxy, &sxy);
+	t_mlx_draw_line_init(&coords_start, &coords_end, &dxy, &sxy);
 	err = dxy.x - dxy.y;
-	while (!t_mlx_draw_line_is_done(coords_start, coords_end, sxy))
+	while (!t_mlx_draw_line_is_done(&coords_start, &coords_end, &sxy))
 	{
 		t_mlx_draw_pixel(img, &coords_start, color);
 		if (coords_start.x == coords_end.x && coords_start.y == coords_end.y)
@@ -110,5 +108,4 @@ bool	t_mlx_draw_line(
 			coords_start.y += sxy.y;
 		}
 	}
-	return (true);
 }
