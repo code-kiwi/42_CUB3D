@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/14 11:36:09 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/14 23:33:46 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 # define MAP_ALLOWED_CHARS	" 01NSEW\n"
 # define MAP_NB_IDS			6
+# define MAP_NB_TEXTURES	4
 
 typedef struct s_game	t_game;
 typedef struct s_map	t_map;

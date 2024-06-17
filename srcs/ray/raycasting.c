@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 10:59:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 11:38:21 by mhotting         ###   ########.fr       */
+/*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
+/*   Updated: 2024/06/16 22:06:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,39 +23,44 @@ static void	calculate_unit_length(t_vector *unit_length, t_vector *slope)
 }
 
 static void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
-	t_vector *position)
+	t_vector *position, t_vector *slope)
 {
-	sum_length->x = 1 - modff(position->x, &position->x);
-	sum_length->y = 1 - modff(position->y, &position->y);
+	if (slope->x < 0)
+		sum_length->x = modff(position->x, &position->x);
+	else
+		sum_length->x = 1 - modff(position->x, &position->x);
+	if (slope->y < 0)
+		sum_length->y = 1 - modff(position->y, &position->y);
+	else
+		sum_length->y = modff(position->y, &position->y);
 	sum_length->x *= unit_length->x;
 	sum_length->y *= unit_length->y;
 }
 
-float	raycast(t_vector position, t_vector *slope, t_map *map)
+float	raycast(t_vector position, t_vector *slope, t_map *map,
+	bool *is_vertical)
 {
 	t_vector	unit_length;
 	t_vector	sum_length;
 
 	calculate_unit_length(&unit_length, slope);
-	calculate_inital_sum(&sum_length, &unit_length, &position);
+	calculate_inital_sum(&sum_length, &unit_length, &position, slope);
 	while (true)
 	{
 		if (sum_length.x <= sum_length.y)
 		{
 			position.x += sign(slope->x);
 			if (is_wall(&position, map))
-				return (sum_length.x);
+				return (*is_vertical = true, sum_length.x);
 			sum_length.x += unit_length.x;
 		}
 		else
 		{
 			position.y -= sign(slope->y);
 			if (is_wall(&position, map))
-				return (sum_length.y);
+				return (*is_vertical = false, sum_length.y);
 			sum_length.y += unit_length.y;
 		}
-		if (!is_in_bounds(&position, map))
-			break ;
 	}
 	return (-1);
 }

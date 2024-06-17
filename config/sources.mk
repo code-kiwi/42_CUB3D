@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources.mk                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
+#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/14 15:18:13 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/17 11:41:28 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,8 +70,10 @@ MLX_API_FILES			=	t_image_utils.c			\
 							t_mlx_hook.c			\
 							t_mlx_render.c			\
 							t_mlx_draw_pixel.c		\
+							t_mlx_get_pixel.c		\
 							t_mlx_draw_line.c		\
-							t_mlx_draw_rectangle.c
+							t_mlx_draw_rectangle.c	\
+							t_argb_color_utils.c
 MLX_API					=	$(addprefix $(MLX_API_DIR), $(MLX_API_FILES))
 
 # EVENT_HANDLERS
@@ -85,7 +87,8 @@ EVENT_HANDLERS			=	$(addprefix $(EVENT_HANDLERS_DIR), $(EVENT_HANDLERS_FILES))
 
 # BASIC_RENDER
 BASIC_RENDER_DIR		=	basic_render/
-BASIC_RENDER_FILES		=	draw_walls.c	
+BASIC_RENDER_FILES		=	draw_walls.c			\
+							draw_column.c
 BASIC_RENDER			=	$(addprefix $(BASIC_RENDER_DIR), $(BASIC_RENDER_FILES))
 
 # MAP
@@ -98,7 +101,8 @@ MAP						=	$(addprefix $(MAP_DIR), $(MAP_FILES))
 
 # PLAYER
 PLAYER_DIR				=	player/
-PLAYER_FILES			=	t_player_init.c
+PLAYER_FILES			=	t_player_init.c	\
+							update_player.c
 PLAYER					=	$(addprefix $(PLAYER_DIR), $(PLAYER_FILES))
 
 # RAY
@@ -116,7 +120,8 @@ VECTOR					=	$(addprefix $(VECTOR_DIR), $(VECTOR_FILE))
 UTILS_DIR				=	utils/
 UTILS_FILE				=	math.c					\
 							array.c					\
-							handle_error.c
+							handle_error.c			\
+							number.c
 UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
 
 # SOURCES GENERAL

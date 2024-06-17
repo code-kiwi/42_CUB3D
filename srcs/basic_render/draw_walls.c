@@ -3,58 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 15:08:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/17 11:30:40 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
+
 #include "cub3d.h"
 
-#include "math.h"
-
-static bool	draw_wall_column(size_t column, t_ray *ray, t_image *screen)
+static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
-	float	perceived_height;
-	int		wall_start;
-	int		ground_start;
-	bool	error;
+	t_column	column;
+	int			wall_start;
+	int			wall_end;
 
-	error = false;
-	perceived_height = WIN_HEIGHT;
-	perceived_height /= (ray->length * cos(ray->angle_from_orientation));
-	wall_start = floorf((WIN_HEIGHT - perceived_height) / 2);
-	ground_start = floorf((WIN_HEIGHT + perceived_height) / 2);
-	if (wall_start < 0)
-		wall_start = 0;
-	else
-	{
-		error = t_mlx_draw_line(screen, (t_mlx_coords){column, 0},
-				(t_mlx_coords){column, wall_start - 1}, 0x00FF0000);
-	}
-	if (ground_start > WIN_HEIGHT)
-		ground_start = WIN_HEIGHT;
-	else
-	{
-		error = (t_mlx_draw_line(screen, (t_mlx_coords){column, ground_start},
-					(t_mlx_coords){column, WIN_HEIGHT}, 0x000000FF)) | error;
-	}
-	error = (t_mlx_draw_line(screen, (t_mlx_coords){column, wall_start},
-				(t_mlx_coords){column, ground_start - 1}, 0x0000FF00)) | error;
-	return (error);
+	column.perceived_height = WIN_HEIGHT
+		/ (ray->length * cos(ray->angle_from_orientation));
+	column.coords.y = 0;
+	column.coords.x = column_index;
+	column.ray = ray;
+	wall_start = floorf((WIN_HEIGHT - column.perceived_height) / 2);
+	wall_end = floorf((WIN_HEIGHT + column.perceived_height) / 2);
+	if (wall_end > WIN_HEIGHT)
+		wall_end = WIN_HEIGHT;
+	draw_color_column(game->mlx.img_buff, &column.coords,
+		game->ground_color, wall_start);
+	column.texture_start = column.coords.y - wall_start;
+	draw_texture_column(game->mlx.img_buff, &column, wall_end, game->textures);
+	draw_color_column(game->mlx.img_buff, &column.coords,
+		game->ceiling_color, WIN_HEIGHT);
 }
 
-bool	draw_walls(t_image *screen, t_ray *rays)
+void	draw_walls(t_game *game)
 {
 	size_t	index;
 
 	index = 0;
 	while (index < WIN_WIDTH)
 	{
-		if (!draw_wall_column(index, &rays[index], screen))
-			return (false);
+		draw_wall_column(index, &game->rays[index], game);
 		index++;
 	}
-	return (true);
 }

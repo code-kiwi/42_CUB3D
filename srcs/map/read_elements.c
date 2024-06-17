@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 12:32:38 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/17 11:34:30 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 	if (identifier_index == -1)
 		return (error_print(ERR_IDENTIFIER), false);
 	map->textures[identifier_index] = ft_strdup(info);
-	free(element);
 	if (map->textures[identifier_index] == NULL)
 		return (false);
 	identifier[identifier_index] = "";
@@ -59,17 +58,16 @@ bool	read_elements(t_map *map, int fd)
 		line = get_next_line(fd);
 		if (line == NULL)
 			return (false);
-		if (line[0] == '\n')
-			free(line);
-		else
+		if (line[0] != '\n')
 		{
 			if (!parse_element(map, line, identifier))
 			{
-				free_array(map->textures, MAP_NB_IDS, false);
+				free(line);
 				return (false);
 			}
 			elements_read++;
 		}
+		free(line);
 	}
 	return (true);
 }

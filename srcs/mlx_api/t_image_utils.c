@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_image_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 14:32:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/17 11:54:04 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,27 +67,24 @@ void	t_image_destroy(void *mlx_ptr, t_image *img)
 }
 
 /**
- * @brief Clears the given t_image instance
- * 
- * Clearing means that the image pixels will all be black
- * @param img The image to clear
+ * @brief import a xpm file into the struct image
+ * @param image the results
+ * @return false for error, otherwise true
 */
-void	t_image_clear(t_image *img)
+bool	t_image_import_file(t_image *image, char *filename, void *mlx)
 {
-	int	i;
-	int	j;
-
-	if (img == NULL)
-		return ;
-	i = 0;
-	while (i < img->height)
+	if (image == NULL)
+		return (false);
+	image->ptr = mlx_xpm_file_to_image(mlx, filename,
+			&image->width, &image->height);
+	if (image->ptr == NULL)
+		return (false);
+	image->addr = mlx_get_data_addr(image->ptr, &image->bpp,
+			&image->line_len, &image->endian);
+	if (image->addr == NULL)
 	{
-		j = 0;
-		while (j < img->width)
-		{
-			t_mlx_draw_pixel(img, (t_mlx_coords){j, i}, 0);
-			j++;
-		}
-		i++;
+		mlx_destroy_image(mlx, image->ptr);
+		return (false);
 	}
+	return (true);
 }

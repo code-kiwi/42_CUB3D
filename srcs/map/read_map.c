@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/14 10:15:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/16 17:46:58 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,25 @@ static bool	get_lines_lengths(t_map *map)
 	return (true);
 }
 
+void	free_map(t_map *map)
+{
+	free_array(map->textures, MAP_NB_IDS, false);
+	free_array(map->tiles, map->lines_count, true);
+	free(map->lines_lengths);
+	get_next_line(-1);
+}
+
 bool	read_map(t_map *map, char *filename)
 {
 	int		fd;
 
+	ft_bzero(map, sizeof(t_map));
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (false);
 	if (!read_elements(map, fd))
 	{
+		free_map(map);
 		close(fd);
 		return (false);
 	}
@@ -82,9 +92,7 @@ bool	read_map(t_map *map, char *filename)
 		|| !get_lines_lengths(map)
 		|| !is_map_valid(map))
 	{
-		free_array(map->textures, MAP_NB_IDS, false);
-		free_array(map->tiles, map->lines_count, true);
-		free(map->lines_lengths);
+		free_map(map);
 		return (false);
 	}
 	return (true);

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math.c                                             :+:      :+:    :+:   */
+/*   number.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 11:42:52 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/16 14:49:59 by root             ###   ########.fr       */
+/*   Created: 2024/06/16 16:10:14 by root              #+#    #+#             */
+/*   Updated: 2024/06/16 17:47:29 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	sign(float value)
-{
-	if (value < 0)
-		return (-1);
-	return (1);
-}
+#include <stdbool.h>
+#include <stdlib.h>
 
-int	min(int a, int b)
+bool	is_number(char *str)
 {
-	if (a < b)
-		return (a);
-	return (b);
+	size_t	index;
+
+	if (str == NULL)
+		return (false);
+	index = 0;
+	if (str[index] == '-')
+		index++;
+	while (str[index])
+	{
+		if (str[index] < '0' || str[index] > '9')
+			return (false);
+		index++;
+	}
+	return (true);
 }
