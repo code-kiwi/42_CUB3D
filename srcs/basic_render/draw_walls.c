@@ -3,16 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/17 11:30:40 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/18 13:51:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
 #include "cub3d.h"
+
+static t_image	*get_texture(t_image textures[4], t_ray *ray)
+{
+	if (ray->is_vertical)
+	{
+		if (ray->slope.x > 0)
+			return (&textures[3]);
+		else
+			return (&textures[1]);
+	}
+	else
+	{
+		if (ray->slope.y > 0)
+			return (&textures[2]);
+		else
+			return (&textures[0]);
+	}
+}
 
 static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
@@ -32,7 +50,8 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	draw_color_column(game->mlx.img_buff, &column.coords,
 		game->ground_color, wall_start);
 	column.texture_start = column.coords.y - wall_start;
-	draw_texture_column(game->mlx.img_buff, &column, wall_end, game->textures);
+	draw_texture_column(game->mlx.img_buff, &column, wall_end,
+		get_texture(game->textures, ray));
 	draw_color_column(game->mlx.img_buff, &column.coords,
 		game->ceiling_color, WIN_HEIGHT);
 }
