@@ -26,7 +26,7 @@ static bool	init_textures(t_game *game)
 	while (index < MAP_NB_TEXTURES)
 	{
 		filename = game->map.textures[index];
-		if (filename == NULL || filename[0] == '\0' || filename[0] == '\n')
+		if (filename == NULL || filename[0] == '\0')
 			return (error_print(ERR_MISSING_TEXTURES), false);
 		filename[ft_strlen(filename) - 1] = '\0';
 		if (!check_extension(filename, ".xpm"))
@@ -46,7 +46,7 @@ static bool	init_color(unsigned int *color_result, char *color)
 	bool			error;
 	size_t			length;
 
-	components = ft_split(color, ",\n");
+	components = ft_split(color, ",");
 	if (components == NULL)
 		return (NULL);
 	length = array_length((void **)components);

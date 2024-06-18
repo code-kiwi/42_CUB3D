@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/17 19:12:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 09:25:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,8 @@ void		free_array(char **array, size_t length, bool free_container);
 void		print_str_array(char **array, size_t length);
 int			min(int a, int b);
 bool		is_number(char *str);
+void		remove_last_breakline(char *str);
+void		remove_last_spaces(char *str);
+void		move_next_spaces(char **str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/17 18:31:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 09:26:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static char	**read_tiles(int fd, size_t map_size_y, bool skip_empty_line)
 	char	**tiles;
 
 	line = get_next_line(fd);
+	remove_last_breakline(line);
 	if (line == NULL)
 	{
 		if (errno != 0)
@@ -30,7 +31,7 @@ static char	**read_tiles(int fd, size_t map_size_y, bool skip_empty_line)
 		tiles = ft_calloc(map_size_y + 1, sizeof(char *));
 		return (tiles);
 	}
-	if (line[0] == '\n' && skip_empty_line)
+	if (line[0] == '\0' && skip_empty_line)
 	{
 		free(line);
 		return (read_tiles(fd, map_size_y, true));
@@ -61,8 +62,6 @@ static bool	get_lines_lengths(t_map *map)
 		map->lines_lengths[index] = ft_strlen(map->tiles[index]);
 		if (map->lines_lengths[index] == 0)
 			return (error_print(ERR_EMPTY_LINE), false);
-		if (map->tiles[index][map->lines_lengths[index] - 1] == '\n')
-			map->lines_lengths[index]--;
 		index++;
 	}
 	return (true);

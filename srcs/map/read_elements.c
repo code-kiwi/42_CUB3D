@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/17 14:54:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 09:28:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 		return (error_print(ERR_IDENTIFIER), false);
 	*info = '\0';
 	info++;
-	while (*info == ' ')
-		info++;
+	move_next_spaces(&info);
+	remove_last_spaces(info);
 	identifier_index = find_str_in_array(identifier, element, MAP_NB_IDS);
 	if (identifier_index == -1)
 		return (error_print(ERR_IDENTIFIER), false);
@@ -58,9 +58,10 @@ bool	read_elements(t_map *map, int fd)
 	while (elements_read < MAP_NB_IDS)
 	{
 		line = get_next_line(fd);
+		remove_last_breakline(line);
 		if (line == NULL)
 			return (false);
-		if (line[0] != '\n')
+		if (line[0] != '\0')
 		{
 			if (!parse_element(map, line, identifier))
 			{

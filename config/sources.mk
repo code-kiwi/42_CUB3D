@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/17 17:42:26 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/18 09:30:59 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,7 +123,8 @@ UTILS_FILE				=	math.c					\
 							array.c					\
 							handle_error.c			\
 							number.c				\
-							check_extension.c
+							check_extension.c		\
+							string.c
 UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
 
 # SOURCES GENERAL
