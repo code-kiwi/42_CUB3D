@@ -17,6 +17,8 @@
 #include "mlx.h"
 #include "mlx_api.h"
 
+#include <stdio.h>
+
 static bool	init_textures(t_game *game)
 {
 	size_t	index;
@@ -28,7 +30,6 @@ static bool	init_textures(t_game *game)
 		filename = game->map.textures[index];
 		if (filename == NULL || filename[0] == '\0')
 			return (error_print(ERR_MISSING_TEXTURES), false);
-		filename[ft_strlen(filename) - 1] = '\0';
 		if (!check_extension(filename, ".xpm"))
 			return (error_print(ERR_TEXTURE_EXTENSION), false);
 		if (!t_image_import_file(&game->textures[index], filename,
@@ -39,10 +40,29 @@ static bool	init_textures(t_game *game)
 	return (true);
 }
 
+static bool	set_color_components(unsigned int *color, char *r, char *g, char *b)
+{
+	int		r_value;
+	int		g_value;
+	int		b_value;
+	bool	error;
+
+	if (!is_number(r) || !is_number(g) || !is_number(b))
+		return (error_print(ERR_COLOR_NAN), false);
+	r_value = atoi(r);
+	g_value = atoi(g);
+	b_value = atoi(b);
+	if (ft_strlen(r) > 3 || ft_strlen(g) > 3 || ft_strlen(b) > 3)
+		return (error_print(ERR_COLOR_RANGE), false);
+	error = !set_color(color, r_value, g_value, b_value);
+	if (error)
+		error_print(ERR_COLOR_RANGE);
+	return (!error);
+}
+
 static bool	init_color(unsigned int *color_result, char *color)
 {
 	char			**components;
-	ssize_t			index;
 	bool			error;
 	size_t			length;
 
@@ -53,18 +73,14 @@ static bool	init_color(unsigned int *color_result, char *color)
 	if (length != 3)
 	{
 		free_array(components, length, true);
-		return (error_print(ERR_MISSING_COLOR), false);
+		if (length > 3)
+			return (error_print(ERR_TOO_MUCH_COLOR), false);
+		else
+			return (error_print(ERR_MISSING_COLOR), false);
 	}
-	index = -1;
-	error = false;
-	while (++index < 3 && !error)
-		error = !is_number(components[index])
-			|| (ft_strlen(components[index]) > 3) || error;
-	error = set_color(color_result, atoi(components[0]), atoi(components[1]),
-			atoi(components[2])) || error;
+	error = !set_color_components(color_result, components[0], components[1],
+			components[2]);
 	free_array(components, 3, true);
-	if (error)
-		error_print(ERR_BAD_COLOR);
 	return (!error);
 }
 
@@ -82,11 +98,11 @@ bool	t_game_init(t_game *game)
 	if (!init_color(&game->ground_color, game->map.textures[4])
 		|| !init_color(&game->ceiling_color, game->map.textures[5]))
 		return (false);
-	if (!init_textures(game))
+	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
 		return (false);
 	if (!add_event_handlers(game))
 		return (error_print(ERR_HOOKS), false);
-	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
+	if (!init_textures(game))
 		return (false);
 	return (true);
 }

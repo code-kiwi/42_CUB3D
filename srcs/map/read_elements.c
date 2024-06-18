@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/18 09:42:13 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 10:22:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 	char	*info;
 	ssize_t	identifier_index;
 
+	move_next_spaces(&element);
 	info = ft_strchr(element, ' ');
 	if (info == NULL)
 		return (error_print(ERR_MISSING_COMPONENT), false);
