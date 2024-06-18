@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_player_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 10:51:18 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 13:26:11 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@
 static void	set_player_orientation(t_player *player, t_map *map)
 {
 	char			*directions;
-	int				angle;
+	float			angle;
 	t_mlx_coords	coords;
 
 	coords.x = player->position.x;
 	coords.y = player->position.y;
-	directions = "ENWS";
+	directions = PLAYER_POS_ORDERED;
 	angle = ft_strchr(directions, map->tiles[coords.y][coords.x]) - directions;
 	angle *= PI / 2;
 	player->orientation = angle;
@@ -44,7 +44,7 @@ static bool	find_player_position(t_map *map, t_player *player)
 		coords.x = 0;
 		while ((size_t)coords.x < map->lines_lengths[coords.y])
 		{
-			if (ft_strchr("NWSE", map->tiles[coords.y][coords.x]))
+			if (ft_strchr(PLAYER_POS_ORDERED, map->tiles[coords.y][coords.x]))
 			{
 				if (found_player)
 					return (error_print(ERR_MULTIPLE_PLAYERS), false);

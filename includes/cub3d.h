@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 10:30:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 12:35:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@
 # define ERR_MULTIPLE_PLAYERS	"Multiple players on the map"
 # define ERR_MISSING_PLAYER		"Missing player"
 # define ERR_EMPTY_LINE			"Empty line in the map content"
-# define ERR_MAP_EXTENSION		"bad map extension, expected '.cub'"
+# define ERR_MAP_EXTENSION		"Bad map extension, expected '.cub'"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
 # define ERR_ARGUMENTS			"Bad arguments, expected one argument"
 # define ERR_MAP_EMPTY			"Missing map content"
@@ -57,6 +57,8 @@
 # define ERR_MISSING_COMPONENT	"Missing element component"
 # define ERR_TOO_MUCH_COLOR		"Too much color components, needed 3 for r,g,b"
 # define ERR_COLOR_NAN			"Color component not a number"
+# define ERR_MAP_OPEN			"Impossible to open the given map file"
+# define ERR_MAP_CONTENT		"Reading failed, check the map content"
 
 typedef struct s_game	t_game;
 typedef struct s_mlx	t_mlx;
@@ -108,6 +110,6 @@ int			min(int a, int b);
 bool		is_number(char *str);
 void		remove_last_breakline(char *str);
 void		remove_last_spaces(char *str);
-void		move_next_spaces(char **str);
+void		skip_next_spaces(char **str);
 
 #endif

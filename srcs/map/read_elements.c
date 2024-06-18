@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/18 10:22:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 12:35:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 	char	*info;
 	ssize_t	identifier_index;
 
-	move_next_spaces(&element);
+	skip_next_spaces(&element);
 	info = ft_strchr(element, ' ');
 	if (info == NULL)
 		return (error_print(ERR_MISSING_COMPONENT), false);
 	*info = '\0';
 	info++;
-	move_next_spaces(&info);
+	skip_next_spaces(&info);
 	remove_last_spaces(info);
 	if (!*info)
 		return (error_print(ERR_MISSING_COMPONENT), false);
@@ -61,9 +61,9 @@ bool	read_elements(t_map *map, int fd)
 	while (elements_read < MAP_NB_IDS)
 	{
 		line = get_next_line(fd);
-		remove_last_breakline(line);
 		if (line == NULL)
-			return (false);
+			return (error_print(ERR_MAP_CONTENT), false);
+		remove_last_breakline(line);
 		if (line[0] != '\0')
 		{
 			if (!parse_element(map, line, identifier))
