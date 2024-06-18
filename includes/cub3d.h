@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 09:25:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 09:40:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@
 # define ERR_PLAYER_QUIT_MAP	"Player out of bounds of the map"
 # define ERR_BAD_COLOR			"Invalid color components"
 # define ERR_MISSING_COLOR		"Missing color components"
+# define ERR_MISSING_COMPONENT	"Missing element component"
 
 typedef struct s_game	t_game;
 typedef struct s_mlx	t_mlx;
