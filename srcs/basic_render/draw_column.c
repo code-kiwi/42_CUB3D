@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/18 11:27:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 11:34:36 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,13 @@ void	draw_texture_column(t_image *screen, t_column *column, int wall_end,
 void	draw_color_column(t_image *screen, t_mlx_coords *coords,
 	unsigned int color, int end)
 {
+	char	*addr;
+
+	addr = screen->addr + (coords->y * screen->line_len + coords->x * screen->bpp / 8);
 	while (coords->y < end)
 	{
-		t_mlx_draw_pixel(screen, coords, color);
+		*(unsigned int *)addr = color;
+		addr += screen->line_len;
 		coords->y++;
 	}
 }
