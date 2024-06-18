@@ -17,8 +17,6 @@
 #include "mlx.h"
 #include "mlx_api.h"
 
-#include <stdio.h>
-
 static bool	init_textures(t_game *game)
 {
 	size_t	index;
@@ -100,9 +98,11 @@ bool	t_game_init(t_game *game)
 		return (false);
 	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
 		return (false);
-	if (!add_event_handlers(game))
-		return (error_print(ERR_HOOKS), false);
 	if (!init_textures(game))
 		return (false);
+	if (!t_mlx_launch(&game->mlx))
+		return (false);
+	if (!add_event_handlers(game))
+		return (error_print(ERR_HOOKS), false);
 	return (true);
 }
