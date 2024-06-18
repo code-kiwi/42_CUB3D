@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_draw_line.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:04:21 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/17 11:52:24 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/18 12:03:08 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ static bool	t_mlx_draw_line_is_done(
  * @param coords_start The starting point coordinates of the line
  * @param coords_end The ending point coordinates of the line
  * @param color The color of the line
- * @return true on SUCCESS, false on ERROR
 */
 void	t_mlx_draw_line(
 	t_image *img,

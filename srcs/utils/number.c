@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   number.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 16:10:14 by root              #+#    #+#             */
-/*   Updated: 2024/06/16 17:47:29 by root             ###   ########.fr       */
+/*   Updated: 2024/06/17 18:47:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ bool	is_number(char *str)
 	index = 0;
 	if (str[index] == '-')
 		index++;
+	if (str[index] == '\0')
+		return (false);
 	while (str[index])
 	{
 		if (str[index] < '0' || str[index] > '9')

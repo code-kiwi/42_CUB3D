@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 13:41:36 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 18:11:27 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	game_loop(t_game *game)
 		printf ("delta : %ld\n", get_time_stamp().tv_usec - current_time);
 		if (!t_mlx_render(&game->mlx))
 			error_exit(game, ERR_RENDER);
+		if (!is_in_bounds(&game->player.position, &game->map))
+			error_exit(game, ERR_PLAYER_QUIT_MAP);
 		game->mlx.event_loop_counter = 0;
 	}
 	return (0);

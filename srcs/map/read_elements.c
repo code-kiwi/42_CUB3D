@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/17 11:34:30 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/18 12:35:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,16 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 	char	*info;
 	ssize_t	identifier_index;
 
+	skip_next_spaces(&element);
 	info = ft_strchr(element, ' ');
-	if (info != element + 1 && info != element + 2)
-		return (error_print(ERR_IDENTIFIER), false);
+	if (info == NULL)
+		return (error_print(ERR_MISSING_COMPONENT), false);
 	*info = '\0';
 	info++;
+	skip_next_spaces(&info);
+	remove_last_spaces(info);
+	if (!*info)
+		return (error_print(ERR_MISSING_COMPONENT), false);
 	identifier_index = find_str_in_array(identifier, element, MAP_NB_IDS);
 	if (identifier_index == -1)
 		return (error_print(ERR_IDENTIFIER), false);
@@ -57,8 +62,9 @@ bool	read_elements(t_map *map, int fd)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
-			return (false);
-		if (line[0] != '\n')
+			return (error_print(ERR_MAP_CONTENT), false);
+		remove_last_breakline(line);
+		if (line[0] != '\0')
 		{
 			if (!parse_element(map, line, identifier))
 			{
