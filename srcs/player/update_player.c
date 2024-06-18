@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/17 12:12:29 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:18:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 static void	update_look(t_player *player)
 {
-	if (player->turn_direction == -1)
+	if (player->turn_direction[0] && !player->turn_direction[1])
 		player->orientation += player->rotation_speed;
-	else if (player->turn_direction == 1)
+	else if (player->turn_direction[1] && !player->turn_direction[0])
 		player->orientation -= player->rotation_speed;
 }
 
