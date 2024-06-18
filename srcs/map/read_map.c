@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/18 12:27:09 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/18 13:31:50 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,7 @@ bool	read_map(t_map *map, char *filename)
 	}
 	map->tiles = read_tiles(fd, 0, true);
 	close(fd);
-	if (map->tiles == NULL
-		|| !get_lines_lengths(map)
-		|| !is_map_valid(map))
+	if (map->tiles == NULL || !get_lines_lengths(map) || !is_map_valid(map))
 	{
 		free_map(map);
 		return (false);
