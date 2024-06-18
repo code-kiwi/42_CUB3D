@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 15:43:42 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:11:45 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void		draw_walls(t_game *game);
 void		draw_color_column(t_image *screen, t_mlx_coords *coords,
 				unsigned int color, int end);
 void		draw_texture_column(t_image *screen, t_column *column, int wall_end,
-				t_image textures[4]);
+				t_image *texture);
 
 // Utils functions
 void		error_print(char *err_msg);

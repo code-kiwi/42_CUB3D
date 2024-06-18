@@ -3,16 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/17 13:59:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 18:11:14 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <math.h>
 
 #include "cub3d.h"
+
+static t_image	*get_texture(t_image textures[4], t_ray *ray)
+{
+	if (ray->is_vertical)
+	{
+		if (ray->slope.x > 0)
+			return (&textures[3]);
+		else
+			return (&textures[1]);
+	}
+	else
+	{
+		if (ray->slope.y > 0)
+			return (&textures[2]);
+		else
+			return (&textures[0]);
+	}
+}
 
 static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
@@ -33,11 +52,10 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 		wall_end = WIN_HEIGHT;
 	draw_color_column(screen, &column.coords, game->ground_color, wall_start);
 	column.texture_start = column.coords.y - wall_start;
-	if (ray->length == MAX_DISTANCE)
-		draw_color_column(screen, &column.coords, 0, wall_end);
-	else
-		draw_texture_column(screen, &column, wall_end, game->textures);
-	draw_color_column(screen, &column.coords, game->ceiling_color, WIN_HEIGHT);
+	draw_texture_column(game->mlx.img_buff, &column, wall_end,
+		get_texture(game->textures, ray));
+	draw_color_column(game->mlx.img_buff, &column.coords,
+		game->ceiling_color, WIN_HEIGHT);
 }
 
 void	draw_walls(t_game *game)
