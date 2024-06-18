@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_get_pixel.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 11:38:25 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/17 11:47:03 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/17 14:46:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@
  */
 char	*t_mlx_get_pixel(t_image *image, size_t x, size_t y)
 {
-	return (image->addr + x * image->line_len + y * (image->bpp / 8));
+	return (image->addr + y * image->line_len + x * (image->bpp / 8));
 }

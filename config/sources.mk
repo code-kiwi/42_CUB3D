@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources.mk                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/17 11:41:28 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/06/18 10:07:50 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,8 @@ MAP_DIR					=	map/
 MAP_FILES				=	read_map.c				\
 							is_in_bounds.c			\
 							read_elements.c			\
-							is_valid.c
+							is_valid.c				\
+							free_map.c
 MAP						=	$(addprefix $(MAP_DIR), $(MAP_FILES))
 
 # PLAYER
@@ -121,7 +122,9 @@ UTILS_DIR				=	utils/
 UTILS_FILE				=	math.c					\
 							array.c					\
 							handle_error.c			\
-							number.c
+							number.c				\
+							check_extension.c		\
+							string.c
 UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
 
 # SOURCES GENERAL
