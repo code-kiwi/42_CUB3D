@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_column.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/17 11:32:09 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/18 11:27:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,18 @@ void	draw_texture_column(t_image *screen, t_column *column, int wall_end,
 	int		texture_column;
 	float	scale_y;
 	t_image	*texture;
+	char	*addr;
 
 	texture = get_texture(textures, column->ray);
 	texture_column = pixel_column_on_texture(column->ray, texture->width);
 	scale_y = column->perceived_height / texture->height;
+	addr = screen->addr + (column->coords.y * screen->line_len + column->coords.x * screen->bpp / 8);
 	while (column->coords.y < wall_end)
 	{
 		color = t_mlx_get_pixel(texture, texture_column,
 				(int)floor(column->texture_start / scale_y));
-		t_mlx_draw_pixel(screen, &column->coords, *(unsigned int *)color);
+		*(unsigned int *)addr = *(unsigned int *)color;
+		addr += screen->line_len;
 		column->coords.y++;
 		column->texture_start++;
 	}
