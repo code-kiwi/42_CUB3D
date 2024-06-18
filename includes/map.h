@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/18 09:28:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 12:18:30 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define ID_FLOOR			"F"
 # define ID_CEILING			"C"
 
+# define MAP_EXTENSION		".cub"
 # define MAP_ALLOWED_CHARS	" 01NSEW"
 # define MAP_NB_IDS			6
 # define MAP_NB_TEXTURES	4

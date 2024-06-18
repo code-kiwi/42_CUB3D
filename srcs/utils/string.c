@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   string.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 09:20:22 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/18 09:31:56 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 13:06:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	remove_last_breakline(char *str)
 {
 	size_t	length;
 
+	if (str == NULL)
+		return ;
 	length = ft_strlen(str);
 	if (length == 0)
 		return ;
@@ -23,7 +25,7 @@ void	remove_last_breakline(char *str)
 		str[length - 1] = '\0';
 }
 
-void	move_next_spaces(char **str)
+void	skip_next_spaces(char **str)
 {
 	if (str == NULL || *str == NULL)
 		return ;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:39:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/17 18:58:05 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 13:31:25 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 void	free_map(t_map *map)
 {
+	if (map == NULL)
+		return ;
 	free_array(map->textures, MAP_NB_IDS, false);
 	free_array(map->tiles, map->lines_count, true);
 	map->tiles = NULL;

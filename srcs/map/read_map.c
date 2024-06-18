@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/18 09:26:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 13:31:50 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ bool	read_map(t_map *map, char *filename)
 	int		fd;
 
 	ft_bzero(map, sizeof(t_map));
-	if (!check_extension(filename, ".cub"))
+	if (!check_extension(filename, MAP_EXTENSION))
 		return (error_print(ERR_MAP_EXTENSION), false);
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (false);
+		return (error_print(ERR_MAP_OPEN), false);
 	if (!read_elements(map, fd))
 	{
 		free_map(map);
@@ -85,9 +85,7 @@ bool	read_map(t_map *map, char *filename)
 	}
 	map->tiles = read_tiles(fd, 0, true);
 	close(fd);
-	if (map->tiles == NULL
-		|| !get_lines_lengths(map)
-		|| !is_map_valid(map))
+	if (map->tiles == NULL || !get_lines_lengths(map) || !is_map_valid(map))
 	{
 		free_map(map);
 		return (false);
