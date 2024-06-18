@@ -6,15 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:42:52 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/17 18:58:25 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 10:50:25 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "map.h"
 #include "libft.h"
-
-#include <stdio.h>
 
 static bool	is_space(t_vector *coords, t_map *map)
 {
