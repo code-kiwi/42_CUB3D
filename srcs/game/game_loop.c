@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 11:27:46 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 11:44:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "libft.h"
 
 #include <stdio.h>
-# include <sys/time.h>
+#include <sys/time.h>
 
 /**
  * @brief The main function called at each game loop iteration
@@ -25,10 +25,12 @@
  * @return A dummy integer
 */
 
-struct timeval GetTimeStamp() {
-    struct timeval tv;
+struct timeval	get_time_stamp(void)
+{
+    struct timeval	tv;
+
     gettimeofday(&tv,NULL);
-    return tv;
+    return (tv);
 }
 
 int	game_loop(t_game *game)
@@ -43,9 +45,9 @@ int	game_loop(t_game *game)
 		update_player(&game->player, &game->map);
 		if (!cast_rays(&game->player, &game->map, game->rays))
 			error_exit(game, ERR_CAST_RAYS);
-		current_time = GetTimeStamp().tv_usec;
+		current_time = get_time_stamp().tv_usec;
 		draw_walls(game);
-		printf ("delta : %ld\n", GetTimeStamp().tv_usec - current_time);
+		printf ("delta : %ld\n", get_time_stamp().tv_usec - current_time);
 		if (!t_mlx_render(&game->mlx))
 			error_exit(game, ERR_RENDER);
 		game->mlx.event_loop_counter = 0;
