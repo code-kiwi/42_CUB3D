@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/18 13:31:50 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:57:50 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,45 @@ static bool	get_lines_lengths(t_map *map)
 	return (true);
 }
 
+static bool	map_line_is_empty(char *line)
+{
+	size_t	i;
+
+	if (line == NULL)
+		return (true);
+	i = 0;
+	while (line[i] != '\0')
+	{
+		if (!ft_isspace(line[i]))
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
+static bool	clean_map(char **tiles)
+{
+	size_t	i;
+	size_t	nb_lines;
+
+	if (tiles == NULL)
+		return (error_print(ERR_MAP_READ), false);
+	nb_lines = array_length((void **)tiles);
+	if (nb_lines == 0)
+		return (error_print(ERR_MAP_EMPTY), false);
+	i = nb_lines - 1;
+	while (map_line_is_empty(tiles[i]))
+		i--;
+	i++;
+	while (i < nb_lines)
+	{
+		free(tiles[i]);
+		tiles[i] = NULL;
+		i++;
+	}
+	return (true);
+}
+
 bool	read_map(t_map *map, char *filename)
 {
 	int		fd;
@@ -85,7 +124,7 @@ bool	read_map(t_map *map, char *filename)
 	}
 	map->tiles = read_tiles(fd, 0, true);
 	close(fd);
-	if (map->tiles == NULL || !get_lines_lengths(map) || !is_map_valid(map))
+	if (!clean_map(map->tiles) || !get_lines_lengths(map) || !is_map_valid(map))
 	{
 		free_map(map);
 		return (false);

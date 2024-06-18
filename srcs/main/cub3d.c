@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 11:59:12 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/18 15:43:59 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		error_print(ERR_ARGUMENTS);
+		error_print(ERR_PROG_ARGS);
 		return (EXIT_FAILURE);
 	}
 	ft_memset(&game, 0, sizeof(t_game));

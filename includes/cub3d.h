@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 12:35:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/18 15:43:42 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,32 +33,35 @@
 # define ERR_BASIC				"Error\n"
 # define ERR_LITERALS			"Error\n%s\n"
 # define ERR_ARG				"Bad argument given to the function"
+# define ERR_PROG_ARGS			"Bad arguments, expected one argument"
 # define ERR_GAME_INIT			"Impossible to intialize the t_game structure"
 # define ERR_MLX_INIT			"Impossible to intialize the t_mlx structure"
 # define ERR_GAME_LOOP			"Game loop failed"
 # define ERR_HOOKS				"Impossible to add event handling"
 # define ERR_RENDER				"Rendering error"
+# define ERR_CAST_RAYS			"Ran in a wall"
+
 # define ERR_WALLS				"Map not surrounded by walls"
 # define ERR_ELEM				"Map elements not valid"
 # define ERR_IDENTIFIER			"Map unknown identifier"
-# define ERR_INIT_TEXTURES		"Can't open textures"
-# define ERR_MISSING_TEXTURES	"Missing textures"
-# define ERR_CAST_RAYS			"Ran in a wall"
-# define ERR_MULTIPLE_PLAYERS	"Multiple players on the map"
-# define ERR_MISSING_PLAYER		"Missing player"
 # define ERR_EMPTY_LINE			"Empty line in the map content"
 # define ERR_MAP_EXTENSION		"Bad map extension, expected '.cub'"
-# define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
-# define ERR_ARGUMENTS			"Bad arguments, expected one argument"
+# define ERR_MULTIPLE_PLAYERS	"Multiple players on the map"
+# define ERR_MISSING_PLAYER		"Missing player"
 # define ERR_MAP_EMPTY			"Missing map content"
 # define ERR_PLAYER_QUIT_MAP	"Player out of bounds of the map"
+# define ERR_MAP_OPEN			"Impossible to open the given map file"
+# define ERR_MAP_CONTENT		"Reading failed, check the map content"
+# define ERR_MISSING_TEXTURES	"Missing textures"
+# define ERR_MAP_READ			"Map: read failed"
+
+# define ERR_INIT_TEXTURES		"Can't open textures"
+# define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
 # define ERR_COLOR_RANGE		"Color should be in range [0,255]"
 # define ERR_MISSING_COLOR		"Missing color components, needed 3 for r,g,b"
 # define ERR_MISSING_COMPONENT	"Missing element component"
 # define ERR_TOO_MUCH_COLOR		"Too much color components, needed 3 for r,g,b"
 # define ERR_COLOR_NAN			"Color component not a number"
-# define ERR_MAP_OPEN			"Impossible to open the given map file"
-# define ERR_MAP_CONTENT		"Reading failed, check the map content"
 
 typedef struct s_game	t_game;
 typedef struct s_mlx	t_mlx;
