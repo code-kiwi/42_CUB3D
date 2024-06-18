@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_destroy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:36:36 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/15 00:02:14 by root             ###   ########.fr       */
+/*   Updated: 2024/06/18 11:58:39 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,5 @@ void	t_mlx_destroy(t_mlx *mlx)
 		mlx_destroy_display(mlx->mlx_ptr);
 		free(mlx->mlx_ptr);
 	}
+	free(mlx->title);
 }

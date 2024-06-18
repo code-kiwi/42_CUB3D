@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_api.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/17 11:49:01 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:12:04 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ struct s_mlx
 	t_image	*img2;
 	t_image	*img_buff;
 	size_t	event_loop_counter;
+	int		width;
+	int		height;
+	char	*title;
 };
 
 struct s_image
@@ -94,6 +97,7 @@ enum e_hook_type
 
 // t_mlx functions
 bool	t_mlx_init(t_mlx *mlx, int win_width, int win_height, char *title);
+bool	t_mlx_launch(t_mlx *mlx);
 void	t_mlx_destroy(t_mlx *mlx);
 bool	t_mlx_add_hook(t_mlx *mlx, int (*handler)(), void *game, \
 			enum e_hook_type hook_type);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_in_bounds.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:54:27 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/16 21:58:19 by root             ###   ########.fr       */
+/*   Updated: 2024/06/18 18:12:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ bool	is_in_bounds(t_vector *position, t_map *map)
 {
 	if (position->x < 0
 		|| position->y < 0
-		|| position->y > map->lines_count
-		|| position->x > map->lines_lengths[(int)floorf(position->y)])
+		|| position->y >= map->lines_count
+		|| position->x >= map->lines_lengths[(int)floorf(position->y)])
 		return (false);
 	return (true);
 }
@@ -34,7 +34,7 @@ bool	is_wall(t_vector *position, t_map *map)
 
 	if (!is_in_bounds(position, map))
 		return (true);
-	tile_x = floorf(position->x);
-	tile_y = floorf(position->y);
+	tile_x = position->x;
+	tile_y = position->y;
 	return (map->tiles[tile_y][tile_x] == ID_WALL);
 }

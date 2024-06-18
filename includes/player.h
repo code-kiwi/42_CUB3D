@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   player.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
 /*   Updated: 2024/06/18 18:16:06 by brappo           ###   ########.fr       */
@@ -15,6 +15,7 @@
 
 # include "vector.h"
 
+# define PLAYER_POS_ORDERED	"ENWS"
 # define FOV_ANGLE_DEFAULT	1.047197551 
 # define FRONT 				0
 # define LEFT 				1
