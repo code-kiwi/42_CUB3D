@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/17 09:21:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 18:16:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	key_press_handler(int key, t_game *data)
 	if (data == NULL)
 		error_exit(NULL, ERR_ARG);
 	if (key == KEY_RIGHT)
-		data->player.turn_direction = 1;
+		data->player.turn_direction[1] = true;
 	else if (key == KEY_LEFT)
-		data->player.turn_direction = -1;
+		data->player.turn_direction[0] = true;
 	else if (key == KEY_W)
 		data->player.is_walking[FRONT] = true;
 	else if (key == KEY_S)

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 13:26:11 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/18 18:29:25 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ bool	t_player_init(t_player *player, t_map *map)
 	set_player_orientation(player, map);
 	player->position.x += 0.5;
 	player->position.y += 0.5;
-	player->turn_direction = 0;
 	player->move_speed[0] = 0.1;
 	player->move_speed[1] = 0.05;
 	player->move_speed[2] = 0.05;
 	player->move_speed[3] = 0.05;
 	player->rotation_speed = PI / 95;
 	ft_memset(player->is_walking, 0, 4 * sizeof(bool));
+	ft_memset(player->turn_direction, 0, 2 * sizeof(bool));
 	return (true);
 }
