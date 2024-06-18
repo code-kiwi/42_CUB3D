@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/18 17:33:26 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:42:35 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,11 @@ static bool	clean_map(char **tiles)
 	nb_lines = array_length((void **)tiles);
 	if (nb_lines == 0)
 		return (error_print(ERR_MAP_EMPTY), false);
-	i = nb_lines - 1;
-	while (i > 0 && map_line_is_empty(tiles[i]))
+	i = nb_lines;
+	while (i > 0 && map_line_is_empty(tiles[i - 1]))
 	{
-		free(tiles[i]);
-		tiles[i] = NULL;
+		free(tiles[i - 1]);
+		tiles[i - 1] = NULL;
 		i--;
 	}
 	return (true);
