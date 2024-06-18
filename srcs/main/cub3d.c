@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/17 17:41:17 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 10:41:10 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int	main(int argc, char **argv)
 	if (!read_map(&game.map, argv[1])
 		|| !t_game_init(&game))
 	{
-		if (errno != 0)
-			perror(ERR_SYSTEM);
 		t_game_destroy(&game);
 		return (EXIT_FAILURE);
 	}

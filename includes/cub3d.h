@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 09:58:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/18 10:30:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@
 # define ERR_MAP_EXTENSION		"bad map extension, expected '.cub'"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
 # define ERR_ARGUMENTS			"Bad arguments, expected one argument"
-# define ERR_SYSTEM				"External function error"
 # define ERR_MAP_EMPTY			"Missing map content"
 # define ERR_PLAYER_QUIT_MAP	"Player out of bounds of the map"
 # define ERR_COLOR_RANGE		"Color should be in range [0,255]"
