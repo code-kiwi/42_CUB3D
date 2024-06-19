@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/19 21:19:47 by root             ###   ########.fr       */
+/*   Updated: 2024/06/19 21:41:48 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,13 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_vector *sprite_pos,
 		entity_angle += 2 * PI;
 	else if (player->orientation < PI / 2 && entity_angle > PI / 2 * 3)
 		entity_angle -= 2 * PI;
-	sprite_screen->x = entity_angle / player->angle_by_pixel;
+	sprite_screen->x = entity_angle * player->pixel_by_angle;
 	sprite_screen->y = WIN_HEIGHT / 2;
+}
+
+void	draw_sprite_column()
+{
+
 }
 
 
@@ -50,7 +55,7 @@ void	draw_sprite(t_sprite *sprite, t_player *player)
 	float			scale;
 
 	get_sprite_screen_pos(&sprite_screen, &sprite->position, player);
-	scale = get_distance(&sprite->position, &player->position);
-	printf("length : %f\n", scale);
+	scale = 1 / get_distance(&sprite->position, &player->position);
+	printf("scale : %f\n", scale);
 	printf("sprite screen : (%d,%d)\n", sprite_screen.x, sprite_screen.y);
 }

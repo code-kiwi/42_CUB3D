@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 19:56:15 by root             ###   ########.fr       */
+/*   Updated: 2024/06/19 21:31:40 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,17 @@ bool	cast_rays(t_player *player, t_map *map, t_ray *rays)
 {
 	size_t		index;
 	float		angle;
+	float		angle_by_pixel;
 
 	index = 0;
-	player->angle_by_pixel = player->fov_angle / (WIN_WIDTH - 1);
+	angle_by_pixel = player->fov_angle / (WIN_WIDTH - 1);
 	angle = player->orientation + (player->fov_angle / 2);
 	player->leftmost_angle = angle;
 	while (index < WIN_WIDTH)
 	{
 		if (!set_ray(&rays[index], angle, player, map))
 			return (false);
-		angle -= player->angle_by_pixel;
+		angle -= angle_by_pixel;
 		index++;
 	}
 	return (true);

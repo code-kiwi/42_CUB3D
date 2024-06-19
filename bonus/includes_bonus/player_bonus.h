@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 19:54:34 by root             ###   ########.fr       */
+/*   Updated: 2024/06/19 21:31:08 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ struct s_player
 	float		move_speed[4];
 	float		rotation_speed;
 	float		leftmost_angle;
-	float		angle_by_pixel;
+	float		pixel_by_angle;
 };
 
 // t_player functions
