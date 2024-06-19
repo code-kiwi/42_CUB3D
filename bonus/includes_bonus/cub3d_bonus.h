@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 12:01:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 13:31:03 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define PI 3.14159265358
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				3000
-# define WIN_HEIGHT				2000
+# define WIN_WIDTH				1980
+# define WIN_HEIGHT				1000
 # define MAX_DISTANCE			200
 
 # define ERR_BASIC				"Error\n"
@@ -114,5 +114,6 @@ bool		is_number(char *str);
 void		remove_last_breakline(char *str);
 void		remove_last_spaces(char *str);
 void		skip_next_spaces(char **str);
+void		display_delta_time(void);
 
 #endif
