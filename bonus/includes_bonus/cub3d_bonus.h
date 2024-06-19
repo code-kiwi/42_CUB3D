@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 12:01:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 17:04:42 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define PI 3.14159265358
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				3000
-# define WIN_HEIGHT				2000
+# define WIN_WIDTH				200
+# define WIN_HEIGHT				200
 # define MAX_DISTANCE			200
 
 # define ERR_BASIC				"Error\n"
@@ -57,11 +57,7 @@
 
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
-# define ERR_COLOR_RANGE		"Color should be in range [0,255]"
-# define ERR_MISSING_COLOR		"Missing color components, needed 3 for r,g,b"
 # define ERR_MISSING_COMPONENT	"Missing element component"
-# define ERR_TOO_MUCH_COLOR		"Too much color components, needed 3 for r,g,b"
-# define ERR_COLOR_NAN			"Color component not a number"
 
 typedef struct s_game	t_game;
 typedef struct s_mlx	t_mlx;
@@ -75,9 +71,7 @@ struct s_game
 	t_vector		player_position;
 	t_ray			rays[WIN_WIDTH];
 	float			player_rotation_rad;
-	t_image			textures[4];
-	unsigned int	ceiling_color;
-	unsigned int	ground_color;
+	t_image			textures[6];
 };
 
 struct	s_column
@@ -87,6 +81,7 @@ struct	s_column
 	t_mlx_coords	coords;
 	t_ray			*ray;
 	float			perceived_height;
+	int				wall_start;
 };
 
 // Game functions
@@ -96,10 +91,10 @@ void		t_game_destroy(t_game *game);
 
 // Render functions
 void		draw_walls(t_game *game);
-void		draw_color_column(t_image *screen, t_mlx_coords *coords,
-				unsigned int color, int end);
 void		draw_texture_column(t_image *screen, t_column *column, int wall_end,
 				t_image *texture);
+void		draw_ground_ceiling(t_column *column, int end, t_game *game,
+				t_ray *ray);
 
 // Utils functions
 void		error_print(char *err_msg);
