@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 15:08:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 15:25:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	if (wall_end > WIN_HEIGHT)
 		wall_end = WIN_HEIGHT;
 	column.coords.y = column.wall_start;
+	if (column.coords.y < 0)
+		column.coords.y = 0;
 	column.texture_start = column.coords.y - column.wall_start;
 	draw_texture_column(game->mlx.img_buff, &column, wall_end,
 		get_texture(game->textures, ray));
