@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources.mk                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/18 10:07:50 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/19 11:02:14 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@
 NAME					=	cub3D
 EXECUTABLE_DIR			=	./
 NAME_EXECUTABLE			=	$(addprefix $(EXECUTABLE_DIR), $(NAME))
+MANDATORY_DIR			=	mandatory/
 
 CC						=	cc
 ifndef NOFLAGS
@@ -28,7 +29,8 @@ FSFLAGS					=	-fsanitize=address
 EXT_LIB_FLAGS			=	-lm
 
 # HEADERS
-HEADERS_DIR				=	includes/
+HEADERS_SUBDIR			=	includes/
+HEADERS_DIR				=	$(addprefix $(MANDATORY_DIR), $(HEADERS_SUBDIR))
 HEADERS_FILES			=	cub3d.h mlx_api.h event_handlers.h map.h vector.h
 HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
@@ -128,18 +130,21 @@ UTILS_FILE				=	math.c					\
 UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
 
 # SOURCES GENERAL
-SRCS_MAIN_DIR			=	srcs/
+SRCS_MAIN_SUBDIR		=	srcs/
+SRCS_MAIN_DIR			=	$(addprefix $(MANDATORY_DIR), $(SRCS_MAIN_SUBDIR))
 SRCS_FILES				=	$(MAIN) $(MLX_API) $(UTILS) $(GAME) $(VECTOR)	\
 							$(EVENT_HANDLERS) $(MAP) $(BASIC_RENDER)		\
 							$(PLAYER) $(RAY)
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
-OBJS_MAIN_DIR			=	objs/
+OBJS_MAIN_SUBDIR		=	objs/
+OBJS_MAIN_DIR			=	$(addprefix $(MANDATORY_DIR), $(OBJS_MAIN_SUBDIR))
 OBJS_FILES				=	$(SRCS_FILES:.c=.o)
 OBJS					=	$(addprefix $(OBJS_MAIN_DIR), $(OBJS_FILES))
 
 # DEPENDENCIES
-DEPS_MAIN_DIR			=	deps/
+DEPS_MAIN_SUBDIR		=	deps/
+DEPS_MAIN_DIR			=	$(addprefix $(MANDATORY_DIR), $(DEPS_MAIN_SUBDIR))
 DEPS_FILES				=	$(OBJS_FILES:.o=.d)
 DEPS					=	$(addprefix $(DEPS_MAIN_DIR), $(DEPS_FILES))
