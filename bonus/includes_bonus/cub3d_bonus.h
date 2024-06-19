@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 17:04:42 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 17:29:36 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@
 # include "player_bonus.h"
 # include "ray_bonus.h"
 
-# define PI 3.14159265358
+# define PI						3.14159265358
+# define FPS					100
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				200
-# define WIN_HEIGHT				200
+# define WIN_WIDTH				1980
+# define WIN_HEIGHT				1000
 # define MAX_DISTANCE			200
 
 # define ERR_BASIC				"Error\n"
@@ -71,6 +72,8 @@ struct s_game
 	t_vector		player_position;
 	t_ray			rays[WIN_WIDTH];
 	float			player_rotation_rad;
+	long			frame_time_usec;
+	long			tick_last_frame;
 	t_image			textures[6];
 };
 
@@ -109,5 +112,7 @@ bool		is_number(char *str);
 void		remove_last_breakline(char *str);
 void		remove_last_spaces(char *str);
 void		skip_next_spaces(char **str);
+void		display_delta_time(void);
+long		get_tick(void);
 
 #endif

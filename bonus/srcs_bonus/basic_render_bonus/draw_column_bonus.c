@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_column_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/19 15:25:18 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 17:27:56 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
-
 #include <math.h>
+
+#include "cub3d_bonus.h"
 
 static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 {

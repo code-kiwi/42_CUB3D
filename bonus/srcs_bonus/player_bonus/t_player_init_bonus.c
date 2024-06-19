@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_player_init_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 11:09:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 15:48:22 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ bool	t_player_init(t_player *player, t_map *map)
 	set_player_orientation(player, map);
 	player->position.x += 0.5;
 	player->position.y += 0.5;
-	player->move_speed[0] = 0.2;
-	player->move_speed[1] = 0.1;
-	player->move_speed[2] = 0.1;
-	player->move_speed[3] = 0.1;
-	player->rotation_speed = PI / 45;
+	player->move_speed[0] = PLAYER_SPEED_FORWARD;
+	player->move_speed[1] = PLAYER_SPEED_LEFT;
+	player->move_speed[2] = PLAYER_SPEED_BACKWARD;
+	player->move_speed[3] = PLAYER_SPEED_RIGHT;
+	player->rotation_speed = PLAYER_SPEED_ROTATION;
 	ft_memset(player->is_walking, 0, 4 * sizeof(bool));
 	ft_memset(player->turn_direction, 0, 2 * sizeof(bool));
 	return (true);

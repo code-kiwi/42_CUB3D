@@ -3,59 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 14:25:33 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 17:29:49 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <unistd.h>
 
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
 #include "libft.h"
 
-#include <stdio.h>
-#include <sys/time.h>
-
-/**
- * @brief The main function called at each game loop iteration
- * @param game The project's game
- * @return A dummy integer
-*/
-
-long	get_time_diff(struct timeval *start, struct timeval *end)
+static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {
-	long	result;
+	long	time_to_wait;
+	long	tick;
 
-	result = (end->tv_sec - start->tv_sec) * 1000000;
-	result += end->tv_usec - start->tv_usec;
-	return (result);
+	tick = get_tick();
+	if (tick == -1)
+		return (false);
+	time_to_wait = game->tick_last_frame + game->frame_time_usec - tick;
+	if (time_to_wait > 0 && time_to_wait < game->frame_time_usec)
+	{
+		if (usleep(time_to_wait) != 0)
+			return (false);
+		tick = get_tick();
+		if (tick == -1)
+			return (false);
+	}
+	*delta_time = (tick - game->tick_last_frame) / 1000000.0f;
+	game->tick_last_frame = tick;
+	return (true);
 }
 
 int	game_loop(t_game *game)
 {
-	struct timeval	start;
-	struct timeval	end;
+	float	delta_time;
 
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
-	game->mlx.event_loop_counter++;
-	if (game->mlx.event_loop_counter >= EVENT_LOOP_FRAME_TARGET)
-	{
-		gettimeofday(&start, NULL);
-		update_player(&game->player, &game->map);
-		if (!is_in_bounds(&game->player.position, &game->map))
-			error_exit(game, ERR_PLAYER_QUIT_MAP);
-		if (!cast_rays(&game->player, &game->map, game->rays))
-			error_exit(game, ERR_CAST_RAYS);
-		draw_walls(game);
-		if (!t_mlx_render(&game->mlx))
-			error_exit(game, ERR_RENDER);
-		game->mlx.event_loop_counter = 0;
-		gettimeofday(&end, NULL);
-		printf ("delta : %ld\n", get_time_diff(&start, &end));
-	}
+	game_loop_handle_fps(game, &delta_time);
+	update_player(&game->player, &game->map, delta_time);
+	if (!is_in_bounds(&game->player.position, &game->map))
+		error_exit(game, ERR_PLAYER_QUIT_MAP);
+	if (!cast_rays(&game->player, &game->map, game->rays))
+		error_exit(game, ERR_CAST_RAYS);
+	draw_walls(game);
+	if (!t_mlx_render(&game->mlx))
+		error_exit(game, ERR_RENDER);
 	return (0);
 }
