@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 15:33:21 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:54:58 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	game_loop(t_game *game)
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
-	update_player(&game->player, &game->map);
+	update_player(&game->player, &game->map, delta_time);
 	if (!is_in_bounds(&game->player.position, &game->map))
 		error_exit(game, ERR_PLAYER_QUIT_MAP);
 	if (!cast_rays(&game->player, &game->map, game->rays))

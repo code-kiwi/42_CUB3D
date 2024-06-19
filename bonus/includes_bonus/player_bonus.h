@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 12:22:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:52:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,18 @@
 
 # include "vector_bonus.h"
 
-# define PLAYER_POS_ORDERED	"ENWS"
-# define FOV_ANGLE_DEFAULT	1.047197551 
-# define FRONT 				0
-# define LEFT 				1
-# define BACK 				2
-# define RIGHT 				3
+# define PLAYER_POS_ORDERED		"ENWS"
+# define FOV_ANGLE_DEFAULT		1.047197551 
+# define FRONT 					0
+# define LEFT 					1
+# define BACK 					2
+# define RIGHT 					3
+
+# define PLAYER_SPEED_FORWARD	5
+# define PLAYER_SPEED_BACKWARD	3
+# define PLAYER_SPEED_LEFT		3
+# define PLAYER_SPEED_RIGHT		3
+# define PLAYER_SPEED_ROTATION	1.570796327
 
 typedef struct s_player	t_player;
 typedef struct s_map	t_map;
@@ -39,6 +45,6 @@ struct s_player
 // t_player functions
 bool	t_player_init(t_player *player, t_map *map);
 
-void	update_player(t_player *player, t_map *map);
+void	update_player(t_player *player, t_map *map, float delta_time);
 
 #endif
