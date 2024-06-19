@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 14:25:10 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 15:03:04 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static	void	get_pixel_position_in_tile(t_mlx_coords *coords, t_ray *ray,
 	result->y = modf(result->y, &temp);
 }
 
-static void	draw_pixel_from_texture(t_vector *pos_in_tile,
-	t_mlx_coords *screen_coords, t_image *texture, t_image *screen)
+static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
+	t_image *texture)
 {
 	t_mlx_coords	color_coords;
 	char			*color;
@@ -41,19 +41,33 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile,
 	color_coords.x = pos_in_tile->x * texture->width;
 	color_coords.y = pos_in_tile->y * texture->height;
 	color = t_mlx_get_pixel(texture, color_coords.x, color_coords.y);
-	t_mlx_draw_pixel(screen, screen_coords, *(unsigned int *)color);
+	*(unsigned int *)addr = *(unsigned int *)color;
 }
 
-void	draw_ground(t_mlx_coords *coords, int end, t_game *game, t_ray *ray)
+void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
 {
-	t_vector	pixel_pos;
+	t_vector		pixel_pos;
+	t_mlx_coords	ceiling;
+	char			*ground_addr;
+	char			*ceiling_addr;
+	t_image			*screen;
 
-	while (coords->y < end)
+	ceiling.x = column->coords.x;
+	ceiling.y = column->wall_start - 1;
+	screen = game->mlx.img_buff;
+	ground_addr = t_mlx_get_pixel(screen, column->coords.x, column->coords.y);
+	ceiling_addr = t_mlx_get_pixel(screen, ceiling.x, ceiling.y);
+	while (column->coords.y < end)
 	{
-		get_pixel_position_in_tile(coords, ray, &game->player.position,
+		get_pixel_position_in_tile(&column->coords, ray, &game->player.position,
 			&pixel_pos);
-		draw_pixel_from_texture(&pixel_pos, coords, &game->textures[4],
-			game->mlx.img_buff);
-		coords->y++;
+		draw_pixel_from_texture(&pixel_pos, ground_addr, &game->textures[4]);
+		if (ceiling.y >= 0)
+			draw_pixel_from_texture(&pixel_pos, ceiling_addr,
+				&game->textures[5]);
+		column->coords.y++;
+		ceiling.y--;
+		ground_addr += game->mlx.img_buff->line_len;
+		ceiling_addr -= game->mlx.img_buff->line_len;
 	}
 }

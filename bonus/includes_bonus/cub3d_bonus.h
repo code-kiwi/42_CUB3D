@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 13:38:10 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 14:37:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ struct	s_column
 	t_mlx_coords	coords;
 	t_ray			*ray;
 	float			perceived_height;
+	int				wall_start;
 };
 
 // Game functions
@@ -94,7 +95,7 @@ void		draw_color_column(t_image *screen, t_mlx_coords *coords,
 				unsigned int color, int end);
 void		draw_texture_column(t_image *screen, t_column *column, int wall_end,
 				t_image *texture);
-void		draw_ground(t_mlx_coords *coords, int end, t_game *game,
+void		draw_ground_ceiling(t_column *column, int end, t_game *game,
 				t_ray *ray);
 
 // Utils functions
