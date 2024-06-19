@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 20:25:26 by root             ###   ########.fr       */
+/*   Updated: 2024/06/19 21:19:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define FPS					100
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				1980
-# define WIN_HEIGHT				1000
+# define WIN_WIDTH				800
+# define WIN_HEIGHT				800
 # define MAX_DISTANCE			200
 
 # define ERR_BASIC				"Error\n"
@@ -65,6 +65,13 @@ typedef struct s_mlx	t_mlx;
 typedef struct s_column	t_column;
 typedef struct s_sprite	t_sprite;
 
+struct	s_sprite
+{
+	t_vector	position;
+	float		distance;
+	t_image		*texture;
+};
+
 struct s_game
 {
 	t_mlx			mlx;
@@ -76,6 +83,7 @@ struct s_game
 	long			frame_time_usec;
 	long			tick_last_frame;
 	t_image			textures[7];
+	t_sprite		sprite;
 };
 
 struct	s_column
@@ -86,13 +94,6 @@ struct	s_column
 	t_ray			*ray;
 	float			perceived_height;
 	int				wall_start;
-};
-
-struct	s_sprite
-{
-	t_vector	position;
-	float		distance;
-	t_image		texture;
 };
 
 // Game functions

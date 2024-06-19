@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:42:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 20:24:09 by root             ###   ########.fr       */
+/*   Updated: 2024/06/19 20:28:44 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	t_vector_get_slope(t_vector *slope, float angle_rad)
 	slope->y = sin(angle_rad);
 }
 
-inline float	get_distance(t_vector *a, t_vector *b)
+float	get_distance(t_vector *a, t_vector *b)
 {
 	return (sqrtf(powf(a->x - b->x, 2) + powf(a->y - b->y, 2)));
 }
