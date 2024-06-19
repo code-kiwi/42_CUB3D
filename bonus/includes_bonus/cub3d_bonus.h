@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 12:01:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 12:48:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,7 @@
 
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
-# define ERR_COLOR_RANGE		"Color should be in range [0,255]"
-# define ERR_MISSING_COLOR		"Missing color components, needed 3 for r,g,b"
 # define ERR_MISSING_COMPONENT	"Missing element component"
-# define ERR_TOO_MUCH_COLOR		"Too much color components, needed 3 for r,g,b"
-# define ERR_COLOR_NAN			"Color component not a number"
 
 typedef struct s_game	t_game;
 typedef struct s_mlx	t_mlx;
@@ -75,9 +71,7 @@ struct s_game
 	t_vector		player_position;
 	t_ray			rays[WIN_WIDTH];
 	float			player_rotation_rad;
-	t_image			textures[4];
-	unsigned int	ceiling_color;
-	unsigned int	ground_color;
+	t_image			textures[6];
 };
 
 struct	s_column
