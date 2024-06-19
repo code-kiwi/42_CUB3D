@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 13:31:03 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:32:59 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 # include "player_bonus.h"
 # include "ray_bonus.h"
 
-# define PI 3.14159265358
+# define PI						3.14159265358
+# define FPS					30
 
 # define WIN_TITLE				"Cub3D"
 # define WIN_WIDTH				1980
@@ -78,6 +79,8 @@ struct s_game
 	t_image			textures[4];
 	unsigned int	ceiling_color;
 	unsigned int	ground_color;
+	long			frame_time_usec;
+	long			tick_last_frame;
 };
 
 struct	s_column
@@ -115,5 +118,6 @@ void		remove_last_breakline(char *str);
 void		remove_last_spaces(char *str);
 void		skip_next_spaces(char **str);
 void		display_delta_time(void);
+long		get_tick(void);
 
 #endif

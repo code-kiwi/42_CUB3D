@@ -91,6 +91,8 @@ bool	t_game_init(t_game *game)
 {
 	if (game == NULL)
 		return (false);
+	game->frame_time_usec = 1000000 / FPS;
+	game->tick_last_frame = 0;
 	if (!t_player_init(&game->player, &game->map))
 		return (false);
 	if (!init_color(&game->ground_color, game->map.textures[4])

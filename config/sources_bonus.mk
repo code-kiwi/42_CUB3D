@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/19 13:31:59 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/19 15:32:45 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,7 +106,8 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 								number_bonus.c					\
 								check_extension_bonus.c			\
 								string_bonus.c					\
-								display_delta_time_bonus.c
+								display_delta_time_bonus.c		\
+								get_tick.c
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
 # SOURCES GENERAL
