@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 15:25:24 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 17:04:42 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define PI 3.14159265358
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				600
-# define WIN_HEIGHT				600
+# define WIN_WIDTH				200
+# define WIN_HEIGHT				200
 # define MAX_DISTANCE			200
 
 # define ERR_BASIC				"Error\n"

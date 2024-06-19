@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 15:25:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 17:18:21 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 		/ (ray->length * cos(ray->angle_from_orientation));
 	column.ray = ray;
 	column.wall_start = floorf((WIN_HEIGHT - column.perceived_height) / 2);
-	wall_end = floorf((WIN_HEIGHT + column.perceived_height) / 2);
+	wall_end = ceilf((WIN_HEIGHT + column.perceived_height) / 2);
 	if (wall_end > WIN_HEIGHT)
 		wall_end = WIN_HEIGHT;
 	column.coords.y = column.wall_start;
