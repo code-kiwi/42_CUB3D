@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 19:33:57 by root             ###   ########.fr       */
+/*   Updated: 2024/06/19 20:25:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@
 typedef struct s_game	t_game;
 typedef struct s_mlx	t_mlx;
 typedef struct s_column	t_column;
+typedef struct s_sprite	t_sprite;
 
 struct s_game
 {
@@ -87,6 +88,13 @@ struct	s_column
 	int				wall_start;
 };
 
+struct	s_sprite
+{
+	t_vector	position;
+	float		distance;
+	t_image		texture;
+};
+
 // Game functions
 int			game_loop(t_game *game);
 bool		t_game_init(t_game *game);
@@ -98,6 +106,7 @@ void		draw_texture_column(t_image *screen, t_column *column, int wall_end,
 				t_image *texture);
 void		draw_ground_ceiling(t_column *column, int end, t_game *game,
 				t_ray *ray);
+void		draw_sprite(t_sprite *sprite, t_player *player);
 
 // Utils functions
 void		error_print(char *err_msg);
