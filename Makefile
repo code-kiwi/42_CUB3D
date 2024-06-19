@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:35:12 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/19 11:21:30 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/19 11:35:35 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,12 +32,12 @@ $(OBJS_MAIN_DIR)%.o: $(SRCS_MAIN_DIR)%.c $(HEADERS) $(LIBFT_HEADERS)
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(LIBFT) $(MLX) $(OBJS_BONUS)
-	$(CC) $(CFLAGS) $(HFLAGS) $(OBJS_BONUS) $(LIBFT_FLAGS) $(MLX_FLAGS) $(EXT_LIB_FLAGS) -o $@
+	$(CC) $(CFLAGS) $(HFLAGS_BONUS) $(OBJS_BONUS) $(LIBFT_FLAGS) $(MLX_FLAGS) $(EXT_LIB_FLAGS) -o $@
 
 $(OBJS_MAIN_DIR_BONUS)%.o: $(SRCS_MAIN_DIR_BONUS)%.c $(HEADERS_BONUS) $(LIBFT_HEADERS)
 	@mkdir -p $(@D)
 	@mkdir -p $(DEPS_MAIN_DIR_BONUS)$(dir $*)
-	$(CC) $(CFLAGS) $(HFLAGS) -MP -MMD -MF $(DEPS_MAIN_DIR_BONUS)$*.d -c $< -o $@ 
+	$(CC) $(CFLAGS) $(HFLAGS_BONUS) -MP -MMD -MF $(DEPS_MAIN_DIR_BONUS)$*.d -c $< -o $@ 
 
 $(LIBFT): init_submodule FORCE
 	$(MAKE) -sC $(LIBFT_DIR)

@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/19 11:22:29 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/19 11:40:00 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,11 @@ EXT_LIB_FLAGS			=	-lm
 # HEADERS
 HEADERS_SUBDIR			=	includes/
 HEADERS_DIR				=	$(addprefix $(MANDATORY_DIR), $(HEADERS_SUBDIR))
-HEADERS_FILES			=	cub3d.h mlx_api.h event_handlers.h map.h vector.h
+HEADERS_FILES			=	cub3d.h				\
+							mlx_api.h			\
+							event_handlers.h	\
+							map.h				\
+							vector.h
 HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
 # LIBFT
