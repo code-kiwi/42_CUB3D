@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 13:24:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/19 15:57:27 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool	cast_rays(t_player *player, t_map *map, t_ray *rays)
 	float		angle;
 
 	index = 0;
-	angle_by_pixel = player->fov_angle / (WIN_WIDTH - 1);
+	angle_by_pixel = player->fov_angle / WIN_WIDTH;
 	angle = player->orientation + (player->fov_angle / 2);
 	while (index < WIN_WIDTH)
 	{
