@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 18:11:45 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/19 08:57:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define PI 3.14159265358
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				1900
-# define WIN_HEIGHT				1000
+# define WIN_WIDTH				3000
+# define WIN_HEIGHT				2000
 # define MAX_DISTANCE			200
 
 # define ERR_BASIC				"Error\n"
