@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 10:37:23 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 12:01:04 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include <sys/types.h>
 # include <stdbool.h>
 
-# include "mlx_api.h"
-# include "map.h"
-# include "vector.h"
-# include "player.h"
-# include "ray.h"
+# include "mlx_api_bonus.h"
+# include "map_bonus.h"
+# include "vector_bonus.h"
+# include "player_bonus.h"
+# include "ray_bonus.h"
 
 # define PI 3.14159265358
 

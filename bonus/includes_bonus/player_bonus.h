@@ -6,14 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 10:39:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 12:01:25 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PLAYER_BONUS_H
 # define PLAYER_BONUS_H
 
-# include "vector.h"
+# include "vector_bonus.h"
 
 # define PLAYER_POS_ORDERED	"ENWS"
 # define FOV_ANGLE_DEFAULT	1.047197551 

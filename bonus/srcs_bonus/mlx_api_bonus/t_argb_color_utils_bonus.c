@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_argb_color_utils.c                               :+:      :+:    :+:   */
+/*   t_argb_color_utils_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 11:39:25 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/17 11:47:16 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:01:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_api.h"
+#include "mlx_api_bonus.h"
 
 bool	set_color(unsigned int *result, int r, int g, int b)
 {

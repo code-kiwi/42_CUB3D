@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 11:06:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 11:59:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft.h"
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
-#include "mlx_bonus.h"
+#include "mlx.h"
 
 int	main(int argc, char **argv)
 {

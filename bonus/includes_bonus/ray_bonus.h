@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:57:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 10:38:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 12:01:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define RAY_BONUS_H
 
 # include <stdbool.h>
-# include "vector.h"
+# include "vector_bonus.h"
 
 typedef struct s_ray	t_ray;
 typedef struct s_player	t_player;

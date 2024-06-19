@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
+#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/19 11:44:38 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/19 12:10:33 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ FSFLAGS						=	-fsanitize=address
 EXT_LIB_FLAGS				=	-lm
 
 # HEADERS
-HEADERS_DIR_BONUS			=	includes_bonus/
+HEADERS_SUBDIR_BONUS		=	includes_bonus/
+HEADERS_DIR_BONUS			=	$(addprefix $(BONUS_DIR), $(HEADERS_SUBDIR_BONUS))
 HEADERS_FILES_BONUS			=	cub3d_bonus.h 					\
 								mlx_api_bonus.h					\
 								event_handlers_bonus.h 			\
@@ -118,11 +119,11 @@ RAY_BONUS						=	$(addprefix $(RAY_DIR_BONUS), $(RAY_FILES_BONUS))
 # VECTOR
 VECTOR_DIR_BONUS				=	vector_bonus/
 VECTOR_FILES_BONUS				=	vector_bonus.c
-VECTOR_BONUS					=	$(addprefix $(VECTOR_DIR_BONUS), $(VECTORS_FILES_BONUS))
+VECTOR_BONUS					=	$(addprefix $(VECTOR_DIR_BONUS), $(VECTOR_FILES_BONUS))
 
 # UTILS
 UTILS_DIR_BONUS					=	utils_bonus/
-UTILS_FILE_BONUS				=	math_bonus.c					\
+UTILS_FILES_BONUS				=	math_bonus.c					\
 									array_bonus.c					\
 									handle_error_bonus.c			\
 									number_bonus.c					\
@@ -133,11 +134,7 @@ UTILS_BONUS						=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 # SOURCES GENERAL
 SRCS_MAIN_SUBDIR_BONUS			=	srcs_bonus/
 SRCS_MAIN_DIR_BONUS				=	$(addprefix $(BONUS_DIR), $(SRCS_MAIN_SUBDIR_BONUS))
-SRCS_FILES_BONUS				=	$(MAIN_BONUS) $(MLX_API_BONUS) 			\
-									$(UTILS_BONUS) $(GAME_BONUS) 			\
-									$(VECTOR_BONUS)	$(EVENT_HANDLERS_BONUS) \
-									$(MAP_BONUS) $(BASIC_RENDER_BONUS)		\
-									$(PLAYER_BONUS) $(RAY_BONUS)
+SRCS_FILES_BONUS				=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) $(GAME_BONUS) $(VECTOR_BONUS) $(EVENT_HANDLERS_BONUS) $(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) $(RAY_BONUS)
 SRCS_BONUS						=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL
