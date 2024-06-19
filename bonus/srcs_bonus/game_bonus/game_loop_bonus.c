@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 11:06:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 13:31:57 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	game_loop(t_game *game)
 			error_exit(game, ERR_RENDER);
 		game->mlx.event_loop_counter = 0;
 		gettimeofday(&end, NULL);
-		printf ("delta : %ld\n", get_time_diff(&start, &end));
+		// printf ("delta : %ld\n", get_time_diff(&start, &end));
 	}
 	return (0);
 }

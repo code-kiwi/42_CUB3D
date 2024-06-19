@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 12:48:20 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 13:38:10 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define PI 3.14159265358
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				3000
-# define WIN_HEIGHT				2000
+# define WIN_WIDTH				1920
+# define WIN_HEIGHT				1080
 # define MAX_DISTANCE			200
 
 # define ERR_BASIC				"Error\n"
@@ -94,6 +94,8 @@ void		draw_color_column(t_image *screen, t_mlx_coords *coords,
 				unsigned int color, int end);
 void		draw_texture_column(t_image *screen, t_column *column, int wall_end,
 				t_image *texture);
+void		draw_ground(t_mlx_coords *coords, int end, t_game *game,
+				t_ray *ray);
 
 // Utils functions
 void		error_print(char *err_msg);
