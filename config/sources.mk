@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources.mk                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/18 10:07:50 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/19 12:35:05 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,39 +16,22 @@
 
 # GENERAL
 NAME					=	cub3D
-EXECUTABLE_DIR			=	./
 NAME_EXECUTABLE			=	$(addprefix $(EXECUTABLE_DIR), $(NAME))
-
-CC						=	cc
-ifndef NOFLAGS
-	CFLAGS				=	-Wall -Werror -Wextra -g
-endif
+MANDATORY_DIR			=	mandatory/
 HFLAGS					=	-I$(HEADERS_DIR) -I$(LIBFT_HEADERS_DIR) -I$(MLX_DIR)
-FSFLAGS					=	-fsanitize=address
-EXT_LIB_FLAGS			=	-lm
+
+# DEPS
+DEPS_CONFIG				=	$(addprefix $(CONFIG_DIR), sources.mk)
 
 # HEADERS
-HEADERS_DIR				=	includes/
-HEADERS_FILES			=	cub3d.h mlx_api.h event_handlers.h map.h vector.h
+HEADERS_SUBDIR			=	includes/
+HEADERS_DIR				=	$(addprefix $(MANDATORY_DIR), $(HEADERS_SUBDIR))
+HEADERS_FILES			=	cub3d.h				\
+							mlx_api.h			\
+							event_handlers.h	\
+							map.h				\
+							vector.h
 HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
-
-# LIBFT
-LIBFT_DIR				=	libft/
-LIBFT_FILE				=	libft.a
-LIBFT					=	$(addprefix $(LIBFT_DIR), $(LIBFT_FILE))
-LIBFT_HEADERS_SUBDIR	=	includes/
-LIBFT_HEADERS_DIR		=	$(addprefix $(LIBFT_DIR), $(LIBFT_HEADERS_SUBDIR))
-LIBFT_HEADERS_FILE		=	libft.h
-LIBFT_HEADERS			=	$(addprefix $(LIBFT_HEADERS_DIR), $(LIBFT_HEADERS_FILE))
-LIBFT_FLAGS				=	-L$(LIBFT_DIR) -lft 
-
-# MLX
-MLX_DIR					=	mlx/
-MLX_FILE				=	libmlx_Linux.a
-MLX						=	$(addprefix $(MLX_DIR), $(MLX_FILE))
-MLX_HEADERS_FILE		=	mlx.h
-MLX_HEADERS				=	$(addprefix $(MLX_DIR), $(MLX_HEADER_FILE))
-MLX_FLAGS				=	-L$(MLX_DIR) -lmlx_Linux -lXext -lX11
 
 # MAIN
 MAIN_DIR				=	main/
@@ -128,18 +111,21 @@ UTILS_FILE				=	math.c					\
 UTILS					=	$(addprefix $(UTILS_DIR), $(UTILS_FILE))
 
 # SOURCES GENERAL
-SRCS_MAIN_DIR			=	srcs/
+SRCS_MAIN_SUBDIR		=	srcs/
+SRCS_MAIN_DIR			=	$(addprefix $(MANDATORY_DIR), $(SRCS_MAIN_SUBDIR))
 SRCS_FILES				=	$(MAIN) $(MLX_API) $(UTILS) $(GAME) $(VECTOR)	\
 							$(EVENT_HANDLERS) $(MAP) $(BASIC_RENDER)		\
 							$(PLAYER) $(RAY)
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
-OBJS_MAIN_DIR			=	objs/
+OBJS_MAIN_SUBDIR		=	objs/
+OBJS_MAIN_DIR			=	$(addprefix $(MANDATORY_DIR), $(OBJS_MAIN_SUBDIR))
 OBJS_FILES				=	$(SRCS_FILES:.c=.o)
 OBJS					=	$(addprefix $(OBJS_MAIN_DIR), $(OBJS_FILES))
 
 # DEPENDENCIES
-DEPS_MAIN_DIR			=	deps/
+DEPS_MAIN_SUBDIR		=	deps/
+DEPS_MAIN_DIR			=	$(addprefix $(MANDATORY_DIR), $(DEPS_MAIN_SUBDIR))
 DEPS_FILES				=	$(OBJS_FILES:.o=.d)
 DEPS					=	$(addprefix $(DEPS_MAIN_DIR), $(DEPS_FILES))

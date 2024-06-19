@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_event_handler.c                                :+:      :+:    :+:   */
+/*   add_event_handler_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:25:06 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 15:15:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/19 11:07:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-#include "cub3d.h"
-#include "event_handlers.h"
-#include "mlx_api.h"
+#include "cub3d_bonus.h"
+#include "event_handlers_bonus.h"
+#include "mlx_api_bonus.h"
 #include "libft.h"
 
 /**

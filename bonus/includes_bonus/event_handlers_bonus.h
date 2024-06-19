@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handlers.h                                   :+:      :+:    :+:   */
+/*   event_handlers_bonus.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:11:00 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/14 15:08:34 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/19 12:23:27 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EVENT_HANDLERS_H
-# define EVENT_HANDLERS_H
+#ifndef EVENT_HANDLERS_BONUS_H
+# define EVENT_HANDLERS_BONUS_H
 
 typedef struct s_game	t_game;
 
