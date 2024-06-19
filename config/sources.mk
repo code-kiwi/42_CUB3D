@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:31:28 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/19 11:40:00 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/19 12:35:05 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,12 @@
 
 # GENERAL
 NAME					=	cub3D
-EXECUTABLE_DIR			=	./
 NAME_EXECUTABLE			=	$(addprefix $(EXECUTABLE_DIR), $(NAME))
 MANDATORY_DIR			=	mandatory/
-
-CC						=	cc
-ifndef NOFLAGS
-	CFLAGS				=	-Wall -Werror -Wextra -g
-endif
 HFLAGS					=	-I$(HEADERS_DIR) -I$(LIBFT_HEADERS_DIR) -I$(MLX_DIR)
-FSFLAGS					=	-fsanitize=address
-EXT_LIB_FLAGS			=	-lm
+
+# DEPS
+DEPS_CONFIG				=	$(addprefix $(CONFIG_DIR), sources.mk)
 
 # HEADERS
 HEADERS_SUBDIR			=	includes/
@@ -37,24 +32,6 @@ HEADERS_FILES			=	cub3d.h				\
 							map.h				\
 							vector.h
 HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
-
-# LIBFT
-LIBFT_DIR				=	libft/
-LIBFT_FILE				=	libft.a
-LIBFT					=	$(addprefix $(LIBFT_DIR), $(LIBFT_FILE))
-LIBFT_HEADERS_SUBDIR	=	includes/
-LIBFT_HEADERS_DIR		=	$(addprefix $(LIBFT_DIR), $(LIBFT_HEADERS_SUBDIR))
-LIBFT_HEADERS_FILE		=	libft.h
-LIBFT_HEADERS			=	$(addprefix $(LIBFT_HEADERS_DIR), $(LIBFT_HEADERS_FILE))
-LIBFT_FLAGS				=	-L$(LIBFT_DIR) -lft 
-
-# MLX
-MLX_DIR					=	mlx/
-MLX_FILE				=	libmlx_Linux.a
-MLX						=	$(addprefix $(MLX_DIR), $(MLX_FILE))
-MLX_HEADERS_FILE		=	mlx.h
-MLX_HEADERS				=	$(addprefix $(MLX_DIR), $(MLX_HEADER_FILE))
-MLX_FLAGS				=	-L$(MLX_DIR) -lmlx_Linux -lXext -lX11
 
 # MAIN
 MAIN_DIR				=	main/

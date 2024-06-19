@@ -3,13 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:35:12 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/19 11:56:37 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/19 12:35:14 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+include config/sources_common.mk
 include config/sources.mk
 include config/sources_bonus.mk
 
@@ -23,7 +24,7 @@ all: $(NAME)
 $(NAME): $(LIBFT) $(MLX) $(OBJS)
 	$(CC) $(CFLAGS) $(HFLAGS) $(OBJS) $(LIBFT_FLAGS) $(MLX_FLAGS) $(EXT_LIB_FLAGS) -o $@
 
-$(OBJS_MAIN_DIR)%.o: $(SRCS_MAIN_DIR)%.c $(HEADERS) $(LIBFT_HEADERS)
+$(OBJS_MAIN_DIR)%.o: $(SRCS_MAIN_DIR)%.c $(DEPS_CONFIG_COMMON) $(DEPS_CONFIG)
 	@mkdir -p $(@D)
 	@mkdir -p $(DEPS_MAIN_DIR)$(dir $*)
 	$(CC) $(CFLAGS) $(HFLAGS) -MP -MMD -MF $(DEPS_MAIN_DIR)$*.d -c $< -o $@ 
@@ -34,7 +35,7 @@ bonus: $(NAME_BONUS)
 $(NAME_BONUS): $(LIBFT) $(MLX) $(OBJS_BONUS)
 	$(CC) $(CFLAGS) $(HFLAGS_BONUS) $(OBJS_BONUS) $(LIBFT_FLAGS) $(MLX_FLAGS) $(EXT_LIB_FLAGS) -o $@
 
-$(OBJS_MAIN_DIR_BONUS)%.o: $(SRCS_MAIN_DIR_BONUS)%.c $(HEADERS_BONUS) $(LIBFT_HEADERS)
+$(OBJS_MAIN_DIR_BONUS)%.o: $(SRCS_MAIN_DIR_BONUS)%.c $(DEPS_CONFIG_COMMON) $(DEPS_CONFIG_BONUS)
 	@mkdir -p $(@D)
 	@mkdir -p $(DEPS_MAIN_DIR_BONUS)$(dir $*)
 	$(CC) $(CFLAGS) $(HFLAGS_BONUS) -MP -MMD -MF $(DEPS_MAIN_DIR_BONUS)$*.d -c $< -o $@ 
