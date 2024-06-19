@@ -27,7 +27,7 @@ void	t_game_destroy(t_game *game)
 	if (game == NULL)
 		return ;
 	index = 0;
-	while (index < MAP_NB_TEXTURES)
+	while (index < MAP_NB_IDS)
 	{
 		if (game->textures[index].ptr != NULL)
 			mlx_destroy_image(game->mlx.mlx_ptr, game->textures[index].ptr);

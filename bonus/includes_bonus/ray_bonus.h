@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:57:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 12:01:29 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 14:15:22 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ struct s_ray
 	t_vector	intersection;
 	bool		is_vertical;
 	t_vector	slope;
+	float		cos_angle_from_orientation;
 };
 
 // Raycasting functions

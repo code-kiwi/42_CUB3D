@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/19 10:37:42 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/19 12:47:10 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@
 # define MAP_EXTENSION		".cub"
 # define MAP_ALLOWED_CHARS	" 01NSEW"
 # define MAP_NB_IDS			6
-# define MAP_NB_TEXTURES	4
 
 typedef struct s_game	t_game;
 typedef struct s_map	t_map;

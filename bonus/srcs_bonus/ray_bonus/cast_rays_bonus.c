@@ -6,10 +6,11 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 16:04:19 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/19 17:28:10 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <math.h>
 
 #include "cub3d_bonus.h"
@@ -26,6 +27,7 @@ static bool	set_ray(t_ray *result, float angle, t_player *player, t_map *map)
 	intersection_y = player->position.y - result->slope.y * result->length;
 	t_vector_init(&result->intersection, intersection_x, intersection_y);
 	result->angle_from_orientation = fabsf(player->orientation - angle);
+	result->cos_angle_from_orientation = cos(result->angle_from_orientation);
 	return (true);
 }
 

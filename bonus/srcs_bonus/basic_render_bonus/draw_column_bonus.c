@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/19 13:00:36 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/19 17:27:56 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,5 @@ void	draw_texture_column(t_image *screen, t_column *column, int wall_end,
 		addr += screen->line_len;
 		column->coords.y++;
 		texture_pos += scale_y;
-	}
-}
-
-void	draw_color_column(t_image *screen, t_mlx_coords *coords,
-	unsigned int color, int end)
-{
-	char	*addr;
-
-	addr = screen->addr + (coords->y * screen->line_len \
-		+ coords->x * screen->bpp / 8);
-	while (coords->y < end)
-	{
-		*(unsigned int *)addr = color;
-		addr += screen->line_len;
-		coords->y++;
 	}
 }
