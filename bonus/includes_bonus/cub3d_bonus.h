@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/20 12:47:42 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 13:19:00 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ struct s_game
 	long			frame_time_usec;
 	long			tick_last_frame;
 	t_image			textures[7];
-	t_sprite		sprite;
+	t_sprite		*sprites;
 };
 
 struct	s_column
@@ -124,5 +124,6 @@ void		remove_last_spaces(char *str);
 void		skip_next_spaces(char **str);
 void		display_delta_time(void);
 long		get_tick(void);
+void		sortf(float *array, size_t length);
 
 #endif

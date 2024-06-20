@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/19 20:09:40 by root             ###   ########.fr        #
+#    Updated: 2024/06/20 13:20:17 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,8 @@ MAP_FILES_BONUS				=	read_map_bonus.c				\
 								is_in_bounds_bonus.c			\
 								read_elements_bonus.c			\
 								is_valid_bonus.c				\
-								free_map_bonus.c
+								free_map_bonus.c				\
+								get_sprites.c
 MAP_BONUS					=	$(addprefix $(MAP_DIR_BONUS), $(MAP_FILES_BONUS))
 
 # PLAYER

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/19 19:31:59 by root             ###   ########.fr       */
+/*   Updated: 2024/06/20 13:19:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define ID_WALL			'1'
 # define ID_TILE			'0'
 # define ID_SPACE			' '
+# define ID_SPRITE			'2'
 
 # define ID_NORTH			"NO"
 # define ID_SOUTH			"SO"
@@ -28,12 +29,13 @@
 # define ID_ENEMY			"E"
 
 # define MAP_EXTENSION		".cub"
-# define MAP_ALLOWED_CHARS	" 01NSEW"
+# define MAP_ALLOWED_CHARS	" 012NSEW"
 # define MAP_NB_IDS			7
 
 typedef struct s_game	t_game;
 typedef struct s_map	t_map;
 typedef struct s_vector	t_vector;
+typedef struct s_sprite	t_sprite;
 
 struct s_map
 {
@@ -51,5 +53,6 @@ bool		is_in_bounds(t_vector *position, t_map *map);
 bool		is_wall(t_vector *position, t_map *map);
 bool		check_extension(char *filename, char *extension);
 void		free_map(t_map *map);
+t_sprite	*get_sprites(t_map *map, size_t x, size_t y, size_t sprite_count);
 
 #endif

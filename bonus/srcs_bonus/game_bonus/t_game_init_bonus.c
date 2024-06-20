@@ -16,6 +16,9 @@
 #include "libft.h"
 #include "mlx.h"
 #include "mlx_api_bonus.h"
+#include "map_bonus.h"
+
+#include <errno.h>
 
 static bool	init_textures(t_game *game)
 {
@@ -38,6 +41,8 @@ static bool	init_textures(t_game *game)
 	return (true);
 }
 
+#include <stdio.h>
+
 /**
  * @brief Initializes the given t_game
  * @param game The structure to init
@@ -49,15 +54,15 @@ bool	t_game_init(t_game *game)
 		return (false);
 	game->frame_time_usec = 1000000 / FPS;
 	game->tick_last_frame = 0;
+	game->sprites = get_sprites(&game->map, 0, 0, 0);
+	if (errno != 0)
+		return (false);
 	if (!t_player_init(&game->player, &game->map))
 		return (false);
 	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
 		return (false);
 	if (!init_textures(game))
 		return (false);
-	game->sprite.texture = &game->textures[6];
-	game->sprite.distance = 0;
-	game->sprite.position = (t_vector){4.5f, 6.5f};
 	if (!t_mlx_launch(&game->mlx))
 		return (false);
 	if (!add_event_handlers(game))
