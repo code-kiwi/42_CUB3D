@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 17:29:36 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:52:46 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "ray_bonus.h"
 
 # define PI						3.14159265358
-# define FPS					100
+# define FPS					50
 
 # define WIN_TITLE				"Cub3D"
 # define WIN_WIDTH				1980
