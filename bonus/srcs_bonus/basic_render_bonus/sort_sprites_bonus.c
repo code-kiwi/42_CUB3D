@@ -1,54 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_bonus.c                                       :+:      :+:    :+:   */
+/*   sort_sprites_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:56:04 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/20 16:26:56 by root             ###   ########.fr       */
+/*   Updated: 2024/06/20 21:15:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static void	**max(void **array, size_t length, int compare (void **, void **))
-{
-	void	**max;
-	size_t	index;
+#include "cub3d_bonus.h"
 
-	if (array == NULL)
+static t_sprite	**max_sprites(t_sprite **sprites, size_t length)
+{
+	t_sprite	**max_element;
+	size_t		index;
+
+	if (sprites == NULL)
 		return (NULL);
-	index = 0;
-	max = array;
+	index = 1;
+	max_element = sprites;
 	while (index < length)
 	{
-		if (compare(array + index, max) > 0)
-			max = array + index;
+		if (sprites[index]->distance - (*max_element)->distance > 0)
+			max_element = sprites + index;
 		index++;
 	}
-	return (max);
+	return (max_element);
 }
 
-static void	swap(void **a, void **b)
+static void	swap_sprites(t_sprite **a, t_sprite **b)
 {
-	void	*temp;
+	t_sprite	*temp;
 
 	temp = *a;
 	*a = *b;
 	*b = temp;
 }
 
-void	sort(void **array, size_t length, int compare(void **, void **))
+void	sort_sprites(t_sprite **sprites, size_t length)
 {
-	size_t	index;
-	void	**max_element;
+	size_t		index;
+	t_sprite	**max_element;
 
 	index = 0;
 	while (length > 0)
 	{
-		max_element = max(array + index, length, compare);
-		swap(array + index, max_element);
+		max_element = max_sprites(sprites + index, length);
+		swap_sprites(sprites + index, max_element);
 		length--;
 		index++;
 	}

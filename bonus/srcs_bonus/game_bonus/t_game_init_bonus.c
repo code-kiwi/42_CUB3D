@@ -41,6 +41,29 @@ static bool	init_textures(t_game *game)
 	return (true);
 }
 
+static bool	init_sprites(t_game *game)
+{
+	size_t	index;
+
+	index = 0;
+	game->sprites_count = count_sprites(&game->map);
+	if (game->sprites_count != 0)
+	{
+		game->sprites = alloc_sprites(game->sprites_count);
+		if (game->sprites == NULL)
+			return (false);
+		get_sprites(&game->map, game->sprites_count, game->sprites);
+	}
+	else
+		game->sprites = NULL;
+	while (index < game->sprites_count)
+	{
+		game->sprites[index]->texture = &game->textures[6];
+		index++;
+	}
+	return (true);
+}
+
 /**
  * @brief Initializes the given t_game
  * @param game The structure to init
@@ -52,20 +75,13 @@ bool	t_game_init(t_game *game)
 		return (false);
 	game->frame_time_usec = 1000000 / FPS;
 	game->tick_last_frame = 0;
-	game->sprites_count = count_sprites(&game->map);
-	if (game->sprites_count != 0)
-	{
-		game->sprites = get_sprites(&game->map, game->sprites_count);
-		if (game->sprites == NULL)
-			return (false);
-	}
-	else
-		game->sprites = NULL;
 	if (!t_player_init(&game->player, &game->map))
 		return (false);
 	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
 		return (false);
 	if (!init_textures(game))
+		return (false);
+	if (!init_sprites(game))
 		return (false);
 	if (!t_mlx_launch(&game->mlx))
 		return (false);

@@ -37,8 +37,14 @@ void	t_game_destroy(t_game *game)
 	}
 	t_mlx_destroy(&game->mlx);
 	free_map(&game->map);
+	index = 0;
 	if (game->sprites != NULL)
 	{
+		while (index < game->sprites_count)
+		{
+			free(game->sprites[index]);
+			index++;
+		}
 		free(game->sprites);
 		game->sprites = NULL;
 	}

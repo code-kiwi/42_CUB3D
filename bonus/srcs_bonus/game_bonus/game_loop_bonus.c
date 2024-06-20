@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/20 16:42:46 by root             ###   ########.fr       */
+/*   Updated: 2024/06/20 21:20:21 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,21 @@ static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 	return (true);
 }
 
+static void	render_all_sprites(t_game *game)
+{
+	size_t	index;
+
+	index = 0;
+	get_sprites_distances(game->sprites, &game->player.position,
+		game->sprites_count);
+	sort_sprites(game->sprites, game->sprites_count);
+	while (index < game->sprites_count)
+	{
+		draw_sprite(game->sprites[index], game);
+		index++;
+	}
+}
+
 int	game_loop(t_game *game)
 {
 	float	delta_time;
@@ -52,10 +67,7 @@ int	game_loop(t_game *game)
 	if (!cast_rays(&game->player, &game->map, game->rays))
 		error_exit(game, ERR_CAST_RAYS);
 	draw_walls(game);
-	get_sprites_distances(game->sprites, &game->player.position, game->sprites_count);
-	sort((void **)game->sprites, game->sprites_count, compare_sprite_distance);
-	game->sprites[0].texture = &game->textures[6];
-	draw_sprite(&game->sprites[0], game);
+	render_all_sprites(game);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
 	return (0);

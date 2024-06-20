@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/20 16:39:09 by root             ###   ########.fr       */
+/*   Updated: 2024/06/20 21:10:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ struct s_game
 	long			frame_time_usec;
 	long			tick_last_frame;
 	t_image			textures[7];
-	t_sprite		*sprites;
+	t_sprite		**sprites;
 	size_t			sprites_count;
 };
 
@@ -110,6 +110,14 @@ void		draw_sprite(t_sprite *sprite, t_game *game);
 void		draw_texture_column(t_image *screen, t_column *column,
 				t_image *texture);
 
+// Sprites functions
+void		get_sprites_distances(t_sprite **sprites, t_vector *pos,
+				size_t length);
+void		get_sprites(t_map *map, size_t sprites_count, t_sprite **sprites);
+size_t		count_sprites(t_map *map);
+t_sprite	**alloc_sprites(size_t sprites_count);
+void		sort_sprites(t_sprite **sprites, size_t length);
+
 // Utils functions
 void		error_print(char *err_msg);
 void		error_exit(t_game *game, char *err_msg);
@@ -125,11 +133,6 @@ void		remove_last_spaces(char *str);
 void		skip_next_spaces(char **str);
 void		display_delta_time(void);
 long		get_tick(void);
-void		sort(void **array, size_t length, int compare(void **, void **));
 int			compare_sprite_distance(void **a, void **b);
-void		get_sprites_distances(t_sprite *sprites, t_vector *pos,
-				size_t length);
-t_sprite	*get_sprites(t_map *map, size_t sprites_count);
-size_t		count_sprites(t_map *map);
 
 #endif
