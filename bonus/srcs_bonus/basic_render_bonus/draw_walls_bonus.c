@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 19:32:16 by root             ###   ########.fr       */
+/*   Updated: 2024/06/20 09:37:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	column.perceived_height = WIN_HEIGHT
 		/ (ray->length * cos(ray->angle_from_orientation));
 	column.ray = ray;
-	column.wall_start = floorf((WIN_HEIGHT - column.perceived_height) / 2);
+	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2);
 	wall_end = ceilf((WIN_HEIGHT + column.perceived_height) / 2);
 	if (wall_end > WIN_HEIGHT)
 		wall_end = WIN_HEIGHT;
-	column.coords.y = column.wall_start;
+	column.coords.y = column.start;
 	if (column.coords.y < 0)
 		column.coords.y = 0;
-	column.texture_start = column.coords.y - column.wall_start;
+	column.texture_start = column.coords.y - column.start;
 	draw_texture_column(game->mlx.img_buff, &column, wall_end,
 		get_texture(game->textures, ray));
 	draw_ground_ceiling(&column, WIN_HEIGHT, game, ray);

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 15:03:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 09:37:57 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
 	t_image			*screen;
 
 	ceiling.x = column->coords.x;
-	ceiling.y = column->wall_start - 1;
+	ceiling.y = column->start - 1;
 	screen = game->mlx.img_buff;
 	ground_addr = t_mlx_get_pixel(screen, column->coords.x, column->coords.y);
 	ceiling_addr = t_mlx_get_pixel(screen, ceiling.x, ceiling.y);

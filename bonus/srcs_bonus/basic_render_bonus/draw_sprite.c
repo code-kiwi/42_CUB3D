@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/19 21:41:48 by root             ###   ########.fr       */
+/*   Updated: 2024/06/20 09:36:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,20 @@ void	draw_sprite(t_sprite *sprite, t_player *player)
 {
 	t_mlx_coords	sprite_screen;
 	float			scale;
+	t_mlx_coords	perceived_height;
+	int				pixel_coords_x;
+	int				end;
 
 	get_sprite_screen_pos(&sprite_screen, &sprite->position, player);
 	scale = 1 / get_distance(&sprite->position, &player->position);
 	printf("scale : %f\n", scale);
 	printf("sprite screen : (%d,%d)\n", sprite_screen.x, sprite_screen.y);
+	perceived_height.x = sprite->texture->height * scale;
+	perceived_height.y = sprite->texture->width * scale;
+	pixel_coords_x = sprite_screen.x - perceived_height.x / 2;
+	end = sprite_screen.x + perceived_height.x / 2;
+	while (pixel_coords_x < end)
+	{
+		pixel_coords_x++;
+	}
 }

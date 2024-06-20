@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 21:19:59 by root             ###   ########.fr       */
+/*   Updated: 2024/06/20 09:37:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,11 @@ struct s_game
 struct	s_column
 {
 	size_t			texture_start;
-	size_t			column;
+	size_t			column_index;
 	t_mlx_coords	coords;
 	t_ray			*ray;
 	float			perceived_height;
-	int				wall_start;
+	int				start;
 };
 
 // Game functions
