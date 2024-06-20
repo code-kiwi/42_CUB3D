@@ -57,7 +57,7 @@ bool	t_game_init(t_game *game)
 		return (false);
 	game->sprite.texture = &game->textures[6];
 	game->sprite.distance = 0;
-	game->sprite.position = (t_vector){1.5f, 1.5f};
+	game->sprite.position = (t_vector){4.5f, 6.5f};
 	if (!t_mlx_launch(&game->mlx))
 		return (false);
 	if (!add_event_handlers(game))
