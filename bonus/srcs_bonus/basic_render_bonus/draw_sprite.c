@@ -27,7 +27,7 @@ static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
 
 #include <stdio.h>
 void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
-	t_player *player, float perceived_height)
+	t_player *player, float scale)
 {
 	float		entity_angle;
 
@@ -38,22 +38,21 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 	else if (player->orientation < PI / 2 && entity_angle > PI / 2 * 3)
 		entity_angle -= 2 * PI;
 	sprite_screen->x = entity_angle * player->pixel_by_angle;
-	sprite_screen->x -= sprite->texture->width / 2 * perceived_height;
+	sprite_screen->x -= sprite->texture->width / 2 * scale;
 	sprite_screen->y = WIN_HEIGHT / 2;
-	sprite_screen->y -= sprite->texture->height / 2 * perceived_height;
+	sprite_screen->y -= sprite->texture->height / 2 * scale;
 }
 
 void	draw_sprite(t_sprite *sprite, t_player *player, t_image *screen)
 {
 	t_column	column;
-	int			width;
+	float		scale;
+	float		texture_x_pos;
 
-	column.perceived_height = 1 / get_distance(&sprite->position,
-		&player->position);
-	get_sprite_screen_pos(&column.coords, sprite, player,
-		column.perceived_height);
+	scale = 1 / get_distance(&sprite->position, &player->position);
+	get_sprite_screen_pos(&column.coords, sprite, player, scale);
 	column.start = column.coords.y;
-	column.end = column.coords.y + sprite->texture->height * column.perceived_height;
+	column.end = column.coords.y + sprite->texture->height * scale;
 	if (column.coords.y < 0)
 		column.coords.y = 0;
 	if (column.end > WIN_HEIGHT)
@@ -62,13 +61,14 @@ void	draw_sprite(t_sprite *sprite, t_player *player, t_image *screen)
 	column.texture_column = 0;
 	if (column.start < 0)
 		column.start = 0;
-	width = sprite->texture->width * column.perceived_height;
-	column.perceived_height *= WIN_HEIGHT;
-	while (column.texture_column < width)
+	column.perceived_height = WIN_HEIGHT * scale;
+	texture_x_pos = 0;
+	while (column.texture_column < sprite->texture->width)
 	{
 		if (column.coords.x > 0 && column.coords.x < screen->width)
 			draw_texture_column(screen, &column, sprite->texture);
-		column.texture_column++;
+		texture_x_pos += 1 / scale;
+		column.texture_column = texture_x_pos;
 		column.coords.x++;
 		column.coords.y = column.start;
 	}
