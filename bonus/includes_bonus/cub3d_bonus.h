@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/20 09:57:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 10:24:57 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,10 @@ struct	s_column
 {
 	size_t			texture_start;
 	t_mlx_coords	coords;
-	t_ray			*ray;
 	float			perceived_height;
 	int				start;
 	int				end;
 	int				texture_column;
-	t_image 		*texture;
 };
 
 // Game functions

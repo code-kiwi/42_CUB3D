@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/20 09:57:25 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 10:26:25 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
 	t_column	column;
+	t_image 	*texture;
 
 	column.coords.x = column_index;
 	column.perceived_height = WIN_HEIGHT
 		/ (ray->length * cos(ray->angle_from_orientation));
-	column.ray = ray;
 	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2);
 	column.end = ceilf((WIN_HEIGHT + column.perceived_height) / 2);
 	if (column.end > WIN_HEIGHT)
@@ -63,10 +63,9 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	if (column.coords.y < 0)
 		column.coords.y = 0;
 	column.texture_start = column.coords.y - column.start;
-	column.texture = get_texture(game->textures, ray);
-	column.texture_column = pixel_column_on_texture(ray, column.texture->width);
-	draw_texture_column(game->mlx.img_buff, &column,
-		get_texture(game->textures, ray));
+	texture = get_texture(game->textures, ray);
+	column.texture_column = pixel_column_on_texture(ray, texture->width);
+	draw_texture_column(game->mlx.img_buff, &column, texture);
 	draw_ground_ceiling(&column, WIN_HEIGHT, game, ray);
 }
 

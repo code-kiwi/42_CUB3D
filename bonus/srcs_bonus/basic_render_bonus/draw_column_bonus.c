@@ -6,15 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/20 09:58:36 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 11:22:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
 #include "cub3d_bonus.h"
-
-
 
 void	draw_texture_column(t_image *screen, t_column *column, t_image *texture)
 {

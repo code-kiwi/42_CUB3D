@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/20 09:45:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 11:40:37y brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,51 +22,54 @@ static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
 	entity_direction.x = sprite_pos->x - player_pos->x;
 	entity_direction.y = sprite_pos->y - player_pos->y;
 	entity_angle = atan2f(-entity_direction.y, entity_direction.x);
-	if (entity_angle < 0)
-		entity_angle += 2 * PI;
 	return (entity_angle);
 }
 
 #include <stdio.h>
-void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_vector *sprite_pos,
-	t_player *player)
+void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
+	t_player *player, float perceived_height)
 {
 	float		entity_angle;
 
 	entity_angle = player->leftmost_angle;
-	entity_angle -= get_entity_angle(sprite_pos, &player->position);
+	entity_angle -= get_entity_angle(&sprite->position, &player->position);
 	if (player->orientation > PI / 2 * 3 && entity_angle < PI / 2)
 		entity_angle += 2 * PI;
 	else if (player->orientation < PI / 2 && entity_angle > PI / 2 * 3)
 		entity_angle -= 2 * PI;
 	sprite_screen->x = entity_angle * player->pixel_by_angle;
+	sprite_screen->x -= sprite->texture->width / 2 * perceived_height;
 	sprite_screen->y = WIN_HEIGHT / 2;
+	sprite_screen->y -= sprite->texture->height / 2 * perceived_height;
 }
-
-void	draw_sprite_column()
-{
-
-}
-
 
 void	draw_sprite(t_sprite *sprite, t_player *player, t_image *screen)
 {
-	t_mlx_coords	sprite_screen;
-	float			scale;
-	t_mlx_coords	perceived_height;
-	int				pixel_coords_x;
-	int				end;
+	t_column	column;
+	int			width;
 
-	get_sprite_screen_pos(&sprite_screen, &sprite->position, player);
-	scale = 1 / get_distance(&sprite->position, &player->position);
-	printf("scale : %f\n", scale);
-	printf("sprite screen : (%d,%d)\n", sprite_screen.x, sprite_screen.y);
-	perceived_height.x = sprite->texture->height * scale;
-	perceived_height.y = sprite->texture->width * scale;
-	pixel_coords_x = sprite_screen.x - perceived_height.x / 2;
-	end = sprite_screen.x + perceived_height.x / 2;
-	while (pixel_coords_x < end)
+	column.perceived_height = 1 / get_distance(&sprite->position,
+		&player->position);
+	get_sprite_screen_pos(&column.coords, sprite, player,
+		column.perceived_height);
+	column.start = column.coords.y;
+	column.end = column.coords.y + sprite->texture->height * column.perceived_height;
+	if (column.coords.y < 0)
+		column.coords.y = 0;
+	if (column.end > WIN_HEIGHT)
+		column.end = WIN_HEIGHT;
+	column.texture_start = column.coords.y - column.start;
+	column.texture_column = 0;
+	if (column.start < 0)
+		column.start = 0;
+	width = sprite->texture->width * column.perceived_height;
+	column.perceived_height *= WIN_HEIGHT;
+	while (column.texture_column < width)
 	{
-		pixel_coords_x++;
+		if (column.coords.x > 0 && column.coords.x < screen->width)
+			draw_texture_column(screen, &column, sprite->texture);
+		column.texture_column++;
+		column.coords.x++;
+		column.coords.y = column.start;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/20 09:53:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 11:41:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ int	game_loop(t_game *game)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
 	update_player(&game->player, &game->map, delta_time);
-	draw_sprite(&game->sprite, &game->player, game->mlx.img_buff);
 	if (!is_in_bounds(&game->player.position, &game->map))
 		error_exit(game, ERR_PLAYER_QUIT_MAP);
 	if (!cast_rays(&game->player, &game->map, game->rays))
 		error_exit(game, ERR_CAST_RAYS);
 	draw_walls(game);
+	draw_sprite(&game->sprite, &game->player, game->mlx.img_buff);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
 	return (0);
