@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/20 10:26:25 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 12:41:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
 	t_column	column;
-	t_image 	*texture;
+	t_image		*texture;
 
 	column.coords.x = column_index;
 	column.perceived_height = WIN_HEIGHT

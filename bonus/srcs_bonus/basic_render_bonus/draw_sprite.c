@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/20 11:40:37y brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 12:49:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,33 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 	sprite_screen->y -= sprite->texture->height / 2 * scale;
 }
 
-void	draw_sprite(t_sprite *sprite, t_player *player, t_image *screen, t_ray *rays)
+void	draw_all_columns(t_column *column, t_sprite *sprite, t_game *game,
+	float distance)
+{
+	float	texture_x;
+
+	texture_x = 0;
+	while (column->texture_column < sprite->texture->width)
+	{
+		if (column->coords.x > 0 && column->coords.x < game->mlx.img_buff->width
+			&& game->rays[column->coords.x].length > distance)
+			draw_texture_column(game->mlx.img_buff, column, sprite->texture);
+		texture_x += distance;
+		column->texture_column = texture_x;
+		column->coords.x++;
+		column->coords.y = column->start;
+	}
+}
+
+void	draw_sprite(t_sprite *sprite, t_game *game)
 {
 	t_column	column;
 	float		scale;
-	float		texture_x_pos;
 	float		distance;
 
-	distance = get_distance(&sprite->position, &player->position);
+	distance = get_distance(&sprite->position, &game->player.position);
 	scale = 1 / distance;
-	get_sprite_screen_pos(&column.coords, sprite, player, scale);
+	get_sprite_screen_pos(&column.coords, sprite, &game->player, scale);
 	column.start = column.coords.y;
 	column.end = column.coords.y + sprite->texture->height * scale;
 	if (column.coords.y < 0)
@@ -66,15 +83,5 @@ void	draw_sprite(t_sprite *sprite, t_player *player, t_image *screen, t_ray *ray
 	if (column.start < 0)
 		column.start = 0;
 	column.perceived_height = sprite->texture->height * scale;
-	texture_x_pos = 0;
-	while (column.texture_column < sprite->texture->width)
-	{
-		if (column.coords.x > 0 && column.coords.x < screen->width
-			&& rays[column.coords.x].length > distance)
-			draw_texture_column(screen, &column, sprite->texture);
-		texture_x_pos += distance;
-		column.texture_column = texture_x_pos;
-		column.coords.x++;
-		column.coords.y = column.start;
-	}
+	draw_all_columns(&column, sprite, game, distance);
 }

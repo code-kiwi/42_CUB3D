@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:42:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 20:28:44 by root             ###   ########.fr       */
+/*   Updated: 2024/06/20 12:50:17 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,6 @@ void	t_vector_copy(t_vector *dest, t_vector *src)
 {
 	dest->x = src->x;
 	dest->y = src->y;
-}
-
-t_vector	t_vector_error(void)
-{
-	t_vector	error;
-
-	error.x = -1;
-	error.y = -1;
-	return (error);
 }
 
 void	t_vector_print(char *prefix, t_vector *vector)
@@ -54,4 +45,3 @@ float	get_distance(t_vector *a, t_vector *b)
 {
 	return (sqrtf(powf(a->x - b->x, 2) + powf(a->y - b->y, 2)));
 }
-
