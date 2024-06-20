@@ -16,6 +16,8 @@
 #include "mlx_api_bonus.h"
 #include "mlx.h"
 
+#include <stdio.h>
+
 /**
  * @brief Destroys the given t_game
  * @param game The structure to destroy

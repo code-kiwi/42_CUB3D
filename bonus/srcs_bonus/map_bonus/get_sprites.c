@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 13:04:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/20 13:12:57 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 13:28:08 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_sprite	*get_sprites(t_map *map, size_t x, size_t y, size_t sprite_count)
 				if (sprites == NULL)
 					return (NULL);	
 				sprites[sprite_count].position = (t_vector){x + 0.5f, y + 0.5f};
+				return (sprites);
 			}
 			x++;
 		}

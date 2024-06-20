@@ -41,8 +41,6 @@ static bool	init_textures(t_game *game)
 	return (true);
 }
 
-#include <stdio.h>
-
 /**
  * @brief Initializes the given t_game
  * @param game The structure to init
