@@ -6,15 +6,15 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:56:04 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/20 13:01:29 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 13:37:57 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static float	*maxf(float *array, size_t length)
+static void	**max(void **array, size_t length, int compare (void **, void **))
 {
-	float	*max;
+	void	**max;
 	size_t	index;
 
 	if (array == NULL)
@@ -23,32 +23,32 @@ static float	*maxf(float *array, size_t length)
 	max = array;
 	while (index < length)
 	{
-		if (array[index] > *max)
+		if (f(array + index, max))
 			max = array + index;
 		index++;
 	}
 	return (max);
 }
 
-static void	swapf(float *a, float *b)
+static void	swap(void **a, void **b)
 {
-	float	temp;
+	void	*temp;
 
 	temp = *a;
 	*a = *b;
 	*b = temp;
 }
 
-void	sortf(float *array, size_t length)
+void	sort(void *array, size_t length, int compare(void **, void **))
 {
 	size_t	index;
-	float	*max;
+	void	**max_element;
 
 	index = 0;
 	while (length > 0)
 	{
-		max = maxf(array, length);
-		swapf(array + index, max);
+		max_element = max(array, length, compare);
+		swap(array + index, max);
 		length--;
 		index++;
 	}
