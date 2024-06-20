@@ -52,9 +52,15 @@ bool	t_game_init(t_game *game)
 		return (false);
 	game->frame_time_usec = 1000000 / FPS;
 	game->tick_last_frame = 0;
-	game->sprites = get_sprites(&game->map, 0, 0, 0);
-	if (errno != 0)
-		return (false);
+	game->sprites_count = count_sprites(&game->map);
+	if (game->sprites_count != 0)
+	{
+		game->sprites = get_sprites(&game->map, game->sprites_count);
+		if (game->sprites == NULL)
+			return (false);
+	}
+	else
+		game->sprites = NULL;
 	if (!t_player_init(&game->player, &game->map))
 		return (false);
 	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))

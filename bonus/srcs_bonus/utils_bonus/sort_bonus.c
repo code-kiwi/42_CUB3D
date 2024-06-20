@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:56:04 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/20 13:37:57 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 16:26:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	**max(void **array, size_t length, int compare (void **, void **))
 	max = array;
 	while (index < length)
 	{
-		if (f(array + index, max))
+		if (compare(array + index, max) > 0)
 			max = array + index;
 		index++;
 	}
@@ -39,7 +39,7 @@ static void	swap(void **a, void **b)
 	*b = temp;
 }
 
-void	sort(void *array, size_t length, int compare(void **, void **))
+void	sort(void **array, size_t length, int compare(void **, void **))
 {
 	size_t	index;
 	void	**max_element;
@@ -47,8 +47,8 @@ void	sort(void *array, size_t length, int compare(void **, void **))
 	index = 0;
 	while (length > 0)
 	{
-		max_element = max(array, length, compare);
-		swap(array + index, max);
+		max_element = max(array + index, length, compare);
+		swap(array + index, max_element);
 		length--;
 		index++;
 	}

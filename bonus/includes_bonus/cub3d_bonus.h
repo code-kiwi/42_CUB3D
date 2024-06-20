@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/20 13:19:00 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 16:39:09 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ struct s_game
 	long			tick_last_frame;
 	t_image			textures[7];
 	t_sprite		*sprites;
+	size_t			sprites_count;
 };
 
 struct	s_column
@@ -124,6 +125,11 @@ void		remove_last_spaces(char *str);
 void		skip_next_spaces(char **str);
 void		display_delta_time(void);
 long		get_tick(void);
-void		sortf(float *array, size_t length);
+void		sort(void **array, size_t length, int compare(void **, void **));
+int			compare_sprite_distance(void **a, void **b);
+void		get_sprites_distances(t_sprite *sprites, t_vector *pos,
+				size_t length);
+t_sprite	*get_sprites(t_map *map, size_t sprites_count);
+size_t		count_sprites(t_map *map);
 
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/20 13:20:17 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/20 16:22:54 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,8 +70,9 @@ EVENT_HANDLERS_BONUS		=	$(addprefix $(EVENT_HANDLERS_DIR_BONUS), $(EVENT_HANDLER
 BASIC_RENDER_DIR_BONUS		=	basic_render_bonus/
 BASIC_RENDER_FILES_BONUS	=	draw_walls_bonus.c				\
 								draw_column_bonus.c				\
-								draw_ceiling_ground.c			\
-								draw_sprite.c
+								draw_ceiling_ground_bonus.c		\
+								draw_sprite_bonus.c				\
+								sprite_bonus.c
 BASIC_RENDER_BONUS			=	$(addprefix $(BASIC_RENDER_DIR_BONUS), $(BASIC_RENDER_FILES_BONUS))
 
 # MAP
@@ -80,8 +81,7 @@ MAP_FILES_BONUS				=	read_map_bonus.c				\
 								is_in_bounds_bonus.c			\
 								read_elements_bonus.c			\
 								is_valid_bonus.c				\
-								free_map_bonus.c				\
-								get_sprites.c
+								free_map_bonus.c
 MAP_BONUS					=	$(addprefix $(MAP_DIR_BONUS), $(MAP_FILES_BONUS))
 
 # PLAYER
@@ -110,7 +110,8 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 								check_extension_bonus.c			\
 								string_bonus.c					\
 								display_delta_time_bonus.c		\
-								get_tick.c
+								get_tick_bonus.c						\
+								sort_bonus.c
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
 # SOURCES GENERAL

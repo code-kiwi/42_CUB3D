@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/20 13:19:44 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 16:38:48 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,5 @@ bool		is_in_bounds(t_vector *position, t_map *map);
 bool		is_wall(t_vector *position, t_map *map);
 bool		check_extension(char *filename, char *extension);
 void		free_map(t_map *map);
-t_sprite	*get_sprites(t_map *map, size_t x, size_t y, size_t sprite_count);
 
 #endif
