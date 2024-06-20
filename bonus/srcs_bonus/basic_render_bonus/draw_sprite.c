@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/20 09:36:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 09:45:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	draw_sprite_column()
 }
 
 
-void	draw_sprite(t_sprite *sprite, t_player *player)
+void	draw_sprite(t_sprite *sprite, t_player *player, t_image *screen)
 {
 	t_mlx_coords	sprite_screen;
 	float			scale;

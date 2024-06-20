@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/20 09:37:20 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 09:57:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,13 @@ struct s_game
 struct	s_column
 {
 	size_t			texture_start;
-	size_t			column_index;
 	t_mlx_coords	coords;
 	t_ray			*ray;
 	float			perceived_height;
 	int				start;
+	int				end;
+	int				texture_column;
+	t_image 		*texture;
 };
 
 // Game functions
@@ -103,11 +105,11 @@ void		t_game_destroy(t_game *game);
 
 // Render functions
 void		draw_walls(t_game *game);
-void		draw_texture_column(t_image *screen, t_column *column, int wall_end,
-				t_image *texture);
 void		draw_ground_ceiling(t_column *column, int end, t_game *game,
 				t_ray *ray);
-void		draw_sprite(t_sprite *sprite, t_player *player);
+void		draw_sprite(t_sprite *sprite, t_player *player, t_image *screen);
+void		draw_texture_column(t_image *screen, t_column *column,
+				t_image *texture);
 
 // Utils functions
 void		error_print(char *err_msg);
