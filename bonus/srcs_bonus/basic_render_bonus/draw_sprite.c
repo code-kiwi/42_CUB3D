@@ -61,7 +61,7 @@ void	draw_sprite(t_sprite *sprite, t_player *player, t_image *screen)
 	column.texture_column = 0;
 	if (column.start < 0)
 		column.start = 0;
-	column.perceived_height = WIN_HEIGHT * scale;
+	column.perceived_height = sprite->texture->height * scale;
 	texture_x_pos = 0;
 	while (column.texture_column < sprite->texture->width)
 	{
