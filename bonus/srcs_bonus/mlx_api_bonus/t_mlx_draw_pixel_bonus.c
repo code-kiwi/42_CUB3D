@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_draw_pixel_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:08:26 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 11:08:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 18:09:34 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	t_mlx_draw_pixel(
 )
 {
 	*(uint32_t *)(img->addr + \
-		(coords->y * img->line_len + (coords->x << 2))) = color;
+		(coords->y * img->line_len + (coords->x * img->bpp_factor))) = color;
 }
 
 /**
@@ -49,6 +49,7 @@ void	t_mlx_draw_pixel_secured(
 		|| coords->y < 0 || coords->y > img->height
 	)
 		return ;
-	dest = img->addr + (coords->y * img->line_len + coords->x * img->bpp / 8);
+	dest = img->addr + \
+		(coords->y * img->line_len + coords->x * img->bpp_factor);
 	*(uint32_t *) dest = color;
 }

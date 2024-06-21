@@ -3,19 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   draw_ceiling_ground_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/21 10:08:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 18:09:04 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_api_bonus.h"
-#include "cub3d_bonus.h"
-
 #include <math.h>
 
-#include <stdio.h>
+#include "mlx_api_bonus.h"
+#include "cub3d_bonus.h"
 
 static	void	get_pixel_position_in_tile(t_ray *ray,
 	t_vector *player_position, t_vector *result, float inverse_dist)
@@ -35,7 +33,7 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	color_coords.x = pos_in_tile->x * texture->width;
 	color_coords.y = pos_in_tile->y * texture->height;
 	color = (texture->addr + color_coords.y * texture->line_len \
-		+ (color_coords.x << 2));
+		+ (color_coords.x * texture->bpp_factor));
 	*(unsigned int *)addr = *(unsigned int *)color;
 }
 
