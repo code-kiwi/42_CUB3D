@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press_handler_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 11:07:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 12:21:58 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
  * @param key The integer value of the pressed key
  * @return A dummy integer
 */
+
+#include <stdio.h>
 int	key_press_handler(int key, t_game *data)
 {
 	if (data == NULL)
@@ -38,5 +40,13 @@ int	key_press_handler(int key, t_game *data)
 		data->player.is_walking[LEFT] = true;
 	else if (key == KEY_D)
 		data->player.is_walking[RIGHT] = true;
+	else if (key == KEY_P)
+	{
+		data->pause = !data->pause;
+		if (data->pause)
+			t_mlx_sync_images(&data->mlx);
+	}
+		
+	printf("KEY PRESSED: %d\n", key);
 	return (0);
 }

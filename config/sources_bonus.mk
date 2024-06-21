@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/19 17:27:46 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/21 12:20:12 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,8 @@ MLX_API_FILES_BONUS			=	t_image_utils_bonus.c			\
 								t_mlx_get_pixel_bonus.c			\
 								t_mlx_draw_line_bonus.c			\
 								t_mlx_draw_rectangle_bonus.c	\
-								t_argb_color_utils_bonus.c
+								t_argb_color_utils_bonus.c		\
+								t_mlx_sync_images.c
 MLX_API_BONUS				=	$(addprefix $(MLX_API_DIR_BONUS), $(MLX_API_FILES_BONUS))
 
 # EVENT_HANDLERS

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/20 16:52:46 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/21 10:55:59 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ struct s_game
 	long			frame_time_usec;
 	long			tick_last_frame;
 	t_image			textures[6];
+	bool			pause;
 };
 
 struct	s_column
