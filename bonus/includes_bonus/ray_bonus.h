@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:57:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 16:53:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 17:06:57 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 # include <stdbool.h>
 # include "vector_bonus.h"
 
-typedef struct s_ray	t_ray;
-typedef struct s_player	t_player;
-typedef struct s_map	t_map;
-typedef struct s_door	t_door;
+typedef struct s_ray		t_ray;
+typedef struct s_player		t_player;
+typedef struct s_map		t_map;
+typedef struct s_door		t_door;
+typedef enum e_door_state	t_door_state;
 
 struct s_ray
 {
@@ -33,10 +34,18 @@ struct s_ray
 	t_door		*door;
 };
 
+enum e_door_state
+{
+	CLOSED,
+	TRANSITIONING,
+	OPENED
+};
+
 struct	s_door
 {
 	float			transition;
 	t_mlx_coords	position;
+	t_door_state	state;
 };
 
 
