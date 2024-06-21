@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 15:31:51 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/21 16:08:59 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include "vector_bonus.h"
 
+typedef struct s_game	t_game;
 typedef struct s_sprite	t_sprite;
 typedef struct s_image	t_image;
 typedef struct s_map	t_map;
