@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/21 09:47:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 09:52:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,23 +72,4 @@ void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
 		ceiling_addr -= game->mlx.img_buff->line_len;
 	}
 }
-
-void	calculate_distances(float distances[WIN_HEIGHT][WIN_WIDTH])
-{
-	size_t	x;
-	size_t	y;
-
-	y = 0;
-	while (y < WIN_HEIGHT)
-	{
-		x = 0;
-		while (x < WIN_WIDTH)
-		{
-			distances[WIN_HEIGHT][WIN_WIDTH] = 0;
-			x++;
-		}
-		y++;
-	}
-}
-
 
