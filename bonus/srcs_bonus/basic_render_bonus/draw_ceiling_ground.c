@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 15:03:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 09:47:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,13 @@
 
 #include <stdio.h>
 
-static	void	get_pixel_position_in_tile(t_mlx_coords *coords, t_ray *ray,
-	t_vector *player_position, t_vector *result)
+static	void	get_pixel_position_in_tile(t_ray *ray,
+	t_vector *player_position, t_vector *result, float inverse_dist)
 {
-	float		straight_line_dist;
-	float		pixel_dist;
-	double		temp;
-
-	straight_line_dist = (float)(WIN_HEIGHT / 2) / (coords->y - WIN_HEIGHT / 2);
-	pixel_dist = straight_line_dist / ray->cos_angle_from_orientation;
-	result->x = player_position->x + ray->slope.x * pixel_dist;
-	result->y = player_position->y - ray->slope.y * pixel_dist;
-	result->x = modf(result->x, &temp);
-	result->y = modf(result->y, &temp);
+	result->x = player_position->x + ray->slope.x / inverse_dist;
+	result->y = player_position->y - ray->slope.y / inverse_dist;
+	result->x -= (int)result->x;
+	result->y -= (int)result->y;
 }
 
 static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
@@ -40,7 +34,7 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 
 	color_coords.x = pos_in_tile->x * texture->width;
 	color_coords.y = pos_in_tile->y * texture->height;
-	color = t_mlx_get_pixel(texture, color_coords.x, color_coords.y);
+	color = (texture->addr + color_coords.y * texture->line_len + (color_coords.x << 2));
 	*(unsigned int *)addr = *(unsigned int *)color;
 }
 
@@ -51,23 +45,50 @@ void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
 	char			*ground_addr;
 	char			*ceiling_addr;
 	t_image			*screen;
+	float			unit;
+	float			inverse_dist;
 
 	ceiling.x = column->coords.x;
 	ceiling.y = column->wall_start - 1;
+
+	inverse_dist = (column->coords.y * ray->cos_angle_from_orientation) / (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
+	unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2);
+
 	screen = game->mlx.img_buff;
 	ground_addr = t_mlx_get_pixel(screen, column->coords.x, column->coords.y);
 	ceiling_addr = t_mlx_get_pixel(screen, ceiling.x, ceiling.y);
 	while (column->coords.y < end)
 	{
-		get_pixel_position_in_tile(&column->coords, ray, &game->player.position,
-			&pixel_pos);
+		get_pixel_position_in_tile(ray, &game->player.position,
+			&pixel_pos, inverse_dist);
 		draw_pixel_from_texture(&pixel_pos, ground_addr, &game->textures[4]);
 		if (ceiling.y >= 0)
 			draw_pixel_from_texture(&pixel_pos, ceiling_addr,
 				&game->textures[5]);
 		column->coords.y++;
 		ceiling.y--;
+		inverse_dist += unit;
 		ground_addr += game->mlx.img_buff->line_len;
 		ceiling_addr -= game->mlx.img_buff->line_len;
 	}
 }
+
+void	calculate_distances(float distances[WIN_HEIGHT][WIN_WIDTH])
+{
+	size_t	x;
+	size_t	y;
+
+	y = 0;
+	while (y < WIN_HEIGHT)
+	{
+		x = 0;
+		while (x < WIN_WIDTH)
+		{
+			distances[WIN_HEIGHT][WIN_WIDTH] = 0;
+			x++;
+		}
+		y++;
+	}
+}
+
+
