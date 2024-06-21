@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_column_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/19 17:27:56 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/21 16:16:52 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 		texture_relative_position = modf(ray->intersection.y, &temp);
 	else
 		texture_relative_position = modf(ray->intersection.x, &temp);
+	if (ray->is_door)
+		texture_relative_position = ray->door_transition - texture_relative_position;
 	column = floorf(texture_relative_position * texture_width);
 	return (column);
 }

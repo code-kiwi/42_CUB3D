@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/21 15:21:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 16:17:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static bool	set_ray(t_ray *result, float angle, t_game *game)
 	t_vector_init(&result->intersection, intersection_x, intersection_y);
 	result->angle_from_orientation = fabsf(player->orientation - angle);
 	result->cos_angle_from_orientation = cos(result->angle_from_orientation);
+	if (result->is_door)
+		result->door_transition = game->door.transition;
 	return (true);
 }
 
