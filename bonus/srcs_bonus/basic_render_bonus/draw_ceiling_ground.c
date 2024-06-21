@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/21 09:52:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 10:06:56 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,42 +34,36 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 
 	color_coords.x = pos_in_tile->x * texture->width;
 	color_coords.y = pos_in_tile->y * texture->height;
-	color = (texture->addr + color_coords.y * texture->line_len + (color_coords.x << 2));
+	color = (texture->addr + color_coords.y * texture->line_len \
+		+ (color_coords.x << 2));
 	*(unsigned int *)addr = *(unsigned int *)color;
 }
 
 void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
 {
-	t_vector		pixel_pos;
-	t_mlx_coords	ceiling;
-	char			*ground_addr;
-	char			*ceiling_addr;
-	t_image			*screen;
-	float			unit;
-	float			inverse_dist;
+	t_ground_ceiling	data;
 
-	ceiling.x = column->coords.x;
-	ceiling.y = column->wall_start - 1;
-
-	inverse_dist = (column->coords.y * ray->cos_angle_from_orientation) / (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
-	unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2);
-
-	screen = game->mlx.img_buff;
-	ground_addr = t_mlx_get_pixel(screen, column->coords.x, column->coords.y);
-	ceiling_addr = t_mlx_get_pixel(screen, ceiling.x, ceiling.y);
+	data.ceiling_y = column->wall_start - 1;
+	data.inverse_dist = (column->coords.y * ray->cos_angle_from_orientation) \
+		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
+	data.unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2);
+	data.ground_addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x,
+			column->coords.y);
+	data.ceiling_addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x,
+			data.ceiling_y);
 	while (column->coords.y < end)
 	{
 		get_pixel_position_in_tile(ray, &game->player.position,
-			&pixel_pos, inverse_dist);
-		draw_pixel_from_texture(&pixel_pos, ground_addr, &game->textures[4]);
-		if (ceiling.y >= 0)
-			draw_pixel_from_texture(&pixel_pos, ceiling_addr,
+			&data.pixel_pos, data.inverse_dist);
+		draw_pixel_from_texture(&data.pixel_pos, data.ground_addr,
+			&game->textures[4]);
+		if (data.ceiling_y >= 0)
+			draw_pixel_from_texture(&data.pixel_pos, data.ceiling_addr,
 				&game->textures[5]);
 		column->coords.y++;
-		ceiling.y--;
-		inverse_dist += unit;
-		ground_addr += game->mlx.img_buff->line_len;
-		ceiling_addr -= game->mlx.img_buff->line_len;
+		data.ceiling_y--;
+		data.inverse_dist += data.unit;
+		data.ground_addr += game->mlx.img_buff->line_len;
+		data.ceiling_addr -= game->mlx.img_buff->line_len;
 	}
 }
-
