@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/21 10:19:58 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 10:31:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,17 @@ void	draw_all_columns(t_column *column, t_sprite *sprite, t_game *game,
 	float	texture_x;
 
 	texture_x = 0;
+	if (column->coords.x < 0)
+	{
+		texture_x -= column->coords.x * distance;
+		column->coords.x = 0;
+		column->texture_column = texture_x;
+	}
 	while (column->texture_column < sprite->texture->width)
 	{
-		if (column->coords.x > 0 && column->coords.x < game->mlx.img_buff->width
-			&& game->rays[column->coords.x].length > distance)
+		if (column->coords.x >= game->mlx.img_buff->width)
+			return ;
+		if (game->rays[column->coords.x].length > distance)
 			draw_texture_column(game->mlx.img_buff, column, sprite->texture);
 		texture_x += distance;
 		column->texture_column = texture_x;
