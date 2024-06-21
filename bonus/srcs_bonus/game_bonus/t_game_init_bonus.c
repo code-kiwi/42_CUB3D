@@ -59,5 +59,6 @@ bool	t_game_init(t_game *game)
 		return (false);
 	if (!add_event_handlers(game))
 		return (error_print(ERR_HOOKS), false);
+	game->door.transition = 0.5;
 	return (true);
 }

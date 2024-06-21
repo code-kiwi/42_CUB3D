@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/21 15:26:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 16:02:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,21 @@ static void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
 #include <stdio.h>
 
 static bool	check_door(t_vector *position, t_game *game, t_ray *ray,
-	float length)
+	float length,  bool is_vertical)
 {
-	t_mlx_coords	point_pos;
+	t_vector	point_pos;
+	double		temp;
 
 	if (game->map.tiles[(int)position->y][(int)position->x] != ID_DOOR)
 		return (false);
 	point_pos.x = game->player.position.x + ray->slope.x * length;
 	point_pos.y = game->player.position.y - ray->slope.y * length;
-	if (point_pos.x != position->x || point_pos.y != position->y)
+	if ((int)point_pos.x != position->x || (int)point_pos.y != position->y)
 		return (false);
-	return (true);
+	if ((is_vertical && modf(point_pos.y, &temp) < game->door.transition)
+		|| (!is_vertical && modf(point_pos.x, &temp) < game->door.transition))
+		return (true);
+	return (false);
 }
 
 float	raycast(t_vector position, t_vector *slope, t_game *game, t_ray *ray)
@@ -70,7 +74,7 @@ float	raycast(t_vector position, t_vector *slope, t_game *game, t_ray *ray)
 				ray->is_vertical = true;
 				return (sum_length.x);
 			}
-			if (check_door(&position, game, ray, sum_length.x + unit_length.x / 2))
+			if (check_door(&position, game, ray, sum_length.x + unit_length.x / 2, true))
 			{
 				ray->is_vertical = true;
 				ray->is_door = true;
@@ -86,7 +90,7 @@ float	raycast(t_vector position, t_vector *slope, t_game *game, t_ray *ray)
 				ray->is_vertical = false;
 				return (sum_length.y);
 			}
-			if (check_door(&position, game, ray, sum_length.y + unit_length.y / 2))
+			if (check_door(&position, game, ray, sum_length.y + unit_length.y / 2, false))
 			{
 				ray->is_vertical = false;
 				ray->is_door = true;
