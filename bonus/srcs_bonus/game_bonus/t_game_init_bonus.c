@@ -59,5 +59,11 @@ bool	t_game_init(t_game *game)
 		return (false);
 	if (!add_event_handlers(game))
 		return (error_print(ERR_HOOKS), false);
+	game->mouse.x = WIN_WIDTH / 2;
+	game->mouse.y = WIN_HEIGHT / 2;
+	mlx_mouse_move(game->mlx.mlx_ptr, game->mlx.mlx_win, WIN_WIDTH / 2,
+		WIN_HEIGHT / 2);
+	if (HIDE_MOUSE)
+		mlx_mouse_hide(game->mlx.mlx_ptr, game->mlx.mlx_win);
 	return (true);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 17:29:36 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:21:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@
 # define WIN_WIDTH				1980
 # define WIN_HEIGHT				1000
 # define MAX_DISTANCE			200
+
+# define MOUSE_RANGE			100
+# define HIDE_MOUSE				false
 
 # define ERR_BASIC				"Error\n"
 # define ERR_LITERALS			"Error\n%s\n"
@@ -75,6 +78,7 @@ struct s_game
 	long			frame_time_usec;
 	long			tick_last_frame;
 	t_image			textures[6];
+	t_mlx_coords	mouse;
 };
 
 struct	s_column
