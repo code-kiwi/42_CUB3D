@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   sort_sprites_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:56:04 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/20 21:15:50 by root             ###   ########.fr       */
+/*   Updated: 2024/06/21 15:30:43 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 #include "cub3d_bonus.h"
+#include "sprite_bonus.h"
 
 static t_sprite	**max_sprites(t_sprite **sprites, size_t length)
 {

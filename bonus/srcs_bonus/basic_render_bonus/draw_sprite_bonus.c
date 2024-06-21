@@ -3,16 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/21 10:31:46 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 15:30:42 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
-
 #include <math.h>
+
+#include "cub3d_bonus.h"
+#include "mlx_api_bonus.h"
+#include "player_bonus.h"
+#include "vector_bonus.h"
+#include "sprite_bonus.h"
 
 static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
 {

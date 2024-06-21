@@ -14,11 +14,9 @@
 #include "player_bonus.h"
 #include "event_handlers_bonus.h"
 #include "libft.h"
-#include "mlx.h"
 #include "mlx_api_bonus.h"
 #include "map_bonus.h"
-
-#include <errno.h>
+#include "sprite_bonus.h"
 
 static bool	init_textures(t_game *game)
 {
