@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 16:33:54 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 16:49:54 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/21 16:59:18 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	destroy_sprites(t_sprite ***sprites_ptr, size_t sprites_count)
 {
-	size_t	index;
+	size_t		index;
 	t_sprite	**sprites;
 
 	if (sprites_ptr == NULL)
