@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:57:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 14:15:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 15:28:21 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct s_ray	t_ray;
 typedef struct s_player	t_player;
 typedef struct s_map	t_map;
+typedef struct s_door	t_door;
 
 struct s_ray
 {
@@ -28,11 +29,19 @@ struct s_ray
 	bool		is_vertical;
 	t_vector	slope;
 	float		cos_angle_from_orientation;
+	bool		is_door;
 };
 
+struct	s_door
+{
+	float			transition;
+	t_mlx_coords	position;
+};
+
+
 // Raycasting functions
-float		raycast(t_vector position, t_vector *slope, t_map *map,
-				bool *is_vertical);
-bool		cast_rays(t_player *player, t_map *map, t_ray *rays);
+float		raycast(t_vector position, t_vector *slope, t_game *game,
+				t_ray *ray);
+bool		cast_rays(t_game *game);
 
 #endif

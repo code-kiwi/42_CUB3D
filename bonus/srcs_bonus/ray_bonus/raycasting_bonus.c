@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/19 11:09:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 15:26:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,23 @@ static void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
 	sum_length->y *= unit_length->y;
 }
 
-float	raycast(t_vector position, t_vector *slope, t_map *map,
-	bool *is_vertical)
+#include <stdio.h>
+
+static bool	check_door(t_vector *position, t_game *game, t_ray *ray,
+	float length)
+{
+	t_mlx_coords	point_pos;
+
+	if (game->map.tiles[(int)position->y][(int)position->x] != ID_DOOR)
+		return (false);
+	point_pos.x = game->player.position.x + ray->slope.x * length;
+	point_pos.y = game->player.position.y - ray->slope.y * length;
+	if (point_pos.x != position->x || point_pos.y != position->y)
+		return (false);
+	return (true);
+}
+
+float	raycast(t_vector position, t_vector *slope, t_game *game, t_ray *ray)
 {
 	t_vector	unit_length;
 	t_vector	sum_length;
@@ -50,15 +65,33 @@ float	raycast(t_vector position, t_vector *slope, t_map *map,
 		if (sum_length.x <= sum_length.y)
 		{
 			position.x += sign(slope->x);
-			if (is_wall(&position, map))
-				return (*is_vertical = true, sum_length.x);
+			if (is_wall(&position, &game->map))
+			{
+				ray->is_vertical = true;
+				return (sum_length.x);
+			}
+			if (check_door(&position, game, ray, sum_length.x + unit_length.x / 2))
+			{
+				ray->is_vertical = true;
+				ray->is_door = true;
+				return (sum_length.x + unit_length.x / 2);
+			}
 			sum_length.x += unit_length.x;
 		}
 		else
 		{
 			position.y -= sign(slope->y);
-			if (is_wall(&position, map))
-				return (*is_vertical = false, sum_length.y);
+			if (is_wall(&position, &game->map))
+			{
+				ray->is_vertical = false;
+				return (sum_length.y);
+			}
+			if (check_door(&position, game, ray, sum_length.y + unit_length.y / 2))
+			{
+				ray->is_vertical = false;
+				ray->is_door = true;
+				return (sum_length.y + unit_length.y / 2);
+			}
 			sum_length.y += unit_length.y;
 		}
 	}
