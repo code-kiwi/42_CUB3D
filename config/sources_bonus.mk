@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/20 21:10:53 by root             ###   ########.fr        #
+#    Updated: 2024/06/21 16:38:48 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,9 +71,7 @@ BASIC_RENDER_DIR_BONUS		=	basic_render_bonus/
 BASIC_RENDER_FILES_BONUS	=	draw_walls_bonus.c				\
 								draw_column_bonus.c				\
 								draw_ceiling_ground_bonus.c		\
-								draw_sprite_bonus.c				\
-								sprite_bonus.c					\
-								sort_sprites_bonus.c
+								draw_sprite_bonus.c
 BASIC_RENDER_BONUS			=	$(addprefix $(BASIC_RENDER_DIR_BONUS), $(BASIC_RENDER_FILES_BONUS))
 
 # MAP
@@ -102,6 +100,13 @@ VECTOR_DIR_BONUS			=	vector_bonus/
 VECTOR_FILES_BONUS			=	vector_bonus.c
 VECTOR_BONUS				=	$(addprefix $(VECTOR_DIR_BONUS), $(VECTOR_FILES_BONUS))
 
+# SPRITES
+SPRITES_DIR_BONUS			=	sprites/
+SPRITES_FILES_BONUS			=	sprite_init.c					\
+								sprite_bonus.c					\
+								sort_sprites_bonus.c
+SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
+
 # UTILS
 UTILS_DIR_BONUS				=	utils_bonus/
 UTILS_FILES_BONUS			=	math_bonus.c					\
@@ -120,7 +125,7 @@ SRCS_MAIN_DIR_BONUS			=	$(addprefix $(BONUS_DIR), $(SRCS_MAIN_SUBDIR_BONUS))
 SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(GAME_BONUS) $(VECTOR_BONUS) $(EVENT_HANDLERS_BONUS) 	\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
-								$(RAY_BONUS)
+								$(RAY_BONUS) $(SPRITES)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL
