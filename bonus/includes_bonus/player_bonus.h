@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 15:52:21 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/21 12:20:17 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define PLAYER_SPEED_BACKWARD	3
 # define PLAYER_SPEED_LEFT		3
 # define PLAYER_SPEED_RIGHT		3
-# define PLAYER_SPEED_ROTATION	1.570796327
+# define PLAYER_SPEED_ROTATION	2
 
 typedef struct s_player	t_player;
 typedef struct s_map	t_map;
@@ -45,6 +45,7 @@ struct s_player
 // t_player functions
 bool	t_player_init(t_player *player, t_map *map);
 
-void	update_player(t_player *player, t_map *map, float delta_time);
+void	update_player(t_game *game, float delta_time);
+void	get_mouse_pos(t_mlx_coords *mouse, t_mlx *mlx);
 
 #endif
