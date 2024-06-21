@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_sprite.c                                      :+:      :+:    :+:   */
+/*   draw_sprite_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/20 12:49:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 10:19:58 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,8 @@ void	draw_sprite(t_sprite *sprite, t_game *game)
 {
 	t_column	column;
 	float		scale;
-	float		distance;
 
-	distance = get_distance(&sprite->position, &game->player.position);
-	scale = 1 / distance;
+	scale = 1 / sprite->distance;
 	get_sprite_screen_pos(&column.coords, sprite, &game->player, scale);
 	column.start = column.coords.y;
 	column.end = column.coords.y + sprite->texture->height * scale;
@@ -83,5 +81,5 @@ void	draw_sprite(t_sprite *sprite, t_game *game)
 	if (column.start < 0)
 		column.start = 0;
 	column.perceived_height = sprite->texture->height * scale;
-	draw_all_columns(&column, sprite, game, distance);
+	draw_all_columns(&column, sprite, game, sprite->distance);
 }
