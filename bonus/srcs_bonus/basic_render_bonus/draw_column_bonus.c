@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/21 16:16:52 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 16:53:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 	else
 		texture_relative_position = modf(ray->intersection.x, &temp);
 	if (ray->is_door)
-		texture_relative_position = ray->door_transition - texture_relative_position;
+		texture_relative_position = ray->door->transition \
+			- texture_relative_position;
 	column = floorf(texture_relative_position * texture_width);
 	return (column);
 }

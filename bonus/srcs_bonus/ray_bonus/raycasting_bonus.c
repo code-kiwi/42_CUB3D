@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/21 16:02:33 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 16:57:25 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,28 @@ static void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
 static bool	check_door(t_vector *position, t_game *game, t_ray *ray,
 	float length,  bool is_vertical)
 {
-	t_vector	point_pos;
-	double		temp;
+	t_vector		point_pos;
+	t_mlx_coords	map_pos;
+	double			temp;
+	t_door			*door;
 
 	if (game->map.tiles[(int)position->y][(int)position->x] != ID_DOOR)
 		return (false);
 	point_pos.x = game->player.position.x + ray->slope.x * length;
 	point_pos.y = game->player.position.y - ray->slope.y * length;
-	if ((int)point_pos.x != position->x || (int)point_pos.y != position->y)
+	map_pos.x = point_pos.x;
+	map_pos.y = point_pos.y;
+	if (map_pos.x != position->x || map_pos.y != position->y)
 		return (false);
-	if ((is_vertical && modf(point_pos.y, &temp) < game->door.transition)
-		|| (!is_vertical && modf(point_pos.x, &temp) < game->door.transition))
+	door = find_door_at_position(&map_pos, game->doors, game->door_count);
+	if (door == NULL)
+		return (false);
+	if ((is_vertical && modf(point_pos.y, &temp) < door->transition)
+		|| (!is_vertical && modf(point_pos.x, &temp) < door->transition))
+	{
+		ray->door = door;
 		return (true);
+	}
 	return (false);
 }
 

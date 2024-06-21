@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/21 15:34:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 16:50:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 typedef struct s_game	t_game;
 typedef struct s_map	t_map;
 typedef struct s_vector	t_vector;
+typedef struct s_door	t_door;
 
 struct s_map
 {
@@ -52,5 +53,9 @@ bool		is_in_bounds(t_vector *position, t_map *map);
 bool		is_wall(t_vector *position, t_map *map);
 bool		check_extension(char *filename, char *extension);
 void		free_map(t_map *map);
+size_t		count_doors(t_map *map);
+void		find_doors(t_map *map, size_t door_count, t_door *doors);
+t_door		*find_door_at_position(t_mlx_coords *position, t_door *doors,
+				size_t doors_count);
 
 #endif
