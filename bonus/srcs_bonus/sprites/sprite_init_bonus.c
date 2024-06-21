@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_init.c                                      :+:      :+:    :+:   */
+/*   sprite_init_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 16:33:54 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 16:39:28 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/21 16:50:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "cub3d_bonus.h"
 #include "sprite_bonus.h"
 
-static bool	init_sprites(t_game *game)
+bool	init_sprites(t_game *game)
 {
 	size_t	index;
 

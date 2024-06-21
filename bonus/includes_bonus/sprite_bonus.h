@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 16:34:52 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/21 16:50:23 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ struct	s_sprite
 };
 
 // Sprites functions
-static bool	init_sprites(t_game *game);
+bool		init_sprites(t_game *game);
+void		destroy_sprites(t_sprite ***sprites_ptr, size_t sprites_count);
 void		get_sprites_distances(t_sprite **sprites, t_vector *pos,
 				size_t length);
 void		get_sprites(t_map *map, size_t sprites_count, t_sprite **sprites);
