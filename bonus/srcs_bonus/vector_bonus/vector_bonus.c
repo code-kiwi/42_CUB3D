@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:42:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/20 12:50:17 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 15:38:30 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ void	t_vector_get_slope(t_vector *slope, float angle_rad)
 
 float	get_distance(t_vector *a, t_vector *b)
 {
-	return (sqrtf(powf(a->x - b->x, 2) + powf(a->y - b->y, 2)));
+	return (sqrtf((a->x - b->x) * (a->x - b->x) \
+		+ (a->y - b->y) * (a->y - b->y)));
 }
