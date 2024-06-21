@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/21 16:53:36 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 17:15:21 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static bool	set_ray(t_ray *result, float angle, t_game *game)
 	player = &game->player;
 	result->is_door = false;
 	t_vector_get_slope(&result->slope, angle);
-	result->length = raycast(player->position, &result->slope, game, result);
+	result->length = raycast(player->position, game, result);
 	intersection_x = player->position.x + result->slope.x * result->length;
 	intersection_y = player->position.y - result->slope.y * result->length;
 	t_vector_init(&result->intersection, intersection_x, intersection_y);

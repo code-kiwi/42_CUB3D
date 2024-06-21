@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:57:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 17:06:57 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 17:15:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_ray		t_ray;
 typedef struct s_player		t_player;
 typedef struct s_map		t_map;
 typedef struct s_door		t_door;
+typedef struct s_raycasting	t_raycasting;
 typedef enum e_door_state	t_door_state;
 
 struct s_ray
@@ -48,10 +49,8 @@ struct	s_door
 	t_door_state	state;
 };
 
-
 // Raycasting functions
-float		raycast(t_vector position, t_vector *slope, t_game *game,
-				t_ray *ray);
+float		raycast(t_vector position, t_game *game, t_ray *ray);
 bool		cast_rays(t_game *game);
 
 #endif

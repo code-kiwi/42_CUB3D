@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/21 16:57:25 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 17:13:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,18 +67,18 @@ static bool	check_door(t_vector *position, t_game *game, t_ray *ray,
 	return (false);
 }
 
-float	raycast(t_vector position, t_vector *slope, t_game *game, t_ray *ray)
+float	raycast(t_vector position, t_game *game, t_ray *ray)
 {
 	t_vector	unit_length;
 	t_vector	sum_length;
 
-	calculate_unit_length(&unit_length, slope);
-	calculate_inital_sum(&sum_length, &unit_length, &position, slope);
+	calculate_unit_length(&unit_length, &ray->slope);
+	calculate_inital_sum(&sum_length, &unit_length, &position, &ray->slope);
 	while (sum_length.x < MAX_DISTANCE || sum_length.y < MAX_DISTANCE)
 	{
 		if (sum_length.x <= sum_length.y)
 		{
-			position.x += sign(slope->x);
+			position.x += sign(ray->slope.x);
 			if (is_wall(&position, &game->map))
 			{
 				ray->is_vertical = true;
@@ -94,7 +94,7 @@ float	raycast(t_vector position, t_vector *slope, t_game *game, t_ray *ray)
 		}
 		else
 		{
-			position.y -= sign(slope->y);
+			position.y -= sign(ray->slope.y);
 			if (is_wall(&position, &game->map))
 			{
 				ray->is_vertical = false;
