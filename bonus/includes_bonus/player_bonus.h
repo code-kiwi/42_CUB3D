@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/22 15:30:05 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/22 17:16:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define PLAYER_SPEED_ROTATION			1.570796327
 # define PLAYER_INTERACTION_DISTANCE	1.5
 # define DOOR_SPEED						1
+# define DOOR_TIME_TO_CLOSE				3
 
 typedef struct s_player	t_player;
 typedef struct s_map	t_map;
