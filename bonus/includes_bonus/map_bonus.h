@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/21 16:50:06 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/22 15:28:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_game	t_game;
 typedef struct s_map	t_map;
 typedef struct s_vector	t_vector;
 typedef struct s_door	t_door;
+typedef struct s_ray	t_ray;
 
 struct s_map
 {
@@ -57,5 +58,7 @@ size_t		count_doors(t_map *map);
 void		find_doors(t_map *map, size_t door_count, t_door *doors);
 t_door		*find_door_at_position(t_mlx_coords *position, t_door *doors,
 				size_t doors_count);
+void		open_looked_door(t_ray *look_ray);
+void		update_door(t_door *door, float delta_time);
 
 #endif

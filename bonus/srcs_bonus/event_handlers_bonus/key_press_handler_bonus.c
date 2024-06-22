@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 11:07:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/22 15:24:49 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ int	key_press_handler(int key, t_game *data)
 		data->player.is_walking[LEFT] = true;
 	else if (key == KEY_D)
 		data->player.is_walking[RIGHT] = true;
+	else if (key == KEY_E)
+		open_looked_door(data->player.look_ray);
 	return (0);
 }

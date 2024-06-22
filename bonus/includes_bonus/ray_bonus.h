@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:57:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 17:15:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/22 15:16:42 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ struct s_ray
 enum e_door_state
 {
 	CLOSED,
-	TRANSITIONING,
+	OPENING,
+	CLOSING,
 	OPENED
 };
 

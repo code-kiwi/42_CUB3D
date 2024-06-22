@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 10:37:49 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/22 15:24:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define KEY_A 						97
 # define KEY_S 						115
 # define KEY_D 						100
+# define KEY_E						101
 
 typedef struct s_mlx		t_mlx;
 typedef struct s_image		t_image;

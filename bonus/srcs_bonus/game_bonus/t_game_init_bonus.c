@@ -49,7 +49,7 @@ bool	t_game_init(t_game *game)
 		return (false);
 	game->frame_time_usec = 1000000 / FPS;
 	game->tick_last_frame = 0;
-	if (!t_player_init(&game->player, &game->map))
+	if (!t_player_init(&game->player, &game->map, game))
 		return (false);
 	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
 		return (false);
