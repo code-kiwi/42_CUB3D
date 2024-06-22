@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/22 16:09:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/22 17:25:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ static void	update_look(t_player *player, float delta_time)
 	else if (player->turn_direction[1] && !player->turn_direction[0])
 		player->orientation -= player->rotation_speed * delta_time;
 }
-
-#include <stdio.h>
 
 static void	update_position(t_player *player, t_map *map, float delta_time)
 {
