@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:54:27 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/19 11:07:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/22 15:39:27 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,12 @@ bool	is_in_bounds(t_vector *position, t_map *map)
 	return (true);
 }
 
-bool	is_wall(t_vector *position, t_map *map)
+bool	is_character(t_vector *position, t_map *map, char character)
 {
 	int	tile_x;
 	int	tile_y;
 
-	if (!is_in_bounds(position, map))
-		return (true);
 	tile_x = position->x;
 	tile_y = position->y;
-	return (map->tiles[tile_y][tile_x] == ID_WALL);
+	return (map->tiles[tile_y][tile_x] == character);
 }

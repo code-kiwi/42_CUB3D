@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/21 17:13:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/22 15:52:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ static void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
 	sum_length->y *= unit_length->y;
 }
 
-#include <stdio.h>
-
-static bool	check_door(t_vector *position, t_game *game, t_ray *ray,
+static bool	check_door(t_vector *pos, t_game *game, t_ray *ray,
 	float length,  bool is_vertical)
 {
 	t_vector		point_pos;
@@ -47,13 +45,14 @@ static bool	check_door(t_vector *position, t_game *game, t_ray *ray,
 	double			temp;
 	t_door			*door;
 
-	if (game->map.tiles[(int)position->y][(int)position->x] != ID_DOOR)
+	if (game->map.tiles[(int)pos->y][(int)pos->x] != ID_DOOR_CLOSED
+		&& game->map.tiles[(int)pos->y][(int)pos->x] != ID_DOOR_OPENED)
 		return (false);
 	point_pos.x = game->player.position.x + ray->slope.x * length;
 	point_pos.y = game->player.position.y - ray->slope.y * length;
 	map_pos.x = point_pos.x;
 	map_pos.y = point_pos.y;
-	if (map_pos.x != position->x || map_pos.y != position->y)
+	if (map_pos.x != pos->x || map_pos.y != pos->y)
 		return (false);
 	door = find_door_at_position(&map_pos, game->doors, game->door_count);
 	if (door == NULL)
@@ -79,7 +78,8 @@ float	raycast(t_vector position, t_game *game, t_ray *ray)
 		if (sum_length.x <= sum_length.y)
 		{
 			position.x += sign(ray->slope.x);
-			if (is_wall(&position, &game->map))
+			if (!is_in_bounds(&position, &game->map)
+				|| is_character(&position, &game->map, ID_WALL))
 			{
 				ray->is_vertical = true;
 				return (sum_length.x);
@@ -95,7 +95,8 @@ float	raycast(t_vector position, t_game *game, t_ray *ray)
 		else
 		{
 			position.y -= sign(ray->slope.y);
-			if (is_wall(&position, &game->map))
+			if (!is_in_bounds(&position, &game->map)
+				|| is_character(&position, &game->map, ID_WALL))
 			{
 				ray->is_vertical = false;
 				return (sum_length.y);

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 16:24:20 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/22 15:30:20 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/22 16:13:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	count_doors(t_map *map)
 		x = 0 ;
 		while (x < map->lines_lengths[y])
 		{
-			if (map->tiles[y][x] == ID_DOOR)
+			if (map->tiles[y][x] == ID_DOOR_CLOSED)
 				doors_count++;
 			x++;
 		}
@@ -47,7 +47,7 @@ void	find_doors(t_map *map, size_t door_count, t_door *doors)
 		x = 0;
 		while (x < map->lines_lengths[y])
 		{
-			if (map->tiles[y][x] == ID_DOOR)
+			if (map->tiles[y][x] == ID_DOOR_CLOSED)
 			{
 				doors[door_index].position = (t_mlx_coords){x, y};
 				doors[door_index].state = CLOSED;
@@ -78,36 +78,44 @@ t_door	*find_door_at_position(t_mlx_coords *position, t_door *doors,
 	return (NULL);
 }
 
-void	open_looked_door(t_ray *look_ray)
+void	open_looked_door(t_ray *look_ray, t_map *map)
 {
+	t_door	*door;
+
 	if (!look_ray->is_door)
 		return ;
 	if (look_ray->length > PLAYER_INTERACTION_DISTANCE)
 		return ;
-	if (look_ray->door->state == CLOSED)
-		look_ray->door->state = OPENING;
-	else if (look_ray->door->state == OPENED)
-		look_ray->door->state = CLOSING;
+	door = look_ray->door;
+	if (door->state == CLOSED)
+		door->state = OPENING;
+	else if (door->state == OPENED)
+	{
+
+		map->tiles[door->position.y][door->position.x] = ID_DOOR_CLOSED;
+		door->state = CLOSING;
+	}
 }
 
-void	update_door(t_door *door, float delta_time)
+void	update_door(t_door *door, float delta_time, t_map *map)
 {
-	if (door->state == OPENING)
-	{
-		door->transition += delta_time * DOOR_SPEED;
-		if (door->transition > 1)
-		{
-			door->transition = 1;
-			door->state = OPENED;
-		}
-	}
 	if (door->state == CLOSING)
 	{
+		door->transition += delta_time * DOOR_SPEED;
+		if (door->transition >= 1)
+		{
+			door->transition = 1;
+			door->state = CLOSED;
+		}
+	}
+	else if (door->state == OPENING)
+	{
 		door->transition -= delta_time * DOOR_SPEED;
-		if (door->transition < 0)
+		if (door->transition <= 0)
 		{
 			door->transition = 0;
-			door->state = CLOSED;
+			door->state = OPENED;
+			map->tiles[door->position.y][door->position.x] = ID_DOOR_OPENED;
 		}
 	}
 }
