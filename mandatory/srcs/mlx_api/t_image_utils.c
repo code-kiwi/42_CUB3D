@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_image_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/17 11:54:04 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/21 18:13:22 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_image	*t_image_init(void *mlx_ptr, int img_width, int img_height)
 	}
 	img->width = img_width;
 	img->height = img_height;
+	img->bpp_factor = img->bpp / 8;
 	return (img);
 }
 
@@ -86,5 +87,6 @@ bool	t_image_import_file(t_image *image, char *filename, void *mlx)
 		mlx_destroy_image(mlx, image->ptr);
 		return (false);
 	}
+	image->bpp_factor = image->bpp / 8;
 	return (true);
 }

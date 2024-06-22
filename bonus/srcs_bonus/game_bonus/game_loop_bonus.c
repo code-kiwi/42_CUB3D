@@ -6,12 +6,13 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 17:29:49 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/21 17:37:09 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
@@ -54,5 +55,6 @@ int	game_loop(t_game *game)
 	draw_walls(game);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
+	printf("fps : %d\n", (int)(1.0f / delta_time));
 	return (0);
 }
