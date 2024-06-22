@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/22 17:52:35 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/22 18:00:27 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ static void	calculate_inital_sum(t_raycast *ray_x, t_raycast *ray_y,
 	t_vector *slope, t_vector *position)
 {
 	if (slope->x < 0)
-		ray_x->sum_length = modff(position->x, ray_x->position);
+		ray_x->sum_length = modff(position->x, &position->x);
 	else
-		ray_x->sum_length = 1 - modff(position->x, ray_x->position);
+		ray_x->sum_length = 1 - modff(position->x, &position->x);
 	if (slope->y < 0)
-		ray_y->sum_length = 1 - modff(position->y, ray_y->position);
+		ray_y->sum_length = 1 - modff(position->y, &position->y);
 	else
-		ray_y->sum_length = modff(position->y, ray_y->position);
+		ray_y->sum_length = modff(position->y, &position->y);
 	ray_x->sum_length *= ray_x->unit_length;
 	ray_y->sum_length *= ray_y->unit_length;
 }
@@ -80,19 +80,21 @@ static bool	check_door(t_vector *pos, t_game *game, t_ray *ray,
 float	raycast_progress(t_raycast *raycast, t_game *game, t_vector *position,
 	t_ray *ray)
 {
-	raycast->position += raycast->sign;
+	float	door_length;
+
+	*raycast->position += raycast->sign;
 	if (!is_in_bounds(position, &game->map)
 		|| is_character(position, &game->map, ID_WALL))
 	{
-		ray->is_vertical = true;
+		ray->is_vertical = raycast->is_vertical;
 		return (raycast->sum_length);
 	}
-	if (check_door(position, game, ray,
-			raycast->sum_length + raycast->unit_length / 2, true))
+	door_length = raycast->sum_length + raycast->unit_length / 2;
+	if (check_door(position, game, ray, door_length, raycast->is_vertical))
 	{
-		ray->is_vertical = true;
+		ray->is_vertical = raycast->is_vertical;
 		ray->is_door = true;
-		return (raycast->sum_length + raycast->unit_length / 2);
+		return (door_length);
 	}
 	raycast->sum_length += raycast->unit_length;
 	return (-1);
