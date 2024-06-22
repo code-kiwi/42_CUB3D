@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 09:22:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 17:37:09 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
@@ -39,16 +40,12 @@ static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 	return (true);
 }
 
-#include <stdio.h>
-
 int	game_loop(t_game *game)
 {
 	float	delta_time;
-	long	tick;
 
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
-	tick = get_tick();
 	game_loop_handle_fps(game, &delta_time);
 	update_player(&game->player, &game->map, delta_time);
 	if (!is_in_bounds(&game->player.position, &game->map))
@@ -58,6 +55,6 @@ int	game_loop(t_game *game)
 	draw_walls(game);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
-	printf("fps : %f\n", 1 / ((get_tick() - tick) / 1000000.0));
+	printf("fps : %d\n", (int)(1.0f / delta_time));
 	return (0);
 }
