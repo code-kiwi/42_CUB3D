@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/22 18:00:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/22 18:00:01by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,7 @@
 #include "cub3d_bonus.h"
 #include "vector_bonus.h"
 #include "map_bonus.h"
-typedef struct s_raycast	t_raycast;
 
-struct s_raycast
-{
-	float	unit_length;
-	float	sum_length;
-	int		sign;
-	float	*position;
-	bool	is_vertical;
-};
 
 static void	calculate_unit_length(t_raycast *ray_x, t_raycast *ray_y,
 	t_vector *slope)
