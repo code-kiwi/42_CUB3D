@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:22:06 by root              #+#    #+#             */
-/*   Updated: 2024/06/20 21:15:45 by root             ###   ########.fr       */
+/*   Updated: 2024/06/21 15:30:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+#include "sprite_bonus.h"
 #include "libft.h"
 
 size_t	count_sprites(t_map *map)

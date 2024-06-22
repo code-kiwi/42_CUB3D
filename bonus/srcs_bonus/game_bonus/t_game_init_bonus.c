@@ -14,11 +14,9 @@
 #include "player_bonus.h"
 #include "event_handlers_bonus.h"
 #include "libft.h"
-#include "mlx.h"
 #include "mlx_api_bonus.h"
 #include "map_bonus.h"
-
-#include <errno.h>
+#include "sprite_bonus.h"
 
 static bool	init_textures(t_game *game)
 {
@@ -36,29 +34,6 @@ static bool	init_textures(t_game *game)
 		if (!t_image_import_file(&game->textures[index], filename,
 				game->mlx.mlx_ptr))
 			return (error_print(ERR_INIT_TEXTURES), false);
-		index++;
-	}
-	return (true);
-}
-
-static bool	init_sprites(t_game *game)
-{
-	size_t	index;
-
-	index = 0;
-	game->sprites_count = count_sprites(&game->map);
-	if (game->sprites_count != 0)
-	{
-		game->sprites = alloc_sprites(game->sprites_count);
-		if (game->sprites == NULL)
-			return (false);
-		get_sprites(&game->map, game->sprites_count, game->sprites);
-	}
-	else
-		game->sprites = NULL;
-	while (index < game->sprites_count)
-	{
-		game->sprites[index]->texture = &game->textures[6];
 		index++;
 	}
 	return (true);

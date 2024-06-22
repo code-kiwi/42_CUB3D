@@ -3,16 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/21 10:31:46 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/21 16:16:35 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
-
 #include <math.h>
+
+#include "cub3d_bonus.h"
+#include "mlx_api_bonus.h"
+#include "player_bonus.h"
+#include "vector_bonus.h"
+#include "sprite_bonus.h"
 
 static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
 {
@@ -27,7 +31,7 @@ static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
 	return (entity_angle);
 }
 
-void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
+static void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 	t_player *player, float scale)
 {
 	float		entity_angle;
@@ -45,32 +49,36 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 	sprite_screen->y -= sprite->texture->height / 2 * scale;
 }
 
-void	draw_all_columns(t_column *column, t_sprite *sprite, t_game *game,
-	float distance)
+static void	draw_all_columns(
+	t_column *column,
+	t_sprite *sprite,
+	t_image *img,
+	t_ray	*rays
+)
 {
 	float	texture_x;
 
 	texture_x = 0;
 	if (column->coords.x < 0)
 	{
-		texture_x -= column->coords.x * distance;
+		texture_x -= column->coords.x * sprite->distance;
 		column->coords.x = 0;
 		column->texture_column = texture_x;
 	}
 	while (column->texture_column < sprite->texture->width)
 	{
-		if (column->coords.x >= game->mlx.img_buff->width)
+		if (column->coords.x >= img->width)
 			return ;
-		if (game->rays[column->coords.x].length > distance)
-			draw_texture_column(game->mlx.img_buff, column, sprite->texture);
-		texture_x += distance;
+		if (rays[column->coords.x].length > sprite->distance)
+			draw_texture_column(img, column, sprite->texture);
+		texture_x += sprite->distance;
 		column->texture_column = texture_x;
 		column->coords.x++;
 		column->coords.y = column->start;
 	}
 }
 
-void	draw_sprite(t_sprite *sprite, t_game *game)
+static void	draw_sprite(t_sprite *sprite, t_game *game)
 {
 	t_column	column;
 	float		scale;
@@ -88,5 +96,20 @@ void	draw_sprite(t_sprite *sprite, t_game *game)
 	if (column.start < 0)
 		column.start = 0;
 	column.perceived_height = sprite->texture->height * scale;
-	draw_all_columns(&column, sprite, game, sprite->distance);
+	draw_all_columns(&column, sprite, game->mlx.img_buff, game->rays);
+}
+
+void	render_all_sprites(t_game *game)
+{
+	size_t	index;
+
+	index = 0;
+	get_sprites_distances(game->sprites, &game->player.position,
+		game->sprites_count);
+	sort_sprites(game->sprites, game->sprites_count);
+	while (index < game->sprites_count)
+	{
+		draw_sprite(game->sprites[index], game);
+		index++;
+	}
 }

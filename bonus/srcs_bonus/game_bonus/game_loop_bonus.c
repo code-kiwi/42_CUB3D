@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/20 21:20:21 by root             ###   ########.fr       */
+/*   Updated: 2024/06/21 16:02:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
 #include "libft.h"
+#include "sprite_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {
@@ -37,21 +38,6 @@ static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 	*delta_time = (tick - game->tick_last_frame) / 1000000.0f;
 	game->tick_last_frame = tick;
 	return (true);
-}
-
-static void	render_all_sprites(t_game *game)
-{
-	size_t	index;
-
-	index = 0;
-	get_sprites_distances(game->sprites, &game->player.position,
-		game->sprites_count);
-	sort_sprites(game->sprites, game->sprites_count);
-	while (index < game->sprites_count)
-	{
-		draw_sprite(game->sprites[index], game);
-		index++;
-	}
 }
 
 int	game_loop(t_game *game)

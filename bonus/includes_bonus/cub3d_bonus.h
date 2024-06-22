@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/20 21:10:26 by root             ###   ########.fr       */
+/*   Updated: 2024/06/21 16:09:13 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,6 @@ typedef struct s_mlx	t_mlx;
 typedef struct s_column	t_column;
 typedef struct s_sprite	t_sprite;
 
-struct	s_sprite
-{
-	t_vector	position;
-	float		distance;
-	t_image		*texture;
-};
-
 struct s_game
 {
 	t_mlx			mlx;
@@ -106,17 +99,9 @@ void		t_game_destroy(t_game *game);
 void		draw_walls(t_game *game);
 void		draw_ground_ceiling(t_column *column, int end, t_game *game,
 				t_ray *ray);
-void		draw_sprite(t_sprite *sprite, t_game *game);
 void		draw_texture_column(t_image *screen, t_column *column,
 				t_image *texture);
-
-// Sprites functions
-void		get_sprites_distances(t_sprite **sprites, t_vector *pos,
-				size_t length);
-void		get_sprites(t_map *map, size_t sprites_count, t_sprite **sprites);
-size_t		count_sprites(t_map *map);
-t_sprite	**alloc_sprites(size_t sprites_count);
-void		sort_sprites(t_sprite **sprites, size_t length);
+void		render_all_sprites(t_game *game);
 
 // Utils functions
 void		error_print(char *err_msg);
