@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 16:01:43 by root              #+#    #+#             */
-/*   Updated: 2024/06/23 16:46:37 by root             ###   ########.fr       */
+/*   Updated: 2024/06/23 16:54:24 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 #include "cub3d_bonus.h"
 #include "door_bonus.h"
+
+inline static float	mod(float value)
+{
+	return (value - (int)value);
+}
 
 bool	is_door(t_vector *pos, t_game *game, t_ray *ray,
 	t_raycast *raycast)
@@ -36,8 +41,8 @@ bool	is_door(t_vector *pos, t_game *game, t_ray *ray,
 	door = find_door_at_position(&map_pos, game->doors, game->door_count);
 	if (door == NULL)
 		return (false);
-	if ((raycast->is_vertical && point_pos.y - (int)point_pos.y < door->transition)
-		|| (!raycast->is_vertical && point_pos.x - (int)point_pos.x < door->transition))
+	if ((raycast->is_vertical && mod(point_pos.y) < door->transition)
+		|| (!raycast->is_vertical && mod(point_pos.x) < door->transition))
 	{
 		ray->door = door;
 		return (true);

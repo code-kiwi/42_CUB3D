@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/23 16:45:40 by root             ###   ########.fr       */
+/*   Updated: 2024/06/23 16:57:48 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ int	game_loop(t_game *game)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
 	update_player(&game->player, &game->map, delta_time);
-	for (size_t i = 0; i < game->door_count; i++)
-		update_door(&game->doors[i], delta_time, &game->map, &game->player.position);
+	update_doors(game, delta_time);
 	if (!is_in_bounds(&game->player.position, &game->map))
 		error_exit(game, ERR_PLAYER_QUIT_MAP);
 	if (!cast_rays(game))
