@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/22 17:21:14 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/23 16:45:40 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
 #include "libft.h"
+#include "door_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {

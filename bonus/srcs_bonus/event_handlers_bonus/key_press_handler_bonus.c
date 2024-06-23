@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press_handler_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/22 15:50:20 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/23 16:46:06 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "cub3d_bonus.h"
 #include "event_handlers_bonus.h"
 #include "libft.h"
+#include "door_bonus.h"
 
 /**
  * @brief Handles the keyboard press key events

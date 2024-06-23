@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/22 18:00:01by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/23 16:02:46 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "cub3d_bonus.h"
 #include "vector_bonus.h"
 #include "map_bonus.h"
-
 
 static void	calculate_unit_length(t_raycast *ray_x, t_raycast *ray_y,
 	t_vector *slope)
@@ -39,40 +38,9 @@ static void	calculate_inital_sum(t_raycast *ray_x, t_raycast *ray_y,
 	ray_y->sum_length *= ray_y->unit_length;
 }
 
-static bool	check_door(t_vector *pos, t_game *game, t_ray *ray,
-	float length, bool is_vertical)
-{
-	t_vector		point_pos;
-	t_mlx_coords	map_pos;
-	double			temp;
-	t_door			*door;
-
-	if (game->map.tiles[(int)pos->y][(int)pos->x] != ID_DOOR_CLOSED
-		&& game->map.tiles[(int)pos->y][(int)pos->x] != ID_DOOR_OPENED)
-		return (false);
-	point_pos.x = game->player.position.x + ray->slope.x * length;
-	point_pos.y = game->player.position.y - ray->slope.y * length;
-	map_pos.x = point_pos.x;
-	map_pos.y = point_pos.y;
-	if (map_pos.x != pos->x || map_pos.y != pos->y)
-		return (false);
-	door = find_door_at_position(&map_pos, game->doors, game->door_count);
-	if (door == NULL)
-		return (false);
-	if ((is_vertical && modf(point_pos.y, &temp) < door->transition)
-		|| (!is_vertical && modf(point_pos.x, &temp) < door->transition))
-	{
-		ray->door = door;
-		return (true);
-	}
-	return (false);
-}
-
 float	raycast_progress(t_raycast *raycast, t_game *game, t_vector *position,
 	t_ray *ray)
 {
-	float	door_length;
-
 	*raycast->position += raycast->sign;
 	if (!is_in_bounds(position, &game->map)
 		|| is_character(position, &game->map, ID_WALL))
@@ -80,12 +48,11 @@ float	raycast_progress(t_raycast *raycast, t_game *game, t_vector *position,
 		ray->is_vertical = raycast->is_vertical;
 		return (raycast->sum_length);
 	}
-	door_length = raycast->sum_length + raycast->unit_length / 2;
-	if (check_door(position, game, ray, door_length, raycast->is_vertical))
+	if (is_door(position, game, ray, raycast))
 	{
 		ray->is_vertical = raycast->is_vertical;
 		ray->is_door = true;
-		return (door_length);
+		return (raycast->sum_length + raycast->unit_length / 2);
 	}
 	raycast->sum_length += raycast->unit_length;
 	return (-1);

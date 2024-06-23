@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/22 17:20:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/23 16:44:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,5 @@ bool		is_in_bounds(t_vector *position, t_map *map);
 bool		is_character(t_vector *position, t_map *map, char character);
 bool		check_extension(char *filename, char *extension);
 void		free_map(t_map *map);
-size_t		count_doors(t_map *map);
-void		find_doors(t_map *map, size_t door_count, t_door *doors);
-t_door		*find_door_at_position(t_mlx_coords *position, t_door *doors,
-				size_t doors_count);
-void		open_looked_door(t_ray *look_ray, t_map *map);
-void		update_door(t_door *door, float delta_time, t_map *map,
-				t_vector *player_pos);
 
 #endif

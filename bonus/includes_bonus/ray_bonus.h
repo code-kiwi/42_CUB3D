@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:57:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/22 18:22:01 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/23 16:44:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,6 @@ struct s_ray
 	t_door		*door;
 };
 
-enum e_door_state
-{
-	CLOSED,
-	OPENING,
-	CLOSING,
-	OPENED
-};
-
-struct	s_door
-{
-	float			transition;
-	t_mlx_coords	position;
-	t_door_state	state;
-	float			time_since_opened;
-};
-
 struct s_raycast
 {
 	float	unit_length;
@@ -64,5 +48,7 @@ struct s_raycast
 // Raycasting functions
 float		raycast(t_vector position, t_game *game, t_ray *ray);
 bool		cast_rays(t_game *game);
+bool		is_door(t_vector *pos, t_game *game, t_ray *ray,
+				t_raycast *raycast);
 
 #endif

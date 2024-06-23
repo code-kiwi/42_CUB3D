@@ -16,6 +16,7 @@
 #include "libft.h"
 #include "mlx.h"
 #include "mlx_api_bonus.h"
+#include "door_bonus.h"
 
 static bool	init_textures(t_game *game)
 {
