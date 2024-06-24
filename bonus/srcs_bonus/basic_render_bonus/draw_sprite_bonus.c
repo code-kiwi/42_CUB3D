@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/24 14:13:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 14:46:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ static void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 	else if (player->orientation < PI / 2 && entity_angle > PI / 2 * 3)
 		relative_angle += 2 * PI;
 	sprite_screen->x = relative_angle * player->pixel_by_angle;
-	sprite_screen->x -= texture->width / 2 * scale;
+	sprite_screen->x -= WIN_HEIGHT / 2 * scale;
 	sprite_screen->y = WIN_HEIGHT / 2;
-	sprite_screen->y -= texture->height / 2 * scale;
+	sprite_screen->y -= WIN_HEIGHT / 2 * scale;
 }
 
 static void	draw_all_columns(
@@ -66,7 +66,7 @@ static void	draw_all_columns(
 	texture_x = 0;
 	if (column->coords.x < 0)
 	{
-		texture_x -= column->coords.x * sprite->distance;
+		texture_x -= column->coords.x * sprite->distance * texture->width / WIN_HEIGHT;
 		column->coords.x = 0;
 		column->texture_column = texture_x;
 	}
@@ -76,7 +76,7 @@ static void	draw_all_columns(
 			return ;
 		if (rays[column->coords.x].length > sprite->distance)
 			draw_texture_column(img, column, texture);
-		texture_x += sprite->distance;
+		texture_x += sprite->distance * texture->width / WIN_HEIGHT;
 		column->texture_column = texture_x;
 		column->coords.x++;
 		column->coords.y = column->start;
@@ -93,7 +93,7 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 	scale = 1 / sprite->distance;
 	get_sprite_screen_pos(&column.coords, sprite, &game->player, scale);
 	column.start = column.coords.y;
-	column.end = column.coords.y + texture->height * scale;
+	column.end = column.coords.y + WIN_HEIGHT * scale;
 	if (column.coords.y < 0)
 		column.coords.y = 0;
 	if (column.end > WIN_HEIGHT)
@@ -102,7 +102,7 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 	column.texture_column = 0;
 	if (column.start < 0)
 		column.start = 0;
-	column.perceived_height = texture->height * scale;
+	column.perceived_height = WIN_HEIGHT * scale;
 	draw_all_columns(&column, sprite, game->mlx.img_buff, game->rays);
 }
 
