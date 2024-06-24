@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 16:50:23 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:56:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdlib.h>
 
 # include "vector_bonus.h"
+
+# define TEXTURE_SIZE			64
 
 typedef struct s_game	t_game;
 typedef struct s_sprite	t_sprite;

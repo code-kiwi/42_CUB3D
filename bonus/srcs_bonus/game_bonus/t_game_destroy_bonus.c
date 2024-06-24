@@ -16,6 +16,7 @@
 #include "mlx_api_bonus.h"
 #include "mlx.h"
 #include "sprite_bonus.h"
+#include "animation_bonus.h"
 
 /**
  * @brief Destroys the given t_game
@@ -30,8 +31,7 @@ void	t_game_destroy(t_game *game)
 	index = 0;
 	while (index < MAP_NB_IDS)
 	{
-		if (game->textures[index].ptr != NULL)
-			mlx_destroy_image(game->mlx.mlx_ptr, game->textures[index].ptr);
+		destroy_animation(game->textures[index], game->mlx.mlx_ptr, true);
 		index++;
 	}
 	t_mlx_destroy(&game->mlx);

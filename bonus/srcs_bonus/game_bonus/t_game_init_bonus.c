@@ -17,11 +17,14 @@
 #include "mlx_api_bonus.h"
 #include "map_bonus.h"
 #include "sprite_bonus.h"
+#include "animation_bonus.h"
+#include "mlx.h"
 
 static bool	init_textures(t_game *game)
 {
 	size_t	index;
 	char	*filename;
+	t_image	texture;
 
 	index = 0;
 	while (index < MAP_NB_IDS)
@@ -31,9 +34,12 @@ static bool	init_textures(t_game *game)
 			return (error_print(ERR_MISSING_TEXTURES), false);
 		if (!check_extension(filename, ".xpm"))
 			return (error_print(ERR_TEXTURE_EXTENSION), false);
-		if (!t_image_import_file(&game->textures[index], filename,
-				game->mlx.mlx_ptr))
+		if (!t_image_import_file(&texture, filename, game->mlx.mlx_ptr))
 			return (error_print(ERR_INIT_TEXTURES), false);
+		game->textures[index] = create_animation(&texture, game->mlx.mlx_ptr);
+		mlx_destroy_image(game->mlx.mlx_ptr, texture.ptr);
+		if (game->textures[index] == NULL)
+			return (false);
 		index++;
 	}
 	return (true);

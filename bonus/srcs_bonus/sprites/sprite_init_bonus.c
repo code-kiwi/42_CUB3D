@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_init_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 16:33:54 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 16:50:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:02:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "cub3d_bonus.h"
 #include "sprite_bonus.h"
+#include "libft.h"
 
 bool	init_sprites(t_game *game)
 {
@@ -32,7 +33,7 @@ bool	init_sprites(t_game *game)
 		game->sprites = NULL;
 	while (index < game->sprites_count)
 	{
-		game->sprites[index]->texture = &game->textures[6];
+		game->sprites[index]->texture = game->textures[6]->content;
 		index++;
 	}
 	return (true);
