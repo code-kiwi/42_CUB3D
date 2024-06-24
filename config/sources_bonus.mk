@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/24 13:03:49 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/24 14:23:18 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,7 +123,8 @@ UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 # ANIMATION
 ANIMATION_DIR_BONUS				=	animation_bonus/
 ANIMATION_FILES_BONUS			=	create_animation_bonus.c	\
-									destroy_animation.c
+									destroy_animation_bonus.c	\
+									update_animations_bonus.c
 ANIMATION_BONUS					=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
 
 # SOURCES GENERAL

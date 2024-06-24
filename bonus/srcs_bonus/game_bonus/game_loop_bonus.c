@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 08:56:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 14:24:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "mlx_api_bonus.h"
 #include "libft.h"
 #include "sprite_bonus.h"
+#include "animation_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {
@@ -48,6 +49,7 @@ int	game_loop(t_game *game)
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
+	update_animations(game, delta_time);
 	update_player(&game->player, &game->map, delta_time);
 	if (!is_in_bounds(&game->player.position, &game->map))
 		error_exit(game, ERR_PLAYER_QUIT_MAP);
@@ -57,6 +59,6 @@ int	game_loop(t_game *game)
 	render_all_sprites(game);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
-	printf("fps : %d\n", (int)(1.0f / delta_time));
+	// printf("fps : %d\n", (int)(1.0f / delta_time));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 12:58:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 14:28:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ struct s_game
 	t_list			*textures[7];
 	t_sprite		**sprites;
 	size_t			sprites_count;
+	float			frame_update_delta;
 };
 
 struct	s_column
