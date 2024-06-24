@@ -6,12 +6,13 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 11:06:17 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 09:11:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
@@ -39,26 +40,6 @@ static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 	return (true);
 }
 
-#include <stdio.h>
-
-typedef struct s_mlx_button
-{
-	t_mlx_coords	pos;
-	int				height;
-	int				width;
-	int				color_bg;
-	int				color_txt;
-	char			*txt;
-	bool			state;
-	void			(*callback)(void);
-}	t_mlx_button;
-
-#include "mlx.h"
-void	t_mlx_draw_text(t_mlx *mlx, t_mlx_coords *coords, char *str, int color)
-{
-	mlx_string_put(mlx->mlx_ptr, mlx->mlx_win, coords->x, coords->y, color, str);
-}
-
 int	game_loop(t_game *game)
 {
 	float	delta_time;
@@ -66,14 +47,6 @@ int	game_loop(t_game *game)
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
-
-	t_mlx_coords	coords;
-
-	coords.x = 100;
-	coords.y = 100;
-
-	t_mlx_draw_text(&game->mlx, &coords, "Bonjour", 0xFFFFFF);
-	printf("DELTA: %f\n", delta_time);
 	if (!game->pause)
 	{
 		update_player(&game->player, &game->map, delta_time);
@@ -83,8 +56,8 @@ int	game_loop(t_game *game)
 			error_exit(game, ERR_CAST_RAYS);
 		draw_walls(game);
 	}
-	
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
+	printf("fps : %d\n", (int)(1.0f / delta_time));
 	return (0);
 }

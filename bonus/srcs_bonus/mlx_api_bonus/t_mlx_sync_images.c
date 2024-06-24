@@ -6,18 +6,33 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 12:07:43 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 15:04:38 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 09:10:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_api_bonus.h"
+
+static void	t_mlx_sync_images_copy(
+	unsigned int *dest,
+	unsigned int *src,
+	int width
+)
+{
+	int	i;
+
+	i = 0;
+	while (i < width)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+}
 
 void	t_mlx_sync_images(t_mlx *mlx)
 {
 	char	*dest_addr;
 	char	*buff_addr;
 	int		i;
-	int		j; 
 
 	if (mlx == NULL)
 		return ;
@@ -31,12 +46,8 @@ void	t_mlx_sync_images(t_mlx *mlx)
 	{
 		buff_addr += mlx->img_buff->line_len;
 		dest_addr += mlx->img_buff->line_len;
-		j = 0;
-		while (j < mlx->img_buff->width)
-		{
-			dest_addr[j] = buff_addr[j];
-			j++;
-		}
+		t_mlx_sync_images_copy((unsigned int *)dest_addr, \
+			(unsigned int *)buff_addr, mlx->img_buff->width);
 		i++;
 	}
 }

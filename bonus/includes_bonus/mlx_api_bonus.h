@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 12:19:45 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 08:55:29 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ struct s_image
 	void	*ptr;
 	char	*addr;
 	int		bpp;
+	int		bpp_factor;
 	int		line_len;
 	int		endian;
 	int		width;

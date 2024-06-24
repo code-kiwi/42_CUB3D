@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/19 17:27:56 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/21 18:08:28 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	draw_texture_column(t_image *screen, t_column *column, int wall_end,
 	texture_column = pixel_column_on_texture(column->ray, texture->width);
 	scale_y = texture->height / column->perceived_height;
 	addr = screen->addr + (column->coords.y * screen->line_len \
-		+ column->coords.x * screen->bpp / 8);
-	color = texture->addr + texture_column * (screen->bpp / 8);
+		+ column->coords.x * screen->bpp_factor);
+	color = texture->addr + texture_column * (screen->bpp_factor);
 	texture_pos = column->texture_start * scale_y;
 	while (column->coords.y < wall_end)
 	{

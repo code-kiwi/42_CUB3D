@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 12:21:58 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 09:11:25 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
  * @param key The integer value of the pressed key
  * @return A dummy integer
 */
-
-#include <stdio.h>
 int	key_press_handler(int key, t_game *data)
 {
 	if (data == NULL)
@@ -46,7 +44,5 @@ int	key_press_handler(int key, t_game *data)
 		if (data->pause)
 			t_mlx_sync_images(&data->mlx);
 	}
-		
-	printf("KEY PRESSED: %d\n", key);
 	return (0);
 }
