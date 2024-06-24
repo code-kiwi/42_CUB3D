@@ -20,8 +20,6 @@
 #include "sprite_bonus.h"
 #include "ui_bonus.h"
 
-#include <errno.h>
-
 static bool	init_textures(t_game *game)
 {
 	size_t	index;

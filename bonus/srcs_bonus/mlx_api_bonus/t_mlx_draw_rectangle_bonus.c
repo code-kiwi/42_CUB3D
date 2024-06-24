@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:24:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 13:37:21 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:05:54 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,13 @@ void	t_mlx_draw_rect_texture(
 	t_image *txtr
 )
 {
-	int		i;
-	int		j;
-	char	*dest_row;
+	int			i;
+	int			j;
+	char		*dest_row;
+	uint32_t	color;
 
 	if (!t_mlx_is_rect_valid(coords, size))
-	{
-		error_print(ERR_RECTANGLE);
-		return ;
-	}
+		return (error_print(ERR_RECTANGLE));
 	j = 0;
 	while (j < size->y)
 	{
@@ -88,9 +86,10 @@ void	t_mlx_draw_rect_texture(
 		i = 0;
 		while (i < size->x)
 		{
-			*(uint32_t *)(dest_row + (i * img->bpp_factor)) = \
-				*(unsigned int *)(t_mlx_get_pixel(txtr, i % txtr->width, \
-					j % txtr->height));
+			color = *(uint32_t *)t_mlx_get_pixel(txtr, i % txtr->width, \
+				j % txtr->height);
+			if (color != 0xFF000000)
+				*(uint32_t *)(dest_row + (i * img->bpp_factor)) = color;
 			i++;
 		}
 		j++;

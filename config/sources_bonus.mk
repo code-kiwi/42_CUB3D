@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/24 13:25:19 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/24 14:50:38 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,9 +119,9 @@ SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
 
 # UI
 UI_DIR_BONUS				=	ui/
-UI_FILES_BONUS				=	init_ui_bonus.c					\
-								destroy_ui_bonus.c				\
-								draw_ui_bonus.c
+UI_FILES_BONUS				=	ui_utils_bonus.c				\
+								init_ui_pause_bonus.c			\
+								label_utils_bonus.c
 UI_BONUS					=	$(addprefix $(UI_DIR_BONUS), $(UI_FILES_BONUS))
 
 # UTILS
