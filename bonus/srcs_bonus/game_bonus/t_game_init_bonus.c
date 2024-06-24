@@ -60,15 +60,7 @@ bool	t_game_init(t_game *game)
 		return (false);
 	if (!add_event_handlers(game))
 		return (error_print(ERR_HOOKS), false);
-	game->door_count = count_doors(&game->map);
-	if (game->door_count != 0)
-	{
-		game->doors = ft_calloc(game->door_count, sizeof(t_door));
-		if (game->doors == NULL)
-			return (false);
-		find_doors(&game->map, game->door_count, game->doors);
-	}
-	else
-		game->doors = NULL;
+	if (!init_doors(game))
+		return (false);
 	return (true);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/23 16:03:49 by root             ###   ########.fr        #
+#    Updated: 2024/06/24 09:20:56 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,8 @@ MAP_BONUS					=	$(addprefix $(MAP_DIR_BONUS), $(MAP_FILES_BONUS))
 DOOR_DIR_BONUS				=	door_bonus/
 DOOR_FILES_BONUS			=	find_doors_bonus.c				\
 								open_door_bonus.c				\
-								update_door_bonus.c
+								update_door_bonus.c				\
+								init_doors_bonus.c
 DOOR_BONUS					=	$(addprefix $(DOOR_DIR_BONUS), $(DOOR_FILES_BONUS))
 
 # PLAYER

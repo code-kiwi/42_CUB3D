@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 16:43:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 09:10:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ struct s_game
 	t_image			textures[7];
 	size_t			door_count;
 	t_door			*doors;
+	t_door			*last_door_seen;
 };
 
 struct	s_column

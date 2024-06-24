@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_door_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 16:01:43 by root              #+#    #+#             */
-/*   Updated: 2024/06/23 16:54:24 by root             ###   ########.fr       */
+/*   Updated: 2024/06/24 09:16:10 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ bool	is_door(t_vector *pos, t_game *game, t_ray *ray,
 	map_pos.y = point_pos.y;
 	if (map_pos.x != pos->x || map_pos.y != pos->y)
 		return (false);
-	door = find_door_at_position(&map_pos, game->doors, game->door_count);
+	door = find_door_at_position(&map_pos, game);
 	if (door == NULL)
 		return (false);
 	if ((raycast->is_vertical && mod(point_pos.y) < door->transition)
