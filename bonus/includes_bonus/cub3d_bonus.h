@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 09:10:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 10:20:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define FPS					100
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				1980
-# define WIN_HEIGHT				1000
+# define WIN_WIDTH				800
+# define WIN_HEIGHT				800
 # define MAX_DISTANCE			200
 
 # define ERR_BASIC				"Error\n"
@@ -60,10 +60,12 @@
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
 # define ERR_MISSING_COMPONENT	"Missing element component"
 
-typedef struct s_game	t_game;
-typedef struct s_mlx	t_mlx;
-typedef struct s_column	t_column;
-typedef struct s_door	t_door;
+typedef struct s_game			t_game;
+typedef struct s_mlx			t_mlx;
+typedef struct s_column			t_column;
+typedef struct s_sprite			t_sprite;
+typedef struct s_ground_celing	t_ground_ceiling;
+typedef struct s_door			t_door;
 
 struct s_game
 {
@@ -75,20 +77,32 @@ struct s_game
 	float			player_rotation_rad;
 	long			frame_time_usec;
 	long			tick_last_frame;
-	t_image			textures[7];
+	t_image			textures[8];
 	size_t			door_count;
 	t_door			*doors;
 	t_door			*last_door_seen;
+	t_sprite		**sprites;
+	size_t			sprites_count;
 };
 
 struct	s_column
 {
 	size_t			texture_start;
-	size_t			column;
 	t_mlx_coords	coords;
-	t_ray			*ray;
 	float			perceived_height;
-	int				wall_start;
+	int				start;
+	int				end;
+	int				texture_column;
+};
+
+struct s_ground_celing
+{
+	t_vector		pixel_pos;
+	int				ceiling_y;
+	char			*ground_addr;
+	char			*ceiling_addr;
+	float			unit;
+	float			inverse_dist;
 };
 
 // Game functions
@@ -98,10 +112,11 @@ void		t_game_destroy(t_game *game);
 
 // Render functions
 void		draw_walls(t_game *game);
-void		draw_texture_column(t_image *screen, t_column *column, int wall_end,
-				t_image *texture);
 void		draw_ground_ceiling(t_column *column, int end, t_game *game,
 				t_ray *ray);
+void		draw_texture_column(t_image *screen, t_column *column,
+				t_image *texture);
+void		render_all_sprites(t_game *game);
 
 // Utils functions
 void		error_print(char *err_msg);
@@ -118,5 +133,6 @@ void		remove_last_spaces(char *str);
 void		skip_next_spaces(char **str);
 void		display_delta_time(void);
 long		get_tick(void);
+int			compare_sprite_distance(void **a, void **b);
 
 #endif

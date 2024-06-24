@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/22 15:07:52 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 10:11:24 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ bool	t_player_init(t_player *player, t_map *map, t_game *game)
 	set_player_orientation(player, map);
 	player->position.x += 0.5;
 	player->position.y += 0.5;
+	player->pixel_by_angle = WIN_WIDTH / player->fov_angle;
 	player->move_speed[0] = PLAYER_SPEED_FORWARD;
 	player->move_speed[1] = PLAYER_SPEED_LEFT;
 	player->move_speed[2] = PLAYER_SPEED_BACKWARD;

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/22 15:24:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 10:05:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ struct s_image
 	void	*ptr;
 	char	*addr;
 	int		bpp;
+	int		bpp_factor;
 	int		line_len;
 	int		endian;
 	int		width;

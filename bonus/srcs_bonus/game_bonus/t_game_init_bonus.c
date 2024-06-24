@@ -14,9 +14,10 @@
 #include "player_bonus.h"
 #include "event_handlers_bonus.h"
 #include "libft.h"
-#include "mlx.h"
 #include "mlx_api_bonus.h"
 #include "door_bonus.h"
+#include "map_bonus.h"
+#include "sprite_bonus.h"
 
 static bool	init_textures(t_game *game)
 {
@@ -55,6 +56,8 @@ bool	t_game_init(t_game *game)
 	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
 		return (false);
 	if (!init_textures(game))
+		return (false);
+	if (!init_sprites(game))
 		return (false);
 	if (!t_mlx_launch(&game->mlx))
 		return (false);

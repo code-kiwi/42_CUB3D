@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/24 09:20:56 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/24 10:12:57 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,8 @@ EVENT_HANDLERS_BONUS		=	$(addprefix $(EVENT_HANDLERS_DIR_BONUS), $(EVENT_HANDLER
 BASIC_RENDER_DIR_BONUS		=	basic_render_bonus/
 BASIC_RENDER_FILES_BONUS	=	draw_walls_bonus.c				\
 								draw_column_bonus.c				\
-								draw_ceiling_ground.c
+								draw_ceiling_ground_bonus.c		\
+								draw_sprite_bonus.c
 BASIC_RENDER_BONUS			=	$(addprefix $(BASIC_RENDER_DIR_BONUS), $(BASIC_RENDER_FILES_BONUS))
 
 # MAP
@@ -108,6 +109,14 @@ VECTOR_DIR_BONUS			=	vector_bonus/
 VECTOR_FILES_BONUS			=	vector_bonus.c
 VECTOR_BONUS				=	$(addprefix $(VECTOR_DIR_BONUS), $(VECTOR_FILES_BONUS))
 
+# SPRITES
+SPRITES_DIR_BONUS			=	sprites/
+SPRITES_FILES_BONUS			=	sprite_init_bonus.c				\
+								sprite_destroy_bonus.c			\
+								sprite_bonus.c					\
+								sort_sprites_bonus.c
+SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
+
 # UTILS
 UTILS_DIR_BONUS				=	utils_bonus/
 UTILS_FILES_BONUS			=	math_bonus.c					\
@@ -117,7 +126,7 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 								check_extension_bonus.c			\
 								string_bonus.c					\
 								display_delta_time_bonus.c		\
-								get_tick.c
+								get_tick_bonus.c
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
 # SOURCES GENERAL
@@ -126,7 +135,7 @@ SRCS_MAIN_DIR_BONUS			=	$(addprefix $(BONUS_DIR), $(SRCS_MAIN_SUBDIR_BONUS))
 SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(GAME_BONUS) $(VECTOR_BONUS) $(EVENT_HANDLERS_BONUS) 	\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
-								$(RAY_BONUS) $(DOOR_BONUS)
+								$(RAY_BONUS) $(DOOR_BONUS) $(SPRITES_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

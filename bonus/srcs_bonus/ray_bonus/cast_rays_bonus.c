@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/21 17:15:21 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 10:14:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,15 @@ static bool	set_ray(t_ray *result, float angle, t_game *game)
 bool	cast_rays(t_game *game)
 {
 	size_t		index;
-	float		angle_by_pixel;
 	float		angle;
+	float		angle_by_pixel;
+	t_player	*player;
 
 	index = 0;
-	angle_by_pixel = game->player.fov_angle / (WIN_WIDTH - 1);
-	angle = game->player.orientation + (game->player.fov_angle / 2);
+	player = &game->player;
+	angle_by_pixel = player->fov_angle / (WIN_WIDTH - 1);
+	angle = player->orientation + (player->fov_angle / 2);
+	player->leftmost_angle = angle;
 	while (index < WIN_WIDTH)
 	{
 		if (!set_ray(&game->rays[index], angle, game))

@@ -3,20 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/23 16:57:48 by root             ###   ########.fr       */
+/*   Updated: 2024/06/24 10:09:24 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
 #include "libft.h"
 #include "door_bonus.h"
+#include "sprite_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {
@@ -54,7 +56,9 @@ int	game_loop(t_game *game)
 	if (!cast_rays(game))
 		error_exit(game, ERR_CAST_RAYS);
 	draw_walls(game);
+	render_all_sprites(game);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
+	printf("fps : %d\n", (int)(1.0f / delta_time));
 	return (0);
 }

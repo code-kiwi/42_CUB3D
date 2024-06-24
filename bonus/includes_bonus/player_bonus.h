@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 09:26:06 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 10:06:04 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ struct s_player
 	int			turn_direction[2];
 	float		move_speed[4];
 	float		rotation_speed;
+	float		leftmost_angle;
+	float		pixel_by_angle;
 	t_ray		*look_ray;
 };
 
