@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/24 15:47:05 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 18:49:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ static void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 {
 	float		entity_angle;
 	float		relative_angle;
-	t_image		*texture;
 
-	texture = sprite->animation->content;
 	entity_angle = get_entity_angle(&sprite->position, &player->position);
 	relative_angle = player->leftmost_angle - entity_angle;
 	if (player->orientation > PI / 2 * 3 && entity_angle < PI / 2)
@@ -88,9 +86,7 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 {
 	t_column	column;
 	float		scale;
-	t_image		*texture;
 
-	texture = sprite->animation->content;
 	scale = 1 / sprite->distance;
 	get_sprite_screen_pos(&column.coords, sprite, &game->player, scale);
 	column.start = column.coords.y;
