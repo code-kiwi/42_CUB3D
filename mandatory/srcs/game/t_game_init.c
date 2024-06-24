@@ -93,8 +93,8 @@ bool	t_game_init(t_game *game)
 		return (false);
 	if (!t_player_init(&game->player, &game->map))
 		return (false);
-	if (!init_color(&game->ground_color, game->map.textures[4])
-		|| !init_color(&game->ceiling_color, game->map.textures[5]))
+	if (!init_color(&game->ceiling_color, game->map.textures[4])
+		|| !init_color(&game->ground_color, game->map.textures[5]))
 		return (false);
 	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
 		return (false);
