@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/24 10:12:57 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/24 11:09:25 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -111,10 +111,9 @@ VECTOR_BONUS				=	$(addprefix $(VECTOR_DIR_BONUS), $(VECTOR_FILES_BONUS))
 
 # SPRITES
 SPRITES_DIR_BONUS			=	sprites/
-SPRITES_FILES_BONUS			=	sprite_init_bonus.c				\
-								sprite_destroy_bonus.c			\
-								sprite_bonus.c					\
-								sort_sprites_bonus.c
+SPRITES_FILES_BONUS			=	get_sprites_bonus.c				\
+								sprite_distance_bonus.c			\
+								sprite_init_bonus.c
 SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
 
 # UTILS
@@ -126,7 +125,8 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 								check_extension_bonus.c			\
 								string_bonus.c					\
 								display_delta_time_bonus.c		\
-								get_tick_bonus.c
+								get_tick_bonus.c				\
+								sort_bonus.c
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
 # SOURCES GENERAL

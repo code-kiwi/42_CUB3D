@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 16:50:23 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:20:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 
 # include "vector_bonus.h"
+# include "libft.h"
 
 typedef struct s_game	t_game;
 typedef struct s_sprite	t_sprite;
@@ -30,13 +31,10 @@ struct	s_sprite
 };
 
 // Sprites functions
-bool		init_sprites(t_game *game);
 void		destroy_sprites(t_sprite ***sprites_ptr, size_t sprites_count);
-void		get_sprites_distances(t_sprite **sprites, t_vector *pos,
-				size_t length);
-void		get_sprites(t_map *map, size_t sprites_count, t_sprite **sprites);
-size_t		count_sprites(t_map *map);
-t_sprite	**alloc_sprites(size_t sprites_count);
-void		sort_sprites(t_sprite **sprites, size_t length);
+bool		get_sprites(t_map *map, t_list **sprites);
+void		get_sprites_distances(t_list *sprites, t_vector *pos);
+int			compare_sprite_distance(void *a, void *b);
+bool		sprite_init(t_game *game);
 
 #endif

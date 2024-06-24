@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 10:20:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 10:52:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define FPS					100
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				800
-# define WIN_HEIGHT				800
+# define WIN_WIDTH				1920
+# define WIN_HEIGHT				1080
 # define MAX_DISTANCE			200
 
 # define ERR_BASIC				"Error\n"
@@ -66,6 +66,7 @@ typedef struct s_column			t_column;
 typedef struct s_sprite			t_sprite;
 typedef struct s_ground_celing	t_ground_ceiling;
 typedef struct s_door			t_door;
+typedef struct s_list			t_list;
 
 struct s_game
 {
@@ -81,8 +82,7 @@ struct s_game
 	size_t			door_count;
 	t_door			*doors;
 	t_door			*last_door_seen;
-	t_sprite		**sprites;
-	size_t			sprites_count;
+	t_list			*sprites;
 };
 
 struct	s_column
@@ -133,6 +133,6 @@ void		remove_last_spaces(char *str);
 void		skip_next_spaces(char **str);
 void		display_delta_time(void);
 long		get_tick(void);
-int			compare_sprite_distance(void **a, void **b);
+void		sort_list(t_list *lst, int compare(void *, void *));
 
 #endif

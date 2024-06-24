@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/21 16:16:35 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:14:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,15 +101,16 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 
 void	render_all_sprites(t_game *game)
 {
-	size_t	index;
+	t_list	*current;
 
-	index = 0;
-	get_sprites_distances(game->sprites, &game->player.position,
-		game->sprites_count);
-	sort_sprites(game->sprites, game->sprites_count);
-	while (index < game->sprites_count)
+	if (!game->sprites)
+		return ;
+	get_sprites_distances(game->sprites, &game->player.position);
+	sort_list(game->sprites, compare_sprite_distance);
+	current = game->sprites;
+	while (current != NULL)
 	{
-		draw_sprite(game->sprites[index], game);
-		index++;
+		draw_sprite(current->content, game);
+		current = current->next;
 	}
 }
