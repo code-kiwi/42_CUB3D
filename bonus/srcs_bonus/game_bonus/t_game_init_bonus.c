@@ -19,6 +19,8 @@
 #include "map_bonus.h"
 #include "sprite_bonus.h"
 
+#include <errno.h>
+
 static bool	init_textures(t_game *game)
 {
 	size_t	index;
@@ -57,7 +59,7 @@ bool	t_game_init(t_game *game)
 		return (false);
 	if (!init_textures(game))
 		return (false);
-	if (!init_sprites(game))
+	if (!sprite_init(game))
 		return (false);
 	if (!t_mlx_launch(&game->mlx))
 		return (false);
