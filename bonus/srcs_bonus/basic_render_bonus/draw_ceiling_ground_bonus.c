@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_ceiling_ground_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/21 18:09:04 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 08:59:23 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
 {
 	t_ground_ceiling	data;
 
-	data.ceiling_y = column->wall_start - 1;
+	data.ceiling_y = column->start - 1;
 	data.inverse_dist = (column->coords.y * ray->cos_angle_from_orientation) \
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
 	data.unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2);

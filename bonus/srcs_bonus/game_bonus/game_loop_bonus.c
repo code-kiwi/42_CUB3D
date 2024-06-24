@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 09:11:02 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 09:15:34 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
 #include "libft.h"
+#include "sprite_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {
@@ -55,6 +56,7 @@ int	game_loop(t_game *game)
 		if (!cast_rays(&game->player, &game->map, game->rays))
 			error_exit(game, ERR_CAST_RAYS);
 		draw_walls(game);
+		render_all_sprites(game);
 	}
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);

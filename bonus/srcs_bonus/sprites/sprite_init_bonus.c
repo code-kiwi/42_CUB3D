@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_game_destroy.c                               :+:      :+:    :+:   */
+/*   sprite_init_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 16:01:50 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 17:01:12 by mhotting         ###   ########.fr       */
+/*   Created: 2024/06/21 16:33:54 by mhotting          #+#    #+#             */
+/*   Updated: 2024/06/21 16:50:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 #include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
-#include "mlx.h"
 #include "sprite_bonus.h"
 
-/**
- * @brief Destroys the given t_game
- * @param game The structure to destroy
-*/
-void	t_game_destroy(t_game *game)
+bool	init_sprites(t_game *game)
 {
 	size_t	index;
 
-	if (game == NULL)
-		return ;
 	index = 0;
-	while (index < MAP_NB_IDS)
+	game->sprites_count = count_sprites(&game->map);
+	if (game->sprites_count != 0)
 	{
-		if (game->textures[index].ptr != NULL)
-			mlx_destroy_image(game->mlx.mlx_ptr, game->textures[index].ptr);
+		game->sprites = alloc_sprites(game->sprites_count);
+		if (game->sprites == NULL)
+			return (false);
+		get_sprites(&game->map, game->sprites_count, game->sprites);
+	}
+	else
+		game->sprites = NULL;
+	while (index < game->sprites_count)
+	{
+		game->sprites[index]->texture = &game->textures[6];
 		index++;
 	}
-	t_mlx_destroy(&game->mlx);
-	free_map(&game->map);
-	destroy_sprites(&game->sprites, game->sprites_count);
+	return (true);
 }
