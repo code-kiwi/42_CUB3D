@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 15:02:09 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 16:50:06 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@
 # define UI_PAUSE_WIDTH			1200
 # define UI_PAUSE_HEIGHT		600
 
+# define UI_PAUSE_NB_LBL		1
 # define UI_PAUSE_LBL_TXT_FILE	"./assets/test_textures/pause.xpm"
 # define UI_PAUSE_LBL_POS_X		500
 # define UI_PAUSE_LBL_POS_Y		100
 # define UI_PAUSE_LBL_WIDTH		200
 # define UI_PAUSE_LBL_HEIGHT	100
 
-# define UI_PAUSE_NB_LBL		1
+# define UI_PAUSE_NB_BTN		2
 
 typedef struct s_game		t_game;
 typedef struct s_ui			t_ui;
@@ -48,7 +49,8 @@ struct s_button
 {
 	t_mlx_coords	pos;
 	t_mlx_coords	size;
-	t_image			texture;
+	t_image			texture_off;
+	t_image			texture_on;
 	void			(*callback)(void *);
 };
 
