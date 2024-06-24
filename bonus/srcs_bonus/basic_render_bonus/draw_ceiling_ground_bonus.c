@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_ceiling_ground.c                              :+:      :+:    :+:   */
+/*   draw_ceiling_ground_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/20 09:37:57 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 08:59:23 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <math.h>
 
 #include "mlx_api_bonus.h"
 #include "cub3d_bonus.h"
 
-#include <math.h>
-
-#include <stdio.h>
-
-static	void	get_pixel_position_in_tile(t_mlx_coords *coords, t_ray *ray,
-	t_vector *player_position, t_vector *result)
+static	void	get_pixel_position_in_tile(t_ray *ray,
+	t_vector *player_position, t_vector *result, float inverse_dist)
 {
-	float		straight_line_dist;
-	float		pixel_dist;
-	double		temp;
-
-	straight_line_dist = (float)(WIN_HEIGHT / 2) / (coords->y - WIN_HEIGHT / 2);
-	pixel_dist = straight_line_dist / ray->cos_angle_from_orientation;
-	result->x = player_position->x + ray->slope.x * pixel_dist;
-	result->y = player_position->y - ray->slope.y * pixel_dist;
-	result->x = modf(result->x, &temp);
-	result->y = modf(result->y, &temp);
+	result->x = player_position->x + ray->slope.x / inverse_dist;
+	result->y = player_position->y - ray->slope.y / inverse_dist;
+	result->x -= (int)result->x;
+	result->y -= (int)result->y;
 }
 
 static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
@@ -40,34 +32,36 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 
 	color_coords.x = pos_in_tile->x * texture->width;
 	color_coords.y = pos_in_tile->y * texture->height;
-	color = t_mlx_get_pixel(texture, color_coords.x, color_coords.y);
+	color = (texture->addr + color_coords.y * texture->line_len \
+		+ (color_coords.x * texture->bpp_factor));
 	*(unsigned int *)addr = *(unsigned int *)color;
 }
 
 void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
 {
-	t_vector		pixel_pos;
-	t_mlx_coords	ceiling;
-	char			*ground_addr;
-	char			*ceiling_addr;
-	t_image			*screen;
+	t_ground_ceiling	data;
 
-	ceiling.x = column->coords.x;
-	ceiling.y = column->start - 1;
-	screen = game->mlx.img_buff;
-	ground_addr = t_mlx_get_pixel(screen, column->coords.x, column->coords.y);
-	ceiling_addr = t_mlx_get_pixel(screen, ceiling.x, ceiling.y);
+	data.ceiling_y = column->start - 1;
+	data.inverse_dist = (column->coords.y * ray->cos_angle_from_orientation) \
+		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
+	data.unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2);
+	data.ground_addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x,
+			column->coords.y);
+	data.ceiling_addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x,
+			data.ceiling_y);
 	while (column->coords.y < end)
 	{
-		get_pixel_position_in_tile(&column->coords, ray, &game->player.position,
-			&pixel_pos);
-		draw_pixel_from_texture(&pixel_pos, ground_addr, &game->textures[4]);
-		if (ceiling.y >= 0)
-			draw_pixel_from_texture(&pixel_pos, ceiling_addr,
+		get_pixel_position_in_tile(ray, &game->player.position,
+			&data.pixel_pos, data.inverse_dist);
+		draw_pixel_from_texture(&data.pixel_pos, data.ground_addr,
+			&game->textures[4]);
+		if (data.ceiling_y >= 0)
+			draw_pixel_from_texture(&data.pixel_pos, data.ceiling_addr,
 				&game->textures[5]);
 		column->coords.y++;
-		ceiling.y--;
-		ground_addr += game->mlx.img_buff->line_len;
-		ceiling_addr -= game->mlx.img_buff->line_len;
+		data.ceiling_y--;
+		data.inverse_dist += data.unit;
+		data.ground_addr += game->mlx.img_buff->line_len;
+		data.ceiling_addr -= game->mlx.img_buff->line_len;
 	}
 }

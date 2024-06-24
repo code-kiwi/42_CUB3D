@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 16:09:13 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 09:00:21 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,11 @@
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
 # define ERR_MISSING_COMPONENT	"Missing element component"
 
-typedef struct s_game	t_game;
-typedef struct s_mlx	t_mlx;
-typedef struct s_column	t_column;
-typedef struct s_sprite	t_sprite;
+typedef struct s_game			t_game;
+typedef struct s_mlx			t_mlx;
+typedef struct s_column			t_column;
+typedef struct s_sprite			t_sprite;
+typedef struct s_ground_celing	t_ground_ceiling;
 
 struct s_game
 {
@@ -88,6 +89,16 @@ struct	s_column
 	int				start;
 	int				end;
 	int				texture_column;
+};
+
+struct s_ground_celing
+{
+	t_vector		pixel_pos;
+	int				ceiling_y;
+	char			*ground_addr;
+	char			*ceiling_addr;
+	float			unit;
+	float			inverse_dist;
 };
 
 // Game functions
