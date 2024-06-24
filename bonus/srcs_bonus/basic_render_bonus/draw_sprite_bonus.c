@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/24 15:01:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 15:47:05 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ static void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 	else if (player->orientation < PI / 2 && entity_angle > PI / 2 * 3)
 		relative_angle += 2 * PI;
 	sprite_screen->x = relative_angle * player->pixel_by_angle;
-	sprite_screen->x -= WIN_HEIGHT / 2 * scale;
+	sprite_screen->x -= sprite->height / 2 * scale;
 	sprite_screen->y = WIN_HEIGHT / 2;
-	sprite_screen->y -= WIN_HEIGHT / 2 * scale;
+	sprite_screen->y -= sprite->height / 2 * scale;
 }
 
 static void	draw_all_columns(
