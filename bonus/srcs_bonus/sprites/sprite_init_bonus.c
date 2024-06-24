@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 16:33:54 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 13:02:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 14:13:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ bool	init_sprites(t_game *game)
 		game->sprites = NULL;
 	while (index < game->sprites_count)
 	{
-		game->sprites[index]->texture = game->textures[6]->content;
+		game->sprites[index]->animation = game->textures[6];
 		index++;
 	}
 	return (true);

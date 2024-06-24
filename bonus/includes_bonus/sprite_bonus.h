@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 11:56:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 14:11:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ typedef struct s_game	t_game;
 typedef struct s_sprite	t_sprite;
 typedef struct s_image	t_image;
 typedef struct s_map	t_map;
+typedef struct s_list	t_list;
 
 struct	s_sprite
 {
 	t_vector	position;
 	float		distance;
-	t_image		*texture;
+	t_list		*animation;
 };
 
 // Sprites functions
