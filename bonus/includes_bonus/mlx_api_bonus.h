@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_api_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 18:00:28 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 10:05:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define KEY_A 						97
 # define KEY_S 						115
 # define KEY_D 						100
+# define KEY_E						101
 
 typedef struct s_mlx		t_mlx;
 typedef struct s_image		t_image;

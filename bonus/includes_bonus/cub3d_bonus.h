@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 09:00:21 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 10:20:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct s_mlx			t_mlx;
 typedef struct s_column			t_column;
 typedef struct s_sprite			t_sprite;
 typedef struct s_ground_celing	t_ground_ceiling;
+typedef struct s_door			t_door;
 
 struct s_game
 {
@@ -76,7 +77,10 @@ struct s_game
 	float			player_rotation_rad;
 	long			frame_time_usec;
 	long			tick_last_frame;
-	t_image			textures[7];
+	t_image			textures[8];
+	size_t			door_count;
+	t_door			*doors;
+	t_door			*last_door_seen;
 	t_sprite		**sprites;
 	size_t			sprites_count;
 };

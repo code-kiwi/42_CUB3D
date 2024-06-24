@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 21:24:25 by root             ###   ########.fr       */
+/*   Updated: 2024/06/24 10:11:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,12 @@ static void	update_position(t_player *player, t_map *map, float delta_time)
 				* delta_time;
 			player->position.y -= sin(new_angle) * player->move_speed[index] \
 				* delta_time;
-			if (is_wall(&player->position, map))
+			if (!is_in_bounds(&player->position, map)
+				|| is_character(&player->position, map, ID_WALL)
+				|| is_character(&player->position, map, ID_DOOR_CLOSED))
+			{
 				player->position = save_position;
+			}
 		}
 		index++;
 	}

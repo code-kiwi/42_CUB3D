@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/24 08:57:04 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/24 10:12:57 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,14 @@ MAP_FILES_BONUS				=	read_map_bonus.c				\
 								free_map_bonus.c
 MAP_BONUS					=	$(addprefix $(MAP_DIR_BONUS), $(MAP_FILES_BONUS))
 
+# DOOR
+DOOR_DIR_BONUS				=	door_bonus/
+DOOR_FILES_BONUS			=	find_doors_bonus.c				\
+								open_door_bonus.c				\
+								update_door_bonus.c				\
+								init_doors_bonus.c
+DOOR_BONUS					=	$(addprefix $(DOOR_DIR_BONUS), $(DOOR_FILES_BONUS))
+
 # PLAYER
 PLAYER_DIR_BONUS			=	player_bonus/
 PLAYER_FILES_BONUS			=	t_player_init_bonus.c			\
@@ -92,7 +100,8 @@ PLAYER_BONUS				=	$(addprefix $(PLAYER_DIR_BONUS), $(PLAYER_FILES_BONUS))
 # RAY
 RAY_DIR_BONUS				=	ray_bonus/
 RAY_FILES_BONUS				=	raycasting_bonus.c				\
-								cast_rays_bonus.c
+								cast_rays_bonus.c				\
+								is_door_bonus.c
 RAY_BONUS					=	$(addprefix $(RAY_DIR_BONUS), $(RAY_FILES_BONUS))
 
 # VECTOR
@@ -126,7 +135,7 @@ SRCS_MAIN_DIR_BONUS			=	$(addprefix $(BONUS_DIR), $(SRCS_MAIN_SUBDIR_BONUS))
 SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(GAME_BONUS) $(VECTOR_BONUS) $(EVENT_HANDLERS_BONUS) 	\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
-								$(RAY_BONUS) $(SPRITES_BONUS)
+								$(RAY_BONUS) $(DOOR_BONUS) $(SPRITES_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

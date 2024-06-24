@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 08:56:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 10:09:24 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
 #include "libft.h"
+#include "door_bonus.h"
 #include "sprite_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
@@ -49,9 +50,10 @@ int	game_loop(t_game *game)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
 	update_player(&game->player, &game->map, delta_time);
+	update_doors(game, delta_time);
 	if (!is_in_bounds(&game->player.position, &game->map))
 		error_exit(game, ERR_PLAYER_QUIT_MAP);
-	if (!cast_rays(&game->player, &game->map, game->rays))
+	if (!cast_rays(game))
 		error_exit(game, ERR_CAST_RAYS);
 	draw_walls(game);
 	render_all_sprites(game);

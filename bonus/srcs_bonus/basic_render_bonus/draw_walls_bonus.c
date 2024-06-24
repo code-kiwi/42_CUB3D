@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/20 12:41:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 10:13:42 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 #include <math.h>
 
 #include "cub3d_bonus.h"
+#include "door_bonus.h"
 
 static t_image	*get_texture(t_image textures[4], t_ray *ray)
 {
+	if (ray->is_door)
+		return (&textures[6]);
 	if (ray->is_vertical)
 	{
 		if (ray->slope.x > 0)
@@ -43,6 +46,9 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 		texture_relative_position = modf(ray->intersection.y, &temp);
 	else
 		texture_relative_position = modf(ray->intersection.x, &temp);
+	if (ray->is_door)
+		texture_relative_position = ray->door->transition \
+			- texture_relative_position;
 	column = floorf(texture_relative_position * texture_width);
 	return (column);
 }

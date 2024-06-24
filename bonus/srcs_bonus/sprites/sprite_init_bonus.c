@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_init_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 16:33:54 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 16:50:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 10:15:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool	init_sprites(t_game *game)
 		game->sprites = NULL;
 	while (index < game->sprites_count)
 	{
-		game->sprites[index]->texture = &game->textures[6];
+		game->sprites[index]->texture = &game->textures[7];
 		index++;
 	}
 	return (true);
