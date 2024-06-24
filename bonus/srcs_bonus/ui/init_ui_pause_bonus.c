@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:27:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 14:54:19 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 15:03:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static bool	init_ui_pause_labels(t_ui *ui_pause, void *mlx_ptr)
 		sizeof(t_label));
 	if (ui_pause->labels == NULL)
 		return (false);
-	dim.coords.x = UI_PAUSE_LBL_POS_X;
-	dim.coords.y = UI_PAUSE_LBL_POS_Y;
-	dim.size.x = UI_PAUSE_WIDTH;
-	dim.size.y = UI_PAUSE_HEIGHT;
+	dim.coords.x = UI_PAUSE_LBL_POS_X + ui_pause->pos.x;
+	dim.coords.y = UI_PAUSE_LBL_POS_Y + ui_pause->pos.y;
+	dim.size.x = UI_PAUSE_LBL_WIDTH;
+	dim.size.y = UI_PAUSE_LBL_HEIGHT;
 	if (!init_label(&ui_pause->labels[0], &dim, UI_PAUSE_LBL_TXT_FILE, mlx_ptr))
 	{
 		free(ui_pause->labels);

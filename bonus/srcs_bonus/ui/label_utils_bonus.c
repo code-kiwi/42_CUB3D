@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:22:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 14:53:05 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 15:01:54 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,20 @@ void	destroy_label(t_label *label, void *mlx_ptr)
 	if (label == NULL || mlx_ptr == NULL)
 		return ;
 	t_image_destroy(mlx_ptr, &label->texture, false);
+}
+
+void	draw_labels(t_ui *ui, t_image *img)
+{
+	size_t	i;
+	t_label	*lbl;
+
+	if (ui == NULL || img == NULL || ui->labels == NULL)
+		return ;
+	i = 0;
+	while (i < ui->nb_labels)
+	{
+		lbl = &ui->labels[i];
+		t_mlx_draw_rect_texture(img, &lbl->pos, &lbl->size, &lbl->texture);
+		i++;
+	}
 }

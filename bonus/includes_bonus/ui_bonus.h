@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 14:54:37 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 15:02:09 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ bool	init_ui_pause(t_ui *ui_pause, void *mlx_ptr);
 bool	init_label(t_label *label, t_dimension	*dim, char *filename, \
 			void *mlx_ptr);
 void	destroy_label(t_label *label, void *mlx_ptr);
+void	draw_labels(t_ui *ui, t_image *img);
 
 // button functions
 
