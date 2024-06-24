@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:56:04 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/24 10:39:25 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 11:18:41 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static t_list	*max(t_list *lst, int compare(void *, void *))
 	max_element = lst;
 	while (lst)
 	{
-		if (compare(max_element->content, lst->content) > 0)
+		if (compare(lst->content, max_element->content) > 0)
 			max_element = lst;
 		lst = lst->next;
 	}

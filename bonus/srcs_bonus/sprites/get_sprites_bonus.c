@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:22:06 by root              #+#    #+#             */
-/*   Updated: 2024/06/24 11:14:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 11:20:21 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,12 @@ static bool	add_sprite(t_list **sprites, size_t x, size_t y)
 	return (true);
 }
 
-t_list	*get_sprites(t_map *map)
+bool	get_sprites(t_map *map, t_list **sprites)
 {
 	size_t	y;
 	size_t	x;
-	t_list	*sprites;
 
 	y = 0;
-	sprites = NULL;
 	while (y < map->lines_count)
 	{
 		x = 0 ;
@@ -49,15 +47,15 @@ t_list	*get_sprites(t_map *map)
 		{
 			if (map->tiles[y][x] == ID_SPRITE)
 			{
-				if (!add_sprite(&sprites, x, y))
+				if (!add_sprite(sprites, x, y))
 				{
-					ft_lstclear(&sprites, free);
-					return (NULL);
+					ft_lstclear(sprites, free);
+					return (false);
 				}
 			}
 			x++;
 		}
 		y++;
 	}
-	return (sprites);
+	return (true);
 }
