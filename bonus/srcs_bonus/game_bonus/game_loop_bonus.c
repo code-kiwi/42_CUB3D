@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 12:57:56 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:21:27 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,7 @@ int	game_loop(t_game *game)
 		render_all_sprites(game);
 	}
 	else
-	{
-		t_mlx_coords	coords = {100, 100};
-		t_mlx_coords	size = {200, 100};
-		t_mlx_draw_rect_texture(game->mlx.img_buff, &coords, &size, &game->ui_pause.texture);
-	}
+		draw_ui(&game->ui_pause, game->mlx.img_buff);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
 	printf("fps : %d\n", (int)(1.0f / delta_time));

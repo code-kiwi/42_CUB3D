@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:30:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 11:44:52 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:38:54 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ static bool	init_ui_pause(t_ui *ui_pause, void *mlx_ptr)
 		return (false);
 	if (!t_image_import_file(&ui_pause->texture, UI_PAUSE_TXT_FILE, mlx_ptr))
 		return (false);
-	ui_pause->pos.x = UI_PAUSE_POS_X;
-	ui_pause->pos.y = UI_PAUSE_POS_Y;
-	ui_pause->width = UI_PAUSE_WIDTH;
-	ui_pause->height = UI_PAUSE_HEIGHT;
+	ui_pause->size.x = UI_PAUSE_WIDTH;
+	ui_pause->size.y = UI_PAUSE_HEIGHT;
+	ui_pause->pos.x = (WIN_WIDTH - UI_PAUSE_WIDTH) / 2;
+	ui_pause->pos.y = (WIN_HEIGHT - UI_PAUSE_HEIGHT) / 2;
 	ui_pause->buttons = NULL;
 	return (true);
 }

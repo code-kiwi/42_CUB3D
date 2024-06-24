@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 12:55:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:35:23 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
 # define ERR_MISSING_COMPONENT	"Missing element component"
+
+# define ERR_RECTANGLE			"You tried to draw an invalid rectangle"
 
 typedef struct s_game			t_game;
 typedef struct s_mlx			t_mlx;

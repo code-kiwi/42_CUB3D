@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 11:49:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:40:39 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,18 @@
 
 # include "mlx_api_bonus.h"
 
-# define UI_PAUSE_TXT_FILE	"./assets/test_textures/sand.xpm"
-# define UI_PAUSE_POS_X		100
-# define UI_PAUSE_POS_Y		100
-# define UI_PAUSE_WIDTH		200
-# define UI_PAUSE_HEIGHT	100
+# define UI_PAUSE_TXT_FILE	"./assets/test_textures/transparent_pixels.xpm"
+# define UI_PAUSE_WIDTH		1200
+# define UI_PAUSE_HEIGHT	600
 
+typedef struct s_game	t_game;
 typedef struct s_ui		t_ui;
 typedef struct s_button	t_button;
 
 struct s_ui
 {
 	t_mlx_coords	pos;
-	int				width;
-	int				height;
+	t_mlx_coords	size;
 	t_image			texture;
 	t_button		*buttons;
 };
@@ -36,8 +34,7 @@ struct s_ui
 struct s_button
 {
 	t_mlx_coords	pos;
-	int				width;
-	int				height;
+	t_mlx_coords	size;
 	t_image			texture;
 	void			(*callback)(void *);
 };
@@ -45,5 +42,6 @@ struct s_button
 // ui functions
 bool	init_all_ui(t_game *game);
 void	destroy_all_ui(t_game *game);
+void	draw_ui(t_ui *ui, t_image *img);
 
 #endif

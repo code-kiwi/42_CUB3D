@@ -6,13 +6,25 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:24:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 08:56:47 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:37:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdint.h>
 
+#include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
+
+static bool	t_mlx_is_rect_valid(t_mlx_coords *coords, t_mlx_coords *size)
+{
+	return (
+		coords->x >= 0 && coords->x < WIN_WIDTH
+		&& coords->y >= 0 && coords->y < WIN_HEIGHT
+		&& size->x > 0 && size->y > 0
+		&& coords->x + size->x < WIN_WIDTH
+		&& coords->y + size->y < WIN_HEIGHT
+	);
+}
 
 /**
  * @brief Draws a rectangle of the given color, onto the given t_image
@@ -32,6 +44,11 @@ void	t_mlx_draw_rectangle(
 	int		j;
 	char	*dest_row;
 
+	if (!t_mlx_is_rect_valid(coords, size))
+	{
+		error_print(ERR_RECTANGLE);
+		return ;
+	}
 	j = 0;
 	while (j < size->y)
 	{
@@ -58,6 +75,11 @@ void	t_mlx_draw_rect_texture(
 	int		j;
 	char	*dest_row;
 
+	if (!t_mlx_is_rect_valid(coords, size))
+	{
+		error_print(ERR_RECTANGLE);
+		return ;
+	}
 	j = 0;
 	while (j < size->y)
 	{
