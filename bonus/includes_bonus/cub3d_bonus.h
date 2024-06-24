@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 09:16:35 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 09:32:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "vector_bonus.h"
 # include "player_bonus.h"
 # include "ray_bonus.h"
+# include "ui_bonus.h"
 
 # define PI						3.14159265358
 # define FPS					50
@@ -80,6 +81,7 @@ struct s_game
 	t_sprite		**sprites;
 	size_t			sprites_count;
 	bool			pause;
+	t_ui			ui_pause;
 };
 
 struct	s_column

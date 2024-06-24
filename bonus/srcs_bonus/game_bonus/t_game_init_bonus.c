@@ -17,6 +17,7 @@
 #include "mlx_api_bonus.h"
 #include "map_bonus.h"
 #include "sprite_bonus.h"
+#include "ui.h"
 
 static bool	init_textures(t_game *game)
 {
@@ -57,6 +58,8 @@ bool	t_game_init(t_game *game)
 	if (!init_textures(game))
 		return (false);
 	if (!init_sprites(game))
+		return (false);
+	if (!init_ui(game))
 		return (false);
 	if (!t_mlx_launch(&game->mlx))
 		return (false);
