@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/24 10:41:32 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/24 12:57:17 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,14 @@ MAP_FILES_BONUS				=	read_map_bonus.c				\
 								free_map_bonus.c
 MAP_BONUS					=	$(addprefix $(MAP_DIR_BONUS), $(MAP_FILES_BONUS))
 
+# DOOR
+DOOR_DIR_BONUS				=	door_bonus/
+DOOR_FILES_BONUS			=	find_doors_bonus.c				\
+								open_door_bonus.c				\
+								update_door_bonus.c				\
+								init_doors_bonus.c
+DOOR_BONUS					=	$(addprefix $(DOOR_DIR_BONUS), $(DOOR_FILES_BONUS))
+
 # PLAYER
 PLAYER_DIR_BONUS			=	player_bonus/
 PLAYER_FILES_BONUS			=	t_player_init_bonus.c			\
@@ -93,7 +101,8 @@ PLAYER_BONUS				=	$(addprefix $(PLAYER_DIR_BONUS), $(PLAYER_FILES_BONUS))
 # RAY
 RAY_DIR_BONUS				=	ray_bonus/
 RAY_FILES_BONUS				=	raycasting_bonus.c				\
-								cast_rays_bonus.c
+								cast_rays_bonus.c				\
+								is_door_bonus.c
 RAY_BONUS					=	$(addprefix $(RAY_DIR_BONUS), $(RAY_FILES_BONUS))
 
 # VECTOR
@@ -103,10 +112,9 @@ VECTOR_BONUS				=	$(addprefix $(VECTOR_DIR_BONUS), $(VECTOR_FILES_BONUS))
 
 # SPRITES
 SPRITES_DIR_BONUS			=	sprites/
-SPRITES_FILES_BONUS			=	sprite_init_bonus.c				\
-								sprite_destroy_bonus.c			\
-								sprite_bonus.c					\
-								sort_sprites_bonus.c
+SPRITES_FILES_BONUS			=	get_sprites_bonus.c				\
+								sprite_distance_bonus.c			\
+								sprite_init_bonus.c
 SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
 
 # UI
@@ -124,7 +132,8 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 								check_extension_bonus.c			\
 								string_bonus.c					\
 								display_delta_time_bonus.c		\
-								get_tick_bonus.c
+								get_tick_bonus.c				\
+								sort_bonus.c
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
 # SOURCES GENERAL
@@ -133,7 +142,7 @@ SRCS_MAIN_DIR_BONUS			=	$(addprefix $(BONUS_DIR), $(SRCS_MAIN_SUBDIR_BONUS))
 SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(GAME_BONUS) $(VECTOR_BONUS) $(EVENT_HANDLERS_BONUS) 	\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
-								$(RAY_BONUS) $(SPRITES_BONUS) $(UI_BONUS)
+								$(RAY_BONUS) $(SPRITES_BONUS) $(UI_BONUS) $(DOOR_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

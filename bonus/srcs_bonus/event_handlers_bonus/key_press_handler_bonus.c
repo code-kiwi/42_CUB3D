@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 09:11:25 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 12:56:20 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "cub3d_bonus.h"
 #include "event_handlers_bonus.h"
 #include "libft.h"
+#include "door_bonus.h"
 
 /**
  * @brief Handles the keyboard press key events
@@ -44,5 +45,7 @@ int	key_press_handler(int key, t_game *data)
 		if (data->pause)
 			t_mlx_sync_images(&data->mlx);
 	}
+	else if (key == KEY_E)
+		open_looked_door(data->player.look_ray, &data->map);
 	return (0);
 }

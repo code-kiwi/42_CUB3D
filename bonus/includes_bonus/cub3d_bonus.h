@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 09:32:21 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 12:55:20 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ typedef struct s_mlx			t_mlx;
 typedef struct s_column			t_column;
 typedef struct s_sprite			t_sprite;
 typedef struct s_ground_celing	t_ground_ceiling;
+typedef struct s_door			t_door;
+typedef struct s_list			t_list;
 
 struct s_game
 {
@@ -77,9 +79,11 @@ struct s_game
 	float			player_rotation_rad;
 	long			frame_time_usec;
 	long			tick_last_frame;
-	t_image			textures[7];
-	t_sprite		**sprites;
-	size_t			sprites_count;
+	t_image			textures[8];
+	size_t			door_count;
+	t_door			*doors;
+	t_door			*last_door_seen;
+	t_list			*sprites;
 	bool			pause;
 	t_ui			ui_pause;
 };
@@ -132,6 +136,6 @@ void		remove_last_spaces(char *str);
 void		skip_next_spaces(char **str);
 void		display_delta_time(void);
 long		get_tick(void);
-int			compare_sprite_distance(void **a, void **b);
+void		sort_list(t_list *lst, int compare(void *, void *));
 
 #endif

@@ -37,5 +37,7 @@ void	t_game_destroy(t_game *game)
 	}
 	t_mlx_destroy(&game->mlx);
 	free_map(&game->map);
-	destroy_sprites(&game->sprites, game->sprites_count);
+	if (game->doors != NULL)
+		free(game->doors);
+	ft_lstclear(&game->sprites, free);
 }

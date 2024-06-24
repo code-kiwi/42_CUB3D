@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 19:33:42 by root             ###   ########.fr       */
+/*   Updated: 2024/06/24 10:11:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ static void	init_identifier(char **identifier)
 	identifier[3] = ID_EAST;
 	identifier[4] = ID_FLOOR;
 	identifier[5] = ID_CEILING;
-	identifier[6] = ID_ENEMY;
+	identifier[6] = ID_DOOR;
+	identifier[7] = ID_ENEMY;
 }
 
 bool	read_elements(t_map *map, int fd)

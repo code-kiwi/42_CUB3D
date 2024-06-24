@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_player_init_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 21:32:36 by root             ###   ########.fr       */
+/*   Updated: 2024/06/24 10:11:24 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static bool	find_player_position(t_map *map, t_player *player)
 	return (true);
 }
 
-bool	t_player_init(t_player *player, t_map *map)
+bool	t_player_init(t_player *player, t_map *map, t_game *game)
 {
 	if (player == NULL || map == NULL)
 		return (false);
@@ -78,5 +78,6 @@ bool	t_player_init(t_player *player, t_map *map)
 	player->rotation_speed = PLAYER_SPEED_ROTATION;
 	ft_memset(player->is_walking, 0, 4 * sizeof(bool));
 	ft_memset(player->turn_direction, 0, 2 * sizeof(bool));
+	player->look_ray = &game->rays[(int)WIN_WIDTH / 2];
 	return (true);
 }
