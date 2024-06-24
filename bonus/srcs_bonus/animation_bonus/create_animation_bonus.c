@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:52:44 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/24 13:11:18 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 13:22:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	copy_image(t_image *dest, t_image *src, t_mlx_coords *src_coords)
 		while (dest_coords.x < TEXTURE_SIZE)
 		{
 			color = t_mlx_get_pixel(src, src_coords->x + dest_coords.x,
-				src_coords->y + dest_coords.y);
+					src_coords->y + dest_coords.y);
 			t_mlx_draw_pixel(dest, &dest_coords, *(unsigned int *)color);
 			dest_coords.x++;
 		}
