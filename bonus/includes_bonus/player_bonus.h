@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/23 16:44:20 by root             ###   ########.fr       */
+/*   Updated: 2024/06/24 09:26:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@
 # define PLAYER_SPEED_RIGHT				3
 # define PLAYER_SPEED_ROTATION			1.570796327
 # define PLAYER_INTERACTION_DISTANCE	1.5
-# define DOOR_SPEED						1
-# define DOOR_TIME_TO_CLOSE				3
 
 typedef struct s_player	t_player;
 typedef struct s_map	t_map;
