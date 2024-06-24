@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 11:48:29 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:52:30 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,12 @@ int	game_loop(t_game *game)
 		draw_walls(game);
 		render_all_sprites(game);
 	}
-
-	// t_mlx_coords	coords = {100, 100};
-	// t_mlx_coords	size = {200, 100};
-	// t_mlx_draw_rect_texture(game->mlx.img_buff, &coords, &size, &game->ui_pause.texture);
+	else
+	{
+		t_mlx_coords	coords = {100, 100};
+		t_mlx_coords	size = {200, 100};
+		t_mlx_draw_rect_texture(game->mlx.img_buff, &coords, &size, &game->ui_pause.texture);
+	}
 
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
