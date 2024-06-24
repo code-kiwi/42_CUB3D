@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:16:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/24 14:29:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 15:09:00 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@
 
 void	update_animations(t_game *game, float delta_time)
 {
-	size_t	index;
+	t_list		*current;
+	t_sprite	*sprite;
 
 	game->frame_update_delta += delta_time;
 	if (game->frame_update_delta < ANIMATION_UPDATE)
 		return ;
-	index = 0;
-	while (index < game->sprites_count)
+	current = game->sprites;
+	while (current)
 	{
-		game->sprites[index]->animation = game->sprites[index]->animation->next;
-		index++;
+		sprite = current->content;
+		sprite->animation = sprite->animation->next;
+		current = current->next;
 	}
 	game->frame_update_delta = 0;
 }

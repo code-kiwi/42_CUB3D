@@ -15,10 +15,13 @@
 #include "event_handlers_bonus.h"
 #include "libft.h"
 #include "mlx_api_bonus.h"
+#include "door_bonus.h"
 #include "map_bonus.h"
 #include "sprite_bonus.h"
 #include "animation_bonus.h"
 #include "mlx.h"
+
+#include <errno.h>
 
 static bool	init_textures(t_game *game)
 {
@@ -56,18 +59,19 @@ bool	t_game_init(t_game *game)
 		return (false);
 	game->frame_time_usec = 1000000 / FPS;
 	game->tick_last_frame = 0;
-	game->frame_update_delta = 0;
-	if (!t_player_init(&game->player, &game->map))
+	if (!t_player_init(&game->player, &game->map, game))
 		return (false);
 	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
 		return (false);
 	if (!init_textures(game))
 		return (false);
-	if (!init_sprites(game))
+	if (!sprite_init(game))
 		return (false);
 	if (!t_mlx_launch(&game->mlx))
 		return (false);
 	if (!add_event_handlers(game))
 		return (error_print(ERR_HOOKS), false);
+	if (!init_doors(game))
+		return (false);
 	return (true);
 }

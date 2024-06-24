@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/24 14:48:57 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 15:01:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 {
 	float		entity_angle;
 	float		relative_angle;
-	t_image	*texture;
+	t_image		*texture;
 
 	texture = sprite->animation->content;
 	entity_angle = get_entity_angle(&sprite->position, &player->position);
@@ -66,7 +66,8 @@ static void	draw_all_columns(
 	texture_x = 0;
 	if (column->coords.x < 0)
 	{
-		texture_x -= column->coords.x * sprite->distance * texture->width / sprite->height;
+		texture_x -= column->coords.x * sprite->distance \
+			* texture->width / sprite->height;
 		column->coords.x = 0;
 		column->texture_column = texture_x;
 	}
@@ -87,7 +88,7 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 {
 	t_column	column;
 	float		scale;
-	t_image	*texture;
+	t_image		*texture;
 
 	texture = sprite->animation->content;
 	scale = 1 / sprite->distance;
@@ -108,15 +109,16 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 
 void	render_all_sprites(t_game *game)
 {
-	size_t	index;
+	t_list	*current;
 
-	index = 0;
-	get_sprites_distances(game->sprites, &game->player.position,
-		game->sprites_count);
-	sort_sprites(game->sprites, game->sprites_count);
-	while (index < game->sprites_count)
+	if (!game->sprites)
+		return ;
+	get_sprites_distances(game->sprites, &game->player.position);
+	sort_list(game->sprites, compare_sprite_distance);
+	current = game->sprites;
+	while (current != NULL)
 	{
-		draw_sprite(game->sprites[index], game);
-		index++;
+		draw_sprite(current->content, game);
+		current = current->next;
 	}
 }

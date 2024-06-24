@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/20 16:38:48 by root             ###   ########.fr       */
+/*   Updated: 2024/06/24 10:20:23 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 # define ID_WALL			'1'
 # define ID_TILE			'0'
 # define ID_SPACE			' '
-# define ID_SPRITE			'2'
+# define ID_DOOR_CLOSED		'd'
+# define ID_DOOR_OPENED		'o'
+# define ID_SPRITE			's'
 
 # define ID_NORTH			"NO"
 # define ID_SOUTH			"SO"
@@ -26,15 +28,18 @@
 # define ID_EAST			"EA"
 # define ID_FLOOR			"F"
 # define ID_CEILING			"C"
+# define ID_DOOR			"D"
 # define ID_ENEMY			"E"
 
 # define MAP_EXTENSION		".cub"
-# define MAP_ALLOWED_CHARS	" 012NSEW"
-# define MAP_NB_IDS			7
+# define MAP_ALLOWED_CHARS	" 01sdNSEW"
+# define MAP_NB_IDS			8
 
 typedef struct s_game	t_game;
 typedef struct s_map	t_map;
 typedef struct s_vector	t_vector;
+typedef struct s_door	t_door;
+typedef struct s_ray	t_ray;
 typedef struct s_sprite	t_sprite;
 
 struct s_map
@@ -50,7 +55,7 @@ bool		read_map(t_map *map, char *filename);
 bool		is_map_valid(t_map *map);
 bool		read_elements(t_map *map, int fd);
 bool		is_in_bounds(t_vector *position, t_map *map);
-bool		is_wall(t_vector *position, t_map *map);
+bool		is_character(t_vector *position, t_map *map, char character);
 bool		check_extension(char *filename, char *extension);
 void		free_map(t_map *map);
 

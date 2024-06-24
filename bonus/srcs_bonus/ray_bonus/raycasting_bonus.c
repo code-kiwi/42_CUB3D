@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/19 11:09:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 09:16:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,51 +16,70 @@
 #include "vector_bonus.h"
 #include "map_bonus.h"
 
-static void	calculate_unit_length(t_vector *unit_length, t_vector *slope)
+static void	calculate_unit_length(t_raycast *ray_x, t_raycast *ray_y,
+	t_vector *slope)
 {
-	unit_length->x = sqrt(1 + pow((slope->y / slope->x), 2));
-	unit_length->y = sqrt(1 + pow((slope->x / slope->y), 2));
+	ray_x->unit_length = sqrt(1 + pow((slope->y / slope->x), 2));
+	ray_y->unit_length = sqrt(1 + pow((slope->x / slope->y), 2));
 }
 
-static void	calculate_inital_sum(t_vector *sum_length, t_vector *unit_length,
-	t_vector *position, t_vector *slope)
+static void	calculate_inital_sum(t_raycast *ray_x, t_raycast *ray_y,
+	t_vector *slope, t_vector *position)
 {
 	if (slope->x < 0)
-		sum_length->x = modff(position->x, &position->x);
+		ray_x->sum_length = modff(position->x, &position->x);
 	else
-		sum_length->x = 1 - modff(position->x, &position->x);
+		ray_x->sum_length = 1 - modff(position->x, &position->x);
 	if (slope->y < 0)
-		sum_length->y = 1 - modff(position->y, &position->y);
+		ray_y->sum_length = 1 - modff(position->y, &position->y);
 	else
-		sum_length->y = modff(position->y, &position->y);
-	sum_length->x *= unit_length->x;
-	sum_length->y *= unit_length->y;
+		ray_y->sum_length = modff(position->y, &position->y);
+	ray_x->sum_length *= ray_x->unit_length;
+	ray_y->sum_length *= ray_y->unit_length;
 }
 
-float	raycast(t_vector position, t_vector *slope, t_map *map,
-	bool *is_vertical)
+float	raycast_progress(t_raycast *raycast, t_game *game, t_vector *position,
+	t_ray *ray)
 {
-	t_vector	unit_length;
-	t_vector	sum_length;
-
-	calculate_unit_length(&unit_length, slope);
-	calculate_inital_sum(&sum_length, &unit_length, &position, slope);
-	while (sum_length.x < MAX_DISTANCE || sum_length.y < MAX_DISTANCE)
+	*raycast->position += raycast->sign;
+	if (!is_in_bounds(position, &game->map)
+		|| is_character(position, &game->map, ID_WALL))
 	{
-		if (sum_length.x <= sum_length.y)
-		{
-			position.x += sign(slope->x);
-			if (is_wall(&position, map))
-				return (*is_vertical = true, sum_length.x);
-			sum_length.x += unit_length.x;
-		}
+		ray->is_vertical = raycast->is_vertical;
+		return (raycast->sum_length);
+	}
+	if (game->door_count > 0 && is_door(position, game, ray, raycast))
+	{
+		ray->is_vertical = raycast->is_vertical;
+		ray->is_door = true;
+		return (raycast->sum_length + raycast->unit_length / 2);
+	}
+	raycast->sum_length += raycast->unit_length;
+	return (-1);
+}
+
+float	raycast(t_vector position, t_game *game, t_ray *ray)
+{
+	t_raycast	ray_x;
+	t_raycast	ray_y;
+	float		length;
+
+	ray_x.sign = sign(ray->slope.x);
+	ray_y.sign = -sign(ray->slope.y);
+	ray_x.is_vertical = true;
+	ray_y.is_vertical = false;
+	ray_x.position = &position.x;
+	ray_y.position = &position.y;
+	calculate_unit_length(&ray_x, &ray_y, &ray->slope);
+	calculate_inital_sum(&ray_x, &ray_y, &ray->slope, &position);
+	while (ray_x.sum_length < MAX_DISTANCE || ray_y.sum_length < MAX_DISTANCE)
+	{
+		if (ray_x.sum_length <= ray_y.sum_length)
+			length = raycast_progress(&ray_x, game, &position, ray);
 		else
-		{
-			position.y -= sign(slope->y);
-			if (is_wall(&position, map))
-				return (*is_vertical = false, sum_length.y);
-			sum_length.y += unit_length.y;
-		}
+			length = raycast_progress(&ray_y, game, &position, ray);
+		if (length != -1)
+			return (length);
 	}
 	return (MAX_DISTANCE);
 }

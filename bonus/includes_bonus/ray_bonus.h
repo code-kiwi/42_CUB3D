@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:57:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 14:15:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/23 16:44:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,13 @@
 # include <stdbool.h>
 # include "vector_bonus.h"
 
-typedef struct s_ray	t_ray;
-typedef struct s_player	t_player;
-typedef struct s_map	t_map;
+typedef struct s_ray		t_ray;
+typedef struct s_player		t_player;
+typedef struct s_map		t_map;
+typedef struct s_door		t_door;
+typedef struct s_raycasting	t_raycasting;
+typedef struct s_raycast	t_raycast;
+typedef enum e_door_state	t_door_state;
 
 struct s_ray
 {
@@ -28,11 +32,23 @@ struct s_ray
 	bool		is_vertical;
 	t_vector	slope;
 	float		cos_angle_from_orientation;
+	bool		is_door;
+	t_door		*door;
+};
+
+struct s_raycast
+{
+	float	unit_length;
+	float	sum_length;
+	int		sign;
+	float	*position;
+	bool	is_vertical;
 };
 
 // Raycasting functions
-float		raycast(t_vector position, t_vector *slope, t_map *map,
-				bool *is_vertical);
-bool		cast_rays(t_player *player, t_map *map, t_ray *rays);
+float		raycast(t_vector position, t_game *game, t_ray *ray);
+bool		cast_rays(t_game *game);
+bool		is_door(t_vector *pos, t_game *game, t_ray *ray,
+				t_raycast *raycast);
 
 #endif
