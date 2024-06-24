@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_door_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:54:13 by root              #+#    #+#             */
-/*   Updated: 2024/06/23 16:57:26 by root             ###   ########.fr       */
+/*   Updated: 2024/06/24 09:08:53 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static void	update_door(t_door *door, float delta_time, t_map *map,
 	{
 		door->time_since_opened += delta_time;
 		if (door->time_since_opened > DOOR_TIME_TO_CLOSE
-			&& !((int)player_pos->x == door->position.x)
-			&& (int)player_pos->y == door->position.y)
+			&& !((int)player_pos->x == door->position.x
+				&& (int)player_pos->y == door->position.y))
 		{
 			door->state = CLOSING;
 			map->tiles[door->position.y][door->position.x] = ID_DOOR_CLOSED;
