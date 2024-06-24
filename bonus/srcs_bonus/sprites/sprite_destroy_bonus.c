@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_game_destroy.c                               :+:      :+:    :+:   */
+/*   sprite_destroy_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 16:01:50 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/13 17:01:12 by mhotting         ###   ########.fr       */
+/*   Created: 2024/06/21 16:33:54 by mhotting          #+#    #+#             */
+/*   Updated: 2024/06/21 16:59:18 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 #include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
-#include "mlx.h"
 #include "sprite_bonus.h"
 
-/**
- * @brief Destroys the given t_game
- * @param game The structure to destroy
-*/
-void	t_game_destroy(t_game *game)
+void	destroy_sprites(t_sprite ***sprites_ptr, size_t sprites_count)
 {
-	size_t	index;
+	size_t		index;
+	t_sprite	**sprites;
 
-	if (game == NULL)
+	if (sprites_ptr == NULL)
 		return ;
+	sprites = *sprites_ptr;
 	index = 0;
-	while (index < MAP_NB_IDS)
+	while (index < sprites_count)
 	{
-		if (game->textures[index].ptr != NULL)
-			mlx_destroy_image(game->mlx.mlx_ptr, game->textures[index].ptr);
+		free(sprites[index]);
 		index++;
 	}
-	t_mlx_destroy(&game->mlx);
-	free_map(&game->map);
-	destroy_sprites(&game->sprites, game->sprites_count);
+	free(sprites);
+	*sprites_ptr = NULL;
 }

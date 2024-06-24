@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 10:07:05 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 09:00:21 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define FPS					100
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				1980
-# define WIN_HEIGHT				1000
+# define WIN_WIDTH				800
+# define WIN_HEIGHT				800
 # define MAX_DISTANCE			200
 
 # define ERR_BASIC				"Error\n"
@@ -63,6 +63,7 @@
 typedef struct s_game			t_game;
 typedef struct s_mlx			t_mlx;
 typedef struct s_column			t_column;
+typedef struct s_sprite			t_sprite;
 typedef struct s_ground_celing	t_ground_ceiling;
 
 struct s_game
@@ -75,17 +76,19 @@ struct s_game
 	float			player_rotation_rad;
 	long			frame_time_usec;
 	long			tick_last_frame;
-	t_image			textures[6];
+	t_image			textures[7];
+	t_sprite		**sprites;
+	size_t			sprites_count;
 };
 
 struct	s_column
 {
 	size_t			texture_start;
-	size_t			column;
 	t_mlx_coords	coords;
-	t_ray			*ray;
 	float			perceived_height;
-	int				wall_start;
+	int				start;
+	int				end;
+	int				texture_column;
 };
 
 struct s_ground_celing
@@ -105,10 +108,11 @@ void		t_game_destroy(t_game *game);
 
 // Render functions
 void		draw_walls(t_game *game);
-void		draw_texture_column(t_image *screen, t_column *column, int wall_end,
-				t_image *texture);
 void		draw_ground_ceiling(t_column *column, int end, t_game *game,
 				t_ray *ray);
+void		draw_texture_column(t_image *screen, t_column *column,
+				t_image *texture);
+void		render_all_sprites(t_game *game);
 
 // Utils functions
 void		error_print(char *err_msg);
@@ -125,5 +129,6 @@ void		remove_last_spaces(char *str);
 void		skip_next_spaces(char **str);
 void		display_delta_time(void);
 long		get_tick(void);
+int			compare_sprite_distance(void **a, void **b);
 
 #endif

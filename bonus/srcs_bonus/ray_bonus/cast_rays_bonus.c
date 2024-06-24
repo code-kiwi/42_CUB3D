@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_rays_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 17:28:10 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/19 21:31:40 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,13 @@ static bool	set_ray(t_ray *result, float angle, t_player *player, t_map *map)
 bool	cast_rays(t_player *player, t_map *map, t_ray *rays)
 {
 	size_t		index;
-	float		angle_by_pixel;
 	float		angle;
+	float		angle_by_pixel;
 
 	index = 0;
 	angle_by_pixel = player->fov_angle / (WIN_WIDTH - 1);
 	angle = player->orientation + (player->fov_angle / 2);
+	player->leftmost_angle = angle;
 	while (index < WIN_WIDTH)
 	{
 		if (!set_ray(&rays[index], angle, player, map))

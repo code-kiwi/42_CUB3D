@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/19 12:47:10 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/20 16:38:48 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define ID_WALL			'1'
 # define ID_TILE			'0'
 # define ID_SPACE			' '
+# define ID_SPRITE			'2'
 
 # define ID_NORTH			"NO"
 # define ID_SOUTH			"SO"
@@ -25,14 +26,16 @@
 # define ID_EAST			"EA"
 # define ID_FLOOR			"F"
 # define ID_CEILING			"C"
+# define ID_ENEMY			"E"
 
 # define MAP_EXTENSION		".cub"
-# define MAP_ALLOWED_CHARS	" 01NSEW"
-# define MAP_NB_IDS			6
+# define MAP_ALLOWED_CHARS	" 012NSEW"
+# define MAP_NB_IDS			7
 
 typedef struct s_game	t_game;
 typedef struct s_map	t_map;
 typedef struct s_vector	t_vector;
+typedef struct s_sprite	t_sprite;
 
 struct s_map
 {
