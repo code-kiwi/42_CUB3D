@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:27:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 14:51:36 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/25 16:08:59 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,38 @@ static bool	init_ui_pause_button1(t_ui *ui_pause, t_button *btn, void *mlx_ptr)
 	return (true);
 }
 
+static bool	init_ui_pause_button2(t_ui *ui_pause, t_button *btn, void *mlx_ptr)
+{
+	btn->pos.x = UI_PAUSE_BTN2_POS_X + ui_pause->pos.x;
+	btn->pos.y = UI_PAUSE_BTN2_POS_Y + ui_pause->pos.y;
+	btn->size.x = UI_PAUSE_BTN2_WIDTH;
+	btn->size.y = UI_PAUSE_BTN2_HEIGHT;
+	if (!t_image_import_file(&btn->texture_off, \
+		UI_PAUSE_BTN2_OFF_FILE, mlx_ptr))
+		return (false);
+	if (!t_image_import_file(&btn->texture_on, UI_PAUSE_BTN2_ON_FILE, mlx_ptr))
+	{
+		t_image_destroy(mlx_ptr, &btn->texture_off, false);
+		return (false);
+	}
+	btn->texture_active = &btn->texture_off;
+	btn->callback = (void (*)(void *)) cb;
+	return (true);
+}
+
 static bool	init_ui_pause_buttons(t_ui *ui_pause, void *mlx_ptr)
 {
 	ui_pause->buttons = (t_button *)ft_calloc(ui_pause->nb_buttons, \
 		sizeof(t_button));
 	if (ui_pause->buttons == NULL)
 		return (false);
-	if (!init_ui_pause_button1(ui_pause, &ui_pause->buttons[0], mlx_ptr))
+	if (
+		!init_ui_pause_button1(ui_pause, &ui_pause->buttons[0], mlx_ptr)
+		|| !init_ui_pause_button2(ui_pause, &ui_pause->buttons[1], mlx_ptr)
+	)
 	{
 		destroy_button(&ui_pause->buttons[0], mlx_ptr);
+		destroy_button(&ui_pause->buttons[1], mlx_ptr);
 		free(ui_pause->buttons);
 		ui_pause->buttons = NULL;
 		return (false);

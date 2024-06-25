@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:36:13 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 14:50:23 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/25 16:10:27 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	destroy_ui(t_ui *ui, void *mlx_ptr)
 		while (i < ui->nb_buttons)
 			destroy_button(&ui->buttons[i++], mlx_ptr);
 		free(ui->buttons);
+		ui->buttons = NULL;
 	}
 	if (ui->labels != NULL)
 	{
@@ -33,6 +34,7 @@ void	destroy_ui(t_ui *ui, void *mlx_ptr)
 		while (i < ui->nb_labels)
 			destroy_label(&ui->labels[i++], mlx_ptr);
 		free(ui->labels);
+		ui->labels = NULL;
 	}
 }
 

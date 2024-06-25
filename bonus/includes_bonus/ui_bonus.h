@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 14:52:03 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/25 16:10:13 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define UI_PAUSE_LBL_WIDTH		200
 # define UI_PAUSE_LBL_HEIGHT	100
 
-# define UI_PAUSE_NB_BTN		1
+# define UI_PAUSE_NB_BTN		2
 # define UI_PAUSE_BTN1_ON_FILE	"./assets/test_textures/resume_on.xpm"
 # define UI_PAUSE_BTN1_OFF_FILE	"./assets/test_textures/resume_off.xpm"
 # define UI_PAUSE_BTN1_POS_X	400
