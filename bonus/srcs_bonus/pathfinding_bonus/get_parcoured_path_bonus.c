@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:58:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 11:33:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 12:11:36 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,5 @@ t_list	*get_parcoured_path(t_pathfinding *pathfinding)
 		add_position_node(&path, &current->position);
 		current = current->previous;
 	}
-	ft_lstreverse(&path);
 	return (path);
 }

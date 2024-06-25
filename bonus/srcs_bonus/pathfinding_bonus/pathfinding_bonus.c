@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:09:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 12:02:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 12:28:21 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static bool	is_wall(t_map *map, t_mlx_coords *coords)
 	return (map->tiles[coords->y][coords->x] == ID_WALL
 			|| map->tiles[coords->y][coords->x] == ID_DOOR_CLOSED);
 }
+
+#include <stdio.h>
 
 static void	add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map)
 {
@@ -43,12 +45,11 @@ static void	add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map)
 		{
 			if (!(x == 1 && y == 1)
 				&& !is_wall(map, &coords))
-			{
 				add_path_node(&coords, pathfinding, top);
-			}
 			x++;
 			coords.x++;
 		}
+		coords.x -= 2;
 		y++;
 		coords.y++;
 	}
@@ -62,6 +63,7 @@ t_list	*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map)
 	pathfinding.stack = NULL;
 	pathfinding.end = end;
 	pathfinding.start = start;
+	add_path_node(start, &pathfinding, NULL);
 	while (true)
 	{
 		add_neighboring_tiles(&pathfinding, map);
@@ -72,4 +74,5 @@ t_list	*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map)
 	path = get_parcoured_path(&pathfinding);
 	free_stack(pathfinding.stack);
 	return (path);
+	return (NULL);
 }

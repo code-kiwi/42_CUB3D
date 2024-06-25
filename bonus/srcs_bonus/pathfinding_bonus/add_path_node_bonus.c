@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 11:37:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 12:28:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	get_squared_distance(t_mlx_coords *a, t_mlx_coords *b)
 {
 	return ((a->x - b->x) * (a->x - b->x) + (a->y - b->y) * (a->y - b->y));
 }
+
+#include <stdio.h>
 
 bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 	t_stack_path *previous)
@@ -33,6 +35,9 @@ bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 			pathfinding->start);
 	new_node->total_cost = new_node->end_distance + new_node->start_distance;
 	new_node->previous = previous;
+	new_node->next = NULL;
+	printf("in\n");
 	insert_path_node(&pathfinding->stack, new_node);
+	printf("out\n");
 	return (true);
 }

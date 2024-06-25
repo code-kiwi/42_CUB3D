@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 11:58:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 12:09:53 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	ft_memset(&game, 0, sizeof(t_game));
-	if (!read_map(&game.map, argv[1]) || !t_game_init(&game))
+	if (!read_map(&game.map, argv[1]))
 	{
 		t_game_destroy(&game);
 		return (EXIT_FAILURE);
