@@ -6,12 +6,24 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:09:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 11:36:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 11:54:42 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "pathfinding_bonus.h"
+
+static bool	is_wall(t_map *map, t_mlx_coords *coords)
+{
+	if (coords->x < 0 || coords->y < 0
+		|| (size_t)coords->y >= map->lines_count
+		|| (size_t)coords->x >= map->lines_lengths[coords->y])
+	{
+		return (true);
+	}
+	return (map->tiles[coords->y][coords->x] == ID_WALL
+			|| map->tiles[coords->y][coords->x] == ID_DOOR_CLOSED);
+}
 
 static void	add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map)
 {
@@ -30,10 +42,10 @@ static void	add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map)
 		while (x < 3)
 		{
 			if (!(x == 1 && y == 1)
-				&& coords.x > 0 && coords.y > 0
-				&& (size_t)coords.y < map->lines_count
-				&& (size_t)coords.x < map->lines_lengths[y])
+				&& !is_wall(map, &coords))
+			{
 				add_path_node(&coords, pathfinding, top);
+			}
 			x++;
 			coords.x++;
 		}

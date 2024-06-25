@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 11:59:51 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 11:47:05 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 
 int	main(int argc, char **argv)
 {
-	t_game	game;
+	t_game			game;
+	t_mlx_coords	start;
+	t_mlx_coords	end;
 
 	if (argc != 2)
 	{
@@ -33,7 +35,10 @@ int	main(int argc, char **argv)
 		t_game_destroy(&game);
 		return (EXIT_FAILURE);
 	}
-	mlx_loop(game.mlx.mlx_ptr);
+	start = (t_mlx_coords){1, 1};
+	end = (t_mlx_coords){3, 9};
+	find_path(&start, &end, &game.map);
+	// mlx_loop(game.mlx.mlx_ptr);
 	t_game_destroy(&game);
 	return (0);
 }

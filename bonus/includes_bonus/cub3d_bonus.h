@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 10:52:29 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 11:42:41 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,10 @@ struct s_ground_celing
 	float			unit;
 	float			inverse_dist;
 };
+
+// pathfinding
+
+t_list		*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map);
 
 // Game functions
 int			game_loop(t_game *game);
