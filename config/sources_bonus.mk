@@ -6,7 +6,7 @@
 #    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/25 12:23:43 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/06/25 14:28:54 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -121,7 +121,8 @@ SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
 UI_DIR_BONUS				=	ui/
 UI_FILES_BONUS				=	ui_utils_bonus.c				\
 								init_ui_pause_bonus.c			\
-								label_utils_bonus.c
+								label_utils_bonus.c				\
+								button_utils_bonus.c
 UI_BONUS					=	$(addprefix $(UI_DIR_BONUS), $(UI_FILES_BONUS))
 
 # UTILS
@@ -138,11 +139,11 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
 # ANIMATION
-ANIMATION_DIR_BONUS				=	animation_bonus/
-ANIMATION_FILES_BONUS			=	create_animation_bonus.c	\
-									destroy_animation_bonus.c	\
-									update_animations_bonus.c
-ANIMATION_BONUS					=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
+ANIMATION_DIR_BONUS			=	animation_bonus/
+ANIMATION_FILES_BONUS		=	create_animation_bonus.c		\
+								destroy_animation_bonus.c		\
+								update_animations_bonus.c
+ANIMATION_BONUS				=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
 
 # SOURCES GENERAL
 SRCS_MAIN_SUBDIR_BONUS		=	srcs_bonus/

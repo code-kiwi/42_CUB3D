@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_api_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 12:56:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:45:46 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,6 @@ void	t_mlx_sync_images(t_mlx *mlx);
 // t_image functions
 t_image	*t_image_init(void *mlx_ptr, int img_width, int img_height);
 void	t_image_destroy(void *mlx_ptr, t_image *img, bool free_ptr);
-void	t_image_clear(t_image *img);
 bool	t_image_import_file(t_image *image, char *filename, void *mlx);
 
 // Draw functions
