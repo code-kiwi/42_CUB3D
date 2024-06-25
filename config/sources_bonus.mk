@@ -6,7 +6,7 @@
 #    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/25 14:28:54 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/06/25 20:52:51 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,10 @@ EVENT_HANDLERS_DIR_BONUS	=	event_handlers_bonus/
 EVENT_HANDLERS_FILES_BONUS	=	add_event_handler_bonus.c		\
 								destroy_handler_bonus.c			\
 								key_release_handler_bonus.c		\
-								key_press_handler_bonus.c
+								key_press_handler_bonus.c		\
+								mouse_press_handler_bonus.c		\
+								mouse_release_handler_bonus.c	\
+								mouse_move_handler_bonus.c
 EVENT_HANDLERS_BONUS		=	$(addprefix $(EVENT_HANDLERS_DIR_BONUS), $(EVENT_HANDLERS_FILES_BONUS))
 
 # BASIC_RENDER

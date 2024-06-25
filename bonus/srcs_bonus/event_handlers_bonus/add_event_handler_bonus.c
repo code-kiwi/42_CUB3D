@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_event_handler_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:25:06 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 11:07:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 20:50:07 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ bool	add_event_handlers(t_game *data)
 		|| !t_mlx_add_hook(&data->mlx, key_release_handler, data, \
 			HOOK_KEY_RELEASE)
 		|| !t_mlx_add_hook(&data->mlx, key_press_handler, data, HOOK_KEY_PRESS)
+		|| !t_mlx_add_hook(&data->mlx, mouse_move_handler, data, HOOK_MOUSE_MOVE)
+		|| !t_mlx_add_hook(&data->mlx, mouse_press_handler, data, HOOK_MOUSE_PRESS)
+		|| !t_mlx_add_hook(&data->mlx, mouse_release_handler, data, HOOK_MOUSE_RELEASE)
 		|| !t_mlx_add_hook(&data->mlx, game_loop, data, HOOK_LOOP)
 	)
 		return (false);

@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 14:45:46 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/25 20:49:37 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,9 @@ enum e_hook_type
 	HOOK_KEY,
 	HOOK_KEY_RELEASE,
 	HOOK_KEY_PRESS,
-	HOOK_MOUSE,
+	HOOK_MOUSE_PRESS,
+	HOOK_MOUSE_RELEASE,
+	HOOK_MOUSE_MOVE,
 	HOOK_LOOP
 };
 
