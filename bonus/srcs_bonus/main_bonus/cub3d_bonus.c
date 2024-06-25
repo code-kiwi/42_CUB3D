@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 11:47:05 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 11:58:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,20 @@
 #include "mlx_api_bonus.h"
 #include "mlx.h"
 
+void	print_path(void *path_node)
+{
+	t_mlx_coords	*node;
+
+	node = path_node;
+	printf("position : (%d,%d)\n", node->x, node->y);
+}
+
 int	main(int argc, char **argv)
 {
 	t_game			game;
 	t_mlx_coords	start;
 	t_mlx_coords	end;
+	t_list			*path;
 
 	if (argc != 2)
 	{
@@ -37,8 +46,10 @@ int	main(int argc, char **argv)
 	}
 	start = (t_mlx_coords){1, 1};
 	end = (t_mlx_coords){3, 9};
-	find_path(&start, &end, &game.map);
+	path = find_path(&start, &end, &game.map);
 	// mlx_loop(game.mlx.mlx_ptr);
 	t_game_destroy(&game);
+	ft_lstprint(path, print_path);
+	ft_lstclear(&path, free);
 	return (0);
 }

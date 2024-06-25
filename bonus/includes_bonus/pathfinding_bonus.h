@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 22:32:49 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 11:35:49 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 12:03:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 typedef struct s_path_stack		t_stack_path;
 typedef struct s_pathfinding	t_pathfinding;
+typedef struct s_list			t_list;
 
 struct	s_path_stack
 {
@@ -41,5 +42,6 @@ bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 			t_stack_path *previous);
 void	insert_path_node(t_stack_path **stack, t_stack_path *new_node);
 t_list	*get_parcoured_path(t_pathfinding *pathfinding);
+void	free_stack(t_stack_path *stack);
 
 #endif // !PATHFINDING_BONUS_H

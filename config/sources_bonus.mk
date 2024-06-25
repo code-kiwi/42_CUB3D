@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/25 11:17:58 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/25 12:03:00 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -121,7 +121,8 @@ PATHFINDING_DIR_BONUS			=	pathfinding_bonus/
 PATHFINDING_FILES_BONUS			=	add_path_node_bonus.c		\
 									get_parcoured_path_bonus.c	\
 									insert_path_node_bonus.c	\
-									pathfinding_bonus.c
+									pathfinding_bonus.c			\
+									free_stack_bonus.c
 PATHFINDING_BONUS				=	$(addprefix $(PATHFINDING_DIR_BONUS), $(PATHFINDING_FILES_BONUS))
 
 # UTILS
