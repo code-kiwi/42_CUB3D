@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 22:32:49 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 11:20:14 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 11:35:49 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 # include "mlx_api_bonus.h"
 
-typedef struct s_path_stack	t_stack_path;
+typedef struct s_path_stack		t_stack_path;
+typedef struct s_pathfinding	t_pathfinding;
 
 struct	s_path_stack
 {
@@ -29,9 +30,16 @@ struct	s_path_stack
 	t_stack_path	*previous;
 };
 
-bool	add_path_node(t_mlx_coords *position, t_stack_path **stack,
-			t_mlx_coords *start, t_mlx_coords *end, t_stack_path *previous);
+struct	s_pathfinding
+{
+	t_stack_path	*stack;
+	t_mlx_coords	*start;
+	t_mlx_coords	*end;
+};
+
+bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
+			t_stack_path *previous);
 void	insert_path_node(t_stack_path **stack, t_stack_path *new_node);
-t_list	*get_parcoured_path(t_stack_path *stack, t_mlx_coords *start);
+t_list	*get_parcoured_path(t_pathfinding *pathfinding);
 
 #endif // !PATHFINDING_BONUS_H

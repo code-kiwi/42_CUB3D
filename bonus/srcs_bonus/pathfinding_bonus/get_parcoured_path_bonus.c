@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:58:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 11:20:51 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 11:33:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,15 @@ static bool	add_position_node(t_list **path, t_mlx_coords *position)
 	return (true);
 }
 
-t_list	*get_parcoured_path(t_stack_path *stack, t_mlx_coords *start)
+t_list	*get_parcoured_path(t_pathfinding *pathfinding)
 {
 	t_stack_path	*current;
 	t_list			*path;
 
-	current = stack;
+	current = pathfinding->stack;
 	path = NULL;
-	while (current->position.x != start->x && current->position.y != start->y)
+	while (current->position.x != pathfinding->start->x
+		&& current->position.y != pathfinding->start->y)
 	{
 		add_position_node(&path, &current->position);
 		current = current->previous;
