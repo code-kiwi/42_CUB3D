@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/24 08:59:23 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 13:02:05 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "mlx_api_bonus.h"
 #include "cub3d_bonus.h"
+#include "libft.h"
 
 static	void	get_pixel_position_in_tile(t_ray *ray,
 	t_vector *player_position, t_vector *result, float inverse_dist)
@@ -54,10 +55,10 @@ void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
 		get_pixel_position_in_tile(ray, &game->player.position,
 			&data.pixel_pos, data.inverse_dist);
 		draw_pixel_from_texture(&data.pixel_pos, data.ground_addr,
-			&game->textures[4]);
+			game->textures[4]->content);
 		if (data.ceiling_y >= 0)
 			draw_pixel_from_texture(&data.pixel_pos, data.ceiling_addr,
-				&game->textures[5]);
+				game->textures[5]->content);
 		column->coords.y++;
 		data.ceiling_y--;
 		data.inverse_dist += data.unit;

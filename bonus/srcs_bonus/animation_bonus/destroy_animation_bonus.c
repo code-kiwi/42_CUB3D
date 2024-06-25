@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_init_bonus.c                                :+:      :+:    :+:   */
+/*   destroy_animation_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 11:09:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/24 14:56:35 by brappo           ###   ########.fr       */
+/*   Created: 2024/06/24 12:32:35 by brappo            #+#    #+#             */
+/*   Updated: 2024/06/24 14:22:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sprite_bonus.h"
 #include "libft.h"
-#include "cub3d_bonus.h"
+#include "mlx_api_bonus.h"
 
-bool	sprite_init(t_game *game)
+void	destroy_animation(t_list *anim, void *mlx_ptr, bool is_circular)
 {
-	t_list		*current;
-	t_sprite	*sprite;
+	t_list	*current;
+	t_list	*previous;
 
-	if (!get_sprites(&game->map, &game->sprites))
-		return (false);
-	current = game->sprites;
+	if (is_circular && anim != NULL)
+	{
+		current = anim->next;
+		anim->next = NULL;
+	}
+	else
+		current = anim;
 	while (current)
 	{
-		sprite = current->content;
-		sprite->animation = game->textures[7];
-		sprite->distance = 0;
-		sprite->height = WIN_HEIGHT;
+		t_image_destroy(mlx_ptr, (t_image *)current->content);
+		previous = current;
 		current = current->next;
+		free(previous);
 	}
-	return (true);
 }

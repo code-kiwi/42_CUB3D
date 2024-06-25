@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:22:06 by root              #+#    #+#             */
-/*   Updated: 2024/06/24 11:20:21 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 15:10:35 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "sprite_bonus.h"
 #include "libft.h"
 
-static bool	add_sprite(t_list **sprites, size_t x, size_t y)
+static bool	add_sprite(t_list **sprites, float x, float y)
 {
 	t_list		*new_node;
 	t_sprite	*new_sprite;
@@ -47,7 +47,7 @@ bool	get_sprites(t_map *map, t_list **sprites)
 		{
 			if (map->tiles[y][x] == ID_SPRITE)
 			{
-				if (!add_sprite(sprites, x, y))
+				if (!add_sprite(sprites, x + 0.5, y + 0.5))
 				{
 					ft_lstclear(sprites, free);
 					return (false);

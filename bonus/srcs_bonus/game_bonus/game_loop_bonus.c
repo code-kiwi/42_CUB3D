@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 11:07:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 15:00:52 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "libft.h"
 #include "door_bonus.h"
 #include "sprite_bonus.h"
+#include "animation_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {
@@ -49,6 +50,7 @@ int	game_loop(t_game *game)
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
+	update_animations(game, delta_time);
 	update_player(&game->player, &game->map, delta_time);
 	update_doors(game, delta_time);
 	if (!is_in_bounds(&game->player.position, &game->map))

@@ -6,7 +6,7 @@ EA ./assets/textures/wall_4.xpm
 F ./assets/textures/ground.xpm
 C ./assets/textures/ceiling.xpm
 D ./assets/textures/door.xpm
-E ./assets/textures/doom_enemy.xpm
+E ./assets/textures/flying.xpm
 
 11111111111111111111
 10000000000000000001
