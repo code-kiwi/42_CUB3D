@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 13:21:27 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:28:59 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "libft.h"
 #include "door_bonus.h"
 #include "sprite_bonus.h"
+#include "animation_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {
@@ -46,11 +47,13 @@ int	game_loop(t_game *game)
 {
 	float	delta_time;
 
+	delta_time = 1.0f;
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
 	if (!game->pause)
 	{
+		update_animations(game, delta_time);
 		update_player(&game->player, &game->map, delta_time);
 		update_doors(game, delta_time);
 		if (!is_in_bounds(&game->player.position, &game->map))

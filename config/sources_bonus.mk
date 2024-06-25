@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
+#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/24 14:50:38 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/25 12:23:43 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -137,13 +137,21 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 								sort_bonus.c
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
+# ANIMATION
+ANIMATION_DIR_BONUS				=	animation_bonus/
+ANIMATION_FILES_BONUS			=	create_animation_bonus.c	\
+									destroy_animation_bonus.c	\
+									update_animations_bonus.c
+ANIMATION_BONUS					=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
+
 # SOURCES GENERAL
 SRCS_MAIN_SUBDIR_BONUS		=	srcs_bonus/
 SRCS_MAIN_DIR_BONUS			=	$(addprefix $(BONUS_DIR), $(SRCS_MAIN_SUBDIR_BONUS))
 SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(GAME_BONUS) $(VECTOR_BONUS) $(EVENT_HANDLERS_BONUS) 	\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
-								$(RAY_BONUS) $(SPRITES_BONUS) $(UI_BONUS) $(DOOR_BONUS)
+								$(RAY_BONUS) $(SPRITES_BONUS) $(ANIMATION_BONUS)		\
+								$(DOOR_BONUS) $(UI_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

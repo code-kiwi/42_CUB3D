@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_common.mk                                  :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
+#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 12:14:29 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/19 12:35:10 by mhotting         ###   ########.fr        #
+#    Updated: 2024/06/25 12:29:45 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
