@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_parcoured_path.c                               :+:      :+:    :+:   */
+/*   get_parcoured_path_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:58:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 11:12:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 11:20:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ t_list	*get_parcoured_path(t_stack_path *stack, t_mlx_coords *start)
 		current = current->previous;
 	}
 	ft_lstreverse(&path);
-	return (stack);
+	return (path);
 }

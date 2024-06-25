@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:09:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 11:05:07 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 11:23:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void	add_neighboring_tiles(t_stack_path **stack, t_mlx_coords *start,
 	size_t			y;
 	t_stack_path	*top;
 
-	coords.x = (*stack)->position.x;
-	coords.y = (*stack)->position.y;
+	top = *stack;
+	coords.x = top->position.x;
+	coords.y = top->position.y;
 	y = 0;
 	while (y < 3)
 	{
@@ -31,8 +32,8 @@ void	add_neighboring_tiles(t_stack_path **stack, t_mlx_coords *start,
 		{
 			if (!(x == 1 && y == 1)
 				&& coords.x > 0 && coords.y > 0
-				&& coords.y < map->lines_count
-				&& coords.x < map->lines_lengths[y])
+				&& (size_t)coords.y < map->lines_count
+				&& (size_t)coords.x < map->lines_lengths[y])
 			{
 				add_path_node(&coords, stack, start, end, top);
 			}
@@ -44,10 +45,10 @@ void	add_neighboring_tiles(t_stack_path **stack, t_mlx_coords *start,
 	}
 }
 
-t_stack_path	*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map)
+t_list	*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map)
 {
 	t_stack_path	*stack;
-	t_stack_path	*path;
+	t_list			*path;
 
 	stack = NULL;
 	while (true)
