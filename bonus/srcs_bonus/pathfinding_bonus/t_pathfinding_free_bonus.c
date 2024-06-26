@@ -6,13 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 11:59:16 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 12:03:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/26 14:27:42 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinding_bonus.h"
 
-void	free_stack(t_stack_path *stack)
+static void	free_stack(t_stack_path *stack)
 {
 	t_stack_path	*previous;
 
@@ -24,4 +24,10 @@ void	free_stack(t_stack_path *stack)
 		stack = stack->next;
 		free(previous);
 	}
+}
+
+void	t_pathfinding_free(t_pathfinding *pathfinding)
+{
+	free_stack(pathfinding->locked_tiles);
+	free_stack(pathfinding->stack);
 }

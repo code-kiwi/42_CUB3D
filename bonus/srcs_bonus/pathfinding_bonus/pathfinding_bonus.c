@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:09:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/26 14:08:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/26 14:33:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,6 @@
 
 #include <unistd.h>
 #include <stdio.h>
-
-static bool	is_wall(t_map *map, t_mlx_coords *coords)
-{
-	if (coords->x < 0 || coords->y < 0
-		|| (size_t)coords->y >= map->lines_count
-		|| (size_t)coords->x >= map->lines_lengths[coords->y])
-	{
-		return (true);
-	}
-	return (map->tiles[coords->y][coords->x] == ID_WALL
-			|| map->tiles[coords->y][coords->x] == ID_DOOR_CLOSED);
-}
 
 static void	remove_top_duplicate(t_stack_path *stack)
 {
@@ -54,42 +42,6 @@ static void	remove_top_duplicate(t_stack_path *stack)
 		previous = stack;
 		stack = stack->next;
 	}
-}
-
-static int	temp(int x, int y)
-{
-	if (x != 0 && y != 0)
-		return (14);
-	return (10);
-}
-
-static bool	add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map)
-{
-	t_mlx_coords	coords;
-	int				x;
-	int				y;
-	t_stack_path	*top;
-
-	top = pathfinding->locked_tiles;
-	y = -1;
-	while (y < 2)
-	{
-		x = -1;
-		while (x < 2)
-		{
-			coords.x = top->position.x + x;
-			coords.y = top->position.y + y;
-			if (!is_locked(&coords, pathfinding->locked_tiles)
-				&& !is_wall(map, &coords))
-			{
-				if (!add_path_node(&coords, pathfinding, top, temp(x, y)))
-					return (false);
-			}
-			x++;
-		}
-		y++;
-	}
-	return (true);
 }
 
 void	print_stack(t_stack_path *stack, size_t max_index)
@@ -122,8 +74,7 @@ t_list	*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map)
 		lock_tile(&pathfinding);
 		if (!add_neighboring_tiles(&pathfinding, map))
 		{
-			free_stack(pathfinding.locked_tiles);
-			free_stack(pathfinding.stack);
+			t_pathfinding_free(&pathfinding);
 			return (NULL);
 		}
 		if (pathfinding.stack->position.x == end->x
@@ -131,7 +82,6 @@ t_list	*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map)
 			break ;
 	}
 	path = get_parcoured_path(&pathfinding);
-	free_stack(pathfinding.stack);
-	free_stack(pathfinding.locked_tiles);
+	t_pathfinding_free(&pathfinding);
 	return (path);
 }
