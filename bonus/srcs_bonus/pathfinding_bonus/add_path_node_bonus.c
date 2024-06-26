@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 12:28:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 14:51:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 	new_node->total_cost = new_node->end_distance + new_node->start_distance;
 	new_node->previous = previous;
 	new_node->next = NULL;
-	printf("in\n");
 	insert_path_node(&pathfinding->stack, new_node);
-	printf("out\n");
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:31:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 11:37:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/25 12:37:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	insert_path_node(t_stack_path **stack, t_stack_path *new_node)
 		{
 			new_node->next = current;
 			previous->next = new_node;
+			return ;
 		}
 		previous = current;
 		current = current->next;
