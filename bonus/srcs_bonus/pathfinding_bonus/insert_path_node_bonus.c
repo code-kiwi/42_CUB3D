@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:31:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 12:37:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/26 11:16:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,38 @@ static int	compare_path_node(t_stack_path *a, t_stack_path *b)
 	return (total_cost_diff);
 }
 
+static void	remove_top_duplicate(t_stack_path *stack)
+{
+	t_stack_path	*top;
+	t_stack_path	*previous;
+	t_stack_path	*temp;
+
+	if (stack == NULL)
+		return ;
+	top = stack;
+	previous = stack;
+	stack = stack->next;
+	while (stack && stack->total_cost == top->total_cost)
+	{
+		if (top->position.x == stack->position.x
+			&& top->position.y == stack->position.y)
+		{
+			previous->next = stack->next;
+			temp = stack;
+			stack = stack->next;
+			free(temp);
+			continue ;
+		}
+		previous = stack;
+		stack = stack->next;
+	}
+}
+
 void	insert_path_node(t_stack_path **stack, t_stack_path *new_node)
 {
 	t_stack_path	*current;
 	t_stack_path	*previous;
 
-	if (stack == NULL)
-		return ;
 	if (*stack == NULL || compare_path_node(new_node, *stack) < 0)
 	{
 		new_node->next = *stack;
@@ -50,4 +75,5 @@ void	insert_path_node(t_stack_path **stack, t_stack_path *new_node)
 		current = current->next;
 	}
 	previous->next = new_node;
+	remove_top_duplicate(new_node);
 }

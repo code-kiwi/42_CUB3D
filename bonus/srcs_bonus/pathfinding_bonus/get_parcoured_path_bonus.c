@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:58:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 14:51:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/26 14:19:49 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,13 @@ t_list	*get_parcoured_path(t_pathfinding *pathfinding)
 	current = pathfinding->stack;
 	path = NULL;
 	while (current->position.x != pathfinding->start->x
-		&& current->position.y != pathfinding->start->y)
+		|| current->position.y != pathfinding->start->y)
 	{
-		add_position_node(&path, &current->position);
+		if (!add_position_node(&path, &current->position))
+		{
+			ft_lstclear(&path, free);
+			return (NULL);
+		}
 		current = current->previous;
 	}
 	return (path);

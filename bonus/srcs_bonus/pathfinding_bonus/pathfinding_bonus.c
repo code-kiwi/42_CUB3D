@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:09:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 15:24:06 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/26 14:08:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "libft.h"
 
 #include <unistd.h>
+#include <stdio.h>
 
 static bool	is_wall(t_map *map, t_mlx_coords *coords)
 {
@@ -28,22 +29,39 @@ static bool	is_wall(t_map *map, t_mlx_coords *coords)
 			|| map->tiles[coords->y][coords->x] == ID_DOOR_CLOSED);
 }
 
-bool	is_locked(t_mlx_coords *position, t_stack_path *locked_tiles)
+static void	remove_top_duplicate(t_stack_path *stack)
 {
-	t_stack_path	*current;
+	t_stack_path	*top;
+	t_stack_path	*previous;
+	t_stack_path	*temp;
 
-	current = locked_tiles;
-	while (current)
+	if (stack == NULL)
+		return ;
+	top = stack;
+	previous = stack;
+	stack = stack->next;
+	while (stack && stack->total_cost == top->total_cost)
 	{
-		if (position->x == current->position.x
-			&& position->y == current->position.y)
-			return (true);
-		current = current->next;
+		if (top->position.x == stack->position.x
+			&& top->position.y == stack->position.y)
+		{
+			previous->next = stack->next;
+			temp = stack;
+			stack = stack->next;
+			free(temp);
+			continue ;
+		}
+		previous = stack;
+		stack = stack->next;
 	}
-	return (false);
-}	
+}
 
-#include <stdio.h>
+static int	temp(int x, int y)
+{
+	if (x != 0 && y != 0)
+		return (14);
+	return (10);
+}
 
 static bool	add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map)
 {
@@ -64,7 +82,7 @@ static bool	add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map)
 			if (!is_locked(&coords, pathfinding->locked_tiles)
 				&& !is_wall(map, &coords))
 			{
-				if (!add_path_node(&coords, pathfinding, top))
+				if (!add_path_node(&coords, pathfinding, top, temp(x, y)))
 					return (false);
 			}
 			x++;
@@ -88,16 +106,6 @@ void	print_stack(t_stack_path *stack, size_t max_index)
 	}
 }
 
-static void	lock_tile(t_pathfinding *pathfinding)
-{
-	t_stack_path	*new_stack;
-
-	new_stack = pathfinding->stack->next;
-	pathfinding->stack->next = pathfinding->locked_tiles;
-	pathfinding->locked_tiles = pathfinding->stack;
-	pathfinding->stack = new_stack;
-}
-
 t_list	*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map)
 {
 	t_pathfinding	pathfinding;
@@ -107,9 +115,10 @@ t_list	*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map)
 	pathfinding.locked_tiles = NULL;
 	pathfinding.end = end;
 	pathfinding.start = start;
-	add_path_node(start, &pathfinding, NULL);
+	add_path_node(start, &pathfinding, NULL, 0);
 	while (true)
 	{
+		remove_top_duplicate(pathfinding.stack);
 		lock_tile(&pathfinding);
 		if (!add_neighboring_tiles(&pathfinding, map))
 		{
@@ -120,8 +129,6 @@ t_list	*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map)
 		if (pathfinding.stack->position.x == end->x
 			&& pathfinding.stack->position.y == end->y)
 			break ;
-		print_stack(pathfinding.stack, 10);
-		sleep(1);
 	}
 	path = get_parcoured_path(&pathfinding);
 	free_stack(pathfinding.stack);

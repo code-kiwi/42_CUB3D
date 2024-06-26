@@ -6,22 +6,35 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 14:51:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/26 14:05:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "pathfinding_bonus.h"
 
-static int	get_squared_distance(t_mlx_coords *a, t_mlx_coords *b)
+static size_t	get_end_distance(t_mlx_coords *position, t_mlx_coords *end)
 {
-	return ((a->x - b->x) * (a->x - b->x) + (a->y - b->y) * (a->y - b->y));
+	int		x_diff;
+	int		y_diff;
+	size_t	distance;
+
+	x_diff = end->x - position->x;
+	y_diff = end->y - position->y;
+	if (x_diff < 0)
+		x_diff *= -1;
+	if (y_diff < 0)
+		y_diff *= -1;
+	distance = min(x_diff, y_diff) * 14;
+	if (x_diff > y_diff)
+		distance += (x_diff - y_diff) * 10;
+	else
+		distance += (y_diff - x_diff) * 10;
+	return (distance);
 }
 
-#include <stdio.h>
-
 bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
-	t_stack_path *previous)
+	t_stack_path *previous, int distance)
 {
 	t_stack_path	*new_node;
 
@@ -30,9 +43,11 @@ bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 		return (false);
 	new_node->position.x = position->x;
 	new_node->position.y = position->y;
-	new_node->end_distance = get_squared_distance(position, pathfinding->end);
-	new_node->start_distance = get_squared_distance(position,
-			pathfinding->start);
+	new_node->end_distance = get_end_distance(position, pathfinding->end);
+	if (previous != NULL)
+		new_node->start_distance = previous->start_distance + distance;
+	else
+		new_node->start_distance = 0;
 	new_node->total_cost = new_node->end_distance + new_node->start_distance;
 	new_node->previous = previous;
 	new_node->next = NULL;
