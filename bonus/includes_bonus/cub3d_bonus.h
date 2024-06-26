@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 12:27:16 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/26 07:37:12 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,9 @@ struct s_ground_celing
 int			game_loop(t_game *game);
 bool		t_game_init(t_game *game);
 void		t_game_destroy(t_game *game);
+void		t_game_destroy_and_exit(t_game *game);
+void		game_pause_switch(t_game *game);
+void		game_pause_close(t_game *game);
 
 // Render functions
 void		draw_walls(t_game *game);

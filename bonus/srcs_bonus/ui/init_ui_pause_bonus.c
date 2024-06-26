@@ -6,26 +6,17 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:27:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 16:08:59 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/26 07:37:27 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-
 
 #include <stdlib.h>
 #include <stdbool.h>
 
 #include "cub3d_bonus.h"
+#include "event_handlers_bonus.h"
 #include "ui_bonus.h"
 #include "libft.h"
-
-void	cb(t_game *game)
-{
-	if (game == NULL)
-		return ;
-	printf("In callbacks func...%d\n", game->pause);
-}
 
 static bool	init_ui_pause_button1(t_ui *ui_pause, t_button *btn, void *mlx_ptr)
 {
@@ -42,7 +33,7 @@ static bool	init_ui_pause_button1(t_ui *ui_pause, t_button *btn, void *mlx_ptr)
 		return (false);
 	}
 	btn->texture_active = &btn->texture_off;
-	btn->callback = (void (*)(void *)) cb;
+	btn->callback = (void (*)(void *)) game_pause_close;
 	return (true);
 }
 
@@ -61,7 +52,7 @@ static bool	init_ui_pause_button2(t_ui *ui_pause, t_button *btn, void *mlx_ptr)
 		return (false);
 	}
 	btn->texture_active = &btn->texture_off;
-	btn->callback = (void (*)(void *)) cb;
+	btn->callback = (void (*)(void *)) t_game_destroy_and_exit;
 	return (true);
 }
 

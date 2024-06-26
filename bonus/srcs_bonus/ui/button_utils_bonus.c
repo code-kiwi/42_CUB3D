@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:22:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 14:52:27 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/26 07:40:21 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,14 @@ void	draw_buttons(t_ui *ui, t_image *img)
 			btn->texture_active);
 		i++;
 	}
+}
+
+bool	is_over_button(t_button *btn, int x, int y)
+{
+	if (btn == NULL)
+		return (false);
+	return (
+		x >= btn->pos.x && x <= btn->pos.x + btn->size.x
+		&& y >= btn->pos.y && y <= btn->pos.y + btn->size.y
+	);
 }

@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 16:10:13 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/26 07:18:43 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,6 @@ void	draw_labels(t_ui *ui, t_image *img);
 // button functions
 void	destroy_button(t_button *btn, void *mlx_ptr);
 void	draw_buttons(t_ui *ui, t_image *img);
-
-
-
-void	cb(t_game *game);
+bool	is_over_button(t_button *btn, int x, int y);
 
 #endif

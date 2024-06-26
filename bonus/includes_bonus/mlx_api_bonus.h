@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 20:49:37 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/26 06:58:05 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@
 # define KEY_D 						100
 # define KEY_P 						112
 # define KEY_E						101
+# define MOUSE_LEFT					1
+# define MOUSE_RIGHT				3
+# define MOUSE_WHEEL				2
+# define MOUSE_WHEEL_UP				4
+# define MOUSE_WHEEL_DOWN			5
 
 typedef struct s_mlx		t_mlx;
 typedef struct s_image		t_image;

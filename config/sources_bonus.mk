@@ -6,7 +6,7 @@
 #    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/25 20:52:51 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/06/26 07:32:49 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,8 @@ MAIN_BONUS					=	$(addprefix $(MAIN_DIR_BONUS), $(MAIN_FILES_BONUS))
 GAME_DIR_BONUS				=	game_bonus/
 GAME_FILES_BONUS			=	t_game_destroy_bonus.c			\
 								t_game_init_bonus.c				\
-								game_loop_bonus.c
+								game_loop_bonus.c				\
+								game_pause_bonus.c
 GAME_BONUS					=	$(addprefix $(GAME_DIR_BONUS), $(GAME_FILES_BONUS))
 
 # MLX_API

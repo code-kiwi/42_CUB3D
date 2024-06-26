@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mouse_press_handler_bonus.c                        :+:      :+:    :+:   */
+/*   game_pause_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/26 07:38:38 by codekiwi         ###   ########.fr       */
+/*   Created: 2024/06/26 07:19:29 by codekiwi          #+#    #+#             */
+/*   Updated: 2024/06/26 07:32:33 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 #include "cub3d_bonus.h"
 
-int	mouse_press_handler(int button, int x, int y, t_game *data)
+void	game_pause_switch(t_game *game)
 {
-	if (button || data || x || y)
-		return (0);
-	return (1);
+	if (game == NULL)
+		return ;
+	game->pause = !game->pause;
+	if (game->pause)
+		t_mlx_sync_images(&game->mlx);
+}
+
+void	game_pause_close(t_game *game)
+{
+	if (game == NULL)
+		return ;
+	game->pause = false;
 }

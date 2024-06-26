@@ -41,3 +41,10 @@ void	t_game_destroy(t_game *game)
 		free(game->doors);
 	ft_lstclear(&game->sprites, free);
 }
+
+void	t_game_destroy_and_exit(t_game *game)
+{
+	if (game != NULL)
+		t_game_destroy(game);
+	exit(EXIT_SUCCESS);
+}

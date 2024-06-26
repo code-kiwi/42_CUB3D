@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_release_handler_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:15:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 11:06:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/26 07:28:14 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,27 @@
 
 /**
  * @brief Handles the keyboard release key events
- * @param data The t_game which contains project data to affect
+ * @param game The t_game which contains project data to affect
  * @param key The integer value of the pressed key
  * @return A dummy integer
 */
-int	key_release_handler(int key, t_game *data)
+int	key_release_handler(int key, t_game *game)
 {
-	if (data == NULL)
+	if (game == NULL)
 		error_exit(NULL, ERR_ARG);
 	if (key == KEY_RIGHT)
-		data->player.turn_direction[1] = false;
+		game->player.turn_direction[1] = false;
 	else if (key == KEY_LEFT)
-		data->player.turn_direction[0] = false;
+		game->player.turn_direction[0] = false;
 	else if (key == KEY_W)
-		data->player.is_walking[FRONT] = false;
+		game->player.is_walking[FRONT] = false;
 	else if (key == KEY_S)
-		data->player.is_walking[BACK] = false;
+		game->player.is_walking[BACK] = false;
 	else if (key == KEY_A)
-		data->player.is_walking[LEFT] = false;
+		game->player.is_walking[LEFT] = false;
 	else if (key == KEY_D)
-		data->player.is_walking[RIGHT] = false;
+		game->player.is_walking[RIGHT] = false;
 	else if (key == KEY_ESC)
-		return (destroy_handler(data));
+		return (destroy_handler(game));
 	return (0);
 }
