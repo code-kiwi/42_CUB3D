@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_draw_rectangle_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:24:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 14:05:54 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/26 20:47:30 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static bool	t_mlx_is_rect_valid(t_mlx_coords *coords, t_mlx_coords *size)
 {
 	return (
 		coords->x >= 0 && coords->x < WIN_WIDTH
-		&& coords->y >= 0 && coords->y < WIN_HEIGHT
+		&& coords->y >= 0 && coords->y <= WIN_HEIGHT
 		&& size->x > 0 && size->y > 0
 		&& coords->x + size->x < WIN_WIDTH
-		&& coords->y + size->y < WIN_HEIGHT
+		&& coords->y + size->y <= WIN_HEIGHT
 	);
 }
 

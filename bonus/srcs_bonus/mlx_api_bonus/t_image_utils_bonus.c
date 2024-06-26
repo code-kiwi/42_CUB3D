@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 14:41:59 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/26 10:25:01 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	t_image_destroy(void *mlx_ptr, t_image *img, bool free_ptr)
 */
 bool	t_image_import_file(t_image *image, char *filename, void *mlx)
 {
-	if (image == NULL)
+	if (image == NULL || mlx == NULL)
 		return (false);
 	image->ptr = mlx_xpm_file_to_image(mlx, filename,
 			&image->width, &image->height);

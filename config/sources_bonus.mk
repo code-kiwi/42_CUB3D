@@ -6,7 +6,7 @@
 #    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/26 07:32:49 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/06/27 18:34:59 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,8 @@ BASIC_RENDER_DIR_BONUS		=	basic_render_bonus/
 BASIC_RENDER_FILES_BONUS	=	draw_walls_bonus.c				\
 								draw_column_bonus.c				\
 								draw_ceiling_ground_bonus.c		\
-								draw_sprite_bonus.c
+								draw_sprite_bonus.c				\
+								draw_player_bonus.c
 BASIC_RENDER_BONUS			=	$(addprefix $(BASIC_RENDER_DIR_BONUS), $(BASIC_RENDER_FILES_BONUS))
 
 # MAP
@@ -99,7 +100,10 @@ DOOR_BONUS					=	$(addprefix $(DOOR_DIR_BONUS), $(DOOR_FILES_BONUS))
 # PLAYER
 PLAYER_DIR_BONUS			=	player_bonus/
 PLAYER_FILES_BONUS			=	t_player_init_bonus.c			\
-								update_player_bonus.c
+								t_player_init_display_bonus.c	\
+								update_player_bonus.c			\
+								t_player_destroy_bonus.c		\
+								player_shoot_bonus.c
 PLAYER_BONUS				=	$(addprefix $(PLAYER_DIR_BONUS), $(PLAYER_FILES_BONUS))
 
 # RAY
