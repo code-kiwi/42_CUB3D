@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/26 14:05:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/26 15:38:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static size_t	get_end_distance(t_mlx_coords *position, t_mlx_coords *end)
 }
 
 bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
-	t_stack_path *previous, int distance)
+	t_stack_path *previous, size_t distance)
 {
 	t_stack_path	*new_node;
 

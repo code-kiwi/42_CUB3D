@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:54:27 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/22 15:39:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/26 15:40:00 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,16 @@ bool	is_character(t_vector *position, t_map *map, char character)
 	tile_x = position->x;
 	tile_y = position->y;
 	return (map->tiles[tile_y][tile_x] == character);
+}
+
+bool	is_walkable(t_map *map, t_mlx_coords *coords)
+{
+	if (coords->x < 0 || coords->y < 0
+		|| (size_t)coords->y >= map->lines_count
+		|| (size_t)coords->x >= map->lines_lengths[coords->y])
+	{
+		return (false);
+	}
+	return (map->tiles[coords->y][coords->x] != ID_WALL
+			&& map->tiles[coords->y][coords->x] != ID_DOOR_CLOSED);
 }
