@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_path_node_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 13:41:08 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 20:20:30 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static bool	update_existing_node(t_stack_path *new_node, size_t total_cost)
 	return (false);
 }
 
-t_stack_path	*add_new_node(t_mlx_coords *position)
+static t_stack_path	*add_new_node(t_mlx_coords *position)
 {
 	t_stack_path	*new_node;
 

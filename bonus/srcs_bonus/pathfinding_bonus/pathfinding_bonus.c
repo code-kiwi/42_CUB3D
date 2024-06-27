@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:09:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 20:09:26 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/27 20:19:19 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "pathfinding_bonus.h"
 #include "libft.h"
 
-void	lock_tile(t_pathfinding *pathfinding)
+static void	lock_tile(t_pathfinding *pathfinding)
 {
 	t_stack_path	*new_stack;
 
