@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 22:32:49 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 20:14:15 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/27 20:51:48 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_list			*get_parcoured_path(t_pathfinding *pathfinding);
 bool			add_path_node(t_mlx_coords *pos, t_pathfinding *pathfinding,
 					t_stack_path *previous, size_t distance);
 void			t_pathfinding_free(t_pathfinding *pathfinding);
-void			t_pathfinding_init(t_pathfinding *pathfinding,
+bool			t_pathfinding_init(t_pathfinding *pathfinding, \
 					t_mlx_coords *start, t_mlx_coords *end);
 bool			add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map);
 t_stack_path	*search_in_stack(t_stack_path *stack, t_mlx_coords *position);

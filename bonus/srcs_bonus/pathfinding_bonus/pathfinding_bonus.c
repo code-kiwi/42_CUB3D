@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:09:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 20:19:19 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/27 20:53:14 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ t_list	*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map)
 	t_pathfinding	pathfinding;
 	t_list			*path;
 
-	t_pathfinding_init(&pathfinding, start, end);
+	if (start == NULL || end == NULL || map == NULL)
+		return (NULL);
+	if (!t_pathfinding_init(&pathfinding, start, end))
+		return (false);
 	while (true)
 	{
 		lock_tile(&pathfinding);
