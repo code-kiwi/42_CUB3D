@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/26 14:09:30 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 09:48:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(int argc, char **argv)
 	t_mlx_coords	start;
 	t_mlx_coords	end;
 	t_list			*path;
+	long			tick;
 
 	if (argc != 2)
 	{
@@ -46,7 +47,9 @@ int	main(int argc, char **argv)
 	}
 	start = (t_mlx_coords){1, 1};
 	end = (t_mlx_coords){3, 9};
+	tick = get_tick();
 	path = find_path(&start, &end, &game.map);
+	printf("delta : %ld\n", get_tick() - tick);
 	// mlx_loop(game.mlx.mlx_ptr);
 	t_game_destroy(&game);
 	ft_lstprint(path, print_path);

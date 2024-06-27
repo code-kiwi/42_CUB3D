@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:09:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/26 15:37:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 09:50:04 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_list	*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map)
 	t_pathfinding_init(&pathfinding, start, end);
 	while (true)
 	{
-		remove_top_duplicates(pathfinding.stack);
 		lock_tile(&pathfinding);
 		if (!add_neighboring_tiles(&pathfinding, map))
 			return (t_pathfinding_free(&pathfinding), NULL);
