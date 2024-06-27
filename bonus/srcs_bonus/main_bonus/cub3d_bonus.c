@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 14:11:44 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 14:16:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_game			game;
+	t_game	game;
 
 	if (argc != 2)
 	{
