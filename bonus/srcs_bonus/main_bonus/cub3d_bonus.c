@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 10:50:01 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 12:01:36 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ int	main(int argc, char **argv)
 		t_game_destroy(&game);
 		return (EXIT_FAILURE);
 	}
-	start = (t_mlx_coords){1, 1};
-	end = (t_mlx_coords){3, 9};
+	start = (t_mlx_coords){15, 11};
+	end = (t_mlx_coords){18, 11};
 	tick = get_tick();
 	path = find_path(&start, &end, &game.map);
 	printf("delta : %ld\n", get_tick() - tick);
-	ft_lstclear(&path, free);
 	ft_lstprint(path, print_path);
+	ft_lstclear(&path, free);
 	// mlx_loop(game.mlx.mlx_ptr);
 	t_game_destroy(&game);
 	return (0);

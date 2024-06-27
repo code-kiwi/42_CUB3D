@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:09:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 10:29:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 12:07:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	print_stack(t_stack_path *stack, size_t max_index)
 	while (index < max_index && stack)
 	{
 		printf("%ld, Gcost : %ld, Hcost : %ld, Fcost : %ld, pos : (%d,%d)\n", index, stack->start_distance, stack->end_distance, stack->total_cost, stack->position.x, stack->position.y);
+		stack = stack->next;
 		index++;
 	}
 }
