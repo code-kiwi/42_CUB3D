@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 22:32:49 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 09:50:23 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 10:37:22 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_map			t_map;
 struct	s_path_stack
 {
 	t_mlx_coords	position;
+	t_stack_path	*previous_tile;
 	size_t			start_distance;
 	size_t			end_distance;
 	size_t			total_cost;

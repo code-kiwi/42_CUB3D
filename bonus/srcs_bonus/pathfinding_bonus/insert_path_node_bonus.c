@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:31:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/26 14:52:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 10:48:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	insert_path_node(t_stack_path **stack, t_stack_path *new_node)
 	if (*stack == NULL || compare_path_node(new_node, *stack) < 0)
 	{
 		new_node->next = *stack;
+		if (*stack != NULL)
+			(*stack)->previous = new_node;
 		*stack = new_node;
 		return ;
 	}
@@ -39,13 +41,13 @@ void	insert_path_node(t_stack_path **stack, t_stack_path *new_node)
 	while (current)
 	{
 		if (compare_path_node(new_node, current) < 0)
-		{
-			new_node->next = current;
-			previous->next = new_node;
-			return ;
-		}
+			break ;
 		previous = current;
 		current = current->next;
 	}
+	if (previous->next != NULL)
+		previous->next->previous = new_node;
+	new_node->next = previous->next;
 	previous->next = new_node;
+	new_node->previous = previous;
 }

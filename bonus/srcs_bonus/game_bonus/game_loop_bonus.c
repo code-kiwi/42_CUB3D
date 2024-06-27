@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 10:14:10 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 10:21:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int	game_loop(t_game *game)
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
-	start = (t_mlx_coords){1, 1};
-	end = (t_mlx_coords){3, 9};
+	start = (t_mlx_coords){15, 11};
+	end = (t_mlx_coords){18, 11};
 	for (int i = 0;i < 10; i++)
 	{
 		path = find_path(&start, &end, &game->map);
