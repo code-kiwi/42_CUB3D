@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 22:32:49 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/26 15:38:06 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/26 15:46:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ struct	s_pathfinding
 
 void	insert_path_node(t_stack_path **stack, t_stack_path *new_node);
 t_list	*get_parcoured_path(t_pathfinding *pathfinding);
-bool	add_position_node(t_list **path, t_mlx_coords *position);
 bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 			t_stack_path *previous, size_t distance);
 bool	is_locked(t_mlx_coords *position, t_stack_path *locked_tiles);

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:58:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/26 14:26:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/26 15:46:41 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "pathfinding_bonus.h"
 #include "libft.h"
 
-bool	add_position_node(t_list **path, t_mlx_coords *position)
+static bool	add_position_node(t_list **path, t_mlx_coords *position)
 {
 	t_mlx_coords	*new_position;
 	t_list			*new_node;
