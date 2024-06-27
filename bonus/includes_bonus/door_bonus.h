@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   door_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 16:42:39 by root              #+#    #+#             */
-/*   Updated: 2024/06/24 09:19:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 20:13:53 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,4 @@ void		update_doors(t_game *game, float delta_time);
 t_door		*find_door_at_position(t_mlx_coords *position, t_game *game);
 bool		init_doors(t_game *game);
 
-#endif // !DOOR_BONUS_h
+#endif

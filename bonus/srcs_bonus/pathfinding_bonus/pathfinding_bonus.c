@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   pathfinding_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:09:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 13:36:30 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 20:09:26 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 #include "cub3d_bonus.h"
 #include "pathfinding_bonus.h"
 #include "libft.h"
-
-#include <unistd.h>
 
 void	lock_tile(t_pathfinding *pathfinding)
 {

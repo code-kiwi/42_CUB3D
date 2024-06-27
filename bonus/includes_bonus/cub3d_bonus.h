@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 19:55:05 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/27 20:11:07 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,6 @@ struct s_ground_celing
 	float			unit;
 	float			inverse_dist;
 };
-
-// pathfinding
-
-t_list		*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map);
 
 // Game functions
 int			game_loop(t_game *game);
