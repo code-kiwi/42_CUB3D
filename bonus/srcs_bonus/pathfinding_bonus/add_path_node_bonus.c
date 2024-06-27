@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 12:42:12 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 13:41:08 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,15 @@ static size_t	get_end_distance(t_mlx_coords *position, t_mlx_coords *end)
 	return (distance);
 }
 
-t_stack_path	*get_node(t_mlx_coords *position, t_stack_path *stack)
+static size_t	get_start_distance(t_stack_path *previous, size_t distance)
 {
-	while (stack)
-	{
-		if (position->x == stack->position.x
-			&& position->y == stack->position.y)
-		{
-			return (stack);
-		}
-		stack = stack->next;
-	}
-	return (NULL);
+	size_t	start_distance;
+
+	if (previous != NULL)
+		start_distance = previous->start_distance + distance;
+	else
+		start_distance = 0;
+	return (start_distance);
 }
 
 static bool	update_existing_node(t_stack_path *new_node, size_t total_cost)
@@ -78,11 +75,8 @@ bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 	size_t			end_distance;
 
 	end_distance = get_end_distance(position, pathfinding->end);
-	if (previous != NULL)
-		start_distance = previous->start_distance + distance;
-	else
-		start_distance = 0;
-	new_node = get_node(position, pathfinding->stack);
+	start_distance = get_start_distance(previous, distance);
+	new_node = search_in_stack(pathfinding->stack, position);
 	if (new_node == NULL)
 		new_node = add_new_node(position);
 	else if (update_existing_node(new_node, start_distance + end_distance))

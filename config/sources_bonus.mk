@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/27 09:50:15 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/27 13:36:46 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,7 +123,6 @@ PATHFINDING_FILES_BONUS			=	add_path_node_bonus.c			\
 									insert_path_node_bonus.c		\
 									pathfinding_bonus.c				\
 									t_pathfinding_utils_bonus.c		\
-									lock_tiles_bonus.c				\
 									add_neighboring_tiles_bonus.c
 PATHFINDING_BONUS				=	$(addprefix $(PATHFINDING_DIR_BONUS), $(PATHFINDING_FILES_BONUS))
 

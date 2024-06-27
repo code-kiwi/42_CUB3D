@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 22:32:49 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 10:37:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 13:38:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,14 @@ struct	s_pathfinding
 	t_stack_path	*locked_tiles;
 };
 
-void	insert_path_node(t_stack_path **stack, t_stack_path *new_node);
-t_list	*get_parcoured_path(t_pathfinding *pathfinding);
-bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
-			t_stack_path *previous, size_t distance);
-bool	is_locked(t_mlx_coords *position, t_stack_path *locked_tiles);
-void	lock_tile(t_pathfinding *pathfinding);
-void	t_pathfinding_free(t_pathfinding *pathfinding);
-void	t_pathfinding_init(t_pathfinding *pathfinding, t_mlx_coords *start,
-			t_mlx_coords *end);
-bool	add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map);
+void			insert_path_node(t_stack_path **stack, t_stack_path *new_node);
+t_list			*get_parcoured_path(t_pathfinding *pathfinding);
+bool			add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
+					t_stack_path *previous, size_t distance);
+void			t_pathfinding_free(t_pathfinding *pathfinding);
+void			t_pathfinding_init(t_pathfinding *pathfinding,
+					t_mlx_coords *start, t_mlx_coords *end);
+bool			add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map);
+t_stack_path	*search_in_stack(t_stack_path *stack, t_mlx_coords *position);
 
 #endif // !PATHFINDING_BONUS_H
