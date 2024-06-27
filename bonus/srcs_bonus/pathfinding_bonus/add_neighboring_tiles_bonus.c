@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:30:42 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 13:38:21 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 14:22:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ bool	add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map)
 		{
 			coords.x = top->position.x + x;
 			coords.y = top->position.y + y;
-			if (!search_in_stack(pathfinding->locked_tiles, &coords)
-				&& is_walkable(map, &coords))
+			if ((x != 0 || y != 0) && is_walkable(map, &coords)
+				&& !search_in_stack(pathfinding->locked_tiles, &coords))
 			{
 				if (!add_path_node(&coords, pathfinding, top, distance(x, y)))
 					return (false);
