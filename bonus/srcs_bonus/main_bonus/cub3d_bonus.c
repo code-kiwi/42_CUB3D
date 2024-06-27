@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 13:34:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 14:11:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,9 @@
 #include "mlx_api_bonus.h"
 #include "mlx.h"
 
-void	print_path(void *path_node)
-{
-	t_mlx_coords	*node;
-
-	node = path_node;
-	printf("position : (%d,%d)\n", node->x, node->y);
-}
-
 int	main(int argc, char **argv)
 {
 	t_game			game;
-	t_mlx_coords	end;
-	t_list			*path;
-	t_mlx_coords	start;
-	long			tick;
 
 	if (argc != 2)
 	{
@@ -40,19 +28,12 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	ft_memset(&game, 0, sizeof(t_game));
-	if (!read_map(&game.map, argv[1]))
+	if (!read_map(&game.map, argv[1]) || !t_game_init(&game))
 	{
 		t_game_destroy(&game);
 		return (EXIT_FAILURE);
 	}
-	start = (t_mlx_coords){15, 11};
-	end = (t_mlx_coords){18, 11};
-	tick = get_tick();
-	path = find_path(&start, &end, &game.map);
-	printf("delta : %ld\n", get_tick() - tick);
-	ft_lstprint(path, print_path);
-	ft_lstclear(&path, free);
-	// mlx_loop(game.mlx.mlx_ptr);
+	mlx_loop(game.mlx.mlx_ptr);
 	t_game_destroy(&game);
 	return (0);
 }

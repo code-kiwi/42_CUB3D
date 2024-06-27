@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 13:47:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 14:12:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	update_position(t_player *player, t_map *map, float delta_time)
 				* delta_time;
 			coords.x = player->position.x;
 			coords.y = player->position.y;
-			if (is_walkable(map, &coords))
+			if (!is_walkable(map, &coords))
 				player->position = save_position;
 		}
 		index++;
