@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 11:39:25 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/28 15:37:05 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/28 16:06:42 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,17 @@ bool	set_color(unsigned int *result, int r, int g, int b)
 	return (true);
 }
 
-void	multiply_color(unsigned int *color, float factor)
+void	multiply_color(unsigned int *result, float factor)
 {
-	int	r;
-	int	g;
-	int	b;
+	uint8_t	*color;
 
+	color = (uint8_t *)result; 
 	if (factor < 0)
 	{
-		*color = 0xFF000000;
+		*result = 0xFF000000;
 		return ;
 	}
-	b = (*color) & 0xFF;
-	g = (*color >> 8) & 0xFF;
-	r = (*color >> 16) & 0xFF;
-	set_color(color, r * factor, g * factor, b * factor);
+	color[0] *= factor;
+	color[1] *= factor;
+	color[2] *= factor;
 }
