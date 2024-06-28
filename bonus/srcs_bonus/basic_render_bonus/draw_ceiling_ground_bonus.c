@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/28 15:55:56 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/28 16:11:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 
 	color_coords.x = pos_in_tile->x * texture->width;
 	color_coords.y = pos_in_tile->y * texture->height;
-	color = *(unsigned int *)(texture->addr + color_coords.y * texture->line_len \
+	color = *(unsigned int *)(texture->addr + \
+		color_coords.y * texture->line_len \
 		+ (color_coords.x * texture->bpp_factor));
-	if (distance > MIN_SHADOW_DISTANCE)
-		multiply_color(&color, 1 - (distance - MIN_SHADOW_DISTANCE) / MAX_VISION_DISTANCE);
+	multiply_color(&color, 1 - distance / MAX_VISION_DISTANCE);
 	*(unsigned int *)addr = color;
 }
 
