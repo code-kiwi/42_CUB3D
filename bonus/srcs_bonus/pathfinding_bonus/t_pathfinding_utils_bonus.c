@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 11:59:16 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/28 09:17:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/28 09:42:04 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ bool	t_pathfinding_init(t_pathfinding *pathfinding, t_mlx_coords *start,
 	if (pathfinding == NULL || start == NULL || end == NULL)
 		return (false);
 	if (!is_walkable(map, start) || !is_walkable(map, end))
+		return (false);
+	if (start->x == end->x && start->y == end->y)
 		return (false);
 	pathfinding->stack = NULL;
 	pathfinding->locked_tiles = NULL;
