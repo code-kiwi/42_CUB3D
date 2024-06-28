@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   t_pathfinding_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 11:59:16 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 20:53:02 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 09:17:26 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinding_bonus.h"
+#include "map_bonus.h"
 
 static void	free_stack(t_stack_path *stack)
 {
@@ -33,9 +34,11 @@ void	t_pathfinding_free(t_pathfinding *pathfinding)
 }
 
 bool	t_pathfinding_init(t_pathfinding *pathfinding, t_mlx_coords *start,
-	t_mlx_coords *end)
+	t_mlx_coords *end, t_map *map)
 {
 	if (pathfinding == NULL || start == NULL || end == NULL)
+		return (false);
+	if (!is_walkable(map, start) || !is_walkable(map, end))
 		return (false);
 	pathfinding->stack = NULL;
 	pathfinding->locked_tiles = NULL;

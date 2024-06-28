@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pathfinding_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:09:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 20:53:14 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 09:18:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ t_list	*find_path(t_mlx_coords *start, t_mlx_coords *end, t_map *map)
 
 	if (start == NULL || end == NULL || map == NULL)
 		return (NULL);
-	if (!t_pathfinding_init(&pathfinding, start, end))
+	if (!t_pathfinding_init(&pathfinding, start, end, map))
 		return (false);
 	while (true)
 	{
+		if (pathfinding.stack == NULL)
+			return (t_pathfinding_free(&pathfinding), NULL);
 		lock_tile(&pathfinding);
 		if (!add_neighboring_tiles(&pathfinding, map))
 			return (t_pathfinding_free(&pathfinding), NULL);
