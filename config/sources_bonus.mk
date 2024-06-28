@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/24 14:57:15 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/27 19:52:30 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,6 +116,16 @@ SPRITES_FILES_BONUS			=	get_sprites_bonus.c				\
 								sprite_init_bonus.c
 SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
 
+# PATHFINDING
+PATHFINDING_DIR_BONUS			=	pathfinding_bonus/
+PATHFINDING_FILES_BONUS			=	add_path_node_bonus.c			\
+									get_parcoured_path_bonus.c		\
+									insert_path_node_bonus.c		\
+									pathfinding_bonus.c				\
+									t_pathfinding_utils_bonus.c		\
+									add_neighboring_tiles_bonus.c
+PATHFINDING_BONUS				=	$(addprefix $(PATHFINDING_DIR_BONUS), $(PATHFINDING_FILES_BONUS))
+
 # UTILS
 UTILS_DIR_BONUS				=	utils_bonus/
 UTILS_FILES_BONUS			=	math_bonus.c					\
@@ -142,8 +152,8 @@ SRCS_MAIN_DIR_BONUS			=	$(addprefix $(BONUS_DIR), $(SRCS_MAIN_SUBDIR_BONUS))
 SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(GAME_BONUS) $(VECTOR_BONUS) $(EVENT_HANDLERS_BONUS) 	\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
-								$(RAY_BONUS) $(SPRITES_BONUS) $(ANIMATION_BONUS)		\
-								$(DOOR_BONUS)
+								$(RAY_BONUS) $(DOOR_BONUS) $(SPRITES_BONUS)				\
+								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

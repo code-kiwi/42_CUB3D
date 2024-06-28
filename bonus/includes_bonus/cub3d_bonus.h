@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 15:08:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 20:11:07 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define FPS					100
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				800
-# define WIN_HEIGHT				800
+# define WIN_WIDTH				1920
+# define WIN_HEIGHT				1000
 # define MAX_DISTANCE			200
 
 # define ERR_BASIC				"Error\n"

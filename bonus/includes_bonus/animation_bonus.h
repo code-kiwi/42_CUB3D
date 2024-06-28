@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animation_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 12:35:15 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/24 15:08:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 20:13:34 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,4 @@ void	destroy_animation(t_list *anim, void *mlx_ptr, bool is_circular);
 t_list	*create_animation(t_image *texture, void *mlx_ptr);
 void	update_animations(t_game *game, float delta_time);
 
-#endif // !ANIMATION_BONUS_H
+#endif
