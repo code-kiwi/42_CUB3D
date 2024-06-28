@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/24 13:02:05 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/28 15:55:56 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,18 @@ static	void	get_pixel_position_in_tile(t_ray *ray,
 }
 
 static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
-	t_image *texture)
+	t_image *texture, float distance)
 {
 	t_mlx_coords	color_coords;
-	char			*color;
+	unsigned int	color;
 
 	color_coords.x = pos_in_tile->x * texture->width;
 	color_coords.y = pos_in_tile->y * texture->height;
-	color = (texture->addr + color_coords.y * texture->line_len \
+	color = *(unsigned int *)(texture->addr + color_coords.y * texture->line_len \
 		+ (color_coords.x * texture->bpp_factor));
-	*(unsigned int *)addr = *(unsigned int *)color;
+	if (distance > MIN_SHADOW_DISTANCE)
+		multiply_color(&color, 1 - (distance - MIN_SHADOW_DISTANCE) / MAX_VISION_DISTANCE);
+	*(unsigned int *)addr = color;
 }
 
 void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
@@ -55,10 +57,10 @@ void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
 		get_pixel_position_in_tile(ray, &game->player.position,
 			&data.pixel_pos, data.inverse_dist);
 		draw_pixel_from_texture(&data.pixel_pos, data.ground_addr,
-			game->textures[4]->content);
+			game->textures[4]->content, 1 / data.inverse_dist);
 		if (data.ceiling_y >= 0)
 			draw_pixel_from_texture(&data.pixel_pos, data.ceiling_addr,
-				game->textures[5]->content);
+				game->textures[5]->content, 1 / data.inverse_dist);
 		column->coords.y++;
 		data.ceiling_y--;
 		data.inverse_dist += data.unit;
