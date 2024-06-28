@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/28 15:31:51 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/28 15:58:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	draw_all_columns(
 			return ;
 		distance = rays[column->coords.x].length;
 		if (distance > sprite->distance)
-			draw_texture_column(img, column, texture, distance);
+			draw_texture_column(img, column, texture, sprite->distance);
 		texture_x += sprite->distance * texture->width / sprite->height;
 		column->texture_column = texture_x;
 		column->coords.x++;
