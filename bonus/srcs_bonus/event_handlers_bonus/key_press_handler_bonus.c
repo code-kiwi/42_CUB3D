@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/26 07:25:23 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 09:37:36 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ int	key_press_handler(int key, t_game *game)
 		game->player.is_walking[LEFT] = true;
 	else if (key == KEY_D)
 		game->player.is_walking[RIGHT] = true;
-	else if (key == KEY_P)
-		game_pause_switch(game);
 	else if (key == KEY_E)
 		open_looked_door(game->player.look_ray, &game->map);
 	return (0);

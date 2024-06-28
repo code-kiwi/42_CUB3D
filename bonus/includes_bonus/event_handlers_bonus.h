@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:11:00 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/26 07:30:42 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 09:41:10 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ int		key_press_handler(int key, t_game *game);
 int		mouse_move_handler(int x, int y, t_game *game);
 int		mouse_press_handler(int button, int x, int y, t_game *game);
 int		mouse_release_handler(int button, int x, int y, t_game *game);
+void	mouse_release_pause_handler(int x, int y, t_game *game);
+void	mouse_move_pause_handler(int x, int y, t_game *game);
 
 #endif
