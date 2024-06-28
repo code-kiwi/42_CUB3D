@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_destroy_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:36:36 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 11:08:21 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 11:43:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	t_mlx_destroy(t_mlx *mlx)
 	if (mlx->mlx_ptr != NULL && mlx->mlx_win != NULL)
 		mlx_destroy_window(mlx->mlx_ptr, mlx->mlx_win);
 	if (mlx->mlx_ptr != NULL && mlx->img1 != NULL)
-		t_image_destroy(mlx->mlx_ptr, mlx->img1);
+		t_image_destroy(mlx->mlx_ptr, mlx->img1, true);
 	if (mlx->mlx_ptr != NULL && mlx->img2 != NULL)
-		t_image_destroy(mlx->mlx_ptr, mlx->img2);
+		t_image_destroy(mlx->mlx_ptr, mlx->img2, true);
 	if (mlx->mlx_ptr != NULL)
 	{
 		mlx_destroy_display(mlx->mlx_ptr);

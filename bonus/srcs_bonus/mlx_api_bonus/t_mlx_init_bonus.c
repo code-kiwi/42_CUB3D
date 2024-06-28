@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_init_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:36:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 11:08:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/24 11:43:13 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static bool	t_mlx_init_images(t_mlx *mlx, int img_width, int img_height)
 	mlx->img2 = t_image_init(mlx->mlx_ptr, img_width, img_height);
 	if (mlx->img2 == NULL)
 	{
-		t_image_destroy(mlx->mlx_ptr, mlx->img1);
+		t_image_destroy(mlx->mlx_ptr, mlx->img1, true);
 		mlx->img1 = NULL;
 		return (false);
 	}

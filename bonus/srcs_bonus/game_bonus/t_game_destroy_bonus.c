@@ -29,6 +29,8 @@ void	t_game_destroy(t_game *game)
 	if (game == NULL)
 		return ;
 	index = 0;
+	destroy_all_ui(game);
+	destroy_player(&game->player, game->mlx.mlx_ptr);
 	while (index < MAP_NB_IDS)
 	{
 		destroy_animation(game->textures[index], game->mlx.mlx_ptr, true);
@@ -39,4 +41,11 @@ void	t_game_destroy(t_game *game)
 	if (game->doors != NULL)
 		free(game->doors);
 	ft_lstclear(&game->sprites, free);
+}
+
+void	t_game_destroy_and_exit(t_game *game)
+{
+	if (game != NULL)
+		t_game_destroy(game);
+	exit(EXIT_SUCCESS);
 }

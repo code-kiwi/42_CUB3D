@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 19:51:52 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 18:18:01 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,21 @@ int	game_loop(t_game *game)
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
-	update_animations(game, delta_time);
-	update_player(&game->player, &game->map, delta_time);
-	update_doors(game, delta_time);
-	if (!is_in_bounds(&game->player.position, &game->map))
-		error_exit(game, ERR_PLAYER_QUIT_MAP);
-	if (!cast_rays(game))
-		error_exit(game, ERR_CAST_RAYS);
-	draw_walls(game);
-	render_all_sprites(game);
+	if (!game->pause)
+	{
+		update_animations(game, delta_time);
+		update_player(&game->player, &game->map, delta_time);
+		update_doors(game, delta_time);
+		if (!is_in_bounds(&game->player.position, &game->map))
+			error_exit(game, ERR_PLAYER_QUIT_MAP);
+		if (!cast_rays(game))
+			error_exit(game, ERR_CAST_RAYS);
+		draw_walls(game);
+		render_all_sprites(game);
+		draw_player(game);
+	}
+	else
+		draw_ui(&game->ui_pause, game->mlx.img_buff);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
 	printf("fps : %d\n", (int)(1.0f / delta_time));

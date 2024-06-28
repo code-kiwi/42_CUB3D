@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animation_bonus.h                                  :+:      :+:    :+:   */
+/*   mouse_press_handler_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 12:35:15 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/28 18:16:56 by codekiwi         ###   ########.fr       */
+/*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
+/*   Updated: 2024/06/26 07:38:38 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMATION_BONUS_H
-# define ANIMATION_BONUS_H
+#include <stdio.h>
 
-typedef struct s_list	t_list;
-typedef struct s_image	t_image;
+#include "cub3d_bonus.h"
 
-# define ANIMATION_UPDATE	0.1
-
-void	destroy_animation(t_list *anim, void *mlx_ptr, bool is_circular);
-t_list	*create_animation(t_image *texture, int height, int width, \
-			void *mlx_ptr);
-void	update_animations(t_game *game, float delta_time);
-
-#endif
+int	mouse_press_handler(int button, int x, int y, t_game *data)
+{
+	if (button || data || x || y)
+		return (0);
+	return (1);
+}

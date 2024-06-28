@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animation_bonus.h                                  :+:      :+:    :+:   */
+/*   mouse_release_handler_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 12:35:15 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/28 18:16:56 by codekiwi         ###   ########.fr       */
+/*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
+/*   Updated: 2024/06/28 09:42:00 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMATION_BONUS_H
-# define ANIMATION_BONUS_H
+#include "cub3d_bonus.h"
+#include "event_handlers_bonus.h"
+#include "ui_bonus.h"
 
-typedef struct s_list	t_list;
-typedef struct s_image	t_image;
-
-# define ANIMATION_UPDATE	0.1
-
-void	destroy_animation(t_list *anim, void *mlx_ptr, bool is_circular);
-t_list	*create_animation(t_image *texture, int height, int width, \
-			void *mlx_ptr);
-void	update_animations(t_game *game, float delta_time);
-
-#endif
+int	mouse_release_handler(int button, int x, int y, t_game *game)
+{
+	if (button == MOUSE_LEFT && game->pause)
+		mouse_release_pause_handler(x, y, game);
+	return (1);
+}

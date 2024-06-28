@@ -18,10 +18,9 @@
 #include "door_bonus.h"
 #include "map_bonus.h"
 #include "sprite_bonus.h"
+#include "ui_bonus.h"
 #include "animation_bonus.h"
 #include "mlx.h"
-
-#include <errno.h>
 
 static bool	init_textures(t_game *game)
 {
@@ -39,7 +38,8 @@ static bool	init_textures(t_game *game)
 			return (error_print(ERR_TEXTURE_EXTENSION), false);
 		if (!t_image_import_file(&texture, filename, game->mlx.mlx_ptr))
 			return (error_print(ERR_INIT_TEXTURES), false);
-		game->textures[index] = create_animation(&texture, game->mlx.mlx_ptr);
+		game->textures[index] = create_animation(&texture, TEXTURE_SIZE, \
+			TEXTURE_SIZE, game->mlx.mlx_ptr);
 		mlx_destroy_image(game->mlx.mlx_ptr, texture.ptr);
 		if (game->textures[index] == NULL)
 			return (false);
@@ -59,13 +59,15 @@ bool	t_game_init(t_game *game)
 		return (false);
 	game->frame_time_usec = 1000000 / FPS;
 	game->tick_last_frame = 0;
-	if (!t_player_init(&game->player, &game->map, game))
-		return (false);
 	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
+		return (false);
+	if (!t_player_init(&game->player, &game->map, game))
 		return (false);
 	if (!init_textures(game))
 		return (false);
 	if (!sprite_init(game))
+		return (false);
+	if (!init_all_ui(game))
 		return (false);
 	if (!t_mlx_launch(&game->mlx))
 		return (false);
