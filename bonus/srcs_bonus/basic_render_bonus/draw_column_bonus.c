@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/28 15:29:18 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/28 15:32:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include "door_bonus.h"
 #include "mlx_api_bonus.h"
 
-void	draw_texture_column(t_image *screen, t_column *column, t_image *texture)
+void	draw_texture_column(t_image *screen, t_column *column, t_image *texture,
+	float distance)
 {
 	char			*color_addr;
 	float			scale_y;
