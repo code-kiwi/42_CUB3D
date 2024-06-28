@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_draw_rectangle_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:24:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 14:05:54 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/28 11:48:06 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	t_mlx_draw_rect_texture(
 	while (j < size->y)
 	{
 		dest_row = img->addr + ((coords->y + j) * img->line_len) \
-			+ (coords->x << 2);
+			+ (coords->x * img->bpp_factor);
 		i = 0;
 		while (i < size->x)
 		{

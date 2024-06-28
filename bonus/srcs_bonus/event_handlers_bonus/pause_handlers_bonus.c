@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 09:39:00 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/28 09:43:04 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 11:46:51 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,15 @@ void	mouse_release_pause_handler(int x, int y, t_game *game)
 	resume_btn = &game->ui_pause.buttons[0];
 	quit_btn = &game->ui_pause.buttons[1];
 	if (is_over_button(resume_btn, x, y))
+	{
+		resume_btn->texture_active = &resume_btn->texture_off;
 		resume_btn->callback((void *)game);
+	}
 	if (is_over_button(quit_btn, x, y))
+	{
+		quit_btn->texture_active = &quit_btn->texture_off;
 		quit_btn->callback((void *)game);
+	}
 }
 
 void	mouse_move_pause_handler(int x, int y, t_game *game)
