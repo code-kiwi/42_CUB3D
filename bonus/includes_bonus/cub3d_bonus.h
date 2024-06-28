@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/28 15:34:33 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/28 15:40:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define MAX_DISTANCE			200
 
 # define MAX_VISION_DISTANCE	10
+# define MIN_SHADOW_DISTANCE	2
 
 # define ERR_BASIC				"Error\n"
 # define ERR_LITERALS			"Error\n%s\n"
