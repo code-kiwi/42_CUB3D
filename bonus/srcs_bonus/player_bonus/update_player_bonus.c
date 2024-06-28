@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 17:28:23 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 18:18:17 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ static void	update_look(t_player *player, float delta_time)
 
 static void	update_position(t_player *player, t_map *map, float delta_time)
 {
-	float		new_angle;
-	t_vector	save_position;
-	size_t		index;
+	float			new_angle;
+	t_vector		save_position;
+	size_t			index;
+	t_mlx_coords	coords;
 
 	index = 0;
 	while (index < 4)
@@ -45,12 +46,10 @@ static void	update_position(t_player *player, t_map *map, float delta_time)
 				* delta_time;
 			player->position.y -= sin(new_angle) * player->move_speed[index] \
 				* delta_time;
-			if (!is_in_bounds(&player->position, map)
-				|| is_character(&player->position, map, ID_WALL)
-				|| is_character(&player->position, map, ID_DOOR_CLOSED))
-			{
+			coords.x = player->position.x;
+			coords.y = player->position.y;
+			if (!is_walkable(map, &coords))
 				player->position = save_position;
-			}
 		}
 		index++;
 	}

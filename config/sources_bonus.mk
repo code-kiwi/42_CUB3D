@@ -6,7 +6,7 @@
 #    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/28 09:49:21 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/06/28 18:16:38 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -134,6 +134,16 @@ UI_FILES_BONUS				=	ui_utils_bonus.c				\
 								button_utils_bonus.c
 UI_BONUS					=	$(addprefix $(UI_DIR_BONUS), $(UI_FILES_BONUS))
 
+# PATHFINDING
+PATHFINDING_DIR_BONUS			=	pathfinding_bonus/
+PATHFINDING_FILES_BONUS			=	add_path_node_bonus.c			\
+									get_parcoured_path_bonus.c		\
+									insert_path_node_bonus.c		\
+									pathfinding_bonus.c				\
+									t_pathfinding_utils_bonus.c		\
+									add_neighboring_tiles_bonus.c
+PATHFINDING_BONUS				=	$(addprefix $(PATHFINDING_DIR_BONUS), $(PATHFINDING_FILES_BONUS))
+
 # UTILS
 UTILS_DIR_BONUS				=	utils_bonus/
 UTILS_FILES_BONUS			=	math_bonus.c					\
@@ -161,7 +171,7 @@ SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(GAME_BONUS) $(VECTOR_BONUS) $(EVENT_HANDLERS_BONUS) 	\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
 								$(RAY_BONUS) $(SPRITES_BONUS) $(ANIMATION_BONUS)		\
-								$(DOOR_BONUS) $(UI_BONUS)
+								$(DOOR_BONUS) $(UI_BONUS) $(PATHFINDING_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

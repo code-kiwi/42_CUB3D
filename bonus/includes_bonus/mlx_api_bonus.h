@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 17:03:05 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 18:17:25 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,5 +140,6 @@ void	t_mlx_draw_rect_texture(t_image *img, t_mlx_coords *coords, \
 			t_mlx_coords *size, t_image *texture);
 char	*t_mlx_get_pixel(t_image *image, size_t x, size_t y);
 bool	set_color(unsigned int *result, int r, int g, int b);
+void	multiply_color(unsigned int *color, float factor);
 
 #endif

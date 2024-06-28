@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/28 08:47:38 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 18:17:03 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 # define WIN_WIDTH				1920
 # define WIN_HEIGHT				1000
 # define MAX_DISTANCE			200
+
+# define MAX_VISION_DISTANCE	10
 
 # define ERR_BASIC				"Error\n"
 # define ERR_LITERALS			"Error\n%s\n"
@@ -126,7 +128,7 @@ void		draw_walls(t_game *game);
 void		draw_ground_ceiling(t_column *column, int end, t_game *game,
 				t_ray *ray);
 void		draw_texture_column(t_image *screen, t_column *column,
-				t_image *texture);
+				t_image *texture, float distance);
 void		render_all_sprites(t_game *game);
 void		draw_player(t_game *game);
 

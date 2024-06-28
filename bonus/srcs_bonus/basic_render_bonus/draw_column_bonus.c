@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/24 10:10:51 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/28 16:10:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 #include "cub3d_bonus.h"
 #include "door_bonus.h"
+#include "mlx_api_bonus.h"
 
-void	draw_texture_column(t_image *screen, t_column *column, t_image *texture)
+void	draw_texture_column(t_image *screen, t_column *column, t_image *texture,
+	float distance)
 {
 	char			*color_addr;
 	float			scale_y;
@@ -33,7 +35,10 @@ void	draw_texture_column(t_image *screen, t_column *column, t_image *texture)
 		color = *(unsigned int *)(color_addr + \
 			(int)texture_pos * texture->line_len);
 		if (color != 0xFF000000)
+		{
+			multiply_color(&color, 1 - distance / MAX_VISION_DISTANCE);
 			*(unsigned int *)addr = color;
+		}
 		addr += screen->line_len;
 		column->coords.y++;
 		texture_pos += scale_y;
