@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/24 18:49:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/28 15:58:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ static void	draw_all_columns(
 {
 	float	texture_x;
 	t_image	*texture;
+	float	distance;
 
 	texture = sprite->animation->content;
 	texture_x = 0;
@@ -73,8 +74,9 @@ static void	draw_all_columns(
 	{
 		if (column->coords.x >= img->width)
 			return ;
-		if (rays[column->coords.x].length > sprite->distance)
-			draw_texture_column(img, column, texture);
+		distance = rays[column->coords.x].length;
+		if (distance > sprite->distance)
+			draw_texture_column(img, column, texture, sprite->distance);
 		texture_x += sprite->distance * texture->width / sprite->height;
 		column->texture_column = texture_x;
 		column->coords.x++;

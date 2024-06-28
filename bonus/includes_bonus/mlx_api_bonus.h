@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 15:22:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/28 15:24:05 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,6 @@ void	t_mlx_draw_rectangle(t_image *img, t_mlx_coords *coords, \
 			t_mlx_coords *size, uint32_t color);
 char	*t_mlx_get_pixel(t_image *image, size_t x, size_t y);
 bool	set_color(unsigned int *result, int r, int g, int b);
+void	multiply_color(unsigned int *color, float factor);
 
 #endif

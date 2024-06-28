@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 11:39:25 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/19 12:01:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/28 16:09:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,19 @@ bool	set_color(unsigned int *result, int r, int g, int b)
 	color.rgba.b = b;
 	*result = color.val;
 	return (true);
+}
+
+void	multiply_color(unsigned int *result, float factor)
+{
+	uint8_t	*color;
+
+	color = (uint8_t *)result;
+	if (factor < 0)
+	{
+		*result = 0xFF000000;
+		return ;
+	}
+	color[0] *= factor;
+	color[1] *= factor;
+	color[2] *= factor;
 }

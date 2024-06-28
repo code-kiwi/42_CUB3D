@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 20:11:07 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:11:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define WIN_WIDTH				1920
 # define WIN_HEIGHT				1000
 # define MAX_DISTANCE			200
+
+# define MAX_VISION_DISTANCE	10
 
 # define ERR_BASIC				"Error\n"
 # define ERR_LITERALS			"Error\n%s\n"
@@ -118,7 +120,7 @@ void		draw_walls(t_game *game);
 void		draw_ground_ceiling(t_column *column, int end, t_game *game,
 				t_ray *ray);
 void		draw_texture_column(t_image *screen, t_column *column,
-				t_image *texture);
+				t_image *texture, float distance);
 void		render_all_sprites(t_game *game);
 
 // Utils functions
