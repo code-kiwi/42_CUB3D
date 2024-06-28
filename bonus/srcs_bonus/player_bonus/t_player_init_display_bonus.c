@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 18:32:59 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/27 18:55:58 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:22:15 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@
 
 bool	init_display_target(t_player_display *display, void *mlx_ptr)
 {
-	if (!t_image_import_file(&display->taget_texture, \
+	if (!t_image_import_file(&display->target_texture, \
 			PLAYER_TARGET_TEXTURE_FILE, mlx_ptr))
 		return (false);
-	display->target_coords.x = (WIN_WIDTH - display->taget_texture.width) / 2;
-	display->target_coords.y = (WIN_HEIGHT - display->taget_texture.height) / 2;
-	display->target_size.x = display->taget_texture.width;
-	display->target_size.y = display->taget_texture.height;
+	display->target_coords.x = (WIN_WIDTH - display->target_texture.width) / 2;
+	display->target_coords.y = \
+		(WIN_HEIGHT - display->target_texture.height) / 2;
+	display->target_size.x = display->target_texture.width;
+	display->target_size.y = display->target_texture.height;
 	return (true);
 }
 

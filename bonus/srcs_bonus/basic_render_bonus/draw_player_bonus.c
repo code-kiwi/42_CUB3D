@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 19:47:03 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/27 18:51:37 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 12:00:01 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	draw_player(t_game *game)
 	t_mlx_draw_rect_texture(game->mlx.img_buff, &display->coords, \
 		&display->size, (t_image *) display->frame_curr->content);
 	t_mlx_draw_rect_texture(game->mlx.img_buff, &display->target_coords, \
-		&display->target_size, &display->taget_texture);
+		&display->target_size, &display->target_texture);
 }

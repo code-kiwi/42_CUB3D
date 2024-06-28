@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:07:50 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/27 18:49:35 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 12:00:05 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	destroy_player(t_player *player, void *mlx_ptr)
 		destroy_animation(player->display.frames, mlx_ptr, true);
 		player->display.frames = NULL;
 	}
-	if (player->display.taget_texture.ptr != NULL)
-		t_image_destroy(mlx_ptr, &player->display.taget_texture, false);
+	if (player->display.target_texture.ptr != NULL)
+		t_image_destroy(mlx_ptr, &player->display.target_texture, false);
 }

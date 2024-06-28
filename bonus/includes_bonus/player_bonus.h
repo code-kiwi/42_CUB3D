@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 19:45:24 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 12:00:57 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ struct s_player_display
 	float			frame_update_delta;
 	t_mlx_coords	target_coords;
 	t_mlx_coords	target_size;
-	t_image			taget_texture;
+	t_image			target_texture;
 };
 
 struct s_player
