@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/26 07:37:12 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 08:47:38 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@
 # define ERR_MAP_EXTENSION		"Bad map extension, expected '.cub'"
 # define ERR_MULTIPLE_PLAYERS	"Multiple players on the map"
 # define ERR_MISSING_PLAYER		"Missing player"
+# define ERR_PLAYER_CREATION	"Impossible to create the player"
 # define ERR_MAP_EMPTY			"Missing map content"
 # define ERR_PLAYER_QUIT_MAP	"Player out of bounds of the map"
 # define ERR_MAP_OPEN			"Impossible to open the given map file"
@@ -127,6 +128,7 @@ void		draw_ground_ceiling(t_column *column, int end, t_game *game,
 void		draw_texture_column(t_image *screen, t_column *column,
 				t_image *texture);
 void		render_all_sprites(t_game *game);
+void		draw_player(t_game *game);
 
 // Utils functions
 void		error_print(char *err_msg);

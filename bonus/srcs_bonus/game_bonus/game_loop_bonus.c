@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/26 07:38:13 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:49:41 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	game_loop(t_game *game)
 			error_exit(game, ERR_CAST_RAYS);
 		draw_walls(game);
 		render_all_sprites(game);
+		draw_player(game);
 	}
 	else
 		draw_ui(&game->ui_pause, game->mlx.img_buff);

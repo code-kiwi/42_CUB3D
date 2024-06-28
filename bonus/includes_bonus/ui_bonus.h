@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/26 07:18:43 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:27:07 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct s_game		t_game;
 typedef struct s_ui			t_ui;
 typedef struct s_button		t_button;
 typedef struct s_label		t_label;
-typedef struct s_dimension	t_dimension;
 
 struct s_ui
 {
@@ -72,12 +71,6 @@ struct s_label
 	t_mlx_coords	pos;
 	t_mlx_coords	size;
 	t_image			texture;
-};
-
-struct s_dimension
-{
-	t_mlx_coords	coords;
-	t_mlx_coords	size;
 };
 
 // ui functions

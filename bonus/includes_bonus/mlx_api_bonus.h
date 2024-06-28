@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/26 06:58:05 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/27 17:03:05 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define KEY_D 						100
 # define KEY_P 						112
 # define KEY_E						101
+# define KEY_SPACE					32
 # define MOUSE_LEFT					1
 # define MOUSE_RIGHT				3
 # define MOUSE_WHEEL				2
@@ -38,6 +39,7 @@ typedef struct s_mlx		t_mlx;
 typedef struct s_image		t_image;
 typedef union u_argb_color	t_argb_color;
 typedef struct s_mlx_coords	t_mlx_coords;
+typedef struct s_dimension	t_dimension;
 
 struct s_mlx
 {
@@ -80,6 +82,12 @@ struct s_mlx_coords
 {
 	int16_t	x;
 	int16_t	y;
+};
+
+struct s_dimension
+{
+	t_mlx_coords	coords;
+	t_mlx_coords	size;
 };
 
 enum e_mlx_event

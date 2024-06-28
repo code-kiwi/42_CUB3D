@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animation_bonus.h                                  :+:      :+:    :+:   */
+/*   player_shoot_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 12:35:15 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 15:49:31 by codekiwi         ###   ########.fr       */
+/*   Created: 2024/06/27 17:04:59 by codekiwi          #+#    #+#             */
+/*   Updated: 2024/06/28 08:45:31 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMATION_BONUS_H
-# define ANIMATION_BONUS_H
+#include <stdio.h>
 
-typedef struct s_list	t_list;
-typedef struct s_image	t_image;
+#include "cub3d_bonus.h"
+#include "player_bonus.h"
+#include "mlx_api_bonus.h"
+#include "libft.h"
 
-# define ANIMATION_UPDATE	0.1
+void	player_shoot(t_game *game)
+{
+	t_player_display	*display;
 
-void	destroy_animation(t_list *anim, void *mlx_ptr, bool is_circular);
-t_list	*create_animation(t_image *texture, int height, int width, \
-			void *mlx_ptr);
-void	update_animations(t_game *game, float delta_time);
-
-#endif
+	if (game == NULL)
+		return ;
+	display = &game->player.display;
+	display->frame_curr = display->frames->next;
+	display->frame_update_delta = 0;
+}

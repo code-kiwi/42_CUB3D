@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:15:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/28 09:37:31 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/28 09:49:04 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	key_release_handler(int key, t_game *game)
 		game->player.is_walking[LEFT] = false;
 	else if (key == KEY_D)
 		game->player.is_walking[RIGHT] = false;
+	else if (key == KEY_SPACE)
+		player_shoot(game);
 	else if (key == KEY_ESC)
 		game_pause_switch(game);
 	return (0);
