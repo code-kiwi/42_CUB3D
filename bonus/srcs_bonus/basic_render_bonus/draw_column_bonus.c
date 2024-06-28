@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/06/28 15:32:12 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/28 15:36:21 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	draw_texture_column(t_image *screen, t_column *column, t_image *texture,
 			(int)texture_pos * texture->line_len);
 		if (color != 0xFF000000)
 		{
-			multiply_color(&color, column->perceived_height / WIN_HEIGHT);
+			multiply_color(&color, 1 - distance / MAX_VISION_DISTANCE);
 			*(unsigned int *)addr = color;
 		}
 		addr += screen->line_len;

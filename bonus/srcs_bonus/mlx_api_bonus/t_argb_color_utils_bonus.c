@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 11:39:25 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/28 15:25:07 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/28 15:37:05 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	multiply_color(unsigned int *color, float factor)
 	int	g;
 	int	b;
 
+	if (factor < 0)
+	{
+		*color = 0xFF000000;
+		return ;
+	}
 	b = (*color) & 0xFF;
 	g = (*color >> 8) & 0xFF;
 	r = (*color >> 16) & 0xFF;
