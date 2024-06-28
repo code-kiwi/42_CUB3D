@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   add_path_node_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 13:41:08 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 20:55:20 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <math.h>
 
 #include "cub3d_bonus.h"
 #include "pathfinding_bonus.h"
@@ -17,31 +19,17 @@ static size_t	get_end_distance(t_mlx_coords *position, t_mlx_coords *end)
 {
 	int		x_diff;
 	int		y_diff;
-	size_t	distance;
 
-	x_diff = end->x - position->x;
-	y_diff = end->y - position->y;
-	if (x_diff < 0)
-		x_diff *= -1;
-	if (y_diff < 0)
-		y_diff *= -1;
-	distance = min(x_diff, y_diff) * 14;
-	if (x_diff > y_diff)
-		distance += (x_diff - y_diff) * 10;
-	else
-		distance += (y_diff - x_diff) * 10;
-	return (distance);
+	x_diff = abs(end->x - position->x);
+	y_diff = abs(end->y - position->y);
+	return (min(x_diff, y_diff) * 14 + abs(x_diff - y_diff) * 10);
 }
 
 static size_t	get_start_distance(t_stack_path *previous, size_t distance)
 {
-	size_t	start_distance;
-
-	if (previous != NULL)
-		start_distance = previous->start_distance + distance;
-	else
-		start_distance = 0;
-	return (start_distance);
+	if (previous == NULL)
+		return (0);
+	return (previous->start_distance + distance);
 }
 
 static bool	update_existing_node(t_stack_path *new_node, size_t total_cost)
@@ -55,7 +43,7 @@ static bool	update_existing_node(t_stack_path *new_node, size_t total_cost)
 	return (false);
 }
 
-t_stack_path	*add_new_node(t_mlx_coords *position)
+static t_stack_path	*add_new_node(t_mlx_coords *position)
 {
 	t_stack_path	*new_node;
 
@@ -74,6 +62,8 @@ bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 	size_t			start_distance;
 	size_t			end_distance;
 
+	if (position == NULL || pathfinding == NULL)
+		return (false);
 	end_distance = get_end_distance(position, pathfinding->end);
 	start_distance = get_start_distance(previous, distance);
 	new_node = search_in_stack(pathfinding->stack, position);

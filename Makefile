@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:35:12 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/25 10:19:32 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/27 19:53:31 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,12 +33,12 @@ $(OBJS_MAIN_DIR)%.o: $(SRCS_MAIN_DIR)%.c $(DEPS_CONFIG_COMMON) $(DEPS_CONFIG)
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(LIBFT) $(MLX) $(OBJS_BONUS)
-	$(CC) -O3 $(CFLAGS) $(HFLAGS_BONUS) $(OBJS_BONUS) $(LIBFT_FLAGS) $(MLX_FLAGS) $(EXT_LIB_FLAGS) -o $@
+	$(CC) $(CFLAGS) $(HFLAGS_BONUS) $(OBJS_BONUS) $(LIBFT_FLAGS) $(MLX_FLAGS) $(EXT_LIB_FLAGS) -o $@
 
 $(OBJS_MAIN_DIR_BONUS)%.o: $(SRCS_MAIN_DIR_BONUS)%.c $(DEPS_CONFIG_COMMON) $(DEPS_CONFIG_BONUS)
 	@mkdir -p $(@D)
 	@mkdir -p $(DEPS_MAIN_DIR_BONUS)$(dir $*)
-	$(CC) -O3 $(CFLAGS) $(HFLAGS_BONUS) -MP -MMD -MF $(DEPS_MAIN_DIR_BONUS)$*.d -c $< -o $@ 
+	$(CC) $(CFLAGS) $(HFLAGS_BONUS) -MP -MMD -MF $(DEPS_MAIN_DIR_BONUS)$*.d -c $< -o $@ 
 
 $(LIBFT): init_submodule FORCE
 	$(MAKE) -sC $(LIBFT_DIR)

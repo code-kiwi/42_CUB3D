@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handlers_bonus.h                             :+:      :+:    :+:   */
+/*   animation_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 17:11:00 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 20:14:00 by codekiwi         ###   ########.fr       */
+/*   Created: 2024/06/24 12:35:15 by brappo            #+#    #+#             */
+/*   Updated: 2024/06/27 20:13:34 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EVENT_HANDLERS_BONUS_H
-# define EVENT_HANDLERS_BONUS_H
+#ifndef ANIMATION_BONUS_H
+# define ANIMATION_BONUS_H
 
-typedef struct s_game	t_game;
+typedef struct s_list	t_list;
+typedef struct s_image	t_image;
 
-bool	add_event_handlers(t_game *game);
-int		destroy_handler(t_game *game);
-int		key_release_handler(int key, t_game *data);
-int		key_press_handler(int key, t_game *data);
+# define ANIMATION_UPDATE	0.1
+
+void	destroy_animation(t_list *anim, void *mlx_ptr, bool is_circular);
+t_list	*create_animation(t_image *texture, void *mlx_ptr);
+void	update_animations(t_game *game, float delta_time);
 
 #endif
