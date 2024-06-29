@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 14:42:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 14:46:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ bool	init_entities(t_game *game)
 {
 	t_list		*current;
 	t_entity	*entity;
+	t_list		*new_sprite_node;
 
 	if (!get_elemn_into_list(&game->map, &game->entities, ID_MAP_ENTITY, \
 			add_entity))
@@ -66,6 +67,10 @@ bool	init_entities(t_game *game)
 	while (current)
 	{
 		entity = current->content;
+		new_sprite_node = ft_lstnew(entity->sprite);
+		if (new_sprite_node == NULL)
+			return (false);
+		ft_lstadd_front(&game->sprites, new_sprite_node);
 		t_entity_init(entity, game->textures[7]);
 		current = current->next;
 	}
