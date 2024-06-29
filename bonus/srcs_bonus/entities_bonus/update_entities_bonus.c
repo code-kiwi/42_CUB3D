@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:06:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 12:40:01 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 12:48:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static void	update_entity(t_entity *entity, float delta_time)
 	t_vector		move;
 	float			move_length;
 
+	if (entity->path == NULL)
+		return ;
 	next_pos = entity->path->content;
 	position = &entity->sprite->position;
 	move.x = next_pos->x - position->x;
