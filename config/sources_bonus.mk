@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/27 19:52:30 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/06/29 10:26:55 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,14 +117,19 @@ SPRITES_FILES_BONUS			=	get_sprites_bonus.c				\
 SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
 
 # PATHFINDING
-PATHFINDING_DIR_BONUS			=	pathfinding_bonus/
-PATHFINDING_FILES_BONUS			=	add_path_node_bonus.c			\
-									get_parcoured_path_bonus.c		\
-									insert_path_node_bonus.c		\
-									pathfinding_bonus.c				\
-									t_pathfinding_utils_bonus.c		\
-									add_neighboring_tiles_bonus.c
-PATHFINDING_BONUS				=	$(addprefix $(PATHFINDING_DIR_BONUS), $(PATHFINDING_FILES_BONUS))
+PATHFINDING_DIR_BONUS		=	pathfinding_bonus/
+PATHFINDING_FILES_BONUS		=	add_path_node_bonus.c			\
+								get_parcoured_path_bonus.c		\
+								insert_path_node_bonus.c		\
+								pathfinding_bonus.c				\
+								t_pathfinding_utils_bonus.c		\
+								add_neighboring_tiles_bonus.c
+PATHFINDING_BONUS			=	$(addprefix $(PATHFINDING_DIR_BONUS), $(PATHFINDING_FILES_BONUS))
+
+# ENTITIES
+ENTITIES_DIR_BONUS			=	entities_bonus/
+ENTITIES_FILES_BONUS		=	update_entities_bonus.c
+ENTITIES_BONUS				=	$(addprefix $(ENTITIES_DIR_BONUS), $(ENTITIES_FILES_BONUS))
 
 # UTILS
 UTILS_DIR_BONUS				=	utils_bonus/
@@ -153,7 +158,8 @@ SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(GAME_BONUS) $(VECTOR_BONUS) $(EVENT_HANDLERS_BONUS) 	\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
 								$(RAY_BONUS) $(DOOR_BONUS) $(SPRITES_BONUS)				\
-								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)
+								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)					\
+								$(ENTITIES_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL
