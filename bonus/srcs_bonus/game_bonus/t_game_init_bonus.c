@@ -65,7 +65,7 @@ bool	t_game_init(t_game *game)
 		return (false);
 	if (!init_textures(game))
 		return (false);
-	if (!sprite_init(game))
+	if (!init_sprites(game))
 		return (false);
 	if (!t_mlx_launch(&game->mlx))
 		return (false);

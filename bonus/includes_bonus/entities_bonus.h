@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 14:06:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 14:15:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "sprite_bonus.h"
 
 # include <stdbool.h>
+
+# define ENTITY_SPEED	2
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;

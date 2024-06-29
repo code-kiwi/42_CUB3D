@@ -1,62 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_init_bonus.c                                :+:      :+:    :+:   */
+/*   init_entities_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 11:09:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 14:15:32 by brappo           ###   ########.fr       */
+/*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
+/*   Updated: 2024/06/29 14:17:14 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sprite_bonus.h"
-#include "libft.h"
-#include "cub3d_bonus.h"
+#include "entities_bonus.h"
 #include "map_bonus.h"
+#include "cub3d_bonus.h"
+#include "libft.h"
 
-static bool	add_sprite(t_list **sprites, float x, float y)
+bool	add_entity(t_list **entities, float x, float y)
 {
 	t_list		*new_node;
-	t_sprite	*new_sprite;
+	t_entity	*new_entity;
 
-	new_sprite = ft_calloc(1, sizeof(t_sprite));
-	if (new_sprite == NULL)
+	new_entity = ft_calloc(1, sizeof(t_entity));
+	if (new_entity == NULL)
 		return (false);
-	new_sprite->position.x = x;
-	new_sprite->position.y = y;
-	new_node = ft_lstnew(new_sprite);
+	new_entity->sprite.position.x = x;
+	new_entity->sprite.position.y = y;
+	new_node = ft_lstnew(new_entity);
 	if (new_node == NULL)
 	{
-		free(new_sprite);
+		free(new_entity);
 		return (false);
 	}
-	ft_lstadd_front(sprites, new_node);
+	ft_lstadd_front(entities, new_node);
 	return (true);
 }
 
-void	t_sprite_init(t_sprite *sprite, t_list *animation)
+void	t_entity_init(t_entity *entity, t_list *animation)
 {
-	if (sprite == NULL)
+	if (entity == NULL)
 		return ;
-	sprite->animation = animation;
-	sprite->distance = 0;
-	sprite->height = WIN_HEIGHT;
+	t_sprite_init(&entity->sprite, animation);
+	entity->is_path_circular = false;
+	entity->path = NULL;
+	entity->speed = ENTITY_SPEED;
 }
 
-bool	init_sprites(t_game *game)
+bool	init_entities(t_game *game)
 {
 	t_list		*current;
-	t_sprite	*sprite;
+	t_entity	*entity;
 
 	if (!get_elemn_into_list(&game->map, &game->sprites, ID_MAP_SPRITE, \
-			add_sprite))
+			add_entity))
 		return (false);
 	current = game->sprites;
 	while (current)
 	{
-		sprite = current->content;
-		t_sprite_init(sprite, game->textures[7]);
+		entity = current->content;
+		t_entity_init(entity, game->textures[7]);
 		current = current->next;
 	}
 	return (true);
