@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/29 14:23:30 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/29 15:22:54 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -131,7 +131,8 @@ PATHFINDING_BONUS			=	$(addprefix $(PATHFINDING_DIR_BONUS), $(PATHFINDING_FILES_
 ENTITIES_DIR_BONUS			=	entities_bonus/
 ENTITIES_FILES_BONUS		=	update_entities_bonus.c			\
 								init_entities_bonus.c			\
-								t_entity_destroy_bonus.c
+								t_entity_destroy_bonus.c		\
+								update_entities_path_bonus.c
 ENTITIES_BONUS				=	$(addprefix $(ENTITIES_DIR_BONUS), $(ENTITIES_FILES_BONUS))
 
 # UTILS
