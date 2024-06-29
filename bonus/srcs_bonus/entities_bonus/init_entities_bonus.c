@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 14:55:36 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 17:29:05 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,11 @@ bool	add_entity(t_list **entities, float x, float y)
 		return (false);
 	new_entity = ft_calloc(1, sizeof(t_entity));
 	if (new_entity == NULL)
-	{
-		free(new_sprite);
-		return (false);
-	}
+		return (free(new_sprite), false);
 	new_entity->sprite = new_sprite;
 	new_entity->sprite->position.x = x;
 	new_entity->sprite->position.y = y;
+	new_entity->squared_radius = ENTITY_RADIUS * ENTITY_RADIUS;
 	new_node = ft_lstnew(new_entity);
 	if (new_node == NULL)
 	{

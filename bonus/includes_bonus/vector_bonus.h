@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 01:02:00 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/29 12:25:52 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 17:21:41 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ float		get_distance(t_vector *a, t_vector *b);
 float		get_vector_length(t_vector *vector);
 void		add_vector(t_vector *src, t_vector *other);
 void		mutlitply_vector(t_vector *vector, float factor);
+float		get_squared_distance(t_vector *a, t_vector *b);
 
 #endif
