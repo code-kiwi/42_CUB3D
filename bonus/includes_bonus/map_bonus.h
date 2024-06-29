@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/29 13:00:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 13:51:17 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,23 @@
 
 # include <stdlib.h>
 
-# define ID_WALL			'1'
-# define ID_TILE			'0'
-# define ID_SPACE			' '
-# define ID_DOOR_CLOSED		'd'
-# define ID_DOOR_OPENED		'o'
-# define ID_SPRITE			's'
+# define ID_MAP_WALL		'1'
+# define ID_MAP_TILE		'0'
+# define ID_MAP_SPACE		' '
+# define ID_MAP_DOOR_CLOSED	'd'
+# define ID_MAP_DOOR_OPENED	'o'
+# define ID_MAP_SPRITE		's'
+# define ID_MAP_ENTITY		'e'
 
-# define ID_NORTH			"NO"
-# define ID_SOUTH			"SO"
-# define ID_WEST			"WE"
-# define ID_EAST			"EA"
-# define ID_FLOOR			"F"
-# define ID_CEILING			"C"
-# define ID_DOOR			"D"
-# define ID_ENEMY			"E"
+# define ID_TEXTURE_NORTH	"NO"
+# define ID_TEXTURE_SOUTH	"SO"
+# define ID_TEXTURE_WEST	"WE"
+# define ID_TEXTURE_EAST	"EA"
+# define ID_TEXTURE_FLOOR	"F"
+# define ID_TEXTURE_CEILING	"C"
+# define ID_TEXTURE_DOOR	"D"
+# define ID_TEXTURE_ENTITY	"E"
+# define ID_TEXTURE_SPRITE	"S"
 
 # define MAP_EXTENSION		".cub"
 # define MAP_ALLOWED_CHARS	" 01sdNSEW"

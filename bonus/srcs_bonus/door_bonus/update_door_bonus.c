@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:54:13 by root              #+#    #+#             */
-/*   Updated: 2024/06/24 09:08:53 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 13:55:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	open_door(t_door *door, float delta_time, t_map *map)
 		door->transition = 0;
 		door->state = OPENED;
 		door->time_since_opened = 0;
-		map->tiles[door->position.y][door->position.x] = ID_DOOR_OPENED;
+		map->tiles[door->position.y][door->position.x] = ID_MAP_DOOR_OPENED;
 	}
 }
 
@@ -46,7 +46,7 @@ static void	update_door(t_door *door, float delta_time, t_map *map,
 				&& (int)player_pos->y == door->position.y))
 		{
 			door->state = CLOSING;
-			map->tiles[door->position.y][door->position.x] = ID_DOOR_CLOSED;
+			map->tiles[door->position.y][door->position.x] = ID_MAP_DOOR_CLOSED;
 		}
 	}
 	else if (door->state == CLOSING)

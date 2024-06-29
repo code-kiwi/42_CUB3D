@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:09:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 12:59:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 13:56:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ bool	sprite_init(t_game *game)
 	t_list		*current;
 	t_sprite	*sprite;
 
-	if (!get_elemn_into_list(&game->map, &game->sprites, ID_SPRITE, add_sprite))
+	if (!get_elemn_into_list(&game->map, &game->sprites, ID_MAP_SPRITE, \
+			add_sprite))
 		return (false);
 	current = game->sprites;
 	while (current)
