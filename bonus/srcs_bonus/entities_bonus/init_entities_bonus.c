@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 14:32:25 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 14:34:10 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ bool	init_entities(t_game *game)
 	t_list		*current;
 	t_entity	*entity;
 
-	if (!get_elemn_into_list(&game->map, &game->entities, ID_MAP_SPRITE, \
+	if (!get_elemn_into_list(&game->map, &game->entities, ID_MAP_ENTITY, \
 			add_entity))
 		return (false);
 	current = game->entities;
