@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/29 14:24:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 14:53:23 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@
 # define ID_TEXTURE_FLOOR	"F"
 # define ID_TEXTURE_CEILING	"C"
 # define ID_TEXTURE_DOOR	"D"
-# define ID_TEXTURE_ENTITY	"E"
 # define ID_TEXTURE_SPRITE	"S"
+# define ID_TEXTURE_ENTITY	"E"
 
 # define MAP_EXTENSION		".cub"
-# define MAP_ALLOWED_CHARS	" 01sdNSEW"
+# define MAP_ALLOWED_CHARS	" 01sdeNSEW"
 # define MAP_NB_IDS			8
 
 typedef struct s_game		t_game;
@@ -63,7 +63,7 @@ bool		is_character(t_vector *position, t_map *map, char character);
 bool		check_extension(char *filename, char *extension);
 void		free_map(t_map *map);
 bool		is_walkable(t_map *map, t_mlx_coords *coords);
-bool		get_elemn_into_list(t_map *map, t_list **dest, char id, \
+bool		get_elem_into_list(t_map *map, t_list **dest, char id, \
 				bool add_elem(t_list **, float, float));
 
 #endif

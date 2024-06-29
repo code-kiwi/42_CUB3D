@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_sprites_bonus.c                                :+:      :+:    :+:   */
+/*   get_elem_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:22:06 by root              #+#    #+#             */
-/*   Updated: 2024/06/29 12:57:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 14:53:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "sprite_bonus.h"
 #include "libft.h"
 
-bool	get_elemn_into_list(t_map *map, t_list **dest, char id,
+bool	get_elem_into_list(t_map *map, t_list **dest, char id,
 	bool add_elem(t_list **, float, float))
 {
 	size_t	y;
