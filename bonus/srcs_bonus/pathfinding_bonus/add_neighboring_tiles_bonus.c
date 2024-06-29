@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:30:42 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 16:59:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 17:02:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static bool	add_neighbor(t_pathfinding *pathfinding, t_stack_path *top, \
 	{
 		distance = 14;
 		if (!is_neighbor_valid(map, &neighbor_pos, sign(relative_coords->x), 0)
-			&& !is_neighbor_valid(map, &neighbor_pos, 0, sign(relative_coords->y)))
+			|| !is_neighbor_valid(map, &neighbor_pos, 0, sign(relative_coords->y)))
 			return (true);
 	}
 	else
