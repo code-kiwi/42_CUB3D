@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/29 10:18:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 17:36:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ struct s_player
 
 // t_player functions
 bool	t_player_init(t_player *player, t_map *map, t_game *game);
-void	update_player(t_player *player, t_map *map, float delta_time);
+void	update_player(t_player *player, t_map *map, float delta_time,
+			t_list *entities);
 
 #endif

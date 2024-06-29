@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 17:28:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 17:33:49 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void	update_entities(t_list *entities, float delta_time);
 void	t_entity_destroy(void *data);
 bool	init_entities(t_game *game);
 bool	update_entities_path(t_game *game);
+bool	collide_entity(t_list *entities, t_vector *position);
 
 #endif // !ENTITIES_BONUS_H
