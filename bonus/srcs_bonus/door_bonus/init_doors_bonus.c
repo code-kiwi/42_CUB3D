@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/24 10:14:35 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 10:19:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ bool	init_doors(t_game *game)
 	}
 	else
 		game->doors = NULL;
-	game->last_door_seen = NULL;
+	game->player.last_door_seen = NULL;
 	return (true);
 }
