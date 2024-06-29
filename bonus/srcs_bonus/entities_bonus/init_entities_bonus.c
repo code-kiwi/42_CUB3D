@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 14:34:10 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 14:42:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,24 @@ bool	add_entity(t_list **entities, float x, float y)
 {
 	t_list		*new_node;
 	t_entity	*new_entity;
+	t_sprite	*new_sprite;
 
+	new_sprite = ft_calloc(1, sizeof(t_sprite));
+	if (new_sprite == NULL)
+		return (false);
 	new_entity = ft_calloc(1, sizeof(t_entity));
 	if (new_entity == NULL)
+	{
+		free(new_sprite);
 		return (false);
-	new_entity->sprite.position.x = x;
-	new_entity->sprite.position.y = y;
+	}
+	new_entity->sprite->position.x = x;
+	new_entity->sprite->position.y = y;
+	new_entity->sprite = new_sprite;
 	new_node = ft_lstnew(new_entity);
 	if (new_node == NULL)
 	{
+		free(new_sprite);
 		free(new_entity);
 		return (false);
 	}
@@ -39,7 +48,7 @@ void	t_entity_init(t_entity *entity, t_list *animation)
 {
 	if (entity == NULL)
 		return ;
-	t_sprite_init(&entity->sprite, animation);
+	t_sprite_init(entity->sprite, animation);
 	entity->is_path_circular = false;
 	entity->path = NULL;
 	entity->speed = ENTITY_SPEED;

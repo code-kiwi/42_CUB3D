@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 19:51:52 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/29 14:36:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include "door_bonus.h"
 #include "sprite_bonus.h"
 #include "animation_bonus.h"
+#include "entities_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {
@@ -51,6 +52,7 @@ int	game_loop(t_game *game)
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
+	update_entities(game->entities, delta_time);
 	update_animations(game, delta_time);
 	update_player(&game->player, &game->map, delta_time);
 	update_doors(game, delta_time);

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 14:28:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 14:42:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ struct s_entity
 	float		speed;
 	bool		is_path_circular;
 	t_list		*path;
-	t_sprite	sprite;
+	t_sprite	*sprite;
 };
 
 void	update_entities(t_list *entities, float delta_time);
