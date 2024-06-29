@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/26 14:52:21 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 13:00:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_vector	t_vector;
 typedef struct s_door	t_door;
 typedef struct s_ray	t_ray;
 typedef struct s_sprite	t_sprite;
+typedef struct s_list	t_list;
 
 struct s_map
 {
@@ -59,5 +60,7 @@ bool		is_character(t_vector *position, t_map *map, char character);
 bool		check_extension(char *filename, char *extension);
 void		free_map(t_map *map);
 bool		is_walkable(t_map *map, t_mlx_coords *coords);
+bool		get_elemn_into_list(t_map *map, t_list **dest, char id, \
+				bool add_elem(t_list **, float, float));
 
 #endif

@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/29 12:44:23 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/29 13:01:03 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,8 @@ MAP_FILES_BONUS				=	read_map_bonus.c				\
 								is_in_bounds_bonus.c			\
 								read_elements_bonus.c			\
 								is_valid_bonus.c				\
-								free_map_bonus.c
+								free_map_bonus.c				\
+								get_elem_bonus.c
 MAP_BONUS					=	$(addprefix $(MAP_DIR_BONUS), $(MAP_FILES_BONUS))
 
 # DOOR
@@ -112,8 +113,7 @@ VECTOR_BONUS				=	$(addprefix $(VECTOR_DIR_BONUS), $(VECTOR_FILES_BONUS))
 
 # SPRITES
 SPRITES_DIR_BONUS			=	sprites/
-SPRITES_FILES_BONUS			=	get_sprites_bonus.c				\
-								sprite_distance_bonus.c			\
+SPRITES_FILES_BONUS			=	sprite_distance_bonus.c			\
 								sprite_init_bonus.c
 SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
 
