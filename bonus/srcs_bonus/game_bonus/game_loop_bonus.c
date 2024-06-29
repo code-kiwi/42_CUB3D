@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/29 15:24:33 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 16:01:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 	tick = get_tick();
 	if (tick == -1)
 		return (false);
+	if (game->tick_last_frame == 0)
+	{
+		game->tick_last_frame = tick;
+		*delta_time = 0.1;
+		return (true);
+	}
 	time_to_wait = game->tick_last_frame + game->frame_time_usec - tick;
 	if (time_to_wait > 0 && time_to_wait < game->frame_time_usec)
 	{
