@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/27 19:52:30 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/06/29 22:08:30 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,7 +123,8 @@ PATHFINDING_FILES_BONUS			=	add_path_node_bonus.c			\
 									insert_path_node_bonus.c		\
 									pathfinding_bonus.c				\
 									t_pathfinding_utils_bonus.c		\
-									add_neighboring_tiles_bonus.c
+									add_neighboring_tiles_bonus.c	\
+									pool_bonus.c
 PATHFINDING_BONUS				=	$(addprefix $(PATHFINDING_DIR_BONUS), $(PATHFINDING_FILES_BONUS))
 
 # UTILS

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_path_node_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 20:55:20 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/29 22:11:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ static bool	update_existing_node(t_stack_path *new_node, size_t total_cost)
 	return (false);
 }
 
-static t_stack_path	*add_new_node(t_mlx_coords *position)
+static t_stack_path	*add_new_node(t_mlx_coords *position, t_pool *pool)
 {
 	t_stack_path	*new_node;
 
-	new_node = malloc(sizeof(t_stack_path));
+	new_node = get_stack_node(pool);
 	if (new_node == NULL)
 		return (NULL);
 	new_node->position.x = position->x;
@@ -68,7 +68,7 @@ bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 	start_distance = get_start_distance(previous, distance);
 	new_node = search_in_stack(pathfinding->stack, position);
 	if (new_node == NULL)
-		new_node = add_new_node(position);
+		new_node = add_new_node(position, &pathfinding->pool);
 	else if (update_existing_node(new_node, start_distance + end_distance))
 		return (true);
 	if (new_node == NULL)

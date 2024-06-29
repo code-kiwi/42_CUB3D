@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 22:32:49 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/28 09:14:18 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 22:08:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@
 
 # include "mlx_api_bonus.h"
 
+# define POOL_SIZE				1000
+
 typedef struct s_path_stack		t_stack_path;
 typedef struct s_pathfinding	t_pathfinding;
 typedef struct s_list			t_list;
 typedef struct s_map			t_map;
+typedef struct s_pool			t_pool;
 
 struct	s_path_stack
 {
@@ -33,12 +36,19 @@ struct	s_path_stack
 	t_stack_path	*previous;
 };
 
+struct s_pool
+{
+	t_stack_path	objects[POOL_SIZE];
+	int				object_remaining;
+};
+
 struct	s_pathfinding
 {
 	t_stack_path	*stack;
 	t_mlx_coords	*start;
 	t_mlx_coords	*end;
 	t_stack_path	*locked_tiles;
+	t_pool			pool;
 };
 
 // Path-finding functions
@@ -52,5 +62,7 @@ bool			add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map);
 t_stack_path	*search_in_stack(t_stack_path *stack, t_mlx_coords *position);
 bool			t_pathfinding_init(t_pathfinding *pathfinding, \
 					t_mlx_coords *start, t_mlx_coords *end, t_map *map);
+
+t_stack_path	*get_stack_node(t_pool *pool);
 
 #endif
