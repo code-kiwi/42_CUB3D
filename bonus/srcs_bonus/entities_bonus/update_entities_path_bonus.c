@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 15:05:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 15:22:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 15:28:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	can_see(t_vector *position, t_vector *point, t_game *game)
 	float		ray_length;
 
 	ray.slope.x = point->x - position->x;
-	ray.slope.y = point->y - position->y;
+	ray.slope.y = position->y - point->y;
 	distance = get_vector_length(&ray.slope);
 	ray.slope.x /= distance;
 	ray.slope.y /= distance;
@@ -34,12 +34,11 @@ bool	update_entities_path(t_game *game)
 	t_entity	*entity;
 
 	if (game == NULL)
-		return ;
+		return (false);
 	current = game->entities;
 	while (current)
 	{
 		entity = current->content;
-		printf("can see : %s\n", can_see(&entity->sprite->position, &game->player.position, game) ? "true" : "false");
 		current = current->next;
 	}
 	return (true);

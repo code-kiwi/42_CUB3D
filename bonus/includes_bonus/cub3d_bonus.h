@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/29 10:17:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 15:26:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define FPS					100
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				1920
-# define WIN_HEIGHT				1000
+# define WIN_WIDTH				800
+# define WIN_HEIGHT				800
 # define MAX_DISTANCE			200
 
 # define MAX_VISION_DISTANCE	10
