@@ -6,45 +6,64 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:30:42 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 14:22:20 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 16:59:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinding_bonus.h"
 #include "cub3d_bonus.h"
 
-static int	distance(int x, int y)
+static bool	is_neighbor_valid(t_map *map, t_mlx_coords *pos, int x, int y)
 {
-	if (x != 0 && y != 0)
-		return (14);
-	return (10);
+	t_mlx_coords	neighbor_pos;
+
+	neighbor_pos.x = pos->x + x;
+	neighbor_pos.y = pos->y + y;
+	return (is_walkable(map, &neighbor_pos));
+}
+
+static bool	add_neighbor(t_pathfinding *pathfinding, t_stack_path *top, \
+	t_mlx_coords *relative_coords, t_map *map)
+{
+	int				distance;
+	t_mlx_coords	neighbor_pos;
+
+	if (relative_coords->x == 0 && relative_coords->y == 0)
+		return (true);
+	neighbor_pos.x = top->position.x + relative_coords->x;
+	neighbor_pos.y = top->position.y + relative_coords->y;
+	if (!is_walkable(map, &neighbor_pos)
+		|| search_in_stack(pathfinding->locked_tiles, &neighbor_pos))
+		return (true);
+	if (relative_coords->x != 0 && relative_coords->y != 0)
+	{
+		distance = 14;
+		if (!is_neighbor_valid(map, &neighbor_pos, sign(relative_coords->x), 0)
+			&& !is_neighbor_valid(map, &neighbor_pos, 0, sign(relative_coords->y)))
+			return (true);
+	}
+	else
+		distance = 10;
+	return (add_path_node(&neighbor_pos, pathfinding, top, distance));
 }
 
 bool	add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map)
 {
-	t_mlx_coords	coords;
-	int				x;
-	int				y;
+	t_mlx_coords	relative_coords;
 	t_stack_path	*top;
 
 	top = pathfinding->locked_tiles;
-	y = -1;
-	while (y < 2)
+	relative_coords.y = -1;
+	while (relative_coords.y < 2)
 	{
-		x = -1;
-		while (x < 2)
+		relative_coords.x = -1;
+		while (relative_coords.x < 2)
 		{
-			coords.x = top->position.x + x;
-			coords.y = top->position.y + y;
-			if ((x != 0 || y != 0) && is_walkable(map, &coords)
-				&& !search_in_stack(pathfinding->locked_tiles, &coords))
-			{
-				if (!add_path_node(&coords, pathfinding, top, distance(x, y)))
-					return (false);
-			}
-			x++;
+			if (!add_neighbor(pathfinding, top, &relative_coords, map))
+				return (false);
+			relative_coords.x++;
 		}
-		y++;
+		relative_coords.y++;
 	}
 	return (true);
 }
