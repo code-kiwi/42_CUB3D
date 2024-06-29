@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:06:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 17:08:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 20:31:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static void	change_destination(t_entity *entity)
 	ft_lstdelone(save, free);
 }
 
-static void	update_entity(t_entity *entity, float delta_time)
+static void	update_entity(t_entity *entity, float delta_time, t_list *entities, 
+	t_map *map)
 {
 	t_mlx_coords	*next_pos;
 	t_vector		*position;
@@ -41,7 +42,7 @@ static void	update_entity(t_entity *entity, float delta_time)
 	move.y = next_pos->y + 0.5 - position->y;
 	move_length = get_vector_length(&move);
 	mutlitply_vector(&move, entity->speed * delta_time / move_length);
-	add_vector(position, &move);
+	move_entity(entities, position, &move, map);
 	if (move_length < entity->speed)
 	{
 		if (entity->is_path_circular)
@@ -51,14 +52,14 @@ static void	update_entity(t_entity *entity, float delta_time)
 	}
 }
 
-void	update_entities(t_list *entities, float delta_time)
+void	update_entities(t_list *entities, float delta_time, t_map *map)
 {
 	t_list	*current;
 
 	current = entities;
 	while (current)
 	{
-		update_entity(current->content, delta_time);
+		update_entity(current->content, delta_time, entities, map);
 		current = current->next;
 	}
 }

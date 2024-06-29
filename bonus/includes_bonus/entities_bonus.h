@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 17:33:49 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 20:31:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ struct s_entity
 	float		squared_radius;
 };
 
-void	update_entities(t_list *entities, float delta_time);
 void	t_entity_destroy(void *data);
 bool	init_entities(t_game *game);
 bool	update_entities_path(t_game *game);
-bool	collide_entity(t_list *entities, t_vector *position);
+void	move_entity(t_list *entities, t_vector *position, t_vector *move,
+			t_map *map);
+
+void	update_entities(t_list *entities, float delta_time, t_map *map);
 
 #endif // !ENTITIES_BONUS_H

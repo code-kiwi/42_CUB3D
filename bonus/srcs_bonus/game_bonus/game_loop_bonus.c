@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/29 17:38:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 20:31:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	game_loop(t_game *game)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
 	update_entities_path(game);
-	update_entities(game->entities, delta_time);
+	update_entities(game->entities, delta_time, &game->map);
 	update_animations(game, delta_time);
 	update_player(&game->player, &game->map, delta_time, game->entities);
 	update_doors(game, delta_time);

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 17:36:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 20:28:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 	t_list *entities)
 {
 	float			new_angle;
-	t_vector		save_position;
+	t_vector		move;
 	size_t			index;
-	t_mlx_coords	coords;
 
 	index = 0;
 	while (index < 4)
@@ -41,17 +40,10 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 		if (player->is_walking[index] != false
 			&& player->is_walking[(index + 2) % 4] == false)
 		{
-			save_position = player->position;
 			new_angle = player->orientation + index * PI / 2;
-			player->position.x += cos(new_angle) * player->move_speed[index] \
-				* delta_time;
-			player->position.y -= sin(new_angle) * player->move_speed[index] \
-				* delta_time;
-			coords.x = player->position.x;
-			coords.y = player->position.y;
-			if (!is_walkable(map, &coords)
-				|| collide_entity(entities, &player->position))
-				player->position = save_position;
+			move.x = cos(new_angle) * player->move_speed[index] * delta_time;
+			move.y = -sin(new_angle) * player->move_speed[index] * delta_time;
+			move_entity(entities, &player->position, &move, map);
 		}
 		index++;
 	}

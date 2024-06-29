@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/29 17:30:58 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/29 20:22:59 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -133,7 +133,7 @@ ENTITIES_FILES_BONUS		=	update_entities_bonus.c			\
 								init_entities_bonus.c			\
 								t_entity_destroy_bonus.c		\
 								update_entities_path_bonus.c	\
-								collide_entity_bonus.c
+								move_entity_bonus.c
 ENTITIES_BONUS				=	$(addprefix $(ENTITIES_DIR_BONUS), $(ENTITIES_FILES_BONUS))
 
 # UTILS
