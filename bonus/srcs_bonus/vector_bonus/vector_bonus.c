@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:42:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 12:25:36 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 12:45:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include <math.h>
 
 #include "cub3d_bonus.h"
-
-void	t_vector_init(t_vector *vector, float x, float y)
-{
-	vector->x = x;
-	vector->y = y;
-}
 
 void	t_vector_get_slope(t_vector *slope, float angle_rad)
 {

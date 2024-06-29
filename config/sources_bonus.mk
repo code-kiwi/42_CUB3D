@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/29 10:26:55 by brappo           ###   ########.fr        #
+#    Updated: 2024/06/29 12:44:23 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,7 +106,8 @@ RAY_BONUS					=	$(addprefix $(RAY_DIR_BONUS), $(RAY_FILES_BONUS))
 
 # VECTOR
 VECTOR_DIR_BONUS			=	vector_bonus/
-VECTOR_FILES_BONUS			=	vector_bonus.c
+VECTOR_FILES_BONUS			=	vector_bonus.c					\
+								t_vector_utils.c
 VECTOR_BONUS				=	$(addprefix $(VECTOR_DIR_BONUS), $(VECTOR_FILES_BONUS))
 
 # SPRITES
