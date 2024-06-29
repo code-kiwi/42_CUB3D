@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/29 13:51:17 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 14:24:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@
 # define MAP_ALLOWED_CHARS	" 01sdNSEW"
 # define MAP_NB_IDS			8
 
-typedef struct s_game	t_game;
-typedef struct s_map	t_map;
-typedef struct s_vector	t_vector;
-typedef struct s_door	t_door;
-typedef struct s_ray	t_ray;
-typedef struct s_sprite	t_sprite;
-typedef struct s_list	t_list;
+typedef struct s_game		t_game;
+typedef struct s_map		t_map;
+typedef struct s_vector		t_vector;
+typedef struct s_door		t_door;
+typedef struct s_ray		t_ray;
+typedef struct s_sprite		t_sprite;
+typedef struct s_list		t_list;
+typedef struct s_mlx_coords	t_mlx_coords;
 
 struct s_map
 {

@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   entities_bonus.h                                   :+:      :+:    :+:   */
+/*   t_entity_destroy_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 14:22:31 by brappo           ###   ########.fr       */
+/*   Created: 2024/06/29 14:19:58 by brappo            #+#    #+#             */
+/*   Updated: 2024/06/29 14:25:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENTITIES_BONUS_H
-# define ENTITIES_BONUS_H
+#include "entities_bonus.h"
 
-# include "sprite_bonus.h"
-
-# include <stdbool.h>
-
-# define ENTITY_SPEED	2
-
-typedef struct s_entity	t_entity;
-typedef struct s_list	t_list;
-
-struct s_entity
+void	t_entity_destroy(void *data)
 {
-	float		speed;
-	bool		is_path_circular;
-	t_list		*path;
-	t_sprite	sprite;
-};
+	t_entity	*entity;
 
-void	update_entities(t_list *entities, float delta_time);
-void	t_entity_destroy(void *data);
-
-#endif // !ENTITIES_BONUS_H
+	entity = data;
+	ft_lstclear(&entity->path, free);
+	free(entity);
+}
