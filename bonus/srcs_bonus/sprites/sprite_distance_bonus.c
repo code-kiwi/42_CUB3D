@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:42:11 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/24 11:14:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 21:53:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	get_sprites_distances(t_list *sprites, t_vector *pos)
 	}
 }
 
-int	compare_sprite_distance(void *a, void *b)
+float	compare_sprite_distance(void *a, void *b)
 {
 	return (((t_sprite *)a)->distance - ((t_sprite *)b)->distance);
 }

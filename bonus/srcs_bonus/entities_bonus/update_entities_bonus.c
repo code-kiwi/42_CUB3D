@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:06:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 20:31:20 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 21:57:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	change_destination(t_entity *entity)
 	ft_lstdelone(save, free);
 }
 
-static void	update_entity(t_entity *entity, float delta_time, t_list *entities, 
+static void	update_entity(t_entity *entity, float delta_time, t_list *entities,
 	t_map *map)
 {
 	t_mlx_coords	*next_pos;
