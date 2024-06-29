@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:06:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 15:58:10 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 16:22:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static void	update_entity(t_entity *entity, float delta_time)
 		return ;
 	next_pos = entity->path->content;
 	position = &entity->sprite->position;
-	move.x = next_pos->x - position->x;
-	move.y = next_pos->y - position->y;
+	move.x = next_pos->x + 0.5 - position->x;
+	move.y = next_pos->y + 0.5 - position->y;
 	move_length = get_vector_length(&move);
 	mutlitply_vector(&move, entity->speed * delta_time / move_length);
 	add_vector(position, &move);
