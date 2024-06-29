@@ -6,25 +6,57 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:06:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 10:28:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 12:40:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
+#include "cub3d_bonus.h"
+#include "sprite_bonus.h"
 #include "libft.h"
 
-static void	update_entity(t_entity *entity)
+static void	change_destination(t_entity *entity)
 {
+	t_list	*save;
+
+	if (entity == NULL || entity->path == NULL)
+		return ;
+	save = entity->path;
+	entity->path = entity->path->next;
+	ft_lstdelone(save, free);
 }
 
-void	update_entities(t_list *entities)
+static void	update_entity(t_entity *entity, float delta_time)
+{
+	t_mlx_coords	*next_pos;
+	t_vector		*position;
+	t_vector		move;
+	float			move_length;
+
+	next_pos = entity->path->content;
+	position = &entity->sprite->position;
+	move.x = next_pos->x - position->x;
+	move.y = next_pos->y - position->y;
+	move_length = get_vector_length(&move);
+	mutlitply_vector(&move, entity->speed * delta_time / move_length);
+	add_vector(position, &move);
+	if (move_length > entity->speed * delta_time)
+	{
+		if (entity->is_path_circular)
+			entity->path = entity->path->next;
+		else
+			change_destination(entity);
+	}
+}
+
+void	update_entities(t_list *entities, float delta_time)
 {
 	t_list	*current;
 
 	current = entities;
 	while (current)
 	{
-		update_entity(current->content);
+		update_entity(current->content, delta_time);
 		current = current->next;
 	}
 }

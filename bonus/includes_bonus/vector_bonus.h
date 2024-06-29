@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 01:02:00 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/27 20:14:33 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/29 12:25:52 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ struct s_vector
 };
 
 // t_vector functions
-void		t_vector_copy(t_vector *dest, t_vector *src);
-void		t_vector_print(char *prefix, t_vector *vector);
 void		t_vector_init(t_vector *vector, float x, float y);
 void		t_vector_get_slope(t_vector *slope, float angle_rad);
 float		get_distance(t_vector *a, t_vector *b);
+float		get_vector_length(t_vector *vector);
+void		add_vector(t_vector *src, t_vector *other);
+void		mutlitply_vector(t_vector *vector, float factor);
 
 #endif
