@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 15:05:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/30 09:44:08 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/30 10:00:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,24 @@ bool	update_entities_path(t_game *game)
 {
 	t_list		*current;
 	t_entity	*entity;
+	size_t		entity_updated;
 
-	if (game == NULL)
+	if (game == NULL || game->entities == NULL)
 		return (false);
-	current = game->entities;
-	while (current)
+	current = game->last_entity_updated;
+	if (current == NULL)
+		current = game->entities;
+	entity_updated = 0;
+	while (entity_updated < ENTITY_UPDATE_PER_FRAME)
 	{
+		current = current->next;
+		if (current == NULL)
+			current = game->entities;
 		entity = current->content;
 		if (can_see(&entity->sprite->position, &game->player.position, game))
 			update_path(entity, game);
-		current = current->next;
+		entity_updated++;
 	}
+	game->last_entity_updated = current;
 	return (true);
 }

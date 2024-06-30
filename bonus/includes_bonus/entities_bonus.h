@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 20:31:30 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/30 09:49:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 
 # include <stdbool.h>
 
-# define ENTITY_SPEED	2
-# define ENTITY_RADIUS	0.5
+# define ENTITY_SPEED				2
+# define ENTITY_RADIUS				0.5
+# define ENTITY_UPDATE_PER_FRAME	1
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;

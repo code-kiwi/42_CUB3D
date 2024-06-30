@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 17:29:05 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/30 10:00:00 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ bool	init_entities(t_game *game)
 		t_entity_init(entity, game->textures[7]);
 		current = current->next;
 	}
+	game->last_entity_updated = game->entities;
 	return (true);
 }
