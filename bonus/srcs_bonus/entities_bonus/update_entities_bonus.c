@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:06:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 21:57:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/30 09:37:25 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "cub3d_bonus.h"
 #include "sprite_bonus.h"
 #include "libft.h"
+
+#include <math.h>
 
 static void	change_destination(t_entity *entity)
 {
@@ -34,7 +36,8 @@ static void	update_entity(t_entity *entity, float delta_time, t_list *entities,
 	t_vector		move;
 	float			move_length;
 
-	if (entity->path == NULL)
+	if (entity->path == NULL
+		|| pow(entity->sprite->distance,2) <= entity->squared_radius)
 		return ;
 	next_pos = entity->path->content;
 	position = &entity->sprite->position;
