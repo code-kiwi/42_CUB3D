@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:06:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/30 09:37:25 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/30 09:44:18 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	update_entity(t_entity *entity, float delta_time, t_list *entities,
 	float			move_length;
 
 	if (entity->path == NULL
-		|| pow(entity->sprite->distance,2) <= entity->squared_radius)
+		|| pow(entity->sprite->distance, 2) <= entity->squared_radius)
 		return ;
 	next_pos = entity->path->content;
 	position = &entity->sprite->position;
