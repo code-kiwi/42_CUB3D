@@ -20,6 +20,7 @@
 #include "sprite_bonus.h"
 #include "animation_bonus.h"
 #include "mlx.h"
+#include "entities_bonus.h"
 
 #include <errno.h>
 
@@ -65,13 +66,15 @@ bool	t_game_init(t_game *game)
 		return (false);
 	if (!init_textures(game))
 		return (false);
-	if (!sprite_init(game))
+	if (!init_sprites(game))
 		return (false);
 	if (!t_mlx_launch(&game->mlx))
 		return (false);
 	if (!add_event_handlers(game))
 		return (error_print(ERR_HOOKS), false);
 	if (!init_doors(game))
+		return (false);
+	if (!init_entities(game))
 		return (false);
 	return (true);
 }

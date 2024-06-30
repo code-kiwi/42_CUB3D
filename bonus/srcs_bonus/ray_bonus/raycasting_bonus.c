@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/24 09:16:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/30 09:40:52 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ float	raycast_progress(t_raycast *raycast, t_game *game, t_vector *position,
 {
 	*raycast->position += raycast->sign;
 	if (!is_in_bounds(position, &game->map)
-		|| is_character(position, &game->map, ID_WALL))
+		|| is_character(position, &game->map, ID_MAP_WALL))
 	{
 		ray->is_vertical = raycast->is_vertical;
 		return (raycast->sum_length);
@@ -58,7 +58,7 @@ float	raycast_progress(t_raycast *raycast, t_game *game, t_vector *position,
 	return (-1);
 }
 
-float	raycast(t_vector position, t_game *game, t_ray *ray)
+float	raycast(t_vector position, t_game *game, t_ray *ray, int max_distance)
 {
 	t_raycast	ray_x;
 	t_raycast	ray_y;
@@ -72,7 +72,7 @@ float	raycast(t_vector position, t_game *game, t_ray *ray)
 	ray_y.position = &position.y;
 	calculate_unit_length(&ray_x, &ray_y, &ray->slope);
 	calculate_inital_sum(&ray_x, &ray_y, &ray->slope, &position);
-	while (ray_x.sum_length < MAX_DISTANCE || ray_y.sum_length < MAX_DISTANCE)
+	while (ray_x.sum_length < max_distance || ray_y.sum_length < max_distance)
 	{
 		if (ray_x.sum_length <= ray_y.sum_length)
 			length = raycast_progress(&ray_x, game, &position, ray);

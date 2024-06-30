@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_path_node_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 20:55:20 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/30 10:05:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 
 	if (position == NULL || pathfinding == NULL)
 		return (false);
+	pathfinding->allocation++;
 	end_distance = get_end_distance(position, pathfinding->end);
 	start_distance = get_start_distance(previous, distance);
 	new_node = search_in_stack(pathfinding->stack, position);

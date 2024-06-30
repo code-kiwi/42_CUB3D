@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:56:04 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/24 15:33:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 21:53:07 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 #include "cub3d_bonus.h"
 #include "sprite_bonus.h"
 
-static t_list	*max(t_list *lst, int compare(void *, void *))
+static t_list	*max(t_list *lst, float compare(void *, void *))
 {
 	t_list	*max_element;
 
+	if (lst == NULL)
+		return (NULL);
 	max_element = lst;
+	lst = lst->next;
 	while (lst)
 	{
 		if (compare(lst->content, max_element->content) > 0)
@@ -38,11 +41,11 @@ static void	swap(void **a, void **b)
 	*b = temp;
 }
 
-void	sort_list(t_list *lst, int compare(void *, void *))
+void	sort_list(t_list *lst, float compare(void *, void *))
 {
 	t_list	*max_element;
 
-	while (lst)
+	while (lst->next)
 	{
 		max_element = max(lst, compare);
 		swap(&lst->content, &max_element->content);

@@ -17,6 +17,7 @@
 #include "mlx.h"
 #include "sprite_bonus.h"
 #include "animation_bonus.h"
+#include "entities_bonus.h"
 
 /**
  * @brief Destroys the given t_game
@@ -39,4 +40,5 @@ void	t_game_destroy(t_game *game)
 	if (game->doors != NULL)
 		free(game->doors);
 	ft_lstclear(&game->sprites, free);
+	ft_lstclear(&game->entities, t_entity_destroy);
 }
