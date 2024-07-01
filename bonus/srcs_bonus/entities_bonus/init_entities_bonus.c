@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/30 10:00:00 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/01 19:03:14 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ bool	add_entity(t_list **entities, float x, float y)
 	new_entity->sprite->position.x = x;
 	new_entity->sprite->position.y = y;
 	new_entity->squared_radius = ENTITY_RADIUS * ENTITY_RADIUS;
+	new_entity->health_point = ENTITY_HEALTH_POINT;
 	new_node = ft_lstnew(new_entity);
 	if (new_node == NULL)
 	{

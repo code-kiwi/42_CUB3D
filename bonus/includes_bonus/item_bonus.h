@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 09:56:33 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/01 15:44:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/01 19:03:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ITEM_BONUS_H
 
 # include <sys/types.h>
+
+# define GUN_DAMAGE 1
 
 typedef struct s_image	t_image;
 typedef struct s_item	t_item;
