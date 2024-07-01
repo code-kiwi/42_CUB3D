@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:53:40 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/01 19:03:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/01 19:07:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	equal(void *a, void *b)
 
 static void	kill_entity(t_game *game, t_entity *entity)
 {
-	if (game == NULL || entity == NULL ||game->entities == NULL)
+	if (game == NULL || entity == NULL || game->entities == NULL)
 		return ;
 	ft_lst_remove_if(&game->entities, entity, equal, t_entity_destroy);
 	ft_lst_remove_if(&game->sprites, game->player.aimed_sprite, equal, free);
