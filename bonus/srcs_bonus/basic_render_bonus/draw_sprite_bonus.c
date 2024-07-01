@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/28 15:58:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/01 11:40:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ static void	draw_all_columns(
 	}
 }
 
+#include <stdio.h>
+
 static void	draw_sprite(t_sprite *sprite, t_game *game)
 {
 	t_column	column;
@@ -102,6 +104,11 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 	if (column.start < 0)
 		column.start = 0;
 	column.perceived_height = sprite->height * scale;
+	if (WIN_WIDTH / 2 >= column.coords.x
+		&& WIN_WIDTH / 2 <= column.coords.x + sprite->height / sprite->distance)
+	{
+		game->player.aimed_sprite = sprite;
+	}
 	draw_all_columns(&column, sprite, game->mlx.img_buff, game->rays);
 }
 
@@ -111,6 +118,7 @@ void	render_all_sprites(t_game *game)
 
 	if (!game->sprites)
 		return ;
+	game->player.aimed_sprite = NULL;
 	get_sprites_distances(game->sprites, &game->player.position);
 	sort_list(game->sprites, compare_sprite_distance);
 	current = game->sprites;
