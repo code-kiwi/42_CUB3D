@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/07/01 11:40:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/01 15:34:41 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ static void	draw_all_columns(
 		column->coords.y = column->start;
 	}
 }
-
-#include <stdio.h>
 
 static void	draw_sprite(t_sprite *sprite, t_game *game)
 {

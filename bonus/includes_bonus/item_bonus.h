@@ -6,14 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 09:56:33 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/01 11:44:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/01 15:35:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ITEM_BONUS_H
 # define ITEM_BONUS_H
 
-#include <sys/types.h>
+# include <sys/types.h>
 
 typedef struct s_image	t_image;
 typedef struct s_item	t_item;

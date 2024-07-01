@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/01 11:32:52 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/01 15:33:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_player	t_player;
 typedef struct s_map	t_map;
 typedef struct s_ray	t_ray;
 typedef struct s_sprite	t_sprite;
+typedef struct s_item	t_item;
 
 struct s_player
 {
@@ -48,6 +49,7 @@ struct s_player
 	t_ray		*look_ray;
 	t_door		*last_door_seen;
 	t_sprite	*aimed_sprite;
+	t_item		*item_in_hand;
 };
 
 // t_player functions
