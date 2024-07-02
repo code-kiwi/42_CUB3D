@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/28 16:11:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/02 11:43:35 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ struct	s_column
 struct s_ground_celing
 {
 	t_vector		pixel_pos;
+	t_vector		texture_pos;
 	int				ceiling_y;
 	char			*ground_addr;
 	char			*ceiling_addr;

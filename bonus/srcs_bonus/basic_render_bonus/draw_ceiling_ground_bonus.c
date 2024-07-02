@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/28 16:11:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/02 11:47:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 #include "cub3d_bonus.h"
 #include "libft.h"
 
-static	void	get_pixel_position_in_tile(t_ray *ray,
-	t_vector *player_position, t_vector *result, float inverse_dist)
+static	void	get_pixel_position(t_ray *ray, t_vector *player_position,
+	t_ground_ceiling *data, float inverse_dist)
 {
-	result->x = player_position->x + ray->slope.x / inverse_dist;
-	result->y = player_position->y - ray->slope.y / inverse_dist;
-	result->x -= (int)result->x;
-	result->y -= (int)result->y;
+	data->pixel_pos.x = player_position->x + ray->slope.x / inverse_dist;
+	data->pixel_pos.y = player_position->y - ray->slope.y / inverse_dist;
+	data->texture_pos.x = data->pixel_pos.x - (int)data->pixel_pos.x;
+	data->texture_pos.y = data->pixel_pos.y - (int)data->pixel_pos.y;
 }
 
 static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
@@ -40,26 +40,32 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	*(unsigned int *)addr = color;
 }
 
+static void	set_data(t_ground_ceiling *data, t_column *column, t_game *game,
+	t_ray *ray)
+{
+	data->ceiling_y = column->start - 1;
+	data->inverse_dist = (column->coords.y * ray->cos_angle_from_orientation) \
+		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
+	data->unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2);
+	data->ground_addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x,
+			column->coords.y);
+	data->ceiling_addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x,
+			data->ceiling_y);
+}
+
 void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
 {
 	t_ground_ceiling	data;
 
-	data.ceiling_y = column->start - 1;
-	data.inverse_dist = (column->coords.y * ray->cos_angle_from_orientation) \
-		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
-	data.unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2);
-	data.ground_addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x,
-			column->coords.y);
-	data.ceiling_addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x,
-			data.ceiling_y);
+	set_data(&data, column, game, ray);
 	while (column->coords.y < end)
 	{
-		get_pixel_position_in_tile(ray, &game->player.position,
-			&data.pixel_pos, data.inverse_dist);
-		draw_pixel_from_texture(&data.pixel_pos, data.ground_addr,
+		get_pixel_position(ray, &game->player.position, &data,
+			data.inverse_dist);
+		draw_pixel_from_texture(&data.texture_pos, data.ground_addr,
 			game->textures[4]->content, 1 / data.inverse_dist);
 		if (data.ceiling_y >= 0)
-			draw_pixel_from_texture(&data.pixel_pos, data.ceiling_addr,
+			draw_pixel_from_texture(&data.texture_pos, data.ceiling_addr,
 				game->textures[5]->content, 1 / data.inverse_dist);
 		column->coords.y++;
 		data.ceiling_y--;
