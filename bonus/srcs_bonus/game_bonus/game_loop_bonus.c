@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/28 18:18:01 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/08 12:37:46 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include "door_bonus.h"
 #include "sprite_bonus.h"
 #include "animation_bonus.h"
+#include "entities_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {
@@ -29,6 +30,12 @@ static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 	tick = get_tick();
 	if (tick == -1)
 		return (false);
+	if (game->tick_last_frame == 0)
+	{
+		game->tick_last_frame = tick;
+		*delta_time = 0.1;
+		return (true);
+	}
 	time_to_wait = game->tick_last_frame + game->frame_time_usec - tick;
 	if (time_to_wait > 0 && time_to_wait < game->frame_time_usec)
 	{
@@ -47,14 +54,16 @@ int	game_loop(t_game *game)
 {
 	float	delta_time;
 
-	delta_time = 0;
+	delta_time = 0.1f;
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
 	if (!game->pause)
 	{
+		update_entities_path(game);
+		update_entities(game->entities, delta_time, &game->map);
 		update_animations(game, delta_time);
-		update_player(&game->player, &game->map, delta_time);
+		update_player(&game->player, &game->map, delta_time, game->entities);
 		update_doors(game, delta_time);
 		if (!is_in_bounds(&game->player.position, &game->map))
 			error_exit(game, ERR_PLAYER_QUIT_MAP);

@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_distance_bonus.c                            :+:      :+:    :+:   */
+/*   t_vector_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 10:42:11 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 21:53:20 by brappo           ###   ########.fr       */
+/*   Created: 2024/06/29 12:43:38 by brappo            #+#    #+#             */
+/*   Updated: 2024/06/29 17:21:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "sprite_bonus.h"
+#include "vector_bonus.h"
 
-void	get_sprites_distances(t_list *sprites, t_vector *pos)
+void	t_vector_init(t_vector *vector, float x, float y)
 {
-	t_sprite	*sprite;
-
-	while (sprites)
-	{
-		sprite = sprites->content;
-		sprite->distance = get_distance(&sprite->position, pos);
-		sprites = sprites->next;
-	}
+	vector->x = x;
+	vector->y = y;
 }
 
-float	compare_sprite_distance(void *a, void *b)
+float	get_squared_distance(t_vector *a, t_vector *b)
 {
-	return (((t_sprite *)a)->distance - ((t_sprite *)b)->distance);
+	return ((a->x - b->x) * (a->x - b->x) + (a->y - b->y) * (a->y - b->y));
 }

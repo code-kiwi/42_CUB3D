@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_common.mk                                  :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 12:14:29 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/28 18:16:42 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/07/08 12:39:12 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@
 EXECUTABLE_DIR			=	./
 CC						=	cc
 ifndef NOFLAGS
-	CFLAGS				=	-Wall -Werror -Wextra -O3
+	CFLAGS				=	-Wall -Werror -Wextra -O3 -g
 endif
 FSFLAGS					=	-fsanitize=address
 EXT_LIB_FLAGS			=	-lm

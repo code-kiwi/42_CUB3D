@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/28 18:18:17 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/08 12:40:33 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "cub3d_bonus.h"
 #include "libft.h"
+#include "entities_bonus.h"
 
 static void	update_look(t_player *player, float delta_time)
 {
@@ -27,12 +28,12 @@ static void	update_look(t_player *player, float delta_time)
 		player->orientation += 2 * PI;
 }
 
-static void	update_position(t_player *player, t_map *map, float delta_time)
+static void	update_position(t_player *player, t_map *map, float delta_time,
+	t_list *entities)
 {
 	float			new_angle;
-	t_vector		save_position;
+	t_vector		move;
 	size_t			index;
-	t_mlx_coords	coords;
 
 	index = 0;
 	while (index < 4)
@@ -40,16 +41,10 @@ static void	update_position(t_player *player, t_map *map, float delta_time)
 		if (player->is_walking[index] != false
 			&& player->is_walking[(index + 2) % 4] == false)
 		{
-			save_position = player->position;
 			new_angle = player->orientation + index * PI / 2;
-			player->position.x += cos(new_angle) * player->move_speed[index] \
-				* delta_time;
-			player->position.y -= sin(new_angle) * player->move_speed[index] \
-				* delta_time;
-			coords.x = player->position.x;
-			coords.y = player->position.y;
-			if (!is_walkable(map, &coords))
-				player->position = save_position;
+			move.x = cos(new_angle) * player->move_speed[index] * delta_time;
+			move.y = -sin(new_angle) * player->move_speed[index] * delta_time;
+			move_entity(entities, &player->position, &move, map);
 		}
 		index++;
 	}
@@ -69,9 +64,10 @@ static void	update_display(t_player_display *display, float delta_time)
 	display->frame_update_delta = 0;
 }
 
-void	update_player(t_player *player, t_map *map, float delta_time)
+void	update_player(t_player *player, t_map *map, float delta_time,
+	t_list *entities)
 {
 	update_look(player, delta_time);
-	update_position(player, map, delta_time);
+	update_position(player, map, delta_time, entities);
 	update_display(&player->display, delta_time);
 }

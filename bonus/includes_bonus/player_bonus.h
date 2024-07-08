@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/28 18:17:37 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/08 12:39:45 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_player_display	t_player_display;
 typedef struct s_map			t_map;
 typedef struct s_ray			t_ray;
 typedef struct s_list			t_list;
+typedef struct s_door			t_door;
 
 struct s_player_display
 {
@@ -68,14 +69,17 @@ struct s_player
 	float				leftmost_angle;
 	float				pixel_by_angle;
 	t_ray				*look_ray;
+	t_door				*last_door_seen;
 	t_player_display	display;
 };
 
 // t_player functions
 bool	t_player_init(t_player *player, t_map *map, t_game *game);
 bool	t_player_init_display(t_player_display *display, void *mlx_ptr);
-void	update_player(t_player *player, t_map *map, float delta_time);
+void	player_shoot(t_game *game);
 void	destroy_player(t_player *player, void *mlx_ptr);
 void	player_shoot(t_game *game);
+void	update_player(t_player *player, t_map *map, float delta_time,
+			t_list *entities);
 
 #endif

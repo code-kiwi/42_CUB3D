@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 20:14:28 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/29 21:54:00 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ struct	s_sprite
 
 // Sprites functions
 void		destroy_sprites(t_sprite ***sprites_ptr, size_t sprites_count);
-bool		get_sprites(t_map *map, t_list **sprites);
 void		get_sprites_distances(t_list *sprites, t_vector *pos);
-int			compare_sprite_distance(void *a, void *b);
-bool		sprite_init(t_game *game);
+float		compare_sprite_distance(void *a, void *b);
+void		t_sprite_init(t_sprite *sprite, t_list *animation);
+bool		init_sprites(t_game *game);
 
 #endif

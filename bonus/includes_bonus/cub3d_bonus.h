@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/28 18:17:03 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/08 12:36:17 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_BONUS_H
 
 # include <stdlib.h>
+# include <stddef.h>
 # include <sys/types.h>
 # include <stdbool.h>
 
@@ -91,6 +92,8 @@ struct s_game
 	t_door			*doors;
 	t_door			*last_door_seen;
 	t_list			*sprites;
+	t_list			*entities;
+	t_list			*last_entity_updated;
 	bool			pause;
 	t_ui			ui_pause;
 };
@@ -147,6 +150,6 @@ void		remove_last_spaces(char *str);
 void		skip_next_spaces(char **str);
 void		display_delta_time(void);
 long		get_tick(void);
-void		sort_list(t_list *lst, int compare(void *, void *));
+void		sort_list(t_list *lst, float compare(void *, void *));
 
 #endif
