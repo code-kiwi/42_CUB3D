@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ui_bonus.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 15:27:07 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:32:57 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include "mlx_api_bonus.h"
 
 # define UI_PAUSE_TXT_FILE		"./assets/test_textures/transparent_pixels.xpm"
-# define UI_PAUSE_WIDTH			1200
-# define UI_PAUSE_HEIGHT		600
+# define UI_PAUSE_W_RATIO		0.5f
+# define UI_PAUSE_H_RATIO		0.5f
 
 # define UI_PAUSE_NB_LBL		1
 # define UI_PAUSE_LBL_TXT_FILE	"./assets/test_textures/pause.xpm"

@@ -37,7 +37,7 @@ static bool	init_textures(t_game *game)
 			return (error_print(ERR_MISSING_TEXTURES), false);
 		if (!check_extension(filename, ".xpm"))
 			return (error_print(ERR_TEXTURE_EXTENSION), false);
-		if (!t_image_import_file(&texture, filename, game->mlx.mlx_ptr))
+		if (!t_image_import_file(&texture, filename, game->mlx.mlx_ptr, NULL))
 			return (error_print(ERR_INIT_TEXTURES), false);
 		game->textures[index] = create_animation(&texture, TEXTURE_SIZE, \
 			TEXTURE_SIZE, game->mlx.mlx_ptr);

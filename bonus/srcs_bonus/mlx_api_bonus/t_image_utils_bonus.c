@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/08 12:38:25 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:29:18 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,15 @@ void	t_image_destroy(void *mlx_ptr, t_image *img, bool free_ptr)
  * @param image the results
  * @return false for error, otherwise true
 */
-bool	t_image_import_file(t_image *image, char *filename, void *mlx)
+bool	t_image_import_file(
+	t_image *image,
+	char *filename,
+	void *mlx,
+	t_mlx_coords *size
+)
 {
+	bool	ret;
+
 	if (image == NULL || mlx == NULL)
 		return (false);
 	image->ptr = mlx_xpm_file_to_image(mlx, filename,
@@ -93,32 +100,12 @@ bool	t_image_import_file(t_image *image, char *filename, void *mlx)
 		return (false);
 	}
 	image->bpp_factor = image->bpp / 8;
-	return (true);
-}
-
-t_image	*t_image_resize(void *mlx_ptr, t_image *img, int width, int height)
-{
-	t_image			*new;
-	t_mlx_coords	coord;
-	t_mlx_coords	src_coord;
-	t_vector		factors;
-
-	new = t_image_init(mlx_ptr, width, height);
-	if (new == NULL)
-		return (NULL);
-	factors.x = ((float) img->width) / ((float) width);
-	factors.y = ((float) img->height) / ((float) height);
-	coord.y = -1;
-	while (++coord.y < height)
+	if (size != NULL && (image->width != size->x || image->height != size->y))
 	{
-		src_coord.y = (int)((float) coord.y * factors.y);
-		coord.x = -1;
-		while (++coord.x < width)
-		{
-			src_coord.x = (int)((float) coord.x * factors.x);
-			*(((int *) new->addr) + coord.y * width + coord.x) = \
-				*(((int *) img->addr) + src_coord.y * img->width + src_coord.x);
-		}
+		ret = t_image_resize(mlx, image, size);
+		if (!ret)
+			mlx_destroy_image(mlx, image->ptr);
+		return (ret);
 	}
-	return (new);
+	return (true);
 }

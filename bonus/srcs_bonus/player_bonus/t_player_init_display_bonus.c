@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_player_init_display_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 18:32:59 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/28 16:22:15 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/08 13:03:12 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 bool	init_display_target(t_player_display *display, void *mlx_ptr)
 {
 	if (!t_image_import_file(&display->target_texture, \
-			PLAYER_TARGET_TEXTURE_FILE, mlx_ptr))
+			PLAYER_TARGET_TEXTURE_FILE, mlx_ptr, NULL))
 		return (false);
 	display->target_coords.x = (WIN_WIDTH - display->target_texture.width) / 2;
 	display->target_coords.y = \
@@ -36,7 +36,7 @@ bool	init_display_frames(t_player_display *display, void *mlx_ptr)
 {
 	t_image	texture;
 
-	if (!t_image_import_file(&texture, PLAYER_TEXTURE_FILE, mlx_ptr))
+	if (!t_image_import_file(&texture, PLAYER_TEXTURE_FILE, mlx_ptr, NULL))
 		return (false);
 	display->size.x = PLAYER_TEXTURE_WIDTH;
 	display->size.y = PLAYER_TEXTURE_HEIGHT;

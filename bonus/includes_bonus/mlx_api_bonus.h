@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/08 12:36:38 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:16:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,9 @@ void	t_mlx_sync_images(t_mlx *mlx);
 // t_image functions
 t_image	*t_image_init(void *mlx_ptr, int img_width, int img_height);
 void	t_image_destroy(void *mlx_ptr, t_image *img, bool free_ptr);
-bool	t_image_import_file(t_image *image, char *filename, void *mlx);
-t_image	*t_image_resize(void *mlx_ptr, t_image *img, int width, int height);
+bool	t_image_import_file(t_image *image, char *filename, void *mlx, \
+			t_mlx_coords *size);
+bool	t_image_resize(void *mlx_ptr, t_image *img, t_mlx_coords *size);
 
 // Draw functions
 void	t_mlx_draw_pixel(t_image *img, t_mlx_coords *coords, \

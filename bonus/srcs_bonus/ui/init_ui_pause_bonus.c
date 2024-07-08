@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_ui_pause_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:27:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/26 07:37:27 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:13:12 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ static bool	init_ui_pause_button1(t_ui *ui_pause, t_button *btn, void *mlx_ptr)
 	btn->size.x = UI_PAUSE_BTN1_WIDTH;
 	btn->size.y = UI_PAUSE_BTN1_HEIGHT;
 	if (!t_image_import_file(&btn->texture_off, \
-		UI_PAUSE_BTN1_OFF_FILE, mlx_ptr))
+		UI_PAUSE_BTN1_OFF_FILE, mlx_ptr, &btn->size))
 		return (false);
-	if (!t_image_import_file(&btn->texture_on, UI_PAUSE_BTN1_ON_FILE, mlx_ptr))
+	if (!t_image_import_file(&btn->texture_on, UI_PAUSE_BTN1_ON_FILE, mlx_ptr, \
+		&btn->size))
 	{
 		t_image_destroy(mlx_ptr, &btn->texture_off, false);
 		return (false);
@@ -44,9 +45,10 @@ static bool	init_ui_pause_button2(t_ui *ui_pause, t_button *btn, void *mlx_ptr)
 	btn->size.x = UI_PAUSE_BTN2_WIDTH;
 	btn->size.y = UI_PAUSE_BTN2_HEIGHT;
 	if (!t_image_import_file(&btn->texture_off, \
-		UI_PAUSE_BTN2_OFF_FILE, mlx_ptr))
+		UI_PAUSE_BTN2_OFF_FILE, mlx_ptr, NULL))
 		return (false);
-	if (!t_image_import_file(&btn->texture_on, UI_PAUSE_BTN2_ON_FILE, mlx_ptr))
+	if (!t_image_import_file(&btn->texture_on, \
+		UI_PAUSE_BTN2_ON_FILE, mlx_ptr, NULL))
 	{
 		t_image_destroy(mlx_ptr, &btn->texture_off, false);
 		return (false);
@@ -101,12 +103,13 @@ bool	init_ui_pause(t_ui *ui_pause, void *mlx_ptr)
 {
 	if (ui_pause == NULL || mlx_ptr == NULL)
 		return (false);
-	if (!t_image_import_file(&ui_pause->texture, UI_PAUSE_TXT_FILE, mlx_ptr))
+	if (!t_image_import_file(&ui_pause->texture, \
+		UI_PAUSE_TXT_FILE, mlx_ptr, NULL))
 		return (false);
-	ui_pause->size.x = UI_PAUSE_WIDTH;
-	ui_pause->size.y = UI_PAUSE_HEIGHT;
-	ui_pause->pos.x = (WIN_WIDTH - UI_PAUSE_WIDTH) / 2;
-	ui_pause->pos.y = (WIN_HEIGHT - UI_PAUSE_HEIGHT) / 2;
+	ui_pause->size.x = (int)((float)WIN_WIDTH * UI_PAUSE_W_RATIO);
+	ui_pause->size.y = (int)((float)WIN_HEIGHT * UI_PAUSE_H_RATIO);
+	ui_pause->pos.x = (WIN_WIDTH - ui_pause->size.x) / 2;
+	ui_pause->pos.y = (WIN_HEIGHT - ui_pause->size.y) / 2;
 	ui_pause->nb_buttons = UI_PAUSE_NB_BTN;
 	if (!init_ui_pause_buttons(ui_pause, mlx_ptr))
 	{

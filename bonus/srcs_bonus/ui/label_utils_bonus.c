@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   label_utils_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:22:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/25 16:04:11 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/08 13:04:31 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	init_label(
 {
 	if (label == NULL || dim == NULL || filename == NULL || mlx_ptr == NULL)
 		return (false);
-	if (!t_image_import_file(&label->texture, filename, mlx_ptr))
+	if (!t_image_import_file(&label->texture, filename, mlx_ptr, NULL))
 		return (false);
 	label->pos.x = dim->coords.x;
 	label->pos.y = dim->coords.y;
