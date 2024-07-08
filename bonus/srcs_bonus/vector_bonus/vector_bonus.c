@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:42:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/21 15:38:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/06/29 12:45:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,6 @@
 #include <math.h>
 
 #include "cub3d_bonus.h"
-
-void	t_vector_copy(t_vector *dest, t_vector *src)
-{
-	dest->x = src->x;
-	dest->y = src->y;
-}
-
-void	t_vector_print(char *prefix, t_vector *vector)
-{
-	if (prefix != NULL)
-		printf("%s", prefix);
-	printf("x : %f, y : %f\n", vector->x, vector->y);
-	fflush(stdout);
-}
-
-void	t_vector_init(t_vector *vector, float x, float y)
-{
-	vector->x = x;
-	vector->y = y;
-}
 
 void	t_vector_get_slope(t_vector *slope, float angle_rad)
 {
@@ -45,4 +25,21 @@ float	get_distance(t_vector *a, t_vector *b)
 {
 	return (sqrtf((a->x - b->x) * (a->x - b->x) \
 		+ (a->y - b->y) * (a->y - b->y)));
+}
+
+float	get_vector_length(t_vector *vector)
+{
+	return (sqrt(vector->x * vector->x + vector->y * vector->y));
+}
+
+void	mutlitply_vector(t_vector *vector, float factor)
+{
+	vector->x *= factor;
+	vector->y *= factor;
+}
+
+void	add_vector(t_vector *src, t_vector *other)
+{
+	src->x += other->x;
+	src->y += other->y;
 }

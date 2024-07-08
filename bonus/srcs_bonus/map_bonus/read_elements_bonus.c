@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/24 10:11:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 13:52:58 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 
 static void	init_identifier(char **identifier)
 {
-	identifier[0] = ID_NORTH;
-	identifier[1] = ID_SOUTH;
-	identifier[2] = ID_WEST;
-	identifier[3] = ID_EAST;
-	identifier[4] = ID_FLOOR;
-	identifier[5] = ID_CEILING;
-	identifier[6] = ID_DOOR;
-	identifier[7] = ID_ENEMY;
+	identifier[0] = ID_TEXTURE_NORTH;
+	identifier[1] = ID_TEXTURE_SOUTH;
+	identifier[2] = ID_TEXTURE_WEST;
+	identifier[3] = ID_TEXTURE_EAST;
+	identifier[4] = ID_TEXTURE_FLOOR;
+	identifier[5] = ID_TEXTURE_CEILING;
+	identifier[6] = ID_TEXTURE_DOOR;
+	identifier[7] = ID_TEXTURE_ENTITY;
 }
 
 bool	read_elements(t_map *map, int fd)

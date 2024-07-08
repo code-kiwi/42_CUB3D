@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/28 16:11:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/30 09:59:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define FPS					100
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				1920
-# define WIN_HEIGHT				1000
+# define WIN_WIDTH				800
+# define WIN_HEIGHT				800
 # define MAX_DISTANCE			200
 
 # define MAX_VISION_DISTANCE	10
@@ -74,20 +74,19 @@ typedef struct s_list			t_list;
 
 struct s_game
 {
-	t_mlx			mlx;
-	t_player		player;
-	t_map			map;
-	t_vector		player_position;
-	t_ray			rays[WIN_WIDTH];
-	float			player_rotation_rad;
-	long			frame_time_usec;
-	long			tick_last_frame;
-	t_list			*textures[8];
-	float			frame_update_delta;
-	size_t			door_count;
-	t_door			*doors;
-	t_door			*last_door_seen;
-	t_list			*sprites;
+	t_mlx		mlx;
+	t_player	player;
+	t_map		map;
+	t_ray		rays[WIN_WIDTH];
+	long		frame_time_usec;
+	long		tick_last_frame;
+	t_list		*textures[8];
+	float		frame_update_delta;
+	size_t		door_count;
+	t_door		*doors;
+	t_list		*sprites;
+	t_list		*entities;
+	t_list		*last_entity_updated;
 };
 
 struct	s_column
@@ -138,6 +137,6 @@ void		remove_last_spaces(char *str);
 void		skip_next_spaces(char **str);
 void		display_delta_time(void);
 long		get_tick(void);
-void		sort_list(t_list *lst, int compare(void *, void *));
+void		sort_list(t_list *lst, float compare(void *, void *));
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 11:59:16 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/28 09:42:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/30 10:04:53 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ bool	t_pathfinding_init(t_pathfinding *pathfinding, t_mlx_coords *start,
 	pathfinding->locked_tiles = NULL;
 	pathfinding->end = end;
 	pathfinding->start = start;
+	pathfinding->allocation = 0;
 	return (add_path_node(start, pathfinding, NULL, 0));
 }
 

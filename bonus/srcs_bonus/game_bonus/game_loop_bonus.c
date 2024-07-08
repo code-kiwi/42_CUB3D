@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 19:51:52 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/06/29 20:31:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include "door_bonus.h"
 #include "sprite_bonus.h"
 #include "animation_bonus.h"
+#include "entities_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {
@@ -29,6 +30,12 @@ static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 	tick = get_tick();
 	if (tick == -1)
 		return (false);
+	if (game->tick_last_frame == 0)
+	{
+		game->tick_last_frame = tick;
+		*delta_time = 0.1;
+		return (true);
+	}
 	time_to_wait = game->tick_last_frame + game->frame_time_usec - tick;
 	if (time_to_wait > 0 && time_to_wait < game->frame_time_usec)
 	{
@@ -51,8 +58,10 @@ int	game_loop(t_game *game)
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
+	update_entities_path(game);
+	update_entities(game->entities, delta_time, &game->map);
 	update_animations(game, delta_time);
-	update_player(&game->player, &game->map, delta_time);
+	update_player(&game->player, &game->map, delta_time, game->entities);
 	update_doors(game, delta_time);
 	if (!is_in_bounds(&game->player.position, &game->map))
 		error_exit(game, ERR_PLAYER_QUIT_MAP);

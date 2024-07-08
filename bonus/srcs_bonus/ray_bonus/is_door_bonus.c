@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 16:01:43 by root              #+#    #+#             */
-/*   Updated: 2024/06/24 09:16:10 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 13:54:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ bool	is_door(t_vector *pos, t_game *game, t_ray *ray,
 	t_door			*door;
 	float			length;
 
-	if (!is_character(pos, &game->map, ID_DOOR_CLOSED)
-		&& !is_character(pos, &game->map, ID_DOOR_OPENED))
+	if (!is_character(pos, &game->map, ID_MAP_DOOR_CLOSED)
+		&& !is_character(pos, &game->map, ID_MAP_DOOR_OPENED))
 		return (false);
 	length = raycast->sum_length + raycast->unit_length / 2;
 	point_pos.x = game->player.position.x + ray->slope.x * length;

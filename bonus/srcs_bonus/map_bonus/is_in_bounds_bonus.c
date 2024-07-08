@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:54:27 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/26 15:40:00 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 13:51:53 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ bool	is_walkable(t_map *map, t_mlx_coords *coords)
 	{
 		return (false);
 	}
-	return (map->tiles[coords->y][coords->x] != ID_WALL
-			&& map->tiles[coords->y][coords->x] != ID_DOOR_CLOSED);
+	return (map->tiles[coords->y][coords->x] != ID_MAP_WALL
+			&& map->tiles[coords->y][coords->x] != ID_MAP_DOOR_CLOSED);
 }

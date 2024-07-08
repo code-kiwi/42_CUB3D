@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/24 10:14:35 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 13:55:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static size_t	count_doors(t_map *map)
 		x = 0 ;
 		while (x < map->lines_lengths[y])
 		{
-			if (map->tiles[y][x] == ID_DOOR_CLOSED)
+			if (map->tiles[y][x] == ID_MAP_DOOR_CLOSED)
 				doors_count++;
 			x++;
 		}
@@ -49,7 +49,7 @@ static void	find_doors(t_map *map, size_t door_count, t_door *doors)
 		x = 0;
 		while (x < map->lines_lengths[y])
 		{
-			if (map->tiles[y][x] == ID_DOOR_CLOSED)
+			if (map->tiles[y][x] == ID_MAP_DOOR_CLOSED)
 			{
 				doors[door_index].position = (t_mlx_coords){x, y};
 				doors[door_index].state = CLOSED;
@@ -77,6 +77,6 @@ bool	init_doors(t_game *game)
 	}
 	else
 		game->doors = NULL;
-	game->last_door_seen = NULL;
+	game->player.last_door_seen = NULL;
 	return (true);
 }

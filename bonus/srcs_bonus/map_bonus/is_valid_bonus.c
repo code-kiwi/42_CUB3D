@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:42:52 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/19 11:07:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/29 13:54:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ static bool	is_space(t_vector *coords, t_map *map)
 
 	x = coords->x;
 	y = coords->y;
-	return (!is_in_bounds(coords, map) || map->tiles[y][x] == ID_SPACE);
+	return (!is_in_bounds(coords, map) || map->tiles[y][x] == ID_MAP_SPACE);
 }
 
 static bool	check_surrounding_tile(t_map *map, int x, int y)
 {
 	t_vector	coords;
 
-	if (map->tiles[y][x] == ID_WALL || map->tiles[y][x] == ID_SPACE)
+	if (map->tiles[y][x] == ID_MAP_WALL || map->tiles[y][x] == ID_MAP_SPACE)
 		return (true);
 	coords.y = y;
 	coords.x = x - 1;

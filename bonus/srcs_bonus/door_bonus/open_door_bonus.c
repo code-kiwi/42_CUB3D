@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open_door_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:54:08 by root              #+#    #+#             */
-/*   Updated: 2024/06/23 16:47:09 by root             ###   ########.fr       */
+/*   Updated: 2024/06/29 13:55:07 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	open_looked_door(t_ray *look_ray, t_map *map)
 		door->state = OPENING;
 	else if (door->state == OPENED)
 	{
-		map->tiles[door->position.y][door->position.x] = ID_DOOR_CLOSED;
+		map->tiles[door->position.y][door->position.x] = ID_MAP_DOOR_CLOSED;
 		door->state = CLOSING;
 	}
 }
