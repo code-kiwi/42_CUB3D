@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/08 14:32:57 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:09:29 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,18 @@
 
 # define UI_PAUSE_NB_LBL		1
 # define UI_PAUSE_LBL_TXT_FILE	"./assets/test_textures/pause.xpm"
-# define UI_PAUSE_LBL_POS_X		500
-# define UI_PAUSE_LBL_POS_Y		50
-# define UI_PAUSE_LBL_WIDTH		200
-# define UI_PAUSE_LBL_HEIGHT	100
+# define UI_PAUSE_LBL_W_RATIO	0.3f
+# define UI_PAUSE_LBL_H_RATIO	0.2f
 
 # define UI_PAUSE_NB_BTN		2
 # define UI_PAUSE_BTN1_ON_FILE	"./assets/test_textures/resume_on.xpm"
 # define UI_PAUSE_BTN1_OFF_FILE	"./assets/test_textures/resume_off.xpm"
-# define UI_PAUSE_BTN1_POS_X	400
-# define UI_PAUSE_BTN1_POS_Y	200
-# define UI_PAUSE_BTN1_WIDTH	400
-# define UI_PAUSE_BTN1_HEIGHT	100
+# define UI_PAUSE_BTN1_W_RATIO	0.4f
+# define UI_PAUSE_BTN1_H_RATIO	0.175f
 # define UI_PAUSE_BTN2_ON_FILE	"./assets/test_textures/quit_on.xpm"
 # define UI_PAUSE_BTN2_OFF_FILE	"./assets/test_textures/quit_off.xpm"
-# define UI_PAUSE_BTN2_POS_X	400
-# define UI_PAUSE_BTN2_POS_Y	400
-# define UI_PAUSE_BTN2_WIDTH	400
-# define UI_PAUSE_BTN2_HEIGHT	100
+# define UI_PAUSE_BTN2_W_RATIO	0.4f
+# define UI_PAUSE_BTN2_H_RATIO	0.175f
 
 typedef struct s_game		t_game;
 typedef struct s_ui			t_ui;

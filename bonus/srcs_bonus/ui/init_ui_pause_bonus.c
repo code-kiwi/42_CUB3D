@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:27:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/08 14:13:12 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:09:50 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 
 static bool	init_ui_pause_button1(t_ui *ui_pause, t_button *btn, void *mlx_ptr)
 {
-	btn->pos.x = UI_PAUSE_BTN1_POS_X + ui_pause->pos.x;
-	btn->pos.y = UI_PAUSE_BTN1_POS_Y + ui_pause->pos.y;
-	btn->size.x = UI_PAUSE_BTN1_WIDTH;
-	btn->size.y = UI_PAUSE_BTN1_HEIGHT;
+	btn->size.x = UI_PAUSE_BTN1_W_RATIO * ui_pause->size.x;
+	btn->size.y = UI_PAUSE_BTN1_H_RATIO * ui_pause->size.y;
+	btn->pos.x = ui_pause->pos.x + (ui_pause->size.x / 2 - btn->size.x / 2);
+	btn->pos.y = ui_pause->pos.y + 2 * ui_pause->size.y / 5;
 	if (!t_image_import_file(&btn->texture_off, \
 		UI_PAUSE_BTN1_OFF_FILE, mlx_ptr, &btn->size))
 		return (false);
@@ -40,15 +40,15 @@ static bool	init_ui_pause_button1(t_ui *ui_pause, t_button *btn, void *mlx_ptr)
 
 static bool	init_ui_pause_button2(t_ui *ui_pause, t_button *btn, void *mlx_ptr)
 {
-	btn->pos.x = UI_PAUSE_BTN2_POS_X + ui_pause->pos.x;
-	btn->pos.y = UI_PAUSE_BTN2_POS_Y + ui_pause->pos.y;
-	btn->size.x = UI_PAUSE_BTN2_WIDTH;
-	btn->size.y = UI_PAUSE_BTN2_HEIGHT;
+	btn->size.x = UI_PAUSE_BTN2_W_RATIO * ui_pause->size.x;
+	btn->size.y = UI_PAUSE_BTN2_H_RATIO * ui_pause->size.y;
+	btn->pos.x = ui_pause->pos.x + (ui_pause->size.x / 2 - btn->size.x / 2);
+	btn->pos.y = ui_pause->pos.y + 3 * ui_pause->size.y / 5;
 	if (!t_image_import_file(&btn->texture_off, \
-		UI_PAUSE_BTN2_OFF_FILE, mlx_ptr, NULL))
+		UI_PAUSE_BTN2_OFF_FILE, mlx_ptr, &btn->size))
 		return (false);
 	if (!t_image_import_file(&btn->texture_on, \
-		UI_PAUSE_BTN2_ON_FILE, mlx_ptr, NULL))
+		UI_PAUSE_BTN2_ON_FILE, mlx_ptr, &btn->size))
 	{
 		t_image_destroy(mlx_ptr, &btn->texture_off, false);
 		return (false);
@@ -86,10 +86,10 @@ static bool	init_ui_pause_labels(t_ui *ui_pause, void *mlx_ptr)
 		sizeof(t_label));
 	if (ui_pause->labels == NULL)
 		return (false);
-	dim.coords.x = UI_PAUSE_LBL_POS_X + ui_pause->pos.x;
-	dim.coords.y = UI_PAUSE_LBL_POS_Y + ui_pause->pos.y;
-	dim.size.x = UI_PAUSE_LBL_WIDTH;
-	dim.size.y = UI_PAUSE_LBL_HEIGHT;
+	dim.size.x = UI_PAUSE_LBL_W_RATIO * ui_pause->size.x;
+	dim.size.y = UI_PAUSE_LBL_H_RATIO * ui_pause->size.y;
+	dim.coords.x = ui_pause->pos.x + (ui_pause->size.x / 2 - dim.size.x / 2);
+	dim.coords.y = ui_pause->pos.y + ui_pause->size.y / 6;
 	if (!init_label(&ui_pause->labels[0], &dim, UI_PAUSE_LBL_TXT_FILE, mlx_ptr))
 	{
 		free(ui_pause->labels);
