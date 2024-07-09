@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 13:52:58 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/09 10:17:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,25 @@
 
 static bool	parse_element(t_map *map, char *element, char **identifier)
 {
-	char	*info;
+	char	**infos;
 	ssize_t	identifier_index;
 
-	skip_next_spaces(&element);
-	info = ft_strchr(element, ' ');
-	if (info == NULL)
+	infos = ft_split(element, " ");
+	if (array_length((void **)infos) != 2)
+	{
+		ft_free_str_array(&infos);
 		return (error_print(ERR_MISSING_COMPONENT), false);
-	*info = '\0';
-	info++;
-	skip_next_spaces(&info);
-	remove_last_spaces(info);
-	if (!*info)
-		return (error_print(ERR_MISSING_COMPONENT), false);
-	identifier_index = find_str_in_array(identifier, element, MAP_NB_IDS);
+	}
+	identifier_index = find_str_in_array(identifier, infos[0], MAP_NB_IDS);
 	if (identifier_index == -1)
+	{
+		ft_free_str_array(&infos);
 		return (error_print(ERR_IDENTIFIER), false);
-	map->textures[identifier_index] = ft_strdup(info);
-	if (map->textures[identifier_index] == NULL)
-		return (false);
+	}
+	map->textures[identifier_index] = infos[1];
+	infos[1] = NULL;
 	identifier[identifier_index] = "";
+	free_array(infos, 2, true);
 	return (true);
 }
 
