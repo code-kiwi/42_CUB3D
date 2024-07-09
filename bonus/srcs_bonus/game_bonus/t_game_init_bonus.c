@@ -25,22 +25,24 @@
 
 static bool	init_textures(t_game *game)
 {
-	size_t	index;
-	char	*filename;
-	t_image	texture;
+	size_t			index;
+	t_mlx_coords	*texture_size;
+	char			*filename;
+	t_image			texture;
 
 	index = 0;
 	while (index < MAP_NB_IDS)
 	{
 		filename = game->map.textures[index];
+		texture_size = &game->map.texture_size[index];
 		if (filename == NULL || filename[0] == '\0')
 			return (error_print(ERR_MISSING_TEXTURES), false);
 		if (!check_extension(filename, ".xpm"))
 			return (error_print(ERR_TEXTURE_EXTENSION), false);
 		if (!t_image_import_file(&texture, filename, game->mlx.mlx_ptr, NULL))
 			return (error_print(ERR_INIT_TEXTURES), false);
-		game->textures[index] = create_animation(&texture, TEXTURE_SIZE, \
-			TEXTURE_SIZE, game->mlx.mlx_ptr);
+		game->textures[index] = create_animation(&texture, texture_size, \
+			game->mlx.mlx_ptr);
 		mlx_destroy_image(game->mlx.mlx_ptr, texture.ptr);
 		if (game->textures[index] == NULL)
 			return (false);

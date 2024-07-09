@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_animation_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:52:44 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 17:14:10 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/09 10:57:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,18 +67,16 @@ static bool	add_anim_sprite(
 
 t_list	*create_animation(
 	t_image *texture,
-	int width,
-	int height,
+	t_mlx_coords *size,
 	void *mlx_ptr
 )
 {
 	t_list			*anim;
 	t_dimension		dim;
 
-	if (texture->width % width != 0 || texture->height % height != 0)
+	if (texture->width % size->x != 0 || texture->height % size->y != 0)
 		return (error_print(ERR_TEXTURE_SIZE), NULL);
-	dim.size.x = width;
-	dim.size.y = height;
+	dim.size = *size;
 	dim.coords.y = 0;
 	anim = NULL;
 	while (dim.coords.y < texture->height)
@@ -88,9 +86,9 @@ t_list	*create_animation(
 		{
 			if (!add_anim_sprite(&anim, texture, &dim, mlx_ptr))
 				return (destroy_animation(anim, mlx_ptr, false), NULL);
-			dim.coords.x += width;
+			dim.coords.x += size->x;
 		}
-		dim.coords.y += height;
+		dim.coords.y += size->y;
 	}
 	if (anim != NULL)
 		ft_lstlast(anim)->next = anim;
