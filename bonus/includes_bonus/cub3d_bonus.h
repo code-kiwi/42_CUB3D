@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/09 10:36:49 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/09 11:08:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 # define ERR_MAP_CONTENT		"Reading failed, check the map content"
 # define ERR_MISSING_TEXTURES	"Missing textures"
 # define ERR_MAP_READ			"Map: read failed"
-# define ERR_BAD_SIZE			"wrong or missing texture size"
+# define ERR_BAD_SIZE			"Wrong or missing texture size"
 # define ERR_SIZE_TOO_BIG		"Size too big, max 4 characters"
 # define ERR_NEGATIVE_SIZE		"Invalid negative size"
 
