@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/09 10:17:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/09 10:49:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,41 @@
 #include "map_bonus.h"
 #include "libft.h"
 
+static bool	get_texture_size(t_vector *out, char *size)
+{
+	char	**values;
+
+	if (out == NULL || size == NULL)
+		return (false);
+	values = ft_split (size, ",");
+	if (array_length((void **)values) != 2
+		|| !is_number(values[0]) || !is_number(values[1]))
+	{
+		ft_free_str_array(&values);
+		return (error_print(ERR_BAD_SIZE), false);
+	}
+	if (ft_strlen(values[0]) >= 5 || ft_strlen(values[1]) >= 5)
+	{
+		ft_free_str_array(&values);
+		return (error_print(ERR_SIZE_TOO_BIG), false);
+	}
+	out->x = ft_atoi(values[0]);
+	out->y = ft_atoi(values[1]);
+	ft_free_str_array(&values);
+	if (out->x < 0 || out->y < 0)
+		return (error_print(ERR_NEGATIVE_SIZE), false);
+	return (true);
+}
+
 static bool	parse_element(t_map *map, char *element, char **identifier)
 {
 	char	**infos;
 	ssize_t	identifier_index;
 
+	if (map == NULL || element == NULL || identifier == NULL)
+		return (false);
 	infos = ft_split(element, " ");
-	if (array_length((void **)infos) != 2)
+	if (array_length((void **)infos) != 3)
 	{
 		ft_free_str_array(&infos);
 		return (error_print(ERR_MISSING_COMPONENT), false);
@@ -31,15 +59,19 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 		ft_free_str_array(&infos);
 		return (error_print(ERR_IDENTIFIER), false);
 	}
+	if (!get_texture_size(&map->texture_size[identifier_index], infos[2]))
+		return (ft_free_str_array(&infos), false);
+	free(infos[2]);
 	map->textures[identifier_index] = infos[1];
-	infos[1] = NULL;
 	identifier[identifier_index] = "";
-	free_array(infos, 2, true);
+	free_array(infos, 1, true);
 	return (true);
 }
 
 static void	init_identifier(char **identifier)
 {
+	if (identifier == NULL)
+		return ;
 	identifier[0] = ID_TEXTURE_NORTH;
 	identifier[1] = ID_TEXTURE_SOUTH;
 	identifier[2] = ID_TEXTURE_WEST;
