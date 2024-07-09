@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:36:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/09 10:06:55 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/09 12:05:22 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ bool	t_mlx_launch(t_mlx *mlx)
 	mlx->mlx_win = mlx_new_window(mlx->mlx_ptr, mlx->width, \
 						mlx->height, mlx->title);
 	if (mlx->mlx_win != NULL)
-		mlx_mouse_move(mlx->mlx_ptr, mlx->mlx_win, mlx->width / 2, \
-			mlx->height / 2);
+		t_mlx_center_cursor(mlx);
 	return (mlx->mlx_win != NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/09 10:15:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:09:20 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,32 @@
 #include "libft.h"
 #include "entities_bonus.h"
 
+static bool	is_moving_player(t_player *player)
+{
+	return (
+		player != NULL
+		&& (
+			player->is_walking[0]
+			|| player->is_walking[1]
+			|| player->is_walking[2]
+			|| player->is_walking[3]
+		)
+	);
+}
+
 static void	update_look(t_player *player, float delta_time)
 {
+	float	speed;
+
+	speed = player->rotation_speed;
+	if (is_moving_player(player))
+		speed *= 0.8f;
 	if (player->turn_direction[0] && !player->turn_direction[1])
-		player->orientation += player->rotation_speed * delta_time;
+		player->orientation += speed * delta_time;
 	else if (player->turn_direction[1] && !player->turn_direction[0])
-		player->orientation -= player->rotation_speed * delta_time;
+		player->orientation -= speed * delta_time;
+	player->turn_direction[0] = false;
+	player->turn_direction[1] = false;
 	if (player->orientation > 2 * PI)
 		player->orientation -= 2 * PI;
 	else if (player->orientation < 0)
