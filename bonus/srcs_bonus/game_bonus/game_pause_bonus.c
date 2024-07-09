@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animation_bonus.h                                  :+:      :+:    :+:   */
+/*   game_pause_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 12:35:15 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/08 12:35:08 by mhotting         ###   ########.fr       */
+/*   Created: 2024/06/26 07:19:29 by codekiwi          #+#    #+#             */
+/*   Updated: 2024/07/09 09:39:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMATION_BONUS_H
-# define ANIMATION_BONUS_H
+#include "cub3d_bonus.h"
+#include "ui_bonus.h"
 
-typedef struct s_list	t_list;
-typedef struct s_image	t_image;
+void	game_pause_switch(t_game *game)
+{
+	if (game == NULL)
+		return ;
+	game->pause = !game->pause;
+	if (game->pause)
+		t_mlx_sync_images(&game->mlx);
+	else
+		disable_buttons_ui(&game->ui_pause);
+}
 
-# define ANIMATION_UPDATE	0.1
-
-void	destroy_animation(t_list *anim, void *mlx_ptr, bool is_circular);
-t_list	*create_animation(t_image *texture, int height, int width, \
-			void *mlx_ptr);
-void	update_animations(t_game *game, float delta_time);
-
-#endif
+void	game_pause_close(t_game *game)
+{
+	if (game == NULL)
+		return ;
+	game->pause = false;
+	disable_buttons_ui(&game->ui_pause);
+}

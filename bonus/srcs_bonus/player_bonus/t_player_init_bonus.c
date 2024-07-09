@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_player_init_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 10:11:24 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 18:46:21 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdbool.h>
 
 #include "cub3d_bonus.h"
+#include "mlx_api_bonus.h"
 #include "player_bonus.h"
 #include "map_bonus.h"
 #include "libft.h"
@@ -66,7 +67,7 @@ bool	t_player_init(t_player *player, t_map *map, t_game *game)
 		return (false);
 	player->fov_angle = FOV_ANGLE_DEFAULT;
 	if (!find_player_position(map, player))
-		return (false);
+		return (error_print(ERR_PLAYER_CREATION), false);
 	set_player_orientation(player, map);
 	player->position.x += 0.5;
 	player->position.y += 0.5;
@@ -79,5 +80,7 @@ bool	t_player_init(t_player *player, t_map *map, t_game *game)
 	ft_memset(player->is_walking, 0, 4 * sizeof(bool));
 	ft_memset(player->turn_direction, 0, 2 * sizeof(bool));
 	player->look_ray = &game->rays[(int)WIN_WIDTH / 2];
+	if (!t_player_init_display(&player->display, game->mlx.mlx_ptr))
+		return (error_print(ERR_PLAYER_CREATION), false);
 	return (true);
 }

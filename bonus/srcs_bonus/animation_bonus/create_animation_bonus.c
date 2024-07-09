@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_animation_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:52:44 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/24 13:22:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/06/27 17:14:10 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,21 @@
 #include "animation_bonus.h"
 #include "cub3d_bonus.h"
 
-static void	copy_image(t_image *dest, t_image *src, t_mlx_coords *src_coords)
+static void	copy_image(
+	t_image *dest,
+	t_image *src,
+	t_mlx_coords *src_coords,
+	t_mlx_coords *size
+)
 {
 	char			*color;
 	t_mlx_coords	dest_coords;
 
 	dest_coords.y = 0;
-	while (dest_coords.y < TEXTURE_SIZE)
+	while (dest_coords.y < size->y)
 	{
 		dest_coords.x = 0;
-		while (dest_coords.x < TEXTURE_SIZE)
+		while (dest_coords.x < size->x)
 		{
 			color = t_mlx_get_pixel(src, src_coords->x + dest_coords.x,
 					src_coords->y + dest_coords.y);
@@ -36,49 +41,56 @@ static void	copy_image(t_image *dest, t_image *src, t_mlx_coords *src_coords)
 	}
 }
 
-static bool	add_anim_sprite(t_list **anim, t_image *texture,
-	t_mlx_coords *coords, void *mlx_ptr)
+static bool	add_anim_sprite(
+	t_list **anim,
+	t_image *texture,
+	t_dimension *dim,
+	void *mlx_ptr
+)
 {
 	t_image	*image;
 	t_list	*new_node;
 
-	image = t_image_init(mlx_ptr, TEXTURE_SIZE, TEXTURE_SIZE);
+	image = t_image_init(mlx_ptr, dim->size.x, dim->size.y);
 	if (image == NULL)
 		return (false);
-	copy_image(image, texture, coords);
+	copy_image(image, texture, &dim->coords, &dim->size);
 	new_node = ft_lstnew(image);
 	if (new_node == NULL)
 	{
-		t_image_destroy(mlx_ptr, image);
+		t_image_destroy(mlx_ptr, image, true);
 		return (false);
 	}
-	ft_lstadd_front(anim, new_node);
+	ft_lstadd_back(anim, new_node);
 	return (true);
 }
 
-t_list	*create_animation(t_image *texture, void *mlx_ptr)
+t_list	*create_animation(
+	t_image *texture,
+	int width,
+	int height,
+	void *mlx_ptr
+)
 {
 	t_list			*anim;
-	t_mlx_coords	coords;
+	t_dimension		dim;
 
-	if (texture->width % TEXTURE_SIZE != 0
-		|| texture->height % TEXTURE_SIZE != 0)
+	if (texture->width % width != 0 || texture->height % height != 0)
 		return (error_print(ERR_TEXTURE_SIZE), NULL);
-	coords.y = 0;
+	dim.size.x = width;
+	dim.size.y = height;
+	dim.coords.y = 0;
 	anim = NULL;
-	while (coords.y < texture->height)
+	while (dim.coords.y < texture->height)
 	{
-		coords.x = 0;
-		while (coords.x < texture->width)
+		dim.coords.x = 0;
+		while (dim.coords.x < texture->width)
 		{
-			if (!add_anim_sprite(&anim, texture, &coords, mlx_ptr))
-			{
-				destroy_animation(anim, mlx_ptr, false);
-				return (NULL);
-			}
-			coords.x += TEXTURE_SIZE;
+			if (!add_anim_sprite(&anim, texture, &dim, mlx_ptr))
+				return (destroy_animation(anim, mlx_ptr, false), NULL);
+			dim.coords.x += width;
 		}
-		coords.y += TEXTURE_SIZE;
+		dim.coords.y += height;
 	}
 	if (anim != NULL)
 		ft_lstlast(anim)->next = anim;

@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy_handler_bonus.c                            :+:      :+:    :+:   */
+/*   mouse_press_handler_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 17:45:49 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/26 07:31:17 by codekiwi         ###   ########.fr       */
+/*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
+/*   Updated: 2024/06/26 07:38:38 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stdio.h>
 
 #include "cub3d_bonus.h"
 
-/**
- * @brief Destroys the given t_game instance and exits the program
- * @param game The t_game instance to destroy before exiting
- * @return A dummy integer
-*/
-int	destroy_handler(t_game *game)
+int	mouse_press_handler(int button, int x, int y, t_game *data)
 {
-	if (game == NULL)
-		error_exit(NULL, ERR_ARG);
-	t_game_destroy(game);
-	exit(EXIT_SUCCESS);
-	return (0);
+	if (button || data || x || y)
+		return (0);
+	return (1);
 }

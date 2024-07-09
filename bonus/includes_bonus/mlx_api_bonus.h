@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_api_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/28 15:24:05 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/08 14:16:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,20 @@
 # define KEY_A 						97
 # define KEY_S 						115
 # define KEY_D 						100
+# define KEY_P 						112
 # define KEY_E						101
+# define KEY_SPACE					32
+# define MOUSE_LEFT					1
+# define MOUSE_RIGHT				3
+# define MOUSE_WHEEL				2
+# define MOUSE_WHEEL_UP				4
+# define MOUSE_WHEEL_DOWN			5
 
 typedef struct s_mlx		t_mlx;
 typedef struct s_image		t_image;
 typedef union u_argb_color	t_argb_color;
 typedef struct s_mlx_coords	t_mlx_coords;
+typedef struct s_dimension	t_dimension;
 
 struct s_mlx
 {
@@ -76,6 +84,12 @@ struct s_mlx_coords
 	int16_t	y;
 };
 
+struct s_dimension
+{
+	t_mlx_coords	coords;
+	t_mlx_coords	size;
+};
+
 enum e_mlx_event
 {
 	MLX_ON_KEYPRESS = 2,
@@ -93,7 +107,9 @@ enum e_hook_type
 	HOOK_KEY,
 	HOOK_KEY_RELEASE,
 	HOOK_KEY_PRESS,
-	HOOK_MOUSE,
+	HOOK_MOUSE_PRESS,
+	HOOK_MOUSE_RELEASE,
+	HOOK_MOUSE_MOVE,
 	HOOK_LOOP
 };
 
@@ -104,12 +120,14 @@ void	t_mlx_destroy(t_mlx *mlx);
 bool	t_mlx_add_hook(t_mlx *mlx, int (*handler)(), void *game, \
 			enum e_hook_type hook_type);
 bool	t_mlx_render(t_mlx *mlx);
+void	t_mlx_sync_images(t_mlx *mlx);
 
 // t_image functions
 t_image	*t_image_init(void *mlx_ptr, int img_width, int img_height);
-void	t_image_destroy(void *mlx_ptr, t_image *img);
-void	t_image_clear(t_image *img);
-bool	t_image_import_file(t_image *image, char *filename, void *mlx);
+void	t_image_destroy(void *mlx_ptr, t_image *img, bool free_ptr);
+bool	t_image_import_file(t_image *image, char *filename, void *mlx, \
+			t_mlx_coords *size);
+bool	t_image_resize(void *mlx_ptr, t_image *img, t_mlx_coords *size);
 
 // Draw functions
 void	t_mlx_draw_pixel(t_image *img, t_mlx_coords *coords, \
@@ -120,6 +138,8 @@ void	t_mlx_draw_line(t_image *img, t_mlx_coords coords_start, \
 			t_mlx_coords coords_end, uint32_t color);
 void	t_mlx_draw_rectangle(t_image *img, t_mlx_coords *coords, \
 			t_mlx_coords *size, uint32_t color);
+void	t_mlx_draw_rect_texture(t_image *img, t_mlx_coords *coords, \
+			t_mlx_coords *size, t_image *texture);
 char	*t_mlx_get_pixel(t_image *image, size_t x, size_t y);
 bool	set_color(unsigned int *result, int r, int g, int b);
 void	multiply_color(unsigned int *color, float factor);

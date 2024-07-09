@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/30 09:59:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/09 09:54:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_BONUS_H
 
 # include <stdlib.h>
+# include <stddef.h>
 # include <sys/types.h>
 # include <stdbool.h>
 
@@ -22,13 +23,14 @@
 # include "vector_bonus.h"
 # include "player_bonus.h"
 # include "ray_bonus.h"
+# include "ui_bonus.h"
 
 # define PI						3.14159265358
-# define FPS					100
+# define FPS					50
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				800
-# define WIN_HEIGHT				800
+# define WIN_WIDTH				960
+# define WIN_HEIGHT				540
 # define MAX_DISTANCE			200
 
 # define MAX_VISION_DISTANCE	10
@@ -51,6 +53,7 @@
 # define ERR_MAP_EXTENSION		"Bad map extension, expected '.cub'"
 # define ERR_MULTIPLE_PLAYERS	"Multiple players on the map"
 # define ERR_MISSING_PLAYER		"Missing player"
+# define ERR_PLAYER_CREATION	"Impossible to create the player"
 # define ERR_MAP_EMPTY			"Missing map content"
 # define ERR_PLAYER_QUIT_MAP	"Player out of bounds of the map"
 # define ERR_MAP_OPEN			"Impossible to open the given map file"
@@ -61,8 +64,9 @@
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
 # define ERR_MISSING_COMPONENT	"Missing element component"
-
 # define ERR_TEXTURE_SIZE		"Wrong texture size"
+
+# define ERR_RECTANGLE			"You tried to draw an invalid rectangle"
 
 typedef struct s_game			t_game;
 typedef struct s_mlx			t_mlx;
@@ -74,19 +78,24 @@ typedef struct s_list			t_list;
 
 struct s_game
 {
-	t_mlx		mlx;
-	t_player	player;
-	t_map		map;
-	t_ray		rays[WIN_WIDTH];
-	long		frame_time_usec;
-	long		tick_last_frame;
-	t_list		*textures[8];
-	float		frame_update_delta;
-	size_t		door_count;
-	t_door		*doors;
-	t_list		*sprites;
-	t_list		*entities;
-	t_list		*last_entity_updated;
+	t_mlx			mlx;
+	t_player		player;
+	t_map			map;
+	t_vector		player_position;
+	t_ray			rays[WIN_WIDTH];
+	float			player_rotation_rad;
+	long			frame_time_usec;
+	long			tick_last_frame;
+	t_list			*textures[8];
+	float			frame_update_delta;
+	size_t			door_count;
+	t_door			*doors;
+	t_door			*last_door_seen;
+	t_list			*sprites;
+	t_list			*entities;
+	t_list			*last_entity_updated;
+	bool			pause;
+	t_ui			ui_pause;
 };
 
 struct	s_column
@@ -113,6 +122,9 @@ struct s_ground_celing
 int			game_loop(t_game *game);
 bool		t_game_init(t_game *game);
 void		t_game_destroy(t_game *game);
+void		t_game_destroy_and_exit(t_game *game);
+void		game_pause_switch(t_game *game);
+void		game_pause_close(t_game *game);
 
 // Render functions
 void		draw_walls(t_game *game);
@@ -121,6 +133,7 @@ void		draw_ground_ceiling(t_column *column, int end, t_game *game,
 void		draw_texture_column(t_image *screen, t_column *column,
 				t_image *texture, float distance);
 void		render_all_sprites(t_game *game);
+void		draw_player(t_game *game);
 
 // Utils functions
 void		error_print(char *err_msg);
