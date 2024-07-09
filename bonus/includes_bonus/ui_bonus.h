@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/08 15:09:29 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/09 09:36:32 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	destroy_all_ui(t_game *game);
 void	destroy_ui(t_ui *ui, void *mlx_ptr);
 void	draw_ui(t_ui *ui, t_image *img);
 bool	init_ui_pause(t_ui *ui_pause, void *mlx_ptr);
+void	disable_buttons_ui(t_ui *ui);
 
 // label functions
 bool	init_label(t_label *label, t_dimension	*dim, char *filename, \
