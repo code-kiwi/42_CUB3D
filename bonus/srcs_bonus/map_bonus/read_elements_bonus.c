@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/09 10:49:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/09 10:53:36 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "map_bonus.h"
 #include "libft.h"
 
-static bool	get_texture_size(t_vector *out, char *size)
+static bool	get_texture_size(t_mlx_coords *out, char *size)
 {
 	char	**values;
 
