@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/09 10:53:36 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/09 11:20:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static bool	get_texture_size(t_mlx_coords *out, char *size)
 
 	if (out == NULL || size == NULL)
 		return (false);
-	values = ft_split (size, ",");
+	values = ft_split(size, ",");
 	if (array_length((void **)values) != 2
 		|| !is_number(values[0]) || !is_number(values[1]))
 	{
