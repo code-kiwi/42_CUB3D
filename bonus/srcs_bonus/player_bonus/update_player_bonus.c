@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/09 09:49:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/09 10:15:01 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,7 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 
 static void	update_display(t_player_display *display, float delta_time)
 {
-	if (
-		display == NULL
-		|| display->frame_curr == display->frames
-	)
+	if (display == NULL || display->frame_curr == display->frames)
 		return ;
 	display->frame_update_delta += delta_time;
 	if (display->frame_update_delta < PLAYER_ANIMATION_UPDATE)

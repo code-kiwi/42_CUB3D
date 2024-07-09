@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/09 09:54:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/09 10:34:54 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ struct s_game
 	t_list			*last_entity_updated;
 	bool			pause;
 	t_ui			ui_pause;
+	bool			mouse_hidden;
 };
 
 struct	s_column
