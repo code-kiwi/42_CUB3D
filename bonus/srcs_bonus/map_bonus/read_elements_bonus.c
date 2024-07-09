@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/09 11:20:30 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/09 11:21:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static bool	get_texture_size(t_mlx_coords *out, char *size)
 	out->x = ft_atoi(values[0]);
 	out->y = ft_atoi(values[1]);
 	ft_free_str_array(&values);
-	if (out->x < 0 || out->y < 0)
+	if (out->x <= 0 || out->y <= 0)
 		return (error_print(ERR_NEGATIVE_SIZE), false);
 	return (true);
 }
