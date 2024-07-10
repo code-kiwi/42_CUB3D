@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:23:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 16:23:43 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 16:41:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static bool	init_ui_pause_btn1(
 	btn->size.y = UI_PAUSE_BTN1_H_RATIO * ui_pause->size.y;
 	btn->pos.x = ui_pause->pos.x + (ui_pause->size.x / 2 - btn->size.x / 2);
 	btn->pos.y = ui_pause->pos.y + 2 * ui_pause->size.y / 5;
-	btn->texture_off = textures[10]->content;
-	btn->texture_on = textures[11]->content;
+	btn->texture_off = textures[IDX_TXTR_UIP_B1_ON]->content;
+	btn->texture_on = textures[IDX_TXTR_UIP_B1_OFF]->content;
 	if (
 		!t_image_resize(mlx_ptr, btn->texture_off, &btn->size)
 		|| !t_image_resize(mlx_ptr, btn->texture_on, &btn->size)
@@ -52,8 +52,8 @@ static bool	init_ui_pause_btn2(
 	btn->size.y = UI_PAUSE_BTN2_H_RATIO * ui_pause->size.y;
 	btn->pos.x = ui_pause->pos.x + (ui_pause->size.x / 2 - btn->size.x / 2);
 	btn->pos.y = ui_pause->pos.y + 3 * ui_pause->size.y / 5;
-	btn->texture_off = textures[12]->content;
-	btn->texture_on = textures[13]->content;
+	btn->texture_off = textures[IDX_TXTR_UIP_B2_ON]->content;
+	btn->texture_on = textures[IDX_TXTR_UIP_B2_OFF]->content;
 	if (
 		!t_image_resize(mlx_ptr, btn->texture_off, &btn->size)
 		|| !t_image_resize(mlx_ptr, btn->texture_on, &btn->size)
@@ -102,7 +102,8 @@ static bool	init_ui_pause_labels(
 	dim.size.y = UI_PAUSE_LBL_H_RATIO * ui_pause->size.y;
 	dim.coords.x = ui_pause->pos.x + (ui_pause->size.x / 2 - dim.size.x / 2);
 	dim.coords.y = ui_pause->pos.y + ui_pause->size.y / 6;
-	if (!init_label(&ui_pause->labels[0], &dim, textures[9]->content, mlx_ptr))
+	if (!init_label(&ui_pause->labels[0], &dim, \
+		textures[IDX_TXTR_UIP_LBL]->content, mlx_ptr))
 	{
 		free(ui_pause->labels);
 		ui_pause->labels = NULL;
@@ -119,7 +120,7 @@ bool	init_ui_pause(
 {
 	if (ui_pause == NULL || mlx_ptr == NULL)
 		return (false);
-	ui_pause->texture = (t_image *) textures[8]->content;
+	ui_pause->texture = (t_image *) textures[IDX_TXTR_UIP_BG]->content;
 	ui_pause->size.x = (int)((float)WIN_WIDTH * UI_PAUSE_W_RATIO);
 	ui_pause->size.y = (int)((float)WIN_HEIGHT * UI_PAUSE_H_RATIO);
 	ui_pause->pos.x = (WIN_WIDTH - ui_pause->size.x) / 2;

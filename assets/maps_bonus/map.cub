@@ -3,7 +3,7 @@ SO ./assets/textures/walls/wall_2.xpm 64,64
 WE ./assets/textures/walls/wall_3.xpm 64,64
 EA ./assets/textures/walls/wall_4.xpm 64,64
 
-F ./assets/textures/floors/ground.xpm 64,64
+F ./assets/textures/floors/sand.xpm 64,64
 C ./assets/textures/ceilings/ceiling.xpm 64,64
 D ./assets/textures/doors/door.xpm 64,64
 E ./assets/textures/entities/flying/flying.xpm 64,64

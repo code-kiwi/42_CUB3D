@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/10 15:07:05 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 16:43:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,21 @@
 # define ID_TEXTURE_UI_PAUSE_BTNR_ON	"UI_PAUSE_BTN_RESUME_ON"
 # define ID_TEXTURE_UI_PAUSE_BTNQ_OFF	"UI_PAUSE_BTN_QUIT_OFF"
 # define ID_TEXTURE_UI_PAUSE_BTNQ_ON	"UI_PAUSE_BTN_QUIT_ON"
+
+# define IDX_TXTR_N						0
+# define IDX_TXTR_S						1
+# define IDX_TXTR_W						2
+# define IDX_TXTR_E						3
+# define IDX_TXTR_FLOOR					4
+# define IDX_TXTR_CEIL					5
+# define IDX_TXTR_DOOR					6
+# define IDX_TXTR_ENTITITES				7
+# define IDX_TXTR_UIP_BG				8
+# define IDX_TXTR_UIP_LBL				9
+# define IDX_TXTR_UIP_B1_ON				10
+# define IDX_TXTR_UIP_B1_OFF			11
+# define IDX_TXTR_UIP_B2_ON				12
+# define IDX_TXTR_UIP_B2_OFF			13
 
 # define MAP_EXTENSION		".cub"
 # define MAP_ALLOWED_CHARS	" 01sdeNSEW"
