@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/07/01 15:34:41 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/10 11:49:53 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,15 @@ static void	draw_all_columns(
 	}
 }
 
+static bool	is_sprite_aimed(t_sprite *sprite, int left_x)
+{
+	if (left_x > WIN_WIDTH / 2)
+		return (false);
+	if (left_x + sprite->height / sprite->distance < WIN_WIDTH / 2)
+		return (false);
+	return (true);
+}
+
 static void	draw_sprite(t_sprite *sprite, t_game *game)
 {
 	t_column	column;
@@ -102,8 +111,7 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 	if (column.start < 0)
 		column.start = 0;
 	column.perceived_height = sprite->height * scale;
-	if (WIN_WIDTH / 2 >= column.coords.x
-		&& WIN_WIDTH / 2 <= column.coords.x + sprite->height / sprite->distance)
+	if (is_sprite_aimed(sprite, column.coords.x))
 	{
 		game->player.aimed_sprite = sprite;
 	}
