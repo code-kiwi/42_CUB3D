@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_release_handler_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:15:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/28 09:49:04 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/10 10:42:27 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,7 @@ int	key_release_handler(int key, t_game *game)
 {
 	if (game == NULL)
 		error_exit(NULL, ERR_ARG);
-	if (key == KEY_RIGHT)
-		game->player.turn_direction[1] = false;
-	else if (key == KEY_LEFT)
-		game->player.turn_direction[0] = false;
-	else if (key == KEY_W)
+	if (key == KEY_W)
 		game->player.is_walking[FRONT] = false;
 	else if (key == KEY_S)
 		game->player.is_walking[BACK] = false;

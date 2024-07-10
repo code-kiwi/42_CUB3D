@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/09 14:30:40 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 10:41:31 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@
 # include "ui_bonus.h"
 
 # define PI						3.14159265358
-# define FPS					100
+# define FPS					50
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				950
+# define WIN_WIDTH				960
 # define WIN_HEIGHT				500
 # define MAX_DISTANCE			200
 

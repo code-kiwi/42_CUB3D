@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/09 14:40:36 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 10:18:42 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	game_loop(t_game *game)
 	game_loop_handle_fps(game, &delta_time);
 	if (!game->pause)
 	{
+		t_mlx_center_cursor(&game->mlx);
 		if (!game->mouse_hidden)
 			t_mlx_mouse_hide(&game->mlx, &game->mouse_hidden);
 		update_entities_path(game);
