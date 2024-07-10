@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:15:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 10:42:27 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 10:52:59 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ int	key_release_handler(int key, t_game *game)
 		game->player.is_walking[LEFT] = false;
 	else if (key == KEY_D)
 		game->player.is_walking[RIGHT] = false;
-	else if (key == KEY_SPACE)
-		player_shoot(game);
 	else if (key == KEY_ESC)
 		game_pause_switch(game);
 	return (0);
