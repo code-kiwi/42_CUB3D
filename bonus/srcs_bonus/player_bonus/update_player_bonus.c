@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/10 10:32:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 12:15:58 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@
 
 static void	update_look(t_player *player, float delta_time)
 {
-	if (player->turn_direction[0] && !player->turn_direction[1])
+	if (player->rotation_speed != 0.0f)
+	{
 		player->orientation += player->rotation_speed * delta_time;
-	else if (player->turn_direction[1] && !player->turn_direction[0])
-		player->orientation -= player->rotation_speed * delta_time;
-	player->turn_direction[0] = false;
-	player->turn_direction[1] = false;
+		player->rotation_speed = 0.0f;
+	}
 	if (player->orientation > 2 * PI)
 		player->orientation -= 2 * PI;
 	else if (player->orientation < 0)

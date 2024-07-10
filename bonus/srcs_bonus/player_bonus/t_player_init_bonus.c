@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_player_init_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/27 18:46:21 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/10 12:18:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,8 @@ bool	t_player_init(t_player *player, t_map *map, t_game *game)
 	player->move_speed[1] = PLAYER_SPEED_LEFT;
 	player->move_speed[2] = PLAYER_SPEED_BACKWARD;
 	player->move_speed[3] = PLAYER_SPEED_RIGHT;
-	player->rotation_speed = PLAYER_SPEED_ROTATION;
+	player->rotation_speed = 0.0f;
 	ft_memset(player->is_walking, 0, 4 * sizeof(bool));
-	ft_memset(player->turn_direction, 0, 2 * sizeof(bool));
 	player->look_ray = &game->rays[(int)WIN_WIDTH / 2];
 	if (!t_player_init_display(&player->display, game->mlx.mlx_ptr))
 		return (error_print(ERR_PLAYER_CREATION), false);

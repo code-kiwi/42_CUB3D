@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:15 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/10 11:09:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 12:17:16 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,8 @@ int	mouse_move_handler(int x, int y, t_game *game)
 	{
 		x_delta = abs(x - game->mlx.width_half);
 		game->player.rotation_speed = (float)x_delta / MOTION_X_DECREASE_FACTOR;
-		if (x < game->mlx.width_half)
-			game->player.turn_direction[0] = true;
-		else if (x > game->mlx.width_half)
-			game->player.turn_direction[1] = true;
+		if (x > game->mlx.width_half)
+			game->player.rotation_speed *= -1.0f;
 	}
 	return (1);
 }
