@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:36:13 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 14:52:46 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 16:20:14 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,15 @@
 
 void	destroy_ui(t_ui *ui, void *mlx_ptr)
 {
-	size_t	i;
-
 	if (ui == NULL || mlx_ptr == NULL)
 		return ;
 	if (ui->buttons != NULL)
 	{
-		i = 0;
-		while (i < ui->nb_buttons)
-			destroy_button(&ui->buttons[i++], mlx_ptr);
 		free(ui->buttons);
 		ui->buttons = NULL;
 	}
 	if (ui->labels != NULL)
 	{
-		i = 0;
-		while (i < ui->nb_labels)
-			destroy_label(&ui->labels[i++], mlx_ptr);
 		free(ui->labels);
 		ui->labels = NULL;
 	}
@@ -71,7 +63,7 @@ void	disable_buttons_ui(t_ui *ui)
 	i = 0;
 	while (i < ui->nb_buttons)
 	{
-		ui->buttons[i].texture_active = &ui->buttons[i].texture_off;
+		ui->buttons[i].texture_active = ui->buttons[i].texture_off;
 		i++;
 	}
 }

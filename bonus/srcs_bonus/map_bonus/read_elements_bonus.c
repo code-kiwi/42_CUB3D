@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/10 14:25:26 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 15:11:14 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,11 @@ static void	init_identifier(char **identifier)
 	identifier[6] = ID_TEXTURE_DOOR;
 	identifier[7] = ID_TEXTURE_ENTITY;
 	identifier[8] = ID_TEXTURE_UI_PAUSE_BG;
+	identifier[9] = ID_TEXTURE_UI_PAUSE_LABEL;
+	identifier[10] = ID_TEXTURE_UI_PAUSE_BTNR_OFF;
+	identifier[11] = ID_TEXTURE_UI_PAUSE_BTNR_ON;
+	identifier[12] = ID_TEXTURE_UI_PAUSE_BTNQ_OFF;
+	identifier[13] = ID_TEXTURE_UI_PAUSE_BTNQ_ON;
 }
 
 bool	read_elements(t_map *map, int fd)

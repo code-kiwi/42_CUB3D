@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/10 14:25:55 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 15:07:05 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,32 @@
 
 # include "mlx_api_bonus.h"
 
-# define ID_MAP_WALL			'1'
-# define ID_MAP_TILE			'0'
-# define ID_MAP_SPACE			' '
-# define ID_MAP_DOOR_CLOSED		'd'
-# define ID_MAP_DOOR_OPENED		'o'
-# define ID_MAP_SPRITE			's'
-# define ID_MAP_ENTITY			'e'
+# define ID_MAP_WALL					'1'
+# define ID_MAP_TILE					'0'
+# define ID_MAP_SPACE					' '
+# define ID_MAP_DOOR_CLOSED				'd'
+# define ID_MAP_DOOR_OPENED				'o'
+# define ID_MAP_SPRITE					's'
+# define ID_MAP_ENTITY					'e'
 
-# define ID_TEXTURE_NORTH		"NO"
-# define ID_TEXTURE_SOUTH		"SO"
-# define ID_TEXTURE_WEST		"WE"
-# define ID_TEXTURE_EAST		"EA"
-# define ID_TEXTURE_FLOOR		"F"
-# define ID_TEXTURE_CEILING		"C"
-# define ID_TEXTURE_DOOR		"D"
-# define ID_TEXTURE_ENTITY		"E"
-# define ID_TEXTURE_UI_PAUSE_BG	"UI_PAUSE_BG"
+# define ID_TEXTURE_NORTH				"NO"
+# define ID_TEXTURE_SOUTH				"SO"
+# define ID_TEXTURE_WEST				"WE"
+# define ID_TEXTURE_EAST				"EA"
+# define ID_TEXTURE_FLOOR				"F"
+# define ID_TEXTURE_CEILING				"C"
+# define ID_TEXTURE_DOOR				"D"
+# define ID_TEXTURE_ENTITY				"E"
+# define ID_TEXTURE_UI_PAUSE_BG			"UI_PAUSE_BG"
+# define ID_TEXTURE_UI_PAUSE_LABEL		"UI_PAUSE_LABEL"
+# define ID_TEXTURE_UI_PAUSE_BTNR_OFF	"UI_PAUSE_BTN_RESUME_OFF"
+# define ID_TEXTURE_UI_PAUSE_BTNR_ON	"UI_PAUSE_BTN_RESUME_ON"
+# define ID_TEXTURE_UI_PAUSE_BTNQ_OFF	"UI_PAUSE_BTN_QUIT_OFF"
+# define ID_TEXTURE_UI_PAUSE_BTNQ_ON	"UI_PAUSE_BTN_QUIT_ON"
 
 # define MAP_EXTENSION		".cub"
 # define MAP_ALLOWED_CHARS	" 01sdeNSEW"
-# define MAP_NB_IDS			9
+# define MAP_NB_IDS			14
 
 typedef struct s_game		t_game;
 typedef struct s_map		t_map;
