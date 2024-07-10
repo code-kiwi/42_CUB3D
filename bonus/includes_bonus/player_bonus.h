@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/09 09:46:52 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 12:18:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 # define PLAYER_SPEED_BACKWARD			3
 # define PLAYER_SPEED_LEFT				3
 # define PLAYER_SPEED_RIGHT				3
-# define PLAYER_SPEED_ROTATION			1.3
 # define PLAYER_INTERACTION_DISTANCE	1.5
 
 # define PLAYER_TEXTURE_FILE			"./assets/test_textures/hands.xpm"
@@ -63,7 +62,6 @@ struct s_player
 	t_vector			position;
 	float				orientation;
 	bool				is_walking[4];
-	int					turn_direction[2];
 	float				move_speed[4];
 	float				rotation_speed;
 	float				leftmost_angle;

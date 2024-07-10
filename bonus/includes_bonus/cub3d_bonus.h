@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/09 11:08:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/10 10:56:35 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define FPS					100
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				1920
-# define WIN_HEIGHT				1080
+# define WIN_WIDTH				960
+# define WIN_HEIGHT				500
 # define MAX_DISTANCE			200
 
 # define MAX_VISION_DISTANCE	10
@@ -81,24 +81,25 @@ typedef struct s_list			t_list;
 
 struct s_game
 {
-	t_mlx			mlx;
-	t_player		player;
-	t_map			map;
-	t_vector		player_position;
-	t_ray			rays[WIN_WIDTH];
-	float			player_rotation_rad;
-	long			frame_time_usec;
-	long			tick_last_frame;
-	t_list			*textures[8];
-	float			frame_update_delta;
-	size_t			door_count;
-	t_door			*doors;
-	t_door			*last_door_seen;
-	t_list			*sprites;
-	t_list			*entities;
-	t_list			*last_entity_updated;
-	bool			pause;
-	t_ui			ui_pause;
+	t_mlx		mlx;
+	t_player	player;
+	t_map		map;
+	t_vector	player_position;
+	t_ray		rays[WIN_WIDTH];
+	float		player_rotation_rad;
+	long		frame_time_usec;
+	long		tick_last_frame;
+	t_list		*textures[8];
+	float		frame_update_delta;
+	size_t		door_count;
+	t_door		*doors;
+	t_door		*last_door_seen;
+	t_list		*sprites;
+	t_list		*entities;
+	t_list		*last_entity_updated;
+	bool		pause;
+	t_ui		ui_pause;
+	bool		mouse_hidden;
 };
 
 struct	s_column
@@ -113,46 +114,46 @@ struct	s_column
 
 struct s_ground_celing
 {
-	t_vector		pixel_pos;
-	int				ceiling_y;
-	char			*ground_addr;
-	char			*ceiling_addr;
-	float			unit;
-	float			inverse_dist;
+	t_vector	pixel_pos;
+	int			ceiling_y;
+	char		*ground_addr;
+	char		*ceiling_addr;
+	float		unit;
+	float		inverse_dist;
 };
 
 // Game functions
-int			game_loop(t_game *game);
-bool		t_game_init(t_game *game);
-void		t_game_destroy(t_game *game);
-void		t_game_destroy_and_exit(t_game *game);
-void		game_pause_switch(t_game *game);
-void		game_pause_close(t_game *game);
+int		game_loop(t_game *game);
+bool	t_game_init(t_game *game);
+void	t_game_destroy(t_game *game);
+void	t_game_destroy_and_exit(t_game *game);
+void	game_pause_switch(t_game *game);
+void	game_pause_close(t_game *game);
 
 // Render functions
-void		draw_walls(t_game *game);
-void		draw_ground_ceiling(t_column *column, int end, t_game *game,
-				t_ray *ray);
-void		draw_texture_column(t_image *screen, t_column *column,
-				t_image *texture, float distance);
-void		render_all_sprites(t_game *game);
-void		draw_player(t_game *game);
+void	draw_walls(t_game *game);
+void	draw_ground_ceiling(t_column *column, int end, t_game *game, \
+			t_ray *ray);
+void	draw_texture_column(t_image *screen, t_column *column,
+			t_image *texture, float distance);
+void	render_all_sprites(t_game *game);
+void	draw_player(t_game *game);
 
 // Utils functions
-void		error_print(char *err_msg);
-void		error_exit(t_game *game, char *err_msg);
-size_t		array_length(void **array);
-int			sign(float value);
-ssize_t		find_str_in_array(char **array, char *str, size_t length);
-void		free_array(char **array, size_t length, bool free_container);
-void		print_str_array(char **array, size_t length);
-int			min(int a, int b);
-bool		is_number(char *str);
-void		remove_last_breakline(char *str);
-void		remove_last_spaces(char *str);
-void		skip_next_spaces(char **str);
-void		display_delta_time(void);
-long		get_tick(void);
-void		sort_list(t_list *lst, float compare(void *, void *));
+void	error_print(char *err_msg);
+void	error_exit(t_game *game, char *err_msg);
+size_t	array_length(void **array);
+int		sign(float value);
+ssize_t	find_str_in_array(char **array, char *str, size_t length);
+void	free_array(char **array, size_t length, bool free_container);
+void	print_str_array(char **array, size_t length);
+int		min(int a, int b);
+bool	is_number(char *str);
+void	remove_last_breakline(char *str);
+void	remove_last_spaces(char *str);
+void	skip_next_spaces(char **str);
+void	display_delta_time(void);
+long	get_tick(void);
+void	sort_list(t_list *lst, float compare(void *, void *));
 
 #endif

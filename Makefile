@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:35:12 by mhotting          #+#    #+#              #
-#    Updated: 2024/06/27 19:53:31 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/07/09 14:38:25 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,10 @@ $(MLX): init_submodule FORCE
 FORCE:
 
 fsanitize: fclean $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(HFLAGS) $(FSFLAGS) $(OBJS) $(LIBFT_FLAGS) $(EXT_LIB_FLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(HFLAGS) $(FSFLAGS) $(OBJS) $(LIBFT_FLAGS) $(MLX_FLAGS) $(EXT_LIB_FLAGS) -o $(NAME)
+
+fsanitize-bonus: fclean $(LIBFT) $(OBJS_BONUS)
+	$(CC) $(CFLAGS) $(HFLAGS_BONUS) $(FSFLAGS) $(OBJS_BONUS) $(LIBFT_FLAGS) $(MLX_FLAGS) $(EXT_LIB_FLAGS) -o $(NAME_BONUS)
 
 init_submodule:
 	@if git submodule status | egrep -q '^[-+]' ; then \
@@ -95,4 +98,4 @@ rre: ffclean all
 
 rre-bonus: ffclean bonus
 
-.PHONY: all clean clean-bonus fclean fclean-bonus re re-bonus clean-libft clean-mlx fclean-libft fclean-mlx ffclean rre rre-bonus bonus FORCE fsanitize init_submodule
+.PHONY: all clean clean-bonus fclean fclean-bonus re re-bonus clean-libft clean-mlx fclean-libft fclean-mlx ffclean rre rre-bonus bonus FORCE fsanitize fsanitize-bonus init_submodule

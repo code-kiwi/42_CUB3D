@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/09 09:50:31 by mhotting         ###   ########.fr        #
+#    Updated: 2024/07/09 10:46:24 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ GAME_BONUS					=	$(addprefix $(GAME_DIR_BONUS), $(GAME_FILES_BONUS))
 MLX_API_DIR_BONUS			=	mlx_api_bonus/
 MLX_API_FILES_BONUS			=	t_image_utils_bonus.c			\
 								t_image_resize_bonus.c			\
+								t_mlx_mouse_utils_bonus.c		\
 								t_mlx_init_bonus.c				\
 								t_mlx_destroy_bonus.c			\
 								t_mlx_hook_bonus.c				\

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:36:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/24 11:43:13 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 11:08:28 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,9 @@ bool	t_mlx_init(t_mlx *mlx, int win_width, int win_height, char *title)
 		return (false);
 	}
 	mlx->width = win_width;
+	mlx->width_half = win_width / 2;
 	mlx->height = win_height;
+	mlx->height_half = win_height / 2;
 	mlx->title = ft_strdup(title);
 	if (mlx->title == NULL)
 	{
@@ -93,5 +95,7 @@ bool	t_mlx_launch(t_mlx *mlx)
 		return (false);
 	mlx->mlx_win = mlx_new_window(mlx->mlx_ptr, mlx->width, \
 						mlx->height, mlx->title);
+	if (mlx->mlx_win != NULL)
+		t_mlx_center_cursor(mlx);
 	return (mlx->mlx_win != NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/09 09:49:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 12:15:58 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
 
 static void	update_look(t_player *player, float delta_time)
 {
-	if (player->turn_direction[0] && !player->turn_direction[1])
+	if (player->rotation_speed != 0.0f)
+	{
 		player->orientation += player->rotation_speed * delta_time;
-	else if (player->turn_direction[1] && !player->turn_direction[0])
-		player->orientation -= player->rotation_speed * delta_time;
+		player->rotation_speed = 0.0f;
+	}
 	if (player->orientation > 2 * PI)
 		player->orientation -= 2 * PI;
 	else if (player->orientation < 0)
@@ -52,10 +53,7 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 
 static void	update_display(t_player_display *display, float delta_time)
 {
-	if (
-		display == NULL
-		|| display->frame_curr == display->frames
-	)
+	if (display == NULL || display->frame_curr == display->frames)
 		return ;
 	display->frame_update_delta += delta_time;
 	if (display->frame_update_delta < PLAYER_ANIMATION_UPDATE)
