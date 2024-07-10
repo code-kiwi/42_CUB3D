@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 10:41:31 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 10:56:35 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # include "ui_bonus.h"
 
 # define PI						3.14159265358
-# define FPS					50
+# define FPS					100
 
 # define WIN_TITLE				"Cub3D"
 # define WIN_WIDTH				960
@@ -60,6 +60,9 @@
 # define ERR_MAP_CONTENT		"Reading failed, check the map content"
 # define ERR_MISSING_TEXTURES	"Missing textures"
 # define ERR_MAP_READ			"Map: read failed"
+# define ERR_BAD_SIZE			"Wrong or missing texture size"
+# define ERR_SIZE_TOO_BIG		"Size too big, max 4 characters"
+# define ERR_NEGATIVE_SIZE		"Invalid negative size"
 
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
