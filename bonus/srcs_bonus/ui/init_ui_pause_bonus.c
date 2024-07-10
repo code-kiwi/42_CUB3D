@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:27:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/08 15:09:50 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 14:50:39 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,15 @@ static bool	init_ui_pause_labels(t_ui *ui_pause, void *mlx_ptr)
 	return (true);
 }
 
-bool	init_ui_pause(t_ui *ui_pause, void *mlx_ptr)
+bool	init_ui_pause(
+	t_ui *ui_pause,
+	void *mlx_ptr,
+	t_list *textures[MAP_NB_IDS]
+)
 {
 	if (ui_pause == NULL || mlx_ptr == NULL)
 		return (false);
-	if (!t_image_import_file(&ui_pause->texture, \
-		UI_PAUSE_TXT_FILE, mlx_ptr, NULL))
-		return (false);
+	ui_pause->texture = (t_image *) textures[8]->content;
 	ui_pause->size.x = (int)((float)WIN_WIDTH * UI_PAUSE_W_RATIO);
 	ui_pause->size.y = (int)((float)WIN_HEIGHT * UI_PAUSE_H_RATIO);
 	ui_pause->pos.x = (WIN_WIDTH - ui_pause->size.x) / 2;

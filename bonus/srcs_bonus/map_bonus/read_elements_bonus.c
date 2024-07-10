@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/09 11:21:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/10 14:25:26 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ static void	init_identifier(char **identifier)
 	identifier[5] = ID_TEXTURE_CEILING;
 	identifier[6] = ID_TEXTURE_DOOR;
 	identifier[7] = ID_TEXTURE_ENTITY;
+	identifier[8] = ID_TEXTURE_UI_PAUSE_BG;
 }
 
 bool	read_elements(t_map *map, int fd)

@@ -8,6 +8,8 @@ C ./assets/textures/ceilings/ceiling.xpm 64,64
 D ./assets/textures/doors/door.xpm 64,64
 E ./assets/textures/entities/flying/flying.xpm 64,64
 
+UI_PAUSE_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297
+
 11111111111111111111
 10000000000000000001
 10000000000000000001

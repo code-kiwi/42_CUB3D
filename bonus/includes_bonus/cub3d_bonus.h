@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 14:21:23 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 14:45:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ struct s_game
 	float		player_rotation_rad;
 	long		frame_time_usec;
 	long		tick_last_frame;
-	t_list		*textures[8];
+	t_list		*textures[MAP_NB_IDS];
 	float		frame_update_delta;
 	size_t		door_count;
 	t_door		*doors;

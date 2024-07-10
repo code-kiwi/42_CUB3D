@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/09 09:36:32 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 14:53:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define UI_BONUS_H
 
 # include "mlx_api_bonus.h"
+# include "map_bonus.h"
 
 # define UI_PAUSE_TXT_FILE		"./assets/test_textures/transparent_pixels.xpm"
 # define UI_PAUSE_W_RATIO		0.5f
@@ -38,12 +39,13 @@ typedef struct s_game		t_game;
 typedef struct s_ui			t_ui;
 typedef struct s_button		t_button;
 typedef struct s_label		t_label;
+typedef struct s_list		t_list;
 
 struct s_ui
 {
 	t_mlx_coords	pos;
 	t_mlx_coords	size;
-	t_image			texture;
+	t_image			*texture;
 	size_t			nb_buttons;
 	t_button		*buttons;
 	size_t			nb_labels;
@@ -72,7 +74,8 @@ bool	init_all_ui(t_game *game);
 void	destroy_all_ui(t_game *game);
 void	destroy_ui(t_ui *ui, void *mlx_ptr);
 void	draw_ui(t_ui *ui, t_image *img);
-bool	init_ui_pause(t_ui *ui_pause, void *mlx_ptr);
+bool	init_ui_pause(t_ui *ui_pause, void *mlx_ptr, \
+			t_list *textures[MAP_NB_IDS]);
 void	disable_buttons_ui(t_ui *ui);
 
 // label functions

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/10 14:23:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 14:25:55 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 
 # define MAP_EXTENSION		".cub"
 # define MAP_ALLOWED_CHARS	" 01sdeNSEW"
-# define MAP_NB_IDS			8
+# define MAP_NB_IDS			9
 
 typedef struct s_game		t_game;
 typedef struct s_map		t_map;
