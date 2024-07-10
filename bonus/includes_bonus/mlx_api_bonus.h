@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 11:07:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 11:14:40 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@
 # define MOUSE_WHEEL				2
 # define MOUSE_WHEEL_UP				4
 # define MOUSE_WHEEL_DOWN			5
-# define MOUSE_RESET_OFFSET			100
 
 typedef struct s_mlx		t_mlx;
 typedef struct s_image		t_image;
