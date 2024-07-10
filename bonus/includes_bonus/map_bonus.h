@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/09 10:53:56 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/10 14:23:14 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@
 
 # include "mlx_api_bonus.h"
 
-# define ID_MAP_WALL		'1'
-# define ID_MAP_TILE		'0'
-# define ID_MAP_SPACE		' '
-# define ID_MAP_DOOR_CLOSED	'd'
-# define ID_MAP_DOOR_OPENED	'o'
-# define ID_MAP_SPRITE		's'
-# define ID_MAP_ENTITY		'e'
+# define ID_MAP_WALL			'1'
+# define ID_MAP_TILE			'0'
+# define ID_MAP_SPACE			' '
+# define ID_MAP_DOOR_CLOSED		'd'
+# define ID_MAP_DOOR_OPENED		'o'
+# define ID_MAP_SPRITE			's'
+# define ID_MAP_ENTITY			'e'
 
-# define ID_TEXTURE_NORTH	"NO"
-# define ID_TEXTURE_SOUTH	"SO"
-# define ID_TEXTURE_WEST	"WE"
-# define ID_TEXTURE_EAST	"EA"
-# define ID_TEXTURE_FLOOR	"F"
-# define ID_TEXTURE_CEILING	"C"
-# define ID_TEXTURE_DOOR	"D"
-# define ID_TEXTURE_SPRITE	"S"
-# define ID_TEXTURE_ENTITY	"E"
+# define ID_TEXTURE_NORTH		"NO"
+# define ID_TEXTURE_SOUTH		"SO"
+# define ID_TEXTURE_WEST		"WE"
+# define ID_TEXTURE_EAST		"EA"
+# define ID_TEXTURE_FLOOR		"F"
+# define ID_TEXTURE_CEILING		"C"
+# define ID_TEXTURE_DOOR		"D"
+# define ID_TEXTURE_ENTITY		"E"
+# define ID_TEXTURE_UI_PAUSE_BG	"UI_PAUSE_BG"
 
 # define MAP_EXTENSION		".cub"
 # define MAP_ALLOWED_CHARS	" 01sdeNSEW"
