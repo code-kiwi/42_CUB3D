@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/09 12:57:32 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 11:07:30 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,10 @@ struct s_mlx
 	t_image	*img_buff;
 	size_t	event_loop_counter;
 	int		width;
+	int		width_half;
 	int		height;
+	int		height_half;
 	char	*title;
-	int		last_mouse_x_pos;
 };
 
 struct s_image
