@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_entities_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/30 10:00:00 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/10 16:42:28 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ bool	init_entities(t_game *game)
 		if (new_sprite_node == NULL)
 			return (false);
 		ft_lstadd_front(&game->sprites, new_sprite_node);
-		t_entity_init(entity, game->textures[7]);
+		t_entity_init(entity, game->textures[IDX_TXTR_ENTITITES]);
 		current = current->next;
 	}
 	game->last_entity_updated = game->entities;

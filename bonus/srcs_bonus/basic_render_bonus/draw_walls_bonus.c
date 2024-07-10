@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/28 15:31:05 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/10 16:39:20 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@
 #include "libft.h"
 #include "door_bonus.h"
 
-static t_image	*get_texture(t_list *textures[4], t_ray *ray)
+static t_image	*get_texture(t_list *textures[MAP_NB_IDS], t_ray *ray)
 {
 	if (ray->is_door)
-		return (textures[6]->content);
+		return (textures[IDX_TXTR_DOOR]->content);
 	if (ray->is_vertical)
 	{
 		if (ray->slope.x > 0)
-			return (textures[3]->content);
+			return (textures[IDX_TXTR_E]->content);
 		else
-			return (textures[1]->content);
+			return (textures[IDX_TXTR_S]->content);
 	}
 	else
 	{
 		if (ray->slope.y > 0)
-			return (textures[2]->content);
+			return (textures[IDX_TXTR_W]->content);
 		else
-			return (textures[0]->content);
+			return (textures[IDX_TXTR_N]->content);
 	}
 }
 

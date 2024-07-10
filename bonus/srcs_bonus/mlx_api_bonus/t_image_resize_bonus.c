@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 14:28:56 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/08 14:33:43 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/10 15:49:14 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ bool	t_image_resize(void *mlx_ptr, t_image *img, t_mlx_coords *size)
 	t_mlx_coords	src_coord;
 	t_vector		factors;
 
+	if (img->width == size->x && img->height == size->y)
+		return (true);
 	new = t_image_init(mlx_ptr, size->x, size->y);
 	if (new == NULL)
 		return (false);
@@ -60,6 +62,5 @@ bool	t_image_resize(void *mlx_ptr, t_image *img, t_mlx_coords *size)
 				*(((int *) img->addr) + src_coord.y * img->width + src_coord.x);
 		}
 	}
-	t_image_resize_replace_old(new, img, mlx_ptr);
-	return (true);
+	return (t_image_resize_replace_old(new, img, mlx_ptr), true);
 }

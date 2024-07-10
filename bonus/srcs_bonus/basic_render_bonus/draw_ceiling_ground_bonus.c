@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_ceiling_ground_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/28 16:11:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/10 16:39:08 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
 		get_pixel_position_in_tile(ray, &game->player.position,
 			&data.pixel_pos, data.inverse_dist);
 		draw_pixel_from_texture(&data.pixel_pos, data.ground_addr,
-			game->textures[4]->content, 1 / data.inverse_dist);
+			game->textures[IDX_TXTR_FLOOR]->content, 1 / data.inverse_dist);
 		if (data.ceiling_y >= 0)
 			draw_pixel_from_texture(&data.pixel_pos, data.ceiling_addr,
-				game->textures[5]->content, 1 / data.inverse_dist);
+				game->textures[IDX_TXTR_CEIL]->content, 1 / data.inverse_dist);
 		column->coords.y++;
 		data.ceiling_y--;
 		data.inverse_dist += data.unit;
