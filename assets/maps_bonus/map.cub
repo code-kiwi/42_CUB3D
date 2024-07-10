@@ -1,11 +1,12 @@
-NO ./assets/textures/wall_1.xpm
-SO ./assets/textures/wall_2.xpm
-WE ./assets/textures/wall_3.xpm
-EA ./assets/textures/wall_4.xpm
+NO ./assets/textures/walls/wall_1.xpm 64,64
+SO ./assets/textures/walls/wall_2.xpm 64,64
+WE ./assets/textures/walls/wall_3.xpm 64,64
+EA ./assets/textures/walls/wall_4.xpm 64,64
 
-F ./assets/textures/ground.xpm
-C ./assets/test_textures/sand.xpm
-E ./assets/textures/doom_enemy.xpm
+F ./assets/textures/floors/ground.xpm 64,64
+C ./assets/textures/ceilings/ceiling.xpm 64,64
+D ./assets/textures/doors/door.xpm 64,64
+E ./assets/textures/entities/flying/flying.xpm 64,64
 
 11111111111111111111
 10000000000000000001
@@ -13,10 +14,10 @@ E ./assets/textures/doom_enemy.xpm
 100N1010101010101001
 10000000000000000001
 10000000000000001001
+10000000000000e01001
 10000000000000001001
-10000000000000001001
-10000000000001111001
-10000000000000000001
-10000000002000200001
-10000000000000000001
+101110000000011d1001
+10001000000000000001
+1000d000000000000001
+10001000000000000001
 11111111111111111111
