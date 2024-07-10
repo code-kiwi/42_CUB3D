@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/07/10 11:49:53 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/10 11:57:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,20 @@ static void	draw_all_columns(
 
 static bool	is_sprite_aimed(t_sprite *sprite, int left_x)
 {
+	int				aimed_column;
+	t_image			*texture;
+	float			perceived_height;
+	unsigned int	*color;
+
 	if (left_x > WIN_WIDTH / 2)
 		return (false);
-	if (left_x + sprite->height / sprite->distance < WIN_WIDTH / 2)
+	perceived_height = sprite->height / sprite->distance;
+	if (left_x + perceived_height < WIN_WIDTH / 2)
 		return (false);
-	return (true);
+	texture = sprite->animation->content;
+	aimed_column = (WIN_WIDTH / 2 - left_x) / sprite->distance;
+	color = t_mlx_get_pixel(texture, aimed_column, perceived_height / 2);
+	return (color != 0xFF000000);
 }
 
 static void	draw_sprite(t_sprite *sprite, t_game *game)
