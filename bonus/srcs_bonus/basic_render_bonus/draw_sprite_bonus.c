@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/07/10 12:23:20 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/11 10:51:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ static void	draw_all_columns(
 	}
 }
 
+#include "stdio.h"
+
 static bool	is_sprite_aimed(t_sprite *sprite, int left_x)
 {
 	int		aimed_column;
@@ -97,8 +99,8 @@ static bool	is_sprite_aimed(t_sprite *sprite, int left_x)
 	if (left_x + perceived_height < WIN_WIDTH / 2)
 		return (false);
 	texture = sprite->animation->content;
-	aimed_column = (WIN_WIDTH / 2 - left_x) / sprite->distance;
-	color = t_mlx_get_pixel(texture, aimed_column, perceived_height / 2);
+	aimed_column = (WIN_WIDTH / 2 - left_x) * sprite->distance * texture->width / sprite->height;
+	color = t_mlx_get_pixel(texture, aimed_column, texture->height / 2);
 	return (*(unsigned int *)color != 0xFF000000);
 }
 
