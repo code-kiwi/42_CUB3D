@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   item_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 09:56:33 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/01 19:03:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/11 11:36:07 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ struct s_item
 };
 
 void	use_gun(t_game *game);
+void	use_item(t_game *game);
 
 #endif // !ITEM_BONUS_H

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   item_bonus.c                                       :+:      :+:    :+:   */
+/*   use_item_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:03:22 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/01 19:03:51 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/11 11:36:42 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,25 @@ void	use_gun(t_game *game)
 {
 	t_list	*aimed_entity;
 
+	player_shoot(game);
 	aimed_entity = ft_lstfind(game->entities, game->player.aimed_sprite,
 			is_sprite_of_entity);
 	if (aimed_entity == NULL)
 		return ;
 	damage_entity(game, aimed_entity->content, GUN_DAMAGE);
 	game->player.aimed_sprite = NULL;
+}
+
+void	use_item(t_game *game)
+{
+	t_item	*item_in_hand;
+
+	if (game == NULL)
+		return ;
+	item_in_hand = game->player.item_in_hand;
+	if (item_in_hand == NULL || item_in_hand->remaining_usage == 0)
+		return ;
+	item_in_hand->use_item(game);
+	if (item_in_hand->remaining_usage != -1)
+		item_in_hand->remaining_usage--;
 }

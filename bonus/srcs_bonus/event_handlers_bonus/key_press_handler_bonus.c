@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/11 11:27:32 by root             ###   ########.fr       */
+/*   Updated: 2024/07/11 11:32:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,6 @@
 #include "libft.h"
 #include "door_bonus.h"
 #include "item_bonus.h"
-
-void	interact(t_game *game)
-{
-	t_item	*item_in_hand;
-
-	item_in_hand = game->player.item_in_hand;
-	if (game->player.aimed_sprite == NULL)
-		open_looked_door(game->player.look_ray, &game->map);
-	else if (item_in_hand != NULL && item_in_hand->remaining_usage != 0)
-	{
-		item_in_hand->use_item(game);
-		if (item_in_hand->remaining_usage != -1)
-			item_in_hand->remaining_usage--;
-	}
-}
 
 /**
  * @brief Handles the keyboard press key events
@@ -52,6 +37,6 @@ int	key_press_handler(int key, t_game *game)
 	else if (key == KEY_D)
 		game->player.is_walking[RIGHT] = true;
 	else if (key == KEY_E)
-		interact(game);
+		open_looked_door(game->player.look_ray, &game->map);
 	return (0);
 }
