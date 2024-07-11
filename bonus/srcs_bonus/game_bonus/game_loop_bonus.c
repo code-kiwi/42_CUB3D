@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/29 20:31:44 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/11 11:24:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,30 @@ int	game_loop(t_game *game)
 {
 	float	delta_time;
 
-	delta_time = 0;
+	delta_time = 0.1f;
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
-	update_entities_path(game);
-	update_entities(game->entities, delta_time, &game->map);
-	update_animations(game, delta_time);
-	update_player(&game->player, &game->map, delta_time, game->entities);
-	update_doors(game, delta_time);
-	if (!is_in_bounds(&game->player.position, &game->map))
-		error_exit(game, ERR_PLAYER_QUIT_MAP);
-	if (!cast_rays(game))
-		error_exit(game, ERR_CAST_RAYS);
-	draw_walls(game);
-	render_all_sprites(game);
+	if (!game->pause)
+	{
+		t_mlx_center_cursor(&game->mlx);
+		if (!game->mouse_hidden)
+			t_mlx_mouse_hide(&game->mlx, &game->mouse_hidden);
+		update_entities_path(game);
+		update_entities(game->entities, delta_time, &game->map);
+		update_animations(game, delta_time);
+		update_player(&game->player, &game->map, delta_time, game->entities);
+		update_doors(game, delta_time);
+		if (!is_in_bounds(&game->player.position, &game->map))
+			error_exit(game, ERR_PLAYER_QUIT_MAP);
+		if (!cast_rays(game))
+			error_exit(game, ERR_CAST_RAYS);
+		draw_walls(game);
+		render_all_sprites(game);
+		draw_player(game);
+	}
+	else
+		draw_ui(&game->ui_pause, game->mlx.img_buff);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
 	printf("fps : %d\n", (int)(1.0f / delta_time));

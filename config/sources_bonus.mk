@@ -6,7 +6,7 @@
 #    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/11 11:10:54 by root             ###   ########.fr        #
+#    Updated: 2024/07/11 11:29:55 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,12 +41,15 @@ MAIN_BONUS					=	$(addprefix $(MAIN_DIR_BONUS), $(MAIN_FILES_BONUS))
 GAME_DIR_BONUS				=	game_bonus/
 GAME_FILES_BONUS			=	t_game_destroy_bonus.c			\
 								t_game_init_bonus.c				\
-								game_loop_bonus.c
+								game_loop_bonus.c				\
+								game_pause_bonus.c
 GAME_BONUS					=	$(addprefix $(GAME_DIR_BONUS), $(GAME_FILES_BONUS))
 
 # MLX_API
 MLX_API_DIR_BONUS			=	mlx_api_bonus/
 MLX_API_FILES_BONUS			=	t_image_utils_bonus.c			\
+								t_image_resize_bonus.c			\
+								t_mlx_mouse_utils_bonus.c		\
 								t_mlx_init_bonus.c				\
 								t_mlx_destroy_bonus.c			\
 								t_mlx_hook_bonus.c				\
@@ -55,7 +58,8 @@ MLX_API_FILES_BONUS			=	t_image_utils_bonus.c			\
 								t_mlx_get_pixel_bonus.c			\
 								t_mlx_draw_line_bonus.c			\
 								t_mlx_draw_rectangle_bonus.c	\
-								t_argb_color_utils_bonus.c
+								t_argb_color_utils_bonus.c		\
+								t_mlx_sync_images.c
 MLX_API_BONUS				=	$(addprefix $(MLX_API_DIR_BONUS), $(MLX_API_FILES_BONUS))
 
 # EVENT_HANDLERS
@@ -63,7 +67,11 @@ EVENT_HANDLERS_DIR_BONUS	=	event_handlers_bonus/
 EVENT_HANDLERS_FILES_BONUS	=	add_event_handler_bonus.c		\
 								destroy_handler_bonus.c			\
 								key_release_handler_bonus.c		\
-								key_press_handler_bonus.c
+								key_press_handler_bonus.c		\
+								mouse_press_handler_bonus.c		\
+								mouse_release_handler_bonus.c	\
+								mouse_move_handler_bonus.c		\
+								pause_handlers_bonus.c
 EVENT_HANDLERS_BONUS		=	$(addprefix $(EVENT_HANDLERS_DIR_BONUS), $(EVENT_HANDLERS_FILES_BONUS))
 
 # BASIC_RENDER
@@ -72,7 +80,8 @@ BASIC_RENDER_FILES_BONUS	=	draw_walls_bonus.c				\
 								draw_column_bonus.c				\
 								draw_ceiling_ground_bonus.c		\
 								draw_sprite_bonus.c				\
-								sprite_screen_position_bonus.c
+								sprite_screen_position_bonus.c	\
+								draw_player_bonus.c
 BASIC_RENDER_BONUS			=	$(addprefix $(BASIC_RENDER_DIR_BONUS), $(BASIC_RENDER_FILES_BONUS))
 
 # MAP
@@ -96,7 +105,10 @@ DOOR_BONUS					=	$(addprefix $(DOOR_DIR_BONUS), $(DOOR_FILES_BONUS))
 # PLAYER
 PLAYER_DIR_BONUS			=	player_bonus/
 PLAYER_FILES_BONUS			=	t_player_init_bonus.c			\
-								update_player_bonus.c
+								t_player_init_display_bonus.c	\
+								update_player_bonus.c			\
+								t_player_destroy_bonus.c		\
+								player_shoot_bonus.c
 PLAYER_BONUS				=	$(addprefix $(PLAYER_DIR_BONUS), $(PLAYER_FILES_BONUS))
 
 # RAY
@@ -117,6 +129,14 @@ SPRITES_DIR_BONUS			=	sprites/
 SPRITES_FILES_BONUS			=	sprite_distance_bonus.c			\
 								sprite_init_bonus.c
 SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
+
+# UI
+UI_DIR_BONUS				=	ui/
+UI_FILES_BONUS				=	ui_utils_bonus.c				\
+								init_ui_pause_bonus.c			\
+								label_utils_bonus.c				\
+								button_utils_bonus.c
+UI_BONUS					=	$(addprefix $(UI_DIR_BONUS), $(UI_FILES_BONUS))
 
 # PATHFINDING
 PATHFINDING_DIR_BONUS		=	pathfinding_bonus/
@@ -157,11 +177,11 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
 # ANIMATION
-ANIMATION_DIR_BONUS				=	animation_bonus/
-ANIMATION_FILES_BONUS			=	create_animation_bonus.c	\
-									destroy_animation_bonus.c	\
-									update_animations_bonus.c
-ANIMATION_BONUS					=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
+ANIMATION_DIR_BONUS			=	animation_bonus/
+ANIMATION_FILES_BONUS		=	create_animation_bonus.c		\
+								destroy_animation_bonus.c		\
+								update_animations_bonus.c
+ANIMATION_BONUS				=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
 
 # SOURCES GENERAL
 SRCS_MAIN_SUBDIR_BONUS		=	srcs_bonus/
@@ -171,7 +191,7 @@ SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
 								$(RAY_BONUS) $(DOOR_BONUS) $(SPRITES_BONUS)				\
 								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)					\
-								$(ENTITIES_BONUS) $(ITEMS_BONUS)
+								$(ENTITIES_BONUS) $(ITEMS_BONUS) $(UI_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

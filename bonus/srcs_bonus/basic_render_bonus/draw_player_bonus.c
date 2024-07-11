@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy_handler_bonus.c                            :+:      :+:    :+:   */
+/*   draw_player_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 17:45:49 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/26 07:31:17 by codekiwi         ###   ########.fr       */
+/*   Created: 2024/06/26 19:47:03 by codekiwi          #+#    #+#             */
+/*   Updated: 2024/06/28 12:00:01 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stdio.h>
 
 #include "cub3d_bonus.h"
+#include "player_bonus.h"
+#include "libft.h"
 
-/**
- * @brief Destroys the given t_game instance and exits the program
- * @param game The t_game instance to destroy before exiting
- * @return A dummy integer
-*/
-int	destroy_handler(t_game *game)
+void	draw_player(t_game *game)
 {
+	t_player_display	*display;
+
 	if (game == NULL)
-		error_exit(NULL, ERR_ARG);
-	t_game_destroy(game);
-	exit(EXIT_SUCCESS);
-	return (0);
+		return ;
+	display = &game->player.display;
+	t_mlx_draw_rect_texture(game->mlx.img_buff, &display->coords, \
+		&display->size, (t_image *) display->frame_curr->content);
+	t_mlx_draw_rect_texture(game->mlx.img_buff, &display->target_coords, \
+		&display->target_size, &display->target_texture);
 }

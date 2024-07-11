@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/29 14:53:23 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/11 11:26:08 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define MAP_BONUS_H
 
 # include <stdlib.h>
+
+# include "mlx_api_bonus.h"
 
 # define ID_MAP_WALL		'1'
 # define ID_MAP_TILE		'0'
@@ -48,10 +50,11 @@ typedef struct s_mlx_coords	t_mlx_coords;
 
 struct s_map
 {
-	char	**tiles;
-	size_t	*lines_lengths;
-	size_t	lines_count;
-	char	*textures[MAP_NB_IDS];
+	char			**tiles;
+	size_t			*lines_lengths;
+	size_t			lines_count;
+	char			*textures[MAP_NB_IDS];
+	t_mlx_coords	texture_size[MAP_NB_IDS];
 };
 
 // Map functions

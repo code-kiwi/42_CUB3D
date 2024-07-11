@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy_animation_bonus.c                          :+:      :+:    :+:   */
+/*   player_shoot_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 12:32:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 12:24:37 by codekiwi         ###   ########.fr       */
+/*   Created: 2024/06/27 17:04:59 by codekiwi          #+#    #+#             */
+/*   Updated: 2024/06/28 08:45:31 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
+
+#include "cub3d_bonus.h"
+#include "player_bonus.h"
 #include "mlx_api_bonus.h"
+#include "libft.h"
 
-void	destroy_animation(t_list *anim, void *mlx_ptr, bool is_circular)
+void	player_shoot(t_game *game)
 {
-	t_list	*current;
-	t_list	*previous;
+	t_player_display	*display;
 
-	if (is_circular && anim != NULL)
-	{
-		current = anim->next;
-		anim->next = NULL;
-	}
-	else
-		current = anim;
-	while (current)
-	{
-		t_image_destroy(mlx_ptr, (t_image *)current->content, true);
-		previous = current;
-		current = current->next;
-		free(previous);
-	}
+	if (game == NULL)
+		return ;
+	display = &game->player.display;
+	display->frame_curr = display->frames->next;
+	display->frame_update_delta = 0;
 }

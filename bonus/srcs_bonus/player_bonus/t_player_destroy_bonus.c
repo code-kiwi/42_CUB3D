@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy_animation_bonus.c                          :+:      :+:    :+:   */
+/*   t_player_destroy_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 12:32:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/25 12:24:37 by codekiwi         ###   ########.fr       */
+/*   Created: 2024/06/26 10:07:50 by codekiwi          #+#    #+#             */
+/*   Updated: 2024/06/28 12:00:05 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdbool.h>
+
+#include "player_bonus.h"
 #include "mlx_api_bonus.h"
+#include "animation_bonus.h"
 
-void	destroy_animation(t_list *anim, void *mlx_ptr, bool is_circular)
+void	destroy_player(t_player *player, void *mlx_ptr)
 {
-	t_list	*current;
-	t_list	*previous;
-
-	if (is_circular && anim != NULL)
+	if (player == NULL || mlx_ptr == NULL)
+		return ;
+	if (player->display.frames != NULL)
 	{
-		current = anim->next;
-		anim->next = NULL;
+		destroy_animation(player->display.frames, mlx_ptr, true);
+		player->display.frames = NULL;
 	}
-	else
-		current = anim;
-	while (current)
-	{
-		t_image_destroy(mlx_ptr, (t_image *)current->content, true);
-		previous = current;
-		current = current->next;
-		free(previous);
-	}
+	if (player->display.target_texture.ptr != NULL)
+		t_image_destroy(mlx_ptr, &player->display.target_texture, false);
 }
