@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_entities_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/11 11:26:48 by root             ###   ########.fr       */
+/*   Updated: 2024/07/13 20:43:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ bool	add_entity(t_list **entities, float x, float y)
 	return (true);
 }
 
-void	t_entity_init(t_entity *entity, t_list *animation)
+bool	t_entity_init(t_entity *entity, t_list *animation)
 {
 	if (entity == NULL)
 		return ;
@@ -51,6 +51,7 @@ void	t_entity_init(t_entity *entity, t_list *animation)
 	entity->is_path_circular = false;
 	entity->path = NULL;
 	entity->speed = ENTITY_SPEED;
+	return (demon_init(entity));
 }
 
 bool	init_entities(t_game *game)
@@ -70,7 +71,11 @@ bool	init_entities(t_game *game)
 		if (new_sprite_node == NULL)
 			return (false);
 		ft_lstadd_front(&game->sprites, new_sprite_node);
-		t_entity_init(entity, game->textures[7]);
+		if (!t_entity_init(entity, game->textures[7]))
+		{
+			ft_lstclear(&game->entities, t_entity_destroy);
+			return (false);
+		}
 		current = current->next;
 	}
 	game->last_entity_updated = game->entities;

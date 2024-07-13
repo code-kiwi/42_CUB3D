@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/11 11:29:55 by root             ###   ########.fr        #
+#    Updated: 2024/07/13 20:39:34 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -155,7 +155,9 @@ ENTITIES_FILES_BONUS		=	update_entities_bonus.c			\
 								t_entity_destroy_bonus.c		\
 								update_entities_path_bonus.c	\
 								move_entity_bonus.c				\
-								damage_entity_bonus.c
+								damage_entity_bonus.c			\
+								demon_bonus.c					\
+								update_entities_position_bonus.c
 ENTITIES_BONUS				=	$(addprefix $(ENTITIES_DIR_BONUS), $(ENTITIES_FILES_BONUS))
 
 # ITEMS

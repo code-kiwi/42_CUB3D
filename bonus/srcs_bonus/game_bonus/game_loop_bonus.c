@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/11 11:24:03 by root             ###   ########.fr       */
+/*   Updated: 2024/07/12 11:45:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ int	game_loop(t_game *game)
 		t_mlx_center_cursor(&game->mlx);
 		if (!game->mouse_hidden)
 			t_mlx_mouse_hide(&game->mlx, &game->mouse_hidden);
-		update_entities_path(game);
-		update_entities(game->entities, delta_time, &game->map);
+		update_entities(game, delta_time);
 		update_animations(game, delta_time);
 		update_player(&game->player, &game->map, delta_time, game->entities);
 		update_doors(game, delta_time);

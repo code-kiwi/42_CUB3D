@@ -1,0 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   demon_bonus.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
+/*   Updated: 2024/07/13 20:42:36 by brappo           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "entities_bonus.h"
+
+static bool	demon_update(t_game *game, t_entity *entity)
+{
+
+}
+
+static bool	demon_get_killed(t_game *game, t_entity *entity)
+{
+
+}
+
+static bool	demon_get_damage(t_game *game, t_entity *entity)
+{
+
+}
+
+static bool	demon_get_chainsawed(t_game *game, t_entity *entity)
+{
+
+}
+
+bool	demon_init(t_entity *entity)
+{
+	entity->update = demon_update;
+	entity->get_killed = demon_get_killed;
+	entity->get_damage = demon_get_damage;
+	entity->get_chainsawed = demon_get_chainsawed;
+	entity->type = ft_calloc(1, sizeof(t_demon *));
+	return (!entity->type == NULL);
+}

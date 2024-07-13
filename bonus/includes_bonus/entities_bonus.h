@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entities_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/11 11:20:43 by root             ###   ########.fr       */
+/*   Updated: 2024/07/13 20:42:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;
+typedef struct s_demon	t_demon;
 
 struct s_entity
 {
@@ -33,6 +34,17 @@ struct s_entity
 	t_sprite	*sprite;
 	float		squared_radius;
 	size_t		health_point;
+	bool		(*update)(t_game *, t_entity *entity, float delta_time);
+	bool		(*get_damage)(t_game *, t_entity *entity);
+	bool		(*get_killed)(t_game *, t_entity *entity);
+	bool		(*get_chainsawed)(t_game *, t_entity *entity);
+	void		*type;
+};
+
+struct demon
+{
+	bool	stun;
+	float	stun_start;
 };
 
 void	t_entity_destroy(void *data);
@@ -40,7 +52,12 @@ bool	init_entities(t_game *game);
 bool	update_entities_path(t_game *game);
 void	move_entity(t_list *entities, t_vector *position, t_vector *move,
 			t_map *map);
-void	update_entities(t_list *entities, float delta_time, t_map *map);
+void	update_entities(t_game *game, float delta_time);
 void	damage_entity(t_game *game, t_entity *entity, size_t damage);
+void	update_entity_position(t_entity *entity, float delta_time,
+			t_list *entities, t_map *map);
+
+// Init entities species
+bool	demon_init(t_entity *entity);
 
 #endif // !ENTITIES_BONUS_H
