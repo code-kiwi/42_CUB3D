@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/13 20:42:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/14 16:25:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ struct s_entity
 	float		squared_radius;
 	size_t		health_point;
 	bool		(*update)(t_game *, t_entity *entity, float delta_time);
-	bool		(*get_damage)(t_game *, t_entity *entity);
+	bool		(*get_damage)(t_game *, t_entity *entity, size_t damage);
 	bool		(*get_killed)(t_game *, t_entity *entity);
 	bool		(*get_chainsawed)(t_game *, t_entity *entity);
 	void		*type;

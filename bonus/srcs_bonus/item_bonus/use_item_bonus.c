@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   use_item_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:03:22 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/11 11:36:42 by root             ###   ########.fr       */
+/*   Updated: 2024/07/14 16:29:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,18 @@ static int	is_sprite_of_entity(void *entity_void, void *sprite_void)
 
 void	use_gun(t_game *game)
 {
-	t_list	*aimed_entity;
+	t_list		*aimed_entity;
+	t_entity	*entity;
 
 	player_shoot(game);
 	aimed_entity = ft_lstfind(game->entities, game->player.aimed_sprite,
 			is_sprite_of_entity);
 	if (aimed_entity == NULL)
 		return ;
-	damage_entity(game, aimed_entity->content, GUN_DAMAGE);
+	entity = aimed_entity->content;
+	if (entity == NULL)
+		return ;
+	entity->get_damage(game, entity, GUN_DAMAGE);
 	game->player.aimed_sprite = NULL;
 }
 

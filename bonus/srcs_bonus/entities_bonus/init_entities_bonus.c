@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/13 20:43:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/14 16:29:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool	add_entity(t_list **entities, float x, float y)
 bool	t_entity_init(t_entity *entity, t_list *animation)
 {
 	if (entity == NULL)
-		return ;
+		return (false);
 	t_sprite_init(entity->sprite, animation);
 	entity->is_path_circular = false;
 	entity->path = NULL;
