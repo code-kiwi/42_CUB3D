@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
+#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/09 10:46:24 by mhotting         ###   ########.fr        #
+#    Updated: 2024/07/14 19:05:16 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -156,6 +156,18 @@ ENTITIES_FILES_BONUS		=	update_entities_bonus.c			\
 								move_entity_bonus.c
 ENTITIES_BONUS				=	$(addprefix $(ENTITIES_DIR_BONUS), $(ENTITIES_FILES_BONUS))
 
+# RADAR
+RADAR_DIR_BONUS				=	radar_bonus/
+RADAR_FILES_BONUS			=	radar_utils_bonus.c
+RADAR_BONUS					=	$(addprefix $(RADAR_DIR_BONUS), $(RADAR_FILES_BONUS))
+
+# ANIMATION
+ANIMATION_DIR_BONUS			=	animation_bonus/
+ANIMATION_FILES_BONUS		=	create_animation_bonus.c		\
+								destroy_animation_bonus.c		\
+								update_animations_bonus.c
+ANIMATION_BONUS				=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
+
 # UTILS
 UTILS_DIR_BONUS				=	utils_bonus/
 UTILS_FILES_BONUS			=	math_bonus.c					\
@@ -169,13 +181,6 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 								sort_bonus.c
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
-# ANIMATION
-ANIMATION_DIR_BONUS			=	animation_bonus/
-ANIMATION_FILES_BONUS		=	create_animation_bonus.c		\
-								destroy_animation_bonus.c		\
-								update_animations_bonus.c
-ANIMATION_BONUS				=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
-
 # SOURCES GENERAL
 SRCS_MAIN_SUBDIR_BONUS		=	srcs_bonus/
 SRCS_MAIN_DIR_BONUS			=	$(addprefix $(BONUS_DIR), $(SRCS_MAIN_SUBDIR_BONUS))
@@ -184,7 +189,7 @@ SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
 								$(RAY_BONUS) $(SPRITES_BONUS) $(ANIMATION_BONUS)		\
 								$(DOOR_BONUS) $(UI_BONUS) $(PATHFINDING_BONUS)			\
-								$(ENTITIES_BONUS)
+								$(ENTITIES_BONUS) $(RADAR_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL
