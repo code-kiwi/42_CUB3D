@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 16:08:08 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/14 23:06:46 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int	game_loop(t_game *game)
 		draw_walls(game);
 		render_all_sprites(game);
 		draw_player(game);
+		t_mlx_coords	coords = {200, 200};
+		t_mlx_draw_disk(game->mlx.img_buff, &coords, 100, 0xFFFFFF);
 	}
 	else
 		draw_ui(&game->ui_pause, game->mlx.img_buff);

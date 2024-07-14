@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_api_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 11:14:40 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/14 23:06:53 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,10 @@ void	t_mlx_draw_rectangle(t_image *img, t_mlx_coords *coords, \
 			t_mlx_coords *size, uint32_t color);
 void	t_mlx_draw_rect_texture(t_image *img, t_mlx_coords *coords, \
 			t_mlx_coords *size, t_image *texture);
+void	t_mlx_draw_circle(t_image *img, t_mlx_coords *coords, int radius, \
+			uint32_t color);
+void	t_mlx_draw_disk(t_image *img, t_mlx_coords *coords, int radius, \
+			uint32_t color);
 char	*t_mlx_get_pixel(t_image *image, size_t x, size_t y);
 bool	set_color(unsigned int *result, int r, int g, int b);
 void	multiply_color(unsigned int *color, float factor);

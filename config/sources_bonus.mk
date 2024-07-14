@@ -6,7 +6,7 @@
 #    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/14 19:05:16 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/07/14 23:06:13 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,8 @@ MLX_API_FILES_BONUS			=	t_image_utils_bonus.c			\
 								t_mlx_get_pixel_bonus.c			\
 								t_mlx_draw_line_bonus.c			\
 								t_mlx_draw_rectangle_bonus.c	\
+								t_mlx_draw_circle_bonus.c		\
+								t_mlx_draw_disk_bonus.c			\
 								t_argb_color_utils_bonus.c		\
 								t_mlx_sync_images.c
 MLX_API_BONUS				=	$(addprefix $(MLX_API_DIR_BONUS), $(MLX_API_FILES_BONUS))
