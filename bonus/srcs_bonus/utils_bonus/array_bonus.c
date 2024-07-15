@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   array_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:43:57 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/20 12:55:53 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/15 14:14:40 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,29 @@ ssize_t	find_str_in_array(char **array, char *str, size_t length)
 		index++;
 	}
 	return (-1);
+}
+
+char	**create_str_array(size_t nb_row, size_t nb_col, char default_value)
+{
+	char	**array;
+	size_t	i;
+
+	if (nb_row == 0 || nb_col == 0)
+		return (NULL);
+	array = (char **) ft_calloc(nb_row + 1, sizeof(char *));
+	if (array == NULL)
+		return (NULL);
+	i = 0;
+	while (i < nb_row)
+	{
+		array[i] = ft_calloc(nb_col, sizeof(char));
+		ft_memset(array[i], default_value, nb_col);
+		if (array[i] == NULL)
+		{
+			ft_free_str_array(&array);
+			return (NULL);
+		}
+		i++;
+	}	
+	return (array);
 }

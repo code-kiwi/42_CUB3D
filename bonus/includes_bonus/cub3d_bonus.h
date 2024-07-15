@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/15 11:34:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/15 14:14:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,7 @@ int		sign(float value);
 ssize_t	find_str_in_array(char **array, char *str, size_t length);
 void	free_array(char **array, size_t length, bool free_container);
 void	print_str_array(char **array, size_t length);
+char	**create_str_array(size_t nb_row, size_t nb_col, char default_value);
 int		min(int a, int b);
 bool	is_number(char *str);
 void	remove_last_breakline(char *str);

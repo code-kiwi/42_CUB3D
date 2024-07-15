@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/15 11:33:37 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/15 13:37:51 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	game_loop(t_game *game)
 		draw_walls(game);
 		render_all_sprites(game);
 		draw_player(game);
-		draw_radar(&game->radar, &game->mlx);
+		draw_radar(game, &game->radar, &game->mlx);
 	}
 	else
 		draw_ui(&game->ui_pause, game->mlx.img_buff);

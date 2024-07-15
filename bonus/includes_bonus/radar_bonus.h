@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:52:04 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/15 11:31:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/15 13:48:11 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define RADAR_SIZE_RATIO	12.5f
 # define RADAR_OFFSET		10
 # define RADAR_COLOR_BG		0xFFFFFF
-# define RADAR_COLOR_BORDER 0x000000
+# define RADAR_TILES_SIZE	10
 
 typedef struct s_game	t_game;
 typedef struct s_radar	t_radar;
@@ -34,11 +34,14 @@ struct s_radar
 	float			player_last_orientation;
 	uint32_t		color_bg;
 	uint32_t		color_border;
+	char			**tiles;
+	size_t			tiles_size;
+	bool			needs_update;
 };
 
 // Radar functions
 bool	init_radar(t_radar *radar, t_mlx *mlx);
 void	destroy_radar(t_radar *radar, void *mlx_ptr);
-void	draw_radar(t_radar *radar, t_mlx *mlx);
+void	draw_radar(t_game *game, t_radar *radar, t_mlx *mlx);
 
 #endif

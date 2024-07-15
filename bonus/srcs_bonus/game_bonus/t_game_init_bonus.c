@@ -69,10 +69,10 @@ bool	t_game_init(t_game *game)
 		&& init_textures(game)
 		&& init_sprites(game)
 		&& init_all_ui(game)
-		&& t_mlx_launch(&game->mlx)
-		&& add_event_handlers(game)
 		&& init_doors(game)
 		&& init_entities(game)
 		&& init_radar(&game->radar, &game->mlx)
+		&& t_mlx_launch(&game->mlx)
+		&& add_event_handlers(game)
 	);
 }
