@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/08 14:29:18 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/15 11:36:26 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,54 @@ bool	t_image_import_file(
 		return (ret);
 	}
 	return (true);
+}
+
+void	t_image_colorize(t_image *img, uint32_t color)
+{
+	int				x;
+	int				y;
+	unsigned int	*img_addr;
+
+	if (img == NULL)
+		return ;
+	img_addr = (unsigned int *) img->addr;
+	y = 0;
+	while (y < img->height)
+	{
+		x = 0;
+		while (x < img->width)
+		{
+			*(img_addr + y * img->width + x) = color;
+			x++;
+		}
+		y++;
+	}
+}
+
+void	t_mlx_apply_image(t_image *src, t_image *dest, t_mlx_coords *coords)
+{
+	int				x;
+	int				y;
+	unsigned int	*src_addr;
+	unsigned int	*dest_addr;
+
+	if (
+		src == NULL || dest == NULL || coords == NULL
+		|| src->width + coords->x > dest->width
+		|| src->height + coords->y > dest->height
+	)
+		return ;
+	src_addr = (unsigned int *) src->addr;
+	dest_addr = (unsigned int *) dest->addr;
+	y = -1;
+	while (++y < src->height)
+	{
+		x = -1;
+		while (++x < src->width)
+		{
+			if (*(src_addr + y * src->width + x) != 0xFF000000)
+				*(dest_addr + (y + coords->y) * dest->width + (x + coords->x)) \
+					= *(src_addr + y * src->width + x);
+		}
+	}
 }

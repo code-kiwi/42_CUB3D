@@ -73,6 +73,6 @@ bool	t_game_init(t_game *game)
 		&& add_event_handlers(game)
 		&& init_doors(game)
 		&& init_entities(game)
-		&& init_radar(game)
+		&& init_radar(&game->radar, &game->mlx)
 	);
 }

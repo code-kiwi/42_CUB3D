@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 14:45:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/15 11:34:20 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "player_bonus.h"
 # include "ray_bonus.h"
 # include "ui_bonus.h"
+# include "radar_bonus.h"
 
 # define PI						3.14159265358
 # define FPS					100
@@ -64,6 +65,7 @@
 # define ERR_SIZE_TOO_BIG		"Size too big, max 4 characters"
 # define ERR_NEGATIVE_SIZE		"Invalid negative size"
 # define ERR_UI_CREATION		"UI creation failed"
+# define ERR_RADAR_CREATION		"Radar creation failed"
 
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
@@ -101,6 +103,7 @@ struct s_game
 	bool		pause;
 	t_ui		ui_pause;
 	bool		mouse_hidden;
+	t_radar		radar;
 };
 
 struct	s_column

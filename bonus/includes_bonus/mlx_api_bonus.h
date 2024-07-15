@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_api_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/14 23:06:53 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/15 11:44:30 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,8 @@ t_image	*t_image_init(void *mlx_ptr, int img_width, int img_height);
 void	t_image_destroy(void *mlx_ptr, t_image *img, bool free_ptr);
 bool	t_image_import_file(t_image *image, char *filename, void *mlx, \
 			t_mlx_coords *size);
+void	t_image_colorize(t_image *img, uint32_t color);
+void	t_mlx_apply_image(t_image *src, t_image *dest, t_mlx_coords *coords);
 bool	t_image_resize(void *mlx_ptr, t_image *img, t_mlx_coords *size);
 
 // Mouse functions
