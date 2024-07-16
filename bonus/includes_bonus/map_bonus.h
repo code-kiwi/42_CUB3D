@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/10 16:43:15 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 11:22:07 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define ID_MAP_DOOR_OPENED				'o'
 # define ID_MAP_SPRITE					's'
 # define ID_MAP_ENTITY					'e'
+# define ID_MAP_PLAYER					'P'
 
 # define ID_TEXTURE_NORTH				"NO"
 # define ID_TEXTURE_SOUTH				"SO"
@@ -55,9 +56,11 @@
 # define IDX_TXTR_UIP_B2_ON				12
 # define IDX_TXTR_UIP_B2_OFF			13
 
-# define MAP_EXTENSION		".cub"
-# define MAP_ALLOWED_CHARS	" 01sdeNSEW"
-# define MAP_NB_IDS			14
+# define MAP_EXTENSION					".cub"
+# define MAP_ALLOWED_CHARS				" 01sdeNSEW"
+# define MAP_NB_IDS						14
+
+# define MAP_MOVING_CHARS				"PNSEWe"
 
 typedef struct s_game		t_game;
 typedef struct s_map		t_map;
@@ -78,15 +81,16 @@ struct s_map
 };
 
 // Map functions
-bool		read_map(t_map *map, char *filename);
-bool		is_map_valid(t_map *map);
-bool		read_elements(t_map *map, int fd);
-bool		is_in_bounds(t_vector *position, t_map *map);
-bool		is_character(t_vector *position, t_map *map, char character);
-bool		check_extension(char *filename, char *extension);
-void		free_map(t_map *map);
-bool		is_walkable(t_map *map, t_mlx_coords *coords);
-bool		get_elem_into_list(t_map *map, t_list **dest, char id, \
-				bool add_elem(t_list **, float, float));
+bool	read_map(t_map *map, char *filename);
+bool	is_map_valid(t_map *map);
+bool	read_elements(t_map *map, int fd);
+bool	is_in_bounds(t_vector *position, t_map *map);
+bool	is_character(t_vector *position, t_map *map, char character);
+bool	check_extension(char *filename, char *extension);
+void	free_map(t_map *map);
+bool	is_walkable(t_map *map, t_mlx_coords *coords);
+bool	get_elem_into_list(t_map *map, t_list **dest, char id, \
+			bool add_elem(t_list **, float, float));
+void	update_map(t_map *map, t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/15 13:37:51 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 10:35:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	game_loop(t_game *game)
 		update_animations(game, delta_time);
 		update_player(&game->player, &game->map, delta_time, game->entities);
 		update_doors(game, delta_time);
+		update_map(&game->map, game);
 		if (!is_in_bounds(&game->player.position, &game->map))
 			error_exit(game, ERR_PLAYER_QUIT_MAP);
 		if (!cast_rays(game))

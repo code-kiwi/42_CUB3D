@@ -6,17 +6,13 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:34:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 10:23:51 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 11:22:50 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
 #include "radar_bonus.h"
-
-
-
-#include <stdio.h>
 
 static char	get_map_char(t_map *map, int i, int j)
 {

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/15 14:14:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 11:20:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 # define FPS					100
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				960
-# define WIN_HEIGHT				500
+# define WIN_WIDTH				1920//960
+# define WIN_HEIGHT				1000//500
 # define MAX_DISTANCE			200
 
 # define MAX_VISION_DISTANCE	10
