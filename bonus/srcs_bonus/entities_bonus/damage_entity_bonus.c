@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   damage_entity_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:53:40 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/11 11:03:03 by root             ###   ########.fr       */
+/*   Updated: 2024/07/16 12:30:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
 
-static int	equal(void *a, void *b)
+int	equal(void *a, void *b)
 {
 	return (!(a == b));
 }
@@ -31,7 +31,7 @@ static void	kill_entity(t_game *game, t_entity *entity)
 void	damage_entity(t_game *game, t_entity *entity, size_t damage)
 {
 	if (entity->health_point <= damage)
-		kill_entity(game, entity);
+		entity->get_killed(game, entity);
 	else
 		entity->health_point -= damage;
 }

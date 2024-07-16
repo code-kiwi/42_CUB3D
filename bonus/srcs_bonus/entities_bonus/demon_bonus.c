@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 12:25:21 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 13:13:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ static bool	demon_update(t_game *game, t_entity *entity, float delta_time)
 
 static bool	demon_get_killed(t_game *game, t_entity *entity)
 {
+	if (game == NULL || entity == NULL || game->entities == NULL)
+		return (false);
+	if (game->last_entity_updated->content == entity)
+		game->last_entity_updated = game->last_entity_updated->next;
+	entity->sprite->animation = game->textures[IDX_TXTR_DEMON_DEATH];
+	entity->sprite->next_animation = NULL;
+	ft_lst_remove_if(&game->entities, entity, equal, t_entity_destroy);
 	return (true);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_screen_position_bonus.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/07/11 11:13:52 by root             ###   ########.fr       */
+/*   Updated: 2024/07/16 13:20:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ bool	is_sprite_aimed(t_sprite *sprite, int left_x)
 	t_image	*texture;
 	char	*color;
 
+	if (sprite == NULL)
+		return (false);
 	if (left_x > WIN_WIDTH / 2)
 		return (false);
 	if (left_x + sprite->height / sprite->distance < WIN_WIDTH / 2)

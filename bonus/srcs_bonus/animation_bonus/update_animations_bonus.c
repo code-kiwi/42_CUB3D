@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:16:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 09:28:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 13:24:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "animation_bonus.h"
 #include "libft.h"
 #include "sprite_bonus.h"
+#include "entities_bonus.h"
 
 void	update_animations(t_game *game, float delta_time)
 {
@@ -31,6 +32,8 @@ void	update_animations(t_game *game, float delta_time)
 		if (sprite->animation == NULL)
 			sprite->animation = sprite->next_animation;
 		current = current->next;
+		if (sprite->animation == NULL)
+			ft_lst_remove_if(&game->sprites, sprite, equal, free);
 	}
 	game->frame_update_delta = 0;
 }
