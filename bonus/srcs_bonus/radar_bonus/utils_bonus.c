@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:53:25 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 13:41:21 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:54:56 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,30 @@
 #include "mlx.h"
 #include "libft.h"
 
-bool	init_radar(t_radar *radar, t_mlx *mlx)
+bool	init_radar(t_radar *rad, t_mlx *mlx)
 {
-	if (radar == NULL || mlx == NULL)
+	if (rad == NULL || mlx == NULL)
 		return (error_print(ERR_RADAR_CREATION), false);
-	radar->radius = (int)((float)mlx->width / RADAR_SIZE_RATIO);
-	radar->img = t_image_init(mlx->mlx_ptr, 2 * radar->radius, \
-		2 * radar->radius);
-	if (radar->img == NULL)
+	rad->radius = (int)((float)mlx->width / RADAR_SIZE_RATIO);
+	rad->nb_tiles = RADAR_NB_TILES;
+	rad->tile_size = 2 * rad->radius / rad->nb_tiles;
+	rad->radius_element = rad->tile_size / 2 - 2;
+	rad->draw_offset = (2 * rad->radius - rad->nb_tiles * rad->tile_size) / 2;
+	rad->coords.x = RADAR_OFFSET;
+	rad->coords.y = mlx->height - 2 * rad->radius - RADAR_OFFSET;
+	rad->center.x = rad->radius;
+	rad->center.y = rad->radius;
+	rad->needs_update = false;
+	rad->img = t_image_init(mlx->mlx_ptr, 2 * rad->radius, 2 * rad->radius);
+	if (rad->img == NULL)
 		return (error_print(ERR_RADAR_CREATION), false);
-	t_image_colorize(radar->img, 0xFF000000);
-	radar->nb_tiles = RADAR_NB_TILES;
-	radar->tiles = create_str_array(radar->nb_tiles, radar->nb_tiles, '0');
-	if (radar->tiles == NULL)
+	t_image_colorize(rad->img, 0xFF000000);
+	rad->tiles = create_str_array(rad->nb_tiles, rad->nb_tiles, '0');
+	if (rad->tiles == NULL)
 	{
-		destroy_radar(radar, mlx->mlx_ptr);
+		destroy_radar(rad, mlx->mlx_ptr);
 		return (error_print(ERR_RADAR_CREATION), false);
 	}
-	radar->tile_size = 2 * radar->radius / radar->nb_tiles;
-	radar->radius_element = radar->tile_size / 2 - 4;
-	radar->draw_offset = (2 * radar->radius - radar->nb_tiles * \
-		radar->tile_size) / 2;
-	radar->coords.x = RADAR_OFFSET;
-	radar->coords.y = mlx->height - 2 * radar->radius - RADAR_OFFSET;
-	radar->center.x = radar->radius;
-	radar->center.y = radar->radius;
-	radar->needs_update = false;
 	return (true);
 }
 

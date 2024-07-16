@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:52:04 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 14:45:52 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:50:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <stdbool.h>
 # include <stdint.h>
 
-# define RADAR_SIZE_RATIO		12.5f
+# define RADAR_SIZE_RATIO		10.0f
 # define RADAR_OFFSET			10
-# define RADAR_COLOR_BG			0xAAAAAA
+# define RADAR_COLOR_BG			0x002801
 # define RADAR_NB_TILES			17
 
 # define COL_SPACE				0x002801
