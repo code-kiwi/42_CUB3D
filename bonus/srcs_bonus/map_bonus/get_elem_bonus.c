@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:22:06 by root              #+#    #+#             */
-/*   Updated: 2024/06/29 14:53:12 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 09:59:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "sprite_bonus.h"
 #include "libft.h"
 
-bool	get_elem_into_list(t_map *map, t_list **dest, char id,
+bool	get_elem_into_list(t_map *map, t_list **dest, char *ids,
 	bool add_elem(t_list **, float, float))
 {
 	size_t	y;
@@ -26,7 +26,7 @@ bool	get_elem_into_list(t_map *map, t_list **dest, char id,
 		x = 0 ;
 		while (x < map->lines_lengths[y])
 		{
-			if (map->tiles[y][x] == id)
+			if (ft_strchr(ids, map->tiles[y][x]))
 			{
 				if (!add_elem(dest, x + 0.5, y + 0.5))
 				{
