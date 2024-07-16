@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 11:09:53 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 12:25:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 
 # include <stdbool.h>
 
-# define ENTITY_SPEED				2
-# define ENTITY_RADIUS				0.5
 # define ENTITY_UPDATE_PER_FRAME	1
-# define ENTITY_HEALTH_POINT		3
+
+# define DEMON_SPEED				2
+# define DEMON_SQUARED_RADIUS		1
+# define DEMON_HEALTH_POINT			3
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;

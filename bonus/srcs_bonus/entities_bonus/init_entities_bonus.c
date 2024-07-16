@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 12:03:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 12:25:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ static void	init_entity(t_entity *new_entity, t_sprite *new_sprite, float x,
 	new_entity->sprite = new_sprite;
 	new_entity->sprite->position.x = x;
 	new_entity->sprite->position.y = y;
-	new_entity->squared_radius = ENTITY_RADIUS * ENTITY_RADIUS;
-	new_entity->health_point = ENTITY_HEALTH_POINT;
 	new_entity->is_path_circular = false;
 	new_entity->path = NULL;
-	new_entity->speed = ENTITY_SPEED;
 }
 
 static bool	add_entity(t_game *game, float x, float y, char id)

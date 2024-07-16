@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 12:18:30 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 12:25:21 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ bool	demon_init(t_entity *entity, t_list *textures[MAP_NB_IDS])
 	entity->get_killed = demon_get_killed;
 	entity->get_damage = demon_get_damage;
 	entity->get_chainsawed = demon_get_chainsawed;
+	entity->health_point = DEMON_HEALTH_POINT;
+	entity->speed = DEMON_SPEED;
+	entity->squared_radius = DEMON_SQUARED_RADIUS;
 	entity->type = ft_calloc(1, sizeof(t_demon));
 	t_sprite_init(entity->sprite, textures[IDX_TXTR_DEMON_WALK]);
 	return (entity->type != NULL);
