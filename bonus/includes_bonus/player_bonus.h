@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 14:12:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 14:31:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@
 # define PLAYER_ANIMATION_UPDATE		0.1
 # define PLAYER_TARGET_TEXTURE_FILE		"./assets/test_textures/target.xpm"
 # define PLAYER_TEXTURE_X_OFFSET		200
-
 
 typedef struct s_game			t_game;
 typedef struct s_player			t_player;
