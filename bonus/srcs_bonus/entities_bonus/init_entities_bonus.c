@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 10:25:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 10:32:23 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,17 @@ static bool	add_entity(t_game *game, float x, float y, char id)
 	if (new_entity == NULL)
 		return (free(new_sprite), false);
 	init_entity(new_entity, new_sprite, x, y);
-	if (!demon_init(new_entity, game->textures))
-		return (t_entity_destroy(new_entity), false);
+	if (!init_entity_type(new_entity, id, game->textures))
+	{
+		free(new_sprite);
+		return (free(new_entity), false);
+	}
 	new_node = ft_lstnew(new_entity);
 	if (new_node == NULL)
+	{
+		free(new_sprite);
 		return (t_entity_destroy(new_entity), false);
+	}
 	ft_lstadd_front(&game->entities, new_node);
 	return (true);
 }
