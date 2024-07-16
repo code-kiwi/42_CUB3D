@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 13:52:44 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 14:05:07 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,23 @@ static bool	demon_update(t_game *game, t_entity *entity, float delta_time)
 {
 	t_player	*player;
 	float		distance;
+	t_sprite	*sprite;
 
 	if (entity->cooldown > 0)
-	{
 		entity->cooldown -= delta_time;
-		return (true);
-	}
+	sprite = entity->sprite;
 	player = &game->player;
-	update_entity_position(entity, delta_time, game->entities, &game->map);
-	distance = get_distance(&entity->sprite->position, &player->position);
+	distance = get_distance(&sprite->position, &player->position);
 	if (distance < DEMON_ATTACK_RANGE)
 	{
-		entity->sprite->next_animation = game->textures[IDX_TXTR_DEMON_WALK];
-		entity->sprite->animation = game->textures[IDX_TXTR_DEMON_ATTACK];
+		if (entity->cooldown > 0)
+			return (true);
+		sprite->next_animation = game->textures[IDX_TXTR_DEMON_WALK];
+		sprite->animation = game->textures[IDX_TXTR_DEMON_ATTACK];
 		entity->cooldown = DEMON_ATTACK_PAUSE;
 	}
+	else
+		update_entity_position(entity, delta_time, game->entities, &game->map);
 	return (true);
 }
 
