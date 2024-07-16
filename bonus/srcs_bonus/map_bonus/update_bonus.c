@@ -6,12 +6,13 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:31:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 11:20:11 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:45:30 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "entities_bonus.h"
+#include "door_bonus.h"
 #include "libft.h"
 
 static void	clear_map(t_map *map)
@@ -62,11 +63,29 @@ static void	add_entities_to_map(t_map *map, t_list *entities)
 	}
 }
 
+static void	add_doors_to_map(t_map *map, t_door *doors, size_t door_count)
+{
+	size_t			i;
+	t_mlx_coords	*door_coords;
+
+	i = 0;
+	while (i < door_count)
+	{
+		door_coords = &doors[i].position;
+		if (doors[i].state == OPENED)
+			map->tiles[door_coords->y][door_coords->x] = ID_MAP_DOOR_OPENED;
+		else
+			map->tiles[door_coords->y][door_coords->x] = ID_MAP_DOOR_CLOSED;
+		i++;
+	}
+}
+
 void	update_map(t_map *map, t_game *game)
 {
 	if (map == NULL || game == NULL)
 		return ;
 	clear_map(map);
+	add_doors_to_map(map, game->doors, game->door_count);
 	add_player_to_map(map, &game->player);
 	add_entities_to_map(map, game->entities);
 }
