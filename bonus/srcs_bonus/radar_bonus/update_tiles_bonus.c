@@ -6,13 +6,17 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:34:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 10:01:17 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 10:23:51 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
 #include "radar_bonus.h"
+
+
+
+#include <stdio.h>
 
 static char	get_map_char(t_map *map, int i, int j)
 {
@@ -36,24 +40,26 @@ static void	update_tiles_process(
 	int		j;
 	int		i_map;
 	int		j_map;
+	char	tile_char;
 
 	i = 0;
-	i_map = player_coords->y - radar->tiles_size / 2;
-	while (i < radar->tiles_size)
+	i_map = player_coords->y - radar->nb_tiles / 2;
+	while (i < radar->nb_tiles)
 	{
 		j = 0;
-		j_map = player_coords->x - radar->tiles_size / 2;
-		while (j < radar->tiles_size)
+		j_map = player_coords->x - radar->nb_tiles / 2;
+		while (j < radar->nb_tiles)
 		{
-			radar->tiles[i][j] = get_map_char(map, i_map, j_map);
+			tile_char = get_map_char(map, i_map, j_map);
+			if (!radar->needs_update && tile_char != radar->tiles[i][j])
+				radar->needs_update = true;
+			radar->tiles[i][j] = tile_char;
 			j++;
 			j_map++;
 		}
 		i++;
 		i_map++;
 	}
-	radar->tiles[radar->tiles_size / 2][radar->tiles_size / 2] \
-		= RADAR_PLAYER_CHAR;
 }
 
 void	update_tiles(t_map *map, t_radar *radar, t_player *player)
@@ -64,5 +70,6 @@ void	update_tiles(t_map *map, t_radar *radar, t_player *player)
 		return ;
 	player_coords.x = (int) player->position.x;
 	player_coords.y = (int) player->position.y;
+	radar->needs_update = false;
 	update_tiles_process(map, radar, &player_coords);
 }

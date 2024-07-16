@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:52:04 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 10:00:15 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 10:23:57 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # define RADAR_COLOR_BG			0xFFFFFF
 # define RADAR_TILES_SIZE		11
 # define RADAR_EMPTY_TILE_CHAR	' '
-# define RADAR_PLAYER_CHAR		'P'
 
 typedef struct s_game	t_game;
 typedef struct s_radar	t_radar;
@@ -36,7 +35,7 @@ struct s_radar
 	uint32_t		color_bg;
 	uint32_t		color_border;
 	char			**tiles;
-	int				tiles_size;
+	int				nb_tiles;
 	bool			needs_update;
 };
 

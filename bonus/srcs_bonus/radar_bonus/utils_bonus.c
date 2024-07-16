@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:53:25 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 09:27:25 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 10:13:57 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ bool	init_radar(t_radar *radar, t_mlx *mlx)
 		destroy_radar(radar, mlx->mlx_ptr);
 		return (error_print(ERR_RADAR_CREATION), false);
 	}
-	radar->tiles_size = RADAR_TILES_SIZE;
+	radar->nb_tiles = RADAR_TILES_SIZE;
 	radar->coords.x = RADAR_OFFSET;
 	radar->coords.y = mlx->height - 2 * radar->radius - RADAR_OFFSET;
 	radar->color_bg = RADAR_COLOR_BG;
