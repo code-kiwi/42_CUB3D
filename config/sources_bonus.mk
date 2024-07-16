@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/15 14:01:42 by mhotting         ###   ########.fr        #
+#    Updated: 2024/07/16 09:34:22 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -160,8 +160,9 @@ ENTITIES_BONUS				=	$(addprefix $(ENTITIES_DIR_BONUS), $(ENTITIES_FILES_BONUS))
 
 # RADAR
 RADAR_DIR_BONUS				=	radar_bonus/
-RADAR_FILES_BONUS			=	radar_utils_bonus.c				\
-								radar_draw_bonus.c
+RADAR_FILES_BONUS			=	utils_bonus.c					\
+								draw_bonus.c					\
+								update_tiles_bonus.c
 RADAR_BONUS					=	$(addprefix $(RADAR_DIR_BONUS), $(RADAR_FILES_BONUS))
 
 # ANIMATION

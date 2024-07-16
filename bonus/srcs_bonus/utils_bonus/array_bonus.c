@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:43:57 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/15 14:14:40 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 10:01:48 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,6 @@ char	**create_str_array(size_t nb_row, size_t nb_col, char default_value)
 			return (NULL);
 		}
 		i++;
-	}	
+	}
 	return (array);
 }

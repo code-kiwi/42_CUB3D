@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:52:04 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/15 13:48:11 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 10:00:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 # include <stdbool.h>
 # include <stdint.h>
 
-# define RADAR_SIZE_RATIO	12.5f
-# define RADAR_OFFSET		10
-# define RADAR_COLOR_BG		0xFFFFFF
-# define RADAR_TILES_SIZE	10
+# define RADAR_SIZE_RATIO		12.5f
+# define RADAR_OFFSET			10
+# define RADAR_COLOR_BG			0xFFFFFF
+# define RADAR_TILES_SIZE		11
+# define RADAR_EMPTY_TILE_CHAR	' '
+# define RADAR_PLAYER_CHAR		'P'
 
 typedef struct s_game	t_game;
 typedef struct s_radar	t_radar;
@@ -30,12 +32,11 @@ struct s_radar
 	t_mlx_coords	center;
 	int				radius;
 	t_image			*img;
-	t_vector		player_last_position;
 	float			player_last_orientation;
 	uint32_t		color_bg;
 	uint32_t		color_border;
 	char			**tiles;
-	size_t			tiles_size;
+	int				tiles_size;
 	bool			needs_update;
 };
 
@@ -43,5 +44,6 @@ struct s_radar
 bool	init_radar(t_radar *radar, t_mlx *mlx);
 void	destroy_radar(t_radar *radar, void *mlx_ptr);
 void	draw_radar(t_game *game, t_radar *radar, t_mlx *mlx);
+void	update_tiles(t_map *map, t_radar *radar, t_player *player);
 
 #endif
