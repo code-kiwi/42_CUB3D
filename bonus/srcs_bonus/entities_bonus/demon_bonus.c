@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 13:27:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 13:36:48 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static bool	demon_get_damage(t_game *game, t_entity *entity, size_t damage)
 {
 	entity->sprite->next_animation = game->textures[IDX_TXTR_DEMON_WALK];
 	entity->sprite->animation = game->textures[IDX_TXTR_DEMON_PAIN];
+	entity->sprite->frame_update_delta = 0;
 	damage_entity(game, entity, damage);
 	return (true);
 }
