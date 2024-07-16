@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 11:06:29 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 11:55:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 # define ID_TEXTURE_CEILING			"C"
 # define ID_TEXTURE_DOOR			"D"
 # define ID_TEXTURE_SPRITE			"S"
+
+# define ID_MAP_DEMON				'p'
 
 # define ID_TEXTURE_DEMON_WALK		"DEMON_WALK"
 # define ID_TEXTURE_DEMON_PAIN		"DEMON_PAIN"
