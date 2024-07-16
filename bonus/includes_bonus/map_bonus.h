@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 11:55:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 12:07:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,57 @@
 
 # include "mlx_api_bonus.h"
 
-# define ID_MAP_WALL				'1'
-# define ID_MAP_TILE				'0'
-# define ID_MAP_SPACE				' '
-# define ID_MAP_DOOR_CLOSED			'd'
-# define ID_MAP_DOOR_OPENED			'o'
+# define ID_MAP_WALL					'1'
+# define ID_MAP_TILE					'0'
+# define ID_MAP_SPACE					' '
+# define ID_MAP_DOOR_CLOSED				'd'
+# define ID_MAP_DOOR_OPENED				'o'
 
-# define IDS_MAP_SPRITE				"s"
-# define IDS_MAP_ENTITY				"p"
+# define IDS_MAP_SPRITE					"s"
+# define IDS_MAP_ENTITY					"p"
 
-# define ID_TEXTURE_NORTH			"NO"
-# define ID_TEXTURE_SOUTH			"SO"
-# define ID_TEXTURE_WEST			"WE"
-# define ID_TEXTURE_EAST			"EA"
-# define ID_TEXTURE_FLOOR			"F"
-# define ID_TEXTURE_CEILING			"C"
-# define ID_TEXTURE_DOOR			"D"
-# define ID_TEXTURE_SPRITE			"S"
+# define ID_TEXTURE_NORTH				"NO"
+# define ID_TEXTURE_SOUTH				"SO"
+# define ID_TEXTURE_WEST				"WE"
+# define ID_TEXTURE_EAST				"EA"
+# define ID_TEXTURE_FLOOR				"F"
+# define ID_TEXTURE_CEILING				"C"
+# define ID_TEXTURE_DOOR				"D"
+# define ID_TEXTURE_SPRITE				"S"
+# define ID_TEXTURE_UI_PAUSE_BG			"UI_PAUSE_BG"
+# define ID_TEXTURE_UI_PAUSE_LABEL		"UI_PAUSE_LABEL"
+# define ID_TEXTURE_UI_PAUSE_BTNR_OFF	"UI_PAUSE_BTN_RESUME_OFF"
+# define ID_TEXTURE_UI_PAUSE_BTNR_ON	"UI_PAUSE_BTN_RESUME_ON"
+# define ID_TEXTURE_UI_PAUSE_BTNQ_OFF	"UI_PAUSE_BTN_QUIT_OFF"
+# define ID_TEXTURE_UI_PAUSE_BTNQ_ON	"UI_PAUSE_BTN_QUIT_ON"
+# define ID_TEXTURE_DEMON_WALK			"DEMON_WALK"
+# define ID_TEXTURE_DEMON_PAIN			"DEMON_PAIN"
+# define ID_TEXTURE_DEMON_ATTACK		"DEMON_ATTACK"
+# define ID_TEXTURE_DEMON_DEATH			"DEMON_DEATH"
 
-# define ID_MAP_DEMON				'p'
+# define IDX_TXTR_N						0
+# define IDX_TXTR_S						1
+# define IDX_TXTR_W						2
+# define IDX_TXTR_E						3
+# define IDX_TXTR_FLOOR					4
+# define IDX_TXTR_CEIL					5
+# define IDX_TXTR_DOOR					6
+# define IDX_TXTR_UIP_BG				7
+# define IDX_TXTR_UIP_LBL				8
+# define IDX_TXTR_UIP_B1_ON				9
+# define IDX_TXTR_UIP_B1_OFF			10
+# define IDX_TXTR_UIP_B2_ON				11
+# define IDX_TXTR_UIP_B2_OFF			12
+# define IDX_TXTR_DEMON_WALK			13
+# define IDX_TXTR_DEMON_PAIN			14
+# define IDX_TXTR_DEMON_ATTACK			15
+# define IDX_TXTR_DEMON_DEATH			16
 
-# define ID_TEXTURE_DEMON_WALK		"DEMON_WALK"
-# define ID_TEXTURE_DEMON_PAIN		"DEMON_PAIN"
-# define ID_TEXTURE_DEMON_ATTACK	"DEMON_ATTACK"
-# define ID_TEXTURE_DEMON_DEATH		"DEMON_DEATH"
+# define ID_MAP_DEMON					'p'
 
 # define MAP_EXTENSION		".cub"
 # define MAP_ALLOWED_CHARS	" 01sdpNSEW"
-# define MAP_NB_IDS			12
+# define MAP_NB_IDS			17
 
 typedef struct s_game		t_game;
 typedef struct s_map		t_map;

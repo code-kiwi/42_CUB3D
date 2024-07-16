@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 11:13:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 11:59:14 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@
 # define ERR_BAD_SIZE			"Wrong or missing texture size"
 # define ERR_SIZE_TOO_BIG		"Size too big, max 4 characters"
 # define ERR_NEGATIVE_SIZE		"Invalid negative size"
+# define ERR_UI_CREATION		"UI creation failed"
 
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
