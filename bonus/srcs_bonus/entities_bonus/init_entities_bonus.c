@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/14 16:29:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 09:55:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ bool	init_entities(t_game *game)
 		if (new_sprite_node == NULL)
 			return (false);
 		ft_lstadd_front(&game->sprites, new_sprite_node);
-		if (!t_entity_init(entity, game->textures[7]))
+		if (!t_entity_init(entity, game->textures[8]))
 		{
 			ft_lstclear(&game->entities, t_entity_destroy);
 			return (false);

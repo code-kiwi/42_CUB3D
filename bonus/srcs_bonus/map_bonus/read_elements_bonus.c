@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 09:45:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 09:51:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,11 @@ static void	init_identifier(char **identifier)
 	identifier[4] = ID_TEXTURE_FLOOR;
 	identifier[5] = ID_TEXTURE_CEILING;
 	identifier[6] = ID_TEXTURE_DOOR;
-	identifier[7] = ID_TEXTURE_DEMON_WALK;
-	identifier[7] = ID_TEXTURE_DEMON_PAIN;
-	identifier[7] = ID_TEXTURE_DEMON_ATTACK;
-	identifier[7] = ID_TEXTURE_DEMON_DEATH;
+	identifier[7] = ID_TEXTURE_SPRITE;
+	identifier[8] = ID_TEXTURE_DEMON_WALK;
+	identifier[9] = ID_TEXTURE_DEMON_PAIN;
+	identifier[10] = ID_TEXTURE_DEMON_ATTACK;
+	identifier[11] = ID_TEXTURE_DEMON_DEATH;
 }
 
 bool	read_elements(t_map *map, int fd)

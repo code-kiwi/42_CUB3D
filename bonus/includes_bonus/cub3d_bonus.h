@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/11 11:26:36 by root             ###   ########.fr       */
+/*   Updated: 2024/07/16 09:55:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ struct s_game
 	float		player_rotation_rad;
 	long		frame_time_usec;
 	long		tick_last_frame;
-	t_list		*textures[8];
+	t_list		*textures[12];
 	float		frame_update_delta;
 	size_t		door_count;
 	t_door		*doors;
