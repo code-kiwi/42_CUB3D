@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:09:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 14:25:33 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 15:29:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static bool	add_sprite(t_game *game, float x, float y, char id)
 	t_list		*new_node;
 	t_sprite	*new_sprite;
 
+	(void)id;
 	new_sprite = ft_calloc(1, sizeof(t_sprite));
 	if (new_sprite == NULL)
 		return (false);
