@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 17:22:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 20:29:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 15:22:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static bool	collide_entity(t_list *entities, t_vector *position)
 	return (false);
 }
 
-void	move_entity(t_list *entities, t_vector *position, t_vector *move,
+bool	move_entity(t_list *entities, t_vector *position, t_vector *move,
 	t_map *map)
 {
 	t_vector		save;
@@ -52,5 +52,7 @@ void	move_entity(t_list *entities, t_vector *position, t_vector *move,
 	{
 		position->x = save.x;
 		position->y = save.y;
+		return (false);
 	}
+	return (true);
 }

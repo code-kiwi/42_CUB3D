@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bullets_bonus.h                                    :+:      :+:    :+:   */
+/*   update_bullet_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 15:18:04 by brappo           ###   ########.fr       */
+/*   Created: 2024/07/16 15:17:13 by brappo            #+#    #+#             */
+/*   Updated: 2024/07/16 15:25:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BULLETS_BONUS_H
-# define BULLETS_BONUS_H
+#include "bullets_bonus.h"
+#include "entities_bonus.h"
+#include "cub3d_bonus.h"
 
-# include "vector_bonus.h"
-# include "cub3d_bonus.h"
-
-# define BULLET_SPEED	2
-
-typedef struct s_bullet	t_bullet;
-
-struct	s_bullet
+void	update_bullet(t_game *game, t_bullet *bullet)
 {
-	t_vector	position;
-	t_vector	move;
-	void		(*use)(t_game *game);
-};
-
-#endif // !BULLETS_BONUS_H
+	if (!move_entity(game->entities, &bullet->position, &bullet->move,
+		&game->map))
+	{
+		bullet->use(game);
+	}
+}
