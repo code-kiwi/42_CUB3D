@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:17:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 15:25:46 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 15:30:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void	update_bullet(t_game *game, t_bullet *bullet)
 {
 	if (!move_entity(game->entities, &bullet->position, &bullet->move,
-		&game->map))
+			&game->map))
 	{
 		bullet->use(game);
 	}
