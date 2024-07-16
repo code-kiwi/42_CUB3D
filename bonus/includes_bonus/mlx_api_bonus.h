@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/15 11:44:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 13:29:40 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,17 +141,21 @@ void	t_mlx_center_cursor(t_mlx *mlx);
 // Draw functions
 void	t_mlx_draw_pixel(t_image *img, t_mlx_coords *coords, \
 			uint32_t color);
-void	t_mlx_draw_pixel_secured(t_image *img, t_mlx_coords *coords, \
+void	t_mlx_draw_pixel_alphap(t_image *img, t_mlx_coords *coords, \
 			uint32_t color);
 void	t_mlx_draw_line(t_image *img, t_mlx_coords coords_start, \
 			t_mlx_coords coords_end, uint32_t color);
 void	t_mlx_draw_rectangle(t_image *img, t_mlx_coords *coords, \
+			t_mlx_coords *size, uint32_t color);
+void	t_mlx_draw_rectangle_alphap(t_image *img, t_mlx_coords *coords, \
 			t_mlx_coords *size, uint32_t color);
 void	t_mlx_draw_rect_texture(t_image *img, t_mlx_coords *coords, \
 			t_mlx_coords *size, t_image *texture);
 void	t_mlx_draw_circle(t_image *img, t_mlx_coords *coords, int radius, \
 			uint32_t color);
 void	t_mlx_draw_disk(t_image *img, t_mlx_coords *coords, int radius, \
+			uint32_t color);
+void	t_mlx_draw_disk_alphap(t_image *img, t_mlx_coords *coords, int radius, \
 			uint32_t color);
 char	*t_mlx_get_pixel(t_image *image, size_t x, size_t y);
 bool	set_color(unsigned int *result, int r, int g, int b);

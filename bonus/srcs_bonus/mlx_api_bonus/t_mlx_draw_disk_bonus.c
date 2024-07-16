@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_draw_disk_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 22:53:10 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/14 23:41:56 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/16 13:29:16 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,40 @@ void	t_mlx_draw_disk(
 			t_mlx_draw_pixel(img, &temp, color);
 			temp.y = coords->y - xy.x;
 			t_mlx_draw_pixel(img, &temp, color);
+		}
+		update_err(&xy, &err);
+	}
+}
+
+void	t_mlx_draw_disk_alphap(
+	t_image *img,
+	t_mlx_coords *coords,
+	int radius,
+	uint32_t color
+)
+{
+	int				err;
+	t_mlx_coords	xy;
+	t_mlx_coords	temp;
+
+	init_vars(&xy, &err, radius);
+	while (xy.x >= xy.y)
+	{
+		temp.x = coords->x - xy.x - 1;
+		while (++temp.x <= coords->x + xy.x)
+		{
+			temp.y = coords->y + xy.y;
+			t_mlx_draw_pixel_alphap(img, &temp, color);
+			temp.y = coords->y - xy.y;
+			t_mlx_draw_pixel_alphap(img, &temp, color);
+		}
+		temp.x = coords->x - xy.y - 1;
+		while (++temp.x <= coords->x + xy.y)
+		{
+			temp.y = coords->y + xy.x;
+			t_mlx_draw_pixel_alphap(img, &temp, color);
+			temp.y = coords->y - xy.x;
+			t_mlx_draw_pixel_alphap(img, &temp, color);
 		}
 		update_err(&xy, &err);
 	}

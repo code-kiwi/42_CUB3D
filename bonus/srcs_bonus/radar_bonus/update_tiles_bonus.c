@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:34:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 11:22:50 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 12:46:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char	get_map_char(t_map *map, int i, int j)
 		|| i >= (int)map->lines_count
 		|| j >= (int)map->lines_lengths[i]
 	)
-		return (RADAR_EMPTY_TILE_CHAR);
+		return (ID_MAP_SPACE);
 	else
 		return (map->tiles[i][j]);
 }

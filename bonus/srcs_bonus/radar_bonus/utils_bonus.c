@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:53:25 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 10:13:57 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 13:41:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,19 @@ bool	init_radar(t_radar *radar, t_mlx *mlx)
 	if (radar->img == NULL)
 		return (error_print(ERR_RADAR_CREATION), false);
 	t_image_colorize(radar->img, 0xFF000000);
-	radar->tiles = create_str_array(RADAR_TILES_SIZE, RADAR_TILES_SIZE, '0');
+	radar->nb_tiles = RADAR_NB_TILES;
+	radar->tiles = create_str_array(radar->nb_tiles, radar->nb_tiles, '0');
 	if (radar->tiles == NULL)
 	{
 		destroy_radar(radar, mlx->mlx_ptr);
 		return (error_print(ERR_RADAR_CREATION), false);
 	}
-	radar->nb_tiles = RADAR_TILES_SIZE;
+	radar->tile_size = 2 * radar->radius / radar->nb_tiles;
+	radar->radius_element = radar->tile_size / 2 - 4;
+	radar->draw_offset = (2 * radar->radius - radar->nb_tiles * \
+		radar->tile_size) / 2;
 	radar->coords.x = RADAR_OFFSET;
 	radar->coords.y = mlx->height - 2 * radar->radius - RADAR_OFFSET;
-	radar->color_bg = RADAR_COLOR_BG;
 	radar->center.x = radar->radius;
 	radar->center.y = radar->radius;
 	radar->needs_update = false;
