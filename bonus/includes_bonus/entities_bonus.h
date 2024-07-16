@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 13:50:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 14:14:22 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define DEMON_HEALTH_POINT			3
 # define DEMON_ATTACK_RANGE			1.5
 # define DEMON_ATTACK_PAUSE			2
+# define DEMON_ATTACK_DAMAGE		2
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;
