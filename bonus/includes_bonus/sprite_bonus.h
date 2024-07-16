@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 09:28:51 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 13:33:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ struct	s_sprite
 	t_list		*animation;
 	t_list		*next_animation;
 	size_t		height;
+	float		frame_update_delta;
 };
 
 // Sprites functions

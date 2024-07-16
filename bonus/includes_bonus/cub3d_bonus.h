@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 11:59:14 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 13:32:21 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ struct s_game
 	long		frame_time_usec;
 	long		tick_last_frame;
 	t_list		*textures[MAP_NB_IDS];
-	float		frame_update_delta;
 	size_t		door_count;
 	t_door		*doors;
 	t_door		*last_door_seen;
