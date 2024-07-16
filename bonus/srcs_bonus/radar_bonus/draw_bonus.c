@@ -6,32 +6,12 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:37:57 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 13:41:34 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:27:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
-
-// #include <stdio.h>
-// void	print_radar(t_radar *radar)
-// {
-// 	int	i;
-// 	int	j;
-
-// 	i = 0;
-// 	while (i < radar->nb_tiles)
-// 	{
-// 		j = 0;
-// 		while (j < radar->nb_tiles)
-// 		{
-// 			printf("%c", radar->tiles[i][j]);
-// 			j++;
-// 		}
-// 		printf("\n");
-// 		i++;
-// 	}
-// }
 
 static void	draw_radar_tiles(
 	t_image *img,
@@ -65,6 +45,28 @@ static void	draw_radar_elements(
 		t_mlx_draw_disk_alphap(img, coords, radius, COL_PLAYER);
 }
 
+static void	draw_radar_decoration(t_radar *radar)
+{
+	t_mlx_coords	start;
+	t_mlx_coords	end;
+
+	t_mlx_draw_circle(radar->img, &radar->center, radar->radius, COL_PLAYER);
+	t_mlx_draw_circle(radar->img, &radar->center, radar->radius / 3, \
+		COL_PLAYER);
+	t_mlx_draw_circle(radar->img, &radar->center, radar->radius * 2 / 3, \
+		COL_PLAYER);
+	start.x = 2;
+	start.y = radar->center.y;
+	end.x = 2 * radar->radius - 2;
+	end.y = radar->center.y;
+	t_mlx_draw_line(radar->img, start, end, COL_PLAYER);
+	start.x = radar->center.x;
+	start.y = 2;
+	end.x = radar->center.x;
+	end.y = 2 * radar->radius - 2;
+	t_mlx_draw_line(radar->img, start, end, COL_PLAYER);
+}
+
 static void	draw_radar_process(t_radar *radar)
 {
 	int				i;
@@ -73,11 +75,11 @@ static void	draw_radar_process(t_radar *radar)
 	t_mlx_coords	size;
 
 	t_mlx_draw_disk(radar->img, &radar->center, radar->radius, RADAR_COLOR_BG);
-	i = 0;
-	while (i < radar->nb_tiles)
+	i = -1;
+	while (++i < radar->nb_tiles)
 	{
-		j = 0;
-		while (j < radar->nb_tiles)
+		j = -1;
+		while (++j < radar->nb_tiles)
 		{
 			coords.x = radar->draw_offset + j * radar->tile_size;
 			coords.y = radar->draw_offset + i * radar->tile_size;
@@ -88,10 +90,9 @@ static void	draw_radar_process(t_radar *radar)
 			coords.y += radar->tile_size / 2;
 			draw_radar_elements(radar->img, &coords, radar->radius_element, \
 				radar->tiles[i][j]);
-			j++;
 		}
-		i++;
 	}
+	draw_radar_decoration(radar);
 }
 
 void	draw_radar(t_game *game, t_radar *radar, t_mlx *mlx)

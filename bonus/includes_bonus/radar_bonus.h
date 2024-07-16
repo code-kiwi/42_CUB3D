@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:52:04 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 14:04:09 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:26:10 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 # define COL_SPACE				0x002801
 # define COL_WALL				0x09BB17
 # define COL_TILE				0x006700
-# define COL_DOOR1				0xFFFF99
+# define COL_DOOR1				0x338833
 # define COL_DOOR2				0x00FF00
-# define COL_PLAYER				0xFFFFFF
-# define COL_ENTITY				0xFFFF00
+# define COL_PLAYER				0xFFFF55
+# define COL_ENTITY				0xFF2222
 
 typedef struct s_game	t_game;
 typedef struct s_radar	t_radar;
