@@ -8,7 +8,7 @@ C ./assets/textures/ceiling.xpm 64,64
 D ./assets/textures/door.xpm 64,64
 S ./assets/textures/flying.xpm 64,64
 
-DEMON_WALK ./assets/textures/doom/entities/demon/demon_walking.xpm 40,55
+DEMON_WALK ./assets/textures/doom/entities/demon/demon_walk.xpm 40,55
 DEMON_ATTACK ./assets/textures/doom/entities/demon/demon_attack.xpm 44,55
 DEMON_PAIN ./assets/textures/doom/entities/demon/demon_pain.xpm 39,55
 DEMON_DEATH ./assets/textures/doom/entities/demon/demon_death.xpm 52,57
