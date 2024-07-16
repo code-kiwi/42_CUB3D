@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/11 11:26:08 by root             ###   ########.fr       */
+/*   Updated: 2024/07/16 09:46:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,31 @@
 
 # include "mlx_api_bonus.h"
 
-# define ID_MAP_WALL		'1'
-# define ID_MAP_TILE		'0'
-# define ID_MAP_SPACE		' '
-# define ID_MAP_DOOR_CLOSED	'd'
-# define ID_MAP_DOOR_OPENED	'o'
-# define ID_MAP_SPRITE		's'
-# define ID_MAP_ENTITY		'e'
+# define ID_MAP_WALL				'1'
+# define ID_MAP_TILE				'0'
+# define ID_MAP_SPACE				' '
+# define ID_MAP_DOOR_CLOSED			'd'
+# define ID_MAP_DOOR_OPENED			'o'
+# define ID_MAP_SPRITE				's'
+# define ID_MAP_ENTITY				'e'
 
-# define ID_TEXTURE_NORTH	"NO"
-# define ID_TEXTURE_SOUTH	"SO"
-# define ID_TEXTURE_WEST	"WE"
-# define ID_TEXTURE_EAST	"EA"
-# define ID_TEXTURE_FLOOR	"F"
-# define ID_TEXTURE_CEILING	"C"
-# define ID_TEXTURE_DOOR	"D"
-# define ID_TEXTURE_SPRITE	"S"
-# define ID_TEXTURE_ENTITY	"E"
+# define ID_TEXTURE_NORTH			"NO"
+# define ID_TEXTURE_SOUTH			"SO"
+# define ID_TEXTURE_WEST			"WE"
+# define ID_TEXTURE_EAST			"EA"
+# define ID_TEXTURE_FLOOR			"F"
+# define ID_TEXTURE_CEILING			"C"
+# define ID_TEXTURE_DOOR			"D"
+# define ID_TEXTURE_SPRITE			"S"
+
+# define ID_TEXTURE_DEMON_WALK		"DEMON_WALK"
+# define ID_TEXTURE_DEMON_PAIN		"DEMON_PAIN"
+# define ID_TEXTURE_DEMON_ATTACK	"DEMON_ATTACK"
+# define ID_TEXTURE_DEMON_DEATH		"DEMON_DEATH"
 
 # define MAP_EXTENSION		".cub"
 # define MAP_ALLOWED_CHARS	" 01sdeNSEW"
-# define MAP_NB_IDS			8
+# define MAP_NB_IDS			12
 
 typedef struct s_game		t_game;
 typedef struct s_map		t_map;

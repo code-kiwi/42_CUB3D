@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/11 11:24:56 by root             ###   ########.fr       */
+/*   Updated: 2024/07/16 09:45:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,10 @@ static void	init_identifier(char **identifier)
 	identifier[4] = ID_TEXTURE_FLOOR;
 	identifier[5] = ID_TEXTURE_CEILING;
 	identifier[6] = ID_TEXTURE_DOOR;
-	identifier[7] = ID_TEXTURE_ENTITY;
+	identifier[7] = ID_TEXTURE_DEMON_WALK;
+	identifier[7] = ID_TEXTURE_DEMON_PAIN;
+	identifier[7] = ID_TEXTURE_DEMON_ATTACK;
+	identifier[7] = ID_TEXTURE_DEMON_DEATH;
 }
 
 bool	read_elements(t_map *map, int fd)
