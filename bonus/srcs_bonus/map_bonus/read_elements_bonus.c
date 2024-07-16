@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 12:06:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 12:16:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ static void	init_identifier(char **identifier)
 	identifier[IDX_TXTR_FLOOR] = ID_TEXTURE_FLOOR;
 	identifier[IDX_TXTR_CEIL] = ID_TEXTURE_CEILING;
 	identifier[IDX_TXTR_DOOR] = ID_TEXTURE_DOOR;
+	identifier[IDX_TXTR_SPRITE] = ID_TEXTURE_SPRITE;
 	identifier[IDX_TXTR_UIP_BG] = ID_TEXTURE_UI_PAUSE_BG;
 	identifier[IDX_TXTR_UIP_LBL] = ID_TEXTURE_UI_PAUSE_LABEL;
 	identifier[IDX_TXTR_UIP_B1_ON] = ID_TEXTURE_UI_PAUSE_BTNR_OFF;

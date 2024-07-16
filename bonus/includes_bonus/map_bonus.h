@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 12:07:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 12:14:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,23 @@
 # define IDX_TXTR_FLOOR					4
 # define IDX_TXTR_CEIL					5
 # define IDX_TXTR_DOOR					6
-# define IDX_TXTR_UIP_BG				7
-# define IDX_TXTR_UIP_LBL				8
-# define IDX_TXTR_UIP_B1_ON				9
-# define IDX_TXTR_UIP_B1_OFF			10
-# define IDX_TXTR_UIP_B2_ON				11
-# define IDX_TXTR_UIP_B2_OFF			12
-# define IDX_TXTR_DEMON_WALK			13
-# define IDX_TXTR_DEMON_PAIN			14
-# define IDX_TXTR_DEMON_ATTACK			15
-# define IDX_TXTR_DEMON_DEATH			16
+# define IDX_TXTR_SPRITE				7
+# define IDX_TXTR_UIP_BG				8
+# define IDX_TXTR_UIP_LBL				9
+# define IDX_TXTR_UIP_B1_ON				10
+# define IDX_TXTR_UIP_B1_OFF			11
+# define IDX_TXTR_UIP_B2_ON				12
+# define IDX_TXTR_UIP_B2_OFF			13
+# define IDX_TXTR_DEMON_WALK			14
+# define IDX_TXTR_DEMON_PAIN			15
+# define IDX_TXTR_DEMON_ATTACK			16
+# define IDX_TXTR_DEMON_DEATH			17
 
 # define ID_MAP_DEMON					'p'
 
 # define MAP_EXTENSION		".cub"
 # define MAP_ALLOWED_CHARS	" 01sdpNSEW"
-# define MAP_NB_IDS			17
+# define MAP_NB_IDS			18
 
 typedef struct s_game		t_game;
 typedef struct s_map		t_map;

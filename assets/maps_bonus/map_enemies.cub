@@ -1,17 +1,24 @@
-NO ./assets/textures/wall_1.xpm 64,64
-SO ./assets/textures/wall_2.xpm 64,64
-WE ./assets/textures/wall_3.xpm 64,64
-EA ./assets/textures/wall_4.xpm 64,64
+NO ./assets/textures/walls/wall_1.xpm 64,64
+SO ./assets/textures/walls/wall_2.xpm 64,64
+WE ./assets/textures/walls/wall_3.xpm 64,64
+EA ./assets/textures/walls/wall_4.xpm 64,64
 
-F ./assets/textures/ground.xpm 64,64
-C ./assets/textures/ceiling.xpm 64,64
-D ./assets/textures/door.xpm 64,64
-S ./assets/textures/flying.xpm 64,64
+F ./assets/textures/floors/sand.xpm 64,64
+C ./assets/textures/ceilings/ceiling.xpm 64,64
+D ./assets/textures/doors/door.xpm 64,64
+S ./assets/textures/entities/flying/flying.xpm 64,64
 
 DEMON_WALK ./assets/textures/doom/entities/demon/demon_walk.xpm 40,55
 DEMON_ATTACK ./assets/textures/doom/entities/demon/demon_attack.xpm 44,55
 DEMON_PAIN ./assets/textures/doom/entities/demon/demon_pain.xpm 39,55
 DEMON_DEATH ./assets/textures/doom/entities/demon/demon_death.xpm 52,57
+
+UI_PAUSE_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297
+UI_PAUSE_LABEL ./assets/textures/ui/labels/label_pause1.xpm 200,100
+UI_PAUSE_BTN_RESUME_OFF ./assets/textures/ui/buttons/btn_resume_off1.xpm 400,100
+UI_PAUSE_BTN_RESUME_ON ./assets/textures/ui/buttons/btn_resume_on1.xpm 400,100
+UI_PAUSE_BTN_QUIT_OFF ./assets/textures/ui/buttons/btn_quit_off1.xpm 400,100
+UI_PAUSE_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on1.xpm 400,100
 
 11111111111111111111
 10000000000000000001
