@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 10:02:07 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 10:17:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ bool		is_character(t_vector *position, t_map *map, char character);
 bool		check_extension(char *filename, char *extension);
 void		free_map(t_map *map);
 bool		is_walkable(t_map *map, t_mlx_coords *coords);
-bool		get_elem_into_list(t_map *map, t_list **dest, char *ids,
-				bool add_elem(t_list **, float, float));
+bool		get_elem_into_list(t_game *game, t_list **dest, char *ids,
+				bool add_elem(t_game *, float, float, char));
 
 #endif

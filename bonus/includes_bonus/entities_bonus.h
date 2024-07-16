@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/14 16:25:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 10:13:53 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ void	update_entity_position(t_entity *entity, float delta_time,
 			t_list *entities, t_map *map);
 
 // Init entities species
-bool	demon_init(t_entity *entity);
+bool	demon_init(t_entity *entity, t_list *textures[12]);
 
 #endif // !ENTITIES_BONUS_H

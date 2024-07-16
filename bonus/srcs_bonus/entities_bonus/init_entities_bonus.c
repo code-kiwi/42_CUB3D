@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 10:02:51 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 10:23:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,20 @@
 #include "cub3d_bonus.h"
 #include "libft.h"
 
-bool	add_entity(t_list **entities, float x, float y)
+void	init_entity(t_entity *new_entity, t_sprite *new_sprite, float x,
+	float y)
+{
+	new_entity->sprite = new_sprite;
+	new_entity->sprite->position.x = x;
+	new_entity->sprite->position.y = y;
+	new_entity->squared_radius = ENTITY_RADIUS * ENTITY_RADIUS;
+	new_entity->health_point = ENTITY_HEALTH_POINT;
+	new_entity->is_path_circular = false;
+	new_entity->path = NULL;
+	new_entity->speed = ENTITY_SPEED;
+}
+
+bool	add_entity(t_game *game, float x, float y, char id)
 {
 	t_list		*new_node;
 	t_entity	*new_entity;
@@ -27,31 +40,14 @@ bool	add_entity(t_list **entities, float x, float y)
 	new_entity = ft_calloc(1, sizeof(t_entity));
 	if (new_entity == NULL)
 		return (free(new_sprite), false);
-	new_entity->sprite = new_sprite;
-	new_entity->sprite->position.x = x;
-	new_entity->sprite->position.y = y;
-	new_entity->squared_radius = ENTITY_RADIUS * ENTITY_RADIUS;
-	new_entity->health_point = ENTITY_HEALTH_POINT;
+	init_entity(new_entity, new_sprite, x, y);
+	if (!demon_init(new_entity, game->textures))
+		return (t_entity_destroy(new_entity), false);
 	new_node = ft_lstnew(new_entity);
 	if (new_node == NULL)
-	{
-		free(new_sprite);
-		free(new_entity);
-		return (false);
-	}
-	ft_lstadd_front(entities, new_node);
+		return (t_entity_destroy(new_entity), false);
+	ft_lstadd_front(&game->entities, new_node);
 	return (true);
-}
-
-bool	t_entity_init(t_entity *entity, t_list *animation)
-{
-	if (entity == NULL)
-		return (false);
-	t_sprite_init(entity->sprite, animation);
-	entity->is_path_circular = false;
-	entity->path = NULL;
-	entity->speed = ENTITY_SPEED;
-	return (demon_init(entity));
 }
 
 bool	init_entities(t_game *game)
@@ -71,11 +67,6 @@ bool	init_entities(t_game *game)
 		if (new_sprite_node == NULL)
 			return (false);
 		ft_lstadd_front(&game->sprites, new_sprite_node);
-		if (!t_entity_init(entity, game->textures[8]))
-		{
-			ft_lstclear(&game->entities, t_entity_destroy);
-			return (false);
-		}
 		current = current->next;
 	}
 	game->last_entity_updated = game->entities;
