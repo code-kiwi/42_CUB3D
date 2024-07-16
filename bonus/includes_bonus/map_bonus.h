@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 10:17:13 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 11:06:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define ID_MAP_DOOR_OPENED			'o'
 
 # define IDS_MAP_SPRITE				"s"
-# define IDS_MAP_ENTITY				"e"
+# define IDS_MAP_ENTITY				"p"
 
 # define ID_TEXTURE_NORTH			"NO"
 # define ID_TEXTURE_SOUTH			"SO"
@@ -41,7 +41,7 @@
 # define ID_TEXTURE_DEMON_DEATH		"DEMON_DEATH"
 
 # define MAP_EXTENSION		".cub"
-# define MAP_ALLOWED_CHARS	" 01sdeNSEW"
+# define MAP_ALLOWED_CHARS	" 01sdpNSEW"
 # define MAP_NB_IDS			12
 
 typedef struct s_game		t_game;
