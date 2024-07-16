@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 13:33:33 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 14:21:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 # include "vector_bonus.h"
 # include "libft.h"
-
-# define TEXTURE_SIZE			64
 
 typedef struct s_game	t_game;
 typedef struct s_sprite	t_sprite;
