@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 13:32:21 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 15:09:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ struct s_game
 	t_door		*last_door_seen;
 	t_list		*sprites;
 	t_list		*entities;
+	t_list		*bullets;
 	t_list		*last_entity_updated;
 	bool		pause;
 	t_ui		ui_pause;
