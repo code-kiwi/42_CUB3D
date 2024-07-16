@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:53:40 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 12:30:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 13:51:58 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	equal(void *a, void *b)
 	return (!(a == b));
 }
 
-static void	kill_entity(t_game *game, t_entity *entity)
+void	kill_entity(t_game *game, t_entity *entity)
 {
 	if (game == NULL || entity == NULL || game->entities == NULL)
 		return ;

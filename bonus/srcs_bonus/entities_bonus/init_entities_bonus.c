@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 13:35:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 13:50:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void	init_entity(t_entity *new_entity, t_sprite *new_sprite, float x,
 	new_entity->is_path_circular = false;
 	new_entity->path = NULL;
 	new_entity->sprite->frame_update_delta = 0;
+	new_entity->cooldown = 0;
 }
 
 static bool	add_entity(t_game *game, float x, float y, char id)

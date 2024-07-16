@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 12:30:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 13:50:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define DEMON_SPEED				2
 # define DEMON_SQUARED_RADIUS		1
 # define DEMON_HEALTH_POINT			3
+# define DEMON_ATTACK_RANGE			1.5
+# define DEMON_ATTACK_PAUSE			2
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;
@@ -40,6 +42,7 @@ struct s_entity
 	bool		(*get_killed)(t_game *, t_entity *);
 	bool		(*get_chainsawed)(t_game *, t_entity *);
 	void		*type;
+	float		cooldown;
 };
 
 struct s_demon
