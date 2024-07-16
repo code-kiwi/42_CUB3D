@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:09:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 14:53:35 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 09:29:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	t_sprite_init(t_sprite *sprite, t_list *animation)
 	if (sprite == NULL)
 		return ;
 	sprite->animation = animation;
+	sprite->next_animation = animation;
 	sprite->distance = 0;
 	sprite->height = WIN_HEIGHT;
 }
