@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 10:23:01 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 10:25:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "cub3d_bonus.h"
 #include "libft.h"
 
-void	init_entity(t_entity *new_entity, t_sprite *new_sprite, float x,
+static void	init_entity(t_entity *new_entity, t_sprite *new_sprite, float x,
 	float y)
 {
 	new_entity->sprite = new_sprite;
@@ -28,7 +28,7 @@ void	init_entity(t_entity *new_entity, t_sprite *new_sprite, float x,
 	new_entity->speed = ENTITY_SPEED;
 }
 
-bool	add_entity(t_game *game, float x, float y, char id)
+static bool	add_entity(t_game *game, float x, float y, char id)
 {
 	t_list		*new_node;
 	t_entity	*new_entity;
@@ -56,7 +56,7 @@ bool	init_entities(t_game *game)
 	t_entity	*entity;
 	t_list		*new_sprite_node;
 
-	if (!get_elem_into_list(&game->map, &game->entities, IDS_MAP_ENTITY, \
+	if (!get_elem_into_list(game, &game->entities, IDS_MAP_ENTITY, \
 			add_entity))
 		return (false);
 	current = game->entities;
