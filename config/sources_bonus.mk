@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/16 10:27:46 by brappo           ###   ########.fr        #
+#    Updated: 2024/07/16 14:12:51 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,7 +108,8 @@ PLAYER_FILES_BONUS			=	t_player_init_bonus.c			\
 								t_player_init_display_bonus.c	\
 								update_player_bonus.c			\
 								t_player_destroy_bonus.c		\
-								player_shoot_bonus.c
+								player_shoot_bonus.c			\
+								player_get_damage_bonus.c
 PLAYER_BONUS				=	$(addprefix $(PLAYER_DIR_BONUS), $(PLAYER_FILES_BONUS))
 
 # RAY
