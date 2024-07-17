@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_init_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:09:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 15:29:44 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/17 10:00:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "cub3d_bonus.h"
 #include "map_bonus.h"
 
-static bool	add_sprite(t_game *game, float x, float y, char id)
+void	*add_sprite(t_game *game, float x, float y, char id)
 {
 	t_list		*new_node;
 	t_sprite	*new_sprite;
@@ -23,17 +23,17 @@ static bool	add_sprite(t_game *game, float x, float y, char id)
 	(void)id;
 	new_sprite = ft_calloc(1, sizeof(t_sprite));
 	if (new_sprite == NULL)
-		return (false);
+		return (NULL);
 	new_sprite->position.x = x;
 	new_sprite->position.y = y;
 	new_node = ft_lstnew(new_sprite);
 	if (new_node == NULL)
 	{
 		free(new_sprite);
-		return (false);
+		return (NULL);
 	}
 	ft_lstadd_front(&game->sprites, new_node);
-	return (true);
+	return (new_sprite);
 }
 
 void	t_sprite_init(t_sprite *sprite, t_list *animation)

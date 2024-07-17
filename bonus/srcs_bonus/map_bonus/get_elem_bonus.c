@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_elem_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:22:06 by root              #+#    #+#             */
-/*   Updated: 2024/07/16 10:16:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/17 09:52:30 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "libft.h"
 
 bool	get_elem_into_list(t_game *game, t_list **dest, char *ids,
-	bool add_elem(t_game *, float, float, char))
+	void *add_elem(t_game *, float, float, char))
 {
 	size_t	y;
 	size_t	x;
