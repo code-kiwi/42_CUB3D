@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 10:08:16 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 10:18:19 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,6 @@ static void	*add_entity(t_game *game, float x, float y, char id)
 
 bool	init_entities(t_game *game)
 {
-	t_list		*current;
-	t_entity	*entity;
-	t_list		*new_sprite_node;
-
 	if (!get_elem_into_list(game, &game->entities, IDS_MAP_ENTITY, \
 			add_entity))
 		return (false);

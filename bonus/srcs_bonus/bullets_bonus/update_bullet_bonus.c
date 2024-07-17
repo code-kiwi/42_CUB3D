@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_bullet_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:17:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 15:30:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/17 10:19:25 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	update_bullet(t_game *game, t_bullet *bullet)
 {
-	if (!move_entity(game->entities, &bullet->position, &bullet->move,
+	if (!move_entity(game->entities, &bullet->sprite->position, &bullet->move,
 			&game->map))
 	{
 		bullet->use(game);

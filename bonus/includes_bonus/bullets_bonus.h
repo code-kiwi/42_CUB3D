@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bullets_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 15:32:56 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/17 10:19:14 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ typedef struct s_bullet	t_bullet;
 
 struct	s_bullet
 {
-	t_vector	position;
 	t_vector	move;
 	void		(*use)(t_game *game);
-	t_sprite	*texture;
+	t_sprite	*sprite;
 };
 
 #endif // !BULLETS_BONUS_H
