@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:03:22 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 11:05:25 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 11:40:51 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	use_gun(t_game *game)
 	player_shoot(game);
 	t_vector_get_slope(&direction, player->orientation);
 	direction.y *= -1;
-	shoot_bullet(game, &player->position, &direction, NULL);
+	shoot_bullet(game, &player->position, &direction, bullet_use);
 	aimed_entity = ft_lstfind(game->entities, game->player.aimed_sprite,
 			is_sprite_of_entity);
 	if (aimed_entity == NULL)

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:06:25 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 10:53:31 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 11:37:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft.h"
 
 bool	shoot_bullet(t_game *game, t_vector *position, t_vector *direction,
-	void (*use)(t_game *))
+	void (*use)(t_game *, t_bullet *))
 {
 	t_bullet	*new_bullet;
 	t_list		*new_node;

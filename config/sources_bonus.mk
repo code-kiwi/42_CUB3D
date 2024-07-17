@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/16 15:26:44 by brappo           ###   ########.fr        #
+#    Updated: 2024/07/17 11:41:27 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -190,7 +190,8 @@ ANIMATION_BONUS				=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS
 # BULLETS
 BULLETS_DIR_BONUS			=	bullets_bonus/
 BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c	\
-								update_bullet_bonus.c
+								update_bullet_bonus.c	\
+								bullet_use_bonus.c
 BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
 
 # SOURCES GENERAL

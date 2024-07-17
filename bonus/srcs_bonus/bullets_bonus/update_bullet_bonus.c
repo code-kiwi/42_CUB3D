@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:17:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 11:07:09 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 11:44:33 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	update_bullet(t_game *game, t_bullet *bullet, float delta_time)
 	if (!move_entity(game->entities, &bullet->sprite->position, &realtime_move,
 			&game->map) && bullet->use != NULL)
 	{
-		bullet->use(game);
+		bullet->use(game, bullet);
 	}
 }
 
@@ -40,7 +40,7 @@ void	update_bullets(t_game *game, float delta_time)
 	while (current)
 	{
 		bullet = current->content;
-		update_bullet(game, bullet, delta_time);
 		current = current->next;
+		update_bullet(game, bullet, delta_time);
 	}
 }
