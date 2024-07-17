@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:17:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 10:45:30 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 10:49:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 
 static void	update_bullet(t_game *game, t_bullet *bullet)
 {
+	if (game == NULL || bullet == NULL || bullet->sprite == NULL)
+		return ;
 	if (!move_entity(game->entities, &bullet->sprite->position, &bullet->move,
-			&game->map))
+			&game->map) && bullet->use != NULL)
 	{
 		bullet->use(game);
 	}

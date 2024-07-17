@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   use_item_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:03:22 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/14 16:29:12 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/17 10:53:05 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "item_bonus.h"
 #include "cub3d_bonus.h"
 #include "entities_bonus.h"
+#include "bullets_bonus.h"
 
 static int	is_sprite_of_entity(void *entity_void, void *sprite_void)
 {
@@ -28,8 +29,15 @@ void	use_gun(t_game *game)
 {
 	t_list		*aimed_entity;
 	t_entity	*entity;
+	t_player	*player;
+	t_vector	direction;
 
+	if (game == NULL)
+		return ;
+	player = &game->player;
 	player_shoot(game);
+	t_vector_get_slope(&direction, player->orientation);
+	shoot_bullet(game, &player->position, &direction, NULL);
 	aimed_entity = ft_lstfind(game->entities, game->player.aimed_sprite,
 			is_sprite_of_entity);
 	if (aimed_entity == NULL)
@@ -38,7 +46,7 @@ void	use_gun(t_game *game)
 	if (entity == NULL)
 		return ;
 	entity->get_damage(game, entity, GUN_DAMAGE);
-	game->player.aimed_sprite = NULL;
+	player->aimed_sprite = NULL;
 }
 
 void	use_item(t_game *game)

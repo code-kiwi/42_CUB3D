@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 10:45:04 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 10:48:38 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ struct	s_bullet
 };
 
 void	update_bullets(t_game *game);
+bool	shoot_bullet(t_game *game, t_vector *position, t_vector *direction,
+			void (*use)(t_game *));
 
 #endif // !BULLETS_BONUS_H
