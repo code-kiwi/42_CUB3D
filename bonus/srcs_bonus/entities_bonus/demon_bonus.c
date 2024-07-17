@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   demon_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 14:29:07 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/17 10:34:47 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,6 @@ bool	demon_init(t_entity *entity, t_list *textures[MAP_NB_IDS])
 	entity->speed = DEMON_SPEED;
 	entity->squared_radius = DEMON_SQUARED_RADIUS;
 	entity->type = ft_calloc(1, sizeof(t_demon));
-	t_sprite_init(entity->sprite, textures[IDX_TXTR_DEMON_WALK]);
+	t_sprite_init(entity->sprite, textures[IDX_TXTR_DEMON_WALK], WIN_HEIGHT);
 	return (entity->type != NULL);
 }

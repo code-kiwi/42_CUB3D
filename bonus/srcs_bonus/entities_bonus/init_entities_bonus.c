@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 10:18:19 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 10:39:09 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,11 @@
 #include "cub3d_bonus.h"
 #include "libft.h"
 
-static void	init_entity(t_entity *new_entity, t_sprite *new_sprite, float x,
-	float y)
+static void	init_entity(t_entity *new_entity, t_sprite *new_sprite)
 {
 	new_entity->sprite = new_sprite;
-	new_entity->sprite->position.x = x;
-	new_entity->sprite->position.y = y;
 	new_entity->is_path_circular = false;
 	new_entity->path = NULL;
-	new_entity->sprite->frame_update_delta = 0;
 	new_entity->cooldown = 0;
 }
 
@@ -39,7 +35,7 @@ static void	*add_entity(t_game *game, float x, float y, char id)
 	new_entity = ft_calloc(1, sizeof(t_entity));
 	if (new_entity == NULL)
 		return (NULL);
-	init_entity(new_entity, new_sprite, x, y);
+	init_entity(new_entity, new_sprite);
 	if (!init_entity_type(new_entity, id, game->textures))
 		return (free(new_entity), NULL);
 	new_node = ft_lstnew(new_entity);

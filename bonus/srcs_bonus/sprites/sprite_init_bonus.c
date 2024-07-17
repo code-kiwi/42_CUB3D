@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:09:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 10:00:17 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 10:33:47 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ void	*add_sprite(t_game *game, float x, float y, char id)
 	return (new_sprite);
 }
 
-void	t_sprite_init(t_sprite *sprite, t_list *animation)
+void	t_sprite_init(t_sprite *sprite, t_list *animation, size_t height)
 {
 	if (sprite == NULL)
 		return ;
 	sprite->animation = animation;
 	sprite->next_animation = animation;
 	sprite->distance = 0;
-	sprite->height = WIN_HEIGHT;
+	sprite->height = height;
 	sprite->animate = true;
 }
 
@@ -59,7 +59,7 @@ bool	init_sprites(t_game *game)
 	while (current)
 	{
 		sprite = current->content;
-		t_sprite_init(sprite, game->textures[IDX_TXTR_S]);
+		t_sprite_init(sprite, game->textures[IDX_TXTR_S], WIN_HEIGHT);
 		current = current->next;
 	}
 	return (true);
