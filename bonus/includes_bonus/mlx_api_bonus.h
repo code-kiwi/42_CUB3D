@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_api_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 13:29:40 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/17 19:32:48 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define KEY_D 						100
 # define KEY_P 						112
 # define KEY_E						101
+# define KEY_M						109
 # define KEY_SPACE					32
 # define MOUSE_LEFT					1
 # define MOUSE_RIGHT				3

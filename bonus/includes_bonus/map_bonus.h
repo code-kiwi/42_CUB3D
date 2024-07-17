@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 11:22:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/17 19:45:15 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ bool	is_walkable(t_map *map, t_mlx_coords *coords);
 bool	get_elem_into_list(t_map *map, t_list **dest, char id, \
 			bool add_elem(t_list **, float, float));
 void	update_map(t_map *map, t_game *game);
+void    draw_map(t_map *map, t_game *game);
 
 #endif

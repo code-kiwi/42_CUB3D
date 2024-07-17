@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
+#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/16 10:34:27 by mhotting         ###   ########.fr        #
+#    Updated: 2024/07/17 19:47:15 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,8 @@ MAP_FILES_BONUS				=	read_map_bonus.c				\
 								is_valid_bonus.c				\
 								free_map_bonus.c				\
 								get_elem_bonus.c				\
-								update_bonus.c
+								update_bonus.c					\
+								draw_bonus.c
 MAP_BONUS					=	$(addprefix $(MAP_DIR_BONUS), $(MAP_FILES_BONUS))
 
 # DOOR
