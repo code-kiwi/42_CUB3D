@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entities_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 14:14:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/17 09:44:54 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ENTITIES_BONUS_H
 
 # include "sprite_bonus.h"
+# include "map_bonus.h"
 
 # include <stdbool.h>
 
@@ -63,8 +64,9 @@ void	update_entity_position(t_entity *entity, float delta_time,
 			t_list *entities, t_map *map);
 
 // Init entities species
-bool	demon_init(t_entity *entity, t_list *textures[12]);
-bool	init_entity_type(t_entity *entity, char id, t_list *textures[12]);
+bool	demon_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	init_entity_type(t_entity *entity, char id, \
+			t_list *textures[MAP_NB_IDS]);
 int		equal(void *a, void *b);
 
 #endif // !ENTITIES_BONUS_H
