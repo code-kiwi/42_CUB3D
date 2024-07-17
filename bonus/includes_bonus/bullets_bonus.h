@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 10:58:41 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 11:07:30 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "vector_bonus.h"
 # include "cub3d_bonus.h"
 
-# define BULLET_SPEED	2
+# define BULLET_SPEED	5
 
 typedef struct s_bullet	t_bullet;
 

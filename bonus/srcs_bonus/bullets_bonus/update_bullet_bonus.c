@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:17:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 10:58:27 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 11:07:09 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static void	update_bullet(t_game *game, t_bullet *bullet, float delta_time)
 
 	if (game == NULL || bullet == NULL || bullet->sprite == NULL)
 		return ;
-	realtime_move.x = bullet->move.x * delta_time;
-	realtime_move.y = bullet->move.y * delta_time;
+	realtime_move.x = bullet->move.x * delta_time * BULLET_SPEED;
+	realtime_move.y = bullet->move.y * delta_time * BULLET_SPEED;
 	if (!move_entity(game->entities, &bullet->sprite->position, &realtime_move,
 			&game->map) && bullet->use != NULL)
 	{
