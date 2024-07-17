@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/17 09:52:51 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 12:03:19 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@
 # define ID_TEXTURE_DEMON_PAIN			"DEMON_PAIN"
 # define ID_TEXTURE_DEMON_ATTACK		"DEMON_ATTACK"
 # define ID_TEXTURE_DEMON_DEATH			"DEMON_DEATH"
+# define ID_TEXTURE_IMP_PROJ_LIVE		"IMP_PROJECTILE_LIVE"
+# define ID_TEXTURE_IMP_PROJ_DEATH		"IMP_PROJECTILE_DEATH"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -63,12 +65,14 @@
 # define IDX_TXTR_DEMON_PAIN			15
 # define IDX_TXTR_DEMON_ATTACK			16
 # define IDX_TXTR_DEMON_DEATH			17
+# define IDX_TXTR_IMP_PROJ_LIVE			18
+# define IDX_TXTR_IMP_PROJ_DEATH		19
 
 # define ID_MAP_DEMON					'p'
 
 # define MAP_EXTENSION		".cub"
 # define MAP_ALLOWED_CHARS	" 01sdpNSEW"
-# define MAP_NB_IDS			18
+# define MAP_NB_IDS			20
 
 typedef struct s_game		t_game;
 typedef struct s_map		t_map;

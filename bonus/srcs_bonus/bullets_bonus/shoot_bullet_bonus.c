@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:06:25 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 11:37:50 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 12:05:34 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ bool	shoot_bullet(t_game *game, t_vector *position, t_vector *direction,
 	new_sprite = add_sprite(game, position->x, position->y, 'c');
 	if (new_sprite == NULL)
 		return (false);
-	t_sprite_init(new_sprite, game->textures[0], WIN_HEIGHT);
+	t_sprite_init(new_sprite, game->textures[IDX_TXTR_IMP_PROJ_LIVE],
+		WIN_HEIGHT);
 	new_bullet = ft_calloc(1, sizeof(t_bullet));
 	if (new_bullet == NULL)
 		return (false);

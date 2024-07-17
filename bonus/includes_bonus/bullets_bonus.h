@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 11:41:09 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 12:03:45 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ struct	s_bullet
 void	update_bullets(t_game *game, float delta_time);
 bool	shoot_bullet(t_game *game, t_vector *position, t_vector *direction,
 			void (*use)(t_game *, t_bullet *));
-void	bullet_use(t_game *game, t_bullet *bullet);
+void	imp_projectile_use(t_game *game, t_bullet *bullet);
 
 #endif // !BULLETS_BONUS_H
