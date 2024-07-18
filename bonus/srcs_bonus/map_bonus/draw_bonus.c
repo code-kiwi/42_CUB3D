@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/18 04:30:28 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/18 04:37:59 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,12 @@ static void	draw_map_doors(
 	i = 0;
 	while (i < door_count)
 	{
-		coords.x = draw->coords.x + doors[i].position.x * draw->tile_size;
-		coords.y = draw->coords.y + doors[i].position.y * draw->tile_size;
-		t_mlx_draw_rectangle(img, &coords, &size, MAP_DRAW_COL_DOOR1);
+		if (doors[i].state == CLOSED)
+		{
+			coords.x = draw->coords.x + doors[i].position.x * draw->tile_size;
+			coords.y = draw->coords.y + doors[i].position.y * draw->tile_size;
+			t_mlx_draw_rectangle(img, &coords, &size, MAP_DRAW_COL_DOOR1);
+		}
 		i++;
 	}
 }

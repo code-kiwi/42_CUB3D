@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:37:57 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 14:27:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/18 04:32:19 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static void	draw_radar_process(t_radar *radar)
 
 void	draw_radar(t_game *game, t_radar *radar, t_mlx *mlx)
 {
-	if (game == NULL || radar == NULL || mlx == NULL)
+	if (game == NULL || radar == NULL || mlx == NULL || game->map_opened)
 		return ;
 	update_tiles(&game->map, radar, &game->player);
 	if (radar->needs_update)
