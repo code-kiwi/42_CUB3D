@@ -6,15 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:09:39 by root              #+#    #+#             */
-/*   Updated: 2024/07/18 17:31:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/18 17:34:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
-
-#include <stdio.h>
 
 void	imp_projectile_use(t_game *game, t_bullet *bullet)
 {
