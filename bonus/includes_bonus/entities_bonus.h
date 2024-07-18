@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 09:44:54 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 12:14:57 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ struct s_demon
 void	t_entity_destroy(void *data);
 bool	init_entities(t_game *game);
 bool	update_entities_path(t_game *game);
-void	move_entity(t_list *entities, t_vector *position, t_vector *move,
+bool	move_entity(t_list *entities, t_vector *position, t_vector *move,
 			t_map *map);
 void	update_entities(t_game *game, float delta_time);
 void	damage_entity(t_game *game, t_entity *entity, size_t damage);

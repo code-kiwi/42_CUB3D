@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 14:29:07 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/18 13:29:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static bool	demon_get_killed(t_game *game, t_entity *entity)
 		game->last_entity_updated = game->last_entity_updated->next;
 	entity->sprite->animation = game->textures[IDX_TXTR_DEMON_DEATH];
 	entity->sprite->next_animation = NULL;
+	entity->sprite->animate = true;
 	ft_lst_remove_if(&game->entities, entity, equal, t_entity_destroy);
 	return (true);
 }
@@ -79,6 +80,6 @@ bool	demon_init(t_entity *entity, t_list *textures[MAP_NB_IDS])
 	entity->speed = DEMON_SPEED;
 	entity->squared_radius = DEMON_SQUARED_RADIUS;
 	entity->type = ft_calloc(1, sizeof(t_demon));
-	t_sprite_init(entity->sprite, textures[IDX_TXTR_DEMON_WALK]);
+	t_sprite_init(entity->sprite, textures[IDX_TXTR_DEMON_WALK], WIN_HEIGHT);
 	return (entity->type != NULL);
 }

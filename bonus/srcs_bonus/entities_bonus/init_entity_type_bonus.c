@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:26:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 09:44:32 by root             ###   ########.fr       */
+/*   Updated: 2024/07/17 12:16:01 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "entities_bonus.h"
 #include "map_bonus.h"
 
-bool	init_entity_type(t_entity *entity, char id,
+bool	init_entity_type(t_entity *entity, char id, \
 	t_list *textures[MAP_NB_IDS])
 {
 	if (id == ID_MAP_DEMON)
