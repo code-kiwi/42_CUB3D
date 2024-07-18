@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/17 19:45:15 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/18 03:33:38 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,36 @@
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
+# define MAP_DRAW_SIZE_RATIO			0.80f
+# define MAP_DRAW_ELT_MIN_RADIUS		8
+# define MAP_DRAW_COL_BG				0x002801
+# define MAP_DRAW_COL_DECORATION		0x004000
+# define MAP_DRAW_COL_SPACE				0x002801
+# define MAP_DRAW_COL_WALL				0x09BB17
+# define MAP_DRAW_COL_TILE				0x006700
+# define MAP_DRAW_COL_DOOR1				0x00FF00
+# define MAP_DRAW_COL_DOOR2				0x006700
+# define MAP_DRAW_COL_PLAYER			0xFFFF00
+
+
 typedef struct s_game		t_game;
 typedef struct s_map		t_map;
+typedef struct s_map_draw	t_map_draw;
 typedef struct s_vector		t_vector;
 typedef struct s_door		t_door;
 typedef struct s_ray		t_ray;
 typedef struct s_sprite		t_sprite;
 typedef struct s_list		t_list;
 typedef struct s_mlx_coords	t_mlx_coords;
+
+struct s_map_draw
+{
+	int				tile_size;
+	t_mlx_coords	coords;
+	t_mlx_coords	size;
+	t_mlx_coords	nb_tiles;
+	int				element_radius;
+};
 
 struct s_map
 {
@@ -78,6 +100,7 @@ struct s_map
 	size_t			lines_count;
 	char			*textures[MAP_NB_IDS];
 	t_mlx_coords	texture_size[MAP_NB_IDS];
+	t_map_draw		draw;
 };
 
 // Map functions
@@ -92,6 +115,10 @@ bool	is_walkable(t_map *map, t_mlx_coords *coords);
 bool	get_elem_into_list(t_map *map, t_list **dest, char id, \
 			bool add_elem(t_list **, float, float));
 void	update_map(t_map *map, t_game *game);
-void    draw_map(t_map *map, t_game *game);
+
+// Draw map functions
+void	draw_map(t_map_draw *map_draw, t_map *map, t_game *game);
+void	draw_map_entities(t_map_draw *draw, t_game *game);
+bool	init_map_draw(t_map_draw *map_draw, t_map *map, t_game *game);
 
 #endif

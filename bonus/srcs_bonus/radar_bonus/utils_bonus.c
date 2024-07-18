@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:53:25 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 14:54:56 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/18 03:00:15 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ bool	init_radar(t_radar *rad, t_mlx *mlx)
 	rad->radius = (int)((float)mlx->width / RADAR_SIZE_RATIO);
 	rad->nb_tiles = RADAR_NB_TILES;
 	rad->tile_size = 2 * rad->radius / rad->nb_tiles;
+	rad->radius = rad->tile_size * rad->nb_tiles / 2;
 	rad->radius_element = rad->tile_size / 2 - 2;
 	rad->draw_offset = (2 * rad->radius - rad->nb_tiles * rad->tile_size) / 2;
 	rad->coords.x = RADAR_OFFSET;
