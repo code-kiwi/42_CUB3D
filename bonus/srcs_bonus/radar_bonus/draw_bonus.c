@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:37:57 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/18 04:32:19 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:49:35 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	draw_radar_process(t_radar *radar)
 	t_mlx_coords	coords;
 	t_mlx_coords	size;
 
-	t_mlx_draw_disk(radar->img, &radar->center, radar->radius, RADAR_COLOR_BG);
+	t_mlx_draw_disk(radar->img, &radar->center, radar->radius, RAD_COL_BG);
 	i = -1;
 	while (++i < radar->nb_tiles)
 	{

@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/18 04:21:32 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:49:35 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@
 
 # define MAP_DRAW_SIZE_RATIO			0.80f
 # define MAP_DRAW_ELT_MIN_RADIUS		8
-# define MAP_DRAW_COL_BG				0x002801
+# define MAP_DRAW_RAD_COL_BG				0x002801
 # define MAP_DRAW_COL_DECORATION		0x004000
 # define MAP_DRAW_COL_SPACE				0x002801
 # define MAP_DRAW_COL_WALL				0x09BB17

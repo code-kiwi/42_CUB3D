@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radar_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:52:04 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/16 14:50:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:49:53 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 
 # define RADAR_SIZE_RATIO		10.0f
 # define RADAR_OFFSET			10
-# define RADAR_COLOR_BG			0x002801
 # define RADAR_NB_TILES			17
 
+# define RAD_COL_TRANSPARENT	0xFF000000
+# define RAD_COL_BG				0x002801
 # define COL_SPACE				0x002801
 # define COL_WALL				0x09BB17
 # define COL_TILE				0x006700
@@ -39,6 +40,7 @@ struct s_radar
 	int				draw_offset;
 	int				radius;
 	t_image			*img;
+	t_image			*img2;
 	float			player_last_orientation;
 	uint32_t		color_border;
 	char			**tiles;

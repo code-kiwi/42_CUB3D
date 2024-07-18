@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/18 04:37:59 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:49:35 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	draw_map(t_map_draw *draw, t_map *map, t_game *game)
 	if (draw == NULL || map == NULL || game == NULL)
 		return ;
 	t_mlx_draw_rectangle(game->mlx.img_buff, &draw->coords, &draw->size, \
-		MAP_DRAW_COL_BG);
+		MAP_DRAW_RAD_COL_BG);
 	draw_map_tiles(draw, map, game->mlx.img_buff);
 	draw_map_entities(draw, game);
 	draw_map_doors(draw, game->doors, game->door_count, game->mlx.img_buff);
