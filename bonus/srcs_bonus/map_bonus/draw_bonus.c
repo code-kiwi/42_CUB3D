@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/18 03:34:30 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/18 04:21:05 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	draw_map_decoration(t_map_draw *draw, t_image *img)
 	}
 }
 
-static uint32_t get_tile_color(char c)
+static uint32_t	get_tile_color(char c)
 {
 	if (c == ID_MAP_SPACE)
 		return (MAP_DRAW_COL_SPACE);

@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/18 03:33:38 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/18 04:21:32 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@
 # define MAP_DRAW_COL_DOOR1				0x00FF00
 # define MAP_DRAW_COL_DOOR2				0x006700
 # define MAP_DRAW_COL_PLAYER			0xFFFF00
-
+# define MAP_DRAW_COL_RAYS				0x008700
+# define MAP_DRAW_COL_ENNEMIES			0xFF0000
 
 typedef struct s_game		t_game;
 typedef struct s_map		t_map;
