@@ -6,12 +6,13 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/18 04:21:05 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/18 04:30:28 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
+#include "door_bonus.h"
 
 static void	draw_map_decoration(t_map_draw *draw, t_image *img)
 {
@@ -82,6 +83,29 @@ static void	draw_map_tiles(t_map_draw *draw, t_map *map, t_image *img)
 	}
 }
 
+static void	draw_map_doors(
+	t_map_draw *draw,
+	t_door *doors,
+	size_t door_count,
+	t_image *img
+)
+{
+	size_t			i;
+	t_mlx_coords	coords;
+	t_mlx_coords	size;
+
+	size.x = draw->tile_size;
+	size.y = draw->tile_size;
+	i = 0;
+	while (i < door_count)
+	{
+		coords.x = draw->coords.x + doors[i].position.x * draw->tile_size;
+		coords.y = draw->coords.y + doors[i].position.y * draw->tile_size;
+		t_mlx_draw_rectangle(img, &coords, &size, MAP_DRAW_COL_DOOR1);
+		i++;
+	}
+}
+
 void	draw_map(t_map_draw *draw, t_map *map, t_game *game)
 {
 	if (draw == NULL || map == NULL || game == NULL)
@@ -90,5 +114,6 @@ void	draw_map(t_map_draw *draw, t_map *map, t_game *game)
 		MAP_DRAW_COL_BG);
 	draw_map_tiles(draw, map, game->mlx.img_buff);
 	draw_map_entities(draw, game);
+	draw_map_doors(draw, game->doors, game->door_count, game->mlx.img_buff);
 	draw_map_decoration(draw, game->mlx.img_buff);
 }
