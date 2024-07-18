@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:53:25 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/18 12:49:49 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/18 21:37:12 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ bool	init_radar(t_radar *rad, t_mlx *mlx)
 {
 	if (rad == NULL || mlx == NULL)
 		return (error_print(ERR_RADAR_CREATION), false);
+	rad->orientation = PI / 2.0f;
 	rad->radius = (int)((float)mlx->width / RADAR_SIZE_RATIO);
 	rad->nb_tiles = RADAR_NB_TILES;
 	rad->tile_size = 2 * rad->radius / rad->nb_tiles;
@@ -46,6 +47,8 @@ bool	init_radar(t_radar *rad, t_mlx *mlx)
 	rad->coords.y = mlx->height - 2 * rad->radius - RADAR_OFFSET;
 	rad->center.x = rad->radius;
 	rad->center.y = rad->radius;
+	rad->size.x = 2 * rad->radius;
+	rad->size.y = 2 * rad->radius;
 	rad->needs_update = false;
 	if (!init_radar_imgs(rad, mlx->mlx_ptr))
 		return (error_print(ERR_RADAR_CREATION), false);

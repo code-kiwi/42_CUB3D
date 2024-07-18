@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:37:57 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/18 12:49:35 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/19 00:26:11 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ static void	draw_radar_tiles(
 )
 {
 	if (tile_char == ID_MAP_SPACE)
-		t_mlx_draw_rectangle_alphap(img, coords, size, COL_SPACE);
+		t_mlx_draw_rectangle_alphap(img, coords, size, RAD_COL_SPACE);
 	else if (tile_char == ID_MAP_WALL)
-		t_mlx_draw_rectangle_alphap(img, coords, size, COL_WALL);
+		t_mlx_draw_rectangle_alphap(img, coords, size, RAD_COL_WALL);
 	else if (tile_char == ID_MAP_DOOR_CLOSED)
-		t_mlx_draw_rectangle_alphap(img, coords, size, COL_DOOR1);
+		t_mlx_draw_rectangle_alphap(img, coords, size, RAD_COL_DOOR1);
 	else if (tile_char == ID_MAP_DOOR_OPENED)
-		t_mlx_draw_rectangle_alphap(img, coords, size, COL_DOOR2);
+		t_mlx_draw_rectangle_alphap(img, coords, size, RAD_COL_DOOR2);
 	else
-		t_mlx_draw_rectangle_alphap(img, coords, size, COL_TILE);
+		t_mlx_draw_rectangle_alphap(img, coords, size, RAD_COL_TILE);
 }
 
 static void	draw_radar_elements(
@@ -40,9 +40,9 @@ static void	draw_radar_elements(
 )
 {
 	if (tile_char == ID_MAP_ENTITY)
-		t_mlx_draw_disk_alphap(img, coords, radius, COL_ENTITY);
+		t_mlx_draw_disk_alphap(img, coords, radius, RAD_COL_ENTITY);
 	else if (tile_char == ID_MAP_PLAYER)
-		t_mlx_draw_disk_alphap(img, coords, radius, COL_PLAYER);
+		t_mlx_draw_disk_alphap(img, coords, radius, RAD_COL_PLAYER);
 }
 
 static void	draw_radar_decoration(t_radar *radar)
@@ -50,21 +50,22 @@ static void	draw_radar_decoration(t_radar *radar)
 	t_mlx_coords	start;
 	t_mlx_coords	end;
 
-	t_mlx_draw_circle(radar->img, &radar->center, radar->radius, COL_PLAYER);
+	t_mlx_draw_circle(radar->img, &radar->center, radar->radius, \
+		RAD_COL_PLAYER);
 	t_mlx_draw_circle(radar->img, &radar->center, radar->radius / 3, \
-		COL_PLAYER);
+		RAD_COL_PLAYER);
 	t_mlx_draw_circle(radar->img, &radar->center, radar->radius * 2 / 3, \
-		COL_PLAYER);
+		RAD_COL_PLAYER);
 	start.x = 2;
 	start.y = radar->center.y;
 	end.x = 2 * radar->radius - 2;
 	end.y = radar->center.y;
-	t_mlx_draw_line(radar->img, start, end, COL_PLAYER);
+	t_mlx_draw_line(radar->img, start, end, RAD_COL_PLAYER);
 	start.x = radar->center.x;
 	start.y = 2;
 	end.x = radar->center.x;
 	end.y = 2 * radar->radius - 2;
-	t_mlx_draw_line(radar->img, start, end, COL_PLAYER);
+	t_mlx_draw_line(radar->img, start, end, RAD_COL_PLAYER);
 }
 
 static void	draw_radar_process(t_radar *radar)
@@ -97,10 +98,23 @@ static void	draw_radar_process(t_radar *radar)
 
 void	draw_radar(t_game *game, t_radar *radar, t_mlx *mlx)
 {
+	float	new_orientation;
+
 	if (game == NULL || radar == NULL || mlx == NULL || game->map_opened)
 		return ;
 	update_tiles(&game->map, radar, &game->player);
+	new_orientation = game->player.orientation - PI / 2;
+	if (
+		!radar->needs_update
+		&& new_orientation - radar->orientation > RADAR_ROT_SENSIBILIY
+	)
+		radar->needs_update = true;
+	radar->needs_update = true;
+	radar->orientation = new_orientation;
 	if (radar->needs_update)
+	{
 		draw_radar_process(radar);
+		draw_radar_rotate(radar);
+	}
 	t_mlx_apply_image(radar->img, mlx->img_buff, &radar->coords);
 }

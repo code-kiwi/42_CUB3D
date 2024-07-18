@@ -6,7 +6,7 @@
 #    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/18 03:35:08 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/07/18 19:13:49 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -166,6 +166,7 @@ ENTITIES_BONUS				=	$(addprefix $(ENTITIES_DIR_BONUS), $(ENTITIES_FILES_BONUS))
 RADAR_DIR_BONUS				=	radar_bonus/
 RADAR_FILES_BONUS			=	utils_bonus.c					\
 								draw_bonus.c					\
+								rotate_bonus.c					\
 								update_tiles_bonus.c
 RADAR_BONUS					=	$(addprefix $(RADAR_DIR_BONUS), $(RADAR_FILES_BONUS))
 
