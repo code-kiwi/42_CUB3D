@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 14:45:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 10:52:12 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "player_bonus.h"
 # include "ray_bonus.h"
 # include "ui_bonus.h"
+# include "radar_bonus.h"
 
 # define PI						3.14159265358
 # define FPS					100
@@ -31,7 +32,8 @@
 # define WIN_TITLE				"Cub3D"
 # define WIN_WIDTH				960
 # define WIN_HEIGHT				500
-# define MAX_DISTANCE			200
+# define MAX_DISTANCE			10
+# define PAUSE_BG_DARK_FACTOR	0.4f
 
 # define MAX_VISION_DISTANCE	10
 
@@ -64,6 +66,9 @@
 # define ERR_SIZE_TOO_BIG		"Size too big, max 4 characters"
 # define ERR_NEGATIVE_SIZE		"Invalid negative size"
 # define ERR_UI_CREATION		"UI creation failed"
+# define ERR_RADAR_CREATION		"Radar creation failed"
+# define ERR_MAP_DRAW_CREATION	"Map drawing cannot be created"
+# define ERR_MAP_DRAW_SIZE		"Map drawing cannot be initialized: map too big"
 
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
@@ -101,6 +106,8 @@ struct s_game
 	bool		pause;
 	t_ui		ui_pause;
 	bool		mouse_hidden;
+	t_radar		radar;
+	bool		map_opened;
 };
 
 struct	s_column
@@ -148,6 +155,7 @@ int		sign(float value);
 ssize_t	find_str_in_array(char **array, char *str, size_t length);
 void	free_array(char **array, size_t length, bool free_container);
 void	print_str_array(char **array, size_t length);
+char	**create_str_array(size_t nb_row, size_t nb_col, char default_value);
 int		min(int a, int b);
 bool	is_number(char *str);
 void	remove_last_breakline(char *str);

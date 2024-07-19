@@ -37,6 +37,7 @@ void	t_game_destroy(t_game *game)
 		destroy_animation(game->textures[index], game->mlx.mlx_ptr, true);
 		index++;
 	}
+	destroy_radar(&game->radar, game->mlx.mlx_ptr);
 	t_mlx_destroy(&game->mlx);
 	free_map(&game->map);
 	if (game->doors != NULL)

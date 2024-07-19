@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_draw_rectangle_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:24:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/28 11:55:05 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/16 13:42:52 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,48 @@ void	t_mlx_draw_rectangle(
 		while (i < size->x)
 		{
 			*(uint32_t *)(dest_row + (i * img->bpp_factor)) = color;
+			i++;
+		}
+		j++;
+	}
+}
+
+/**
+ * @brief Draws a rectangle of the given color, onto the given t_image
+ * @param img The image onto we will draw
+ * @param coords The starting point coordinates of the line
+ * @param size The rectangle's width (size->x) and height (size->y)
+ * @param color The color of the rectangle
+ * @note Does not write a color over a transparent pixel
+*/
+void	t_mlx_draw_rectangle_alphap(
+	t_image *img,
+	t_mlx_coords *coords,
+	t_mlx_coords *size,
+	uint32_t color
+)
+{
+	int			i;
+	int			j;
+	char		*dest_row;
+	uint32_t	*addr;
+
+	if (!t_mlx_is_rect_valid(coords, size))
+	{
+		error_print(ERR_RECTANGLE);
+		return ;
+	}
+	j = 0;
+	while (j < size->y)
+	{
+		dest_row = img->addr + ((coords->y + j) * img->line_len) \
+			+ (coords->x * img->bpp_factor);
+		i = 0;
+		while (i < size->x)
+		{
+			addr = (uint32_t *)(dest_row + (i * img->bpp_factor));
+			if (*addr != 0xFF000000)
+				*addr = color;
 			i++;
 		}
 		j++;

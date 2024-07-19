@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/10 16:43:15 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 13:24:17 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define ID_MAP_DOOR_OPENED				'o'
 # define ID_MAP_SPRITE					's'
 # define ID_MAP_ENTITY					'e'
+# define ID_MAP_PLAYER					'P'
 
 # define ID_TEXTURE_NORTH				"NO"
 # define ID_TEXTURE_SOUTH				"SO"
@@ -55,18 +56,45 @@
 # define IDX_TXTR_UIP_B2_ON				12
 # define IDX_TXTR_UIP_B2_OFF			13
 
-# define MAP_EXTENSION		".cub"
-# define MAP_ALLOWED_CHARS	" 01sdeNSEW"
-# define MAP_NB_IDS			14
+# define MAP_EXTENSION					".cub"
+# define MAP_ALLOWED_CHARS				" 01sdeNSEW"
+# define MAP_NB_IDS						14
+
+# define MAP_MOVING_CHARS				"PNSEWe"
+
+# define MAP_BG_DARK_FACTOR				0.6f
+# define MAP_DRAW_SIZE_RATIO			0.90f
+# define MAP_DRAW_ELT_MAX_RADIUS		8
+# define MAP_DRAW_MIN_TILE_SIZE			2
+# define MAP_DRAW_COL_BG				0x002801
+# define MAP_DRAW_COL_DECORATION		0x007000
+# define MAP_DRAW_COL_SPACE				0x002801
+# define MAP_DRAW_COL_WALL				0x09BB17
+# define MAP_DRAW_COL_TILE				0x006700
+# define MAP_DRAW_COL_DOOR1				0x00FF00
+# define MAP_DRAW_COL_DOOR2				0x006700
+# define MAP_DRAW_COL_PLAYER			0xFFFF00
+# define MAP_DRAW_COL_RAYS				0x008700
+# define MAP_DRAW_COL_ENNEMIES			0xFF0000
 
 typedef struct s_game		t_game;
 typedef struct s_map		t_map;
+typedef struct s_map_draw	t_map_draw;
 typedef struct s_vector		t_vector;
 typedef struct s_door		t_door;
 typedef struct s_ray		t_ray;
 typedef struct s_sprite		t_sprite;
 typedef struct s_list		t_list;
 typedef struct s_mlx_coords	t_mlx_coords;
+
+struct s_map_draw
+{
+	int				tile_size;
+	t_mlx_coords	coords;
+	t_mlx_coords	size;
+	t_mlx_coords	nb_tiles;
+	int				element_radius;
+};
 
 struct s_map
 {
@@ -75,18 +103,25 @@ struct s_map
 	size_t			lines_count;
 	char			*textures[MAP_NB_IDS];
 	t_mlx_coords	texture_size[MAP_NB_IDS];
+	t_map_draw		draw;
 };
 
 // Map functions
-bool		read_map(t_map *map, char *filename);
-bool		is_map_valid(t_map *map);
-bool		read_elements(t_map *map, int fd);
-bool		is_in_bounds(t_vector *position, t_map *map);
-bool		is_character(t_vector *position, t_map *map, char character);
-bool		check_extension(char *filename, char *extension);
-void		free_map(t_map *map);
-bool		is_walkable(t_map *map, t_mlx_coords *coords);
-bool		get_elem_into_list(t_map *map, t_list **dest, char id, \
-				bool add_elem(t_list **, float, float));
+bool	read_map(t_map *map, char *filename);
+bool	is_map_valid(t_map *map);
+bool	read_elements(t_map *map, int fd);
+bool	is_in_bounds(t_vector *position, t_map *map);
+bool	is_character(t_vector *position, t_map *map, char character);
+bool	check_extension(char *filename, char *extension);
+void	free_map(t_map *map);
+bool	is_walkable(t_map *map, t_mlx_coords *coords);
+bool	get_elem_into_list(t_map *map, t_list **dest, char id, \
+			bool add_elem(t_list **, float, float));
+void	update_map(t_map *map, t_game *game);
+
+// Draw map functions
+void	draw_map(t_map_draw *map_draw, t_map *map, t_game *game);
+void	draw_map_entities(t_map_draw *draw, t_game *game);
+bool	init_map_draw(t_map_draw *map_draw, t_map *map, t_game *game);
 
 #endif

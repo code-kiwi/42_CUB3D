@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/09 10:46:24 by mhotting         ###   ########.fr        #
+#    Updated: 2024/07/19 13:46:17 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ GAME_BONUS					=	$(addprefix $(GAME_DIR_BONUS), $(GAME_FILES_BONUS))
 MLX_API_DIR_BONUS			=	mlx_api_bonus/
 MLX_API_FILES_BONUS			=	t_image_utils_bonus.c			\
 								t_image_resize_bonus.c			\
+								t_image_color_bonus.c			\
 								t_mlx_mouse_utils_bonus.c		\
 								t_mlx_init_bonus.c				\
 								t_mlx_destroy_bonus.c			\
@@ -58,6 +59,9 @@ MLX_API_FILES_BONUS			=	t_image_utils_bonus.c			\
 								t_mlx_get_pixel_bonus.c			\
 								t_mlx_draw_line_bonus.c			\
 								t_mlx_draw_rectangle_bonus.c	\
+								t_mlx_draw_circle_bonus.c		\
+								t_mlx_draw_disk_bonus.c			\
+								t_mlx_draw_disk_circle_utils.c	\
 								t_argb_color_utils_bonus.c		\
 								t_mlx_sync_images.c
 MLX_API_BONUS				=	$(addprefix $(MLX_API_DIR_BONUS), $(MLX_API_FILES_BONUS))
@@ -90,7 +94,11 @@ MAP_FILES_BONUS				=	read_map_bonus.c				\
 								read_elements_bonus.c			\
 								is_valid_bonus.c				\
 								free_map_bonus.c				\
-								get_elem_bonus.c
+								get_elem_bonus.c				\
+								update_bonus.c					\
+								draw_bonus.c					\
+								draw_entities_bonus.c			\
+								init_draw_bonus.c
 MAP_BONUS					=	$(addprefix $(MAP_DIR_BONUS), $(MAP_FILES_BONUS))
 
 # DOOR
@@ -156,6 +164,21 @@ ENTITIES_FILES_BONUS		=	update_entities_bonus.c			\
 								move_entity_bonus.c
 ENTITIES_BONUS				=	$(addprefix $(ENTITIES_DIR_BONUS), $(ENTITIES_FILES_BONUS))
 
+# RADAR
+RADAR_DIR_BONUS				=	radar_bonus/
+RADAR_FILES_BONUS			=	utils_bonus.c					\
+								draw_bonus.c					\
+								rotate_bonus.c					\
+								update_tiles_bonus.c
+RADAR_BONUS					=	$(addprefix $(RADAR_DIR_BONUS), $(RADAR_FILES_BONUS))
+
+# ANIMATION
+ANIMATION_DIR_BONUS			=	animation_bonus/
+ANIMATION_FILES_BONUS		=	create_animation_bonus.c		\
+								destroy_animation_bonus.c		\
+								update_animations_bonus.c
+ANIMATION_BONUS				=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
+
 # UTILS
 UTILS_DIR_BONUS				=	utils_bonus/
 UTILS_FILES_BONUS			=	math_bonus.c					\
@@ -169,13 +192,6 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 								sort_bonus.c
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
-# ANIMATION
-ANIMATION_DIR_BONUS			=	animation_bonus/
-ANIMATION_FILES_BONUS		=	create_animation_bonus.c		\
-								destroy_animation_bonus.c		\
-								update_animations_bonus.c
-ANIMATION_BONUS				=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
-
 # SOURCES GENERAL
 SRCS_MAIN_SUBDIR_BONUS		=	srcs_bonus/
 SRCS_MAIN_DIR_BONUS			=	$(addprefix $(BONUS_DIR), $(SRCS_MAIN_SUBDIR_BONUS))
@@ -184,7 +200,7 @@ SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
 								$(RAY_BONUS) $(SPRITES_BONUS) $(ANIMATION_BONUS)		\
 								$(DOOR_BONUS) $(UI_BONUS) $(PATHFINDING_BONUS)			\
-								$(ENTITIES_BONUS)
+								$(ENTITIES_BONUS) $(RADAR_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

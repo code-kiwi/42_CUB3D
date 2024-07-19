@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_press_handler_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/10 10:54:03 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/14 23:37:27 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	mouse_press_handler(int button, int x, int y, t_game *game)
 	(void) y;
 	if (game == NULL)
 		error_exit(NULL, ERR_ARG);
-	if (button == MOUSE_LEFT)
+	if (button == MOUSE_LEFT && !game->pause)
 		player_shoot(game);
 	return (1);
 }
