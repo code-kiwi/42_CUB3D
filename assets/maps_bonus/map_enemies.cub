@@ -13,6 +13,11 @@ DEMON_ATTACK ./assets/textures/doom/entities/demon/demon_attack.xpm 44,55
 DEMON_PAIN ./assets/textures/doom/entities/demon/demon_pain.xpm 39,55
 DEMON_DEATH ./assets/textures/doom/entities/demon/demon_death.xpm 52,57
 
+IMP_WALK ./assets/textures/doom/entities/imp/imp_walk.xpm 39,60
+IMP_ATTACK ./assets/textures/doom/entities/imp/imp_attack.xpm 49,60
+IMP_PAIN ./assets/textures/doom/entities/imp/imp_pain.xpm 41,55
+IMP_DEATH ./assets/textures/doom/entities/imp/imp_death_2.xpm 57,61
+
 UI_PAUSE_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297
 UI_PAUSE_LABEL ./assets/textures/ui/labels/label_pause1.xpm 200,100
 UI_PAUSE_BTN_RESUME_OFF ./assets/textures/ui/buttons/btn_resume_off1.xpm 400,100
@@ -30,7 +35,7 @@ IMP_PROJECTILE_DEATH ./assets/textures/doom/effects/imp_projectile/imp_projectil
 10000000000000000001
 10000000000000001001
 10000000000000p01001
-10000000000000001001
+10000000000i00001001
 101110000000011d1001
 10001000000000000001
 1000d000000000000001

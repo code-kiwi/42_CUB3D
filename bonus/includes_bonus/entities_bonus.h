@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entities_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 12:14:57 by root             ###   ########.fr       */
+/*   Updated: 2024/07/19 10:25:57 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@
 # define DEMON_ATTACK_RANGE			1.5
 # define DEMON_ATTACK_PAUSE			2
 # define DEMON_ATTACK_DAMAGE		2
+
+# define IMP_SPEED					2
+# define IMP_SQUARED_RADIUS			0.5
+# define IMP_HEALTH_POINT			2
+# define IMP_ATTACK_RANGE			1.5
+# define IMP_ATTACK_PAUSE			2
+# define IMP_ATTACK_DAMAGE			1
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;
@@ -62,11 +69,12 @@ void	update_entities(t_game *game, float delta_time);
 void	damage_entity(t_game *game, t_entity *entity, size_t damage);
 void	update_entity_position(t_entity *entity, float delta_time,
 			t_list *entities, t_map *map);
+int		equal(void *a, void *b);
 
 // Init entities species
 bool	demon_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	imp_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
 bool	init_entity_type(t_entity *entity, char id, \
 			t_list *textures[MAP_NB_IDS]);
-int		equal(void *a, void *b);
 
 #endif // !ENTITIES_BONUS_H

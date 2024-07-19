@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/17 12:03:19 by root             ###   ########.fr       */
+/*   Updated: 2024/07/19 10:33:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define ID_MAP_DOOR_OPENED				'o'
 
 # define IDS_MAP_SPRITE					"s"
-# define IDS_MAP_ENTITY					"p"
+# define IDS_MAP_ENTITY					"pi"
 
 # define ID_TEXTURE_NORTH				"NO"
 # define ID_TEXTURE_SOUTH				"SO"
@@ -44,6 +44,10 @@
 # define ID_TEXTURE_DEMON_PAIN			"DEMON_PAIN"
 # define ID_TEXTURE_DEMON_ATTACK		"DEMON_ATTACK"
 # define ID_TEXTURE_DEMON_DEATH			"DEMON_DEATH"
+# define ID_TEXTURE_IMP_WALK			"IMP_WALK"
+# define ID_TEXTURE_IMP_PAIN			"IMP_PAIN"
+# define ID_TEXTURE_IMP_ATTACK			"IMP_ATTACK"
+# define ID_TEXTURE_IMP_DEATH			"IMP_DEATH"
 # define ID_TEXTURE_IMP_PROJ_LIVE		"IMP_PROJECTILE_LIVE"
 # define ID_TEXTURE_IMP_PROJ_DEATH		"IMP_PROJECTILE_DEATH"
 
@@ -65,14 +69,19 @@
 # define IDX_TXTR_DEMON_PAIN			15
 # define IDX_TXTR_DEMON_ATTACK			16
 # define IDX_TXTR_DEMON_DEATH			17
-# define IDX_TXTR_IMP_PROJ_LIVE			18
-# define IDX_TXTR_IMP_PROJ_DEATH		19
+# define IDX_TXTR_IMP_WALK				18
+# define IDX_TXTR_IMP_PAIN				19
+# define IDX_TXTR_IMP_ATTACK			20
+# define IDX_TXTR_IMP_DEATH				21
+# define IDX_TXTR_IMP_PROJ_LIVE			22
+# define IDX_TXTR_IMP_PROJ_DEATH		23
 
 # define ID_MAP_DEMON					'p'
+# define ID_MAP_IMP						'i'
 
 # define MAP_EXTENSION		".cub"
-# define MAP_ALLOWED_CHARS	" 01sdpNSEW"
-# define MAP_NB_IDS			20
+# define MAP_ALLOWED_CHARS	" 01sdpiNSEW"
+# define MAP_NB_IDS			24
 
 typedef struct s_game		t_game;
 typedef struct s_map		t_map;
