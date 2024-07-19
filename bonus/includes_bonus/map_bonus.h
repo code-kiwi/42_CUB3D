@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 10:50:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:08:08 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
 # define MAP_MOVING_CHARS				"PNSEWe"
 
 # define MAP_BG_DARK_FACTOR				0.6f
-# define MAP_DRAW_SIZE_RATIO			0.80f
+# define MAP_DRAW_SIZE_RATIO			0.90f
 # define MAP_DRAW_ELT_MIN_RADIUS		8
 # define MAP_DRAW_MIN_TILE_SIZE			2
 # define MAP_DRAW_COL_BG				0x002801

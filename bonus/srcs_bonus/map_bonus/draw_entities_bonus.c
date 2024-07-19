@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 10:37:22 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:07:33 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static void	get_coords(
 	t_mlx_coords *map_draw_coords
 )
 {
-	coords->x = (int) position->x * tile_size;
-	coords->x += (position->x - (int)position->x) * (float)tile_size;
-	coords->x += map_draw_coords->x;
-	coords->y = (int) position->y * tile_size;
-	coords->y += (position->y - (int)position->y) * (float)tile_size;
-	coords->y += map_draw_coords->y;
+	coords->x = (int) position->x * tile_size + \
+		(position->x - (int)position->x) * (float)tile_size + \
+		map_draw_coords->x;
+	coords->y = (int) position->y * tile_size + \
+		(position->y - (int)position->y) * (float)tile_size + \
+		map_draw_coords->y;
 }
 
 static void	draw_map_player(t_map_draw *draw, t_player *player, t_image *img)

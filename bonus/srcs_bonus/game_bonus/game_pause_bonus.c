@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 07:19:29 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 10:35:42 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:03:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	game_pause_switch(t_game *game)
 	game->pause = !game->pause;
 	if (game->pause)
 	{
-		game->map_opened = false;
 		t_image_multiply_each_px(game->mlx.img_buff, PAUSE_BG_DARK_FACTOR);
 		t_mlx_mouse_show(&game->mlx, &game->mouse_hidden);
 		t_mlx_sync_images(&game->mlx);
