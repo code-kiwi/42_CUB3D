@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/19 10:29:17 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/19 16:11:48 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,36 +66,6 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 	identifier[identifier_index] = "";
 	free_array(infos, 1, true);
 	return (true);
-}
-
-static void	init_identifier(char **identifier)
-{
-	if (identifier == NULL)
-		return ;
-	identifier[IDX_TXTR_N] = ID_TEXTURE_NORTH;
-	identifier[IDX_TXTR_S] = ID_TEXTURE_SOUTH;
-	identifier[IDX_TXTR_W] = ID_TEXTURE_WEST;
-	identifier[IDX_TXTR_E] = ID_TEXTURE_EAST;
-	identifier[IDX_TXTR_FLOOR] = ID_TEXTURE_FLOOR;
-	identifier[IDX_TXTR_CEIL] = ID_TEXTURE_CEILING;
-	identifier[IDX_TXTR_DOOR] = ID_TEXTURE_DOOR;
-	identifier[IDX_TXTR_SPRITE] = ID_TEXTURE_SPRITE;
-	identifier[IDX_TXTR_UIP_BG] = ID_TEXTURE_UI_PAUSE_BG;
-	identifier[IDX_TXTR_UIP_LBL] = ID_TEXTURE_UI_PAUSE_LABEL;
-	identifier[IDX_TXTR_UIP_B1_ON] = ID_TEXTURE_UI_PAUSE_BTNR_OFF;
-	identifier[IDX_TXTR_UIP_B1_OFF] = ID_TEXTURE_UI_PAUSE_BTNR_ON;
-	identifier[IDX_TXTR_UIP_B2_ON] = ID_TEXTURE_UI_PAUSE_BTNQ_OFF;
-	identifier[IDX_TXTR_UIP_B2_OFF] = ID_TEXTURE_UI_PAUSE_BTNQ_ON;
-	identifier[IDX_TXTR_DEMON_WALK] = ID_TEXTURE_DEMON_WALK;
-	identifier[IDX_TXTR_DEMON_PAIN] = ID_TEXTURE_DEMON_PAIN;
-	identifier[IDX_TXTR_DEMON_ATTACK] = ID_TEXTURE_DEMON_ATTACK;
-	identifier[IDX_TXTR_DEMON_DEATH] = ID_TEXTURE_DEMON_DEATH;
-	identifier[IDX_TXTR_IMP_WALK] = ID_TEXTURE_IMP_WALK;
-	identifier[IDX_TXTR_IMP_PAIN] = ID_TEXTURE_IMP_PAIN;
-	identifier[IDX_TXTR_IMP_ATTACK] = ID_TEXTURE_IMP_ATTACK;
-	identifier[IDX_TXTR_IMP_DEATH] = ID_TEXTURE_IMP_DEATH;
-	identifier[IDX_TXTR_IMP_PROJ_LIVE] = ID_TEXTURE_IMP_PROJ_LIVE;
-	identifier[IDX_TXTR_IMP_PROJ_DEATH] = ID_TEXTURE_IMP_PROJ_DEATH;
 }
 
 bool	read_elements(t_map *map, int fd)

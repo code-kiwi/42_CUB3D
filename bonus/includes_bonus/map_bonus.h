@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 10:33:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/19 16:11:40 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,7 @@ void		free_map(t_map *map);
 bool		is_walkable(t_map *map, t_mlx_coords *coords);
 bool		get_elem_into_list(t_game *game, t_list **dest, char *ids,
 				void *add_elem(t_game *, float, float, char));
+
+void		init_identifier(char **identifier);
 
 #endif

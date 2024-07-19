@@ -6,7 +6,7 @@
 #    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/19 15:52:26 by root             ###   ########.fr        #
+#    Updated: 2024/07/19 16:14:37 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,8 @@ MAP_FILES_BONUS				=	read_map_bonus.c				\
 								read_elements_bonus.c			\
 								is_valid_bonus.c				\
 								free_map_bonus.c				\
-								get_elem_bonus.c
+								get_elem_bonus.c				\
+								init_identifier_bonus.c
 MAP_BONUS					=	$(addprefix $(MAP_DIR_BONUS), $(MAP_FILES_BONUS))
 
 # DOOR
