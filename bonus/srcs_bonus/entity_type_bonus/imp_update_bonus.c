@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/19 16:05:08 by root             ###   ########.fr       */
+/*   Updated: 2024/07/19 16:09:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 static void	imp_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 {
 	if (entity->cooldown > 0)
-			return ;
+		return ;
 	sprite->next_animation = game->textures[IDX_TXTR_IMP_WALK];
 	sprite->animation = game->textures[IDX_TXTR_IMP_ATTACK];
 	entity->cooldown = IMP_ATTACK_PAUSE;
 	player_get_damage(game, IMP_ATTACK_DAMAGE);
 }
 
-static bool imp_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
+static bool	imp_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 {
 	if (entity->cooldown > 0)
 		return (true);
