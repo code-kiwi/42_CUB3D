@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:53:25 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/18 21:37:12 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:45:28 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 #include "mlx.h"
 #include "libft.h"
 
+/**
+ * @brief Initializes the radar images
+ * @param radar the radar whose images will be initialized
+ * @param mlx_ptr an instance of mlx used for creating images
+ * @return true on SUCCESS, false on ERROR
+ */
 static bool	init_radar_imgs(t_radar *radar, void *mlx_ptr)
 {
 	radar->img = t_image_init(mlx_ptr, 2 * radar->radius, 2 * radar->radius);
@@ -32,6 +38,12 @@ static bool	init_radar_imgs(t_radar *radar, void *mlx_ptr)
 	return (true);
 }
 
+/**
+ * @brief Intializes the given radar
+ * @param rad the radar to initialize
+ * @param mlx the t_mlx pointer whose information are necessary
+ * @return true on SUCCESS, false on ERROR
+ */
 bool	init_radar(t_radar *rad, t_mlx *mlx)
 {
 	if (rad == NULL || mlx == NULL)
@@ -61,6 +73,11 @@ bool	init_radar(t_radar *rad, t_mlx *mlx)
 	return (true);
 }
 
+/**
+ * @brief Destroys the given radar instance
+ * @param radar the radar to destroy
+ * @param mlx_ptr an instance of mlx used for destroying radar's images
+ */
 void	destroy_radar(t_radar *radar, void *mlx_ptr)
 {
 	if (radar == NULL)

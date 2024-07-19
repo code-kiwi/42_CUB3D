@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:34:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 12:46:15 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 12:31:50 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include "mlx_api_bonus.h"
 #include "radar_bonus.h"
 
+/**
+ * @brief Returns the map character at the given position
+ * @param map the map
+ * @param i the line index
+ * @param j the column index
+ * @return the map character, a space if the coordinate is not valid
+ */
 static char	get_map_char(t_map *map, int i, int j)
 {
 	if (
@@ -26,6 +33,12 @@ static char	get_map_char(t_map *map, int i, int j)
 		return (map->tiles[i][j]);
 }
 
+/**
+ * @brief Updates the radar tiles
+ * @param map the game map
+ * @param radar the radar whose tiles will be updated
+ * @param player_coords the player coordinates onto the main map
+ */
 static void	update_tiles_process(
 	t_map *map,
 	t_radar *radar,
@@ -58,6 +71,14 @@ static void	update_tiles_process(
 	}
 }
 
+/**
+ * @brief Updates the radar tiles using the main map and the player position
+ * @param map the game map
+ * @param radar the radar whose tiles will be updated
+ * @param player the player
+ * @note The radar tiles will be updating using the player position in order
+ * to save only the tiles which surround the player
+ */
 void	update_tiles(t_map *map, t_radar *radar, t_player *player)
 {
 	t_mlx_coords	player_coords;

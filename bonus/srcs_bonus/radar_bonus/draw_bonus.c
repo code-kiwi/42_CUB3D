@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:37:57 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/19 10:33:59 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 12:16:25 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
 
+/**
+ * Draws a tile onto the radar at the given position
+ * @param img The image onto which the tile is drawn
+ * @param coords the tile coordinates
+ * @param radius the tile size
+ * @param tile_char the character of the drawn tile
+ * (used for selecting the appropriate color)
+ * @note A tile's pixels are drawn only onto non-transparent pixels
+ */
 static void	draw_radar_tiles(
 	t_image *img,
 	t_mlx_coords *coords,
@@ -34,6 +43,15 @@ static void	draw_radar_tiles(
 		t_mlx_draw_rectangle_alphap(img, coords, size, RAD_COL_TILE);
 }
 
+/**
+ * Draws a disk onto the radar at the given position
+ * @param img The image onto which the disk is drawn
+ * @param coords the disk coordinates
+ * @param radius the disk radius
+ * @param tile_char the character of the drawn entity
+ * (used for selecting the appropriate color)
+ * @note An element's pixels are drawn only onto non-transparent pixels
+ */
 static void	draw_radar_elements(
 	t_image *img,
 	t_mlx_coords *coords,
@@ -41,12 +59,22 @@ static void	draw_radar_elements(
 	char tile_char
 )
 {
+	uint32_t	color;
+
+	color = 0;
 	if (tile_char == ID_MAP_ENTITY)
-		t_mlx_draw_disk_alphap(img, coords, radius, RAD_COL_ENTITY);
+		color = RAD_COL_ENTITY;
 	else if (tile_char == ID_MAP_PLAYER)
-		t_mlx_draw_disk_alphap(img, coords, radius, RAD_COL_PLAYER);
+		color = RAD_COL_PLAYER;
+	else
+		return ;
+	t_mlx_draw_disk_alphap(img, coords, radius, color);
 }
 
+/**
+ * @brief Draws the radar decorations
+ * @param radar the radar
+ */
 static void	draw_radar_decoration(t_radar *radar)
 {
 	t_mlx_coords	start;
@@ -70,6 +98,10 @@ static void	draw_radar_decoration(t_radar *radar)
 	t_mlx_draw_line(radar->img, start, end, RAD_COL_PLAYER);
 }
 
+/**
+ * @brief Draws the tiles and the entities onto the radar
+ * @param radar the radar
+ */
 static void	draw_radar_process(t_radar *radar)
 {
 	int				i;
@@ -98,6 +130,20 @@ static void	draw_radar_process(t_radar *radar)
 	}
 }
 
+/**
+ * @brief Draws the radar onto the main game image
+ * @param game the main game structure
+ * @param radar the radar structure
+ * @param mlx the t_mlx instance with all its information
+ * @note How it works:
+ * 	- the radar tiles are updated in order to save the player surrouding tiles
+ * 	- the radar structure has an image member onto which the radar is drawn
+ * 	- the radar is rotated in order to correspond to the player orientation
+ * 	- the decoration are drawn
+ * 	- the radar resulting image is applied onto the game main image
+ * @note the needs_update radar member is used to check if the radar has been
+ * updated and needs to be drawn again
+ */
 void	draw_radar(t_game *game, t_radar *radar, t_mlx *mlx)
 {
 	float	new_orientation;

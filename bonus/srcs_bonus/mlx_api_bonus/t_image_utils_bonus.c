@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/19 10:25:21 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:41:29 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,12 @@ bool	t_image_import_file(
 	return (true);
 }
 
+/**
+ * @brief Puts all the pixels from src to dest, starting at the given coords
+ * @param src the image to apply
+ * @param dest the image onto which the src will be applied
+ * @param coords the coordinate where the image application starts
+ */
 void	t_mlx_apply_image(t_image *src, t_image *dest, t_mlx_coords *coords)
 {
 	int				x;
