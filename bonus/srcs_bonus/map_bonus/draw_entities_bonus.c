@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 11:07:33 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:34:55 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include "mlx_api_bonus.h"
 #include "entities_bonus.h"
 
+/**
+ * @brief Sets the coordinates of the given position onto the map drawing
+ * @param position the position to convert into map drawing coords
+ * @param coords the structure into which final coords will be saved
+ * @param tile_size the size of a tile into the map drawing
+ * @param map_draw_coords the coords of the map drawing into the global window
+ */
 static void	get_coords(
 	t_vector *position,
 	t_mlx_coords *coords,
@@ -29,17 +36,34 @@ static void	get_coords(
 		map_draw_coords->y;
 }
 
-static void	draw_map_player(t_map_draw *draw, t_player *player, t_image *img)
+/**
+ * @brief Draws the player onto the given image
+ * @param draw the t_map_draw element containing drawing params
+ * @param player_position the player position
+ * @param img the image onto which the player will be drawn
+ */
+static void	draw_map_player(
+	t_map_draw *draw,
+	t_vector *player_position,
+	t_image *img
+)
 {
 	t_mlx_coords	position;
 
-	get_coords(&player->position, &position, draw->tile_size, &draw->coords);
+	get_coords(player_position, &position, draw->tile_size, &draw->coords);
 	t_mlx_draw_disk(img, &position, draw->element_radius, MAP_DRAW_COL_PLAYER);
 }
 
+/**
+ * @brief Draws the rays casted onto the given image
+ * @param draw the t_map_draw element containing drawing params
+ * @param player_position the player position
+ * @param rays the array of casted rays
+ * @param img the image onto which rays will be drawn
+ */
 static void	draw_map_rays(
 	t_map_draw *draw,
-	t_player *player,
+	t_vector *player_position,
 	t_ray *rays,
 	t_image *img
 )
@@ -49,7 +73,7 @@ static void	draw_map_rays(
 	t_mlx_coords	ray_end;
 	size_t			i;
 
-	get_coords(&player->position, &save, draw->tile_size, &draw->coords);
+	get_coords(player_position, &save, draw->tile_size, &draw->coords);
 	i = 0;
 	while (i < WIN_WIDTH)
 	{
@@ -62,6 +86,12 @@ static void	draw_map_rays(
 	}
 }
 
+/**
+ * @brief Draws the ennemies onto the given image
+ * @param draw the t_map_draw element containing drawing params
+ * @param entities the list of ennemies
+ * @param img the image onto which ennemies will be drawn
+ */
 static void	draw_map_ennemies(t_map_draw *draw, t_list *entities, t_image *img)
 {
 	t_mlx_coords	position;
@@ -78,9 +108,16 @@ static void	draw_map_ennemies(t_map_draw *draw, t_list *entities, t_image *img)
 	}
 }
 
+/**
+ * @brief Draws the entities onto the game image
+ * @param draw the t_map_draw element containing drawing params
+ * @param game the main game structure containing the entities information
+ */
 void	draw_map_entities(t_map_draw *draw, t_game *game)
 {
-	draw_map_rays(draw, &game->player, game->rays, game->mlx.img_buff);
-	draw_map_player(draw, &game->player, game->mlx.img_buff);
+	if (draw == NULL || game == NULL)
+		return ;
+	draw_map_rays(draw, &game->player.position, game->rays, game->mlx.img_buff);
+	draw_map_player(draw, &game->player.position, game->mlx.img_buff);
 	draw_map_ennemies(draw, game->entities, game->mlx.img_buff);
 }

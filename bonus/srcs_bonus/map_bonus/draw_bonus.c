@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 10:44:25 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:25:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include "mlx_api_bonus.h"
 #include "door_bonus.h"
 
+/**
+ * @brief Draws map decorations onto the given image
+ * @param draw the t_map_draw element containing drawing params
+ * @param img the image onto which the decorations will be drawn
+ */
 static void	draw_map_decoration(t_map_draw *draw, t_image *img)
 {
 	int				i;
@@ -43,6 +48,11 @@ static void	draw_map_decoration(t_map_draw *draw, t_image *img)
 	}
 }
 
+/**
+ * @brief Returns the appropriate color value according to the given map's char
+ * @param c the map character whose color will be returned
+ * @return the color value
+ */
 static uint32_t	get_tile_color(char c)
 {
 	if (c == ID_MAP_SPACE)
@@ -57,6 +67,12 @@ static uint32_t	get_tile_color(char c)
 		return (MAP_DRAW_COL_TILE);
 }
 
+/**
+ * @brief Draws the given map's tiles onto the given image
+ * @param draw the t_map_draw element containing drawing params
+ * @param map the map to draw
+ * @param img the image onto which the tiles will be drawn
+ */
 static void	draw_map_tiles(t_map_draw *draw, t_map *map, t_image *img)
 {
 	int				i;
@@ -83,6 +99,13 @@ static void	draw_map_tiles(t_map_draw *draw, t_map *map, t_image *img)
 	}
 }
 
+/**
+ * @brief Draws the given doors onto the given image
+ * @param draw the t_map_draw element containing drawing params
+ * @param doors the doors to draw
+ * @param door_count the number of doors
+ * @param img the image onto which the doors will be drawn
+ */
 static void	draw_map_doors(
 	t_map_draw *draw,
 	t_door *doors,
@@ -109,6 +132,14 @@ static void	draw_map_doors(
 	}
 }
 
+/**
+ * @brief Draws the map and all its elements onto the game image
+ * @param draw the t_map_draw element containing drawing params
+ * @param map the game map
+ * @param game the game global structure
+ * @note the doors are drawn again at the end for a better rendering
+ * @note all the colors are defined as macros and can be changed
+ */
 void	draw_map(t_map_draw *draw, t_map *map, t_game *game)
 {
 	if (draw == NULL || map == NULL || game == NULL)

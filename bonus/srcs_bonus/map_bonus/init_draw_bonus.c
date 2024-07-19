@@ -6,13 +6,18 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:34:59 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 10:51:10 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:18:35 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "map_bonus.h"
 
+/**
+ * @brief Returns the number of tiles of the longest line of the map
+ * @param map the map whose maximum line length is evaluated
+ * @return the maximum line length
+ */
 static int	get_map_max_line_len(t_map *map)
 {
 	size_t	i;
@@ -29,6 +34,13 @@ static int	get_map_max_line_len(t_map *map)
 	return (max);
 }
 
+/**
+ * @brief Initializes the given t_map_draw member using map and game info
+ * @param draw the t_map_draw element to initialize
+ * @param map the game map
+ * @param game the game global structure
+ * @return true on SUCCESS, false on ERROR
+ */
 bool	init_map_draw(t_map_draw *draw, t_map *map, t_game *game)
 {
 	int	max_line_len;
