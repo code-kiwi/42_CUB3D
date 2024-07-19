@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_entities_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/18 19:07:06 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/19 10:37:22 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	draw_map_player(t_map_draw *draw, t_player *player, t_image *img)
 	t_mlx_coords	position;
 
 	get_coords(&player->position, &position, draw->tile_size, &draw->coords);
-	t_mlx_draw_disk(img, &position, draw->element_radius, MAP_DRAW__COL_PLAYER);
+	t_mlx_draw_disk(img, &position, draw->element_radius, MAP_DRAW_COL_PLAYER);
 }
 
 static void	draw_map_rays(

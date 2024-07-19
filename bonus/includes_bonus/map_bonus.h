@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/18 19:07:06 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/19 10:50:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,18 @@
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
+# define MAP_BG_DARK_FACTOR				0.6f
 # define MAP_DRAW_SIZE_RATIO			0.80f
 # define MAP_DRAW_ELT_MIN_RADIUS		8
-# define MAP_DRAW__COL_BG				0x002801
-# define MAP_DRAW_COL_DECORATION		0x004000
-# define MAP_DRAW__COL_SPACE				0x002801
-# define MAP_DRAW__COL_WALL				0x09BB17
-# define MAP_DRAW__COL_TILE				0x006700
-# define MAP_DRAW__COL_DOOR1				0x00FF00
-# define MAP_DRAW__COL_DOOR2				0x006700
-# define MAP_DRAW__COL_PLAYER			0xFFFF00
+# define MAP_DRAW_MIN_TILE_SIZE			2
+# define MAP_DRAW_COL_BG				0x002801
+# define MAP_DRAW_COL_DECORATION		0x007000
+# define MAP_DRAW_COL_SPACE				0x002801
+# define MAP_DRAW_COL_WALL				0x09BB17
+# define MAP_DRAW_COL_TILE				0x006700
+# define MAP_DRAW_COL_DOOR1				0x00FF00
+# define MAP_DRAW_COL_DOOR2				0x006700
+# define MAP_DRAW_COL_PLAYER			0xFFFF00
 # define MAP_DRAW_COL_RAYS				0x008700
 # define MAP_DRAW_COL_ENNEMIES			0xFF0000
 

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:37:57 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/19 09:57:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 10:33:59 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	draw_radar(t_game *game, t_radar *radar, t_mlx *mlx)
 {
 	float	new_orientation;
 
-	if (game == NULL || radar == NULL || mlx == NULL || game->map_opened)
+	if (game == NULL || radar == NULL || mlx == NULL)
 		return ;
 	update_tiles(&game->map, radar, &game->player);
 	new_orientation = game->player.orientation - PI / 2;

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/15 11:36:26 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 10:25:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,28 +108,6 @@ bool	t_image_import_file(
 		return (ret);
 	}
 	return (true);
-}
-
-void	t_image_colorize(t_image *img, uint32_t color)
-{
-	int				x;
-	int				y;
-	unsigned int	*img_addr;
-
-	if (img == NULL)
-		return ;
-	img_addr = (unsigned int *) img->addr;
-	y = 0;
-	while (y < img->height)
-	{
-		x = 0;
-		while (x < img->width)
-		{
-			*(img_addr + y * img->width + x) = color;
-			x++;
-		}
-		y++;
-	}
 }
 
 void	t_mlx_apply_image(t_image *src, t_image *dest, t_mlx_coords *coords)

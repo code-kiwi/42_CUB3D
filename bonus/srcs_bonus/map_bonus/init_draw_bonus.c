@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_draw_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:34:59 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/18 04:17:08 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/19 10:51:10 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool	init_map_draw(t_map_draw *draw, t_map *map, t_game *game)
 	int	tile_size_horz;
 
 	if (draw == NULL || map == NULL || game == NULL)
-		return (false);
+		return (error_print(ERR_MAP_DRAW_CREATION), false);
 	max_line_len = (int) get_map_max_line_len(map);
 	draw->size.x = (int)(MAP_DRAW_SIZE_RATIO * (float) game->mlx.width);
 	draw->size.y = (int)(MAP_DRAW_SIZE_RATIO * (float) game->mlx.height);
@@ -45,6 +45,8 @@ bool	init_map_draw(t_map_draw *draw, t_map *map, t_game *game)
 	tile_size_horz = draw->size.x / max_line_len;
 	tile_size_vert = draw->size.y / map->lines_count;
 	draw->tile_size = min(tile_size_horz, tile_size_vert);
+	if (draw->tile_size < MAP_DRAW_MIN_TILE_SIZE)
+		return (error_print(ERR_MAP_DRAW_SIZE), false);
 	draw->size.x = draw->nb_tiles.x * draw->tile_size;
 	draw->size.y = draw->nb_tiles.y * draw->tile_size;
 	draw->coords.x = (game->mlx.width - draw->size.x) / 2;

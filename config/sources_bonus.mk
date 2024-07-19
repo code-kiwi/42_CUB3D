@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/18 19:13:49 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/07/19 10:30:47 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ GAME_BONUS					=	$(addprefix $(GAME_DIR_BONUS), $(GAME_FILES_BONUS))
 MLX_API_DIR_BONUS			=	mlx_api_bonus/
 MLX_API_FILES_BONUS			=	t_image_utils_bonus.c			\
 								t_image_resize_bonus.c			\
+								t_image_color_bonus.c			\
 								t_mlx_mouse_utils_bonus.c		\
 								t_mlx_init_bonus.c				\
 								t_mlx_destroy_bonus.c			\

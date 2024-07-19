@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/18 19:07:06 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/19 10:44:25 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,15 @@ static void	draw_map_decoration(t_map_draw *draw, t_image *img)
 static uint32_t	get_tile_color(char c)
 {
 	if (c == ID_MAP_SPACE)
-		return (MAP_DRAW__COL_SPACE);
+		return (MAP_DRAW_COL_SPACE);
 	else if (c == ID_MAP_WALL)
-		return (MAP_DRAW__COL_WALL);
+		return (MAP_DRAW_COL_WALL);
 	else if (c == ID_MAP_DOOR_CLOSED)
-		return (MAP_DRAW__COL_DOOR1);
+		return (MAP_DRAW_COL_DOOR1);
 	else if (c == ID_MAP_DOOR_OPENED)
-		return (MAP_DRAW__COL_DOOR2);
+		return (MAP_DRAW_COL_DOOR2);
 	else
-		return (MAP_DRAW__COL_TILE);
+		return (MAP_DRAW_COL_TILE);
 }
 
 static void	draw_map_tiles(t_map_draw *draw, t_map *map, t_image *img)
@@ -103,7 +103,7 @@ static void	draw_map_doors(
 		{
 			coords.x = draw->coords.x + doors[i].position.x * draw->tile_size;
 			coords.y = draw->coords.y + doors[i].position.y * draw->tile_size;
-			t_mlx_draw_rectangle(img, &coords, &size, MAP_DRAW__COL_DOOR1);
+			t_mlx_draw_rectangle(img, &coords, &size, MAP_DRAW_COL_DOOR1);
 		}
 		i++;
 	}
@@ -113,8 +113,9 @@ void	draw_map(t_map_draw *draw, t_map *map, t_game *game)
 {
 	if (draw == NULL || map == NULL || game == NULL)
 		return ;
+	t_image_multiply_each_px(game->mlx.img_buff, MAP_BG_DARK_FACTOR);
 	t_mlx_draw_rectangle(game->mlx.img_buff, &draw->coords, &draw->size, \
-		MAP_DRAW__COL_BG);
+		MAP_DRAW_COL_BG);
 	draw_map_tiles(draw, map, game->mlx.img_buff);
 	draw_map_entities(draw, game);
 	draw_map_doors(draw, game->doors, game->door_count, game->mlx.img_buff);
