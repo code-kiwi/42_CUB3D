@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/19 11:50:25 by brappo           ###   ########.fr        #
+#    Updated: 2024/07/19 12:01:19 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -157,17 +157,21 @@ ENTITIES_FILES_BONUS		=	update_entities_bonus.c			\
 								update_entities_path_bonus.c	\
 								move_entity_bonus.c				\
 								damage_entity_bonus.c			\
-								demon_bonus.c					\
-								imp_bonus.c						\
-								init_entity_type_bonus.c		\
 								entity_shoot_bullet_bonus.c		\
 								update_entities_position_bonus.c
 ENTITIES_BONUS				=	$(addprefix $(ENTITIES_DIR_BONUS), $(ENTITIES_FILES_BONUS))
 
+# ENTITY_TYPE
+ENTITY_TYPE_DIR_BONUS		=	entity_type_bonus/
+ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
+								imp_bonus.c						\
+								init_entity_type_bonus.c
+ENTITY_TYPE_BONUS			=	$(addprefix $(ENTITY_TYPE_DIR_BONUS), $(ENTITY_TYPE_FILES_BONUS))
+
 # ITEMS
-ITEMS_DIR_BONUS			=	item_bonus/
-ITEMS_FILES_BONUS		=	use_item_bonus.c
-ITEMS_BONUS				=	$(addprefix $(ITEMS_DIR_BONUS), $(ITEMS_FILES_BONUS))
+ITEMS_DIR_BONUS				=	item_bonus/
+ITEMS_FILES_BONUS			=	use_item_bonus.c
+ITEMS_BONUS					=	$(addprefix $(ITEMS_DIR_BONUS), $(ITEMS_FILES_BONUS))
 
 # UTILS
 UTILS_DIR_BONUS				=	utils_bonus/
@@ -205,7 +209,7 @@ SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(RAY_BONUS) $(DOOR_BONUS) $(SPRITES_BONUS)				\
 								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)					\
 								$(ENTITIES_BONUS) $(ITEMS_BONUS) $(UI_BONUS)			\
-								$(BULLETS_BONUS)
+								$(BULLETS_BONUS) $(ENTITY_TYPE_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL
