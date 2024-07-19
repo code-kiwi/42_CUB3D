@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:34:59 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 11:18:35 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 13:24:32 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ bool	init_map_draw(t_map_draw *draw, t_map *map, t_game *game)
 	draw->size.y = draw->nb_tiles.y * draw->tile_size;
 	draw->coords.x = (game->mlx.width - draw->size.x) / 2;
 	draw->coords.y = (game->mlx.height - draw->size.y) / 2;
-	draw->element_radius = min(draw->tile_size / 6, MAP_DRAW_ELT_MIN_RADIUS);
+	draw->element_radius = min(draw->tile_size / 6, MAP_DRAW_ELT_MAX_RADIUS);
 	return (true);
 }
