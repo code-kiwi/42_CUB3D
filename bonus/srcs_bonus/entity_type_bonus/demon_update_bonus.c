@@ -6,12 +6,28 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/19 16:08:46 by root             ###   ########.fr       */
+/*   Updated: 2024/07/19 17:14:28 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
+
+static void	stop_walk_animation(t_sprite *sprite, t_list *textures[MAP_NB_IDS])
+{
+	if (sprite->animation == textures[IDX_TXTR_DEMON_WALK])
+		sprite->animate = false;
+}
+
+static void	demon_attack(t_entity *entity, t_sprite *sprite, t_game *game)
+{
+	if (entity->cooldown > 0)
+			return ;
+	sprite->next_animation = game->textures[IDX_TXTR_DEMON_WALK];
+	sprite->animation = game->textures[IDX_TXTR_DEMON_ATTACK];
+	entity->cooldown = DEMON_ATTACK_PAUSE;
+	player_get_damage(game, DEMON_ATTACK_DAMAGE);
+}
 
 bool	demon_update(t_game *game, t_entity *entity, float delta_time)
 {
@@ -27,16 +43,14 @@ bool	demon_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < DEMON_ATTACK_RANGE)
 	{
-		if (sprite->animation == game->textures[IDX_TXTR_DEMON_WALK])
-			sprite->animate = false;
-		if (entity->cooldown > 0)
-			return (true);
-		sprite->next_animation = game->textures[IDX_TXTR_DEMON_WALK];
-		sprite->animation = game->textures[IDX_TXTR_DEMON_ATTACK];
-		entity->cooldown = DEMON_ATTACK_PAUSE;
-		player_get_damage(game, DEMON_ATTACK_DAMAGE);
+		stop_walk_animation(sprite, game->textures);
+		demon_attack(entity, sprite, game);
 	}
 	else
+	{
 		update_entity_position(entity, delta_time, game->entities, &game->map);
+		if (entity->path == NULL)
+			stop_walk_animation(sprite, game->textures);
+	}
 	return (true);
 }

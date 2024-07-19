@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/19 16:09:04 by root             ###   ########.fr       */
+/*   Updated: 2024/07/19 17:14:46 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #include "sprite_bonus.h"
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
+
+static void	stop_walk_animation(t_sprite *sprite, t_list *textures[MAP_NB_IDS])
+{
+	if (sprite->animation == textures[IDX_TXTR_IMP_WALK])
+		sprite->animate = false;
+}
 
 static void	imp_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 {
@@ -49,16 +55,18 @@ bool	imp_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < IMP_ATTACK_RANGE)
 	{
-		if (sprite->animation == game->textures[IDX_TXTR_IMP_WALK])
-			sprite->animate = false;
+		stop_walk_animation(sprite, game->textures);
 		imp_close_attack(entity, sprite, game);
 	}
 	else if (!entity->see_player)
+	{
 		update_entity_position(entity, delta_time, game->entities, &game->map);
+		if (entity->path == NULL)
+			stop_walk_animation(sprite, game->textures);
+	}
 	else
 	{
-		if (sprite->animation == game->textures[IDX_TXTR_IMP_WALK])
-			sprite->animate = false;
+		stop_walk_animation(sprite, game->textures);
 		return (imp_range_attack(entity, sprite, game));
 	}
 	return (true);
