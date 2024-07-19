@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/19 12:01:19 by brappo           ###   ########.fr        #
+#    Updated: 2024/07/19 15:52:26 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -164,7 +164,9 @@ ENTITIES_BONUS				=	$(addprefix $(ENTITIES_DIR_BONUS), $(ENTITIES_FILES_BONUS))
 # ENTITY_TYPE
 ENTITY_TYPE_DIR_BONUS		=	entity_type_bonus/
 ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
+								demon_update_bonus.c			\
 								imp_bonus.c						\
+								imp_update_bonus.c				\
 								init_entity_type_bonus.c
 ENTITY_TYPE_BONUS			=	$(addprefix $(ENTITY_TYPE_DIR_BONUS), $(ENTITY_TYPE_FILES_BONUS))
 

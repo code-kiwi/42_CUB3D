@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entities_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/19 11:49:57 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/19 15:51:35 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,9 @@ bool	entity_shoot_bullet(t_game *game, t_entity *entity,
 
 // Init entities species
 bool	demon_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	demon_update(t_game *game, t_entity *entity, float delta_time);
 bool	imp_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	imp_update(t_game *game, t_entity *entity, float delta_time);
 bool	init_entity_type(t_entity *entity, char id, \
 			t_list *textures[MAP_NB_IDS]);
 
