@@ -6,12 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/19 10:24:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/19 11:50:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
+#include "bullets_bonus.h"
 
 static bool	imp_update(t_game *game, t_entity *entity, float delta_time)
 {
@@ -37,7 +38,19 @@ static bool	imp_update(t_game *game, t_entity *entity, float delta_time)
 		player_get_damage(game, IMP_ATTACK_DAMAGE);
 	}
 	else
-		update_entity_position(entity, delta_time, game->entities, &game->map);
+	{
+		if (!entity->see_player)
+			update_entity_position(entity, delta_time, game->entities, &game->map);
+		else
+		{
+			if (entity->cooldown > 0)
+				return (true);
+			sprite->next_animation = game->textures[IDX_TXTR_IMP_WALK];
+			sprite->animation = game->textures[IDX_TXTR_IMP_ATTACK];
+			entity->cooldown = IMP_ATTACK_PAUSE;
+			return (entity_shoot_bullet(game, entity, imp_projectile_use));
+		}
+	}
 	return (true);
 }
 
