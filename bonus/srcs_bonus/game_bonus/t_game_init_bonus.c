@@ -22,6 +22,7 @@
 #include "animation_bonus.h"
 #include "mlx.h"
 #include "entities_bonus.h"
+#include "radar_bonus.h"
 
 static bool	init_textures(t_game *game)
 {
@@ -63,23 +64,17 @@ bool	t_game_init(t_game *game)
 	game->frame_time_usec = 1000000 / FPS;
 	game->tick_last_frame = 0;
 	game->bullets = NULL;
-	if (!t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE))
-		return (false);
-	if (!t_player_init(&game->player, &game->map, game))
-		return (false);
-	if (!init_textures(game))
-		return (false);
-	if (!init_sprites(game))
-		return (false);
-	if (!init_all_ui(game))
-		return (false);
-	if (!t_mlx_launch(&game->mlx))
-		return (false);
-	if (!add_event_handlers(game))
-		return (error_print(ERR_HOOKS), false);
-	if (!init_doors(game))
-		return (false);
-	if (!init_entities(game))
-		return (false);
-	return (true);
+	return (
+		t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE)
+		&& t_player_init(&game->player, &game->map, game)
+		&& init_textures(game)
+		&& init_sprites(game)
+		&& init_all_ui(game)
+		&& init_doors(game)
+		&& init_entities(game)
+		&& init_map_draw(&game->map.draw, &game->map, game)
+		&& init_radar(&game->radar, &game->mlx)
+		&& t_mlx_launch(&game->mlx)
+		&& add_event_handlers(game)
+	);
 }

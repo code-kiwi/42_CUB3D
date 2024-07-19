@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:08:26 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 18:09:34 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 13:42:33 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,18 @@ void	t_mlx_draw_pixel(
  * @param img The image onto the pixel will be drawn
  * @param coords The pixel coordinates as a pointer
  * @param color The color of the pixel
- * @note SECURED -> if the coordinate is not valid, nothing happens
+ * @note Does not write a color over a transparent pixel
 */
-void	t_mlx_draw_pixel_secured(
+void	t_mlx_draw_pixel_alphap(
 	t_image *img,
 	t_mlx_coords *coords,
-	uint32_t color)
+	uint32_t color
+)
 {
-	char	*dest;
+	uint32_t	*addr;
 
-	if (
-		img == NULL
-		|| coords->x < 0 || coords->x >= img->width
-		|| coords->y < 0 || coords->y > img->height
-	)
-		return ;
-	dest = img->addr + \
-		(coords->y * img->line_len + coords->x * img->bpp_factor);
-	*(uint32_t *) dest = color;
+	addr = (uint32_t *)(img->addr + (coords->y * img->line_len + (coords->x * \
+		img->bpp_factor)));
+	if (*addr != 0xFF000000)
+		*addr = color;
 }

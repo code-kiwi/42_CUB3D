@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_init_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:36:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 11:08:28 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/17 19:47:37 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ bool	t_mlx_init(t_mlx *mlx, int win_width, int win_height, char *title)
 		t_mlx_destroy(mlx);
 		return (false);
 	}
+	mlx_do_key_autorepeatoff(mlx->mlx_ptr);
 	return (true);
 }
 

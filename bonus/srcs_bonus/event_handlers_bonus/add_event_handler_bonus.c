@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:25:06 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/26 07:40:58 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/14 19:00:14 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 bool	add_event_handlers(t_game *data)
 {
 	if (data == NULL)
-		return (false);
+		return (error_print(ERR_HOOKS), false);
 	if (
 		!t_mlx_add_hook(&data->mlx, destroy_handler, data, HOOK_DESTROY)
 		|| !t_mlx_add_hook(&data->mlx, key_release_handler, data, \
@@ -42,6 +42,6 @@ bool	add_event_handlers(t_game *data)
 			HOOK_MOUSE_RELEASE)
 		|| !t_mlx_add_hook(&data->mlx, game_loop, data, HOOK_LOOP)
 	)
-		return (false);
+		return (error_print(ERR_HOOKS), false);
 	return (true);
 }

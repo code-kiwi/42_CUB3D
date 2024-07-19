@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/11 11:37:08 by root             ###   ########.fr       */
+/*   Updated: 2024/07/19 16:20:14 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	mouse_press_handler(int button, int x, int y, t_game *game)
 	(void) y;
 	if (game == NULL)
 		error_exit(NULL, ERR_ARG);
-	if (button == MOUSE_LEFT)
+	if (button == MOUSE_LEFT && !game->pause)
 		use_item(game);
 	return (1);
 }

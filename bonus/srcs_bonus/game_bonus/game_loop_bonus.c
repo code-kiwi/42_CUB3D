@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/17 10:58:48 by root             ###   ########.fr       */
+/*   Updated: 2024/07/19 16:27:12 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,30 @@ static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 	return (true);
 }
 
+static void	game_render(t_game *game, float delta_time)
+{
+	t_mlx_center_cursor(&game->mlx);
+	if (!game->mouse_hidden)
+		t_mlx_mouse_hide(&game->mlx, &game->mouse_hidden);
+	update_entities(game, delta_time);
+	update_bullets(game, delta_time);
+	update_animations(game, delta_time);
+	update_player(&game->player, &game->map, delta_time, game->entities);
+	update_doors(game, delta_time);
+	update_map(&game->map, game);
+	if (!is_in_bounds(&game->player.position, &game->map))
+		error_exit(game, ERR_PLAYER_QUIT_MAP);
+	if (!cast_rays(game))
+		error_exit(game, ERR_CAST_RAYS);
+	draw_walls(game);
+	render_all_sprites(game);
+	draw_player(game);
+	if (game->map_opened)
+		draw_map(&game->map.draw, &game->map, game);
+	else
+		draw_radar(game, &game->radar, &game->mlx);
+}
+
 int	game_loop(t_game *game)
 {
 	float	delta_time;
@@ -60,23 +84,7 @@ int	game_loop(t_game *game)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
 	if (!game->pause)
-	{
-		t_mlx_center_cursor(&game->mlx);
-		if (!game->mouse_hidden)
-			t_mlx_mouse_hide(&game->mlx, &game->mouse_hidden);
-		update_entities(game, delta_time);
-		update_bullets(game, delta_time);
-		update_animations(game, delta_time);
-		update_player(&game->player, &game->map, delta_time, game->entities);
-		update_doors(game, delta_time);
-		if (!is_in_bounds(&game->player.position, &game->map))
-			error_exit(game, ERR_PLAYER_QUIT_MAP);
-		if (!cast_rays(game))
-			error_exit(game, ERR_CAST_RAYS);
-		draw_walls(game);
-		render_all_sprites(game);
-		draw_player(game);
-	}
+		game_render(game, delta_time);
 	else
 		draw_ui(&game->ui_pause, game->mlx.img_buff);
 	if (!t_mlx_render(&game->mlx))
