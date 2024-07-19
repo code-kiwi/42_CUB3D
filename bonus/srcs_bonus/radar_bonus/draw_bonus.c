@@ -6,9 +6,11 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:37:57 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/19 00:26:11 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/19 04:52:31 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <math.h>
 
 #include "cub3d_bonus.h"
 #include "mlx_api_bonus.h"
@@ -93,7 +95,6 @@ static void	draw_radar_process(t_radar *radar)
 				radar->tiles[i][j]);
 		}
 	}
-	draw_radar_decoration(radar);
 }
 
 void	draw_radar(t_game *game, t_radar *radar, t_mlx *mlx)
@@ -106,15 +107,15 @@ void	draw_radar(t_game *game, t_radar *radar, t_mlx *mlx)
 	new_orientation = game->player.orientation - PI / 2;
 	if (
 		!radar->needs_update
-		&& new_orientation - radar->orientation > RADAR_ROT_SENSIBILIY
+		&& fabs(new_orientation - radar->orientation) > RADAR_ROT_SENSIBILIY
 	)
 		radar->needs_update = true;
-	radar->needs_update = true;
 	radar->orientation = new_orientation;
 	if (radar->needs_update)
 	{
 		draw_radar_process(radar);
 		draw_radar_rotate(radar);
+		draw_radar_decoration(radar);
 	}
 	t_mlx_apply_image(radar->img, mlx->img_buff, &radar->coords);
 }
