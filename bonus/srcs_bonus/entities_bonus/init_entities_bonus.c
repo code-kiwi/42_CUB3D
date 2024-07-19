@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_entities_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 10:39:09 by root             ###   ########.fr       */
+/*   Updated: 2024/07/19 10:48:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	init_entity(t_entity *new_entity, t_sprite *new_sprite)
 	new_entity->is_path_circular = false;
 	new_entity->path = NULL;
 	new_entity->cooldown = 0;
+	new_entity->see_player = false;
 }
 
 static void	*add_entity(t_game *game, float x, float y, char id)

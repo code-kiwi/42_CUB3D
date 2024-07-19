@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/19 10:25:57 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/19 10:48:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ struct s_entity
 	bool		(*get_chainsawed)(t_game *, t_entity *);
 	void		*type;
 	float		cooldown;
+	bool		see_player;
 };
 
 struct s_demon
