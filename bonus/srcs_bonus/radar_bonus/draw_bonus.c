@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:37:57 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/19 04:52:31 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/19 09:57:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ static void	draw_radar_process(t_radar *radar)
 	t_mlx_coords	size;
 
 	t_mlx_draw_disk(radar->img, &radar->center, radar->radius, RAD_COL_BG);
+	t_mlx_draw_disk(radar->img2, &radar->center, radar->radius, RAD_COL_BG);
 	i = -1;
 	while (++i < radar->nb_tiles)
 	{

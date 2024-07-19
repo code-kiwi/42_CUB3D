@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radar_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:52:04 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/18 21:36:37 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/19 10:16:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ bool	init_radar(t_radar *radar, t_mlx *mlx);
 void	destroy_radar(t_radar *radar, void *mlx_ptr);
 void	draw_radar(t_game *game, t_radar *radar, t_mlx *mlx);
 void	update_tiles(t_map *map, t_radar *radar, t_player *player);
-void    draw_radar_rotate(t_radar *radar);
+void	draw_radar_rotate(t_radar *radar);
 
 #endif

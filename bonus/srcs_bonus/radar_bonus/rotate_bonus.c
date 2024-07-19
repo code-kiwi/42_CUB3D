@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 19:11:05 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 00:28:23 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/19 10:16:11 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,22 @@
 
 #include "cub3d_bonus.h"
 
+static void	rotate_coord(
+	t_mlx_coords *coords,
+	t_mlx_coords *res_coords,
+	int img_size,
+	float orientation
+)
+{
+	t_mlx_coords	tcoords;
 
-#include <stdio.h>
+	tcoords.x = coords->x - img_size / 2;
+	tcoords.y = coords->y - img_size / 2;
+	res_coords->x = (int)((float) tcoords.x * cos(orientation) - \
+		(float) tcoords.y * sin(orientation));
+	res_coords->y = (int)((float) tcoords.x * sin(orientation) + \
+		(float) tcoords.y * cos(orientation));
+}
 
 static void	draw_radar_rotate_process(
 	t_image *curr,
@@ -24,42 +38,33 @@ static void	draw_radar_rotate_process(
 	float orientation
 )
 {
-	uint32_t	*curr_addr;
-	uint32_t	*res_addr;
-	int			i;
-	int			j;
-	int			it;
-	int			jt;
-	float		i_res;
-	float		j_res;
+	uint32_t		*curr_addr;
+	uint32_t		*res_addr;
+	t_mlx_coords	res_coords;
+	t_mlx_coords	curr_coords;
 
 	curr_addr = (uint32_t *) curr->addr;
 	res_addr = (uint32_t *) res->addr;
-	i = 0;
-	while (i < img_size)
+	res_coords.x = 0;
+	while (res_coords.x < img_size)
 	{
-		j = 0;
-		while (j < img_size)
+		res_coords.y = 0;
+		while (res_coords.y < img_size)
 		{
-			if (*(curr_addr + i * img_size + j) == RAD_COL_TRANSPARENT)
+			if (*(curr_addr + res_coords.x * img_size + res_coords.y) != \
+				RAD_COL_TRANSPARENT)
 			{
-				j++;
-				continue ;
+				rotate_coord(&res_coords, &curr_coords, img_size, orientation);
+				*(res_addr + res_coords.x * img_size + res_coords.y) = \
+					*(curr_addr + (curr_coords.x + img_size / 2) * img_size + \
+					(curr_coords.y + img_size / 2));
 			}
-			it = i - img_size / 2;
-			jt = j - img_size / 2;
-			i_res = (float) it * cos(-orientation) - (float) jt * sin(-orientation);
-			j_res = (float) it * sin(-orientation) + (float) jt * cos(-orientation);
-			// printf("it, jt: %d - %d\n", it, jt);
-			// printf("i_res, j_res: %f - %f\n", i_res, j_res);
-			// printf("orientation: %f\n", orientation);
-			*(res_addr + ((int)i_res + img_size / 2) * img_size + ((int)j_res + img_size / 2)) = *(curr_addr + i * img_size + j);
-			j++;
+			res_coords.y++;
 		}
-		i++;
+		res_coords.x++;
 	}
-	// exit(0);
 }
+
 void	draw_radar_rotate(t_radar *radar)
 {
 	t_image	*curr;
@@ -68,9 +73,6 @@ void	draw_radar_rotate(t_radar *radar)
 	curr = radar->img;
 	res = radar->img2;
 	draw_radar_rotate_process(curr, res, radar->radius * 2, radar->orientation);
-
-	// t_mlx_coords coords = {0, 0}, size = {2 * radar->radius, 2 * radar->radius};
-	// t_mlx_draw_rectangle(res, &coords, &size, 0xFF0000);
 	radar->img = res;
 	radar->img2 = curr;
 	return ;
