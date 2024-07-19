@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:31:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 14:45:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 12:38:01 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 #include "door_bonus.h"
 #include "libft.h"
 
+/**
+ * @brief Removes all the moving characters from the map
+ * @param map the map to clean
+ * @note All the removed elements are replaced with an empty tile character
+ */
 static void	clear_map(t_map *map)
 {
 	size_t	i;
@@ -34,6 +39,11 @@ static void	clear_map(t_map *map)
 	}
 }
 
+/**
+ * @brief Adds the player onto the map
+ * @param map the map
+ * @param player the player instance
+ */
 static void	add_player_to_map(t_map *map, t_player *player)
 {
 	t_mlx_coords	player_coords;
@@ -45,6 +55,11 @@ static void	add_player_to_map(t_map *map, t_player *player)
 	map->tiles[player_coords.y][player_coords.x] = ID_MAP_PLAYER;
 }
 
+/**
+ * @brief Adds the entities onto the map
+ * @param map the map
+ * @param entities an list of all the game entities
+ */
 static void	add_entities_to_map(t_map *map, t_list *entities)
 {
 	t_entity		*entity;
@@ -63,11 +78,19 @@ static void	add_entities_to_map(t_map *map, t_list *entities)
 	}
 }
 
+/**
+ * @brief Adds the doors onto the map
+ * @param map the map
+ * @param doors an array of all the game doors
+ * @param door_count the number of doors into doors
+ */
 static void	add_doors_to_map(t_map *map, t_door *doors, size_t door_count)
 {
 	size_t			i;
 	t_mlx_coords	*door_coords;
 
+	if (doors == NULL)
+		return ;
 	i = 0;
 	while (i < door_count)
 	{
@@ -80,6 +103,11 @@ static void	add_doors_to_map(t_map *map, t_door *doors, size_t door_count)
 	}
 }
 
+/**
+ * @brief Updates the map instance with all game elements
+ * @param map the map to update
+ * @param game the main game structure
+ */
 void	update_map(t_map *map, t_game *game)
 {
 	if (map == NULL || game == NULL)
