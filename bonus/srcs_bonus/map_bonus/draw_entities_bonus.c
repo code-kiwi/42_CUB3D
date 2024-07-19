@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 13:18:22 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 14:01:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,23 @@ static void	draw_map_rays(
 	size_t			i;
 
 	get_coords(player_position, &save, draw->tile_size, &draw->coords);
-	i = 0;
-	while (i < WIN_WIDTH)
+	i = -1;
+	while (++i < WIN_WIDTH)
 	{
 		pos.x = save.x;
 		pos.y = save.y;
 		get_coords(&rays[i].intersection, &ray_end, draw->tile_size, \
 			&draw->coords);
 		t_mlx_draw_line(img, pos, ray_end, MAP_DRAW_COL_RAYS);
-		i++;
+		if (rays[i].slope.x < 0 && rays[i].slope.y > 0)
+			ray_end.x += 1;
+		else if (rays[i].slope.x > 0 && rays[i].slope.y > 0)
+			ray_end.y += 1;
+		else if (rays[i].slope.x > 0 && rays[i].slope.y < 0)
+			ray_end.x -= 1;
+		else
+			ray_end.y -= 1;
+		t_mlx_draw_line(img, pos, ray_end, MAP_DRAW_COL_RAYS);
 	}
 }
 

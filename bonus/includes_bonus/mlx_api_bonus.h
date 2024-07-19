@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/19 10:29:44 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 13:47:11 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,11 @@ void	t_mlx_draw_disk(t_image *img, t_mlx_coords *coords, int radius, \
 			uint32_t color);
 void	t_mlx_draw_disk_alphap(t_image *img, t_mlx_coords *coords, int radius, \
 			uint32_t color);
+void	t_mlx_circle_disk_update_err(t_mlx_coords *xy, int *err);
+void	t_mlx_circle_disk_init_vars(t_mlx_coords *xy, int *err, int radius);
 char	*t_mlx_get_pixel(t_image *image, size_t x, size_t y);
+
+// Color functions
 bool	set_color(unsigned int *result, int r, int g, int b);
 void	multiply_color(unsigned int *color, float factor);
 

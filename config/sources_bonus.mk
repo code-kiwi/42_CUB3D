@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/19 10:30:47 by mhotting         ###   ########.fr        #
+#    Updated: 2024/07/19 13:46:17 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ MLX_API_FILES_BONUS			=	t_image_utils_bonus.c			\
 								t_mlx_draw_rectangle_bonus.c	\
 								t_mlx_draw_circle_bonus.c		\
 								t_mlx_draw_disk_bonus.c			\
+								t_mlx_draw_disk_circle_utils.c	\
 								t_argb_color_utils_bonus.c		\
 								t_mlx_sync_images.c
 MLX_API_BONUS				=	$(addprefix $(MLX_API_DIR_BONUS), $(MLX_API_FILES_BONUS))
