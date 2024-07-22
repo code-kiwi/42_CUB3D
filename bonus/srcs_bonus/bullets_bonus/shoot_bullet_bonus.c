@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:06:25 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 10:59:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 12:03:56 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ bool	shoot_bullet(t_game *game, t_vector *position, t_vector *direction,
 	ft_lstadd_front(&game->bullets, new_node);
 	new_bullet->move = *direction;
 	init_bullet(game->textures, new_bullet);
+	new_sprite->distance = get_distance(position, &game->player.position);
 	return (true);
 }

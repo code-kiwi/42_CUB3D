@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_bullet_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:17:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 11:44:33 by root             ###   ########.fr       */
+/*   Updated: 2024/07/22 12:00:56 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@
 static void	update_bullet(t_game *game, t_bullet *bullet, float delta_time)
 {
 	t_vector	realtime_move;
+	t_vector	*sprite_pos;
 
 	if (game == NULL || bullet == NULL || bullet->sprite == NULL)
 		return ;
 	realtime_move.x = bullet->move.x * delta_time * BULLET_SPEED;
 	realtime_move.y = bullet->move.y * delta_time * BULLET_SPEED;
-	if (!move_entity(game->entities, &bullet->sprite->position, &realtime_move,
-			&game->map) && bullet->use != NULL)
+	sprite_pos = &bullet->sprite->position;
+	if ((bullet->sprite->distance < PLAYER_RADIUS
+		|| !move_entity(game->entities, sprite_pos, &realtime_move, &game->map))
+		&& bullet->use != NULL)
 	{
 		bullet->use(game, bullet);
 	}
