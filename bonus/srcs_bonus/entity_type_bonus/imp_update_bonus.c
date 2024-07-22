@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 11:02:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 11:17:56 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,13 @@ static bool	imp_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 
 bool	imp_update(t_game *game, t_entity *entity, float delta_time)
 {
-	t_player	*player;
 	float		distance;
 	t_sprite	*sprite;
 
 	if (entity->cooldown > 0)
 		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
-	player = &game->player;
-	distance = get_distance(&sprite->position, &player->position);
+	distance = get_distance(&sprite->position, &game->player.position);
 	sprite->animate = true;
 	if (distance < IMP_ATTACK_RANGE)
 	{
