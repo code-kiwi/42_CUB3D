@@ -62,6 +62,8 @@ bool	boh_update(t_game *game, t_entity *entity, float delta_time)
 		if (entity->see_player && !boh_range_attack(entity, sprite, game))
 			return (false);
 		update_entity_position(entity, delta_time, game->entities, &game->map);
+		if (entity->path == NULL)
+			stop_walk_animation(sprite, game->textures);
 	}
 	return (true);
 }
