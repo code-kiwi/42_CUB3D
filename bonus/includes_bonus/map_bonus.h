@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 14:35:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 14:59:49 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define ID_MAP_DOOR_OPENED				'o'
 
 # define IDS_MAP_SPRITE					"s"
-# define IDS_MAP_ENTITY					"picblay"
+# define IDS_MAP_ENTITY					"picblayr"
 # define ID_MAP_PLAYER					'P'
 # define ID_MAP_ENTITY					'e'
 
@@ -76,6 +76,11 @@
 # define ID_TEXTURE_CYBER_DEATH			"CYBER_DEATH"
 # define ID_TEXTURE_ROCKET_LIVE			"ROCKET_LIVE"
 # define ID_TEXTURE_ROCKET_DEATH		"ROCKET_DEATH"
+# define ID_TEXTURE_REVENANT_WALK		"REVENANT_WALK"
+# define ID_TEXTURE_REVENANT_PAIN		"REVENANT_PAIN"
+# define ID_TEXTURE_REVENANT_PUNCH		"REVENANT_PUNCH"
+# define ID_TEXTURE_REVENANT_DEATH		"REVENANT_DEATH"
+# define ID_TEXTURE_REVENANT_SHOOT		"REVENANT_SHOOT"
 
 
 # define IDX_TXTR_N						0
@@ -126,6 +131,11 @@
 # define IDX_TXTR_CYBER_DEATH			45
 # define IDX_TXTR_ROCKET_LIVE			46
 # define IDX_TXTR_ROCKET_DEATH			47
+# define IDX_TXTR_REVENANT_WALK			48
+# define IDX_TXTR_REVENANT_PAIN			49
+# define IDX_TXTR_REVENANT_PUNCH		50
+# define IDX_TXTR_REVENANT_DEATH		51
+# define IDX_TXTR_REVENANT_SHOOT		52
 
 # define ID_MAP_DEMON					'p'
 # define ID_MAP_IMP						'i'
@@ -134,10 +144,11 @@
 # define ID_MAP_LOST_SOUL				'l'
 # define ID_MAP_PAIN_ELEM				'a'
 # define ID_MAP_CYBER					'y'
+# define ID_MAP_REVENANT				'r'
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS				" 01sdpicblayNSEW"
-# define MAP_NB_IDS						48
+# define MAP_ALLOWED_CHARS				" 01sdpicblayrNSEW"
+# define MAP_NB_IDS						53
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 

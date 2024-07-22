@@ -57,6 +57,13 @@ CYBER_DEATH ./assets/textures/doom/entities/cyberdemon/cyberdemon_death.xpm 122,
 ROCKET_LIVE ./assets/textures/doom/effects/rocket/rocket_live.xpm 15,14
 ROCKET_DEATH ./assets/textures/doom/effects/rocket/rocket_death.xpm 103,86
 
+REVENANT_WALK ./assets/textures/doom/entities/revenant/revenant_walk.xpm 56,85
+REVENANT_PUNCH ./assets/textures/doom/entities/revenant/revenant_punch.xpm 68,87
+REVENANT_SHOOT ./assets/textures/doom/entities/revenant/revenant_shoot.xpm 49,79
+REVENANT_PAIN ./assets/textures/doom/entities/revenant/revenant_pain.xpm 66,72
+REVENANT_DEATH ./assets/textures/doom/entities/revenant/revenant_death.xpm 74,78
+
+
 11111111111111111111
 10000000000000000001
 10000000000000000001
