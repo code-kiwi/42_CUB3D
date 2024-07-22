@@ -34,6 +34,13 @@ CACO_DEATH ./assets/textures/doom/entities/cacodemon/cacodemon_death.xpm 75,77
 CACO_PROJECTILE_LIVE ./assets/textures/doom/effects/cacodemon_projectile/cacodemon_projectile_live.xpm 16,16
 CACO_PROJECTILE_DEATH ./assets/textures/doom/effects/cacodemon_projectile/cacodemon_projectile_death.xpm 53,48
 
+BOH_WALK ./assets/textures/doom/entities/baron_of_hell/baron_of_hell_walk.xpm 49,74
+BOH_ATTACK ./assets/textures/doom/entities/baron_of_hell/baron_of_hell_attack.xpm 69,70
+BOH_PAIN ./assets/textures/doom/entities/baron_of_hell/baron_of_hell_pain.xpm 50,72
+BOH_DEATH ./assets/textures/doom/entities/baron_of_hell/baron_of_hell_death.xpm 60,73
+BOH_PROJECTILE_LIVE ./assets/textures/doom/effects/baron_of_hell_projectile/baron_of_hell_projectile_live.xpm 20,16
+BOH_PROJECTILE_DEATH ./assets/textures/doom/effects/baron_of_hell_projectile/baron_of_hell_projectile_death.xpm 45,40
+
 11111111111111111111
 10000000000000000001
 10000000000000000001

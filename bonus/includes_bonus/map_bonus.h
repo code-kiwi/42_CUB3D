@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 10:42:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 12:18:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define ID_MAP_DOOR_OPENED				'o'
 
 # define IDS_MAP_SPRITE					"s"
-# define IDS_MAP_ENTITY					"pic"
+# define IDS_MAP_ENTITY					"picb"
 # define ID_MAP_PLAYER					'P'
 # define ID_MAP_ENTITY					'e'
 
@@ -58,6 +58,12 @@
 # define ID_TEXTURE_CACO_DEATH			"CACO_DEATH"
 # define ID_TEXTURE_CACO_PROJ_LIVE		"CACO_PROJECTILE_LIVE"
 # define ID_TEXTURE_CACO_PROJ_DEATH		"CACO_PROJECTILE_DEATH"
+# define ID_TEXTURE_BOH_WALK			"BOH_WALK"
+# define ID_TEXTURE_BOH_PAIN			"BOH_PAIN"
+# define ID_TEXTURE_BOH_ATTACK			"BOH_ATTACK"
+# define ID_TEXTURE_BOH_DEATH			"BOH_DEATH"
+# define ID_TEXTURE_BOH_PROJ_LIVE		"BOH_PROJECTILE_LIVE"
+# define ID_TEXTURE_BOH_PROJ_DEATH		"BOH_PROJECTILE_DEATH"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -89,14 +95,21 @@
 # define IDX_TXTR_CACO_DEATH			27
 # define IDX_TXTR_CACO_PROJ_LIVE		28
 # define IDX_TXTR_CACO_PROJ_DEATH		29
+# define IDX_TXTR_BOH_WALK				30
+# define IDX_TXTR_BOH_PAIN				31
+# define IDX_TXTR_BOH_ATTACK			32
+# define IDX_TXTR_BOH_DEATH				33
+# define IDX_TXTR_BOH_PROJ_LIVE			34
+# define IDX_TXTR_BOH_PROJ_DEATH		35
 
 # define ID_MAP_DEMON					'p'
 # define ID_MAP_IMP						'i'
 # define ID_MAP_CACO					'c'
+# define ID_MAP_BOH						'b'
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS				" 01sdpicNSEW"
-# define MAP_NB_IDS						30
+# define MAP_ALLOWED_CHARS				" 01sdpicbNSEW"
+# define MAP_NB_IDS						36
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
