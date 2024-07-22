@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:07:50 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 13:37:42 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 14:58:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,4 @@ void	destroy_player(t_player *player)
 {
 	if (player == NULL)
 		return ;
-	destroy_player_weapons(player);
 }

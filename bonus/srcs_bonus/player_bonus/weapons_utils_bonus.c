@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:04:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 14:11:06 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:12:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,38 +18,34 @@
 #include "weapons_bonus.h"
 #include "libft.h"
 
-bool	player_add_weapon(t_weapon *weapon, t_list **weapon_list)
+void	player_select_prev_weapon(t_player *player)
 {
-	t_list	*weapon_link;
-
-	if (weapon == NULL || weapon_list == NULL)
-		return (false);
-	weapon_link = ft_lstnew(weapon);
-	if (weapon_link == NULL)
-		return (false);
-	ft_lstadd_back(weapon_list, weapon_link);
-	return (true);
+	if (player->curr_weapon_index == 0)
+	{
+		while (player->weapons[player->curr_weapon_index + 1])
+		player->curr_weapon_index++;
+	}
+	else
+		player->curr_weapon_index--;
+	player->curr_weapon = player->weapons[player->curr_weapon_index];
 }
 
-void	destroy_player_weapons(t_player *player)
+void	player_select_next_weapon(t_player *player)
 {
-	if (player == NULL || player->weapons == NULL)
-		return ;
-	ft_lstclear(&player->weapons, NULL);
+	player->curr_weapon_index++;
+	if (player->weapons[player->curr_weapon_index] == NULL)
+		player->curr_weapon_index = 0;
+	player->curr_weapon = player->weapons[player->curr_weapon_index];
 }
 
 bool	init_player_weapons(t_game *game, t_player *player)
 {
 	if (game == NULL)
 		return (error_print(ERR_P_WEAPONS_CREATION), false);
-	if (
-		!player_add_weapon(&game->weapons[IDX_W1_HAND], &player->weapons)
-		|| !player_add_weapon(&game->weapons[IDX_W1_HAND], &player->weapons)
-	)
-	{
-		destroy_player_weapons(player);
-		return (error_print(ERR_P_WEAPONS_CREATION), false);
-	}
-	player->curr_weapon = (t_weapon *) player->weapons->content;
+	ft_bzero(&player->weapons, (NB_TOT_WEAPONS + 1) * sizeof(t_weapon *));
+	player->weapons[0] = &game->weapons[0];
+	player->weapons[1] = &game->weapons[1];
+	player->curr_weapon_index = 0;
+	player->curr_weapon = player->weapons[player->curr_weapon_index];
 	return (true);
 }
