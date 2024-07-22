@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/17 10:34:19 by root             ###   ########.fr       */
+/*   Updated: 2024/07/22 22:03:46 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 
 # include "vector_bonus.h"
+# include "animation_bonus.h"
 # include "libft.h"
 
 typedef struct s_game	t_game;
@@ -28,8 +29,8 @@ struct	s_sprite
 {
 	t_vector	position;
 	float		distance;
-	t_list		*animation;
-	t_list		*next_animation;
+	t_animation	animation;
+	t_animation	next_animation;
 	size_t		height;
 	float		frame_update_delta;
 	bool		animate;

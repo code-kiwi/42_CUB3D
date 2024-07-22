@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 16:53:24 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 22:18:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "player_bonus.h"
 # include "ray_bonus.h"
 # include "ui_bonus.h"
+# include "animation_bonus.h"
 # include "radar_bonus.h"
 
 # define PI						3.14159265358
@@ -97,8 +98,7 @@ struct s_game
 	t_ray		rays[WIN_WIDTH];
 	long		frame_time_usec;
 	long		tick_last_frame;
-	t_list		*textures[MAP_NB_IDS];
-	size_t		animation_wait[MAP_NB_IDS];
+	t_animation	animations[MAP_NB_IDS];
 	size_t		door_count;
 	t_door		*doors;
 	t_door		*last_door_seen;

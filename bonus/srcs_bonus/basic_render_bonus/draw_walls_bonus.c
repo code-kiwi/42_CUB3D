@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/10 16:39:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 22:28:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@
 #include "libft.h"
 #include "door_bonus.h"
 
-static t_image	*get_texture(t_list *textures[MAP_NB_IDS], t_ray *ray)
+static t_image	*get_texture(t_animation animations[MAP_NB_IDS], t_ray *ray)
 {
 	if (ray->is_door)
-		return (textures[IDX_TXTR_DOOR]->content);
+		return (animations[IDX_TXTR_DOOR].textures->content);
 	if (ray->is_vertical)
 	{
 		if (ray->slope.x > 0)
-			return (textures[IDX_TXTR_E]->content);
+			return (animations[IDX_TXTR_E].textures->content);
 		else
-			return (textures[IDX_TXTR_S]->content);
+			return (animations[IDX_TXTR_S].textures->content);
 	}
 	else
 	{
 		if (ray->slope.y > 0)
-			return (textures[IDX_TXTR_W]->content);
+			return (animations[IDX_TXTR_W].textures->content);
 		else
-			return (textures[IDX_TXTR_N]->content);
+			return (animations[IDX_TXTR_N].textures->content);
 	}
 }
 
@@ -70,7 +70,7 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	if (column.coords.y < 0)
 		column.coords.y = 0;
 	column.texture_start = column.coords.y - column.start;
-	texture = get_texture(game->textures, ray);
+	texture = get_texture(game->animations, ray);
 	column.texture_column = pixel_column_on_texture(ray, texture->width);
 	draw_texture_column(game->mlx.img_buff, &column, texture, ray->length);
 	draw_ground_ceiling(&column, WIN_HEIGHT, game, ray);

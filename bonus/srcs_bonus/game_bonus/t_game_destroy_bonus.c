@@ -34,7 +34,7 @@ void	t_game_destroy(t_game *game)
 	destroy_player(&game->player, game->mlx.mlx_ptr);
 	while (index < MAP_NB_IDS)
 	{
-		destroy_animation(game->textures[index], game->mlx.mlx_ptr, true);
+		destroy_animation(&game->animations[index], game->mlx.mlx_ptr);
 		index++;
 	}
 	destroy_radar(&game->radar, game->mlx.mlx_ptr);

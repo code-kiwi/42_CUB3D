@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_screen_position_bonus.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/07/16 13:20:30 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 22:07:28 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ bool	is_sprite_aimed(t_sprite *sprite, int left_x)
 		return (false);
 	if (left_x + sprite->height / sprite->distance < WIN_WIDTH / 2)
 		return (false);
-	texture = sprite->animation->content;
+	texture = sprite->animation.textures->content;
 	height_ratio = sprite->distance * texture->width / sprite->height;
 	aimed_column = (WIN_WIDTH / 2 - left_x) * height_ratio;
 	color = t_mlx_get_pixel(texture, aimed_column, texture->height / 2);

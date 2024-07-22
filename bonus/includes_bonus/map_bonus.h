@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 16:54:41 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 22:22:33 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 
 # include "mlx_api_bonus.h"
+# include "animation_bonus.h"
 
 # define ID_MAP_WALL					'1'
 # define ID_MAP_TILE					'0'
@@ -240,9 +241,10 @@ struct s_map
 };
 
 // Map functions
-bool	read_map(t_map *map, char *filename, size_t animation_wait[MAP_NB_IDS]);
+bool	read_map(t_map *map, char *filename,
+			t_animation animations[MAP_NB_IDS]);
 bool	is_map_valid(t_map *map);
-bool	read_elements(t_map *map, int fd, size_t animation_wait[MAP_NB_IDS]);
+bool	read_elements(t_map *map, int fd, t_animation animations[MAP_NB_IDS]);
 bool	is_in_bounds(t_vector *position, t_map *map);
 bool	is_character(t_vector *position, t_map *map, char character);
 bool	check_extension(char *filename, char *extension);

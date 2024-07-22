@@ -42,10 +42,10 @@ static bool	init_textures(t_game *game)
 			return (error_print_string(ERR_TEXTURE_EXTENSION, filename), false);
 		if (!t_image_import_file(&texture, filename, game->mlx.mlx_ptr, NULL))
 			return (error_print_string(ERR_INIT_TEXTURES, filename), false);
-		game->textures[index] = create_animation(&texture, texture_size, \
-			game->mlx.mlx_ptr, filename);
+		game->animations[index].textures = create_animation(&texture, \
+			texture_size, game->mlx.mlx_ptr, filename);
 		mlx_destroy_image(game->mlx.mlx_ptr, texture.ptr);
-		if (game->textures[index] == NULL)
+		if (game->animations[index].textures == NULL)
 			return (false);
 		index++;
 	}
