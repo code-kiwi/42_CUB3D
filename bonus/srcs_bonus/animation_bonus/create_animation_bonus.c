@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:52:44 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 11:13:49 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 12:19:52 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_list	*create_animation(
 	t_dimension		dim;
 
 	if (texture->width % size->x != 0 || texture->height % size->y != 0)
-		return (error_print_string(ERR_TEXTURE_EXTENSION, texture_name), NULL);
+		return (error_print_string(ERR_TEXTURE_SIZE, texture_name), NULL);
 	dim.size = *size;
 	dim.coords.y = 0;
 	anim = NULL;
