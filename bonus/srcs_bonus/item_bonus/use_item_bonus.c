@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   use_item_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:03:22 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 12:03:55 by root             ###   ########.fr       */
+/*   Updated: 2024/07/22 11:00:20 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	use_gun(t_game *game)
 	if (game == NULL)
 		return ;
 	player = &game->player;
-	player_shoot(game);
 	t_vector_get_slope(&direction, player->orientation);
 	direction.y *= -1;
 	shoot_bullet(game, &player->position, &direction, imp_projectile_use);

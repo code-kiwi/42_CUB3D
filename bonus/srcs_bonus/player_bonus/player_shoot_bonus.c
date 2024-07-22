@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_shoot_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 17:04:59 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/28 08:45:31 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/22 10:47:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,7 @@
 
 void	player_shoot(t_game *game)
 {
-	t_player_display	*display;
-
 	if (game == NULL)
 		return ;
-	display = &game->player.display;
-	display->frame_curr = display->frames->next;
-	display->frame_update_delta = 0;
+	ft_printf("PLAYER_SHOOT\n");
 }

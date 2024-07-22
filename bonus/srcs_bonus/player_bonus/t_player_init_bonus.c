@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_player_init_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 14:10:24 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 10:44:55 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,5 @@ bool	t_player_init(t_player *player, t_map *map, t_game *game)
 	player->health_point = PLAYER_HEALTH_POINT;
 	ft_memset(player->is_walking, 0, 4 * sizeof(bool));
 	player->look_ray = &game->rays[(int)WIN_WIDTH / 2];
-	if (!t_player_init_display(&player->display, game->mlx.mlx_ptr))
-		return (error_print(ERR_PLAYER_CREATION), false);
 	return (true);
 }

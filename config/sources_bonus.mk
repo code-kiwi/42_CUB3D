@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/19 16:23:51 by root             ###   ########.fr        #
+#    Updated: 2024/07/22 11:01:25 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,8 +84,7 @@ BASIC_RENDER_FILES_BONUS	=	draw_walls_bonus.c				\
 								draw_column_bonus.c				\
 								draw_ceiling_ground_bonus.c		\
 								draw_sprite_bonus.c				\
-								sprite_screen_position_bonus.c	\
-								draw_player_bonus.c
+								sprite_screen_position_bonus.c
 BASIC_RENDER_BONUS			=	$(addprefix $(BASIC_RENDER_DIR_BONUS), $(BASIC_RENDER_FILES_BONUS))
 
 # MAP
@@ -114,7 +113,6 @@ DOOR_BONUS					=	$(addprefix $(DOOR_DIR_BONUS), $(DOOR_FILES_BONUS))
 # PLAYER
 PLAYER_DIR_BONUS			=	player_bonus/
 PLAYER_FILES_BONUS			=	t_player_init_bonus.c			\
-								t_player_init_display_bonus.c	\
 								update_player_bonus.c			\
 								t_player_destroy_bonus.c		\
 								player_shoot_bonus.c			\
@@ -179,10 +177,6 @@ ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
 								init_entity_type_bonus.c
 ENTITY_TYPE_BONUS			=	$(addprefix $(ENTITY_TYPE_DIR_BONUS), $(ENTITY_TYPE_FILES_BONUS))
 
-# ITEMS
-ITEMS_DIR_BONUS				=	item_bonus/
-ITEMS_FILES_BONUS			=	use_item_bonus.c
-ITEMS_BONUS					=	$(addprefix $(ITEMS_DIR_BONUS), $(ITEMS_FILES_BONUS))
 # RADAR
 RADAR_DIR_BONUS				=	radar_bonus/
 RADAR_FILES_BONUS			=	utils_bonus.c					\
@@ -226,7 +220,7 @@ SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
 								$(RAY_BONUS) $(DOOR_BONUS) $(SPRITES_BONUS)				\
 								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)					\
-								$(ENTITIES_BONUS) $(ITEMS_BONUS) $(UI_BONUS)			\
+								$(ENTITIES_BONUS) $(UI_BONUS)							\
 								$(BULLETS_BONUS) $(ENTITY_TYPE_BONUS) $(RADAR_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 

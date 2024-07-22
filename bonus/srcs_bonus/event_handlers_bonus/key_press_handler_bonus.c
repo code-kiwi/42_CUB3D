@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press_handler_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/19 16:19:51 by root             ###   ########.fr       */
+/*   Updated: 2024/07/22 10:59:52 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "event_handlers_bonus.h"
 #include "libft.h"
 #include "door_bonus.h"
-#include "item_bonus.h"
 
 /**
  * @brief Handles the keyboard press key events

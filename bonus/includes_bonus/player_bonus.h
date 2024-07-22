@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 14:31:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 10:59:01 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,25 +39,11 @@
 
 typedef struct s_game			t_game;
 typedef struct s_player			t_player;
-typedef struct s_player_display	t_player_display;
 typedef struct s_map			t_map;
 typedef struct s_ray			t_ray;
 typedef struct s_list			t_list;
 typedef struct s_door			t_door;
-typedef struct s_item			t_item;
 typedef struct s_sprite			t_sprite;
-
-struct s_player_display
-{
-	t_list			*frame_curr;
-	t_list			*frames;
-	t_mlx_coords	coords;
-	t_mlx_coords	size;
-	float			frame_update_delta;
-	t_mlx_coords	target_coords;
-	t_mlx_coords	target_size;
-	t_image			target_texture;
-};
 
 struct s_player
 {
@@ -71,15 +57,12 @@ struct s_player
 	float				pixel_by_angle;
 	t_ray				*look_ray;
 	t_door				*last_door_seen;
-	t_player_display	display;
 	t_sprite			*aimed_sprite;
-	t_item				*item_in_hand;
 	size_t				health_point;
 };
 
 // t_player functions
 bool	t_player_init(t_player *player, t_map *map, t_game *game);
-bool	t_player_init_display(t_player_display *display, void *mlx_ptr);
 void	player_shoot(t_game *game);
 void	destroy_player(t_player *player, void *mlx_ptr);
 void	player_shoot(t_game *game);
