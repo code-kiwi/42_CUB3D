@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 12:35:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 12:56:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@
 # define BOH_CLOSE_ATTACK_DAMAGE	2
 # define BOH_RANGE_ATTACK_DAMAGE	1
 
+# define LOST_SOUL_SPEED			2
+# define LOST_SOUL_SQUARED_RADIUS	0.25
+# define LOST_SOUL_RANGE			1
+
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;
 typedef struct s_demon	t_demon;
@@ -98,6 +102,8 @@ bool	caco_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
 bool	caco_update(t_game *game, t_entity *entity, float delta_time);
 bool	boh_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
 bool	boh_update(t_game *game, t_entity *entity, float delta_time);
+bool	lost_soul_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	lost_soul_update(t_game *game, t_entity *entity, float delta_time);
 bool	init_entity_type(t_entity *entity, char id, \
 			t_list *textures[MAP_NB_IDS]);
 

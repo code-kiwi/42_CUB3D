@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 12:16:13 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 12:43:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ static void	init_enemies_identifier(char **identifier)
 	identifier[IDX_TXTR_BOH_DEATH] = ID_TEXTURE_BOH_DEATH;
 	identifier[IDX_TXTR_BOH_PROJ_LIVE] = ID_TEXTURE_BOH_PROJ_LIVE;
 	identifier[IDX_TXTR_BOH_PROJ_DEATH] = ID_TEXTURE_BOH_PROJ_DEATH;
+	identifier[IDX_TXTR_LOST_SOUL_WALK] = ID_TEXTURE_LOST_SOUL_WALK;
+	identifier[IDX_TXTR_LOST_SOUL_DEATH] = ID_TEXTURE_LOST_SOUL_DEATH;
 }
 
 void	init_identifier(char **identifier)

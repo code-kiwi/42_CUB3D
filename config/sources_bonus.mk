@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/22 12:37:11 by brappo           ###   ########.fr        #
+#    Updated: 2024/07/22 12:51:38 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -178,8 +178,10 @@ ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
 								imp_update_bonus.c				\
 								caco_bonus.c					\
 								caco_update_bonus.c				\
-								boh_bonus.c					\
+								boh_bonus.c						\
 								boh_update_bonus.c				\
+								lost_soul_bonus.c				\
+								lost_soul_update_bonus.c		\
 								init_entity_type_bonus.c
 ENTITY_TYPE_BONUS			=	$(addprefix $(ENTITY_TYPE_DIR_BONUS), $(ENTITY_TYPE_FILES_BONUS))
 

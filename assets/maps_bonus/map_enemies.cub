@@ -41,8 +41,11 @@ BOH_DEATH ./assets/textures/doom/entities/baron_of_hell/baron_of_hell_death.xpm 
 BOH_PROJECTILE_LIVE ./assets/textures/doom/effects/baron_of_hell_projectile/baron_of_hell_projectile_live.xpm 20,16
 BOH_PROJECTILE_DEATH ./assets/textures/doom/effects/baron_of_hell_projectile/baron_of_hell_projectile_death.xpm 45,40
 
+LOST_SOUL_WALK ./assets/textures/doom/entities/lost_soul/lost_soul_idle.xpm 77,69
+LOST_SOUL_DEATH ./assets/textures/doom/entities/lost_soul/lost_soul_death.xpm 78,69
+
 11111111111111111111
-10000000000000000001
+10l00000000000000001
 10000000000000000001
 100N1010101010101001
 1000000000c000000001

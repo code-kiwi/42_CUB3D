@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:26:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 12:37:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 12:55:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ bool	init_entity_type(t_entity *entity, char id, \
 		return (caco_init(entity, textures));
 	else if (id == ID_MAP_BOH)
 		return (boh_init(entity, textures));
+	else if (id == ID_MAP_LOST_SOUL)
+		return (lost_soul_init(entity, textures));
 	else
 		return (false);
 }
