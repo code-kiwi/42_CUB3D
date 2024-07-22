@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:06:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/15 12:37:25 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 13:05:17 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	update_entities(t_game *game, float delta_time)
 	while (current)
 	{
 		entity = current->content;
-		entity->update(game, entity, delta_time);
 		current = current->next;
+		entity->update(game, entity, delta_time);
 	}
 }
