@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/22 13:38:33 by brappo           ###   ########.fr        #
+#    Updated: 2024/07/22 14:48:57 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -184,6 +184,8 @@ ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
 								lost_soul_update_bonus.c		\
 								pain_elem_bonus.c				\
 								pain_elem_update_bonus.c		\
+								cyber_bonus.c					\
+								cyber_update_bonus.c			\
 								init_entity_type_bonus.c
 ENTITY_TYPE_BONUS			=	$(addprefix $(ENTITY_TYPE_DIR_BONUS), $(ENTITY_TYPE_FILES_BONUS))
 
@@ -225,7 +227,8 @@ BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c	\
 								update_bullet_bonus.c	\
 								caco_projectile_bonus.c	\
 								imp_projectile_bonus.c	\
-								boh_projectile_bonus.c
+								boh_projectile_bonus.c	\
+								rocket_bonus.c
 BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
 
 # SOURCES GENERAL

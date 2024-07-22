@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:26:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 13:38:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 14:48:10 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ bool	init_entity_type(t_entity *entity, char id, \
 		return (lost_soul_init(entity, textures));
 	else if (id == ID_MAP_PAIN_ELEM)
 		return (pain_elem_init(entity, textures));
+	else if (id == ID_MAP_CYBER)
+		return (cyber_init(entity, textures));
 	else
 		return (false);
 }
