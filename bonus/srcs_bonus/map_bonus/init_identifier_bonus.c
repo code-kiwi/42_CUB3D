@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 15:43:41 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 16:05:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,14 @@ static void	init_enemies_identifier(char **identifier)
 	identifier[IDX_TXTR_ARCH_VILE_PAIN] = ID_TEXTURE_ARCH_VILE_PAIN;
 	identifier[IDX_TXTR_ARCH_VILE_ATTACK] = ID_TEXTURE_ARCH_VILE_ATTACK;
 	identifier[IDX_TXTR_ARCH_VILE_DEATH] = ID_TEXTURE_ARCH_VILE_DEATH;
+	identifier[IDX_TXTR_SERGEANT_WALK] = ID_TEXTURE_SERGEANT_WALK;
+	identifier[IDX_TXTR_SERGEANT_PAIN] = ID_TEXTURE_SERGEANT_PAIN;
+	identifier[IDX_TXTR_SERGEANT_ATTACK] = ID_TEXTURE_SERGEANT_ATTACK;
+	identifier[IDX_TXTR_SERGEANT_DEATH] = ID_TEXTURE_SERGEANT_DEATH;
+	identifier[IDX_TXTR_COMMANDO_WALK] = ID_TEXTURE_COMMANDO_WALK;
+	identifier[IDX_TXTR_COMMANDO_PAIN] = ID_TEXTURE_COMMANDO_PAIN;
+	identifier[IDX_TXTR_COMMANDO_ATTACK] = ID_TEXTURE_COMMANDO_ATTACK;
+	identifier[IDX_TXTR_COMMANDO_DEATH] = ID_TEXTURE_COMMANDO_DEATH;
 }
 
 static void	init_bullets_identifier(char **identifier)

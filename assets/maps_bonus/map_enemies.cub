@@ -75,6 +75,16 @@ ARCH_VILE_PAIN ./assets/textures/doom/entities/arch_vile/arch_vile_pain.xpm 38,7
 ARCH_VILE_DEATH ./assets/textures/doom/entities/arch_vile/arch_vile_death.xpm 79,96
 ARCH_VILE_FLAMES ./assets/textures/doom/effects/arch_vile_flames/arch_vile_flames.xpm 45,78
 
+COMMANDO_WALK ./assets/textures/doom/entities/former_commando/former_commando_walk.xpm 45,60
+COMMANDO_ATTACK ./assets/textures/doom/entities/former_commando/former_commando_attack.xpm 43,58
+COMMANDO_PAIN ./assets/textures/doom/entities/former_commando/former_commando_pain.xpm 43,58
+COMMANDO_DEATH ./assets/textures/doom/entities/former_commando/former_commando_death_1.xpm 65,64
+
+SERGEANT_WALK ./assets/textures/doom/entities/former_sergeant/former_sergeant_walk.xpm 36,55
+SERGEANT_ATTACK ./assets/textures/doom/entities/former_sergeant/former_sergeant_attack.xpm 27,55
+SERGEANT_PAIN ./assets/textures/doom/entities/former_sergeant/former_sergeant_pain.xpm 31,55
+SERGEANT_DEATH ./assets/textures/doom/entities/former_sergeant/former_sergeant_death_1.xpm 52,60
+
 11111111111111111111
 10000000000000000001
 10000000000000000001

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 15:43:18 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 16:03:04 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define ID_MAP_DOOR_OPENED				'O'
 
 # define IDS_MAP_SPRITE					"s"
-# define IDS_MAP_ENTITY					"dpicblayrm"
+# define IDS_MAP_ENTITY					"dpicblayrmof"
 # define ID_MAP_PLAYER					'P'
 # define ID_MAP_ENTITY					'e'
 
@@ -91,6 +91,14 @@
 # define ID_TEXTURE_ARCH_VILE_ATTACK	"ARCH_VILE_ATTACK"
 # define ID_TEXTURE_ARCH_VILE_DEATH		"ARCH_VILE_DEATH"
 # define ID_TEXTURE_ARCH_VILE_FLAMES	"ARCH_VILE_FLAMES"
+# define ID_TEXTURE_SERGEANT_WALK		"SERGEANT_WALK"
+# define ID_TEXTURE_SERGEANT_PAIN		"SERGEANT_PAIN"
+# define ID_TEXTURE_SERGEANT_ATTACK		"SERGEANT_ATTACK"
+# define ID_TEXTURE_SERGEANT_DEATH		"SERGEANT_DEATH"
+# define ID_TEXTURE_COMMANDO_WALK		"COMMANDO_WALK"
+# define ID_TEXTURE_COMMANDO_PAIN		"COMMANDO_PAIN"
+# define ID_TEXTURE_COMMANDO_ATTACK		"COMMANDO_ATTACK"
+# define ID_TEXTURE_COMMANDO_DEATH		"COMMANDO_DEATH"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -155,6 +163,14 @@
 # define IDX_TXTR_ARCH_VILE_ATTACK		60
 # define IDX_TXTR_ARCH_VILE_DEATH		61
 # define IDX_TXTR_ARCH_VILE_FLAMES		62
+# define IDX_TXTR_SERGEANT_WALK			63
+# define IDX_TXTR_SERGEANT_PAIN			64
+# define IDX_TXTR_SERGEANT_ATTACK		65
+# define IDX_TXTR_SERGEANT_DEATH		66
+# define IDX_TXTR_COMMANDO_WALK			67
+# define IDX_TXTR_COMMANDO_PAIN			68
+# define IDX_TXTR_COMMANDO_ATTACK		69
+# define IDX_TXTR_COMMANDO_DEATH		70
 
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
@@ -166,10 +182,12 @@
 # define ID_MAP_REVENANT				'r'
 # define ID_MAP_MANCUBUS				'm'
 # define ID_MAP_ARCH_VILE				'a'
+# define ID_MAP_COMMANDO				'o'
+# define ID_MAP_SERGEANT				'f'
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS				" 01spdicblayrmNSEWD"
-# define MAP_NB_IDS						63
+# define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
+# define MAP_NB_IDS						71
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
