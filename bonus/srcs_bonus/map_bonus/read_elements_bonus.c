@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/19 16:11:48 by root             ###   ########.fr       */
+/*   Updated: 2024/07/22 10:17:26 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,9 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 	identifier_index = find_str_in_array(identifier, infos[0], MAP_NB_IDS);
 	if (identifier_index == -1)
 	{
+		ft_dprintf(STDERR_FILENO, ERR_IDENTIFIER, infos[0]);
 		ft_free_str_array(&infos);
-		return (error_print(ERR_IDENTIFIER), false);
+		return (false);
 	}
 	if (!get_texture_size(&map->texture_size[identifier_index], infos[2]))
 		return (ft_free_str_array(&infos), false);
