@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_identifier_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/07/19 16:15:16 by root             ###   ########.fr       */
+/*   Updated: 2024/07/22 10:20:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ static void	init_enemies_identifier(char **identifier)
 	identifier[IDX_TXTR_IMP_DEATH] = ID_TEXTURE_IMP_DEATH;
 	identifier[IDX_TXTR_IMP_PROJ_LIVE] = ID_TEXTURE_IMP_PROJ_LIVE;
 	identifier[IDX_TXTR_IMP_PROJ_DEATH] = ID_TEXTURE_IMP_PROJ_DEATH;
+	identifier[IDX_TXTR_CACO_WALK] = ID_TEXTURE_CACO_WALK;
+	identifier[IDX_TXTR_CACO_PAIN] = ID_TEXTURE_CACO_PAIN;
+	identifier[IDX_TXTR_CACO_ATTACK] = ID_TEXTURE_CACO_ATTACK;
+	identifier[IDX_TXTR_CACO_DEATH] = ID_TEXTURE_CACO_DEATH;
+	identifier[IDX_TXTR_CACO_PROJ_LIVE] = ID_TEXTURE_CACO_PROJ_LIVE;
+	identifier[IDX_TXTR_CACO_PROJ_DEATH] = ID_TEXTURE_CACO_PROJ_DEATH;
 }
 
 void	init_identifier(char **identifier)

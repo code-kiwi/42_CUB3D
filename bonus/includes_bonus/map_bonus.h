@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 16:26:17 by root             ###   ########.fr       */
+/*   Updated: 2024/07/22 10:19:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define ID_MAP_DOOR_OPENED				'o'
 
 # define IDS_MAP_SPRITE					"s"
-# define IDS_MAP_ENTITY					"pi"
+# define IDS_MAP_ENTITY					"pic"
 # define ID_MAP_PLAYER					'P'
 # define ID_MAP_ENTITY					'e'
 
@@ -52,6 +52,12 @@
 # define ID_TEXTURE_IMP_DEATH			"IMP_DEATH"
 # define ID_TEXTURE_IMP_PROJ_LIVE		"IMP_PROJECTILE_LIVE"
 # define ID_TEXTURE_IMP_PROJ_DEATH		"IMP_PROJECTILE_DEATH"
+# define ID_TEXTURE_CACO_WALK			"CACO_WALK"
+# define ID_TEXTURE_CACO_PAIN			"CACO_PAIN"
+# define ID_TEXTURE_CACO_ATTACK			"CACO_ATTACK"
+# define ID_TEXTURE_CACO_DEATH			"CACO_DEATH"
+# define ID_TEXTURE_CACO_PROJ_LIVE		"CACO_PROJECTILE_LIVE"
+# define ID_TEXTURE_CACO_PROJ_DEATH		"CACO_PROJECTILE_DEATH"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -77,13 +83,20 @@
 # define IDX_TXTR_IMP_DEATH				21
 # define IDX_TXTR_IMP_PROJ_LIVE			22
 # define IDX_TXTR_IMP_PROJ_DEATH		23
+# define IDX_TXTR_CACO_WALK				24
+# define IDX_TXTR_CACO_PAIN				25
+# define IDX_TXTR_CACO_ATTACK			26
+# define IDX_TXTR_CACO_DEATH			27
+# define IDX_TXTR_CACO_PROJ_LIVE		28
+# define IDX_TXTR_CACO_PROJ_DEATH		29
 
 # define ID_MAP_DEMON					'p'
 # define ID_MAP_IMP						'i'
+# define ID_MAP_CACO					'i'
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS				" 01sdpiNSEW"
-# define MAP_NB_IDS						24
+# define MAP_ALLOWED_CHARS				" 01sdpicNSEW"
+# define MAP_NB_IDS						30
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
