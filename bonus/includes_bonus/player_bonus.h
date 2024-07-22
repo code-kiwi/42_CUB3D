@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 13:02:38 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 14:43:13 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_ray			t_ray;
 typedef struct s_list			t_list;
 typedef struct s_door			t_door;
 typedef struct s_sprite			t_sprite;
+typedef struct s_weapon			t_weapon;
 
 struct s_player
 {
@@ -52,15 +53,21 @@ struct s_player
 	t_door				*last_door_seen;
 	t_sprite			*aimed_sprite;
 	t_list				*weapons;
+	t_weapon			*curr_weapon;
 	size_t				health_point;
 };
 
 // t_player functions
 bool	t_player_init(t_player *player, t_map *map, t_game *game);
-void	destroy_player(t_player *player, void *mlx_ptr);
+void	destroy_player(t_player *player);
 void	player_shoot(t_game *game);
-void	update_player(t_player *player, t_map *map, float delta_time,
-			t_list *entities);
+void	update_player(t_game *game, float delta_time);
 void	player_get_damage(t_game *game, size_t damage);
+void    draw_player(t_game *game, t_player *player);
+
+// Weapons utils
+bool	player_add_weapon(t_weapon *weapon, t_list **weapon_list);
+void	destroy_player_weapons(t_player *player);
+bool	init_player_weapons(t_game *game, t_player *player);
 
 #endif

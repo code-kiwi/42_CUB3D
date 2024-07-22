@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/22 12:17:28 by mhotting         ###   ########.fr        #
+#    Updated: 2024/07/22 14:45:18 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,7 +116,9 @@ PLAYER_FILES_BONUS			=	t_player_init_bonus.c			\
 								update_player_bonus.c			\
 								t_player_destroy_bonus.c		\
 								player_shoot_bonus.c			\
-								player_get_damage_bonus.c
+								player_get_damage_bonus.c		\
+								weapons_utils_bonus.c			\
+								draw_bonus.c
 PLAYER_BONUS				=	$(addprefix $(PLAYER_DIR_BONUS), $(PLAYER_FILES_BONUS))
 
 # RAY
@@ -201,7 +203,9 @@ BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
 
 # WEAPONS
 WEAPONS_DIR_BONUS			=	weapons_bonus/
-WEAPONS_FILES_BONUS			=	init_bonus.c
+WEAPONS_FILES_BONUS			=	init_bonus.c					\
+								set_positions_bonus.c			\
+								update_bonus.c
 WEAPONS_BONUS				=	$(addprefix $(WEAPONS_DIR_BONUS), $(WEAPONS_FILES_BONUS))
 
 # UTILS

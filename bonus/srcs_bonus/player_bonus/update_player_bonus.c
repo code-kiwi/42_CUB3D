@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 10:50:58 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 14:44:25 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 	}
 }
 
-void	update_player(t_player *player, t_map *map, float delta_time,
-	t_list *entities)
+void	update_player(t_game *game, float delta_time)
 {
-	update_look(player, delta_time);
-	update_position(player, map, delta_time, entities);
+	update_look(&game->player, delta_time);
+	update_position(&game->player, &game->map, delta_time, game->entities);
+	update_weapon(game->player.curr_weapon, game);
 }

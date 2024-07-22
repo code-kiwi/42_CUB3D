@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_player_destroy_bonus.c                           :+:      :+:    :+:   */
+/*   set_positions_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/26 10:07:50 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 13:37:42 by mhotting         ###   ########.fr       */
+/*   Created: 2024/07/22 14:32:58 by mhotting          #+#    #+#             */
+/*   Updated: 2024/07/22 14:44:45 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 
-#include "player_bonus.h"
-#include "mlx_api_bonus.h"
-#include "animation_bonus.h"
+#include "cub3d_bonus.h"
+#include "weapons_bonus.h"
+#include "libft.h"
 
-void	destroy_player(t_player *player)
+void	set_weapon_positions(t_weapon *weapon, t_game *game)
 {
-	if (player == NULL)
+	if (game == NULL || weapon == NULL)
 		return ;
-	destroy_player_weapons(player);
+	weapon->coords.x = (game->mlx.width - weapon->curr_frame->width) / 2;
+	weapon->coords.y = game->mlx.height - weapon->curr_frame->height;
+	weapon->size.x = weapon->curr_frame->width;
+	weapon->size.y = weapon->curr_frame->height;
 }

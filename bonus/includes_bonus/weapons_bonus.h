@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 13:01:51 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 14:38:39 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,26 @@ typedef struct s_game	t_game;
 
 struct s_weapon
 {
-	t_image	*frame;
-	t_list	*frames_action;
-	t_list	*frames_reload;
-	t_list	*frames_bullet;
-	t_image	*target;
-	size_t	num_loads;
-	size_t	load_capacity;
-	size_t	remaining_use;
-	bool	is_limited;
-	bool	is_use_continuous;
-	char	id;
+	t_image			*curr_frame;
+	t_list			*curr_frame_link;
+	t_image			*frame_default;
+	t_list			*frames_action;
+	t_list			*frames_reload;
+	t_list			*frames_bullet;
+	t_image			*target;
+	size_t			num_loads;
+	size_t			load_capacity;
+	size_t			remaining_use;
+	bool			is_limited;
+	bool			is_use_continuous;
+	char			id;
+	t_mlx_coords	coords;
+	t_mlx_coords	size;
 };
 
 // Weapon functions
 bool	init_weapons(t_game *game);
+void	update_weapon(t_weapon *weapon, t_game *game);
+void	set_weapon_positions(t_weapon *weapon, t_game *game);
 
 # endif
