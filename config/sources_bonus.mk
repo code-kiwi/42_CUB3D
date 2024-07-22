@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/22 15:02:04 by brappo           ###   ########.fr        #
+#    Updated: 2024/07/22 15:28:50 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -188,6 +188,8 @@ ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
 								cyber_update_bonus.c			\
 								revenant_bonus.c				\
 								revenant_update_bonus.c			\
+								mancubus_bonus.c				\
+								mancubus_update_bonus.c			\
 								init_entity_type_bonus.c
 ENTITY_TYPE_BONUS			=	$(addprefix $(ENTITY_TYPE_DIR_BONUS), $(ENTITY_TYPE_FILES_BONUS))
 
@@ -225,11 +227,12 @@ UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
 # BULLETS
 BULLETS_DIR_BONUS			=	bullets_bonus/
-BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c	\
-								update_bullet_bonus.c	\
-								caco_projectile_bonus.c	\
-								imp_projectile_bonus.c	\
-								boh_projectile_bonus.c	\
+BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c			\
+								update_bullet_bonus.c			\
+								caco_projectile_bonus.c			\
+								imp_projectile_bonus.c			\
+								boh_projectile_bonus.c			\
+								mancubus_projectile_bonus.c		\
 								rocket_bonus.c
 BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
 

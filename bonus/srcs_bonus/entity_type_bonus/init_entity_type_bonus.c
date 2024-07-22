@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:26:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 15:07:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 15:27:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ bool	init_entity_type(t_entity *entity, char id, \
 		return (cyber_init(entity, textures));
 	else if (id == ID_MAP_REVENANT)
 		return (revenant_init(entity, textures));
+	else if (id == ID_MAP_MANCUBUS)
+		return (mancubus_init(entity, textures));
 	else
 		return (false);
 }

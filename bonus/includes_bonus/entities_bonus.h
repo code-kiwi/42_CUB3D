@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 15:06:08 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 15:25:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,15 @@
 # define REVENANT_CLOSE_ATTACK_DAMAGE	1
 # define REVENANT_RANGE_ATTACK_DAMAGE	1
 
+# define MANCUBUS_SPEED					2
+# define MANCUBUS_SQUARED_RADIUS		0.5
+# define MANCUBUS_HEALTH_POINT			2
+# define MANCUBUS_CLOSE_ATTACK_RANGE	1.5
+# define MANCUBUS_CLOSE_ATTACK_PAUSE	2
+# define MANCUBUS_RANGE_ATTACK_PAUSE	1
+# define MANCUBUS_CLOSE_ATTACK_DAMAGE	1
+# define MANCUBUS_RANGE_ATTACK_DAMAGE	1
+
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;
 typedef struct s_demon	t_demon;
@@ -142,6 +151,8 @@ bool	cyber_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
 bool	cyber_update(t_game *game, t_entity *entity, float delta_time);
 bool	revenant_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
 bool	revenant_update(t_game *game, t_entity *entity, float delta_time);
+bool	mancubus_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	mancubus_update(t_game *game, t_entity *entity, float delta_time);
 bool	init_entity_type(t_entity *entity, char id, \
 			t_list *textures[MAP_NB_IDS]);
 
