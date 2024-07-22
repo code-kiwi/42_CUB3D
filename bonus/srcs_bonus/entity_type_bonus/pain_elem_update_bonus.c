@@ -26,16 +26,23 @@ static void	pain_elem_close_attack(t_entity *entity, t_sprite *sprite, t_game *g
 
 static bool	pain_elem_spawn(t_entity *entity, t_sprite *sprite, t_game *game)
 {
-	t_vector	*position;
+	t_vector	position;
+	t_vector	direction;
+	t_entity	*new_lost_soul;
 
 	if (entity->cooldown > 0)
 		return (true);
-	position = &sprite->position;
-	sprite->next_animation = game->textures[IDX_TXTR_PAIN_ELEM_WALK];
-	sprite->animation = game->textures[IDX_TXTR_PAIN_ELEM_ATTACK];
 	entity->cooldown = PAIN_ELEM_SPAW_PAUSE;
-	if (!add_entity(game, position->x, position->y, ID_MAP_LOST_SOUL))
+	get_entity_direction(&direction, &game->player.position, &sprite->position);
+	if (!get_spawn_position(&position, entity, &direction, game))
+		return (true);
+	new_lost_soul = add_entity(game, 0, 0, ID_MAP_LOST_SOUL);
+	if (!new_lost_soul)
 		return (false);
+	new_lost_soul->sprite->position.x = position.x;
+	new_lost_soul->sprite->position.y = position.y;
+	sprite->animation = game->textures[IDX_TXTR_PAIN_ELEM_ATTACK];
+	sprite->next_animation = game->textures[IDX_TXTR_PAIN_ELEM_WALK];
 	return (true);
 }
 

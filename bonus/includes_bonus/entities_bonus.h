@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 13:51:56 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 14:16:27 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,11 @@ int		equal(void *a, void *b);
 bool	entity_shoot_bullet(t_game *game, t_entity *entity,
 			void (*bullet_init)(t_list *textures[MAP_NB_IDS], t_bullet *));
 void	*add_entity(t_game *game, float x, float y, char id);
+bool	collide_entity(t_list *entities, t_vector *position);
+void	get_entity_direction(t_vector *result, t_vector *player_pos,
+			t_vector *entity_pos);
+bool	get_spawn_position(t_vector *result, t_entity *entity,
+			t_vector *direction, t_game *game);
 
 // Init entities species
 bool	demon_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);

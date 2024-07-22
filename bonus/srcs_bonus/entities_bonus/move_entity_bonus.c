@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 17:22:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 15:22:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 14:09:18 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "mlx_api_bonus.h"
 #include "map_bonus.h"
 
-static bool	collide_entity(t_list *entities, t_vector *position)
+bool	collide_entity(t_list *entities, t_vector *position)
 {
 	t_list		*current;
 	t_entity	*entity;
