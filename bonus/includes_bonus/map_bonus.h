@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 12:44:58 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 13:17:24 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define ID_MAP_DOOR_OPENED				'o'
 
 # define IDS_MAP_SPRITE					"s"
-# define IDS_MAP_ENTITY					"picbl"
+# define IDS_MAP_ENTITY					"picbla"
 # define ID_MAP_PLAYER					'P'
 # define ID_MAP_ENTITY					'e'
 
@@ -66,6 +66,11 @@
 # define ID_TEXTURE_BOH_PROJ_DEATH		"BOH_PROJECTILE_DEATH"
 # define ID_TEXTURE_LOST_SOUL_WALK		"LOST_SOUL_WALK"
 # define ID_TEXTURE_LOST_SOUL_DEATH		"LOST_SOUL_DEATH"
+# define ID_TEXTURE_PAIN_ELEM_WALK		"PAIN_ELEM_WALK"
+# define ID_TEXTURE_PAIN_ELEM_PAIN		"PAIN_ELEM_PAIN"
+# define ID_TEXTURE_PAIN_ELEM_ATTACK	"PAIN_ELEM_ATTACK"
+# define ID_TEXTURE_PAIN_ELEM_DEATH		"PAIN_ELEM_DEATH"
+
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -105,16 +110,21 @@
 # define IDX_TXTR_BOH_PROJ_DEATH		35
 # define IDX_TXTR_LOST_SOUL_WALK		36
 # define IDX_TXTR_LOST_SOUL_DEATH		37
+# define IDX_TXTR_PAIN_ELEM_WALK		38
+# define IDX_TXTR_PAIN_ELEM_PAIN		39
+# define IDX_TXTR_PAIN_ELEM_ATTACK		40
+# define IDX_TXTR_PAIN_ELEM_DEATH		41
 
 # define ID_MAP_DEMON					'p'
 # define ID_MAP_IMP						'i'
 # define ID_MAP_CACO					'c'
 # define ID_MAP_BOH						'b'
 # define ID_MAP_LOST_SOUL				'l'
+# define ID_MAP_PAIN_ELEM				'a'
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS				" 01sdpicblNSEW"
-# define MAP_NB_IDS						38
+# define MAP_ALLOWED_CHARS				" 01sdpicblaNSEW"
+# define MAP_NB_IDS						42
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
