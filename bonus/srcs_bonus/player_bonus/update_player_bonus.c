@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/10 12:15:58 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 09:31:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ static void	update_display(t_player_display *display, float delta_time)
 	if (display->frame_update_delta < PLAYER_ANIMATION_UPDATE)
 		return ;
 	display->frame_curr = display->frame_curr->next;
+	if (display->frame_curr == NULL)
+		display->frame_curr = display->frames;
 	display->frame_update_delta = 0;
 }
 

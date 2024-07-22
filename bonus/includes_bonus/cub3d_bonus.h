@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/19 10:52:12 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/19 16:25:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,12 @@ struct s_game
 	long		frame_time_usec;
 	long		tick_last_frame;
 	t_list		*textures[MAP_NB_IDS];
-	float		frame_update_delta;
 	size_t		door_count;
 	t_door		*doors;
 	t_door		*last_door_seen;
 	t_list		*sprites;
 	t_list		*entities;
+	t_list		*bullets;
 	t_list		*last_entity_updated;
 	bool		pause;
 	t_ui		ui_pause;
@@ -146,6 +146,9 @@ void	draw_texture_column(t_image *screen, t_column *column,
 			t_image *texture, float distance);
 void	render_all_sprites(t_game *game);
 void	draw_player(t_game *game);
+void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
+			t_player *player, float scale);
+bool	is_sprite_aimed(t_sprite *sprite, int left_x);
 
 // Utils functions
 void	error_print(char *err_msg);

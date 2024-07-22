@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 15:05:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/30 10:00:51 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/19 10:48:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ bool	update_entities_path(t_game *game)
 		if (current == NULL)
 			current = game->entities;
 		entity = current->content;
-		if (can_see(&entity->sprite->position, &game->player.position, game))
+		entity->see_player = can_see(&entity->sprite->position, \
+			&game->player.position, game);
+		if (entity->see_player)
 			update_path(entity, game);
 		entity_updated++;
 	}

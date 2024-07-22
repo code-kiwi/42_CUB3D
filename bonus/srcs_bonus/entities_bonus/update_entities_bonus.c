@@ -6,63 +6,25 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:06:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/30 09:44:18 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/15 12:37:25 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
-#include "cub3d_bonus.h"
-#include "sprite_bonus.h"
 #include "libft.h"
+#include "cub3d_bonus.h"
 
-#include <math.h>
-
-static void	change_destination(t_entity *entity)
+void	update_entities(t_game *game, float delta_time)
 {
-	t_list	*save;
+	t_list		*current;
+	t_entity	*entity;
 
-	if (entity == NULL || entity->path == NULL)
-		return ;
-	save = entity->path;
-	entity->path = entity->path->next;
-	ft_lstdelone(save, free);
-}
-
-static void	update_entity(t_entity *entity, float delta_time, t_list *entities,
-	t_map *map)
-{
-	t_mlx_coords	*next_pos;
-	t_vector		*position;
-	t_vector		move;
-	float			move_length;
-
-	if (entity->path == NULL
-		|| pow(entity->sprite->distance, 2) <= entity->squared_radius)
-		return ;
-	next_pos = entity->path->content;
-	position = &entity->sprite->position;
-	move.x = next_pos->x + 0.5 - position->x;
-	move.y = next_pos->y + 0.5 - position->y;
-	move_length = get_vector_length(&move);
-	mutlitply_vector(&move, entity->speed * delta_time / move_length);
-	move_entity(entities, position, &move, map);
-	if (move_length < entity->speed)
-	{
-		if (entity->is_path_circular)
-			entity->path = entity->path->next;
-		else
-			change_destination(entity);
-	}
-}
-
-void	update_entities(t_list *entities, float delta_time, t_map *map)
-{
-	t_list	*current;
-
-	current = entities;
+	current = game->entities;
+	update_entities_path(game);
 	while (current)
 	{
-		update_entity(current->content, delta_time, entities, map);
+		entity = current->content;
+		entity->update(game, entity, delta_time);
 		current = current->next;
 	}
 }

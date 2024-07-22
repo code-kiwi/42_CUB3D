@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:52:44 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/09 10:57:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/16 09:26:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,5 @@ t_list	*create_animation(
 		}
 		dim.coords.y += size->y;
 	}
-	if (anim != NULL)
-		ft_lstlast(anim)->next = anim;
 	return (anim);
 }

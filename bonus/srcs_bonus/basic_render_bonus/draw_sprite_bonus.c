@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/06/28 15:58:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/11 11:11:43 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,37 +18,6 @@
 #include "vector_bonus.h"
 #include "sprite_bonus.h"
 #include "libft.h"
-
-static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
-{
-	float		entity_angle;
-	t_vector	entity_direction;
-
-	entity_direction.x = sprite_pos->x - player_pos->x;
-	entity_direction.y = sprite_pos->y - player_pos->y;
-	entity_angle = atan2f(-entity_direction.y, entity_direction.x);
-	if (entity_angle < 0)
-		entity_angle += 2 * PI;
-	return (entity_angle);
-}
-
-static void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
-	t_player *player, float scale)
-{
-	float		entity_angle;
-	float		relative_angle;
-
-	entity_angle = get_entity_angle(&sprite->position, &player->position);
-	relative_angle = player->leftmost_angle - entity_angle;
-	if (player->orientation > PI / 2 * 3 && entity_angle < PI / 2)
-		relative_angle -= 2 * PI;
-	else if (player->orientation < PI / 2 && entity_angle > PI / 2 * 3)
-		relative_angle += 2 * PI;
-	sprite_screen->x = relative_angle * player->pixel_by_angle;
-	sprite_screen->x -= sprite->height / 2 * scale;
-	sprite_screen->y = WIN_HEIGHT / 2;
-	sprite_screen->y -= sprite->height / 2 * scale;
-}
 
 static void	draw_all_columns(
 	t_column *column,
@@ -102,6 +71,10 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 	if (column.start < 0)
 		column.start = 0;
 	column.perceived_height = sprite->height * scale;
+	if (is_sprite_aimed(sprite, column.coords.x))
+	{
+		game->player.aimed_sprite = sprite;
+	}
 	draw_all_columns(&column, sprite, game->mlx.img_buff, game->rays);
 }
 
@@ -111,6 +84,7 @@ void	render_all_sprites(t_game *game)
 
 	if (!game->sprites)
 		return ;
+	game->player.aimed_sprite = NULL;
 	get_sprites_distances(game->sprites, &game->player.position);
 	sort_list(game->sprites, compare_sprite_distance);
 	current = game->sprites;

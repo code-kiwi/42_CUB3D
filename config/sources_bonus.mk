@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
+#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/19 13:46:17 by mhotting         ###   ########.fr        #
+#    Updated: 2024/07/19 16:23:51 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,7 @@ BASIC_RENDER_FILES_BONUS	=	draw_walls_bonus.c				\
 								draw_column_bonus.c				\
 								draw_ceiling_ground_bonus.c		\
 								draw_sprite_bonus.c				\
+								sprite_screen_position_bonus.c	\
 								draw_player_bonus.c
 BASIC_RENDER_BONUS			=	$(addprefix $(BASIC_RENDER_DIR_BONUS), $(BASIC_RENDER_FILES_BONUS))
 
@@ -95,6 +96,7 @@ MAP_FILES_BONUS				=	read_map_bonus.c				\
 								is_valid_bonus.c				\
 								free_map_bonus.c				\
 								get_elem_bonus.c				\
+								init_identifier_bonus.c			\
 								update_bonus.c					\
 								draw_bonus.c					\
 								draw_entities_bonus.c			\
@@ -115,7 +117,8 @@ PLAYER_FILES_BONUS			=	t_player_init_bonus.c			\
 								t_player_init_display_bonus.c	\
 								update_player_bonus.c			\
 								t_player_destroy_bonus.c		\
-								player_shoot_bonus.c
+								player_shoot_bonus.c			\
+								player_get_damage_bonus.c
 PLAYER_BONUS				=	$(addprefix $(PLAYER_DIR_BONUS), $(PLAYER_FILES_BONUS))
 
 # RAY
@@ -161,9 +164,25 @@ ENTITIES_FILES_BONUS		=	update_entities_bonus.c			\
 								init_entities_bonus.c			\
 								t_entity_destroy_bonus.c		\
 								update_entities_path_bonus.c	\
-								move_entity_bonus.c
+								move_entity_bonus.c				\
+								damage_entity_bonus.c			\
+								entity_shoot_bullet_bonus.c		\
+								update_entities_position_bonus.c
 ENTITIES_BONUS				=	$(addprefix $(ENTITIES_DIR_BONUS), $(ENTITIES_FILES_BONUS))
 
+# ENTITY_TYPE
+ENTITY_TYPE_DIR_BONUS		=	entity_type_bonus/
+ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
+								demon_update_bonus.c			\
+								imp_bonus.c						\
+								imp_update_bonus.c				\
+								init_entity_type_bonus.c
+ENTITY_TYPE_BONUS			=	$(addprefix $(ENTITY_TYPE_DIR_BONUS), $(ENTITY_TYPE_FILES_BONUS))
+
+# ITEMS
+ITEMS_DIR_BONUS				=	item_bonus/
+ITEMS_FILES_BONUS			=	use_item_bonus.c
+ITEMS_BONUS					=	$(addprefix $(ITEMS_DIR_BONUS), $(ITEMS_FILES_BONUS))
 # RADAR
 RADAR_DIR_BONUS				=	radar_bonus/
 RADAR_FILES_BONUS			=	utils_bonus.c					\
@@ -192,15 +211,23 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 								sort_bonus.c
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
+# BULLETS
+BULLETS_DIR_BONUS			=	bullets_bonus/
+BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c	\
+								update_bullet_bonus.c	\
+								bullet_use_bonus.c
+BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
+
 # SOURCES GENERAL
 SRCS_MAIN_SUBDIR_BONUS		=	srcs_bonus/
 SRCS_MAIN_DIR_BONUS			=	$(addprefix $(BONUS_DIR), $(SRCS_MAIN_SUBDIR_BONUS))
 SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(GAME_BONUS) $(VECTOR_BONUS) $(EVENT_HANDLERS_BONUS) 	\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
-								$(RAY_BONUS) $(SPRITES_BONUS) $(ANIMATION_BONUS)		\
-								$(DOOR_BONUS) $(UI_BONUS) $(PATHFINDING_BONUS)			\
-								$(ENTITIES_BONUS) $(RADAR_BONUS)
+								$(RAY_BONUS) $(DOOR_BONUS) $(SPRITES_BONUS)				\
+								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)					\
+								$(ENTITIES_BONUS) $(ITEMS_BONUS) $(UI_BONUS)			\
+								$(BULLETS_BONUS) $(ENTITY_TYPE_BONUS) $(RADAR_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

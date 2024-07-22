@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_elem_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:22:06 by root              #+#    #+#             */
-/*   Updated: 2024/06/29 14:53:12 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/17 09:52:30 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 #include "sprite_bonus.h"
 #include "libft.h"
 
-bool	get_elem_into_list(t_map *map, t_list **dest, char id,
-	bool add_elem(t_list **, float, float))
+bool	get_elem_into_list(t_game *game, t_list **dest, char *ids,
+	void *add_elem(t_game *, float, float, char))
 {
 	size_t	y;
 	size_t	x;
 
 	y = 0;
-	while (y < map->lines_count)
+	while (y < game->map.lines_count)
 	{
 		x = 0 ;
-		while (x < map->lines_lengths[y])
+		while (x < game->map.lines_lengths[y])
 		{
-			if (map->tiles[y][x] == id)
+			if (ft_strchr(ids, game->map.tiles[y][x]))
 			{
-				if (!add_elem(dest, x + 0.5, y + 0.5))
+				if (!add_elem(game, x + 0.5, y + 0.5, game->map.tiles[y][x]))
 				{
 					ft_lstclear(dest, free);
 					return (false);

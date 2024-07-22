@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 12:18:37 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/16 14:31:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define PLAYER_SPEED_LEFT				3
 # define PLAYER_SPEED_RIGHT				3
 # define PLAYER_INTERACTION_DISTANCE	1.5
+# define PLAYER_HEALTH_POINT			6
 
 # define PLAYER_TEXTURE_FILE			"./assets/test_textures/hands.xpm"
 # define PLAYER_TEXTURE_WIDTH			300
@@ -43,6 +44,8 @@ typedef struct s_map			t_map;
 typedef struct s_ray			t_ray;
 typedef struct s_list			t_list;
 typedef struct s_door			t_door;
+typedef struct s_item			t_item;
+typedef struct s_sprite			t_sprite;
 
 struct s_player_display
 {
@@ -69,6 +72,9 @@ struct s_player
 	t_ray				*look_ray;
 	t_door				*last_door_seen;
 	t_player_display	display;
+	t_sprite			*aimed_sprite;
+	t_item				*item_in_hand;
+	size_t				health_point;
 };
 
 // t_player functions
@@ -79,5 +85,6 @@ void	destroy_player(t_player *player, void *mlx_ptr);
 void	player_shoot(t_game *game);
 void	update_player(t_player *player, t_map *map, float delta_time,
 			t_list *entities);
+void	player_get_damage(t_game *game, size_t damage);
 
 #endif
