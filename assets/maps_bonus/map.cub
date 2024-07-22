@@ -6,7 +6,7 @@ EA ./assets/textures/walls/wall_4.xpm 64,64
 F ./assets/textures/floors/sand.xpm 64,64
 C ./assets/textures/ceilings/ceiling.xpm 64,64
 D ./assets/textures/doors/door.xpm 64,64
-E ./assets/textures/entities/flying/flying.xpm 64,64
+S ./assets/textures/entities/flying/flying.xpm 64,64
 
 UI_PAUSE_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297
 UI_PAUSE_LABEL ./assets/textures/ui/labels/label_pause1.xpm 200,100
@@ -15,13 +15,31 @@ UI_PAUSE_BTN_RESUME_ON ./assets/textures/ui/buttons/btn_resume_on1.xpm 400,100
 UI_PAUSE_BTN_QUIT_OFF ./assets/textures/ui/buttons/btn_quit_off1.xpm 400,100
 UI_PAUSE_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on1.xpm 400,100
 
+DEMON_WALK ./assets/textures/doom/entities/demon/demon_walk.xpm 40,55
+DEMON_ATTACK ./assets/textures/doom/entities/demon/demon_attack.xpm 44,55
+DEMON_PAIN ./assets/textures/doom/entities/demon/demon_pain.xpm 39,55
+DEMON_DEATH ./assets/textures/doom/entities/demon/demon_death.xpm 52,57
+
+IMP_WALK ./assets/textures/doom/entities/imp/imp_walk.xpm 39,60
+IMP_ATTACK ./assets/textures/doom/entities/imp/imp_attack.xpm 49,60
+IMP_PAIN ./assets/textures/doom/entities/imp/imp_pain.xpm 41,55
+IMP_DEATH ./assets/textures/doom/entities/imp/imp_death_2.xpm 57,61
+
+IMP_PROJECTILE_LIVE ./assets/textures/doom/effects/imp_projectile/imp_projectile_live.xpm 50,44
+IMP_PROJECTILE_DEATH ./assets/textures/doom/effects/imp_projectile/imp_projectile_death.xpm 50,44
+
+W_TARGET1 ./assets/textures/targets/target_red1.xpm 100,100
+W1_HAND ./assets/textures/doom/weapons/hand.xpm 113,42
+W1_PUNCH ./assets/textures/doom/weapons/punch.xpm 147,76
+W2_PISTOL ./assets/textures/doom/weapons/pistol.xpm 79,103
+
 111111111111111111111111
 100000000000000000000001
 100000000000000000011111
 100N1010101010101001
 10000000000000000001
 10000000000000001001
-10000000000000e01001
+10000000000000p01001
 10000000000000001001
 101110000000011d1001
 10001000000000000011

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 10:49:33 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 12:14:04 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include "ray_bonus.h"
 # include "ui_bonus.h"
 # include "radar_bonus.h"
+# include "weapons_bonus.h"
 
 # define PI						3.14159265358
 # define FPS					100
@@ -69,6 +70,7 @@
 # define ERR_RADAR_CREATION		"Radar creation failed"
 # define ERR_MAP_DRAW_CREATION	"Map drawing cannot be created"
 # define ERR_MAP_DRAW_SIZE		"Map drawing cannot be initialized: map too big"
+# define ERR_WEAPONS_CREATION	"Weapons creation failed"
 
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
@@ -103,6 +105,7 @@ struct s_game
 	t_list		*entities;
 	t_list		*bullets;
 	t_list		*last_entity_updated;
+	t_weapon	weapons[NB_TOT_WEAPONS];
 	bool		pause;
 	t_ui		ui_pause;
 	bool		mouse_hidden;

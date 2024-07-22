@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_identifier_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/07/19 16:15:16 by root             ###   ########.fr       */
+/*   Updated: 2024/07/22 12:23:17 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,14 @@ static void	init_enemies_identifier(char **identifier)
 	identifier[IDX_TXTR_IMP_PROJ_DEATH] = ID_TEXTURE_IMP_PROJ_DEATH;
 }
 
+static void	init_weapons_identifier(char **identifier)
+{
+	identifier[IDX_TXTR_TARGET1] = ID_TEXTURE_TARGET1;
+	identifier[IDX_TXTR_W1_HAND] = ID_TEXTURE_W1_HAND;
+	identifier[IDX_TXTR_W1_PUNCH] = ID_TEXTURE_W1_PUNCH;
+	identifier[IDX_TXTR_W2_PISTOL] = ID_TEXTURE_W2_PISTOL;
+}
+
 void	init_identifier(char **identifier)
 {
 	if (identifier == NULL)
@@ -55,4 +63,5 @@ void	init_identifier(char **identifier)
 	init_world_identifier(identifier);
 	init_ui_identifier(identifier);
 	init_enemies_identifier(identifier);
+	init_weapons_identifier(identifier);
 }

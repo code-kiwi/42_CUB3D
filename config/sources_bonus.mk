@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/22 11:01:25 by mhotting         ###   ########.fr        #
+#    Updated: 2024/07/22 12:17:28 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -192,6 +192,18 @@ ANIMATION_FILES_BONUS		=	create_animation_bonus.c		\
 								update_animations_bonus.c
 ANIMATION_BONUS				=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
 
+# BULLETS
+BULLETS_DIR_BONUS			=	bullets_bonus/
+BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c			\
+								update_bullet_bonus.c			\
+								bullet_use_bonus.c
+BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
+
+# WEAPONS
+WEAPONS_DIR_BONUS			=	weapons_bonus/
+WEAPONS_FILES_BONUS			=	init_bonus.c
+WEAPONS_BONUS				=	$(addprefix $(WEAPONS_DIR_BONUS), $(WEAPONS_FILES_BONUS))
+
 # UTILS
 UTILS_DIR_BONUS				=	utils_bonus/
 UTILS_FILES_BONUS			=	math_bonus.c					\
@@ -205,13 +217,6 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 								sort_bonus.c
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
-# BULLETS
-BULLETS_DIR_BONUS			=	bullets_bonus/
-BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c	\
-								update_bullet_bonus.c	\
-								bullet_use_bonus.c
-BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
-
 # SOURCES GENERAL
 SRCS_MAIN_SUBDIR_BONUS		=	srcs_bonus/
 SRCS_MAIN_DIR_BONUS			=	$(addprefix $(BONUS_DIR), $(SRCS_MAIN_SUBDIR_BONUS))
@@ -220,7 +225,7 @@ SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
 								$(RAY_BONUS) $(DOOR_BONUS) $(SPRITES_BONUS)				\
 								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)					\
-								$(ENTITIES_BONUS) $(UI_BONUS)							\
+								$(ENTITIES_BONUS) $(UI_BONUS) $(WEAPONS_BONUS)							\
 								$(BULLETS_BONUS) $(ENTITY_TYPE_BONUS) $(RADAR_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 

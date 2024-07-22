@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mouse_release_handler_bonus.c                      :+:      :+:    :+:   */
+/*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 11:03:28 by mhotting         ###   ########.fr       */
+/*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
+/*   Updated: 2024/07/22 12:14:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdbool.h>
+
 #include "cub3d_bonus.h"
-#include "event_handlers_bonus.h"
-#include "ui_bonus.h"
 
 
 #include <stdio.h>
-int	mouse_release_handler(int button, int x, int y, t_game *game)
+bool	init_weapons(t_game *game)
 {
-	if (button == MOUSE_LEFT && game->pause)
-		mouse_release_pause_handler(x, y, game);
-	if (button == MOUSE_LEFT && !game->pause)
-		printf("ENDS ITEM USE\n");
-	return (1);
+	if (game == NULL)
+		return (error_print(ERR_WEAPONS_CREATION), false);
+	printf("Creates Weapons...\n");
+	return (true);
 }

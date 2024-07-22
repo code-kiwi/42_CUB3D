@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 10:59:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 11:26:08 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,6 @@
 # define PLAYER_SPEED_RIGHT				3
 # define PLAYER_INTERACTION_DISTANCE	1.5
 # define PLAYER_HEALTH_POINT			6
-
-# define PLAYER_TEXTURE_FILE			"./assets/test_textures/hands.xpm"
-# define PLAYER_TEXTURE_WIDTH			300
-# define PLAYER_TEXTURE_HEIGHT			400
-# define PLAYER_ANIMATION_UPDATE		0.1
-# define PLAYER_TARGET_TEXTURE_FILE		"./assets/test_textures/target.xpm"
-# define PLAYER_TEXTURE_X_OFFSET		200
 
 typedef struct s_game			t_game;
 typedef struct s_player			t_player;
@@ -63,7 +56,6 @@ struct s_player
 
 // t_player functions
 bool	t_player_init(t_player *player, t_map *map, t_game *game);
-void	player_shoot(t_game *game);
 void	destroy_player(t_player *player, void *mlx_ptr);
 void	player_shoot(t_game *game);
 void	update_player(t_player *player, t_map *map, float delta_time,
