@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 11:00:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 12:10:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,20 @@
 # define IMP_SPEED					2
 # define IMP_SQUARED_RADIUS			0.5
 # define IMP_HEALTH_POINT			2
-# define IMP_ATTACK_RANGE			1.5
-# define IMP_ATTACK_PAUSE			2
-# define IMP_ATTACK_DAMAGE			1
+# define IMP_CLOSE_ATTACK_RANGE		1.5
+# define IMP_CLOSE_ATTACK_PAUSE		2
+# define IMP_RANGE_ATTACK_PAUSE		1
+# define IMP_CLOSE_ATTACK_DAMAGE	1
+# define IMP_RANGE_ATTACK_DAMAGE	1
 
 # define CACO_SPEED					2
 # define CACO_SQUARED_RADIUS		0.5
 # define CACO_HEALTH_POINT			2
-# define CACO_ATTACK_RANGE			1.5
-# define CACO_ATTACK_PAUSE			2
-# define CACO_ATTACK_DAMAGE			1
+# define CACO_CLOSE_ATTACK_RANGE	1.5
+# define CACO_CLOSE_ATTACK_PAUSE	2
+# define CACO_RANGE_ATTACK_PAUSE	2
+# define CACO_CLOSE_ATTACK_DAMAGE	2
+# define CACO_RANGE_ATTACK_DAMAGE	1
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;

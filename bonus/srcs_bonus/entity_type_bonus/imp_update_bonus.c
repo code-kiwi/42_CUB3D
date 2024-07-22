@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 11:17:56 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 12:10:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static void	imp_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 		return ;
 	sprite->next_animation = game->textures[IDX_TXTR_IMP_WALK];
 	sprite->animation = game->textures[IDX_TXTR_IMP_ATTACK];
-	entity->cooldown = IMP_ATTACK_PAUSE;
-	player_get_damage(game, IMP_ATTACK_DAMAGE);
+	entity->cooldown = IMP_CLOSE_ATTACK_PAUSE;
+	player_get_damage(game, IMP_CLOSE_ATTACK_DAMAGE);
 }
 
 static bool	imp_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
@@ -37,7 +37,7 @@ static bool	imp_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 		return (true);
 	sprite->next_animation = game->textures[IDX_TXTR_IMP_WALK];
 	sprite->animation = game->textures[IDX_TXTR_IMP_ATTACK];
-	entity->cooldown = IMP_ATTACK_PAUSE;
+	entity->cooldown = IMP_RANGE_ATTACK_PAUSE;
 	return (entity_shoot_bullet(game, entity, imp_projectile_init));
 }
 
@@ -51,7 +51,7 @@ bool	imp_update(t_game *game, t_entity *entity, float delta_time)
 	sprite = entity->sprite;
 	distance = get_distance(&sprite->position, &game->player.position);
 	sprite->animate = true;
-	if (distance < IMP_ATTACK_RANGE)
+	if (distance < IMP_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(sprite, game->textures);
 		imp_close_attack(entity, sprite, game);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   imp_bullet_bonus.c                                 :+:      :+:    :+:   */
+/*   imp_projectile_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:50:01 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 10:57:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 12:08:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@
 static void	imp_projectile_use(t_game *game, t_bullet *bullet)
 {
 	t_sprite	*sprite;
+	t_vector	*player_pos;
 
 	if (game == NULL || bullet == NULL)
 		return ;
 	sprite = bullet->sprite;
 	sprite->animation = game->textures[IDX_TXTR_IMP_PROJ_DEATH];
 	sprite->next_animation = NULL;
+	player_pos = &game->player.position;
+	if (get_distance(player_pos, &bullet->sprite->position) < PLAYER_RADIUS)
+		player_get_damage(game, IMP_RANGE_ATTACK_DAMAGE);
 	ft_lst_remove_if(&game->bullets, bullet, equal, free);
 }
 

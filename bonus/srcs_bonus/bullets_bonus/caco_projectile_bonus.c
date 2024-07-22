@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:09:39 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 10:57:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 12:09:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@
 static void	caco_projectile_use(t_game *game, t_bullet *bullet)
 {
 	t_sprite	*sprite;
+	t_vector	*player_pos;
 
 	if (game == NULL || bullet == NULL)
 		return ;
 	sprite = bullet->sprite;
 	sprite->animation = game->textures[IDX_TXTR_CACO_PROJ_DEATH];
 	sprite->next_animation = NULL;
+	player_pos = &game->player.position;
+	if (get_distance(player_pos, &bullet->sprite->position) < PLAYER_RADIUS)
+		player_get_damage(game, CACO_RANGE_ATTACK_DAMAGE);
 	ft_lst_remove_if(&game->bullets, bullet, equal, free);
 }
 
