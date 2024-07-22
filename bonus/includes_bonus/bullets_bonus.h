@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 15:27:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 16:31:52 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ void	caco_projectile_init(t_list *textures[MAP_NB_IDS], t_bullet *bullet);
 void	imp_projectile_init(t_list *textures[MAP_NB_IDS], t_bullet *bullet);
 void	boh_projectile_init(t_list *textures[MAP_NB_IDS], t_bullet *bullet);
 void	rocket_projectile_init(t_list *textures[MAP_NB_IDS], t_bullet *bullet);
-void	mancubus_projectile_init(t_list *textures[MAP_NB_IDS],
+void	mancubus_projectile_init(t_list *textures[MAP_NB_IDS], \
+			t_bullet *bullet);
+void	revenant_projectile_init(t_list *textures[MAP_NB_IDS], \
 			t_bullet *bullet);
 
 #endif // !BULLETS_BONUS_H

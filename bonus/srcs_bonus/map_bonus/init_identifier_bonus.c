@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 16:05:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 16:31:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ static void	init_bullets_identifier(char **identifier)
 	identifier[IDX_TXTR_ROCKET_LIVE] = ID_TEXTURE_ROCKET_LIVE;
 	identifier[IDX_TXTR_MANCUBUS_FIREBALL] = ID_TEXTURE_MANCUBUS_FIREBALL;
 	identifier[IDX_TXTR_ARCH_VILE_FLAMES] = ID_TEXTURE_ARCH_VILE_FLAMES;
+	identifier[IDX_TXTR_REV_PROJ_DEATH] = ID_TEXTURE_REV_PROJ_DEATH;
+	identifier[IDX_TXTR_REV_PROJ_LIVE] = ID_TEXTURE_REV_PROJ_LIVE;
 }
 
 void	init_identifier(char **identifier)

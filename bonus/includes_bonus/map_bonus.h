@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 16:03:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 16:30:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@
 # define ID_TEXTURE_COMMANDO_PAIN		"COMMANDO_PAIN"
 # define ID_TEXTURE_COMMANDO_ATTACK		"COMMANDO_ATTACK"
 # define ID_TEXTURE_COMMANDO_DEATH		"COMMANDO_DEATH"
+# define ID_TEXTURE_REV_PROJ_LIVE		"REVENANT_PROJECTILE_LIVE"
+# define ID_TEXTURE_REV_PROJ_DEATH		"REVENANT_PROJECTILE_DEATH"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -171,6 +173,8 @@
 # define IDX_TXTR_COMMANDO_PAIN			68
 # define IDX_TXTR_COMMANDO_ATTACK		69
 # define IDX_TXTR_COMMANDO_DEATH		70
+# define IDX_TXTR_REV_PROJ_LIVE			71
+# define IDX_TXTR_REV_PROJ_DEATH		72
 
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
@@ -187,7 +191,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
-# define MAP_NB_IDS						71
+# define MAP_NB_IDS						73
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 

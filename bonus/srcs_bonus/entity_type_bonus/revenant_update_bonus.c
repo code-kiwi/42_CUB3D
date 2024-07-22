@@ -38,7 +38,7 @@ static bool	revenant_range_attack(t_entity *entity, t_sprite *sprite, t_game *ga
 	sprite->next_animation = game->textures[IDX_TXTR_REVENANT_WALK];
 	sprite->animation = game->textures[IDX_TXTR_REVENANT_SHOOT];
 	entity->cooldown = REVENANT_RANGE_ATTACK_PAUSE;
-	return (entity_shoot_bullet(game, entity, rocket_projectile_init));
+	return (entity_shoot_bullet(game, entity, revenant_projectile_init));
 }
 
 bool	revenant_update(t_game *game, t_entity *entity, float delta_time)

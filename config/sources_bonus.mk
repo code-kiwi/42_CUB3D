@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/22 16:23:30 by brappo           ###   ########.fr        #
+#    Updated: 2024/07/22 16:32:15 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -239,7 +239,8 @@ BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c			\
 								imp_projectile_bonus.c			\
 								boh_projectile_bonus.c			\
 								mancubus_projectile_bonus.c		\
-								rocket_bonus.c
+								rocket_bonus.c					\
+								revenant_projectile_bonus.c
 BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
 
 # SOURCES GENERAL
