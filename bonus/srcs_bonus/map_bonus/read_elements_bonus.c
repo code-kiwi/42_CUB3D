@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 10:17:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 16:55:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,29 @@ static bool	get_texture_size(t_mlx_coords *out, char *size)
 	return (true);
 }
 
-static bool	parse_element(t_map *map, char *element, char **identifier)
+static bool	read_animation_wait(size_t *out, char *wait_time)
+{
+	int	value;
+
+	if (!is_number(wait_time))
+		return (error_print(ERR_BAD_ANIM_TIME), false);
+	if (ft_strlen(wait_time) >= 5)
+		return (error_print(ERR_ANIM_TIME_TOO_BIG), false);
+	value = ft_atoi(wait_time);
+	if (value <= 0)
+		return (error_print(ERR_ANIM_TIME_NEGATIVE), false);
+	*out = value;
+	return (true);
+}
+
+static bool	parse_element(t_map *map, char *element, char **identifier, \
+	size_t animation_wait[MAP_NB_IDS])
 {
 	char	**infos;
 	ssize_t	identifier_index;
 
-	if (map == NULL || element == NULL || identifier == NULL)
-		return (false);
 	infos = ft_split(element, " ");
-	if (array_length((void **)infos) != 3)
+	if (array_length((void **)infos) != 4)
 	{
 		ft_free_str_array(&infos);
 		return (error_print(ERR_MISSING_COMPONENT), false);
@@ -60,16 +74,18 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 		ft_free_str_array(&infos);
 		return (false);
 	}
-	if (!get_texture_size(&map->texture_size[identifier_index], infos[2]))
+	if (!get_texture_size(&map->texture_size[identifier_index], infos[2])
+		|| !read_animation_wait(&animation_wait[identifier_index], infos[3]))
 		return (ft_free_str_array(&infos), false);
 	free(infos[2]);
+	free(infos[3]);
 	map->textures[identifier_index] = infos[1];
 	identifier[identifier_index] = "";
 	free_array(infos, 1, true);
 	return (true);
 }
 
-bool	read_elements(t_map *map, int fd)
+bool	read_elements(t_map *map, int fd, size_t animation_wait[MAP_NB_IDS])
 {
 	char			*line;
 	unsigned int	elements_read;
@@ -86,7 +102,7 @@ bool	read_elements(t_map *map, int fd)
 		remove_last_breakline(line);
 		if (line[0] != '\0')
 		{
-			if (!parse_element(map, line, identifier))
+			if (!parse_element(map, line, identifier, animation_wait))
 			{
 				free(line);
 				return (false);

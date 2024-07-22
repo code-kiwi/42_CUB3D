@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 13:44:01 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 16:53:24 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,10 @@
 
 # define ERR_RECTANGLE			"You tried to draw an invalid rectangle"
 
+# define ERR_BAD_ANIM_TIME		"The animation wait time is not a number"	
+# define ERR_ANIM_TIME_TOO_BIG	"The animation wait time is too big"
+# define ERR_ANIM_TIME_NEGATIVE	"The animation wait time is negative"
+
 typedef struct s_game			t_game;
 typedef struct s_mlx			t_mlx;
 typedef struct s_column			t_column;
@@ -94,6 +98,7 @@ struct s_game
 	long		frame_time_usec;
 	long		tick_last_frame;
 	t_list		*textures[MAP_NB_IDS];
+	size_t		animation_wait[MAP_NB_IDS];
 	size_t		door_count;
 	t_door		*doors;
 	t_door		*last_door_seen;

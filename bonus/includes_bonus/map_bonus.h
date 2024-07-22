@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 16:30:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 16:54:41 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,9 +240,9 @@ struct s_map
 };
 
 // Map functions
-bool	read_map(t_map *map, char *filename);
+bool	read_map(t_map *map, char *filename, size_t animation_wait[MAP_NB_IDS]);
 bool	is_map_valid(t_map *map);
-bool	read_elements(t_map *map, int fd);
+bool	read_elements(t_map *map, int fd, size_t animation_wait[MAP_NB_IDS]);
 bool	is_in_bounds(t_vector *position, t_map *map);
 bool	is_character(t_vector *position, t_map *map, char character);
 bool	check_extension(char *filename, char *extension);
