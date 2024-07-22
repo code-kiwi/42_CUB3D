@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 18:32:59 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/09 11:01:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 10:30:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ bool	init_display_frames(t_player_display *display, void *mlx_ptr)
 		return (false);
 	display->size.x = PLAYER_TEXTURE_WIDTH;
 	display->size.y = PLAYER_TEXTURE_HEIGHT;
-	display->frames = create_animation(&texture, &display->size, mlx_ptr);
+	display->frames = create_animation(&texture, &display->size, mlx_ptr,
+		PLAYER_TEXTURE_FILE);
 	t_image_destroy(mlx_ptr, &texture, false);
 	if (display->frames == NULL)
 		return (false);

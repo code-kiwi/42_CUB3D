@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 10:16:49 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 10:30:24 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
 # define ERR_PLAYER_QUIT_MAP	"Player out of bounds of the map"
 # define ERR_MAP_OPEN			"Impossible to open the given map file"
 # define ERR_MAP_CONTENT		"Reading failed, check the map content"
-# define ERR_MISSING_TEXTURES	"Missing textures"
+# define ERR_MISSING_TEXTURES	"Missing texture : %s"
 # define ERR_MAP_READ			"Map: read failed"
 # define ERR_BAD_SIZE			"Wrong or missing texture size"
 # define ERR_SIZE_TOO_BIG		"Size too big, max 4 characters"
@@ -70,10 +70,10 @@
 # define ERR_MAP_DRAW_CREATION	"Map drawing cannot be created"
 # define ERR_MAP_DRAW_SIZE		"Map drawing cannot be initialized: map too big"
 
-# define ERR_INIT_TEXTURES		"Can't open textures"
-# define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
+# define ERR_INIT_TEXTURES		"Can't open texture : %s"
+# define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm' : %s"
 # define ERR_MISSING_COMPONENT	"Missing element component"
-# define ERR_TEXTURE_SIZE		"Wrong texture size"
+# define ERR_TEXTURE_SIZE		"Wrong texture size : %s"
 
 # define ERR_RECTANGLE			"You tried to draw an invalid rectangle"
 

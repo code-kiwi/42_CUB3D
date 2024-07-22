@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 12:35:15 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/09 10:58:18 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 10:29:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ typedef struct s_image	t_image;
 # define ANIMATION_UPDATE	0.1
 
 void	destroy_animation(t_list *anim, void *mlx_ptr, bool is_circular);
-t_list	*create_animation(t_image *texture, t_mlx_coords *size, void *mlx_ptr);
+t_list	*create_animation(t_image *texture, t_mlx_coords *size, void *mlx_ptr,
+			char *texture_name);
 void	update_animations(t_game *game, float delta_time);
 
 #endif
