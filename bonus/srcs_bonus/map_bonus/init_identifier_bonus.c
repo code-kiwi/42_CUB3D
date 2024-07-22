@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 13:17:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 14:26:57 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ static void	init_enemies_identifier(char **identifier)
 	identifier[IDX_TXTR_PAIN_ELEM_PAIN] = ID_TEXTURE_PAIN_ELEM_PAIN;
 	identifier[IDX_TXTR_PAIN_ELEM_ATTACK] = ID_TEXTURE_PAIN_ELEM_ATTACK;
 	identifier[IDX_TXTR_PAIN_ELEM_DEATH] = ID_TEXTURE_PAIN_ELEM_DEATH;
+	identifier[IDX_TXTR_CYBER_WALK] = ID_TEXTURE_CYBER_WALK;
+	identifier[IDX_TXTR_CYBER_PAIN] = ID_TEXTURE_CYBER_PAIN;
+	identifier[IDX_TXTR_CYBER_ATTACK] = ID_TEXTURE_CYBER_ATTACK;
+	identifier[IDX_TXTR_CYBER_DEATH] = ID_TEXTURE_CYBER_DEATH;
 }
 
 void	init_identifier(char **identifier)

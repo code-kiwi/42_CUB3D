@@ -49,6 +49,11 @@ PAIN_ELEM_ATTACK ./assets/textures/doom/entities/pain_elemental/pain_elemental_a
 PAIN_ELEM_PAIN ./assets/textures/doom/entities/pain_elemental/pain_elemental_pain.xpm 82,57
 PAIN_ELEM_DEATH ./assets/textures/doom/entities/pain_elemental/pain_elemental_death.xpm 84,57
 
+CYBER_WALK ./assets/textures/doom/entities/cyberdemon/cyberdemon_walk.xpm 85,110
+CYBER_ATTACK ./assets/textures/doom/entities/cyberdemon/cyberdemon_attack.xpm 99,110
+CYBER_PAIN ./assets/textures/doom/entities/cyberdemon/cyberdemon_pain.xpm 123,110
+CYBER_DEATH ./assets/textures/doom/entities/cyberdemon/cyberdemon_death.xpm 122,113
+
 11111111111111111111
 10000000000000000001
 10000000000000000001
