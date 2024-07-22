@@ -48,7 +48,7 @@ bool	pain_elem_init(t_entity *entity, t_list *textures[MAP_NB_IDS])
 	entity->get_killed = pain_elem_get_killed;
 	entity->get_damage = pain_elem_get_damage;
 	entity->get_chainsawed = pain_elem_get_chainsawed;
-	entity->health_point = 0;
+	entity->health_point = PAIN_ELEM_HEALTH_POINT;
 	entity->speed = PAIN_ELEM_SPEED;
 	entity->squared_radius = PAIN_ELEM_SQUARED_RADIUS;
 	entity->type = NULL;

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 15:53:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 16:20:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@
 # define PAIN_ELEM_ATTACK_RANGE			1.5
 # define PAIN_ELEM_ATTACK_PAUSE			1
 # define PAIN_ELEM_SPAWN_PAUSE			3
+# define PAIN_ELEM_HEALTH_POINT			5
 
 # define CYBER_SPEED					0.5
 # define CYBER_SQUARED_RADIUS			0.7
@@ -99,6 +100,17 @@
 # define ARCH_VILE_ATTACK_RANGE			1.5
 # define ARCH_VILE_ATTACK_PAUSE			1
 # define ARCH_VILE_SPAWN_PAUSE			20
+# define ARCH_VILE_HEALTH_POINT			10
+
+# define SERGEANT_ATTACK_PAUSE			1
+# define SERGEANT_SPEED					1
+# define SERGEANT_SQUARED_RADIUS		1
+# define SERGEANT_HEALTH_POINT			2
+
+# define COMMANDO_ATTACK_PAUSE			1
+# define COMMANDO_SPEED					1
+# define COMMANDO_SQUARED_RADIUS		1
+# define COMMANDO_HEALTH_POINT			2
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;
@@ -162,6 +174,10 @@ bool	mancubus_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
 bool	mancubus_update(t_game *game, t_entity *entity, float delta_time);
 bool	arch_vile_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
 bool	arch_vile_update(t_game *game, t_entity *entity, float delta_time);
+bool	sergeant_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	sergeant_update(t_game *game, t_entity *entity, float delta_time);
+bool	commando_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	commando_update(t_game *game, t_entity *entity, float delta_time);
 bool	init_entity_type(t_entity *entity, char id, \
 			t_list *textures[MAP_NB_IDS]);
 
