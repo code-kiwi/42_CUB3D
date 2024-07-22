@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 10:19:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 10:42:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@
 
 # define ID_MAP_DEMON					'p'
 # define ID_MAP_IMP						'i'
-# define ID_MAP_CACO					'i'
+# define ID_MAP_CACO					'c'
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01sdpicNSEW"

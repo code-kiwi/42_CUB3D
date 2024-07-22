@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   imp_update_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/19 17:14:46 by root             ###   ########.fr       */
+/*   Updated: 2024/07/22 11:02:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static bool	imp_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 	sprite->next_animation = game->textures[IDX_TXTR_IMP_WALK];
 	sprite->animation = game->textures[IDX_TXTR_IMP_ATTACK];
 	entity->cooldown = IMP_ATTACK_PAUSE;
-	return (entity_shoot_bullet(game, entity, imp_projectile_use));
+	return (entity_shoot_bullet(game, entity, imp_projectile_init));
 }
 
 bool	imp_update(t_game *game, t_entity *entity, float delta_time)

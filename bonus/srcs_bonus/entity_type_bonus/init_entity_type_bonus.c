@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:26:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/19 10:26:12 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 10:35:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ bool	init_entity_type(t_entity *entity, char id, \
 		return (demon_init(entity, textures));
 	else if (id == ID_MAP_IMP)
 		return (imp_init(entity, textures));
+	else if (id == ID_MAP_CACO)
+		return (caco_init(entity, textures));
 	else
 		return (false);
 }
