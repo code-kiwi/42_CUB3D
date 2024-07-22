@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/19 10:48:13 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 13:32:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	init_entity(t_entity *new_entity, t_sprite *new_sprite)
 	new_entity->see_player = false;
 }
 
-static void	*add_entity(t_game *game, float x, float y, char id)
+void	*add_entity(t_game *game, float x, float y, char id)
 {
 	t_list		*new_node;
 	t_entity	*new_entity;

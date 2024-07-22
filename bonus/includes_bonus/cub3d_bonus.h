@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 11:13:56 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 13:44:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,7 @@ struct s_game
 	t_mlx		mlx;
 	t_player	player;
 	t_map		map;
-	t_vector	player_position;
 	t_ray		rays[WIN_WIDTH];
-	float		player_rotation_rad;
 	long		frame_time_usec;
 	long		tick_last_frame;
 	t_list		*textures[MAP_NB_IDS];

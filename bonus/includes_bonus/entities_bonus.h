@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 12:56:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 13:51:56 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,13 @@
 # define LOST_SOUL_SQUARED_RADIUS	0.25
 # define LOST_SOUL_RANGE			1
 
+# define PAIN_ELEM_SPEED			1
+# define PAIN_ELEM_SQUARED_RADIUS	1
+# define PAIN_ELEM_ATTACK_DAMAGE	3
+# define PAIN_ELEM_ATTACK_RANGE		1.5
+# define PAIN_ELEM_ATTACK_PAUSE		1
+# define PAIN_ELEM_SPAW_PAUSE		3
+
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;
 typedef struct s_demon	t_demon;
@@ -92,6 +99,7 @@ void	update_entity_position(t_entity *entity, float delta_time,
 int		equal(void *a, void *b);
 bool	entity_shoot_bullet(t_game *game, t_entity *entity,
 			void (*bullet_init)(t_list *textures[MAP_NB_IDS], t_bullet *));
+void	*add_entity(t_game *game, float x, float y, char id);
 
 // Init entities species
 bool	demon_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
@@ -104,6 +112,8 @@ bool	boh_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
 bool	boh_update(t_game *game, t_entity *entity, float delta_time);
 bool	lost_soul_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
 bool	lost_soul_update(t_game *game, t_entity *entity, float delta_time);
+bool	pain_elem_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	pain_elem_update(t_game *game, t_entity *entity, float delta_time);
 bool	init_entity_type(t_entity *entity, char id, \
 			t_list *textures[MAP_NB_IDS]);
 
