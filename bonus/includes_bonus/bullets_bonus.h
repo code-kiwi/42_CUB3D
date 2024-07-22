@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 10:59:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 12:36:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ bool	shoot_bullet(t_game *game, t_vector *position, t_vector *direction,
 			void (*init_bullet)(t_list *textures[MAP_NB_IDS], t_bullet *));
 void	caco_projectile_init(t_list *textures[MAP_NB_IDS], t_bullet *bullet);
 void	imp_projectile_init(t_list *textures[MAP_NB_IDS], t_bullet *bullet);
+void	boh_projectile_init(t_list *textures[MAP_NB_IDS], t_bullet *bullet);
 
 #endif // !BULLETS_BONUS_H
