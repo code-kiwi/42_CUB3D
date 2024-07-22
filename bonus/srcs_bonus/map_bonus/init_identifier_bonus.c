@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 15:00:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 15:14:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,10 @@ static void	init_enemies_identifier(char **identifier)
 	identifier[IDX_TXTR_REVENANT_PUNCH] = ID_TEXTURE_REVENANT_PUNCH;
 	identifier[IDX_TXTR_REVENANT_SHOOT] = ID_TEXTURE_REVENANT_SHOOT;
 	identifier[IDX_TXTR_REVENANT_DEATH] = ID_TEXTURE_REVENANT_DEATH;
+	identifier[IDX_TXTR_MANCUBUS_WALK] = ID_TEXTURE_MANCUBUS_WALK;
+	identifier[IDX_TXTR_MANCUBUS_PAIN] = ID_TEXTURE_MANCUBUS_PAIN;
+	identifier[IDX_TXTR_MANCUBUS_ATTACK] = ID_TEXTURE_MANCUBUS_ATTACK;
+	identifier[IDX_TXTR_MANCUBUS_DEATH] = ID_TEXTURE_MANCUBUS_DEATH;
 }
 
 static void	init_bullets_identifier(char **identifier)

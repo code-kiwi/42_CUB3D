@@ -63,6 +63,11 @@ REVENANT_SHOOT ./assets/textures/doom/entities/revenant/revenant_shoot.xpm 49,79
 REVENANT_PAIN ./assets/textures/doom/entities/revenant/revenant_pain.xpm 66,72
 REVENANT_DEATH ./assets/textures/doom/entities/revenant/revenant_death.xpm 74,78
 
+MANCUBUS_WALK ./assets/textures/doom/entities/mancubus/mancubus_walk.xpm 88,70
+MANCUBUS_ATTACK ./assets/textures/doom/entities/mancubus/mancubus_attack.xpm 87,68
+MANCUBUS_PAIN ./assets/textures/doom/entities/mancubus/mancubus_pain.xpm 74,67
+MANCUBUS_DEATH ./assets/textures/doom/entities/mancubus/mancubus_death.xpm 103,76
+
 
 11111111111111111111
 10000000000000000001

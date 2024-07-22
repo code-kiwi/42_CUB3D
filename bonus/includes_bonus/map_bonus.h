@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 14:59:49 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 15:14:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define ID_MAP_DOOR_OPENED				'o'
 
 # define IDS_MAP_SPRITE					"s"
-# define IDS_MAP_ENTITY					"picblayr"
+# define IDS_MAP_ENTITY					"picblayrm"
 # define ID_MAP_PLAYER					'P'
 # define ID_MAP_ENTITY					'e'
 
@@ -81,7 +81,10 @@
 # define ID_TEXTURE_REVENANT_PUNCH		"REVENANT_PUNCH"
 # define ID_TEXTURE_REVENANT_DEATH		"REVENANT_DEATH"
 # define ID_TEXTURE_REVENANT_SHOOT		"REVENANT_SHOOT"
-
+# define ID_TEXTURE_MANCUBUS_WALK		"MANCUBUS_WALK"
+# define ID_TEXTURE_MANCUBUS_PAIN		"MANCUBUS_PAIN"
+# define ID_TEXTURE_MANCUBUS_ATTACK		"MANCUBUS_ATTACK"
+# define ID_TEXTURE_MANCUBUS_DEATH		"MANCUBUS_DEATH"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -136,6 +139,10 @@
 # define IDX_TXTR_REVENANT_PUNCH		50
 # define IDX_TXTR_REVENANT_DEATH		51
 # define IDX_TXTR_REVENANT_SHOOT		52
+# define IDX_TXTR_MANCUBUS_WALK			53
+# define IDX_TXTR_MANCUBUS_PAIN			54
+# define IDX_TXTR_MANCUBUS_ATTACK		55
+# define IDX_TXTR_MANCUBUS_DEATH		56
 
 # define ID_MAP_DEMON					'p'
 # define ID_MAP_IMP						'i'
@@ -145,10 +152,11 @@
 # define ID_MAP_PAIN_ELEM				'a'
 # define ID_MAP_CYBER					'y'
 # define ID_MAP_REVENANT				'r'
+# define ID_MAP_MANCUBUS				'm'
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS				" 01sdpicblayrNSEW"
-# define MAP_NB_IDS						53
+# define MAP_ALLOWED_CHARS				" 01sdpicblayrmNSEW"
+# define MAP_NB_IDS						57
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
