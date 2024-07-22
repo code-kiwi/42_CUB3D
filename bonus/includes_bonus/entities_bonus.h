@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 14:51:46 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 15:06:08 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,62 +18,71 @@
 
 # include <stdbool.h>
 
-# define ENTITY_UPDATE_PER_FRAME	1
+# define ENTITY_UPDATE_PER_FRAME		1
 
-# define DEMON_SPEED				2
-# define DEMON_SQUARED_RADIUS		1
-# define DEMON_HEALTH_POINT			3
-# define DEMON_ATTACK_RANGE			1.5
-# define DEMON_ATTACK_PAUSE			2
-# define DEMON_ATTACK_DAMAGE		2
+# define DEMON_SPEED					2
+# define DEMON_SQUARED_RADIUS			1
+# define DEMON_HEALTH_POINT				3
+# define DEMON_ATTACK_RANGE				1.5
+# define DEMON_ATTACK_PAUSE				2
+# define DEMON_ATTACK_DAMAGE			2
 
-# define IMP_SPEED					2
-# define IMP_SQUARED_RADIUS			0.5
-# define IMP_HEALTH_POINT			2
-# define IMP_CLOSE_ATTACK_RANGE		1.5
-# define IMP_CLOSE_ATTACK_PAUSE		2
-# define IMP_RANGE_ATTACK_PAUSE		1
-# define IMP_CLOSE_ATTACK_DAMAGE	1
-# define IMP_RANGE_ATTACK_DAMAGE	1
+# define IMP_SPEED						2
+# define IMP_SQUARED_RADIUS				0.5
+# define IMP_HEALTH_POINT				2
+# define IMP_CLOSE_ATTACK_RANGE			1.5
+# define IMP_CLOSE_ATTACK_PAUSE			2
+# define IMP_RANGE_ATTACK_PAUSE			1
+# define IMP_CLOSE_ATTACK_DAMAGE		1
+# define IMP_RANGE_ATTACK_DAMAGE		1
 
-# define CACO_SPEED					2
-# define CACO_SQUARED_RADIUS		0.5
-# define CACO_HEALTH_POINT			2
-# define CACO_CLOSE_ATTACK_RANGE	1.5
-# define CACO_CLOSE_ATTACK_PAUSE	2
-# define CACO_RANGE_ATTACK_PAUSE	2
-# define CACO_CLOSE_ATTACK_DAMAGE	2
-# define CACO_RANGE_ATTACK_DAMAGE	1
+# define CACO_SPEED						2
+# define CACO_SQUARED_RADIUS			0.5
+# define CACO_HEALTH_POINT				2
+# define CACO_CLOSE_ATTACK_RANGE		1.5
+# define CACO_CLOSE_ATTACK_PAUSE		2
+# define CACO_RANGE_ATTACK_PAUSE		2
+# define CACO_CLOSE_ATTACK_DAMAGE		2
+# define CACO_RANGE_ATTACK_DAMAGE		1
 
-# define BOH_SPEED					2
-# define BOH_SQUARED_RADIUS			0.5
-# define BOH_HEALTH_POINT			2
-# define BOH_CLOSE_ATTACK_RANGE		1.5
-# define BOH_CLOSE_ATTACK_PAUSE		2
-# define BOH_RANGE_ATTACK_PAUSE		2
-# define BOH_CLOSE_ATTACK_DAMAGE	2
-# define BOH_RANGE_ATTACK_DAMAGE	1
+# define BOH_SPEED						2
+# define BOH_SQUARED_RADIUS				0.5
+# define BOH_HEALTH_POINT				2
+# define BOH_CLOSE_ATTACK_RANGE			1.5
+# define BOH_CLOSE_ATTACK_PAUSE			2
+# define BOH_RANGE_ATTACK_PAUSE			2
+# define BOH_CLOSE_ATTACK_DAMAGE		2
+# define BOH_RANGE_ATTACK_DAMAGE		1
 
-# define LOST_SOUL_SPEED			2
-# define LOST_SOUL_SQUARED_RADIUS	0.25
-# define LOST_SOUL_RANGE			1
+# define LOST_SOUL_SPEED				2
+# define LOST_SOUL_SQUARED_RADIUS		0.25
+# define LOST_SOUL_RANGE				1
 
-# define PAIN_ELEM_SPEED			1
-# define PAIN_ELEM_SQUARED_RADIUS	1
-# define PAIN_ELEM_ATTACK_DAMAGE	3
-# define PAIN_ELEM_ATTACK_RANGE		1.5
-# define PAIN_ELEM_ATTACK_PAUSE		1
-# define PAIN_ELEM_SPAW_PAUSE		3
+# define PAIN_ELEM_SPEED				1
+# define PAIN_ELEM_SQUARED_RADIUS		1
+# define PAIN_ELEM_ATTACK_DAMAGE		3
+# define PAIN_ELEM_ATTACK_RANGE			1.5
+# define PAIN_ELEM_ATTACK_PAUSE			1
+# define PAIN_ELEM_SPAW_PAUSE			3
 
-# define CYBER_SPEED				0.5
-# define CYBER_SQUARED_RADIUS		0.7
-# define CYBER_HEALTH_POINT			20
-# define CYBER_CLOSE_ATTACK_RANGE	1.5
-# define CYBER_CLOSE_ATTACK_PAUSE	2
-# define CYBER_RANGE_ATTACK_PAUSE	3
-# define CYBER_CLOSE_ATTACK_DAMAGE	4
+# define CYBER_SPEED					0.5
+# define CYBER_SQUARED_RADIUS			0.7
+# define CYBER_HEALTH_POINT				20
+# define CYBER_CLOSE_ATTACK_RANGE		1.5
+# define CYBER_CLOSE_ATTACK_PAUSE		2
+# define CYBER_RANGE_ATTACK_PAUSE		3
+# define CYBER_CLOSE_ATTACK_DAMAGE		4
 
-# define ROCKET_ATTACK_DAMAGE		2
+# define ROCKET_ATTACK_DAMAGE			2
+
+# define REVENANT_SPEED					2
+# define REVENANT_SQUARED_RADIUS		0.5
+# define REVENANT_HEALTH_POINT			2
+# define REVENANT_CLOSE_ATTACK_RANGE	1.5
+# define REVENANT_CLOSE_ATTACK_PAUSE	2
+# define REVENANT_RANGE_ATTACK_PAUSE	1
+# define REVENANT_CLOSE_ATTACK_DAMAGE	1
+# define REVENANT_RANGE_ATTACK_DAMAGE	1
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;
@@ -131,6 +140,8 @@ bool	pain_elem_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
 bool	pain_elem_update(t_game *game, t_entity *entity, float delta_time);
 bool	cyber_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
 bool	cyber_update(t_game *game, t_entity *entity, float delta_time);
+bool	revenant_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	revenant_update(t_game *game, t_entity *entity, float delta_time);
 bool	init_entity_type(t_entity *entity, char id, \
 			t_list *textures[MAP_NB_IDS]);
 
