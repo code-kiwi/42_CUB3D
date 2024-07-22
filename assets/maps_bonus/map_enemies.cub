@@ -1,91 +1,91 @@
-NO ./assets/textures/walls/wall_1.xpm 64,64
-SO ./assets/textures/walls/wall_2.xpm 64,64
-WE ./assets/textures/walls/wall_3.xpm 64,64
-EA ./assets/textures/walls/wall_4.xpm 64,64
+NO ./assets/textures/walls/wall_1.xpm 64,64 1
+SO ./assets/textures/walls/wall_2.xpm 64,64 1
+WE ./assets/textures/walls/wall_3.xpm 64,64 1
+EA ./assets/textures/walls/wall_4.xpm 64,64 1
 
-F ./assets/textures/floors/sand.xpm 64,64
-C ./assets/textures/ceilings/ceiling.xpm 64,64
-D ./assets/textures/doors/door.xpm 64,64
-S ./assets/textures/entities/flying/flying.xpm 64,64
+F ./assets/textures/floors/sand.xpm 64,64 1
+C ./assets/textures/ceilings/ceiling.xpm 64,64 1
+D ./assets/textures/doors/door.xpm 64,64 1
+S ./assets/textures/entities/flying/flying.xpm 64,64 1
 
-DEMON_WALK ./assets/textures/doom/entities/demon/demon_walk.xpm 40,55
-DEMON_ATTACK ./assets/textures/doom/entities/demon/demon_attack.xpm 44,55
-DEMON_PAIN ./assets/textures/doom/entities/demon/demon_pain.xpm 39,55
-DEMON_DEATH ./assets/textures/doom/entities/demon/demon_death.xpm 52,57
+DEMON_WALK ./assets/textures/doom/entities/demon/demon_walk.xpm 40,55 1
+DEMON_ATTACK ./assets/textures/doom/entities/demon/demon_attack.xpm 44,55 1
+DEMON_PAIN ./assets/textures/doom/entities/demon/demon_pain.xpm 39,55 1
+DEMON_DEATH ./assets/textures/doom/entities/demon/demon_death.xpm 52,57 1
 
-UI_PAUSE_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297
-UI_PAUSE_LABEL ./assets/textures/ui/labels/label_pause1.xpm 200,100
-UI_PAUSE_BTN_RESUME_OFF ./assets/textures/ui/buttons/btn_resume_off1.xpm 400,100
-UI_PAUSE_BTN_RESUME_ON ./assets/textures/ui/buttons/btn_resume_on1.xpm 400,100
-UI_PAUSE_BTN_QUIT_OFF ./assets/textures/ui/buttons/btn_quit_off1.xpm 400,100
-UI_PAUSE_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on1.xpm 400,100
+UI_PAUSE_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297 1
+UI_PAUSE_LABEL ./assets/textures/ui/labels/label_pause1.xpm 200,100 1
+UI_PAUSE_BTN_RESUME_OFF ./assets/textures/ui/buttons/btn_resume_off1.xpm 400,100 1
+UI_PAUSE_BTN_RESUME_ON ./assets/textures/ui/buttons/btn_resume_on1.xpm 400,100 1
+UI_PAUSE_BTN_QUIT_OFF ./assets/textures/ui/buttons/btn_quit_off1.xpm 400,100 1
+UI_PAUSE_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on1.xpm 400,100 1
 
-IMP_WALK ./assets/textures/doom/entities/imp/imp_walk.xpm 39,60
-IMP_ATTACK ./assets/textures/doom/entities/imp/imp_attack.xpm 49,60
-IMP_PAIN ./assets/textures/doom/entities/imp/imp_pain.xpm 41,55
-IMP_DEATH ./assets/textures/doom/entities/imp/imp_death_2.xpm 57,61
-IMP_PROJECTILE_LIVE ./assets/textures/doom/effects/imp_projectile/imp_projectile_live.xpm 50,44
-IMP_PROJECTILE_DEATH ./assets/textures/doom/effects/imp_projectile/imp_projectile_death.xpm 50,44
+IMP_WALK ./assets/textures/doom/entities/imp/imp_walk.xpm 39,60 1
+IMP_ATTACK ./assets/textures/doom/entities/imp/imp_attack.xpm 49,60 1
+IMP_PAIN ./assets/textures/doom/entities/imp/imp_pain.xpm 41,55 1
+IMP_DEATH ./assets/textures/doom/entities/imp/imp_death_2.xpm 57,61 1
+IMP_PROJECTILE_LIVE ./assets/textures/doom/effects/imp_projectile/imp_projectile_live.xpm 50,44 1
+IMP_PROJECTILE_DEATH ./assets/textures/doom/effects/imp_projectile/imp_projectile_death.xpm 50,44 1
 
-CACO_WALK ./assets/textures/doom/entities/cacodemon/cacodemon_walk.xpm 63,66
-CACO_ATTACK ./assets/textures/doom/entities/cacodemon/cacodemon_attack.xpm 63,71
-CACO_PAIN ./assets/textures/doom/entities/cacodemon/cacodemon_pain.xpm 63,67
-CACO_DEATH ./assets/textures/doom/entities/cacodemon/cacodemon_death.xpm 75,77
-CACO_PROJECTILE_LIVE ./assets/textures/doom/effects/cacodemon_projectile/cacodemon_projectile_live.xpm 16,16
-CACO_PROJECTILE_DEATH ./assets/textures/doom/effects/cacodemon_projectile/cacodemon_projectile_death.xpm 53,48
+CACO_WALK ./assets/textures/doom/entities/cacodemon/cacodemon_walk.xpm 63,66 1
+CACO_ATTACK ./assets/textures/doom/entities/cacodemon/cacodemon_attack.xpm 63,71 1
+CACO_PAIN ./assets/textures/doom/entities/cacodemon/cacodemon_pain.xpm 63,67 1
+CACO_DEATH ./assets/textures/doom/entities/cacodemon/cacodemon_death.xpm 75,77 1
+CACO_PROJECTILE_LIVE ./assets/textures/doom/effects/cacodemon_projectile/cacodemon_projectile_live.xpm 16,16 1
+CACO_PROJECTILE_DEATH ./assets/textures/doom/effects/cacodemon_projectile/cacodemon_projectile_death.xpm 53,48 1
 
-BOH_WALK ./assets/textures/doom/entities/baron_of_hell/baron_of_hell_walk.xpm 49,74
-BOH_ATTACK ./assets/textures/doom/entities/baron_of_hell/baron_of_hell_attack.xpm 69,70
-BOH_PAIN ./assets/textures/doom/entities/baron_of_hell/baron_of_hell_pain.xpm 50,72
-BOH_DEATH ./assets/textures/doom/entities/baron_of_hell/baron_of_hell_death.xpm 60,73
-BOH_PROJECTILE_LIVE ./assets/textures/doom/effects/baron_of_hell_projectile/baron_of_hell_projectile_live.xpm 20,16
-BOH_PROJECTILE_DEATH ./assets/textures/doom/effects/baron_of_hell_projectile/baron_of_hell_projectile_death.xpm 45,40
+BOH_WALK ./assets/textures/doom/entities/baron_of_hell/baron_of_hell_walk.xpm 49,74 1
+BOH_ATTACK ./assets/textures/doom/entities/baron_of_hell/baron_of_hell_attack.xpm 69,70 1
+BOH_PAIN ./assets/textures/doom/entities/baron_of_hell/baron_of_hell_pain.xpm 50,72 1
+BOH_DEATH ./assets/textures/doom/entities/baron_of_hell/baron_of_hell_death.xpm 60,73 1
+BOH_PROJECTILE_LIVE ./assets/textures/doom/effects/baron_of_hell_projectile/baron_of_hell_projectile_live.xpm 20,16 1
+BOH_PROJECTILE_DEATH ./assets/textures/doom/effects/baron_of_hell_projectile/baron_of_hell_projectile_death.xpm 45,40 1
 
-LOST_SOUL_WALK ./assets/textures/doom/entities/lost_soul/lost_soul_idle.xpm 77,69
-LOST_SOUL_DEATH ./assets/textures/doom/entities/lost_soul/lost_soul_death.xpm 78,69
+LOST_SOUL_WALK ./assets/textures/doom/entities/lost_soul/lost_soul_idle.xpm 77,69 1
+LOST_SOUL_DEATH ./assets/textures/doom/entities/lost_soul/lost_soul_death.xpm 78,69 1
 
-PAIN_ELEM_WALK ./assets/textures/doom/entities/pain_elemental/pain_elemental_walk.xpm 77,57
-PAIN_ELEM_ATTACK ./assets/textures/doom/entities/pain_elemental/pain_elemental_attack.xpm 89,65
-PAIN_ELEM_PAIN ./assets/textures/doom/entities/pain_elemental/pain_elemental_pain.xpm 82,57
-PAIN_ELEM_DEATH ./assets/textures/doom/entities/pain_elemental/pain_elemental_death.xpm 84,57
+PAIN_ELEM_WALK ./assets/textures/doom/entities/pain_elemental/pain_elemental_walk.xpm 77,57 1
+PAIN_ELEM_ATTACK ./assets/textures/doom/entities/pain_elemental/pain_elemental_attack.xpm 89,65 1
+PAIN_ELEM_PAIN ./assets/textures/doom/entities/pain_elemental/pain_elemental_pain.xpm 82,57 1
+PAIN_ELEM_DEATH ./assets/textures/doom/entities/pain_elemental/pain_elemental_death.xpm 84,57 1
 
-CYBER_WALK ./assets/textures/doom/entities/cyberdemon/cyberdemon_walk.xpm 85,110
-CYBER_ATTACK ./assets/textures/doom/entities/cyberdemon/cyberdemon_attack.xpm 99,110
-CYBER_PAIN ./assets/textures/doom/entities/cyberdemon/cyberdemon_pain.xpm 123,110
-CYBER_DEATH ./assets/textures/doom/entities/cyberdemon/cyberdemon_death.xpm 122,113
+CYBER_WALK ./assets/textures/doom/entities/cyberdemon/cyberdemon_walk.xpm 85,110 1
+CYBER_ATTACK ./assets/textures/doom/entities/cyberdemon/cyberdemon_attack.xpm 99,110 1
+CYBER_PAIN ./assets/textures/doom/entities/cyberdemon/cyberdemon_pain.xpm 123,110 1
+CYBER_DEATH ./assets/textures/doom/entities/cyberdemon/cyberdemon_death.xpm 122,113 1
 
-ROCKET_LIVE ./assets/textures/doom/effects/rocket/rocket_live.xpm 15,14
-ROCKET_DEATH ./assets/textures/doom/effects/rocket/rocket_death.xpm 103,86
+ROCKET_LIVE ./assets/textures/doom/effects/rocket/rocket_live.xpm 15,14 1
+ROCKET_DEATH ./assets/textures/doom/effects/rocket/rocket_death.xpm 103,86 1
 
-REVENANT_WALK ./assets/textures/doom/entities/revenant/revenant_walk.xpm 56,85
-REVENANT_PUNCH ./assets/textures/doom/entities/revenant/revenant_punch.xpm 68,87
-REVENANT_SHOOT ./assets/textures/doom/entities/revenant/revenant_shoot.xpm 49,79
-REVENANT_PAIN ./assets/textures/doom/entities/revenant/revenant_pain.xpm 66,72
-REVENANT_DEATH ./assets/textures/doom/entities/revenant/revenant_death.xpm 74,78
-REVENANT_PROJECTILE_LIVE ./assets/textures/doom/effects/revenant_projectile/revenant_projectile_live.xpm 20,16
-REVENANT_PROJECTILE_DEATH ./assets/textures/doom/effects/revenant_projectile/revenant_projectile_death.xpm 45,40
+REVENANT_WALK ./assets/textures/doom/entities/revenant/revenant_walk.xpm 56,85 1
+REVENANT_PUNCH ./assets/textures/doom/entities/revenant/revenant_punch.xpm 68,87 1
+REVENANT_SHOOT ./assets/textures/doom/entities/revenant/revenant_shoot.xpm 49,79 1
+REVENANT_PAIN ./assets/textures/doom/entities/revenant/revenant_pain.xpm 66,72 1
+REVENANT_DEATH ./assets/textures/doom/entities/revenant/revenant_death.xpm 74,78 1
+REVENANT_PROJECTILE_LIVE ./assets/textures/doom/effects/revenant_projectile/revenant_projectile_live.xpm 20,16 1
+REVENANT_PROJECTILE_DEATH ./assets/textures/doom/effects/revenant_projectile/revenant_projectile_death.xpm 45,40 1
 
-MANCUBUS_WALK ./assets/textures/doom/entities/mancubus/mancubus_walk.xpm 88,70
-MANCUBUS_ATTACK ./assets/textures/doom/entities/mancubus/mancubus_attack.xpm 87,68
-MANCUBUS_PAIN ./assets/textures/doom/entities/mancubus/mancubus_pain.xpm 74,67
-MANCUBUS_DEATH ./assets/textures/doom/entities/mancubus/mancubus_death.xpm 103,76
-MANCUBUS_FIREBALL ./assets/textures/doom/effects/mancubus_fireball/mancubus_fireball_live.xpm 34,34
+MANCUBUS_WALK ./assets/textures/doom/entities/mancubus/mancubus_walk.xpm 88,70 1
+MANCUBUS_ATTACK ./assets/textures/doom/entities/mancubus/mancubus_attack.xpm 87,68 1
+MANCUBUS_PAIN ./assets/textures/doom/entities/mancubus/mancubus_pain.xpm 74,67 1
+MANCUBUS_DEATH ./assets/textures/doom/entities/mancubus/mancubus_death.xpm 103,76 1
+MANCUBUS_FIREBALL ./assets/textures/doom/effects/mancubus_fireball/mancubus_fireball_live.xpm 34,34 1
 
-ARCH_VILE_WALK ./assets/textures/doom/entities/arch_vile/arch_vile_walk.xpm 79,90
-ARCH_VILE_ATTACK ./assets/textures/doom/entities/arch_vile/arch_vile_attack.xpm 79,97
-ARCH_VILE_PAIN ./assets/textures/doom/entities/arch_vile/arch_vile_pain.xpm 38,74
-ARCH_VILE_DEATH ./assets/textures/doom/entities/arch_vile/arch_vile_death.xpm 79,96
-ARCH_VILE_FLAMES ./assets/textures/doom/effects/arch_vile_flames/arch_vile_flames.xpm 45,78
+ARCH_VILE_WALK ./assets/textures/doom/entities/arch_vile/arch_vile_walk.xpm 79,90 1
+ARCH_VILE_ATTACK ./assets/textures/doom/entities/arch_vile/arch_vile_attack.xpm 79,97 1
+ARCH_VILE_PAIN ./assets/textures/doom/entities/arch_vile/arch_vile_pain.xpm 38,74 1
+ARCH_VILE_DEATH ./assets/textures/doom/entities/arch_vile/arch_vile_death.xpm 79,96 1
+ARCH_VILE_FLAMES ./assets/textures/doom/effects/arch_vile_flames/arch_vile_flames.xpm 45,78 1
 
-COMMANDO_WALK ./assets/textures/doom/entities/former_commando/former_commando_walk.xpm 45,60
-COMMANDO_ATTACK ./assets/textures/doom/entities/former_commando/former_commando_attack.xpm 43,58
-COMMANDO_PAIN ./assets/textures/doom/entities/former_commando/former_commando_pain.xpm 43,58
-COMMANDO_DEATH ./assets/textures/doom/entities/former_commando/former_commando_death_1.xpm 65,64
+COMMANDO_WALK ./assets/textures/doom/entities/former_commando/former_commando_walk.xpm 45,60 1
+COMMANDO_ATTACK ./assets/textures/doom/entities/former_commando/former_commando_attack.xpm 43,58 1
+COMMANDO_PAIN ./assets/textures/doom/entities/former_commando/former_commando_pain.xpm 43,58 1
+COMMANDO_DEATH ./assets/textures/doom/entities/former_commando/former_commando_death_1.xpm 65,64 1
 
-SERGEANT_WALK ./assets/textures/doom/entities/former_sergeant/former_sergeant_walk.xpm 36,55
-SERGEANT_ATTACK ./assets/textures/doom/entities/former_sergeant/former_sergeant_attack.xpm 27,55
-SERGEANT_PAIN ./assets/textures/doom/entities/former_sergeant/former_sergeant_pain.xpm 31,55
-SERGEANT_DEATH ./assets/textures/doom/entities/former_sergeant/former_sergeant_death_1.xpm 52,60
+SERGEANT_WALK ./assets/textures/doom/entities/former_sergeant/former_sergeant_walk.xpm 36,55 1
+SERGEANT_ATTACK ./assets/textures/doom/entities/former_sergeant/former_sergeant_attack.xpm 27,55 1
+SERGEANT_PAIN ./assets/textures/doom/entities/former_sergeant/former_sergeant_pain.xpm 31,55 1
+SERGEANT_DEATH ./assets/textures/doom/entities/former_sergeant/former_sergeant_death_1.xpm 52,60 1
 
 11111111111111111111
 10000000000000000001
