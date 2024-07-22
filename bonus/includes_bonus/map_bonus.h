@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 14:26:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 14:35:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@
 # define ID_TEXTURE_CYBER_PAIN			"CYBER_PAIN"
 # define ID_TEXTURE_CYBER_ATTACK		"CYBER_ATTACK"
 # define ID_TEXTURE_CYBER_DEATH			"CYBER_DEATH"
+# define ID_TEXTURE_ROCKET_LIVE			"ROCKET_LIVE"
+# define ID_TEXTURE_ROCKET_DEATH		"ROCKET_DEATH"
 
 
 # define IDX_TXTR_N						0
@@ -122,6 +124,8 @@
 # define IDX_TXTR_CYBER_PAIN			43
 # define IDX_TXTR_CYBER_ATTACK			44
 # define IDX_TXTR_CYBER_DEATH			45
+# define IDX_TXTR_ROCKET_LIVE			46
+# define IDX_TXTR_ROCKET_DEATH			47
 
 # define ID_MAP_DEMON					'p'
 # define ID_MAP_IMP						'i'
@@ -133,7 +137,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01sdpicblayNSEW"
-# define MAP_NB_IDS						46
+# define MAP_NB_IDS						48
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 

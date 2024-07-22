@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 14:26:57 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 14:37:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,14 @@ static void	init_enemies_identifier(char **identifier)
 	identifier[IDX_TXTR_IMP_PAIN] = ID_TEXTURE_IMP_PAIN;
 	identifier[IDX_TXTR_IMP_ATTACK] = ID_TEXTURE_IMP_ATTACK;
 	identifier[IDX_TXTR_IMP_DEATH] = ID_TEXTURE_IMP_DEATH;
-	identifier[IDX_TXTR_IMP_PROJ_LIVE] = ID_TEXTURE_IMP_PROJ_LIVE;
-	identifier[IDX_TXTR_IMP_PROJ_DEATH] = ID_TEXTURE_IMP_PROJ_DEATH;
 	identifier[IDX_TXTR_CACO_WALK] = ID_TEXTURE_CACO_WALK;
 	identifier[IDX_TXTR_CACO_PAIN] = ID_TEXTURE_CACO_PAIN;
 	identifier[IDX_TXTR_CACO_ATTACK] = ID_TEXTURE_CACO_ATTACK;
 	identifier[IDX_TXTR_CACO_DEATH] = ID_TEXTURE_CACO_DEATH;
-	identifier[IDX_TXTR_CACO_PROJ_LIVE] = ID_TEXTURE_CACO_PROJ_LIVE;
-	identifier[IDX_TXTR_CACO_PROJ_DEATH] = ID_TEXTURE_CACO_PROJ_DEATH;
 	identifier[IDX_TXTR_BOH_WALK] = ID_TEXTURE_BOH_WALK;
 	identifier[IDX_TXTR_BOH_PAIN] = ID_TEXTURE_BOH_PAIN;
 	identifier[IDX_TXTR_BOH_ATTACK] = ID_TEXTURE_BOH_ATTACK;
 	identifier[IDX_TXTR_BOH_DEATH] = ID_TEXTURE_BOH_DEATH;
-	identifier[IDX_TXTR_BOH_PROJ_LIVE] = ID_TEXTURE_BOH_PROJ_LIVE;
-	identifier[IDX_TXTR_BOH_PROJ_DEATH] = ID_TEXTURE_BOH_PROJ_DEATH;
 	identifier[IDX_TXTR_LOST_SOUL_WALK] = ID_TEXTURE_LOST_SOUL_WALK;
 	identifier[IDX_TXTR_LOST_SOUL_DEATH] = ID_TEXTURE_LOST_SOUL_DEATH;
 	identifier[IDX_TXTR_PAIN_ELEM_WALK] = ID_TEXTURE_PAIN_ELEM_WALK;
@@ -70,6 +64,18 @@ static void	init_enemies_identifier(char **identifier)
 	identifier[IDX_TXTR_CYBER_DEATH] = ID_TEXTURE_CYBER_DEATH;
 }
 
+static void	init_bullets_identifier(char **identifier)
+{
+	identifier[IDX_TXTR_IMP_PROJ_LIVE] = ID_TEXTURE_IMP_PROJ_LIVE;
+	identifier[IDX_TXTR_IMP_PROJ_DEATH] = ID_TEXTURE_IMP_PROJ_DEATH;
+	identifier[IDX_TXTR_CACO_PROJ_LIVE] = ID_TEXTURE_CACO_PROJ_LIVE;
+	identifier[IDX_TXTR_CACO_PROJ_DEATH] = ID_TEXTURE_CACO_PROJ_DEATH;
+	identifier[IDX_TXTR_BOH_PROJ_LIVE] = ID_TEXTURE_BOH_PROJ_LIVE;
+	identifier[IDX_TXTR_BOH_PROJ_DEATH] = ID_TEXTURE_BOH_PROJ_DEATH;
+	identifier[IDX_TXTR_ROCKET_DEATH] = ID_TEXTURE_ROCKET_DEATH;
+	identifier[IDX_TXTR_ROCKET_LIVE] = ID_TEXTURE_ROCKET_LIVE;
+}
+
 void	init_identifier(char **identifier)
 {
 	if (identifier == NULL)
@@ -77,4 +83,5 @@ void	init_identifier(char **identifier)
 	init_world_identifier(identifier);
 	init_ui_identifier(identifier);
 	init_enemies_identifier(identifier);
+	init_bullets_identifier(identifier);
 }

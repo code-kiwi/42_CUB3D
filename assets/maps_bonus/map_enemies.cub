@@ -54,6 +54,9 @@ CYBER_ATTACK ./assets/textures/doom/entities/cyberdemon/cyberdemon_attack.xpm 99
 CYBER_PAIN ./assets/textures/doom/entities/cyberdemon/cyberdemon_pain.xpm 123,110
 CYBER_DEATH ./assets/textures/doom/entities/cyberdemon/cyberdemon_death.xpm 122,113
 
+ROCKET_LIVE ./assets/textures/doom/effects/rocket/rocket_live.xpm 15,14
+ROCKET_DEATH ./assets/textures/doom/effects/rocket/rocket_death.xpm 103,86
+
 11111111111111111111
 10000000000000000001
 10000000000000000001
