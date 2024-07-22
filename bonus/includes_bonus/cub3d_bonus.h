@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 12:14:04 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 13:06:20 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@
 # define ERR_MAP_DRAW_CREATION	"Map drawing cannot be created"
 # define ERR_MAP_DRAW_SIZE		"Map drawing cannot be initialized: map too big"
 # define ERR_WEAPONS_CREATION	"Weapons creation failed"
+# define ERR_P_WEAPONS_CREATION	"Player weapons creation failed"
 
 # define ERR_INIT_TEXTURES		"Can't open textures"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"

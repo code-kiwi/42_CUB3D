@@ -66,7 +66,6 @@ bool	t_game_init(t_game *game)
 	game->bullets = NULL;
 	return (
 		t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE)
-		&& init_weapons(game)
 		&& t_player_init(&game->player, &game->map, game)
 		&& init_textures(game)
 		&& init_sprites(game)
@@ -75,6 +74,8 @@ bool	t_game_init(t_game *game)
 		&& init_entities(game)
 		&& init_map_draw(&game->map.draw, &game->map, game)
 		&& init_radar(&game->radar, &game->mlx)
+		&& init_weapons(game)
+		&& init_player_weapons(game)
 		&& t_mlx_launch(&game->mlx)
 		&& add_event_handlers(game)
 	);

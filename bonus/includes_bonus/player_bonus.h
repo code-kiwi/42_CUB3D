@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 11:26:08 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 13:02:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ struct s_player
 	t_ray				*look_ray;
 	t_door				*last_door_seen;
 	t_sprite			*aimed_sprite;
+	t_list				*weapons;
 	size_t				health_point;
 };
 
