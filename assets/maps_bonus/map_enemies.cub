@@ -67,6 +67,7 @@ MANCUBUS_WALK ./assets/textures/doom/entities/mancubus/mancubus_walk.xpm 88,70
 MANCUBUS_ATTACK ./assets/textures/doom/entities/mancubus/mancubus_attack.xpm 87,68
 MANCUBUS_PAIN ./assets/textures/doom/entities/mancubus/mancubus_pain.xpm 74,67
 MANCUBUS_DEATH ./assets/textures/doom/entities/mancubus/mancubus_death.xpm 103,76
+MANCUBUS_FIREBALL ./assets/textures/doom/effects/mancubus_fireball/mancubus_fireball_live.xpm 34,34
 
 
 11111111111111111111

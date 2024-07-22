@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 15:14:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 15:20:14 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@
 # define ID_TEXTURE_MANCUBUS_PAIN		"MANCUBUS_PAIN"
 # define ID_TEXTURE_MANCUBUS_ATTACK		"MANCUBUS_ATTACK"
 # define ID_TEXTURE_MANCUBUS_DEATH		"MANCUBUS_DEATH"
+# define ID_TEXTURE_MANCUBUS_FIREBALL	"MANCUBUS_FIREBALL"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -143,6 +144,7 @@
 # define IDX_TXTR_MANCUBUS_PAIN			54
 # define IDX_TXTR_MANCUBUS_ATTACK		55
 # define IDX_TXTR_MANCUBUS_DEATH		56
+# define IDX_TXTR_MANCUBUS_FIREBALL		57
 
 # define ID_MAP_DEMON					'p'
 # define ID_MAP_IMP						'i'
@@ -156,7 +158,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01sdpicblayrmNSEW"
-# define MAP_NB_IDS						57
+# define MAP_NB_IDS						58
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
