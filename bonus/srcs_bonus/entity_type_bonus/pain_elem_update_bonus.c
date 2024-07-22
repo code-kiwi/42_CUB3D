@@ -14,6 +14,12 @@
 #include "cub3d_bonus.h"
 #include "bullets_bonus.h"
 
+static void	stop_walk_animation(t_sprite *sprite, t_list *textures[MAP_NB_IDS])
+{
+	if (sprite->animation == textures[IDX_TXTR_PAIN_ELEM_WALK])
+		sprite->animate = false;
+}
+
 static void	pain_elem_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 {
 	if (entity->cooldown > 0)
@@ -57,10 +63,16 @@ bool	pain_elem_update(t_game *game, t_entity *entity, float delta_time)
 	distance = get_distance(&sprite->position, &game->player.position);
 	sprite->animate = true;
 	if (distance < PAIN_ELEM_ATTACK_RANGE)
+	{
+		stop_walk_animation(sprite, game->textures);
 		pain_elem_close_attack(entity, sprite, game);
+	}
 	else if (!entity->see_player)
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 	else
+	{
+		stop_walk_animation(sprite, game->textures);
 		return (pain_elem_spawn(entity, sprite, game));
+	}
 	return (true);
 }
