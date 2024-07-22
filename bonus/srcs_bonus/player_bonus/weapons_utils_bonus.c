@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:04:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 15:12:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 16:05:48 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ void	player_select_next_weapon(t_player *player)
 	if (player->weapons[player->curr_weapon_index] == NULL)
 		player->curr_weapon_index = 0;
 	player->curr_weapon = player->weapons[player->curr_weapon_index];
+}
+
+#include <stdio.h>
+void	player_weapon_use(t_player *player, t_game *game)
+{
+	player->frame_update_delta = 0;
+	use_weapon(player->curr_weapon, game);
 }
 
 bool	init_player_weapons(t_game *game, t_player *player)

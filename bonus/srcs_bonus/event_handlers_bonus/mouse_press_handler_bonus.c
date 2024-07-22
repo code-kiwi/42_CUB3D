@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 15:15:34 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:45:45 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	mouse_press_handler(int button, int x, int y, t_game *game)
 	if (game == NULL)
 		error_exit(NULL, ERR_ARG);
 	if (button == MOUSE_LEFT && !game->pause)
-		printf("STARTS ITEM USE\n");
+		player_weapon_use(&game->player, game);
 	else if (button == MOUSE_WHEEL_DOWN && !game->pause)
 		player_select_next_weapon(&game->player);
 	else if (button == MOUSE_WHEEL_UP && !game->pause)

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 15:06:38 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 16:02:17 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ bool	t_player_init(t_player *player, t_map *map, t_game *game)
 	player->health_point = PLAYER_HEALTH_POINT;
 	ft_memset(player->is_walking, 0, 4 * sizeof(bool));
 	player->look_ray = &game->rays[(int)WIN_WIDTH / 2];
+	player->frame_update_delta = 0;
 	return (true);
 }

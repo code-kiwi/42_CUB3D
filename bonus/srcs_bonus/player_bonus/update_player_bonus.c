@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 14:44:25 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 16:04:26 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,22 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 	}
 }
 
+static void	update_player_weapon(
+	t_weapon *weapon,
+	t_game *game,
+	float delta_time
+)
+{
+	game->player.frame_update_delta += delta_time;
+	if (game->player.frame_update_delta < PLAYER_ANIMATION_UPDATE)
+		return ;
+	update_weapon(weapon, game);
+	game->player.frame_update_delta = 0;
+}
+
 void	update_player(t_game *game, float delta_time)
 {
 	update_look(&game->player, delta_time);
 	update_position(&game->player, &game->map, delta_time, game->entities);
-	update_weapon(game->player.curr_weapon, game);
+	update_player_weapon(game->player.curr_weapon, game, delta_time);
 }

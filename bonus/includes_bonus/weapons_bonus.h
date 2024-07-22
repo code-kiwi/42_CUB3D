@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 14:38:39 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:41:17 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ struct s_weapon
 	size_t			remaining_use;
 	bool			is_limited;
 	bool			is_use_continuous;
+	bool			active;
 	char			id;
 	t_mlx_coords	coords;
 	t_mlx_coords	size;
@@ -49,5 +50,6 @@ struct s_weapon
 bool	init_weapons(t_game *game);
 void	update_weapon(t_weapon *weapon, t_game *game);
 void	set_weapon_positions(t_weapon *weapon, t_game *game);
+void    use_weapon(t_weapon *weapon, t_game *game);
 
 # endif
