@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 14:45:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 14:51:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@
 # define PAIN_ELEM_SPAW_PAUSE		3
 
 # define CYBER_SPEED				0.5
-# define CYBER_SQUARED_RADIUS		1.5
+# define CYBER_SQUARED_RADIUS		0.7
 # define CYBER_HEALTH_POINT			20
 # define CYBER_CLOSE_ATTACK_RANGE	1.5
 # define CYBER_CLOSE_ATTACK_PAUSE	2
