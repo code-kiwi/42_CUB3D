@@ -73,6 +73,7 @@ ARCH_VILE_WALK ./assets/textures/doom/entities/arch_vile/arch_vile_walk.xpm 79,9
 ARCH_VILE_ATTACK ./assets/textures/doom/entities/arch_vile/arch_vile_attack.xpm 79,97
 ARCH_VILE_PAIN ./assets/textures/doom/entities/arch_vile/arch_vile_pain.xpm 38,74
 ARCH_VILE_DEATH ./assets/textures/doom/entities/arch_vile/arch_vile_death.xpm 79,96
+ARCH_VILE_FLAMES ./assets/textures/doom/effects/arch_vile_flames/arch_vile_flames.xpm 45,78
 
 11111111111111111111
 10000000000000000001

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 15:35:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 15:43:18 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@
 # define ID_TEXTURE_ARCH_VILE_PAIN		"ARCH_VILE_PAIN"
 # define ID_TEXTURE_ARCH_VILE_ATTACK	"ARCH_VILE_ATTACK"
 # define ID_TEXTURE_ARCH_VILE_DEATH		"ARCH_VILE_DEATH"
+# define ID_TEXTURE_ARCH_VILE_FLAMES	"ARCH_VILE_FLAMES"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -153,6 +154,7 @@
 # define IDX_TXTR_ARCH_VILE_PAIN		59
 # define IDX_TXTR_ARCH_VILE_ATTACK		60
 # define IDX_TXTR_ARCH_VILE_DEATH		61
+# define IDX_TXTR_ARCH_VILE_FLAMES		62
 
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
@@ -167,7 +169,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01spdicblayrmNSEWD"
-# define MAP_NB_IDS						62
+# define MAP_NB_IDS						63
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
