@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 10:30:24 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 11:13:56 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ bool	is_sprite_aimed(t_sprite *sprite, int left_x);
 
 // Utils functions
 void	error_print(char *err_msg);
+void	error_print_string(char *err_msg, char *str);
 void	error_exit(t_game *game, char *err_msg);
 size_t	array_length(void **array);
 int		sign(float value);

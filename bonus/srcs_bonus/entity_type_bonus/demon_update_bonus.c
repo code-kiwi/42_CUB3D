@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   demon_update_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/19 17:14:28 by root             ###   ########.fr       */
+/*   Updated: 2024/07/22 11:15:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	stop_walk_animation(t_sprite *sprite, t_list *textures[MAP_NB_IDS])
 static void	demon_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 {
 	if (entity->cooldown > 0)
-			return ;
+		return ;
 	sprite->next_animation = game->textures[IDX_TXTR_DEMON_WALK];
 	sprite->animation = game->textures[IDX_TXTR_DEMON_ATTACK];
 	entity->cooldown = DEMON_ATTACK_PAUSE;
