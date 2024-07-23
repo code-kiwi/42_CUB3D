@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 19:30:35 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 19:50:14 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 20:57:31 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,10 @@ bool	entity_get_chainsawed(t_game *game, t_entity *entity)
 	(void)game;
 	(void)entity;
 	return (true);
+}
+
+void	stop_walk_animation(t_entity *entity)
+{
+	if (entity->sprite->animation == entity->walk)
+		entity->sprite->animate = false;
 }

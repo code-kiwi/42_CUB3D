@@ -3,22 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   arch_vile_update_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 13:19:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 21:00:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
 #include "bullets_bonus.h"
-
-static void	stop_walk_animation(t_sprite *sprite, t_animation anim[MAP_NB_IDS])
-{
-	if (sprite->animation == &anim[IDX_TXTR_ARCH_VILE_WALK])
-		sprite->animate = false;
-}
 
 static void	arch_vile_close_attack(t_entity *entity, t_sprite *sprite, \
 	t_game *game)
@@ -65,14 +59,14 @@ bool	arch_vile_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < ARCH_VILE_ATTACK_RANGE)
 	{
-		stop_walk_animation(sprite, game->anim);
+		stop_walk_animation(entity);
 		arch_vile_close_attack(entity, sprite, game);
 	}
 	else if (!entity->see_player)
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 	else
 	{
-		stop_walk_animation(sprite, game->anim);
+		stop_walk_animation(entity);
 		return (arch_vile_spawn(entity, sprite, game));
 	}
 	return (true);

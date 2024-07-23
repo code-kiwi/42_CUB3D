@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mancubus_update_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 13:19:56 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 21:01:10 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include "sprite_bonus.h"
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
-
-static void	stop_walk_animation(t_sprite *sprite, t_animation anim[MAP_NB_IDS])
-{
-	if (sprite->animation == &anim[IDX_TXTR_MANCUBUS_WALK])
-		sprite->animate = false;
-}
 
 static void	mancubus_close_attack(t_entity *entity, t_sprite *sprite,
 	t_game *game)
@@ -55,18 +49,18 @@ bool	mancubus_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < MANCUBUS_CLOSE_ATTACK_RANGE)
 	{
-		stop_walk_animation(sprite, game->anim);
+		stop_walk_animation(entity);
 		mancubus_close_attack(entity, sprite, game);
 	}
 	else if (!entity->see_player)
 	{
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)
-			stop_walk_animation(sprite, game->anim);
+			stop_walk_animation(entity);
 	}
 	else
 	{
-		stop_walk_animation(sprite, game->anim);
+		stop_walk_animation(entity);
 		return (mancubus_range_attack(entity, sprite, game));
 	}
 	return (true);

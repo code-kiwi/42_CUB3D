@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 19:25:27 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 20:59:06 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include "sprite_bonus.h"
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
-
-static void	stop_walk_animation(t_sprite *sprite, t_animation anim[MAP_NB_IDS])
-{
-	if (sprite->animation == &anim[IDX_TXTR_SERGEANT_WALK])
-		sprite->animate = false;
-}
 
 static bool	sergeant_range_attack(t_entity *entity, t_sprite *sprite,
 	t_game *game)
@@ -44,11 +38,11 @@ bool	sergeant_update(t_game *game, t_entity *entity, float delta_time)
 	{
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)
-			stop_walk_animation(sprite, game->anim);
+			stop_walk_animation(entity);
 	}
 	else
 	{
-		stop_walk_animation(sprite, game->anim);
+		stop_walk_animation(entity);
 		return (sergeant_range_attack(entity, sprite, game));
 	}
 	return (true);

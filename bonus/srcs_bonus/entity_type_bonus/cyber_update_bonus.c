@@ -3,22 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cyber_update_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 13:19:46 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 21:00:27 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
 #include "bullets_bonus.h"
-
-static void	stop_walk_animation(t_sprite *sprite, t_animation anim[MAP_NB_IDS])
-{
-	if (sprite->animation == &anim[IDX_TXTR_CYBER_WALK])
-		sprite->animate = false;
-}
 
 static void	cyber_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 {
@@ -54,7 +48,7 @@ bool	cyber_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < CYBER_CLOSE_ATTACK_RANGE)
 	{
-		stop_walk_animation(sprite, game->anim);
+		stop_walk_animation(entity);
 		cyber_close_attack(entity, sprite, game);
 	}
 	else
@@ -63,7 +57,7 @@ bool	cyber_update(t_game *game, t_entity *entity, float delta_time)
 			return (false);
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)
-			stop_walk_animation(sprite, game->anim);
+			stop_walk_animation(entity);
 	}
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 20:02:29 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 20:57:38 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,7 @@ bool	get_spawn_position(t_vector *result, t_entity *entity,
 bool	entity_get_killed(t_game *game, t_entity *entity);
 bool	entity_get_damage(t_game *game, t_entity *entity, size_t damage);
 bool	entity_get_chainsawed(t_game *game, t_entity *entity);
+void	stop_walk_animation(t_entity *entity);
 
 // Init entities species
 bool	demon_init(t_entity *entity, t_animation anim[MAP_NB_IDS]);

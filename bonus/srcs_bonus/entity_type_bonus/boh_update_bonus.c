@@ -14,12 +14,6 @@
 #include "cub3d_bonus.h"
 #include "bullets_bonus.h"
 
-static void	stop_walk_animation(t_sprite *sprite, t_animation anim[MAP_NB_IDS])
-{
-	if (sprite->animation == &anim[IDX_TXTR_BOH_WALK])
-		sprite->animate = false;
-}
-
 static void	boh_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 {
 	if (entity->cooldown > 0)
@@ -54,7 +48,7 @@ bool	boh_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < BOH_CLOSE_ATTACK_RANGE)
 	{
-		stop_walk_animation(sprite, game->anim);
+		stop_walk_animation(entity);
 		boh_close_attack(entity, sprite, game);
 	}
 	else
@@ -63,7 +57,7 @@ bool	boh_update(t_game *game, t_entity *entity, float delta_time)
 			return (false);
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)
-			stop_walk_animation(sprite, game->anim);
+			stop_walk_animation(entity);
 	}
 	return (true);
 }
