@@ -58,6 +58,8 @@ bool	demon_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->walk = &animation[IDX_TXTR_DEMON_WALK];
 	entity->pain = &animation[IDX_TXTR_DEMON_PAIN];
 	entity->death = &animation[IDX_TXTR_DEMON_DEATH];
+	entity->close_attack = &animation[IDX_TXTR_DEMON_ATTACK];
+	entity->range_attack = NULL;
 	entity->health_point = DEMON_HEALTH_POINT;
 	entity->speed = DEMON_SPEED;
 	entity->squared_radius = DEMON_SQUARED_RADIUS;

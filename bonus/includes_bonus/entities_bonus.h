@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 20:57:38 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 21:24:00 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,8 @@ struct s_entity
 	t_animation	*walk;
 	t_animation	*pain;
 	t_animation	*death;
+	t_animation	*close_attack;
+	t_animation	*range_attack;
 };
 
 void	t_entity_destroy(void *data);

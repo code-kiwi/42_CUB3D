@@ -63,6 +63,8 @@ bool	arch_vile_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->walk = &animation[IDX_TXTR_ARCH_VILE_WALK];
 	entity->pain = &animation[IDX_TXTR_ARCH_VILE_PAIN];
 	entity->death = &animation[IDX_TXTR_ARCH_VILE_DEATH];
+	entity->close_attack = NULL;
+	entity->range_attack = NULL;
 	entity->health_point = ARCH_VILE_HEALTH_POINT;
 	entity->speed = ARCH_VILE_SPEED;
 	entity->squared_radius = ARCH_VILE_SQUARED_RADIUS;

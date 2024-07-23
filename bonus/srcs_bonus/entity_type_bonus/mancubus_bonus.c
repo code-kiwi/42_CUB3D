@@ -75,6 +75,8 @@ bool	mancubus_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->walk = &animation[IDX_TXTR_MANCUBUS_WALK];
 	entity->pain = &animation[IDX_TXTR_MANCUBUS_PAIN];
 	entity->death = &animation[IDX_TXTR_MANCUBUS_DEATH];
+	entity->close_attack = &animation[IDX_TXTR_MANCUBUS_ATTACK];
+	entity->range_attack = &animation[IDX_TXTR_MANCUBUS_ATTACK];
 	entity->health_point = MANCUBUS_HEALTH_POINT;
 	entity->speed = MANCUBUS_SPEED;
 	entity->squared_radius = MANCUBUS_SQUARED_RADIUS;

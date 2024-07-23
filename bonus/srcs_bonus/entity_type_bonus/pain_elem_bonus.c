@@ -81,6 +81,8 @@ bool	pain_elem_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->walk = &animation[IDX_TXTR_PAIN_ELEM_WALK];
 	entity->pain = &animation[IDX_TXTR_PAIN_ELEM_PAIN];
 	entity->death = &animation[IDX_TXTR_PAIN_ELEM_DEATH];
+	entity->close_attack = &animation[IDX_TXTR_PAIN_ELEM_ATTACK];
+	entity->range_attack = &animation[IDX_TXTR_PAIN_ELEM_ATTACK];
 	entity->health_point = PAIN_ELEM_HEALTH_POINT;
 	entity->speed = PAIN_ELEM_SPEED;
 	entity->squared_radius = PAIN_ELEM_SQUARED_RADIUS;

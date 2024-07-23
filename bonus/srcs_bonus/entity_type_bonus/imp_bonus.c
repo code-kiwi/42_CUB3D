@@ -73,6 +73,8 @@ bool	imp_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->walk = &animation[IDX_TXTR_IMP_WALK];
 	entity->pain = &animation[IDX_TXTR_IMP_PAIN];
 	entity->death = &animation[IDX_TXTR_IMP_DEATH];
+	entity->close_attack = &animation[IDX_TXTR_IMP_ATTACK];
+	entity->range_attack = &animation[IDX_TXTR_IMP_ATTACK];
 	entity->health_point = IMP_HEALTH_POINT;
 	entity->speed = IMP_SPEED;
 	entity->squared_radius = IMP_SQUARED_RADIUS;

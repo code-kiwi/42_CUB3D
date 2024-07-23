@@ -59,19 +59,21 @@ bool	caco_update(t_game *game, t_entity *entity, float delta_time)
 	return (true);
 }
 
-bool	caco_init(t_entity *entity, t_animation anim[MAP_NB_IDS])
+bool	caco_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = caco_update;
 	entity->get_killed = entity_get_killed;
 	entity->get_damage = entity_get_damage;
 	entity->get_chainsawed = entity_get_chainsawed;
-	entity->walk = &anim[IDX_TXTR_CACO_WALK];
-	entity->pain = &anim[IDX_TXTR_CACO_PAIN];
-	entity->death = &anim[IDX_TXTR_CACO_DEATH];
+	entity->walk = &animation[IDX_TXTR_CACO_WALK];
+	entity->pain = &animation[IDX_TXTR_CACO_PAIN];
+	entity->death = &animation[IDX_TXTR_CACO_DEATH];
+	entity->close_attack = &animation[IDX_TXTR_CACO_ATTACK];
+	entity->range_attack = &animation[IDX_TXTR_CACO_ATTACK];
 	entity->health_point = CACO_HEALTH_POINT;
 	entity->speed = CACO_SPEED;
 	entity->squared_radius = CACO_SQUARED_RADIUS;
 	entity->type = NULL;
-	t_sprite_init(entity->sprite, &anim[IDX_TXTR_CACO_WALK], WIN_HEIGHT);
+	t_sprite_init(entity->sprite, &animation[IDX_TXTR_CACO_WALK], WIN_HEIGHT);
 	return (true);
 }

@@ -75,6 +75,8 @@ bool	revenant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->walk = &animation[IDX_TXTR_REVENANT_WALK];
 	entity->pain = &animation[IDX_TXTR_REVENANT_PAIN];
 	entity->death = &animation[IDX_TXTR_REVENANT_DEATH];
+	entity->close_attack = &animation[IDX_TXTR_REVENANT_PUNCH];
+	entity->range_attack = &animation[IDX_TXTR_REVENANT_SHOOT];
 	entity->health_point = REVENANT_HEALTH_POINT;
 	entity->speed = REVENANT_SPEED;
 	entity->squared_radius = REVENANT_SQUARED_RADIUS;

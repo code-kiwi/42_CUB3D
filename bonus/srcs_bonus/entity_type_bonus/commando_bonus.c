@@ -48,19 +48,21 @@ bool	commando_update(t_game *game, t_entity *entity, float delta_time)
 	return (true);
 }
 
-bool	commando_init(t_entity *entity, t_animation anim[MAP_NB_IDS])
+bool	commando_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = commando_update;
 	entity->get_killed = entity_get_killed;
 	entity->get_damage = entity_get_damage;
 	entity->get_chainsawed = entity_get_chainsawed;
-	entity->walk = &anim[IDX_TXTR_COMMANDO_WALK];
-	entity->pain = &anim[IDX_TXTR_COMMANDO_PAIN];
-	entity->death = &anim[IDX_TXTR_COMMANDO_DEATH];
+	entity->walk = &animation[IDX_TXTR_COMMANDO_WALK];
+	entity->pain = &animation[IDX_TXTR_COMMANDO_PAIN];
+	entity->death = &animation[IDX_TXTR_COMMANDO_DEATH];
+	entity->close_attack = NULL;
+	entity->range_attack = &animation[IDX_TXTR_COMMANDO_ATTACK];
 	entity->health_point = COMMANDO_HEALTH_POINT;
 	entity->speed = COMMANDO_SPEED;
 	entity->squared_radius = COMMANDO_SQUARED_RADIUS;
 	entity->type = NULL;
-	t_sprite_init(entity->sprite, &anim[IDX_TXTR_COMMANDO_WALK], WIN_HEIGHT);
+	t_sprite_init(entity->sprite, &animation[IDX_TXTR_COMMANDO_WALK], WIN_HEIGHT);
 	return (true);
 }

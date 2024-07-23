@@ -57,6 +57,8 @@ bool	sergeant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->walk = &animation[IDX_TXTR_SERGEANT_WALK];
 	entity->pain = &animation[IDX_TXTR_SERGEANT_PAIN];
 	entity->death = &animation[IDX_TXTR_SERGEANT_DEATH];
+	entity->close_attack = NULL;
+	entity->range_attack = &animation[IDX_TXTR_COMMANDO_ATTACK];
 	entity->health_point = SERGEANT_HEALTH_POINT;
 	entity->speed = SERGEANT_SPEED;
 	entity->squared_radius = SERGEANT_SQUARED_RADIUS;
