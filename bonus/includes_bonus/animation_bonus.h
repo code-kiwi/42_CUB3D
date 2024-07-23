@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 12:35:15 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 13:35:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 13:38:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ typedef struct s_animation	t_animation;
 typedef struct s_game		t_game;
 typedef struct s_sprite		t_sprite;
 typedef struct s_mlx_coords	t_mlx_coords;
-
-# define ANIMATION_UPDATE	0.1
 
 struct s_animation
 {
