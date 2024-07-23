@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 22:38:57 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define ID_MAP_DOOR_OPENED				'O'
 
 # define IDS_MAP_SPRITE					"s"
-# define IDS_MAP_ENTITY					"dpicblayrmof"
+# define IDS_MAP_ENTITY					"dicblpyrmafo"
 # define ID_MAP_PLAYER					'P'
 # define ID_MAP_ENTITY					'e'
 

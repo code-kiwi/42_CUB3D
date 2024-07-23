@@ -14,26 +14,6 @@
 #include "cub3d_bonus.h"
 #include "bullets_bonus.h"
 
-static void	boh_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
-{
-	if (entity->cooldown > 0)
-		return ;
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_BOH_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_BOH_WALK];
-	entity->cooldown = BOH_CLOSE_ATTACK_PAUSE;
-	player_get_damage(game, BOH_CLOSE_ATTACK_DAMAGE);
-}
-
-static bool	boh_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
-{
-	if (entity->cooldown > 0)
-		return (true);
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_BOH_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_BOH_WALK];
-	entity->cooldown = BOH_RANGE_ATTACK_PAUSE;
-	return (entity_shoot_bullet(game, entity, boh_projectile_init));
-}
-
 bool	boh_update(t_game *game, t_entity *entity, float delta_time)
 {
 	t_player	*player;
@@ -49,11 +29,13 @@ bool	boh_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < BOH_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		boh_close_attack(entity, sprite, game);
+		entity_close_attack(entity, game, BOH_CLOSE_ATTACK_PAUSE,
+			BOH_CLOSE_ATTACK_DAMAGE);
 	}
 	else
 	{
-		if (entity->see_player && !boh_range_attack(entity, sprite, game))
+		if (entity->see_player && !entity_range_attack(entity, game,
+			BOH_RANGE_ATTACK_PAUSE, boh_projectile_init))
 			return (false);
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)

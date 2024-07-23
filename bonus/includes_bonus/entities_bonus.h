@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 21:24:00 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 22:33:44 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ void	update_entity_position(t_entity *entity, float delta_time,
 			t_list *entities, t_map *map);
 int		equal(void *a, void *b);
 bool	entity_shoot_bullet(t_game *game, t_entity *entity,
-			void (*bullet_init)(t_animation anim[MAP_NB_IDS], t_bullet *));
+			void (*bullet_init)(t_animation [MAP_NB_IDS], t_bullet *));
 void	*add_entity(t_game *game, float x, float y, char id);
 bool	collide_entity(t_list *entities, t_vector *position);
 void	get_entity_direction(t_vector *result, t_vector *player_pos,
@@ -161,6 +161,10 @@ bool	entity_get_killed(t_game *game, t_entity *entity);
 bool	entity_get_damage(t_game *game, t_entity *entity, size_t damage);
 bool	entity_get_chainsawed(t_game *game, t_entity *entity);
 void	stop_walk_animation(t_entity *entity);
+bool	entity_range_attack(t_entity *entity, t_game *game, size_t cooldown, \
+			void (*bullet_init)(t_animation *, t_bullet *));
+void	entity_close_attack(t_entity *entity, t_game *game, size_t cooldown, \
+			size_t damage);
 
 // Init entities species
 bool	demon_init(t_entity *entity, t_animation anim[MAP_NB_IDS]);
