@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 14:30:17 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@
 
 # define BOH_SPEED						2
 # define BOH_SQUARED_RADIUS				0.5
-# define BOH_HEALTH_POINT				2
+# define BOH_HEALTH_POINT				6
 # define BOH_CLOSE_ATTACK_RANGE			1.5
 # define BOH_CLOSE_ATTACK_PAUSE			2
 # define BOH_RANGE_ATTACK_PAUSE			2
@@ -78,7 +78,7 @@
 
 # define REVENANT_SPEED					2
 # define REVENANT_SQUARED_RADIUS		0.5
-# define REVENANT_HEALTH_POINT			2
+# define REVENANT_HEALTH_POINT			4
 # define REVENANT_CLOSE_ATTACK_RANGE	1.5
 # define REVENANT_CLOSE_ATTACK_PAUSE	2
 # define REVENANT_RANGE_ATTACK_PAUSE	1
@@ -87,7 +87,7 @@
 
 # define MANCUBUS_SPEED					2
 # define MANCUBUS_SQUARED_RADIUS		0.5
-# define MANCUBUS_HEALTH_POINT			2
+# define MANCUBUS_HEALTH_POINT			8
 # define MANCUBUS_CLOSE_ATTACK_RANGE	1.5
 # define MANCUBUS_CLOSE_ATTACK_PAUSE	2
 # define MANCUBUS_RANGE_ATTACK_PAUSE	1
