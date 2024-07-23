@@ -1,18 +1,70 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   revenant_bonus.c                                   :+:      :+:    :+:   */
+/*   revenant_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 20:01:25 by root             ###   ########.fr       */
+/*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
+/*   Updated: 2024/07/23 21:15:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "entities_bonus.h"
 #include "cub3d_bonus.h"
+#include "sprite_bonus.h"
+#include "entities_bonus.h"
 #include "bullets_bonus.h"
+
+static void	revenant_close_attack(t_entity *entity, t_sprite *sprite,
+	t_game *game)
+{
+	if (entity->cooldown > 0)
+		return ;
+	set_animation(sprite, &game->anim[IDX_TXTR_REVENANT_WALK]);
+	sprite->next_animation = &game->anim[IDX_TXTR_REVENANT_WALK];
+	entity->cooldown = REVENANT_CLOSE_ATTACK_PAUSE;
+	player_get_damage(game, REVENANT_CLOSE_ATTACK_DAMAGE);
+}
+
+static bool	revenant_range_attack(t_entity *entity, t_sprite *sprite,
+	t_game *game)
+{
+	if (entity->cooldown > 0)
+		return (true);
+	set_animation(sprite, &game->anim[IDX_TXTR_REVENANT_SHOOT]);
+	sprite->next_animation = &game->anim[IDX_TXTR_REVENANT_WALK];
+	entity->cooldown = REVENANT_RANGE_ATTACK_PAUSE;
+	return (entity_shoot_bullet(game, entity, revenant_projectile_init));
+}
+
+bool	revenant_update(t_game *game, t_entity *entity, float delta_time)
+{
+	float		distance;
+	t_sprite	*sprite;
+
+	if (entity->cooldown > 0)
+		entity->cooldown -= delta_time;
+	sprite = entity->sprite;
+	distance = get_distance(&sprite->position, &game->player.position);
+	sprite->animate = true;
+	if (distance < REVENANT_CLOSE_ATTACK_RANGE)
+	{
+		stop_walk_animation(entity);
+		revenant_close_attack(entity, sprite, game);
+	}
+	else if (!entity->see_player)
+	{
+		update_entity_position(entity, delta_time, game->entities, &game->map);
+		if (entity->path == NULL)
+			stop_walk_animation(entity);
+	}
+	else
+	{
+		stop_walk_animation(entity);
+		return (revenant_range_attack(entity, sprite, game));
+	}
+	return (true);
+}
 
 bool	revenant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
