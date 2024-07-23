@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 11:17:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 12:10:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static bool	arch_vile_get_killed(t_game *game, t_entity *entity)
 		game->last_entity_updated = game->last_entity_updated->next;
 	entity->sprite->animation = &game->anim[IDX_TXTR_ARCH_VILE_DEATH];
 	entity->sprite->next_animation = NULL;
+	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->sprite->animate = true;
 	ft_lst_remove_if(&game->entities, entity, equal, t_entity_destroy);
 	return (true);
@@ -30,6 +31,7 @@ static bool	arch_vile_get_damage(t_game *game, t_entity *entity, size_t damage)
 {
 	entity->sprite->next_animation = &game->anim[IDX_TXTR_ARCH_VILE_WALK];
 	entity->sprite->animation = &game->anim[IDX_TXTR_ARCH_VILE_PAIN];
+	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->sprite->frame_update_delta = 0;
 	damage_entity(game, entity, damage);
 	return (true);

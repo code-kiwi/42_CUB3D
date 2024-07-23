@@ -26,20 +26,21 @@ void	update_anim(t_game *game, float delta_time)
 	{
 		sprite = current->content;
 		sprite->frame_update_delta += delta_time;
+		current = current->next;
 		if (sprite->frame_update_delta < ANIMATION_UPDATE
 			|| sprite->animate == false)
 		{
-			current = current->next;
 			continue ;
 		}
 		sprite->frame_update_delta = 0;
 		sprite->texture = sprite->texture->next;
 		if (sprite->texture == NULL)
+		{
 			sprite->animation = sprite->next_animation;
-		current = current->next;
-		if (sprite->animation == NULL)
-			ft_lst_remove_if(&game->sprites, sprite, equal, free);
-		else
-			sprite->texture = sprite->animation->textures;
+			if (sprite->animation == NULL)
+				ft_lst_remove_if(&game->sprites, sprite, equal, free);
+			else
+				sprite->texture = sprite->animation->textures;
+		}
 	}
 }

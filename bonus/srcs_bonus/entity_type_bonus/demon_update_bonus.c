@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 12:11:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	demon_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 		return ;
 	sprite->next_animation = &game->anim[IDX_TXTR_DEMON_WALK];
 	sprite->animation = &game->anim[IDX_TXTR_DEMON_ATTACK];
+	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = DEMON_ATTACK_PAUSE;
 	player_get_damage(game, DEMON_ATTACK_DAMAGE);
 }

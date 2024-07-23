@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 12:11:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	cyber_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 		return ;
 	sprite->next_animation = &game->anim[IDX_TXTR_CYBER_WALK];
 	sprite->animation = &game->anim[IDX_TXTR_CYBER_ATTACK];
+	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = CYBER_CLOSE_ATTACK_PAUSE;
 	player_get_damage(game, CYBER_CLOSE_ATTACK_DAMAGE);
 }
@@ -36,6 +37,7 @@ static bool	cyber_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 		return (true);
 	sprite->next_animation = &game->anim[IDX_TXTR_CYBER_WALK];
 	sprite->animation = &game->anim[IDX_TXTR_CYBER_ATTACK];
+	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = CYBER_RANGE_ATTACK_PAUSE;
 	return (entity_shoot_bullet(game, entity, rocket_projectile_init));
 }

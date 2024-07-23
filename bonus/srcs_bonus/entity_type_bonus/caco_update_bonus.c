@@ -20,6 +20,7 @@ static void	caco_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 		return ;
 	sprite->next_animation = &game->anim[IDX_TXTR_CACO_WALK];
 	sprite->animation = &game->anim[IDX_TXTR_CACO_ATTACK];
+	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = CACO_CLOSE_ATTACK_PAUSE;
 	player_get_damage(game, CACO_CLOSE_ATTACK_DAMAGE);
 }
@@ -30,6 +31,7 @@ static bool	caco_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 		return (true);
 	sprite->next_animation = &game->anim[IDX_TXTR_CACO_WALK];
 	sprite->animation = &game->anim[IDX_TXTR_CACO_ATTACK];
+	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = CACO_RANGE_ATTACK_PAUSE;
 	return (entity_shoot_bullet(game, entity, caco_projectile_init));
 }
