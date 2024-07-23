@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 16:31:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 15:03:42 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@ static void	init_world_identifier(char **identifier)
 	identifier[IDX_TXTR_FLOOR] = ID_TEXTURE_FLOOR;
 	identifier[IDX_TXTR_CEIL] = ID_TEXTURE_CEILING;
 	identifier[IDX_TXTR_DOOR] = ID_TEXTURE_DOOR;
-}
-
-static void	init_ui_identifier(char **identifier)
-{
 	identifier[IDX_TXTR_SPRITE] = ID_TEXTURE_SPRITE;
 	identifier[IDX_TXTR_UIP_BG] = ID_TEXTURE_UI_PAUSE_BG;
 	identifier[IDX_TXTR_UIP_LBL] = ID_TEXTURE_UI_PAUSE_LABEL;
@@ -34,7 +30,7 @@ static void	init_ui_identifier(char **identifier)
 	identifier[IDX_TXTR_UIP_B2_OFF] = ID_TEXTURE_UI_PAUSE_BTNQ_ON;
 }
 
-static void	init_enemies_identifier(char **identifier)
+static void	init_simple_enemies_identifier(char **identifier)
 {
 	identifier[IDX_TXTR_DEMON_WALK] = ID_TEXTURE_DEMON_WALK;
 	identifier[IDX_TXTR_DEMON_PAIN] = ID_TEXTURE_DEMON_PAIN;
@@ -48,12 +44,24 @@ static void	init_enemies_identifier(char **identifier)
 	identifier[IDX_TXTR_CACO_PAIN] = ID_TEXTURE_CACO_PAIN;
 	identifier[IDX_TXTR_CACO_ATTACK] = ID_TEXTURE_CACO_ATTACK;
 	identifier[IDX_TXTR_CACO_DEATH] = ID_TEXTURE_CACO_DEATH;
+	identifier[IDX_TXTR_SERGEANT_WALK] = ID_TEXTURE_SERGEANT_WALK;
+	identifier[IDX_TXTR_SERGEANT_PAIN] = ID_TEXTURE_SERGEANT_PAIN;
+	identifier[IDX_TXTR_SERGEANT_ATTACK] = ID_TEXTURE_SERGEANT_ATTACK;
+	identifier[IDX_TXTR_SERGEANT_DEATH] = ID_TEXTURE_SERGEANT_DEATH;
+	identifier[IDX_TXTR_COMMANDO_WALK] = ID_TEXTURE_COMMANDO_WALK;
+	identifier[IDX_TXTR_COMMANDO_PAIN] = ID_TEXTURE_COMMANDO_PAIN;
+	identifier[IDX_TXTR_COMMANDO_ATTACK] = ID_TEXTURE_COMMANDO_ATTACK;
+	identifier[IDX_TXTR_COMMANDO_DEATH] = ID_TEXTURE_COMMANDO_DEATH;
+	identifier[IDX_TXTR_LOST_SOUL_WALK] = ID_TEXTURE_LOST_SOUL_WALK;
+	identifier[IDX_TXTR_LOST_SOUL_DEATH] = ID_TEXTURE_LOST_SOUL_DEATH;
+}
+
+static void	init_enemies_identifier(char **identifier)
+{
 	identifier[IDX_TXTR_BOH_WALK] = ID_TEXTURE_BOH_WALK;
 	identifier[IDX_TXTR_BOH_PAIN] = ID_TEXTURE_BOH_PAIN;
 	identifier[IDX_TXTR_BOH_ATTACK] = ID_TEXTURE_BOH_ATTACK;
 	identifier[IDX_TXTR_BOH_DEATH] = ID_TEXTURE_BOH_DEATH;
-	identifier[IDX_TXTR_LOST_SOUL_WALK] = ID_TEXTURE_LOST_SOUL_WALK;
-	identifier[IDX_TXTR_LOST_SOUL_DEATH] = ID_TEXTURE_LOST_SOUL_DEATH;
 	identifier[IDX_TXTR_PAIN_ELEM_WALK] = ID_TEXTURE_PAIN_ELEM_WALK;
 	identifier[IDX_TXTR_PAIN_ELEM_PAIN] = ID_TEXTURE_PAIN_ELEM_PAIN;
 	identifier[IDX_TXTR_PAIN_ELEM_ATTACK] = ID_TEXTURE_PAIN_ELEM_ATTACK;
@@ -75,14 +83,6 @@ static void	init_enemies_identifier(char **identifier)
 	identifier[IDX_TXTR_ARCH_VILE_PAIN] = ID_TEXTURE_ARCH_VILE_PAIN;
 	identifier[IDX_TXTR_ARCH_VILE_ATTACK] = ID_TEXTURE_ARCH_VILE_ATTACK;
 	identifier[IDX_TXTR_ARCH_VILE_DEATH] = ID_TEXTURE_ARCH_VILE_DEATH;
-	identifier[IDX_TXTR_SERGEANT_WALK] = ID_TEXTURE_SERGEANT_WALK;
-	identifier[IDX_TXTR_SERGEANT_PAIN] = ID_TEXTURE_SERGEANT_PAIN;
-	identifier[IDX_TXTR_SERGEANT_ATTACK] = ID_TEXTURE_SERGEANT_ATTACK;
-	identifier[IDX_TXTR_SERGEANT_DEATH] = ID_TEXTURE_SERGEANT_DEATH;
-	identifier[IDX_TXTR_COMMANDO_WALK] = ID_TEXTURE_COMMANDO_WALK;
-	identifier[IDX_TXTR_COMMANDO_PAIN] = ID_TEXTURE_COMMANDO_PAIN;
-	identifier[IDX_TXTR_COMMANDO_ATTACK] = ID_TEXTURE_COMMANDO_ATTACK;
-	identifier[IDX_TXTR_COMMANDO_DEATH] = ID_TEXTURE_COMMANDO_DEATH;
 }
 
 static void	init_bullets_identifier(char **identifier)
@@ -106,7 +106,7 @@ void	init_identifier(char **identifier)
 	if (identifier == NULL)
 		return ;
 	init_world_identifier(identifier);
-	init_ui_identifier(identifier);
 	init_enemies_identifier(identifier);
+	init_simple_enemies_identifier(identifier);
 	init_bullets_identifier(identifier);
 }
