@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 12:12:10 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 13:19:52 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@ static bool	lost_soul_get_killed(t_game *game, t_entity *entity)
 		return (false);
 	if (game->last_entity_updated->content == entity)
 		game->last_entity_updated = game->last_entity_updated->next;
-	entity->sprite->animation = &game->anim[IDX_TXTR_LOST_SOUL_DEATH];
+	set_animation(entity->sprite, &game->anim[IDX_TXTR_LOST_SOUL_DEATH]);
 	entity->sprite->next_animation = NULL;
-	entity->sprite->texture = entity->sprite->animation->textures;
-	entity->sprite->animate = true;
 	ft_lst_remove_if(&game->entities, entity, equal, t_entity_destroy);
 	return (true);
 }

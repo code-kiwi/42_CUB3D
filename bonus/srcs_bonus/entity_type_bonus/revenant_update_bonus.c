@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 12:13:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 13:20:00 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ static void	revenant_close_attack(t_entity *entity, t_sprite *sprite,
 {
 	if (entity->cooldown > 0)
 		return ;
+	set_animation(sprite, &game->anim[IDX_TXTR_REVENANT_WALK]);
 	sprite->next_animation = &game->anim[IDX_TXTR_REVENANT_WALK];
-	sprite->animation = &game->anim[IDX_TXTR_REVENANT_PUNCH];
-	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = REVENANT_CLOSE_ATTACK_PAUSE;
 	player_get_damage(game, REVENANT_CLOSE_ATTACK_DAMAGE);
 }
@@ -38,9 +37,8 @@ static bool	revenant_range_attack(t_entity *entity, t_sprite *sprite,
 {
 	if (entity->cooldown > 0)
 		return (true);
+	set_animation(sprite, &game->anim[IDX_TXTR_REVENANT_SHOOT]);
 	sprite->next_animation = &game->anim[IDX_TXTR_REVENANT_WALK];
-	sprite->animation = &game->anim[IDX_TXTR_REVENANT_SHOOT];
-	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = REVENANT_RANGE_ATTACK_PAUSE;
 	return (entity_shoot_bullet(game, entity, revenant_projectile_init));
 }

@@ -24,9 +24,8 @@ static void	boh_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 {
 	if (entity->cooldown > 0)
 		return ;
+	set_animation(entity->sprite, &game->anim[IDX_TXTR_BOH_ATTACK]);
 	sprite->next_animation = &game->anim[IDX_TXTR_BOH_WALK];
-	sprite->animation = &game->anim[IDX_TXTR_BOH_ATTACK];
-	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = BOH_CLOSE_ATTACK_PAUSE;
 	player_get_damage(game, BOH_CLOSE_ATTACK_DAMAGE);
 }
@@ -35,9 +34,8 @@ static bool	boh_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
 {
 	if (entity->cooldown > 0)
 		return (true);
+	set_animation(entity->sprite, &game->anim[IDX_TXTR_BOH_ATTACK]);
 	sprite->next_animation = &game->anim[IDX_TXTR_BOH_WALK];
-	sprite->animation = &game->anim[IDX_TXTR_BOH_ATTACK];
-	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = BOH_RANGE_ATTACK_PAUSE;
 	return (entity_shoot_bullet(game, entity, boh_projectile_init));
 }

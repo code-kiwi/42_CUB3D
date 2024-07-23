@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 12:11:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 13:19:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ static bool	commando_range_attack(t_entity *entity, t_sprite *sprite,
 {
 	if (entity->cooldown > 0)
 		return (true);
+	set_animation(entity->sprite, &game->anim[IDX_TXTR_COMMANDO_ATTACK]);
 	sprite->next_animation = &game->anim[IDX_TXTR_COMMANDO_WALK];
-	sprite->animation = &game->anim[IDX_TXTR_COMMANDO_ATTACK];
-	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = COMMANDO_ATTACK_PAUSE;
 	return (entity_shoot_bullet(game, entity, imp_projectile_init));
 }

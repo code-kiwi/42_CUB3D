@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 12:10:25 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 13:19:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ static void	arch_vile_close_attack(t_entity *entity, t_sprite *sprite, \
 {
 	if (entity->cooldown > 0)
 		return ;
+	set_animation(entity->sprite, &game->anim[IDX_TXTR_ARCH_VILE_ATTACK]);
 	sprite->next_animation = &game->anim[IDX_TXTR_ARCH_VILE_WALK];
-	sprite->animation = &game->anim[IDX_TXTR_ARCH_VILE_ATTACK];
-	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = ARCH_VILE_ATTACK_PAUSE;
 	player_get_damage(game, ARCH_VILE_ATTACK_DAMAGE);
 }
@@ -49,9 +48,8 @@ static bool	arch_vile_spawn(t_entity *entity, t_sprite *sprite, t_game *game)
 		return (false);
 	new_lost_soul->sprite->position.x = position.x;
 	new_lost_soul->sprite->position.y = position.y;
-	sprite->animation = &game->anim[IDX_TXTR_ARCH_VILE_ATTACK];
+	set_animation(entity->sprite, &game->anim[IDX_TXTR_ARCH_VILE_ATTACK]);
 	sprite->next_animation = &game->anim[IDX_TXTR_ARCH_VILE_WALK];
-	entity->sprite->texture = entity->sprite->animation->textures;
 	return (true);
 }
 

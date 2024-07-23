@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 12:12:41 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 13:19:56 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ static void	mancubus_close_attack(t_entity *entity, t_sprite *sprite,
 {
 	if (entity->cooldown > 0)
 		return ;
+	set_animation(entity->sprite, &game->anim[IDX_TXTR_MANCUBUS_ATTACK]);
 	sprite->next_animation = &game->anim[IDX_TXTR_MANCUBUS_WALK];
-	sprite->animation = &game->anim[IDX_TXTR_MANCUBUS_ATTACK];
-	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = MANCUBUS_CLOSE_ATTACK_PAUSE;
 	player_get_damage(game, MANCUBUS_CLOSE_ATTACK_DAMAGE);
 }
@@ -38,9 +37,8 @@ static bool	mancubus_range_attack(t_entity *entity, t_sprite *sprite,
 {
 	if (entity->cooldown > 0)
 		return (true);
+	set_animation(entity->sprite, &game->anim[IDX_TXTR_MANCUBUS_ATTACK]);
 	sprite->next_animation = &game->anim[IDX_TXTR_MANCUBUS_WALK];
-	sprite->animation = &game->anim[IDX_TXTR_MANCUBUS_ATTACK];
-	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = MANCUBUS_RANGE_ATTACK_PAUSE;
 	return (entity_shoot_bullet(game, entity, mancubus_projectile_init));
 }

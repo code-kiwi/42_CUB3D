@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 12:12:57 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 13:19:58 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ static void	pain_elem_close_attack(t_entity *entity, t_sprite *sprite,
 {
 	if (entity->cooldown > 0)
 		return ;
+	set_animation(entity->sprite, &game->anim[IDX_TXTR_PAIN_ELEM_ATTACK]);
 	sprite->next_animation = &game->anim[IDX_TXTR_PAIN_ELEM_WALK];
-	sprite->animation = &game->anim[IDX_TXTR_PAIN_ELEM_ATTACK];
-	entity->sprite->texture = entity->sprite->animation->textures;
 	entity->cooldown = PAIN_ELEM_ATTACK_PAUSE;
 	player_get_damage(game, PAIN_ELEM_ATTACK_DAMAGE);
 }
@@ -49,9 +48,8 @@ static bool	pain_elem_spawn(t_entity *entity, t_sprite *sprite, t_game *game)
 		return (false);
 	new_lost_soul->sprite->position.x = position.x;
 	new_lost_soul->sprite->position.y = position.y;
-	sprite->animation = &game->anim[IDX_TXTR_PAIN_ELEM_ATTACK];
+	set_animation(entity->sprite, &game->anim[IDX_TXTR_PAIN_ELEM_ATTACK]);
 	sprite->next_animation = &game->anim[IDX_TXTR_PAIN_ELEM_WALK];
-	entity->sprite->texture = entity->sprite->animation->textures;
 	return (true);
 }
 

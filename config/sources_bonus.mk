@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/22 16:32:15 by brappo           ###   ########.fr        #
+#    Updated: 2024/07/23 13:01:25 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -215,7 +215,8 @@ RADAR_BONUS					=	$(addprefix $(RADAR_DIR_BONUS), $(RADAR_FILES_BONUS))
 ANIMATION_DIR_BONUS			=	animation_bonus/
 ANIMATION_FILES_BONUS		=	create_animation_bonus.c		\
 								destroy_animation_bonus.c		\
-								update_animations_bonus.c
+								update_animations_bonus.c		\
+								set_animation_bonus.c
 ANIMATION_BONUS				=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
 
 # UTILS
