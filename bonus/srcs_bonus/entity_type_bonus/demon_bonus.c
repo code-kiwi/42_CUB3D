@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 10:33:29 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 10:58:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static bool	demon_get_chainsawed(t_game *game, t_entity *entity)
 	return (true);
 }
 
-bool	demon_init(t_entity *entity, t_animation *&animations[MAP_NB_IDS])
+bool	demon_init(t_entity *entity, t_animation animations[MAP_NB_IDS])
 {
 	entity->update = demon_update;
 	entity->get_killed = demon_get_killed;

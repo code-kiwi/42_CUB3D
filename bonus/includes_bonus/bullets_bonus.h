@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 16:31:52 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 10:55:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ struct	s_bullet
 
 void	update_bullets(t_game *game, float delta_time);
 bool	shoot_bullet(t_game *game, t_vector *position, t_vector *direction,
-			void (*init_bullet)(t_list *textures[MAP_NB_IDS], t_bullet *));
-void	caco_projectile_init(t_list *textures[MAP_NB_IDS], t_bullet *bullet);
-void	imp_projectile_init(t_list *textures[MAP_NB_IDS], t_bullet *bullet);
-void	boh_projectile_init(t_list *textures[MAP_NB_IDS], t_bullet *bullet);
-void	rocket_projectile_init(t_list *textures[MAP_NB_IDS], t_bullet *bullet);
-void	mancubus_projectile_init(t_list *textures[MAP_NB_IDS], \
+			void (*init_bullet)(t_animation animations[MAP_NB_IDS], t_bullet *));
+void	caco_projectile_init(t_animation animations[MAP_NB_IDS], t_bullet *bullet);
+void	imp_projectile_init(t_animation animations[MAP_NB_IDS], t_bullet *bullet);
+void	boh_projectile_init(t_animation animations[MAP_NB_IDS], t_bullet *bullet);
+void	rocket_projectile_init(t_animation animations[MAP_NB_IDS], t_bullet *bullet);
+void	mancubus_projectile_init(t_animation animations[MAP_NB_IDS], \
 			t_bullet *bullet);
-void	revenant_projectile_init(t_list *textures[MAP_NB_IDS], \
+void	revenant_projectile_init(t_animation animations[MAP_NB_IDS], \
 			t_bullet *bullet);
 
 #endif // !BULLETS_BONUS_H

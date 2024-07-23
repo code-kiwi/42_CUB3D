@@ -64,14 +64,14 @@ bool	arch_vile_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < ARCH_VILE_ATTACK_RANGE)
 	{
-		stop_walk_animation(sprite, &game->animations);
+		stop_walk_animation(sprite, game->animations);
 		arch_vile_close_attack(entity, sprite, game);
 	}
 	else if (!entity->see_player)
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 	else
 	{
-		stop_walk_animation(sprite, &game->animations);
+		stop_walk_animation(sprite, game->animations);
 		return (arch_vile_spawn(entity, sprite, game));
 	}
 	return (true);

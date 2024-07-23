@@ -54,7 +54,7 @@ bool	boh_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < BOH_CLOSE_ATTACK_RANGE)
 	{
-		stop_walk_animation(sprite, &game->animations);
+		stop_walk_animation(sprite, game->animations);
 		boh_close_attack(entity, sprite, game);
 	}
 	else
@@ -63,7 +63,7 @@ bool	boh_update(t_game *game, t_entity *entity, float delta_time)
 			return (false);
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)
-			stop_walk_animation(sprite, &game->animations);
+			stop_walk_animation(sprite, game->animations);
 	}
 	return (true);
 }

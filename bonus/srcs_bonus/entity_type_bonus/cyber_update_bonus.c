@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 10:37:41 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:01:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ bool	cyber_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < CYBER_CLOSE_ATTACK_RANGE)
 	{
-		stop_walk_animation(sprite, &game->animations);
+		stop_walk_animation(sprite, game->animations);
 		cyber_close_attack(entity, sprite, game);
 	}
 	else
@@ -63,7 +63,7 @@ bool	cyber_update(t_game *game, t_entity *entity, float delta_time)
 			return (false);
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)
-			stop_walk_animation(sprite, &game->animations);
+			stop_walk_animation(sprite, game->animations);
 	}
 	return (true);
 }

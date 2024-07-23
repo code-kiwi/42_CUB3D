@@ -45,11 +45,11 @@ bool	commando_update(t_game *game, t_entity *entity, float delta_time)
 	{
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)
-			stop_walk_animation(sprite, &game->animations);
+			stop_walk_animation(sprite, game->animations);
 	}
 	else
 	{
-		stop_walk_animation(sprite, &game->animations);
+		stop_walk_animation(sprite, game->animations);
 		return (commando_range_attack(entity, sprite, game));
 	}
 	return (true);

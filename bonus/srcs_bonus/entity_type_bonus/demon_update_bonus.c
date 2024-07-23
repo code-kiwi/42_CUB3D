@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 10:37:57 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 10:59:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ bool	demon_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < DEMON_ATTACK_RANGE)
 	{
-		stop_walk_animation(sprite, &game->animations);
+		stop_walk_animation(sprite, game->animations);
 		demon_attack(entity, sprite, game);
 	}
 	else
 	{
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)
-			stop_walk_animation(sprite, &game->animations);
+			stop_walk_animation(sprite, game->animations);
 	}
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:50:01 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 15:26:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 10:53:36 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ static void	mancubus_projectile_use(t_game *game, t_bullet *bullet)
 	ft_lst_remove_if(&game->bullets, bullet, equal, free);
 }
 
-void	mancubus_projectile_init(t_list *textures[MAP_NB_IDS], t_bullet *bullet)
+void	mancubus_projectile_init(t_animation animations[MAP_NB_IDS], t_bullet *bullet)
 {
-	t_sprite_init(bullet->sprite, textures[IDX_TXTR_MANCUBUS_FIREBALL], WIN_HEIGHT);
+	t_sprite_init(bullet->sprite, &animations[IDX_TXTR_MANCUBUS_FIREBALL], WIN_HEIGHT);
 	bullet->use = mancubus_projectile_use;
 }

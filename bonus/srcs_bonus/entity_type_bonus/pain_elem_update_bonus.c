@@ -64,14 +64,14 @@ bool	pain_elem_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < PAIN_ELEM_ATTACK_RANGE)
 	{
-		stop_walk_animation(sprite, &game->animations);
+		stop_walk_animation(sprite, game->animations);
 		pain_elem_close_attack(entity, sprite, game);
 	}
 	else if (!entity->see_player)
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 	else
 	{
-		stop_walk_animation(sprite, &game->animations);
+		stop_walk_animation(sprite, game->animations);
 		return (pain_elem_spawn(entity, sprite, game));
 	}
 	return (true);

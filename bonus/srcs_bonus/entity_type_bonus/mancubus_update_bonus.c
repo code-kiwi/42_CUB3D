@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 10:38:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:01:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,18 @@ bool	mancubus_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < MANCUBUS_CLOSE_ATTACK_RANGE)
 	{
-		stop_walk_animation(sprite, &game->animations);
+		stop_walk_animation(sprite, game->animations);
 		mancubus_close_attack(entity, sprite, game);
 	}
 	else if (!entity->see_player)
 	{
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)
-			stop_walk_animation(sprite, &game->animations);
+			stop_walk_animation(sprite, game->animations);
 	}
 	else
 	{
-		stop_walk_animation(sprite, &game->animations);
+		stop_walk_animation(sprite, game->animations);
 		return (mancubus_range_attack(entity, sprite, game));
 	}
 	return (true);

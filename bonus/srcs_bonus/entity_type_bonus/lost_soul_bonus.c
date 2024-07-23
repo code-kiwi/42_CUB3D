@@ -39,7 +39,7 @@ static bool	lost_soul_get_chainsawed(t_game *game, t_entity *entity)
 	return (true);
 }
 
-bool	lost_soul_init(t_entity *entity, t_list animations[MAP_NB_IDS])
+bool	lost_soul_init(t_entity *entity, t_animation animations[MAP_NB_IDS])
 {
 	entity->update = lost_soul_update;
 	entity->get_killed = lost_soul_get_killed;
