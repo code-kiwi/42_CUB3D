@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 12:29:13 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 14:58:58 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ int	game_loop(t_game *game)
 		draw_ui(&game->ui_pause, game->mlx.img_buff);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
-	// printf("fps : %d\n", (int)(1.0f / delta_time));
+	printf("fps : %d\n", (int)(1.0f / delta_time));
 	return (0);
 }

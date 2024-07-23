@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 14:58:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 #include "libft.h"
 
 static	void	get_pixel_position_in_tile(t_ray *ray,
-	t_vector *player_position, t_vector *result, float inverse_dist)
+	t_vector *player_position, t_vector *result, float inv_dist)
 {
-	result->x = player_position->x + ray->slope.x / inverse_dist;
-	result->y = player_position->y - ray->slope.y / inverse_dist;
+	result->x = player_position->x + ray->slope.x / inv_dist;
+	result->y = player_position->y - ray->slope.y / inv_dist;
 	result->x -= (int)result->x;
 	result->y -= (int)result->y;
 }
@@ -45,7 +45,7 @@ void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
 	t_ground_ceiling	data;
 
 	data.ceiling_y = column->start - 1;
-	data.inverse_dist = (column->coords.y * ray->cos_angle_from_orientation) \
+	data.inv_dist = (column->coords.y * ray->cos_angle_from_orientation) \
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
 	data.unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2);
 	data.ground_addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x,
@@ -55,15 +55,15 @@ void	draw_ground_ceiling(t_column *column, int end, t_game *game, t_ray *ray)
 	while (column->coords.y < end)
 	{
 		get_pixel_position_in_tile(ray, &game->player.position,
-			&data.pixel_pos, data.inverse_dist);
+			&data.pixel_pos, data.inv_dist);
 		draw_pixel_from_texture(&data.pixel_pos, data.ground_addr,
-			game->anim[IDX_TXTR_FLOOR].textures->content, 1 / data.inverse_dist);
+			game->anim[IDX_TXTR_FLOOR].textures->content, 1 / data.inv_dist);
 		if (data.ceiling_y >= 0)
 			draw_pixel_from_texture(&data.pixel_pos, data.ceiling_addr,
-				game->anim[IDX_TXTR_CEIL].textures->content, 1 / data.inverse_dist);
+				game->anim[IDX_TXTR_CEIL].textures->content, 1 / data.inv_dist);
 		column->coords.y++;
 		data.ceiling_y--;
-		data.inverse_dist += data.unit;
+		data.inv_dist += data.unit;
 		data.ground_addr += game->mlx.img_buff->line_len;
 		data.ceiling_addr -= game->mlx.img_buff->line_len;
 	}
