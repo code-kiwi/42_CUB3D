@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 11:09:19 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/23 12:53:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ struct s_weapon
 	t_list			*curr_frame_link;
 	t_image			*frame_default;
 	t_list			*frames_action;
-	t_list			*frames_reload;
 	t_list			*frames_bullet;
 	t_image			*target;
 	size_t			num_loads;
@@ -45,12 +44,17 @@ struct s_weapon
 	char			id;
 	t_mlx_coords	coords;
 	t_mlx_coords	size;
+	t_mlx_coords	target_coords;
+	t_mlx_coords	target_size;
 };
 
 // Weapon functions
 bool	init_weapons(t_game *game);
+bool	init_resize_imgs(t_weapon weapons[NB_TOT_WEAPONS], t_mlx *mlx);
+void	init_all_weapon_positions(t_weapon weapons[NB_TOT_WEAPONS], t_mlx *mlx);
 void	update_weapon(t_weapon *weapon, t_game *game);
-void	set_weapon_positions(t_weapon *weapon, t_game *game);
-void    use_weapon(t_weapon *weapon, t_game *game);
+void	set_weapon_position(t_weapon *weapon, t_mlx *mlx);
+void	set_weapon_target_position(t_weapon *weapon, t_mlx *mlx);
+void	use_weapon(t_weapon *weapon, t_game *game);
 
-# endif
+#endif

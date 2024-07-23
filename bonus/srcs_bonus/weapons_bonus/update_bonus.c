@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 14:31:20 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 14:39:08 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/23 12:41:46 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	update_weapon(t_weapon *weapon, t_game *game)
 		else
 		{
 			weapon->curr_frame = weapon->frame_default;
-			set_weapon_positions(weapon, game);
+			set_weapon_position(weapon, &game->mlx);
 		}
 	}
 }

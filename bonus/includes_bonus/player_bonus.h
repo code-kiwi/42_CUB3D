@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 16:06:32 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/23 12:54:01 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ bool	t_player_init(t_player *player, t_map *map, t_game *game);
 void	destroy_player(t_player *player);
 void	update_player(t_game *game, float delta_time);
 void	player_get_damage(t_game *game, size_t damage);
-void    draw_player(t_game *game, t_player *player);
+void	draw_player(t_game *game, t_player *player);
 
 // Weapons utils
 bool	init_player_weapons(t_game *game, t_player *player);

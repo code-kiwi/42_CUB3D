@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 11:03:28 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/23 12:53:19 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #include "event_handlers_bonus.h"
 #include "ui_bonus.h"
 
-
-#include <stdio.h>
 int	mouse_release_handler(int button, int x, int y, t_game *game)
 {
 	if (button == MOUSE_LEFT && game->pause)
