@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   commando_update_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 13:19:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 19:25:42 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,11 @@ static bool	commando_range_attack(t_entity *entity, t_sprite *sprite,
 
 bool	commando_update(t_game *game, t_entity *entity, float delta_time)
 {
-	float		distance;
 	t_sprite	*sprite;
 
 	if (entity->cooldown > 0)
 		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
-	distance = get_distance(&sprite->position, &game->player.position);
 	sprite->animate = true;
 	if (!entity->see_player)
 	{
