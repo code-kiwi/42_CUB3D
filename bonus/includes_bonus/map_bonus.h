@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 22:22:33 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -242,9 +242,9 @@ struct s_map
 
 // Map functions
 bool	read_map(t_map *map, char *filename,
-			t_animation animations[MAP_NB_IDS]);
+			t_animation anim[MAP_NB_IDS]);
 bool	is_map_valid(t_map *map);
-bool	read_elements(t_map *map, int fd, t_animation animations[MAP_NB_IDS]);
+bool	read_elements(t_map *map, int fd, t_animation anim[MAP_NB_IDS]);
 bool	is_in_bounds(t_vector *position, t_map *map);
 bool	is_character(t_vector *position, t_map *map, char character);
 bool	check_extension(char *filename, char *extension);

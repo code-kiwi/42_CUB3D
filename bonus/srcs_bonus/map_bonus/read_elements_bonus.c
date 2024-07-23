@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 22:20:12 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static bool	read_animation_wait(size_t *out, char *wait_time)
 }
 
 static bool	parse_element(t_map *map, char *element, char **identifier, \
-	t_animation animations[MAP_NB_IDS])
+	t_animation anim[MAP_NB_IDS])
 {
 	char	**infos;
 	ssize_t	identifier_index;
@@ -75,7 +75,7 @@ static bool	parse_element(t_map *map, char *element, char **identifier, \
 		return (false);
 	}
 	if (!get_texture_size(&map->texture_size[identifier_index], infos[2])
-		|| !read_animation_wait(&animations[identifier_index].wait, infos[3]))
+		|| !read_animation_wait(&anim[identifier_index].wait, infos[3]))
 		return (ft_free_str_array(&infos), false);
 	free(infos[2]);
 	free(infos[3]);
@@ -85,7 +85,7 @@ static bool	parse_element(t_map *map, char *element, char **identifier, \
 	return (true);
 }
 
-bool	read_elements(t_map *map, int fd, t_animation animations[MAP_NB_IDS])
+bool	read_elements(t_map *map, int fd, t_animation anim[MAP_NB_IDS])
 {
 	char			*line;
 	unsigned int	elements_read;
@@ -102,7 +102,7 @@ bool	read_elements(t_map *map, int fd, t_animation animations[MAP_NB_IDS])
 		remove_last_breakline(line);
 		if (line[0] != '\0')
 		{
-			if (!parse_element(map, line, identifier, animations))
+			if (!parse_element(map, line, identifier, anim))
 			{
 				free(line);
 				return (false);

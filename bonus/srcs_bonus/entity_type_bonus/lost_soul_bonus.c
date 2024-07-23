@@ -19,7 +19,7 @@ static bool	lost_soul_get_killed(t_game *game, t_entity *entity)
 		return (false);
 	if (game->last_entity_updated->content == entity)
 		game->last_entity_updated = game->last_entity_updated->next;
-	entity->sprite->animation = &game->animations[IDX_TXTR_LOST_SOUL_DEATH];
+	entity->sprite->animation = &game->anim[IDX_TXTR_LOST_SOUL_DEATH];
 	entity->sprite->next_animation = NULL;
 	entity->sprite->animate = true;
 	ft_lst_remove_if(&game->entities, entity, equal, t_entity_destroy);
@@ -39,7 +39,7 @@ static bool	lost_soul_get_chainsawed(t_game *game, t_entity *entity)
 	return (true);
 }
 
-bool	lost_soul_init(t_entity *entity, t_animation animations[MAP_NB_IDS])
+bool	lost_soul_init(t_entity *entity, t_animation anim[MAP_NB_IDS])
 {
 	entity->update = lost_soul_update;
 	entity->get_killed = lost_soul_get_killed;
@@ -49,6 +49,6 @@ bool	lost_soul_init(t_entity *entity, t_animation animations[MAP_NB_IDS])
 	entity->speed = LOST_SOUL_SPEED;
 	entity->squared_radius = LOST_SOUL_SQUARED_RADIUS;
 	entity->type = NULL;
-	t_sprite_init(entity->sprite, &animations[IDX_TXTR_LOST_SOUL_WALK], WIN_HEIGHT);
+	t_sprite_init(entity->sprite, &anim[IDX_TXTR_LOST_SOUL_WALK], WIN_HEIGHT);
 	return (true);
 }

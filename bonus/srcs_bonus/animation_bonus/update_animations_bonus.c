@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   update_animations_bonus.c                          :+:      :+:    :+:   */
+/*   update_anim_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,7 +16,7 @@
 #include "sprite_bonus.h"
 #include "entities_bonus.h"
 
-void	update_animations(t_game *game, float delta_time)
+void	update_anim(t_game *game, float delta_time)
 {
 	t_list		*current;
 	t_sprite	*sprite;

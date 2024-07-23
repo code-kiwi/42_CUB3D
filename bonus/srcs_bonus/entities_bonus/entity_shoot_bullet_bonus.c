@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:39:12 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 10:49:01 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	get_entity_direction(t_vector *result, t_vector *player_pos,
 }
 
 bool	entity_shoot_bullet(t_game *game, t_entity *entity,
-	void (*bullet_init)(t_animation animations[MAP_NB_IDS], t_bullet *))
+	void (*bullet_init)(t_animation anim[MAP_NB_IDS], t_bullet *))
 {
 	t_vector	direction;
 	t_vector	position;

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:09:39 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 10:52:35 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	boh_projectile_use(t_game *game, t_bullet *bullet)
 	if (game == NULL || bullet == NULL)
 		return ;
 	sprite = bullet->sprite;
-	sprite->animation = &game->animations[IDX_TXTR_BOH_PROJ_DEATH];
+	sprite->animation = &game->anim[IDX_TXTR_BOH_PROJ_DEATH];
 	sprite->next_animation = NULL;
 	player_pos = &game->player.position;
 	if (get_distance(player_pos, &bullet->sprite->position) < PLAYER_RADIUS)
@@ -30,8 +30,8 @@ static void	boh_projectile_use(t_game *game, t_bullet *bullet)
 	ft_lst_remove_if(&game->bullets, bullet, equal, free);
 }
 
-void	boh_projectile_init(t_animation animations[MAP_NB_IDS], t_bullet *bullet)
+void	boh_projectile_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
 {
-	t_sprite_init(bullet->sprite, &animations[IDX_TXTR_BOH_PROJ_LIVE], WIN_HEIGHT);
+	t_sprite_init(bullet->sprite, &anim[IDX_TXTR_BOH_PROJ_LIVE], WIN_HEIGHT);
 	bullet->use = boh_projectile_use;
 }

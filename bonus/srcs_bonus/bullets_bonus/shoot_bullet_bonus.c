@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:06:25 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 10:46:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft.h"
 
 bool	shoot_bullet(t_game *game, t_vector *position, t_vector *direction,
-	void (*init_bullet)(t_animation animations[MAP_NB_IDS], t_bullet *))
+	void (*init_bullet)(t_animation anim[MAP_NB_IDS], t_bullet *))
 {
 	t_bullet	*new_bullet;
 	t_list		*new_node;
@@ -36,7 +36,7 @@ bool	shoot_bullet(t_game *game, t_vector *position, t_vector *direction,
 		return (free(new_bullet), false);
 	ft_lstadd_front(&game->bullets, new_node);
 	new_bullet->move = *direction;
-	init_bullet(game->animations, new_bullet);
+	init_bullet(game->anim, new_bullet);
 	new_sprite->distance = get_distance(position, &game->player.position);
 	return (true);
 }

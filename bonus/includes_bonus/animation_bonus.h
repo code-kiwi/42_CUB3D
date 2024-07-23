@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 12:35:15 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 10:17:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ struct s_animation
 void	destroy_animation_textures(t_list *textures, void *mlx_ptr);
 t_list	*create_animation_textures(t_image *texture, t_mlx_coords *size, \
 			void *mlx_ptr, char *texture_name);
-void	update_animations(t_game *game, float delta_time);
+void	update_anim(t_game *game, float delta_time);
 
 #endif
