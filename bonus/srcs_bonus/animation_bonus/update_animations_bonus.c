@@ -33,11 +33,13 @@ void	update_anim(t_game *game, float delta_time)
 			continue ;
 		}
 		sprite->frame_update_delta = 0;
-		sprite->animation->textures = sprite->animation->textures->next;
-		if (sprite->animation->textures == NULL)
+		sprite->texture = sprite->texture->next;
+		if (sprite->texture == NULL)
 			sprite->animation = sprite->next_animation;
 		current = current->next;
 		if (sprite->animation == NULL)
 			ft_lst_remove_if(&game->sprites, sprite, equal, free);
+		else
+			sprite->texture = sprite->animation->textures;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 11:15:46 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:24:25 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ struct	s_sprite
 {
 	t_vector	position;
 	float		distance;
+	t_list		*texture;
 	t_animation	*animation;
 	t_animation	*next_animation;
 	size_t		height;
