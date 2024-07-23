@@ -43,7 +43,10 @@ void	update_animations(t_list **sprites, float delta_time)
 		sprite = current->content;
 		current = current->next;
 		sprite->frame_update_delta += delta_time;
-		if (sprite->frame_update_delta >= ANIMATION_UPDATE && sprite->animate)
+		if (sprite->frame_update_delta >= sprite->animation->wait
+			&& sprite->animate)
+		{
 			update_sprite_anim(sprite, sprites);
+		}
 	}
 }

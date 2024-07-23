@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 12:35:15 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 13:02:17 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 13:35:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_mlx_coords	t_mlx_coords;
 struct s_animation
 {
 	t_list	*textures;
-	size_t	wait;
+	float	wait;
 	bool	(*on_end)(t_game *, t_sprite *);
 };
 

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 13:36:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static bool	get_texture_size(t_mlx_coords *out, char *size)
 	return (true);
 }
 
-static bool	read_animation_wait(size_t *out, char *wait_time)
+static bool	read_animation_wait(float *out, char *wait_time)
 {
 	int	value;
 
@@ -51,7 +51,7 @@ static bool	read_animation_wait(size_t *out, char *wait_time)
 	value = ft_atoi(wait_time);
 	if (value <= 0)
 		return (error_print(ERR_ANIM_TIME_NEGATIVE), false);
-	*out = value;
+	*out = (float)value / 1000;
 	return (true);
 }
 
