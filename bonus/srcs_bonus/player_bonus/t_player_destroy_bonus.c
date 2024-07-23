@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_player_destroy_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:07:50 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/28 12:00:05 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/23 10:19:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	destroy_player(t_player *player, void *mlx_ptr)
 		return ;
 	if (player->display.frames != NULL)
 	{
-		destroy_animation(player->display.frames, mlx_ptr, true);
+		destroy_animation_textures(player->display.frames, mlx_ptr);
 		player->display.frames = NULL;
 	}
 	if (player->display.target_texture.ptr != NULL)

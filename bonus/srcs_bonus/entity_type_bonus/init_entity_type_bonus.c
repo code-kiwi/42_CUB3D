@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:26:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 16:22:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 10:34:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,32 @@
 #include "map_bonus.h"
 
 bool	init_entity_type(t_entity *entity, char id, \
-	t_list *textures[MAP_NB_IDS])
+	t_animation animations[MAP_NB_IDS])
 {
 	if (id == ID_MAP_DEMON)
-		return (demon_init(entity, textures));
+		return (demon_init(entity, animations));
 	else if (id == ID_MAP_IMP)
-		return (imp_init(entity, textures));
+		return (imp_init(entity, animations));
 	else if (id == ID_MAP_CACO)
-		return (caco_init(entity, textures));
+		return (caco_init(entity, animations));
 	else if (id == ID_MAP_BOH)
-		return (boh_init(entity, textures));
+		return (boh_init(entity, animations));
 	else if (id == ID_MAP_LOST_SOUL)
-		return (lost_soul_init(entity, textures));
+		return (lost_soul_init(entity, animations));
 	else if (id == ID_MAP_PAIN_ELEM)
-		return (pain_elem_init(entity, textures));
+		return (pain_elem_init(entity, animations));
 	else if (id == ID_MAP_CYBER)
-		return (cyber_init(entity, textures));
+		return (cyber_init(entity, animations));
 	else if (id == ID_MAP_REVENANT)
-		return (revenant_init(entity, textures));
+		return (revenant_init(entity, animations));
 	else if (id == ID_MAP_MANCUBUS)
-		return (mancubus_init(entity, textures));
+		return (mancubus_init(entity, animations));
 	else if (id == ID_MAP_ARCH_VILE)
-		return (arch_vile_init(entity, textures));
+		return (arch_vile_init(entity, animations));
 	else if (id == ID_MAP_SERGEANT)
-		return (sergeant_init(entity, textures));
+		return (sergeant_init(entity, animations));
 	else if (id == ID_MAP_COMMANDO)
-		return (commando_init(entity, textures));
+		return (commando_init(entity, animations));
 	else
 		return (false);
 }

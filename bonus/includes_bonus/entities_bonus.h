@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 16:20:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 10:40:00 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,31 +154,31 @@ bool	get_spawn_position(t_vector *result, t_entity *entity,
 			t_vector *direction, t_game *game);
 
 // Init entities species
-bool	demon_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	demon_init(t_entity *entity, t_animation animations[MAP_NB_IDS]);
 bool	demon_update(t_game *game, t_entity *entity, float delta_time);
-bool	imp_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	imp_init(t_entity *entity, t_animation animations[MAP_NB_IDS]);
 bool	imp_update(t_game *game, t_entity *entity, float delta_time);
-bool	caco_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	caco_init(t_entity *entity, t_animation animations[MAP_NB_IDS]);
 bool	caco_update(t_game *game, t_entity *entity, float delta_time);
-bool	boh_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	boh_init(t_entity *entity, t_animation animations[MAP_NB_IDS]);
 bool	boh_update(t_game *game, t_entity *entity, float delta_time);
-bool	lost_soul_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	lost_soul_init(t_entity *entity, t_animation animations[MAP_NB_IDS]);
 bool	lost_soul_update(t_game *game, t_entity *entity, float delta_time);
-bool	pain_elem_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	pain_elem_init(t_entity *entity, t_animation animations[MAP_NB_IDS]);
 bool	pain_elem_update(t_game *game, t_entity *entity, float delta_time);
-bool	cyber_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	cyber_init(t_entity *entity, t_animation animations[MAP_NB_IDS]);
 bool	cyber_update(t_game *game, t_entity *entity, float delta_time);
-bool	revenant_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	revenant_init(t_entity *entity, t_animation animations[MAP_NB_IDS]);
 bool	revenant_update(t_game *game, t_entity *entity, float delta_time);
-bool	mancubus_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	mancubus_init(t_entity *entity, t_animation animations[MAP_NB_IDS]);
 bool	mancubus_update(t_game *game, t_entity *entity, float delta_time);
-bool	arch_vile_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	arch_vile_init(t_entity *entity, t_animation animations[MAP_NB_IDS]);
 bool	arch_vile_update(t_game *game, t_entity *entity, float delta_time);
-bool	sergeant_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	sergeant_init(t_entity *entity, t_animation animations[MAP_NB_IDS]);
 bool	sergeant_update(t_game *game, t_entity *entity, float delta_time);
-bool	commando_init(t_entity *entity, t_list *textures[MAP_NB_IDS]);
+bool	commando_init(t_entity *entity, t_animation animations[MAP_NB_IDS]);
 bool	commando_update(t_game *game, t_entity *entity, float delta_time);
 bool	init_entity_type(t_entity *entity, char id, \
-			t_list *textures[MAP_NB_IDS]);
+			t_animation animations[MAP_NB_IDS]);
 
 #endif // !ENTITIES_BONUS_H

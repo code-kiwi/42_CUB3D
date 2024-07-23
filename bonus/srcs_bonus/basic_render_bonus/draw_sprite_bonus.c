@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 22:05:48 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 10:22:26 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	draw_all_columns(
 	t_image	*texture;
 	float	distance;
 
-	texture = sprite->animation.textures->content;
+	texture = sprite->animation->textures->content;
 	texture_x = 0;
 	if (column->coords.x < 0)
 	{

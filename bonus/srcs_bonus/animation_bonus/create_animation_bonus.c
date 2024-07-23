@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_animation_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:52:44 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 22:16:01 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 10:23:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static bool	add_anim_sprite(
 	return (true);
 }
 
-t_list	*create_animation(
+t_list	*create_animation_textures(
 	t_image *texture,
 	t_mlx_coords *size,
 	void *mlx_ptr,
@@ -86,7 +86,7 @@ t_list	*create_animation(
 		while (dim.coords.x < texture->width)
 		{
 			if (!add_anim_sprite(&anim, texture, &dim, mlx_ptr))
-				return (destroy_animation(anim, mlx_ptr, false), NULL);
+				return (destroy_animation_textures(anim, mlx_ptr), NULL);
 			dim.coords.x += size->x;
 		}
 		dim.coords.y += size->y;

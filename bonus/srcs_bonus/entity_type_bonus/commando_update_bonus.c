@@ -15,9 +15,9 @@
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
-static void	stop_walk_animation(t_sprite *sprite, t_list *textures[MAP_NB_IDS])
+static void	stop_walk_animation(t_sprite *sprite, t_animation animations[MAP_NB_IDS])
 {
-	if (sprite->animation == textures[IDX_TXTR_COMMANDO_WALK])
+	if (sprite->animation == &animations[IDX_TXTR_COMMANDO_WALK])
 		sprite->animate = false;
 }
 
@@ -25,8 +25,8 @@ static bool	commando_range_attack(t_entity *entity, t_sprite *sprite, t_game *ga
 {
 	if (entity->cooldown > 0)
 		return (true);
-	sprite->next_animation = game->textures[IDX_TXTR_COMMANDO_WALK];
-	sprite->animation = game->textures[IDX_TXTR_COMMANDO_ATTACK];
+	sprite->next_animation = &game->animations[IDX_TXTR_COMMANDO_WALK];
+	sprite->animation = &game->animations[IDX_TXTR_COMMANDO_ATTACK];
 	entity->cooldown = COMMANDO_ATTACK_PAUSE;
 	return (entity_shoot_bullet(game, entity, imp_projectile_init));
 }
@@ -45,11 +45,11 @@ bool	commando_update(t_game *game, t_entity *entity, float delta_time)
 	{
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)
-			stop_walk_animation(sprite, game->textures);
+			stop_walk_animation(sprite, &game->animations);
 	}
 	else
 	{
-		stop_walk_animation(sprite, game->textures);
+		stop_walk_animation(sprite, &game->animations);
 		return (commando_range_attack(entity, sprite, game));
 	}
 	return (true);

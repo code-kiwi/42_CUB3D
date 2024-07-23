@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 15:25:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 10:38:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
-static void	stop_walk_animation(t_sprite *sprite, t_list *textures[MAP_NB_IDS])
+static void	stop_walk_animation(t_sprite *sprite, t_animation animations[MAP_NB_IDS])
 {
-	if (sprite->animation == textures[IDX_TXTR_MANCUBUS_WALK])
+	if (sprite->animation == &animations[IDX_TXTR_MANCUBUS_WALK])
 		sprite->animate = false;
 }
 
@@ -25,8 +25,8 @@ static void	mancubus_close_attack(t_entity *entity, t_sprite *sprite, t_game *ga
 {
 	if (entity->cooldown > 0)
 		return ;
-	sprite->next_animation = game->textures[IDX_TXTR_MANCUBUS_WALK];
-	sprite->animation = game->textures[IDX_TXTR_MANCUBUS_ATTACK];
+	sprite->next_animation = &game->animations[IDX_TXTR_MANCUBUS_WALK];
+	sprite->animation = &game->animations[IDX_TXTR_MANCUBUS_ATTACK];
 	entity->cooldown = MANCUBUS_CLOSE_ATTACK_PAUSE;
 	player_get_damage(game, MANCUBUS_CLOSE_ATTACK_DAMAGE);
 }
@@ -35,8 +35,8 @@ static bool	mancubus_range_attack(t_entity *entity, t_sprite *sprite, t_game *ga
 {
 	if (entity->cooldown > 0)
 		return (true);
-	sprite->next_animation = game->textures[IDX_TXTR_MANCUBUS_WALK];
-	sprite->animation = game->textures[IDX_TXTR_MANCUBUS_ATTACK];
+	sprite->next_animation = &game->animations[IDX_TXTR_MANCUBUS_WALK];
+	sprite->animation = &game->animations[IDX_TXTR_MANCUBUS_ATTACK];
 	entity->cooldown = MANCUBUS_RANGE_ATTACK_PAUSE;
 	return (entity_shoot_bullet(game, entity, mancubus_projectile_init));
 }
@@ -53,18 +53,18 @@ bool	mancubus_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < MANCUBUS_CLOSE_ATTACK_RANGE)
 	{
-		stop_walk_animation(sprite, game->textures);
+		stop_walk_animation(sprite, &game->animations);
 		mancubus_close_attack(entity, sprite, game);
 	}
 	else if (!entity->see_player)
 	{
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)
-			stop_walk_animation(sprite, game->textures);
+			stop_walk_animation(sprite, &game->animations);
 	}
 	else
 	{
-		stop_walk_animation(sprite, game->textures);
+		stop_walk_animation(sprite, &game->animations);
 		return (mancubus_range_attack(entity, sprite, game));
 	}
 	return (true);

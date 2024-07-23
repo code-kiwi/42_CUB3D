@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animation_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 12:35:15 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 22:23:32 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 10:17:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ struct s_animation
 	bool	(*on_end)(t_game *, t_sprite *);
 };
 
-void	destroy_animation(t_animation *anim, void *mlx_ptr);
-t_list	*create_animation(t_image *texture, t_mlx_coords *size, void *mlx_ptr,
-			char *texture_name);
+void	destroy_animation_textures(t_list *textures, void *mlx_ptr);
+t_list	*create_animation_textures(t_image *texture, t_mlx_coords *size, \
+			void *mlx_ptr, char *texture_name);
 void	update_animations(t_game *game, float delta_time);
 
 #endif
