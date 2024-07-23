@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 15:41:17 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/23 11:09:19 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 
 # include "mlx_api_bonus.h"
 
-# define NB_TOT_WEAPONS	2
-# define IDX_W1_HAND	0
-# define IDX_W2_PISTOL	1
+# define WEAPONS_H_RATIO	0.5f
+# define NB_TOT_WEAPONS		2
+# define IDX_W1_HAND		0
+# define IDX_W2_PISTOL		1
 
 typedef struct s_weapon	t_weapon;
 typedef struct s_list	t_list;

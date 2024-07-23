@@ -29,9 +29,9 @@ IMP_PROJECTILE_LIVE ./assets/textures/doom/effects/imp_projectile/imp_projectile
 IMP_PROJECTILE_DEATH ./assets/textures/doom/effects/imp_projectile/imp_projectile_death.xpm 50,44
 
 W_TARGET1 ./assets/textures/targets/target_red1.xpm 100,100
-W1_HAND ./assets/textures/doom/weapons/hand.xpm 113,42
-W1_PUNCH ./assets/textures/doom/weapons/punch.xpm 147,76
-W2_PISTOL ./assets/textures/doom/weapons/pistol.xpm 79,103
+W1_HAND ./assets/textures/doom/weapons/hand.xpm 113,151
+W1_PUNCH ./assets/textures/doom/weapons/punch.xpm 147,151
+W2_PISTOL ./assets/textures/doom/weapons/pistol.xpm 79,151
 
 111111111111111111111111
 100000000000000000000001

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 13:06:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/23 11:15:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 # define FPS					100
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				960
-# define WIN_HEIGHT				500
+# define WIN_WIDTH				1920
+# define WIN_HEIGHT				1000
 # define MAX_DISTANCE			10
 # define PAUSE_BG_DARK_FACTOR	0.4f
 
@@ -71,6 +71,7 @@
 # define ERR_MAP_DRAW_CREATION	"Map drawing cannot be created"
 # define ERR_MAP_DRAW_SIZE		"Map drawing cannot be initialized: map too big"
 # define ERR_WEAPONS_CREATION	"Weapons creation failed"
+# define ERR_WEAPONS_RESIZE		"Weapon resizing failed"
 # define ERR_P_WEAPONS_CREATION	"Player weapons creation failed"
 
 # define ERR_INIT_TEXTURES		"Can't open textures"
