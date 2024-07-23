@@ -16,31 +16,34 @@
 #include "sprite_bonus.h"
 #include "entities_bonus.h"
 
-void	update_anim(t_game *game, float delta_time)
+static void	update_sprite_anim(t_sprite *sprite, t_list **sprites)
+{
+	sprite->frame_update_delta = 0;
+	sprite->texture = sprite->texture->next;
+	if (sprite->texture == NULL)
+	{
+		sprite->animation = sprite->next_animation;
+		if (sprite->animation == NULL)
+			ft_lst_remove_if(sprites, sprite, equal, free);
+		else
+			sprite->texture = sprite->animation->textures;
+	}
+}
+
+void	update_animations(t_list **sprites, float delta_time)
 {
 	t_list		*current;
 	t_sprite	*sprite;
 
-	current = game->sprites;
+	if (sprites == NULL)
+		return ;
+	current = *sprites;
 	while (current)
 	{
 		sprite = current->content;
-		sprite->frame_update_delta += delta_time;
 		current = current->next;
-		if (sprite->frame_update_delta < ANIMATION_UPDATE
-			|| sprite->animate == false)
-		{
-			continue ;
-		}
-		sprite->frame_update_delta = 0;
-		sprite->texture = sprite->texture->next;
-		if (sprite->texture == NULL)
-		{
-			sprite->animation = sprite->next_animation;
-			if (sprite->animation == NULL)
-				ft_lst_remove_if(&game->sprites, sprite, equal, free);
-			else
-				sprite->texture = sprite->animation->textures;
-		}
+		sprite->frame_update_delta += delta_time;
+		if (sprite->frame_update_delta >= ANIMATION_UPDATE && sprite->animate)
+			update_sprite_anim(sprite, sprites);
 	}
 }
