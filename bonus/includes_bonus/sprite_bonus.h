@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 10:22:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:15:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ struct	s_sprite
 void		destroy_sprites(t_sprite ***sprites_ptr, size_t sprites_count);
 void		get_sprites_distances(t_list *sprites, t_vector *pos);
 float		compare_sprite_distance(void *a, void *b);
-void		t_sprite_init(t_sprite *sprite, t_animation *animation, size_t height);
+void		t_sprite_init(t_sprite *sprite, t_animation *animation,
+				size_t height);
 bool		init_sprites(t_game *game);
 void		*add_sprite(t_game *game, float x, float y, char id);
 

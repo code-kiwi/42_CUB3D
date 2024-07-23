@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:39:12 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:21:18 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool	get_spawn_position(t_vector *result, t_entity *entity,
 	tile_pos.x = result->x;
 	tile_pos.y = result->y;
 	return (is_walkable(&game->map, &tile_pos)
-			&& !collide_entity(game->entities, result));
+		&& !collide_entity(game->entities, result));
 }
 
 void	get_entity_direction(t_vector *result, t_vector *player_pos,

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   revenant_update_bonus.c                                 :+:      :+:    :+:   */
+/*   revenant_update_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 12:10:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:18:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static void	stop_walk_animation(t_sprite *sprite, t_animation anim[MAP_NB_IDS])
 		sprite->animate = false;
 }
 
-static void	revenant_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
+static void	revenant_close_attack(t_entity *entity, t_sprite *sprite,
+	t_game *game)
 {
 	if (entity->cooldown > 0)
 		return ;
@@ -31,7 +32,8 @@ static void	revenant_close_attack(t_entity *entity, t_sprite *sprite, t_game *ga
 	player_get_damage(game, REVENANT_CLOSE_ATTACK_DAMAGE);
 }
 
-static bool	revenant_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
+static bool	revenant_range_attack(t_entity *entity, t_sprite *sprite,
+	t_game *game)
 {
 	if (entity->cooldown > 0)
 		return (true);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arch_vile_bonus.c                                      :+:      :+:    :+:   */
+/*   arch_vile_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/19 15:50:22 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 11:17:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ bool	arch_vile_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->speed = ARCH_VILE_SPEED;
 	entity->squared_radius = ARCH_VILE_SQUARED_RADIUS;
 	entity->type = NULL;
-	t_sprite_init(entity->sprite, &animation[IDX_TXTR_ARCH_VILE_WALK], WIN_HEIGHT);
+	t_sprite_init(entity->sprite, &animation[IDX_TXTR_ARCH_VILE_WALK],
+		WIN_HEIGHT);
 	return (true);
 }

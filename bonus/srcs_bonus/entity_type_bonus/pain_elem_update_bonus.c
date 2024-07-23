@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pain_elem_update_bonus.c                               :+:      :+:    :+:   */
+/*   pain_elem_update_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/19 17:14:28 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 11:19:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static void	stop_walk_animation(t_sprite *sprite, t_animation anim[MAP_NB_IDS])
 		sprite->animate = false;
 }
 
-static void	pain_elem_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
+static void	pain_elem_close_attack(t_entity *entity, t_sprite *sprite,
+	t_game *game)
 {
 	if (entity->cooldown > 0)
 		return ;

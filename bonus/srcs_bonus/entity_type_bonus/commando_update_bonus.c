@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   commando_update_bonus.c                                 :+:      :+:    :+:   */
+/*   commando_update_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:50:44 by root              #+#    #+#             */
-/*   Updated: 2024/07/22 12:10:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:16:14 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static void	stop_walk_animation(t_sprite *sprite, t_animation anim[MAP_NB_IDS])
 		sprite->animate = false;
 }
 
-static bool	commando_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
+static bool	commando_range_attack(t_entity *entity, t_sprite *sprite,
+	t_game *game)
 {
 	if (entity->cooldown > 0)
 		return (true);

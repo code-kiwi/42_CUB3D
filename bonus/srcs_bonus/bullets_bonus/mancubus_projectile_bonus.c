@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:50:01 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 11:19:52 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	mancubus_projectile_use(t_game *game, t_bullet *bullet)
 
 void	mancubus_projectile_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
 {
-	t_sprite_init(bullet->sprite, &anim[IDX_TXTR_MANCUBUS_FIREBALL], WIN_HEIGHT);
+	t_sprite_init(bullet->sprite, &anim[IDX_TXTR_MANCUBUS_FIREBALL],
+		WIN_HEIGHT);
 	bullet->use = mancubus_projectile_use;
 }
