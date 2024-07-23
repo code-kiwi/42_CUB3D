@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:04:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 12:52:39 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:06:54 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 
 void	player_select_prev_weapon(t_player *player)
 {
+	if (
+		player == NULL
+		|| player->curr_weapon->curr_frame != player->curr_weapon->frame_default
+	)
+		return ;
 	if (player->curr_weapon_index == 0)
 	{
 		while (player->weapons[player->curr_weapon_index + 1])
@@ -32,6 +37,11 @@ void	player_select_prev_weapon(t_player *player)
 
 void	player_select_next_weapon(t_player *player)
 {
+	if (
+		player == NULL
+		|| player->curr_weapon->curr_frame != player->curr_weapon->frame_default
+	)
+		return ;
 	player->curr_weapon_index++;
 	if (player->weapons[player->curr_weapon_index] == NULL)
 		player->curr_weapon_index = 0;

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 12:54:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:50:07 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define PLAYER_SPEED_LEFT				3
 # define PLAYER_SPEED_RIGHT				3
 # define PLAYER_INTERACTION_DISTANCE	1.5
-# define PLAYER_HEALTH_POINT			6
+# define PLAYER_HEALTH_POINT			100
 # define PLAYER_ANIMATION_UPDATE		0.1f
 
 typedef struct s_game			t_game;

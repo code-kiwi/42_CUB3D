@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 12:51:47 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/23 13:57:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ static void	init_w1_hand(t_weapon *weapon, t_game *game)
 	weapon->num_loads = 0;
 	weapon->load_capacity = 0;
 	weapon->remaining_use = 0;
+	weapon->damage = 1;
+	weapon->range = 1.5f;
 	weapon->is_limited = false;
 	weapon->is_use_continuous = false;
 	weapon->id = 'M';
+	weapon->action = use_weapon_no_bullet;
 }
 
 static void	init_w2_pistol(t_weapon *weapon, t_game *game)
@@ -45,9 +48,12 @@ static void	init_w2_pistol(t_weapon *weapon, t_game *game)
 	weapon->num_loads = 2;
 	weapon->load_capacity = 5;
 	weapon->remaining_use = 5;
+	weapon->damage = 5;
+	weapon->range = 10.0f;
 	weapon->is_limited = true;
 	weapon->is_use_continuous = false;
 	weapon->id = 'N';
+	weapon->action = use_gun_classic;
 }
 
 bool	init_weapons(t_game *game)
