@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   commando_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 13:19:44 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 19:57:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,15 @@
 #include "cub3d_bonus.h"
 #include "bullets_bonus.h"
 
-static bool	commando_get_killed(t_game *game, t_entity *entity)
-{
-	if (game == NULL || entity == NULL || game->entities == NULL)
-		return (false);
-	if (game->last_entity_updated->content == entity)
-		game->last_entity_updated = game->last_entity_updated->next;
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_COMMANDO_DEATH]);
-	entity->sprite->next_animation = NULL;
-	ft_lst_remove_if(&game->entities, entity, equal, t_entity_destroy);
-	return (true);
-}
-
-static bool	commando_get_damage(t_game *game, t_entity *entity, size_t damage)
-{
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_COMMANDO_PAIN]);
-	entity->sprite->next_animation = &game->anim[IDX_TXTR_COMMANDO_WALK];
-	damage_entity(game, entity, damage);
-	return (true);
-}
-
-static bool	commando_get_chainsawed(t_game *game, t_entity *entity)
-{
-	(void)game;
-	(void)entity;
-	return (true);
-}
-
 bool	commando_init(t_entity *entity, t_animation anim[MAP_NB_IDS])
 {
 	entity->update = commando_update;
-	entity->get_killed = commando_get_killed;
-	entity->get_damage = commando_get_damage;
-	entity->get_chainsawed = commando_get_chainsawed;
+	entity->get_killed = entity_get_killed;
+	entity->get_damage = entity_get_damage;
+	entity->get_chainsawed = entity_get_chainsawed;
+	entity->walk = &anim[IDX_TXTR_COMMANDO_WALK];
+	entity->pain = &anim[IDX_TXTR_COMMANDO_PAIN];
+	entity->death = &anim[IDX_TXTR_COMMANDO_DEATH];
 	entity->health_point = COMMANDO_HEALTH_POINT;
 	entity->speed = COMMANDO_SPEED;
 	entity->squared_radius = COMMANDO_SQUARED_RADIUS;

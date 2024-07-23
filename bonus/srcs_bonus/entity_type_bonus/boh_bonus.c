@@ -13,39 +13,15 @@
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
 
-static bool	boh_get_killed(t_game *game, t_entity *entity)
-{
-	if (game == NULL || entity == NULL || game->entities == NULL)
-		return (false);
-	if (game->last_entity_updated->content == entity)
-		game->last_entity_updated = game->last_entity_updated->next;
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_BOH_DEATH]);
-	entity->sprite->next_animation = NULL;
-	ft_lst_remove_if(&game->entities, entity, equal, t_entity_destroy);
-	return (true);
-}
-
-static bool	boh_get_damage(t_game *game, t_entity *entity, size_t damage)
-{
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_BOH_PAIN]);
-	entity->sprite->next_animation = &game->anim[IDX_TXTR_BOH_WALK];
-	damage_entity(game, entity, damage);
-	return (true);
-}
-
-static bool	boh_get_chainsawed(t_game *game, t_entity *entity)
-{
-	(void)game;
-	(void)entity;
-	return (true);
-}
-
 bool	boh_init(t_entity *entity, t_animation anim[MAP_NB_IDS])
 {
 	entity->update = boh_update;
-	entity->get_killed = boh_get_killed;
-	entity->get_damage = boh_get_damage;
-	entity->get_chainsawed = boh_get_chainsawed;
+	entity->get_killed = entity_get_killed;
+	entity->get_damage = entity_get_damage;
+	entity->get_chainsawed = entity_get_chainsawed;
+	entity->walk = &anim[IDX_TXTR_BOH_WALK];
+	entity->pain = &anim[IDX_TXTR_BOH_PAIN];
+	entity->death = &anim[IDX_TXTR_BOH_DEATH];
 	entity->health_point = BOH_HEALTH_POINT;
 	entity->speed = BOH_SPEED;
 	entity->squared_radius = BOH_SQUARED_RADIUS;
