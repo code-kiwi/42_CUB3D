@@ -14,17 +14,6 @@
 #include "cub3d_bonus.h"
 #include "bullets_bonus.h"
 
-static void	arch_vile_close_attack(t_entity *entity, t_sprite *sprite, \
-	t_game *game)
-{
-	if (entity->cooldown > 0)
-		return ;
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_ARCH_VILE_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_ARCH_VILE_WALK];
-	entity->cooldown = ARCH_VILE_ATTACK_PAUSE;
-	player_get_damage(game, ARCH_VILE_ATTACK_DAMAGE);
-}
-
 static bool	arch_vile_spawn(t_entity *entity, t_sprite *sprite, t_game *game)
 {
 	t_vector	position;
@@ -49,20 +38,13 @@ static bool	arch_vile_spawn(t_entity *entity, t_sprite *sprite, t_game *game)
 
 bool	arch_vile_update(t_game *game, t_entity *entity, float delta_time)
 {
-	float		distance;
 	t_sprite	*sprite;
 
 	if (entity->cooldown > 0)
 		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
-	distance = get_distance(&sprite->position, &game->player.position);
 	sprite->animate = true;
-	if (distance < ARCH_VILE_ATTACK_RANGE)
-	{
-		stop_walk_animation(entity);
-		arch_vile_close_attack(entity, sprite, game);
-	}
-	else if (!entity->see_player)
+	if (!entity->see_player)
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 	else
 	{
