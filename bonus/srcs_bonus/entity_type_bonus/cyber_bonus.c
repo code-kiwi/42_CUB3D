@@ -14,16 +14,6 @@
 #include "cub3d_bonus.h"
 #include "bullets_bonus.h"
 
-static bool	cyber_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
-{
-	if (entity->cooldown > 0)
-		return (true);
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_CYBER_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_CYBER_WALK];
-	entity->cooldown = CYBER_RANGE_ATTACK_PAUSE;
-	return (entity_shoot_bullet(game, entity, rocket_projectile_init));
-}
-
 bool	cyber_update(t_game *game, t_entity *entity, float delta_time)
 {
 	t_sprite	*sprite;
@@ -32,8 +22,11 @@ bool	cyber_update(t_game *game, t_entity *entity, float delta_time)
 		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
 	sprite->animate = true;
-	if (entity->see_player && !cyber_range_attack(entity, sprite, game))
+	if (entity->see_player && !entity_range_attack(entity, game,
+		CYBER_CLOSE_ATTACK_PAUSE, rocket_projectile_init))
+	{
 		return (false);
+	}
 	update_entity_position(entity, delta_time, game->entities, &game->map);
 	if (entity->path == NULL)
 		stop_walk_animation(entity);

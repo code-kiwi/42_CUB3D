@@ -15,28 +15,6 @@
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
-static void	mancubus_close_attack(t_entity *entity, t_sprite *sprite,
-	t_game *game)
-{
-	if (entity->cooldown > 0)
-		return ;
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_MANCUBUS_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_MANCUBUS_WALK];
-	entity->cooldown = MANCUBUS_CLOSE_ATTACK_PAUSE;
-	player_get_damage(game, MANCUBUS_CLOSE_ATTACK_DAMAGE);
-}
-
-static bool	mancubus_range_attack(t_entity *entity, t_sprite *sprite,
-	t_game *game)
-{
-	if (entity->cooldown > 0)
-		return (true);
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_MANCUBUS_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_MANCUBUS_WALK];
-	entity->cooldown = MANCUBUS_RANGE_ATTACK_PAUSE;
-	return (entity_shoot_bullet(game, entity, mancubus_projectile_init));
-}
-
 bool	mancubus_update(t_game *game, t_entity *entity, float delta_time)
 {
 	float		distance;
@@ -50,7 +28,8 @@ bool	mancubus_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < MANCUBUS_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		mancubus_close_attack(entity, sprite, game);
+		entity_close_attack(entity, game, MANCUBUS_CLOSE_ATTACK_PAUSE,
+			MANCUBUS_CLOSE_ATTACK_DAMAGE);
 	}
 	else if (!entity->see_player)
 	{
@@ -61,7 +40,8 @@ bool	mancubus_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (mancubus_range_attack(entity, sprite, game));
+		return (entity_range_attack(entity, game, MANCUBUS_RANGE_ATTACK_PAUSE,
+			mancubus_projectile_init));
 	}
 	return (true);
 }

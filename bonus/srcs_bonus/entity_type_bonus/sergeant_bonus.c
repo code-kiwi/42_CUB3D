@@ -15,17 +15,6 @@
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
-static bool	sergeant_range_attack(t_entity *entity, t_sprite *sprite,
-	t_game *game)
-{
-	if (entity->cooldown > 0)
-		return (true);
-	set_animation(sprite, &game->anim[IDX_TXTR_SERGEANT_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_SERGEANT_WALK];
-	entity->cooldown = SERGEANT_ATTACK_PAUSE;
-	return (entity_shoot_bullet(game, entity, imp_projectile_init));
-}
-
 bool	sergeant_update(t_game *game, t_entity *entity, float delta_time)
 {
 	t_sprite	*sprite;
@@ -43,7 +32,8 @@ bool	sergeant_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (sergeant_range_attack(entity, sprite, game));
+		return (entity_range_attack(entity, game, SERGEANT_ATTACK_PAUSE,
+			imp_projectile_init));
 	}
 	return (true);
 }

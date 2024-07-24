@@ -14,26 +14,6 @@
 #include "cub3d_bonus.h"
 #include "bullets_bonus.h"
 
-static void	caco_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
-{
-	if (entity->cooldown > 0)
-		return ;
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_CACO_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_CACO_WALK];
-	entity->cooldown = CACO_CLOSE_ATTACK_PAUSE;
-	player_get_damage(game, CACO_CLOSE_ATTACK_DAMAGE);
-}
-
-static bool	caco_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
-{
-	if (entity->cooldown > 0)
-		return (true);
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_CACO_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_CACO_WALK];
-	entity->cooldown = CACO_RANGE_ATTACK_PAUSE;
-	return (entity_shoot_bullet(game, entity, caco_projectile_init));
-}
-
 bool	caco_update(t_game *game, t_entity *entity, float delta_time)
 {
 	t_player	*player;
@@ -48,11 +28,13 @@ bool	caco_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < CACO_CLOSE_ATTACK_RANGE)
 	{
-		caco_close_attack(entity, sprite, game);
+		entity_close_attack(entity, game, CACO_CLOSE_ATTACK_PAUSE,
+			CACO_CLOSE_ATTACK_DAMAGE);
 	}
 	else
 	{
-		if (!caco_range_attack(entity, sprite, game))
+		if (!entity_range_attack(entity, game, CACO_RANGE_ATTACK_PAUSE,
+			caco_projectile_init))
 			return (false);
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 	}

@@ -15,17 +15,6 @@
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
-static bool	commando_range_attack(t_entity *entity, t_sprite *sprite,
-	t_game *game)
-{
-	if (entity->cooldown > 0)
-		return (true);
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_COMMANDO_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_COMMANDO_WALK];
-	entity->cooldown = COMMANDO_ATTACK_PAUSE;
-	return (entity_shoot_bullet(game, entity, imp_projectile_init));
-}
-
 bool	commando_update(t_game *game, t_entity *entity, float delta_time)
 {
 	t_sprite	*sprite;
@@ -43,7 +32,8 @@ bool	commando_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (commando_range_attack(entity, sprite, game));
+		return (entity_range_attack(entity, game, COMMANDO_ATTACK_PAUSE,
+			imp_projectile_init));
 	}
 	return (true);
 }

@@ -15,26 +15,6 @@
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
-static void	imp_close_attack(t_entity *entity, t_sprite *sprite, t_game *game)
-{
-	if (entity->cooldown > 0)
-		return ;
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_IMP_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_IMP_WALK];
-	entity->cooldown = IMP_CLOSE_ATTACK_PAUSE;
-	player_get_damage(game, IMP_CLOSE_ATTACK_DAMAGE);
-}
-
-static bool	imp_range_attack(t_entity *entity, t_sprite *sprite, t_game *game)
-{
-	if (entity->cooldown > 0)
-		return (true);
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_IMP_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_IMP_WALK];
-	entity->cooldown = IMP_RANGE_ATTACK_PAUSE;
-	return (entity_shoot_bullet(game, entity, imp_projectile_init));
-}
-
 bool	imp_update(t_game *game, t_entity *entity, float delta_time)
 {
 	float		distance;
@@ -48,7 +28,8 @@ bool	imp_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < IMP_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		imp_close_attack(entity, sprite, game);
+		entity_close_attack(entity, game, IMP_CLOSE_ATTACK_PAUSE,
+			IMP_CLOSE_ATTACK_DAMAGE);
 	}
 	else if (!entity->see_player)
 	{
@@ -59,7 +40,8 @@ bool	imp_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (imp_range_attack(entity, sprite, game));
+		return (entity_range_attack(entity, game, IMP_RANGE_ATTACK_PAUSE,
+			imp_projectile_init));
 	}
 	return (true);
 }

@@ -14,17 +14,6 @@
 #include "cub3d_bonus.h"
 #include "bullets_bonus.h"
 
-static void	pain_elem_close_attack(t_entity *entity, t_sprite *sprite,
-	t_game *game)
-{
-	if (entity->cooldown > 0)
-		return ;
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_PAIN_ELEM_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_PAIN_ELEM_WALK];
-	entity->cooldown = PAIN_ELEM_ATTACK_PAUSE;
-	player_get_damage(game, PAIN_ELEM_ATTACK_DAMAGE);
-}
-
 static bool	pain_elem_spawn(t_entity *entity, t_sprite *sprite, t_game *game)
 {
 	t_vector	position;
@@ -60,7 +49,8 @@ bool	pain_elem_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < PAIN_ELEM_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		pain_elem_close_attack(entity, sprite, game);
+		entity_close_attack(entity, game, MANCUBUS_CLOSE_ATTACK_PAUSE,
+			MANCUBUS_CLOSE_ATTACK_DAMAGE);
 	}
 	else if (!entity->see_player)
 		update_entity_position(entity, delta_time, game->entities, &game->map);

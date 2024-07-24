@@ -15,28 +15,6 @@
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
-static void	revenant_close_attack(t_entity *entity, t_sprite *sprite,
-	t_game *game)
-{
-	if (entity->cooldown > 0)
-		return ;
-	set_animation(sprite, &game->anim[IDX_TXTR_REVENANT_WALK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_REVENANT_WALK];
-	entity->cooldown = REVENANT_CLOSE_ATTACK_PAUSE;
-	player_get_damage(game, REVENANT_CLOSE_ATTACK_DAMAGE);
-}
-
-static bool	revenant_range_attack(t_entity *entity, t_sprite *sprite,
-	t_game *game)
-{
-	if (entity->cooldown > 0)
-		return (true);
-	set_animation(sprite, &game->anim[IDX_TXTR_REVENANT_SHOOT]);
-	sprite->next_animation = &game->anim[IDX_TXTR_REVENANT_WALK];
-	entity->cooldown = REVENANT_RANGE_ATTACK_PAUSE;
-	return (entity_shoot_bullet(game, entity, revenant_projectile_init));
-}
-
 bool	revenant_update(t_game *game, t_entity *entity, float delta_time)
 {
 	float		distance;
@@ -50,7 +28,8 @@ bool	revenant_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < REVENANT_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		revenant_close_attack(entity, sprite, game);
+		entity_close_attack(entity, game, REVENANT_CLOSE_ATTACK_PAUSE,
+			REVENANT_CLOSE_ATTACK_DAMAGE);
 	}
 	else if (!entity->see_player)
 	{
@@ -61,7 +40,8 @@ bool	revenant_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (revenant_range_attack(entity, sprite, game));
+		return (entity_range_attack(entity, game, REVENANT_RANGE_ATTACK_PAUSE,
+			revenant_projectile_init));
 	}
 	return (true);
 }

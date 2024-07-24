@@ -6,7 +6,7 @@
 #    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/23 21:21:03 by root             ###   ########.fr        #
+#    Updated: 2024/07/24 09:46:17 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -177,7 +177,6 @@ ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
 								caco_bonus.c					\
 								boh_bonus.c						\
 								lost_soul_bonus.c				\
-								lost_soul_update_bonus.c		\
 								pain_elem_bonus.c				\
 								cyber_bonus.c					\
 								revenant_bonus.c				\

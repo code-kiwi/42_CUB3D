@@ -6,12 +6,31 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 21:15:44 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 09:45:58 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
+
+bool	lost_soul_update(t_game *game, t_entity *entity, float delta_time)
+{
+	t_player	*player;
+	float		distance;
+	t_sprite	*sprite;
+
+	if (entity->cooldown > 0)
+		entity->cooldown -= delta_time;
+	sprite = entity->sprite;
+	player = &game->player;
+	distance = get_distance(&sprite->position, &player->position);
+	sprite->animate = true;
+	if (distance < LOST_SOUL_RANGE)
+		entity->get_killed(game, entity);
+	else
+		update_entity_position(entity, delta_time, game->entities, &game->map);
+	return (true);
+}
 
 static bool	lost_soul_get_killed(t_game *game, t_entity *entity)
 {
@@ -25,17 +44,11 @@ static bool	lost_soul_get_killed(t_game *game, t_entity *entity)
 	return (true);
 }
 
-static bool	lost_soul_get_damage(t_game *game, t_entity *entity, size_t damage)
-{
-	(void)damage;
-	return (lost_soul_get_killed(game, entity));
-}
-
 bool	lost_soul_init(t_entity *entity, t_animation anim[MAP_NB_IDS])
 {
 	entity->update = lost_soul_update;
 	entity->get_killed = lost_soul_get_killed;
-	entity->get_damage = lost_soul_get_damage;
+	entity->get_damage = entity_get_damage;
 	entity->get_chainsawed = entity_get_chainsawed;
 	entity->health_point = 0;
 	entity->speed = LOST_SOUL_SPEED;

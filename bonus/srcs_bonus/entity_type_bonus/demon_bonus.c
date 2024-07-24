@@ -13,16 +13,6 @@
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
 
-static void	demon_attack(t_entity *entity, t_sprite *sprite, t_game *game)
-{
-	if (entity->cooldown > 0)
-		return ;
-	set_animation(entity->sprite, &game->anim[IDX_TXTR_DEMON_ATTACK]);
-	sprite->next_animation = &game->anim[IDX_TXTR_DEMON_WALK];
-	entity->cooldown = DEMON_ATTACK_PAUSE;
-	player_get_damage(game, DEMON_ATTACK_DAMAGE);
-}
-
 bool	demon_update(t_game *game, t_entity *entity, float delta_time)
 {
 	t_player	*player;
@@ -38,7 +28,8 @@ bool	demon_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < DEMON_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		demon_attack(entity, sprite, game);
+		entity_close_attack(entity, game, DEMON_ATTACK_PAUSE,
+			DEMON_ATTACK_DAMAGE);
 	}
 	else
 	{
