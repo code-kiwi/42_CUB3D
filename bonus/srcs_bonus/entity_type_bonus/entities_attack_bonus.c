@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:10:55 by root              #+#    #+#             */
-/*   Updated: 2024/07/24 10:20:53 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:33:27 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	close_attack(t_entity *entity, t_game *game, size_t cooldown, \
 	size_t damage)
 {
-	if (entity  == NULL || game == NULL)
+	if (entity == NULL || game == NULL)
 		return ;
 	if (entity->cooldown > 0)
 		return ;

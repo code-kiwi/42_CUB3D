@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/24 10:16:35 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:33:21 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ bool	lost_soul_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->speed = LOST_SOUL_SPEED;
 	entity->squared_radius = LOST_SOUL_SQUARED_RADIUS;
 	entity->type = NULL;
-	t_sprite_init(entity->sprite, &animation[IDX_TXTR_LOST_SOUL_WALK], WIN_HEIGHT);
+	t_sprite_init(entity->sprite, &animation[IDX_TXTR_LOST_SOUL_WALK],
+		WIN_HEIGHT);
 	return (true);
 }
