@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/24 09:55:54 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:06:00 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@
 # define ID_TEXTURE_REV_PUNCH		"REV_PUNCH"
 # define ID_TEXTURE_REV_DEATH		"REV_DEATH"
 # define ID_TEXTURE_REV_SHOOT		"REV_SHOOT"
-# define ID_TEXTURE_MANCUBUS_WALK		"MANCUBUS_WALK"
-# define ID_TEXTURE_MANCUBUS_PAIN		"MANCUBUS_PAIN"
-# define ID_TEXTURE_MANCUBUS_ATTACK		"MANCUBUS_ATTACK"
-# define ID_TEXTURE_MANCUBUS_DEATH		"MANCUBUS_DEATH"
-# define ID_TEXTURE_MANCUBUS_FIREBALL	"MANCUBUS_FIREBALL"
+# define ID_TEXTURE_MANC_WALK		"MANC_WALK"
+# define ID_TEXTURE_MANC_PAIN		"MANC_PAIN"
+# define ID_TEXTURE_MANC_ATTACK		"MANC_ATTACK"
+# define ID_TEXTURE_MANC_DEATH		"MANC_DEATH"
+# define ID_TEXTURE_MANC_FIREBALL	"MANC_FIREBALL"
 # define ID_TEXTURE_ARCH_VILE_WALK		"ARCH_VILE_WALK"
 # define ID_TEXTURE_ARCH_VILE_PAIN		"ARCH_VILE_PAIN"
 # define ID_TEXTURE_ARCH_VILE_ATTACK	"ARCH_VILE_ATTACK"
@@ -156,11 +156,11 @@
 # define IDX_TXTR_REV_PUNCH		50
 # define IDX_TXTR_REV_DEATH		51
 # define IDX_TXTR_REV_SHOOT		52
-# define IDX_TXTR_MANCUBUS_WALK			53
-# define IDX_TXTR_MANCUBUS_PAIN			54
-# define IDX_TXTR_MANCUBUS_ATTACK		55
-# define IDX_TXTR_MANCUBUS_DEATH		56
-# define IDX_TXTR_MANCUBUS_FIREBALL		57
+# define IDX_TXTR_MANC_WALK			53
+# define IDX_TXTR_MANC_PAIN			54
+# define IDX_TXTR_MANC_ATTACK		55
+# define IDX_TXTR_MANC_DEATH		56
+# define IDX_TXTR_MANC_FIREBALL		57
 # define IDX_TXTR_ARCH_VILE_WALK		58
 # define IDX_TXTR_ARCH_VILE_PAIN		59
 # define IDX_TXTR_ARCH_VILE_ATTACK		60
@@ -185,7 +185,7 @@
 # define ID_MAP_PAIN_ELEM				'p'
 # define ID_MAP_CYBER					'y'
 # define ID_MAP_REV				'r'
-# define ID_MAP_MANCUBUS				'm'
+# define ID_MAP_MANC				'm'
 # define ID_MAP_ARCH_VILE				'a'
 # define ID_MAP_COMMANDO				'o'
 # define ID_MAP_SERGEANT				'f'

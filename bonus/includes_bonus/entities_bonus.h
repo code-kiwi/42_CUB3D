@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/24 10:01:17 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:06:00 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,14 @@
 # define REV_CLOSE_DAMAGE	1
 # define REV_RANGE_DAMAGE	1
 
-# define MANCUBUS_SPEED					2
-# define MANCUBUS_SQUARED_RADIUS		0.5
-# define MANCUBUS_HEALTH_POINT			8
-# define MANCUBUS_CLOSE_ATTACK_RANGE	1.5
-# define MANCUBUS_CLOSE_PAUSE	2
-# define MANCUBUS_RANGE_PAUSE	1
-# define MANCUBUS_CLOSE_DAMAGE	1
-# define MANCUBUS_RANGE_DAMAGE	1
+# define MANC_SPEED					2
+# define MANC_SQUARED_RADIUS		0.5
+# define MANC_HEALTH_POINT			8
+# define MANC_CLOSE_ATTACK_RANGE	1.5
+# define MANC_CLOSE_PAUSE	2
+# define MANC_RANGE_PAUSE	1
+# define MANC_CLOSE_DAMAGE	1
+# define MANC_RANGE_DAMAGE	1
 
 # define ARCH_VILE_SPEED				1
 # define ARCH_VILE_SQUARED_RADIUS		1

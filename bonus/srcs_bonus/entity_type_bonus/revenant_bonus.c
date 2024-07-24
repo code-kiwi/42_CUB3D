@@ -39,8 +39,7 @@ bool	revenant_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (range_attack(entity, game, REV_RANGE_PAUSE,
-				revenant_proj_init));
+		return (range_attack(entity, game, REV_RANGE_PAUSE, rev_proj_init));
 	}
 	return (true);
 }

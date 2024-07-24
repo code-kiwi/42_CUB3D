@@ -65,11 +65,11 @@ REV_DEATH ./assets/textures/doom/entities/revenant/revenant_death.xpm 74,78 100
 REV_PROJECTILE_LIVE ./assets/textures/doom/effects/revenant_projectile/revenant_projectile_live.xpm 20,16 100
 REV_PROJECTILE_DEATH ./assets/textures/doom/effects/revenant_projectile/revenant_projectile_death.xpm 45,40 100
 
-MANCUBUS_WALK ./assets/textures/doom/entities/mancubus/mancubus_walk.xpm 88,70 200
-MANCUBUS_ATTACK ./assets/textures/doom/entities/mancubus/mancubus_attack.xpm 87,68 200
-MANCUBUS_PAIN ./assets/textures/doom/entities/mancubus/mancubus_pain.xpm 74,67 250
-MANCUBUS_DEATH ./assets/textures/doom/entities/mancubus/mancubus_death.xpm 103,76 100
-MANCUBUS_FIREBALL ./assets/textures/doom/effects/mancubus_fireball/mancubus_fireball_live.xpm 34,34 100
+MANC_WALK ./assets/textures/doom/entities/mancubus/mancubus_walk.xpm 88,70 200
+MANC_ATTACK ./assets/textures/doom/entities/mancubus/mancubus_attack.xpm 87,68 200
+MANC_PAIN ./assets/textures/doom/entities/mancubus/mancubus_pain.xpm 74,67 250
+MANC_DEATH ./assets/textures/doom/entities/mancubus/mancubus_death.xpm 103,76 100
+MANC_FIREBALL ./assets/textures/doom/effects/mancubus_fireball/mancubus_fireball_live.xpm 34,34 100
 
 ARCH_VILE_WALK ./assets/textures/doom/entities/arch_vile/arch_vile_walk.xpm 79,90 150
 ARCH_VILE_ATTACK ./assets/textures/doom/entities/arch_vile/arch_vile_attack.xpm 79,97 400

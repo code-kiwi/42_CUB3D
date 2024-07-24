@@ -28,13 +28,11 @@ bool	caco_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < CACO_CLOSE_ATTACK_RANGE)
 	{
-		close_attack(entity, game, CACO_CLOSE_PAUSE,
-			CACO_CLOSE_DAMAGE);
+		close_attack(entity, game, CACO_CLOSE_PAUSE, CACO_CLOSE_DAMAGE);
 	}
 	else
 	{
-		if (!range_attack(entity, game, CACO_RANGE_PAUSE,
-			caco_proj_init))
+		if (!range_attack(entity, game, CACO_RANGE_PAUSE, caco_proj_init))
 			return (false);
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 	}

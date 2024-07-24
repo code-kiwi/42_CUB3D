@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/24 09:58:59 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:05:30 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	caco_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	imp_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	boh_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	rocket_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
-void	mancubus_proj_init(t_animation anim[MAP_NB_IDS], \
+void	manc_proj_init(t_animation anim[MAP_NB_IDS], \
 			t_bullet *bullet);
-void	revenant_proj_init(t_animation anim[MAP_NB_IDS], \
+void	rev_proj_init(t_animation anim[MAP_NB_IDS], \
 			t_bullet *bullet);
 
 #endif // !BULLETS_BONUS_H

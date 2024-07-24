@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:09:39 by root              #+#    #+#             */
-/*   Updated: 2024/07/24 09:59:39 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:05:20 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	revenant_projectile_use(t_game *game, t_bullet *bullet)
 	ft_lst_remove_if(&game->bullets, bullet, equal, free);
 }
 
-void	revenant_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
+void	rev_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
 {
 	t_sprite_init(bullet->sprite, &anim[IDX_TXTR_REV_PROJ_LIVE], WIN_HEIGHT);
 	bullet->use = revenant_projectile_use;
