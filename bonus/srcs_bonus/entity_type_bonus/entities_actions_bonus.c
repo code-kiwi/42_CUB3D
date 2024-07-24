@@ -6,33 +6,33 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 19:30:35 by root              #+#    #+#             */
-/*   Updated: 2024/07/24 10:19:39 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:23:15 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "entities_bonus.h"
 
-bool	entity_get_killed(t_game *game, t_entity *entity)
+void	entity_get_killed(t_game *game, t_entity *entity)
 {
 	if (game == NULL || entity == NULL || game->entities == NULL)
-		return (false);
+		return ;
 	if (game->last_entity_updated->content == entity)
 		game->last_entity_updated = game->last_entity_updated->next;
 	set_animation(entity->sprite, entity->death);
 	entity->sprite->next_animation = NULL;
 	ft_lst_remove_if(&game->entities, entity, equal, t_entity_destroy);
-	return (true);
+	return ;
 }
 
-bool	entity_get_damage(t_game *game, t_entity *entity, size_t damage)
+void	entity_get_damage(t_game *game, t_entity *entity, size_t damage)
 {
 	if (game == NULL || entity == NULL || game->entities == NULL)
-		return (false);
+		return ;
 	set_animation(entity->sprite, entity->pain);
 	entity->sprite->next_animation = entity->walk;
 	damage_entity(game, entity, damage);
-	return (true);
+	return ;
 }
 
 bool	entity_get_chainsawed(t_game *game, t_entity *entity)
