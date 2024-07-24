@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/24 10:23:41 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:27:55 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,35 +24,35 @@
 # define DEMON_SQUARED_RADIUS			1
 # define DEMON_HEALTH_POINT				3
 # define DEMON_ATTACK_RANGE				1.5
-# define DEMON_PAUSE				2
-# define DEMON_DAMAGE			2
+# define DEMON_PAUSE					2
+# define DEMON_DAMAGE					2
 
 # define IMP_SPEED						2
 # define IMP_SQUARED_RADIUS				0.5
 # define IMP_HEALTH_POINT				2
 # define IMP_CLOSE_ATTACK_RANGE			1.5
-# define IMP_CLOSE_PAUSE			2
-# define IMP_RANGE_PAUSE			1
-# define IMP_CLOSE_DAMAGE		1
-# define IMP_RANGE_DAMAGE		1
+# define IMP_CLOSE_PAUSE				2
+# define IMP_RANGE_PAUSE				1
+# define IMP_CLOSE_DAMAGE				1
+# define IMP_RANGE_DAMAGE				1
 
 # define CACO_SPEED						2
 # define CACO_SQUARED_RADIUS			0.5
 # define CACO_HEALTH_POINT				2
 # define CACO_CLOSE_ATTACK_RANGE		1.5
-# define CACO_CLOSE_PAUSE		2
-# define CACO_RANGE_PAUSE		2
-# define CACO_CLOSE_DAMAGE		2
-# define CACO_RANGE_DAMAGE		1
+# define CACO_CLOSE_PAUSE				2
+# define CACO_RANGE_PAUSE				2
+# define CACO_CLOSE_DAMAGE				2
+# define CACO_RANGE_DAMAGE				1
 
 # define BOH_SPEED						2
 # define BOH_SQUARED_RADIUS				0.5
 # define BOH_HEALTH_POINT				6
 # define BOH_CLOSE_ATTACK_RANGE			1.5
-# define BOH_CLOSE_PAUSE			2
-# define BOH_RANGE_PAUSE			2
-# define BOH_CLOSE_DAMAGE		2
-# define BOH_RANGE_DAMAGE		1
+# define BOH_CLOSE_PAUSE				2
+# define BOH_RANGE_PAUSE				2
+# define BOH_CLOSE_DAMAGE				2
+# define BOH_RANGE_DAMAGE				1
 
 # define LOST_SOUL_SPEED				2
 # define LOST_SOUL_SQUARED_RADIUS		0.25
@@ -60,9 +60,9 @@
 
 # define PAIN_ELEM_SPEED				1
 # define PAIN_ELEM_SQUARED_RADIUS		1
-# define PAIN_ELEM_DAMAGE		3
+# define PAIN_ELEM_DAMAGE				3
 # define PAIN_ELEM_ATTACK_RANGE			1.5
-# define PAIN_ELEM_PAUSE			1
+# define PAIN_ELEM_PAUSE				1
 # define PAIN_ELEM_SPAWN_PAUSE			3
 # define PAIN_ELEM_HEALTH_POINT			5
 
@@ -70,44 +70,44 @@
 # define CYBER_SQUARED_RADIUS			0.7
 # define CYBER_HEALTH_POINT				20
 # define CYBER_CLOSE_ATTACK_RANGE		1.5
-# define CYBER_CLOSE_PAUSE		2
-# define CYBER_RANGE_PAUSE		3
-# define CYBER_CLOSE_DAMAGE		4
+# define CYBER_CLOSE_PAUSE				2
+# define CYBER_RANGE_PAUSE				3
+# define CYBER_CLOSE_DAMAGE				4
 
-# define ROCKET_DAMAGE			2
+# define ROCKET_DAMAGE					2
 
-# define REV_SPEED					2
-# define REV_SQUARED_RADIUS		0.5
-# define REV_HEALTH_POINT			4
-# define REV_CLOSE_ATTACK_RANGE	1.5
-# define REV_CLOSE_PAUSE	2
-# define REV_RANGE_PAUSE	1
-# define REV_CLOSE_DAMAGE	1
-# define REV_RANGE_DAMAGE	1
+# define REV_SPEED						2
+# define REV_SQUARED_RADIUS				0.5
+# define REV_HEALTH_POINT				4
+# define REV_CLOSE_ATTACK_RANGE			1.5
+# define REV_CLOSE_PAUSE				2
+# define REV_RANGE_PAUSE				1
+# define REV_CLOSE_DAMAGE				1
+# define REV_RANGE_DAMAGE				1
 
-# define MANC_SPEED					2
-# define MANC_SQUARED_RADIUS		0.5
-# define MANC_HEALTH_POINT			8
-# define MANC_CLOSE_ATTACK_RANGE	1.5
-# define MANC_CLOSE_PAUSE	2
-# define MANC_RANGE_PAUSE	1
-# define MANC_CLOSE_DAMAGE	1
-# define MANC_RANGE_DAMAGE	1
+# define MANC_SPEED						2
+# define MANC_SQUARED_RADIUS			0.5
+# define MANC_HEALTH_POINT				8
+# define MANC_CLOSE_ATTACK_RANGE		1.5
+# define MANC_CLOSE_PAUSE				2
+# define MANC_RANGE_PAUSE				1
+# define MANC_CLOSE_DAMAGE				1
+# define MANC_RANGE_DAMAGE				1
 
 # define ARCH_VILE_SPEED				1
 # define ARCH_VILE_SQUARED_RADIUS		1
-# define ARCH_VILE_DAMAGE		3
+# define ARCH_VILE_DAMAGE				3
 # define ARCH_VILE_ATTACK_RANGE			1.5
-# define ARCH_VILE_PAUSE			1
+# define ARCH_VILE_PAUSE				1
 # define ARCH_VILE_SPAWN_PAUSE			20
 # define ARCH_VILE_HEALTH_POINT			10
 
-# define SERGEANT_PAUSE			1
+# define SERGEANT_PAUSE					1
 # define SERGEANT_SPEED					1
 # define SERGEANT_SQUARED_RADIUS		1
 # define SERGEANT_HEALTH_POINT			2
 
-# define COMMANDO_PAUSE			1
+# define COMMANDO_PAUSE					1
 # define COMMANDO_SPEED					1
 # define COMMANDO_SQUARED_RADIUS		1
 # define COMMANDO_HEALTH_POINT			2

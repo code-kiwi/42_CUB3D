@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/24 10:06:00 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:27:12 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,16 @@
 # define ID_TEXTURE_CYBER_DEATH			"CYBER_DEATH"
 # define ID_TEXTURE_ROCKET_LIVE			"ROCKET_LIVE"
 # define ID_TEXTURE_ROCKET_DEATH		"ROCKET_DEATH"
-# define ID_TEXTURE_REV_WALK		"REV_WALK"
-# define ID_TEXTURE_REV_PAIN		"REV_PAIN"
-# define ID_TEXTURE_REV_PUNCH		"REV_PUNCH"
-# define ID_TEXTURE_REV_DEATH		"REV_DEATH"
-# define ID_TEXTURE_REV_SHOOT		"REV_SHOOT"
-# define ID_TEXTURE_MANC_WALK		"MANC_WALK"
-# define ID_TEXTURE_MANC_PAIN		"MANC_PAIN"
-# define ID_TEXTURE_MANC_ATTACK		"MANC_ATTACK"
-# define ID_TEXTURE_MANC_DEATH		"MANC_DEATH"
-# define ID_TEXTURE_MANC_FIREBALL	"MANC_FIREBALL"
+# define ID_TEXTURE_REV_WALK			"REV_WALK"
+# define ID_TEXTURE_REV_PAIN			"REV_PAIN"
+# define ID_TEXTURE_REV_PUNCH			"REV_PUNCH"
+# define ID_TEXTURE_REV_DEATH			"REV_DEATH"
+# define ID_TEXTURE_REV_SHOOT			"REV_SHOOT"
+# define ID_TEXTURE_MANC_WALK			"MANC_WALK"
+# define ID_TEXTURE_MANC_PAIN			"MANC_PAIN"
+# define ID_TEXTURE_MANC_ATTACK			"MANC_ATTACK"
+# define ID_TEXTURE_MANC_DEATH			"MANC_DEATH"
+# define ID_TEXTURE_MANC_FIREBALL		"MANC_FIREBALL"
 # define ID_TEXTURE_ARCH_VILE_WALK		"ARCH_VILE_WALK"
 # define ID_TEXTURE_ARCH_VILE_PAIN		"ARCH_VILE_PAIN"
 # define ID_TEXTURE_ARCH_VILE_ATTACK	"ARCH_VILE_ATTACK"
@@ -151,16 +151,16 @@
 # define IDX_TXTR_CYBER_DEATH			45
 # define IDX_TXTR_ROCKET_LIVE			46
 # define IDX_TXTR_ROCKET_DEATH			47
-# define IDX_TXTR_REV_WALK			48
-# define IDX_TXTR_REV_PAIN			49
-# define IDX_TXTR_REV_PUNCH		50
-# define IDX_TXTR_REV_DEATH		51
-# define IDX_TXTR_REV_SHOOT		52
-# define IDX_TXTR_MANC_WALK			53
-# define IDX_TXTR_MANC_PAIN			54
-# define IDX_TXTR_MANC_ATTACK		55
-# define IDX_TXTR_MANC_DEATH		56
-# define IDX_TXTR_MANC_FIREBALL		57
+# define IDX_TXTR_REV_WALK				48
+# define IDX_TXTR_REV_PAIN				49
+# define IDX_TXTR_REV_PUNCH				50
+# define IDX_TXTR_REV_DEATH				51
+# define IDX_TXTR_REV_SHOOT				52
+# define IDX_TXTR_MANC_WALK				53
+# define IDX_TXTR_MANC_PAIN				54
+# define IDX_TXTR_MANC_ATTACK			55
+# define IDX_TXTR_MANC_DEATH			56
+# define IDX_TXTR_MANC_FIREBALL			57
 # define IDX_TXTR_ARCH_VILE_WALK		58
 # define IDX_TXTR_ARCH_VILE_PAIN		59
 # define IDX_TXTR_ARCH_VILE_ATTACK		60
@@ -184,8 +184,8 @@
 # define ID_MAP_LOST_SOUL				'l'
 # define ID_MAP_PAIN_ELEM				'p'
 # define ID_MAP_CYBER					'y'
-# define ID_MAP_REV				'r'
-# define ID_MAP_MANC				'm'
+# define ID_MAP_REV						'r'
+# define ID_MAP_MANC					'm'
 # define ID_MAP_ARCH_VILE				'a'
 # define ID_MAP_COMMANDO				'o'
 # define ID_MAP_SERGEANT				'f'
