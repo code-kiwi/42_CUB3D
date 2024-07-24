@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/24 09:52:42 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 09:55:54 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,14 @@
 
 # define ROCKET_DAMAGE			2
 
-# define REVENANT_SPEED					2
-# define REVENANT_SQUARED_RADIUS		0.5
-# define REVENANT_HEALTH_POINT			4
-# define REVENANT_CLOSE_ATTACK_RANGE	1.5
-# define REVENANT_CLOSE_PAUSE	2
-# define REVENANT_RANGE_PAUSE	1
-# define REVENANT_CLOSE_DAMAGE	1
-# define REVENANT_RANGE_DAMAGE	1
+# define REV_SPEED					2
+# define REV_SQUARED_RADIUS		0.5
+# define REV_HEALTH_POINT			4
+# define REV_CLOSE_ATTACK_RANGE	1.5
+# define REV_CLOSE_PAUSE	2
+# define REV_RANGE_PAUSE	1
+# define REV_CLOSE_DAMAGE	1
+# define REV_RANGE_DAMAGE	1
 
 # define MANCUBUS_SPEED					2
 # define MANCUBUS_SQUARED_RADIUS		0.5

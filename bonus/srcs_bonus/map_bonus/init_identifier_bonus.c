@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_identifier_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 15:03:42 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/24 09:55:54 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ static void	init_enemies_identifier(char **identifier)
 	identifier[IDX_TXTR_CYBER_PAIN] = ID_TEXTURE_CYBER_PAIN;
 	identifier[IDX_TXTR_CYBER_ATTACK] = ID_TEXTURE_CYBER_ATTACK;
 	identifier[IDX_TXTR_CYBER_DEATH] = ID_TEXTURE_CYBER_DEATH;
-	identifier[IDX_TXTR_REVENANT_WALK] = ID_TEXTURE_REVENANT_WALK;
-	identifier[IDX_TXTR_REVENANT_PAIN] = ID_TEXTURE_REVENANT_PAIN;
-	identifier[IDX_TXTR_REVENANT_PUNCH] = ID_TEXTURE_REVENANT_PUNCH;
-	identifier[IDX_TXTR_REVENANT_SHOOT] = ID_TEXTURE_REVENANT_SHOOT;
-	identifier[IDX_TXTR_REVENANT_DEATH] = ID_TEXTURE_REVENANT_DEATH;
+	identifier[IDX_TXTR_REV_WALK] = ID_TEXTURE_REV_WALK;
+	identifier[IDX_TXTR_REV_PAIN] = ID_TEXTURE_REV_PAIN;
+	identifier[IDX_TXTR_REV_PUNCH] = ID_TEXTURE_REV_PUNCH;
+	identifier[IDX_TXTR_REV_SHOOT] = ID_TEXTURE_REV_SHOOT;
+	identifier[IDX_TXTR_REV_DEATH] = ID_TEXTURE_REV_DEATH;
 	identifier[IDX_TXTR_MANCUBUS_WALK] = ID_TEXTURE_MANCUBUS_WALK;
 	identifier[IDX_TXTR_MANCUBUS_PAIN] = ID_TEXTURE_MANCUBUS_PAIN;
 	identifier[IDX_TXTR_MANCUBUS_ATTACK] = ID_TEXTURE_MANCUBUS_ATTACK;

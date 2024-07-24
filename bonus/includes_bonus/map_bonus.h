@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/23 22:38:57 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 09:55:54 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,11 @@
 # define ID_TEXTURE_CYBER_DEATH			"CYBER_DEATH"
 # define ID_TEXTURE_ROCKET_LIVE			"ROCKET_LIVE"
 # define ID_TEXTURE_ROCKET_DEATH		"ROCKET_DEATH"
-# define ID_TEXTURE_REVENANT_WALK		"REVENANT_WALK"
-# define ID_TEXTURE_REVENANT_PAIN		"REVENANT_PAIN"
-# define ID_TEXTURE_REVENANT_PUNCH		"REVENANT_PUNCH"
-# define ID_TEXTURE_REVENANT_DEATH		"REVENANT_DEATH"
-# define ID_TEXTURE_REVENANT_SHOOT		"REVENANT_SHOOT"
+# define ID_TEXTURE_REV_WALK		"REV_WALK"
+# define ID_TEXTURE_REV_PAIN		"REV_PAIN"
+# define ID_TEXTURE_REV_PUNCH		"REV_PUNCH"
+# define ID_TEXTURE_REV_DEATH		"REV_DEATH"
+# define ID_TEXTURE_REV_SHOOT		"REV_SHOOT"
 # define ID_TEXTURE_MANCUBUS_WALK		"MANCUBUS_WALK"
 # define ID_TEXTURE_MANCUBUS_PAIN		"MANCUBUS_PAIN"
 # define ID_TEXTURE_MANCUBUS_ATTACK		"MANCUBUS_ATTACK"
@@ -100,8 +100,8 @@
 # define ID_TEXTURE_COMMANDO_PAIN		"COMMANDO_PAIN"
 # define ID_TEXTURE_COMMANDO_ATTACK		"COMMANDO_ATTACK"
 # define ID_TEXTURE_COMMANDO_DEATH		"COMMANDO_DEATH"
-# define ID_TEXTURE_REV_PROJ_LIVE		"REVENANT_PROJECTILE_LIVE"
-# define ID_TEXTURE_REV_PROJ_DEATH		"REVENANT_PROJECTILE_DEATH"
+# define ID_TEXTURE_REV_PROJ_LIVE		"REV_PROJECTILE_LIVE"
+# define ID_TEXTURE_REV_PROJ_DEATH		"REV_PROJECTILE_DEATH"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -151,11 +151,11 @@
 # define IDX_TXTR_CYBER_DEATH			45
 # define IDX_TXTR_ROCKET_LIVE			46
 # define IDX_TXTR_ROCKET_DEATH			47
-# define IDX_TXTR_REVENANT_WALK			48
-# define IDX_TXTR_REVENANT_PAIN			49
-# define IDX_TXTR_REVENANT_PUNCH		50
-# define IDX_TXTR_REVENANT_DEATH		51
-# define IDX_TXTR_REVENANT_SHOOT		52
+# define IDX_TXTR_REV_WALK			48
+# define IDX_TXTR_REV_PAIN			49
+# define IDX_TXTR_REV_PUNCH		50
+# define IDX_TXTR_REV_DEATH		51
+# define IDX_TXTR_REV_SHOOT		52
 # define IDX_TXTR_MANCUBUS_WALK			53
 # define IDX_TXTR_MANCUBUS_PAIN			54
 # define IDX_TXTR_MANCUBUS_ATTACK		55
@@ -184,7 +184,7 @@
 # define ID_MAP_LOST_SOUL				'l'
 # define ID_MAP_PAIN_ELEM				'p'
 # define ID_MAP_CYBER					'y'
-# define ID_MAP_REVENANT				'r'
+# define ID_MAP_REV				'r'
 # define ID_MAP_MANCUBUS				'm'
 # define ID_MAP_ARCH_VILE				'a'
 # define ID_MAP_COMMANDO				'o'

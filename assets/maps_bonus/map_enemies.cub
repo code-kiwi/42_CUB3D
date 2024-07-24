@@ -57,13 +57,13 @@ CYBER_DEATH ./assets/textures/doom/entities/cyberdemon/cyberdemon_death.xpm 122,
 ROCKET_LIVE ./assets/textures/doom/effects/rocket/rocket_live.xpm 15,14 100
 ROCKET_DEATH ./assets/textures/doom/effects/rocket/rocket_death.xpm 103,86 100
 
-REVENANT_WALK ./assets/textures/doom/entities/revenant/revenant_walk.xpm 56,85 200
-REVENANT_PUNCH ./assets/textures/doom/entities/revenant/revenant_punch.xpm 68,87 200
-REVENANT_SHOOT ./assets/textures/doom/entities/revenant/revenant_shoot.xpm 49,79 150
-REVENANT_PAIN ./assets/textures/doom/entities/revenant/revenant_pain.xpm 66,72 200
-REVENANT_DEATH ./assets/textures/doom/entities/revenant/revenant_death.xpm 74,78 100
-REVENANT_PROJECTILE_LIVE ./assets/textures/doom/effects/revenant_projectile/revenant_projectile_live.xpm 20,16 100
-REVENANT_PROJECTILE_DEATH ./assets/textures/doom/effects/revenant_projectile/revenant_projectile_death.xpm 45,40 100
+REV_WALK ./assets/textures/doom/entities/revenant/revenant_walk.xpm 56,85 200
+REV_PUNCH ./assets/textures/doom/entities/revenant/revenant_punch.xpm 68,87 200
+REV_SHOOT ./assets/textures/doom/entities/revenant/revenant_shoot.xpm 49,79 150
+REV_PAIN ./assets/textures/doom/entities/revenant/revenant_pain.xpm 66,72 200
+REV_DEATH ./assets/textures/doom/entities/revenant/revenant_death.xpm 74,78 100
+REV_PROJECTILE_LIVE ./assets/textures/doom/effects/revenant_projectile/revenant_projectile_live.xpm 20,16 100
+REV_PROJECTILE_DEATH ./assets/textures/doom/effects/revenant_projectile/revenant_projectile_death.xpm 45,40 100
 
 MANCUBUS_WALK ./assets/textures/doom/entities/mancubus/mancubus_walk.xpm 88,70 200
 MANCUBUS_ATTACK ./assets/textures/doom/entities/mancubus/mancubus_attack.xpm 87,68 200

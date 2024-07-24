@@ -34,7 +34,7 @@ bool	caco_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		if (!entity_range_attack(entity, game, CACO_RANGE_PAUSE,
-			caco_projectile_init))
+			caco_proj_init))
 			return (false);
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 	}

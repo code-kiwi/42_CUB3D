@@ -41,7 +41,7 @@ bool	imp_update(t_game *game, t_entity *entity, float delta_time)
 	{
 		stop_walk_animation(entity);
 		return (entity_range_attack(entity, game, IMP_RANGE_PAUSE,
-			imp_projectile_init));
+			imp_proj_init));
 	}
 	return (true);
 }

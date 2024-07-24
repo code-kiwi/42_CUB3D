@@ -34,7 +34,7 @@ bool	boh_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		if (entity->see_player && !entity_range_attack(entity, game,
-			BOH_RANGE_PAUSE, boh_projectile_init))
+			BOH_RANGE_PAUSE, boh_proj_init))
 			return (false);
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)

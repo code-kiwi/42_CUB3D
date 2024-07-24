@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:50:01 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/24 09:52:22 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 09:59:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	imp_projectile_use(t_game *game, t_bullet *bullet)
 	ft_lst_remove_if(&game->bullets, bullet, equal, free);
 }
 
-void	imp_projectile_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
+void	imp_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
 {
 	t_sprite_init(bullet->sprite, &anim[IDX_TXTR_IMP_PROJ_LIVE], WIN_HEIGHT);
 	bullet->use = imp_projectile_use;

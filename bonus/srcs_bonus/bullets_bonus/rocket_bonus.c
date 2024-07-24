@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:09:39 by root              #+#    #+#             */
-/*   Updated: 2024/07/24 09:52:22 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 09:59:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	rocket_projectile_use(t_game *game, t_bullet *bullet)
 	ft_lst_remove_if(&game->bullets, bullet, equal, free);
 }
 
-void	rocket_projectile_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
+void	rocket_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
 {
 	t_sprite_init(bullet->sprite, &anim[IDX_TXTR_ROCKET_LIVE], WIN_HEIGHT);
 	bullet->use = rocket_projectile_use;

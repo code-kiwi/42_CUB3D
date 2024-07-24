@@ -25,11 +25,10 @@ bool	revenant_update(t_game *game, t_entity *entity, float delta_time)
 	sprite = entity->sprite;
 	distance = get_distance(&sprite->position, &game->player.position);
 	sprite->animate = true;
-	if (distance < REVENANT_CLOSE_ATTACK_RANGE)
+	if (distance < REV_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		entity_close_attack(entity, game, REVENANT_CLOSE_PAUSE,
-			REVENANT_CLOSE_DAMAGE);
+		entity_close_attack(entity, game, REV_CLOSE_PAUSE, REV_CLOSE_DAMAGE);
 	}
 	else if (!entity->see_player)
 	{
@@ -40,8 +39,8 @@ bool	revenant_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (entity_range_attack(entity, game, REVENANT_RANGE_PAUSE,
-			revenant_projectile_init));
+		return (entity_range_attack(entity, game, REV_RANGE_PAUSE,
+				revenant_proj_init));
 	}
 	return (true);
 }
@@ -52,15 +51,15 @@ bool	revenant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->get_killed = entity_get_killed;
 	entity->get_damage = entity_get_damage;
 	entity->get_chainsawed = entity_get_chainsawed;
-	entity->walk = &animation[IDX_TXTR_REVENANT_WALK];
-	entity->pain = &animation[IDX_TXTR_REVENANT_PAIN];
-	entity->death = &animation[IDX_TXTR_REVENANT_DEATH];
-	entity->close_attack = &animation[IDX_TXTR_REVENANT_PUNCH];
-	entity->range_attack = &animation[IDX_TXTR_REVENANT_SHOOT];
-	entity->health_point = REVENANT_HEALTH_POINT;
-	entity->speed = REVENANT_SPEED;
-	entity->squared_radius = REVENANT_SQUARED_RADIUS;
+	entity->walk = &animation[IDX_TXTR_REV_WALK];
+	entity->pain = &animation[IDX_TXTR_REV_PAIN];
+	entity->death = &animation[IDX_TXTR_REV_DEATH];
+	entity->close_attack = &animation[IDX_TXTR_REV_PUNCH];
+	entity->range_attack = &animation[IDX_TXTR_REV_SHOOT];
+	entity->health_point = REV_HEALTH_POINT;
+	entity->speed = REV_SPEED;
+	entity->squared_radius = REV_SQUARED_RADIUS;
 	entity->type = NULL;
-	t_sprite_init(entity->sprite, &animation[IDX_TXTR_REVENANT_WALK], WIN_HEIGHT);
+	t_sprite_init(entity->sprite, &animation[IDX_TXTR_REV_WALK], WIN_HEIGHT);
 	return (true);
 }
