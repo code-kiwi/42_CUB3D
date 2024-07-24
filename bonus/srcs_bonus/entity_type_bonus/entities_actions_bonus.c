@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 19:30:35 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 22:33:46 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:01:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	stop_walk_animation(t_entity *entity)
 		entity->sprite->animate = false;
 }
 
-void	entity_close_attack(t_entity *entity, t_game *game, size_t cooldown, \
+void	close_attack(t_entity *entity, t_game *game, size_t cooldown, \
 	size_t damage)
 {
 	if (entity->cooldown > 0)
@@ -57,7 +57,7 @@ void	entity_close_attack(t_entity *entity, t_game *game, size_t cooldown, \
 	player_get_damage(game, damage);
 }
 
-bool	entity_range_attack(t_entity *entity, t_game *game, size_t cooldown, \
+bool	range_attack(t_entity *entity, t_game *game, size_t cooldown, \
 	void (*bullet_init)(t_animation *, t_bullet *))
 {
 	if (entity->cooldown > 0)

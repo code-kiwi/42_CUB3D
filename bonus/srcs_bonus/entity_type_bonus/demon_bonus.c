@@ -28,7 +28,7 @@ bool	demon_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < DEMON_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		entity_close_attack(entity, game, DEMON_PAUSE,
+		close_attack(entity, game, DEMON_PAUSE,
 			DEMON_DAMAGE);
 	}
 	else

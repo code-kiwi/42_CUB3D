@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/24 09:55:54 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:01:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,9 +161,9 @@ bool	entity_get_killed(t_game *game, t_entity *entity);
 bool	entity_get_damage(t_game *game, t_entity *entity, size_t damage);
 bool	entity_get_chainsawed(t_game *game, t_entity *entity);
 void	stop_walk_animation(t_entity *entity);
-bool	entity_range_attack(t_entity *entity, t_game *game, size_t cooldown, \
+bool	range_attack(t_entity *entity, t_game *game, size_t cooldown, \
 			void (*bullet_init)(t_animation *, t_bullet *));
-void	entity_close_attack(t_entity *entity, t_game *game, size_t cooldown, \
+void	close_attack(t_entity *entity, t_game *game, size_t cooldown, \
 			size_t damage);
 
 // Init entities species

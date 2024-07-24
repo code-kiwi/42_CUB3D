@@ -32,7 +32,7 @@ bool	commando_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (entity_range_attack(entity, game, COMMANDO_PAUSE,
+		return (range_attack(entity, game, COMMANDO_PAUSE,
 			imp_proj_init));
 	}
 	return (true);
