@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/24 10:09:04 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:17:05 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ bool	pain_elem_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->pain = &animation[IDX_TXTR_PAIN_ELEM_PAIN];
 	entity->death = &animation[IDX_TXTR_PAIN_ELEM_DEATH];
 	entity->close_attack = &animation[IDX_TXTR_PAIN_ELEM_ATTACK];
-	entity->range_attack = &animation[IDX_TXTR_PAIN_ELEM_ATTACK];
+	entity->range_attack = NULL;
 	entity->health_point = PAIN_ELEM_HEALTH_POINT;
 	entity->speed = PAIN_ELEM_SPEED;
 	entity->squared_radius = PAIN_ELEM_SQUARED_RADIUS;

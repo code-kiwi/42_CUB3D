@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/24 09:45:58 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:16:35 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,21 @@ static bool	lost_soul_get_killed(t_game *game, t_entity *entity)
 	return (true);
 }
 
-bool	lost_soul_init(t_entity *entity, t_animation anim[MAP_NB_IDS])
+bool	lost_soul_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = lost_soul_update;
 	entity->get_killed = lost_soul_get_killed;
 	entity->get_damage = entity_get_damage;
 	entity->get_chainsawed = entity_get_chainsawed;
+	entity->walk = &animation[IDX_TXTR_LOST_SOUL_WALK];
+	entity->pain = NULL;
+	entity->death = &animation[IDX_TXTR_LOST_SOUL_DEATH];
+	entity->close_attack = NULL;
+	entity->range_attack = NULL;
 	entity->health_point = 0;
 	entity->speed = LOST_SOUL_SPEED;
 	entity->squared_radius = LOST_SOUL_SQUARED_RADIUS;
 	entity->type = NULL;
-	t_sprite_init(entity->sprite, &anim[IDX_TXTR_LOST_SOUL_WALK], WIN_HEIGHT);
+	t_sprite_init(entity->sprite, &animation[IDX_TXTR_LOST_SOUL_WALK], WIN_HEIGHT);
 	return (true);
 }
