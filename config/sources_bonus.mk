@@ -6,7 +6,7 @@
 #    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/24 09:46:17 by root             ###   ########.fr        #
+#    Updated: 2024/07/24 10:11:37 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -185,7 +185,8 @@ ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
 								sergeant_bonus.c				\
 								commando_bonus.c				\
 								init_entity_type_bonus.c		\
-								entities_actions_bonus.c
+								entities_actions_bonus.c		\
+								entities_attack_bonus.c
 ENTITY_TYPE_BONUS			=	$(addprefix $(ENTITY_TYPE_DIR_BONUS), $(ENTITY_TYPE_FILES_BONUS))
 
 # ITEMS
