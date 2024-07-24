@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 19:30:35 by root              #+#    #+#             */
-/*   Updated: 2024/07/24 10:11:19 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:19:39 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ bool	entity_get_killed(t_game *game, t_entity *entity)
 
 bool	entity_get_damage(t_game *game, t_entity *entity, size_t damage)
 {
+	if (game == NULL || entity == NULL || game->entities == NULL)
+		return (false);
 	set_animation(entity->sprite, entity->pain);
 	entity->sprite->next_animation = entity->walk;
 	damage_entity(game, entity, damage);

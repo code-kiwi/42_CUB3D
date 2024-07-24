@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:10:55 by root              #+#    #+#             */
-/*   Updated: 2024/07/24 10:12:59 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:20:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 void	close_attack(t_entity *entity, t_game *game, size_t cooldown, \
 	size_t damage)
 {
+	if (entity  == NULL || game == NULL)
+		return ;
 	if (entity->cooldown > 0)
 		return ;
 	set_animation(entity->sprite, entity->close_attack);
@@ -27,6 +29,9 @@ void	close_attack(t_entity *entity, t_game *game, size_t cooldown, \
 bool	range_attack(t_entity *entity, t_game *game, size_t cooldown, \
 	void (*bullet_init)(t_animation *, t_bullet *))
 {
+	if (entity == NULL || game == NULL || bullet_init == NULL
+		|| entity->sprite == NULL)
+		return (false);
 	if (entity->cooldown > 0)
 		return (true);
 	set_animation(entity->sprite, entity->close_attack);
