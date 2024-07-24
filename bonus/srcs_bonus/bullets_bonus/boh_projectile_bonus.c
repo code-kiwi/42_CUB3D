@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   boh_projectile_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:09:39 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 14:31:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/24 09:52:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	boh_projectile_use(t_game *game, t_bullet *bullet)
 	sprite->next_animation = NULL;
 	player_pos = &game->player.position;
 	if (get_distance(player_pos, &bullet->sprite->position) < PLAYER_RADIUS)
-		player_get_damage(game, BOH_RANGE_ATTACK_DAMAGE);
+		player_get_damage(game, BOH_RANGE_DAMAGE);
 	ft_lst_remove_if(&game->bullets, bullet, equal, free);
 }
 

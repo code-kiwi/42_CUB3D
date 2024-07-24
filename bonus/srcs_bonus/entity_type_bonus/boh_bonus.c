@@ -29,13 +29,12 @@ bool	boh_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < BOH_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		entity_close_attack(entity, game, BOH_CLOSE_ATTACK_PAUSE,
-			BOH_CLOSE_ATTACK_DAMAGE);
+		entity_close_attack(entity, game, BOH_CLOSE_PAUSE, BOH_CLOSE_DAMAGE);
 	}
 	else
 	{
 		if (entity->see_player && !entity_range_attack(entity, game,
-			BOH_RANGE_ATTACK_PAUSE, boh_projectile_init))
+			BOH_RANGE_PAUSE, boh_projectile_init))
 			return (false);
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)

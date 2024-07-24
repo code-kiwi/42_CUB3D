@@ -28,8 +28,8 @@ bool	revenant_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < REVENANT_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		entity_close_attack(entity, game, REVENANT_CLOSE_ATTACK_PAUSE,
-			REVENANT_CLOSE_ATTACK_DAMAGE);
+		entity_close_attack(entity, game, REVENANT_CLOSE_PAUSE,
+			REVENANT_CLOSE_DAMAGE);
 	}
 	else if (!entity->see_player)
 	{
@@ -40,7 +40,7 @@ bool	revenant_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (entity_range_attack(entity, game, REVENANT_RANGE_ATTACK_PAUSE,
+		return (entity_range_attack(entity, game, REVENANT_RANGE_PAUSE,
 			revenant_projectile_init));
 	}
 	return (true);

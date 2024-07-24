@@ -28,8 +28,8 @@ bool	mancubus_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < MANCUBUS_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		entity_close_attack(entity, game, MANCUBUS_CLOSE_ATTACK_PAUSE,
-			MANCUBUS_CLOSE_ATTACK_DAMAGE);
+		entity_close_attack(entity, game, MANCUBUS_CLOSE_PAUSE,
+			MANCUBUS_CLOSE_DAMAGE);
 	}
 	else if (!entity->see_player)
 	{
@@ -40,7 +40,7 @@ bool	mancubus_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (entity_range_attack(entity, game, MANCUBUS_RANGE_ATTACK_PAUSE,
+		return (entity_range_attack(entity, game, MANCUBUS_RANGE_PAUSE,
 			mancubus_projectile_init));
 	}
 	return (true);

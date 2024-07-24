@@ -23,7 +23,7 @@ bool	cyber_update(t_game *game, t_entity *entity, float delta_time)
 	sprite = entity->sprite;
 	sprite->animate = true;
 	if (entity->see_player && !entity_range_attack(entity, game,
-		CYBER_CLOSE_ATTACK_PAUSE, rocket_projectile_init))
+		CYBER_CLOSE_PAUSE, rocket_projectile_init))
 	{
 		return (false);
 	}

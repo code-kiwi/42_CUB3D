@@ -28,8 +28,8 @@ bool	imp_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < IMP_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		entity_close_attack(entity, game, IMP_CLOSE_ATTACK_PAUSE,
-			IMP_CLOSE_ATTACK_DAMAGE);
+		entity_close_attack(entity, game, IMP_CLOSE_PAUSE,
+			IMP_CLOSE_DAMAGE);
 	}
 	else if (!entity->see_player)
 	{
@@ -40,7 +40,7 @@ bool	imp_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (entity_range_attack(entity, game, IMP_RANGE_ATTACK_PAUSE,
+		return (entity_range_attack(entity, game, IMP_RANGE_PAUSE,
 			imp_projectile_init));
 	}
 	return (true);

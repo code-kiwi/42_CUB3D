@@ -49,8 +49,8 @@ bool	pain_elem_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < PAIN_ELEM_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		entity_close_attack(entity, game, MANCUBUS_CLOSE_ATTACK_PAUSE,
-			MANCUBUS_CLOSE_ATTACK_DAMAGE);
+		entity_close_attack(entity, game, MANCUBUS_CLOSE_PAUSE,
+			MANCUBUS_CLOSE_DAMAGE);
 	}
 	else if (!entity->see_player)
 		update_entity_position(entity, delta_time, game->entities, &game->map);
