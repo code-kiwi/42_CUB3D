@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pain_elem_bonus.c                           :+:      :+:    :+:   */
+/*   pain_elem_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 21:15:49 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 10:09:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ bool	pain_elem_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->speed = PAIN_ELEM_SPEED;
 	entity->squared_radius = PAIN_ELEM_SQUARED_RADIUS;
 	entity->type = NULL;
-	t_sprite_init(entity->sprite, &animation[IDX_TXTR_PAIN_ELEM_WALK], WIN_HEIGHT);
+	t_sprite_init(entity->sprite, &animation[IDX_TXTR_PAIN_ELEM_WALK],
+		WIN_HEIGHT);
 	return (true);
 }

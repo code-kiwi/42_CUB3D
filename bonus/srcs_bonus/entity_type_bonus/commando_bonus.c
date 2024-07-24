@@ -52,6 +52,7 @@ bool	commando_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->speed = COMMANDO_SPEED;
 	entity->squared_radius = COMMANDO_SQUARED_RADIUS;
 	entity->type = NULL;
-	t_sprite_init(entity->sprite, &animation[IDX_TXTR_COMMANDO_WALK], WIN_HEIGHT);
+	t_sprite_init(entity->sprite, &animation[IDX_TXTR_COMMANDO_WALK],
+		WIN_HEIGHT);
 	return (true);
 }

@@ -52,6 +52,7 @@ bool	sergeant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->speed = SERGEANT_SPEED;
 	entity->squared_radius = SERGEANT_SQUARED_RADIUS;
 	entity->type = NULL;
-	t_sprite_init(entity->sprite, &animation[IDX_TXTR_SERGEANT_WALK], WIN_HEIGHT);
+	t_sprite_init(entity->sprite, &animation[IDX_TXTR_SERGEANT_WALK],
+		WIN_HEIGHT);
 	return (true);
 }
