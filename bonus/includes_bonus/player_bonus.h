@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 13:50:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/25 19:15:51 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,28 @@ typedef struct s_sprite			t_sprite;
 
 struct s_player
 {
-	float		fov_angle;
-	t_vector	position;
-	float		orientation;
-	bool		is_walking[4];
-	float		move_speed[4];
-	float		rotation_speed;
-	float		leftmost_angle;
-	float		pixel_by_angle;
-	t_ray		*look_ray;
-	t_door		*last_door_seen;
-	t_sprite	*aimed_sprite;
-	t_weapon	*weapons[NB_TOT_WEAPONS + 1];
-	t_weapon	*curr_weapon;
-	size_t		curr_weapon_index;
-	size_t		health_point;
-	float		frame_update_delta;
+	float			fov_angle;
+	t_vector		position;
+	float			orientation;
+	bool			is_walking[4];
+	float			move_speed[4];
+	float			rotation_speed;
+	float			leftmost_angle;
+	float			pixel_by_angle;
+	t_ray			*look_ray;
+	t_door			*last_door_seen;
+	t_sprite		*aimed_sprite;
+	t_weapon		*weapons[NB_TOT_WEAPONS + 1];
+	t_weapon		*curr_weapon;
+	size_t			curr_weapon_index;
+	size_t			health_point;
+	float			frame_update_delta;
+
+	bool			is_switching_weapon;
+	bool			is_holstering;
+	t_mlx_coords	draw_offset;
+	float			frame_update_delta2;
+	size_t			next_weapon_index;
 };
 
 // t_player functions
