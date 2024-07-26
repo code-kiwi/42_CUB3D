@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:04:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/25 19:16:12 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/26 15:55:47 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ void	player_select_prev_weapon(t_player *player)
 {
 	if (
 		player == NULL
-		|| player->is_switching_weapon
-		|| player->curr_weapon->curr_frame != player->curr_weapon->frame_default
+		|| player->weapon_state != WEAPON_STATE_IDLE
 	)
 		return ;
-	player->is_switching_weapon = true;
-	player->is_holstering = true;
-	player->frame_update_delta2 = 0;
+	player->weapon_state = WEAPON_STATE_HOLSTERING;
+	player->frame_update_delta = 0;
 	player->next_weapon_index = player->curr_weapon_index;
 	if (player->next_weapon_index == 0)
 	{
@@ -41,15 +39,13 @@ void	player_select_prev_weapon(t_player *player)
 
 void	player_select_next_weapon(t_player *player)
 {
-		if (
+	if (
 		player == NULL
-		|| player->is_switching_weapon
-		|| player->curr_weapon->curr_frame != player->curr_weapon->frame_default
+		|| player->weapon_state != WEAPON_STATE_IDLE
 	)
 		return ;
-	player->is_switching_weapon = true;
-	player->is_holstering = true;
-	player->frame_update_delta2 = 0;
+	player->weapon_state = WEAPON_STATE_HOLSTERING;
+	player->frame_update_delta = 0;
 	player->next_weapon_index = player->curr_weapon_index;
 	player->next_weapon_index++;
 	if (player->weapons[player->next_weapon_index] == NULL)
@@ -60,10 +56,14 @@ void	player_weapon_use(t_player *player, t_game *game)
 {
 	if (
 		player == NULL || game == NULL
-		|| player->is_switching_weapon
+		|| (
+			player->weapon_state != WEAPON_STATE_IDLE 
+			&& player->weapon_state != WEAPON_STATE_USING
+		)
 	)
 		return ;
 	player->frame_update_delta = 0;
+	player->weapon_state = WEAPON_STATE_USING;
 	use_weapon(player->curr_weapon, game);
 }
 
@@ -75,6 +75,10 @@ bool	init_player_weapons(t_game *game, t_player *player)
 	player->weapons[0] = &game->weapons[0];
 	player->weapons[1] = &game->weapons[1];
 	player->curr_weapon_index = 0;
+	player->next_weapon_index = 0;
 	player->curr_weapon = player->weapons[player->curr_weapon_index];
+	player->weapon_state = WEAPON_STATE_IDLE;
+	player->draw_offset.x = 0;
+	player->draw_offset.y = 0;
 	return (true);
 }

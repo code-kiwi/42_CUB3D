@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/25 11:27:35 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/26 15:54:45 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,5 @@ bool	t_player_init(t_player *player, t_map *map, t_game *game)
 	ft_memset(player->is_walking, 0, 4 * sizeof(bool));
 	player->look_ray = &game->rays[(int)WIN_WIDTH / 2];
 	player->frame_update_delta = 0;
-	player->is_switching_weapon = false;
-	player->draw_offset.x = 0;
-	player->draw_offset.y = 0;
 	return (true);
 }

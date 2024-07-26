@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/25 19:15:51 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/26 15:59:49 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,25 @@
 # define PLAYER_HEALTH_POINT			100
 # define PLAYER_ANIMATION_UPDATE		0.1f
 
-typedef struct s_game			t_game;
-typedef struct s_player			t_player;
-typedef struct s_map			t_map;
-typedef struct s_ray			t_ray;
-typedef struct s_list			t_list;
-typedef struct s_door			t_door;
-typedef struct s_sprite			t_sprite;
+# define PLAYER_WEAPON_ANIMATION_UPDATE	0.015f
+# define PLAYER_WEAPON_SWITCH_OFFSET	30
+
+typedef struct s_game				t_game;
+typedef struct s_player				t_player;
+typedef struct s_map				t_map;
+typedef struct s_ray				t_ray;
+typedef struct s_list				t_list;
+typedef struct s_door				t_door;
+typedef struct s_sprite				t_sprite;
+typedef enum e_player_weapon_state	t_weapon_state;
+
+enum e_player_weapon_state
+{
+	WEAPON_STATE_IDLE,
+    WEAPON_STATE_HOLSTERING,
+    WEAPON_STATE_DRAWING,
+	WEAPON_STATE_USING
+};
 
 struct s_player
 {
@@ -53,17 +65,15 @@ struct s_player
 	t_ray			*look_ray;
 	t_door			*last_door_seen;
 	t_sprite		*aimed_sprite;
-	t_weapon		*weapons[NB_TOT_WEAPONS + 1];
-	t_weapon		*curr_weapon;
-	size_t			curr_weapon_index;
 	size_t			health_point;
 	float			frame_update_delta;
 
-	bool			is_switching_weapon;
-	bool			is_holstering;
+	t_weapon		*weapons[NB_TOT_WEAPONS + 1];
+	size_t			curr_weapon_index;
+	t_weapon		*curr_weapon;
 	t_mlx_coords	draw_offset;
-	float			frame_update_delta2;
 	size_t			next_weapon_index;
+	t_weapon_state	weapon_state;
 };
 
 // t_player functions
