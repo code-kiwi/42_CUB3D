@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/26 20:44:59 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 20:47:25 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ struct s_game
 	t_mlx			mlx;
 	t_player		player;
 	t_map			map;
-	t_vector		player_position;
 	t_ray			rays[WIN_WIDTH];
 	t_image			textures[4];
 	unsigned int	ceiling_color;
