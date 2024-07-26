@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:04:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/26 19:41:26 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/27 01:31:33 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,9 @@ bool	init_player_weapons(t_game *game, t_player_weapon *weapon_info)
 	if (game == NULL || weapon_info == NULL)
 		return (error_print(ERR_P_WEAPONS_CREATION), false);
 	ft_bzero(&weapon_info->weapons, (NB_TOT_WEAPONS + 1) * sizeof(t_weapon *));
-	weapon_info->weapons[0] = &game->weapons[0];
-	weapon_info->weapons[1] = &game->weapons[1];
+	weapon_info->weapons[IDX_W1_HAND] = &game->weapons[IDX_W1_HAND];
+	weapon_info->weapons[IDX_W2_PISTOL] = &game->weapons[IDX_W2_PISTOL];
+	weapon_info->weapons[IDX_W3_CHAINGUN] = &game->weapons[IDX_W3_CHAINGUN];
 	weapon_info->curr_weapon_index = 0;
 	weapon_info->next_weapon_index = 0;
 	weapon_info->curr_weapon = \

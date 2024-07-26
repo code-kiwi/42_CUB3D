@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   weapons_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 13:49:22 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/27 01:26:08 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@
 # include "mlx_api_bonus.h"
 
 # define WEAPONS_H_RATIO	0.5f
-# define NB_TOT_WEAPONS		2
+# define NB_TOT_WEAPONS		3
 # define IDX_W1_HAND		0
 # define IDX_W2_PISTOL		1
+# define IDX_W3_CHAINGUN	2
 
 typedef struct s_weapon	t_weapon;
 typedef struct s_list	t_list;

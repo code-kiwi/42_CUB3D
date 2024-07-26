@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/22 12:27:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/27 01:34:02 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@
 # define ID_TEXTURE_W1_HAND				"W1_HAND"
 # define ID_TEXTURE_W1_PUNCH			"W1_PUNCH"
 # define ID_TEXTURE_W2_PISTOL			"W2_PISTOL"
+# define ID_TEXTURE_W3_CHAINGUN			"W3_CHAINGUN"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -86,13 +87,14 @@
 # define IDX_TXTR_W1_HAND				25
 # define IDX_TXTR_W1_PUNCH				26
 # define IDX_TXTR_W2_PISTOL				27
+# define IDX_TXTR_W3_CHAINGUN			28
 
 # define ID_MAP_DEMON					'p'
 # define ID_MAP_IMP						'i'
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01sdpiNSEW"
-# define MAP_NB_IDS						28
+# define MAP_NB_IDS						29
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 

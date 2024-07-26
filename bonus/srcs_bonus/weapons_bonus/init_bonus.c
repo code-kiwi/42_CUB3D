@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 13:57:44 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/27 01:40:49 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,33 @@ static void	init_w2_pistol(t_weapon *weapon, t_game *game)
 	weapon->action = use_gun_classic;
 }
 
+static void	init_w3_chaingun(t_weapon *weapon, t_game *game)
+{
+	weapon->frame_default = \
+		(t_image *) game->textures[IDX_TXTR_W3_CHAINGUN]->content;
+	weapon->curr_frame = weapon->frame_default;
+	weapon->curr_frame_link = NULL;
+	weapon->frames_action = game->textures[IDX_TXTR_W3_CHAINGUN]->next;
+	weapon->frames_bullet = NULL;
+	weapon->target = (t_image *) game->textures[IDX_TXTR_TARGET1]->content;
+	weapon->num_loads = 1;
+	weapon->load_capacity = 100;
+	weapon->remaining_use = 50;
+	weapon->damage = 1;
+	weapon->range = 10.0f;
+	weapon->is_limited = true;
+	weapon->is_use_continuous = false;
+	weapon->id = 'O';
+	weapon->action = use_gun_classic;
+}
+
 bool	init_weapons(t_game *game)
 {
 	if (game == NULL)
 		return (error_print(ERR_WEAPONS_CREATION), false);
 	init_w1_hand(&game->weapons[IDX_W1_HAND], game);
 	init_w2_pistol(&game->weapons[IDX_W2_PISTOL], game);
+	init_w3_chaingun(&game->weapons[IDX_W3_CHAINGUN], game);
 	if (!init_resize_imgs(game->weapons, &game->mlx))
 		return (error_print(ERR_WEAPONS_RESIZE), false);
 	init_all_weapon_positions(game->weapons, &game->mlx);
