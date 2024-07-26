@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/26 13:55:17 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 15:05:30 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ struct s_entity
 	t_animation	*close_attack;
 	t_animation	*range_attack;
 	size_t		close_damage;
-	void 		(*bullet_init)(t_animation [MAP_NB_IDS], t_bullet *);
+	void		(*bullet_init)(t_animation [MAP_NB_IDS], t_bullet *);
 };
 
 void	t_entity_destroy(void *data);

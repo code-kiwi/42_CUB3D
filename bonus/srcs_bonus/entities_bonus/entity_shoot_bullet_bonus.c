@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:39:12 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/26 14:05:11 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 15:06:32 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ bool	entity_shoot_bullet(t_game *game, t_sprite *entity_sprite)
 	t_list		*entity_node;
 	t_entity	*entity;
 
-	entity_node = ft_lstfind(game->entities, entity_sprite, is_sprite_of_entity);
+	entity_node = ft_lstfind(game->entities, entity_sprite,
+			is_sprite_of_entity);
 	if (entity_node == NULL)
 		return (false);
 	entity = entity_node->content;
