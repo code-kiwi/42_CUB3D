@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 11:24:25 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/26 17:39:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ struct	s_sprite
 	size_t		height;
 	float		frame_update_delta;
 	bool		animate;
+	bool		on_ground;
+	bool		on_ceiling;
 };
 
 // Sprites functions

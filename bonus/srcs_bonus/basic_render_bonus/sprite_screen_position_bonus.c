@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_screen_position_bonus.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 12:09:00 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/26 17:59:14 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 	sprite_screen->x -= sprite->height / 2 * scale;
 	sprite_screen->y = WIN_HEIGHT / 2;
 	sprite_screen->y -= sprite->height / 2 * scale;
+	if (sprite->on_ground)
+		sprite_screen->y += (WIN_HEIGHT - sprite->height) / 2 * scale;
+	else if (sprite->on_ceiling)
+		sprite_screen->y -= (WIN_HEIGHT - sprite->height) / 2 * scale;
 }
 
 bool	is_sprite_aimed(t_sprite *sprite, int left_x)

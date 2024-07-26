@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/26 18:00:15 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 
 	column.coords.x = column_index;
 	column.perceived_height = WIN_HEIGHT
-		/ (ray->length * cos(ray->angle_from_orientation));
+		/ (ray->length * ray->cos_angle_from_orientation);
 	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2);
 	column.end = ceilf((WIN_HEIGHT + column.perceived_height) / 2);
 	if (column.end > WIN_HEIGHT)
