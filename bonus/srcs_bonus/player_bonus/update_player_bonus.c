@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/26 17:38:51 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/26 22:15:12 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 #include "cub3d_bonus.h"
 #include "libft.h"
 #include "entities_bonus.h"
+
+static bool	is_walking(t_player *player)
+{
+	return (
+		(player->walk_direction[FRONT] && !player->walk_direction[BACK])
+		|| (player->walk_direction[BACK] && !player->walk_direction[FRONT])
+		|| (player->walk_direction[LEFT] && !player->walk_direction[RIGHT])
+		|| (player->walk_direction[RIGHT] && !player->walk_direction[LEFT])
+	);
+}
 
 static void	update_look(t_player *player, float delta_time)
 {
@@ -39,8 +49,8 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 	index = 0;
 	while (index < 4)
 	{
-		if (player->is_walking[index] != false
-			&& player->is_walking[(index + 2) % 4] == false)
+		if (player->walk_direction[index] != false
+			&& player->walk_direction[(index + 2) % 4] == false)
 		{
 			new_angle = player->orientation + index * PI / 2;
 			move.x = cos(new_angle) * player->move_speed[index] * delta_time;
@@ -53,8 +63,11 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 
 void	update_player(t_game *game, float delta_time)
 {
+	if (game == NULL)
+		return ;
+	game->player.is_walking = is_walking(&game->player);
 	update_look(&game->player, delta_time);
 	update_position(&game->player, &game->map, delta_time, game->entities);
-	update_player_weapon(&game->player.weapon_info, \
-		game->player.weapon_info.curr_weapon, game, delta_time);
+	update_player_weapon(&game->player.weapon_info, game->player.is_walking, \
+		game, delta_time);
 }

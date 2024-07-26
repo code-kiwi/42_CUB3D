@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press_handler_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 10:59:52 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/26 22:03:31 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int	key_press_handler(int key, t_game *game)
 	if (game == NULL)
 		error_exit(NULL, ERR_ARG);
 	else if (key == KEY_W)
-		game->player.is_walking[FRONT] = true;
+		game->player.walk_direction[FRONT] = true;
 	else if (key == KEY_S)
-		game->player.is_walking[BACK] = true;
+		game->player.walk_direction[BACK] = true;
 	else if (key == KEY_A)
-		game->player.is_walking[LEFT] = true;
+		game->player.walk_direction[LEFT] = true;
 	else if (key == KEY_D)
-		game->player.is_walking[RIGHT] = true;
+		game->player.walk_direction[RIGHT] = true;
 	else if (key == KEY_E)
 		open_looked_door(game->player.look_ray, &game->map);
 	return (0);

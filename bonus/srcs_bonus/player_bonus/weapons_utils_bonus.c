@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:04:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/26 17:47:41 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/26 19:41:26 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,8 @@ bool	init_player_weapons(t_game *game, t_player_weapon *weapon_info)
 	weapon_info->weapon_state = WEAPON_STATE_IDLE;
 	weapon_info->draw_offset.x = 0;
 	weapon_info->draw_offset.y = 0;
+	weapon_info->frame_update_delta = 0;
+	weapon_info->frame_update_delta_h_move = 0;
+	weapon_info->draw_offset_sign = 1;
 	return (true);
 }

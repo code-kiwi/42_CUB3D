@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/26 17:48:52 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/26 22:24:31 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@
 # define PLAYER_ANIMATION_UPDATE		0.1f
 
 # define PLAYER_WEAPON_ANIMATION_UPDATE	0.015f
-# define PLAYER_WEAPON_SWITCH_OFFSET	30
+# define PLAYER_WEAPON_MOVE_UPDATE		0.04f
+# define PLAYER_WEAPON_SWITCH_V_OFFSET	30
+# define PLAYER_WEAPON_H_OFFSET_STEP	10
+# define PLAYER_WEAPON_H_OFFSET_MAX		50
 
 typedef struct s_game				t_game;
 typedef struct s_player				t_player;
@@ -62,6 +65,8 @@ struct s_player_weapon
 	size_t			next_weapon_index;
 	t_weapon_state	weapon_state;
 	float			frame_update_delta;
+	float			frame_update_delta_h_move;
+	int				draw_offset_sign;
 };
 
 struct s_player
@@ -69,7 +74,7 @@ struct s_player
 	float			fov_angle;
 	t_vector		position;
 	float			orientation;
-	bool			is_walking[4];
+	bool			walk_direction[4];
 	float			move_speed[4];
 	float			rotation_speed;
 	float			leftmost_angle;
@@ -78,6 +83,7 @@ struct s_player
 	t_door			*last_door_seen;
 	t_sprite		*aimed_sprite;
 	size_t			health_point;
+	bool			is_walking;
 	t_player_weapon	weapon_info;
 };
 
@@ -85,8 +91,8 @@ struct s_player
 bool	t_player_init(t_player *player, t_map *map, t_game *game);
 void	destroy_player(t_player *player);
 void	update_player(t_game *game, float delta_time);
-void	update_player_weapon(t_player_weapon *weapon_info, t_weapon *weapon, \
-			t_game *game, float delta_time);
+void	update_player_weapon(t_player_weapon *weapon_info, \
+			bool is_player_walking, t_game *game, float delta_time);
 void	player_get_damage(t_game *game, size_t damage);
 void	draw_player(t_game *game, t_player_weapon *weapon_info);
 

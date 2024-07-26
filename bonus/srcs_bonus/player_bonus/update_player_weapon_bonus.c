@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/26 17:48:08 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/26 22:39:57 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	update_player_weapon_switching(
 	weapon_info->frame_update_delta = 0;
 	if (weapon_info->weapon_state == WEAPON_STATE_HOLSTERING)
 	{
-		weapon_info->draw_offset.y += PLAYER_WEAPON_SWITCH_OFFSET;
+		weapon_info->draw_offset.y += PLAYER_WEAPON_SWITCH_V_OFFSET;
 		if (weapon_info->draw_offset.y >= weapon->curr_frame->height)
 		{
 			weapon_info->weapon_state = WEAPON_STATE_DRAWING;
@@ -37,7 +37,7 @@ static void	update_player_weapon_switching(
 	}
 	if (weapon_info->weapon_state == WEAPON_STATE_DRAWING)
 	{
-		weapon_info->draw_offset.y -= PLAYER_WEAPON_SWITCH_OFFSET;
+		weapon_info->draw_offset.y -= PLAYER_WEAPON_SWITCH_V_OFFSET;
 		if (weapon_info->draw_offset.y <= 0)
 			weapon_info->weapon_state = WEAPON_STATE_IDLE;
 	}
@@ -57,19 +57,44 @@ static void	update_player_weapon_using(
 		weapon_info->weapon_state = WEAPON_STATE_IDLE;
 }
 
+static void	update_player_weapon_h_offset(
+	t_player_weapon *weapon_info,
+	bool is_player_walking,
+	float delta_time
+)
+{
+	if (!is_player_walking || weapon_info->weapon_state == WEAPON_STATE_USING)
+	{
+		weapon_info->frame_update_delta_h_move = 0;
+		weapon_info->draw_offset.x = 0;
+	}
+	else
+	{
+		weapon_info->frame_update_delta_h_move += delta_time;
+		if (weapon_info->frame_update_delta_h_move < PLAYER_WEAPON_MOVE_UPDATE)
+			return ;
+		weapon_info->frame_update_delta_h_move = 0;
+		weapon_info->draw_offset.x += \
+			weapon_info->draw_offset_sign * PLAYER_WEAPON_H_OFFSET_STEP;
+		if (abs(weapon_info->draw_offset.x) >= PLAYER_WEAPON_H_OFFSET_MAX)
+			weapon_info->draw_offset_sign *= -1;
+	}
+}
+
 void	update_player_weapon(
 	t_player_weapon *weapon_info,
-	t_weapon *weapon,
+	bool is_player_walking,
 	t_game *game,
 	float delta_time
 )
 {
 	weapon_info->frame_update_delta += delta_time;
 	if (weapon_info->weapon_state == WEAPON_STATE_USING)
-		update_player_weapon_using(weapon_info, weapon, game);
+		update_player_weapon_using(weapon_info, weapon_info->curr_weapon, game);
 	else if (
 		weapon_info->weapon_state == WEAPON_STATE_HOLSTERING
 		|| weapon_info->weapon_state == WEAPON_STATE_DRAWING
 	)
-		update_player_weapon_switching(weapon_info, weapon);
+		update_player_weapon_switching(weapon_info, weapon_info->curr_weapon);
+	update_player_weapon_h_offset(weapon_info, is_player_walking, delta_time);
 }
