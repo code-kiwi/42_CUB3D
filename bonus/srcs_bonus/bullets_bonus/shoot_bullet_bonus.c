@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shoot_bullet_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:06:25 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/26 15:14:08 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ bool	shoot_bullet(t_game *game, t_vector *position, t_vector *direction,
 	new_bullet->move = *direction;
 	init_bullet(game->anim, new_bullet);
 	new_sprite->distance = get_distance(position, &game->player.position);
+	new_sprite->height = BULLET_HEIGHT_WINDOW_RATIO * WIN_HEIGHT;
 	return (true);
 }
