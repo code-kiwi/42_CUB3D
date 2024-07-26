@@ -32,12 +32,12 @@ bool	sergeant_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (range_attack(entity, game, SERGEANT_PAUSE, imp_proj_init));
+		range_attack(entity, game, SERGEANT_PAUSE);
 	}
 	return (true);
 }
 
-bool	sergeant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
+void	sergeant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = sergeant_update;
 	entity->get_killed = entity_get_killed;
@@ -48,11 +48,11 @@ bool	sergeant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_SERGEANT_DEATH];
 	entity->close_attack = NULL;
 	entity->range_attack = &animation[IDX_TXTR_COMMANDO_ATTACK];
+	entity->bullet_init = imp_proj_init;
 	entity->health_point = SERGEANT_HEALTH_POINT;
 	entity->speed = SERGEANT_SPEED;
 	entity->squared_radius = SERGEANT_SQUARED_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_SERGEANT_WALK],
 		WIN_HEIGHT);
-	return (true);
 }

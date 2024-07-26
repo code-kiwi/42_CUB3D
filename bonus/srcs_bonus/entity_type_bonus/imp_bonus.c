@@ -39,12 +39,12 @@ bool	imp_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (range_attack(entity, game, IMP_RANGE_PAUSE, imp_proj_init));
+		range_attack(entity, game, IMP_RANGE_PAUSE);
 	}
 	return (true);
 }
 
-bool	imp_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
+void	imp_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = imp_update;
 	entity->get_killed = entity_get_killed;
@@ -55,12 +55,11 @@ bool	imp_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_IMP_DEATH];
 	entity->close_attack = &animation[IDX_TXTR_IMP_ATTACK];
 	entity->range_attack = &animation[IDX_TXTR_IMP_ATTACK];
-	entity->close_attack->on_end = entity_damage_player;
 	entity->close_damage = IMP_CLOSE_DAMAGE;
+	entity->bullet_init = imp_proj_init;
 	entity->health_point = IMP_HEALTH_POINT;
 	entity->speed = IMP_SPEED;
 	entity->squared_radius = IMP_SQUARED_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_IMP_WALK], WIN_HEIGHT);
-	return (true);
 }

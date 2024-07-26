@@ -33,9 +33,8 @@ bool	boh_update(t_game *game, t_entity *entity, float delta_time)
 	}
 	else
 	{
-		if (entity->see_player
-			&& !range_attack(entity, game, BOH_RANGE_PAUSE, boh_proj_init))
-			return (false);
+		if (entity->see_player)
+			range_attack(entity, game, BOH_RANGE_PAUSE);
 		update_entity_position(entity, delta_time, game->entities, &game->map);
 		if (entity->path == NULL)
 			stop_walk_animation(entity);
@@ -43,7 +42,7 @@ bool	boh_update(t_game *game, t_entity *entity, float delta_time)
 	return (true);
 }
 
-bool	boh_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
+void	boh_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = boh_update;
 	entity->get_killed = entity_get_killed;
@@ -54,12 +53,11 @@ bool	boh_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_BOH_DEATH];
 	entity->close_attack = &animation[IDX_TXTR_BOH_ATTACK];
 	entity->range_attack = &animation[IDX_TXTR_BOH_ATTACK];
-	entity->close_attack->on_end = entity_damage_player;
 	entity->close_damage = BOH_CLOSE_DAMAGE;
+	entity->bullet_init = boh_proj_init;
 	entity->health_point = BOH_HEALTH_POINT;
 	entity->speed = BOH_SPEED;
 	entity->squared_radius = BOH_SQUARED_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_BOH_WALK], WIN_HEIGHT);
-	return (true);
 }

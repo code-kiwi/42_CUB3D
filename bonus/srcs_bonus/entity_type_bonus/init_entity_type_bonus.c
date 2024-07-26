@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:26:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 22:39:45 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 13:48:12 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 #include "entities_bonus.h"
 #include "map_bonus.h"
 
-bool	init_entity_type(t_entity *entity, char id, \
+void	init_entity_type(t_entity *entity, char id, \
 	t_animation anim[MAP_NB_IDS])
 {
 	char		*id_pos;
 	static char	*ids = IDS_MAP_ENTITY;
-	static bool	(*inits[12])(t_entity *, t_animation[MAP_NB_IDS]) = {
+	static void	(*inits[12])(t_entity *, t_animation[MAP_NB_IDS]) = {
 		demon_init, imp_init, caco_init, boh_init, lost_soul_init, \
 	pain_elem_init, cyber_init, revenant_init, mancubus_init, arch_vile_init, \
 	commando_init, sergeant_init};
 
 	id_pos = ft_strchr(ids, id);
 	if (id_pos == NULL || id_pos - ids >= 12)
-		return (false);
-	return (inits[id_pos - ids](entity, anim));
+		return ;
+	inits[id_pos - ids](entity, anim);
 }

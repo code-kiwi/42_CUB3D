@@ -22,18 +22,15 @@ bool	cyber_update(t_game *game, t_entity *entity, float delta_time)
 		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
 	sprite->animate = true;
-	if (entity->see_player
-		&& !range_attack(entity, game, CYBER_CLOSE_PAUSE, rocket_proj_init))
-	{
-		return (false);
-	}
+	if (entity->see_player)
+		range_attack(entity, game, CYBER_CLOSE_PAUSE);
 	update_entity_position(entity, delta_time, game->entities, &game->map);
 	if (entity->path == NULL)
 		stop_walk_animation(entity);
 	return (true);
 }
 
-bool	cyber_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
+void	cyber_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = cyber_update;
 	entity->get_killed = entity_get_killed;
@@ -44,10 +41,10 @@ bool	cyber_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_CYBER_DEATH];
 	entity->close_attack = NULL;
 	entity->range_attack = &animation[IDX_TXTR_CYBER_ATTACK];
+	entity->bullet_init = rocket_proj_init;
 	entity->health_point = CYBER_HEALTH_POINT;
 	entity->speed = CYBER_SPEED;
 	entity->squared_radius = CYBER_SQUARED_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_CYBER_WALK], WIN_HEIGHT);
-	return (true);
 }

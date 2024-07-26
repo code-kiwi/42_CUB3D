@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/26 09:45:35 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 13:51:42 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	lost_soul_get_killed(t_game *game, t_entity *entity)
 	ft_lst_remove_if(&game->entities, entity, equal, t_entity_destroy);
 }
 
-bool	lost_soul_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
+void	lost_soul_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = lost_soul_update;
 	entity->get_killed = lost_soul_get_killed;
@@ -60,5 +60,4 @@ bool	lost_soul_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_LOST_SOUL_WALK],
 		WIN_HEIGHT);
-	return (true);
 }

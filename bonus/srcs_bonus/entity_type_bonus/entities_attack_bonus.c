@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:10:55 by root              #+#    #+#             */
-/*   Updated: 2024/07/26 10:00:06 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 14:22:36 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,28 @@ void	close_attack(t_entity *entity, t_game *game, size_t cooldown)
 	set_animation(entity->sprite, entity->close_attack);
 	entity->sprite->next_animation = entity->walk;
 	entity->cooldown = cooldown;
+	entity->close_attack->on_end = entity_damage_player;
 }
 
-bool	range_attack(t_entity *entity, t_game *game, size_t cooldown, \
-	void (*bullet_init)(t_animation *, t_bullet *))
+void	range_attack(t_entity *entity, t_game *game, size_t cooldown)
 {
-	if (entity == NULL || game == NULL || bullet_init == NULL
-		|| entity->sprite == NULL)
-		return (false);
+	if (entity == NULL || game == NULL || entity->sprite == NULL)
+		return ;
 	if (entity->cooldown > 0)
-		return (true);
+		return ;
 	set_animation(entity->sprite, entity->close_attack);
 	entity->sprite->next_animation = entity->walk;
 	entity->cooldown = cooldown;
-	return (entity_shoot_bullet(game, entity, bullet_init));
+	entity->range_attack->on_end = entity_shoot_bullet;
 }
 
-void	entity_damage_player(t_game *game, t_sprite *entity_sprite)
+bool	entity_damage_player(t_game *game, t_sprite *entity_sprite)
 {
 	t_list	*entity;
 
 	entity = ft_lstfind(game->entities, entity_sprite, is_sprite_of_entity);
 	if (entity == NULL)
-		return ;
+		return (false);
 	player_get_damage(game, ((t_entity *)entity->content)->close_damage);
+	return (true);
 }

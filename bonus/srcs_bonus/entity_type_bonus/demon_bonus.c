@@ -39,7 +39,7 @@ bool	demon_update(t_game *game, t_entity *entity, float delta_time)
 	return (true);
 }
 
-bool	demon_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
+void	demon_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = demon_update;
 	entity->get_killed = entity_get_killed;
@@ -50,12 +50,10 @@ bool	demon_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_DEMON_DEATH];
 	entity->close_attack = &animation[IDX_TXTR_DEMON_ATTACK];
 	entity->range_attack = NULL;
-	entity->close_attack->on_end = entity_damage_player;
 	entity->close_damage = DEMON_DAMAGE;
 	entity->health_point = DEMON_HEALTH_POINT;
 	entity->speed = DEMON_SPEED;
 	entity->squared_radius = DEMON_SQUARED_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_DEMON_WALK], WIN_HEIGHT);
-	return (true);
 }

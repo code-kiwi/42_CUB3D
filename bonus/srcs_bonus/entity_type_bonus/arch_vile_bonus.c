@@ -54,7 +54,7 @@ bool	arch_vile_update(t_game *game, t_entity *entity, float delta_time)
 	return (true);
 }
 
-bool	arch_vile_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
+void	arch_vile_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = arch_vile_update;
 	entity->get_killed = entity_get_killed;
@@ -71,5 +71,4 @@ bool	arch_vile_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_ARCH_VILE_WALK],
 		WIN_HEIGHT);
-	return (true);
 }

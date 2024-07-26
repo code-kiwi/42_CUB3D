@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/26 09:37:29 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 14:04:29 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ static void	game_render(t_game *game, float delta_time)
 		t_mlx_mouse_hide(&game->mlx, &game->mouse_hidden);
 	update_entities(game, delta_time);
 	update_bullets(game, delta_time);
-	update_animations(game, delta_time);
+	if (!update_animations(game, delta_time))
+		error_exit(game, NULL);
 	update_player(&game->player, &game->map, delta_time, game->entities);
 	update_doors(game, delta_time);
 	update_map(&game->map, game);
@@ -89,6 +90,6 @@ int	game_loop(t_game *game)
 		draw_ui(&game->ui_pause, game->mlx.img_buff);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
-	printf("fps : %d\n", (int)(1.0f / delta_time));
+	// printf("fps : %d\n", (int)(1.0f / delta_time));
 	return (0);
 }

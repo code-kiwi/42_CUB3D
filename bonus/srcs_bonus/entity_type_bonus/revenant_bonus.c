@@ -39,12 +39,12 @@ bool	revenant_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (range_attack(entity, game, REV_RANGE_PAUSE, rev_proj_init));
+		range_attack(entity, game, REV_RANGE_PAUSE);
 	}
 	return (true);
 }
 
-bool	revenant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
+void	revenant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = revenant_update;
 	entity->get_killed = entity_get_killed;
@@ -55,12 +55,11 @@ bool	revenant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_REV_DEATH];
 	entity->close_attack = &animation[IDX_TXTR_REV_PUNCH];
 	entity->range_attack = &animation[IDX_TXTR_REV_SHOOT];
-	entity->close_attack->on_end = entity_damage_player;
 	entity->close_damage = REV_CLOSE_DAMAGE;
+	entity->bullet_init = rev_proj_init;
 	entity->health_point = REV_HEALTH_POINT;
 	entity->speed = REV_SPEED;
 	entity->squared_radius = REV_SQUARED_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_REV_WALK], WIN_HEIGHT);
-	return (true);
 }

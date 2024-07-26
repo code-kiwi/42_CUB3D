@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/26 10:01:50 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 13:53:06 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,13 @@ bool	pain_elem_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (pain_elem_spawn(entity, sprite, game));
+		if (!pain_elem_spawn(entity, sprite, game))
+			return (false);
 	}
 	return (true);
 }
 
-bool	pain_elem_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
+void	pain_elem_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = pain_elem_update;
 	entity->get_killed = entity_get_killed;
@@ -80,5 +81,4 @@ bool	pain_elem_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_PAIN_ELEM_WALK],
 		WIN_HEIGHT);
-	return (true);
 }

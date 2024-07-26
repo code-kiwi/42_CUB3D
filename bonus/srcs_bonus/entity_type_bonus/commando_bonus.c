@@ -32,12 +32,12 @@ bool	commando_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		stop_walk_animation(entity);
-		return (range_attack(entity, game, COMMANDO_PAUSE, imp_proj_init));
+		range_attack(entity, game, COMMANDO_PAUSE);
 	}
 	return (true);
 }
 
-bool	commando_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
+void	commando_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = commando_update;
 	entity->get_killed = entity_get_killed;
@@ -48,11 +48,11 @@ bool	commando_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_COMMANDO_DEATH];
 	entity->close_attack = NULL;
 	entity->range_attack = &animation[IDX_TXTR_COMMANDO_ATTACK];
+	entity->bullet_init = imp_proj_init;
 	entity->health_point = COMMANDO_HEALTH_POINT;
 	entity->speed = COMMANDO_SPEED;
 	entity->squared_radius = COMMANDO_SQUARED_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_COMMANDO_WALK],
 		WIN_HEIGHT);
-	return (true);
 }

@@ -16,29 +16,32 @@
 #include "sprite_bonus.h"
 #include "entities_bonus.h"
 
-static void	update_sprite_anim(t_sprite *sprite, t_game *game)
+static bool	update_sprite_anim(t_sprite *sprite, t_game *game)
 {
 	sprite->frame_update_delta = 0;
 	sprite->texture = sprite->texture->next;
-	if (sprite->texture == NULL)
+	if (sprite->texture != NULL)
+		return (true);
+	if (sprite->animation->on_end != NULL)
 	{
-		if (sprite->animation->on_end != NULL)
-			sprite->animation->on_end(game, sprite);
-		sprite->animation = sprite->next_animation;
-		if (sprite->animation == NULL)
-			ft_lst_remove_if(&game->sprites, sprite, equal, free);
-		else
-			sprite->texture = sprite->animation->textures;
+		if (!sprite->animation->on_end(game, sprite))
+			return (false);
 	}
+	sprite->animation = sprite->next_animation;
+	if (sprite->animation == NULL)
+		ft_lst_remove_if(&game->sprites, sprite, equal, free);
+	else
+		sprite->texture = sprite->animation->textures;
+	return (true);
 }
 
-void	update_animations(t_game *game, float delta_time)
+bool	update_animations(t_game *game, float delta_time)
 {
 	t_list		*current;
 	t_sprite	*sprite;
 
 	if (game == NULL || game->sprites == NULL)
-		return ;
+		return (false);
 	current = game->sprites;
 	while (current)
 	{
@@ -49,7 +52,9 @@ void	update_animations(t_game *game, float delta_time)
 			&& sprite->frame_update_delta >= sprite->animation->wait
 			&& sprite->animate)
 		{
-			update_sprite_anim(sprite, game);
+			if (!update_sprite_anim(sprite, game))
+				return (false);
 		}
 	}
+	return (true);
 }

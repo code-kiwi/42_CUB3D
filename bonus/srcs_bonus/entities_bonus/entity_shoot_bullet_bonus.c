@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:39:12 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 22:31:12 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 14:05:11 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,20 @@ void	get_entity_direction(t_vector *result, t_vector *player_pos,
 	normalize_vector(result);
 }
 
-bool	entity_shoot_bullet(t_game *game, t_entity *entity,
-	void (*bullet_init)(t_animation [MAP_NB_IDS], t_bullet *))
+bool	entity_shoot_bullet(t_game *game, t_sprite *entity_sprite)
 {
 	t_vector	direction;
 	t_vector	position;
+	t_list		*entity_node;
+	t_entity	*entity;
 
+	entity_node = ft_lstfind(game->entities, entity_sprite, is_sprite_of_entity);
+	if (entity_node == NULL)
+		return (false);
+	entity = entity_node->content;
 	get_entity_direction(&direction, &game->player.position,
 		&entity->sprite->position);
 	if (!get_spawn_position(&position, entity, &direction, game))
 		return (true);
-	return (shoot_bullet(game, &position, &direction, bullet_init));
+	return (shoot_bullet(game, &position, &direction, entity->bullet_init));
 }
