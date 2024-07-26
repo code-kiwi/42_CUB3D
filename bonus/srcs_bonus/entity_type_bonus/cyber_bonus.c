@@ -23,7 +23,7 @@ bool	cyber_update(t_game *game, t_entity *entity, float delta_time)
 	sprite = entity->sprite;
 	sprite->animate = true;
 	if (entity->see_player)
-		range_attack(entity, game, CYBER_CLOSE_PAUSE);
+		range_attack(entity, game, CYBER_RANGE_PAUSE);
 	update_entity_position(entity, delta_time, game->entities, &game->map);
 	if (entity->path == NULL)
 		stop_walk_animation(entity);
@@ -48,4 +48,5 @@ void	cyber_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_CYBER_WALK], WIN_HEIGHT);
 	entity->sprite->on_ground = true;
+	entity->sprite->height = WIN_HEIGHT * CYBER_HEIGHT_RATIO;
 }

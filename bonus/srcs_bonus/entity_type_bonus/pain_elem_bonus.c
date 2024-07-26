@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/26 13:53:06 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 18:09:46 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ void	pain_elem_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_PAIN_ELEM_WALK],
 		WIN_HEIGHT);
+	entity->sprite->height = WIN_HEIGHT * PAIN_ELEM_HEIGHT_RATIO;
 }
