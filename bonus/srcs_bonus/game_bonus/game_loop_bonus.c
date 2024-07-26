@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 14:58:58 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/26 09:37:29 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	game_render(t_game *game, float delta_time)
 		t_mlx_mouse_hide(&game->mlx, &game->mouse_hidden);
 	update_entities(game, delta_time);
 	update_bullets(game, delta_time);
-	update_animations(&game->sprites, delta_time);
+	update_animations(game, delta_time);
 	update_player(&game->player, &game->map, delta_time, game->entities);
 	update_doors(game, delta_time);
 	update_map(&game->map, game);

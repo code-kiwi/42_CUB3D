@@ -28,7 +28,7 @@ bool	mancubus_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < MANC_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		close_attack(entity, game, MANC_CLOSE_PAUSE, MANC_CLOSE_DAMAGE);
+		close_attack(entity, game, MANC_CLOSE_PAUSE);
 	}
 	else if (!entity->see_player)
 	{
@@ -55,6 +55,8 @@ bool	mancubus_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_MANC_DEATH];
 	entity->close_attack = &animation[IDX_TXTR_MANC_ATTACK];
 	entity->range_attack = &animation[IDX_TXTR_MANC_ATTACK];
+	entity->close_attack->on_end = entity_damage_player;
+	entity->close_damage = MANC_CLOSE_DAMAGE;
 	entity->health_point = MANC_HEALTH_POINT;
 	entity->speed = MANC_SPEED;
 	entity->squared_radius = MANC_SQUARED_RADIUS;

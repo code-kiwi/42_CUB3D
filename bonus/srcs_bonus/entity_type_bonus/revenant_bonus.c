@@ -28,7 +28,7 @@ bool	revenant_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < REV_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		close_attack(entity, game, REV_CLOSE_PAUSE, REV_CLOSE_DAMAGE);
+		close_attack(entity, game, REV_CLOSE_PAUSE);
 	}
 	else if (!entity->see_player)
 	{
@@ -55,6 +55,8 @@ bool	revenant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_REV_DEATH];
 	entity->close_attack = &animation[IDX_TXTR_REV_PUNCH];
 	entity->range_attack = &animation[IDX_TXTR_REV_SHOOT];
+	entity->close_attack->on_end = entity_damage_player;
+	entity->close_damage = REV_CLOSE_DAMAGE;
 	entity->health_point = REV_HEALTH_POINT;
 	entity->speed = REV_SPEED;
 	entity->squared_radius = REV_SQUARED_RADIUS;

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/24 10:27:55 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 09:44:24 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,9 +126,9 @@ struct s_entity
 	float		squared_radius;
 	size_t		health_point;
 	bool		(*update)(t_game *, t_entity *, float );
-	bool		(*get_damage)(t_game *, t_entity *, size_t);
-	bool		(*get_killed)(t_game *, t_entity *);
-	bool		(*get_chainsawed)(t_game *, t_entity *);
+	void		(*get_damage)(t_game *, t_entity *, size_t);
+	void		(*get_killed)(t_game *, t_entity *);
+	void		(*get_chainsawed)(t_game *, t_entity *);
 	void		*type;
 	float		cooldown;
 	bool		see_player;
@@ -137,6 +137,7 @@ struct s_entity
 	t_animation	*death;
 	t_animation	*close_attack;
 	t_animation	*range_attack;
+	size_t		close_damage;
 };
 
 void	t_entity_destroy(void *data);
@@ -159,12 +160,13 @@ bool	get_spawn_position(t_vector *result, t_entity *entity,
 			t_vector *direction, t_game *game);
 void	entity_get_killed(t_game *game, t_entity *entity);
 void	entity_get_damage(t_game *game, t_entity *entity, size_t damage);
-bool	entity_get_chainsawed(t_game *game, t_entity *entity);
+void	entity_get_chainsawed(t_game *game, t_entity *entity);
 void	stop_walk_animation(t_entity *entity);
 bool	range_attack(t_entity *entity, t_game *game, size_t cooldown, \
 			void (*bullet_init)(t_animation *, t_bullet *));
-void	close_attack(t_entity *entity, t_game *game, size_t cooldown, \
-			size_t damage);
+void	close_attack(t_entity *entity, t_game *game, size_t cooldown);
+int		is_sprite_of_entity(void *entity_void, void *sprite_void);
+void	entity_damage_player(t_game *game, t_sprite *entity_sprite);
 
 // Init entities species
 bool	demon_init(t_entity *entity, t_animation anim[MAP_NB_IDS]);

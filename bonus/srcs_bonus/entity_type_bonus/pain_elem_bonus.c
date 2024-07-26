@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/24 10:17:05 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 10:01:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ bool	pain_elem_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < PAIN_ELEM_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		close_attack(entity, game, PAIN_ELEM_PAUSE, PAIN_ELEM_DAMAGE);
+		close_attack(entity, game, PAIN_ELEM_PAUSE);
 	}
 	else if (!entity->see_player)
 		update_entity_position(entity, delta_time, game->entities, &game->map);
@@ -72,6 +72,8 @@ bool	pain_elem_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_PAIN_ELEM_DEATH];
 	entity->close_attack = &animation[IDX_TXTR_PAIN_ELEM_ATTACK];
 	entity->range_attack = NULL;
+	entity->close_attack->on_end = entity_damage_player;
+	entity->close_damage = PAIN_ELEM_DAMAGE;
 	entity->health_point = PAIN_ELEM_HEALTH_POINT;
 	entity->speed = PAIN_ELEM_SPEED;
 	entity->squared_radius = PAIN_ELEM_SQUARED_RADIUS;

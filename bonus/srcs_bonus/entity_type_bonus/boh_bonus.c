@@ -29,7 +29,7 @@ bool	boh_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < BOH_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		close_attack(entity, game, BOH_CLOSE_PAUSE, BOH_CLOSE_DAMAGE);
+		close_attack(entity, game, BOH_CLOSE_PAUSE);
 	}
 	else
 	{
@@ -54,6 +54,8 @@ bool	boh_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_BOH_DEATH];
 	entity->close_attack = &animation[IDX_TXTR_BOH_ATTACK];
 	entity->range_attack = &animation[IDX_TXTR_BOH_ATTACK];
+	entity->close_attack->on_end = entity_damage_player;
+	entity->close_damage = BOH_CLOSE_DAMAGE;
 	entity->health_point = BOH_HEALTH_POINT;
 	entity->speed = BOH_SPEED;
 	entity->squared_radius = BOH_SQUARED_RADIUS;

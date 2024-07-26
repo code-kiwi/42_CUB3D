@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 19:30:35 by root              #+#    #+#             */
-/*   Updated: 2024/07/24 10:23:15 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 09:51:13 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,10 @@ void	entity_get_damage(t_game *game, t_entity *entity, size_t damage)
 	return ;
 }
 
-bool	entity_get_chainsawed(t_game *game, t_entity *entity)
+void	entity_get_chainsawed(t_game *game, t_entity *entity)
 {
 	(void)game;
 	(void)entity;
-	return (true);
 }
 
 void	stop_walk_animation(t_entity *entity)

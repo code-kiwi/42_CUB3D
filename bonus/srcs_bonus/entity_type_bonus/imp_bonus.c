@@ -28,7 +28,7 @@ bool	imp_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < IMP_CLOSE_ATTACK_RANGE)
 	{
 		stop_walk_animation(entity);
-		close_attack(entity, game, IMP_CLOSE_PAUSE, IMP_CLOSE_DAMAGE);
+		close_attack(entity, game, IMP_CLOSE_PAUSE);
 	}
 	else if (!entity->see_player)
 	{
@@ -55,6 +55,8 @@ bool	imp_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_IMP_DEATH];
 	entity->close_attack = &animation[IDX_TXTR_IMP_ATTACK];
 	entity->range_attack = &animation[IDX_TXTR_IMP_ATTACK];
+	entity->close_attack->on_end = entity_damage_player;
+	entity->close_damage = IMP_CLOSE_DAMAGE;
 	entity->health_point = IMP_HEALTH_POINT;
 	entity->speed = IMP_SPEED;
 	entity->squared_radius = IMP_SQUARED_RADIUS;

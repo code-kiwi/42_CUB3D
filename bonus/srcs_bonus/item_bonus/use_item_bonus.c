@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   use_item_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:03:22 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 10:58:36 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/26 09:36:18 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
-static int	is_sprite_of_entity(void *entity_void, void *sprite_void)
+int	is_sprite_of_entity(void *entity_void, void *sprite_void)
 {
 	t_entity	*entity;
 	t_sprite	*sprite;

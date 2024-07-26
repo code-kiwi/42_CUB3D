@@ -28,7 +28,7 @@ bool	caco_update(t_game *game, t_entity *entity, float delta_time)
 	sprite->animate = true;
 	if (distance < CACO_CLOSE_ATTACK_RANGE)
 	{
-		close_attack(entity, game, CACO_CLOSE_PAUSE, CACO_CLOSE_DAMAGE);
+		close_attack(entity, game, CACO_CLOSE_PAUSE);
 	}
 	else
 	{
@@ -50,6 +50,8 @@ bool	caco_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_CACO_DEATH];
 	entity->close_attack = &animation[IDX_TXTR_CACO_ATTACK];
 	entity->range_attack = &animation[IDX_TXTR_CACO_ATTACK];
+	entity->close_attack->on_end = entity_damage_player;
+	entity->close_damage = CACO_CLOSE_DAMAGE;
 	entity->health_point = CACO_HEALTH_POINT;
 	entity->speed = CACO_SPEED;
 	entity->squared_radius = CACO_SQUARED_RADIUS;
