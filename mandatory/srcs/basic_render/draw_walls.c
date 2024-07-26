@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/18 18:11:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/26 21:10:46 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	column.ray = ray;
 	wall_start = floorf((WIN_HEIGHT - column.perceived_height) / 2);
 	wall_end = floorf((WIN_HEIGHT + column.perceived_height) / 2);
+	wall_start -= game->player.orientation.y * 300;
+	wall_end -= game->player.orientation.y * 300;
 	if (wall_end > WIN_HEIGHT)
 		wall_end = WIN_HEIGHT;
 	draw_color_column(screen, &column.coords, game->ground_color, wall_start);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_player_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 08:58:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/26 21:03:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static void	set_player_orientation(t_player *player, t_map *map)
 	directions = PLAYER_POS_ORDERED;
 	angle = ft_strchr(directions, map->tiles[coords.y][coords.x]) - directions;
 	angle *= PI / 2;
-	player->orientation = angle;
+	player->orientation.x = angle;
+	player->orientation.y = 0;
 }
 
 static bool	find_player_position(t_map *map, t_player *player)
@@ -70,11 +71,11 @@ bool	t_player_init(t_player *player, t_map *map)
 	set_player_orientation(player, map);
 	player->position.x += 0.5;
 	player->position.y += 0.5;
-	player->move_speed[0] = 0.2;
-	player->move_speed[1] = 0.1;
-	player->move_speed[2] = 0.1;
-	player->move_speed[3] = 0.1;
-	player->rotation_speed = PI / 45;
+	player->move_speed[0] = 0.02;
+	player->move_speed[1] = 0.01;
+	player->move_speed[2] = 0.01;
+	player->move_speed[3] = 0.01;
+	player->rotation_speed = PI / 220;
 	ft_memset(player->is_walking, 0, 4 * sizeof(bool));
 	ft_memset(player->turn_direction, 0, 2 * sizeof(bool));
 	return (true);

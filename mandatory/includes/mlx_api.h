@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_api.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 18:12:04 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/26 21:01:55 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define KEY_ESC 					65307
 # define KEY_LEFT 					65361
 # define KEY_RIGHT					65363
+# define KEY_UP						65362
+# define KEY_DOWN					65364
 # define KEY_W 						119
 # define KEY_A 						97
 # define KEY_S 						115

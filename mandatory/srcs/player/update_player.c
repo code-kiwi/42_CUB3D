@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/18 18:18:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/26 20:53:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,13 @@
 static void	update_look(t_player *player)
 {
 	if (player->turn_direction[0] && !player->turn_direction[1])
-		player->orientation += player->rotation_speed;
+		player->orientation.x += player->rotation_speed;
 	else if (player->turn_direction[1] && !player->turn_direction[0])
-		player->orientation -= player->rotation_speed;
+		player->orientation.x -= player->rotation_speed;
+	if (player->turn_direction[2] && !player->turn_direction[3])
+		player->orientation.y += player->rotation_speed;
+	else if (player->turn_direction[3] && !player->turn_direction[2])
+		player->orientation.y -= player->rotation_speed;
 }
 
 static void	update_position(t_player *player, t_map *map)
@@ -35,7 +39,7 @@ static void	update_position(t_player *player, t_map *map)
 			&& player->is_walking[(index + 2) % 4] == false)
 		{
 			save_position = player->position;
-			new_angle = player->orientation + index * PI / 2;
+			new_angle = player->orientation.x + index * PI / 2;
 			player->position.x += cos(new_angle) * player->move_speed[index];
 			player->position.y -= sin(new_angle) * player->move_speed[index];
 			if (is_wall(&player->position, map))

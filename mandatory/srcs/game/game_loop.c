@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 13:38:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/26 21:08:37 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "mlx_api.h"
 #include "libft.h"
 
+#include <stdio.h>
+
 int	game_loop(t_game *game)
 {
 	if (game == NULL)
@@ -23,7 +25,8 @@ int	game_loop(t_game *game)
 	game->mlx.event_loop_counter++;
 	if (game->mlx.event_loop_counter >= EVENT_LOOP_FRAME_TARGET)
 	{
-		display_delta_time();
+		// display_delta_time();
+		printf("y rotation : %f\n", game->player.orientation.y);
 		update_player(&game->player, &game->map);
 		if (!is_in_bounds(&game->player.position, &game->map))
 			error_exit(game, ERR_PLAYER_QUIT_MAP);
