@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/26 15:59:31 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/26 17:38:51 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,54 +51,10 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 	}
 }
 
-static void	update_player_weapon(
-	t_player *player,
-	t_weapon *weapon,
-	t_game *game,
-	float delta_time
-)
-{
-	if (player->weapon_state == WEAPON_STATE_HOLSTERING)
-	{
-		player->frame_update_delta += delta_time;
-		if (player->frame_update_delta < PLAYER_WEAPON_ANIMATION_UPDATE)
-			return ;
-		player->frame_update_delta = 0;
-		player->draw_offset.y += PLAYER_WEAPON_SWITCH_OFFSET;
-		if (player->draw_offset.y >= weapon->curr_frame->height)
-		{
-			player->weapon_state = WEAPON_STATE_DRAWING;
-			player->curr_weapon_index = player->next_weapon_index;
-			player->curr_weapon = player->weapons[player->curr_weapon_index];
-		}
-	}
-	if (player->weapon_state == WEAPON_STATE_DRAWING)
-	{
-		player->frame_update_delta += delta_time;
-		if (player->frame_update_delta < PLAYER_WEAPON_ANIMATION_UPDATE)
-			return ;
-		player->frame_update_delta = 0;
-		player->draw_offset.y -= PLAYER_WEAPON_SWITCH_OFFSET;
-		if (player->draw_offset.y <= 0)
-			player->weapon_state = WEAPON_STATE_IDLE;
-	}
-	if (player->weapon_state == WEAPON_STATE_USING)
-	{
-		player->frame_update_delta += delta_time;
-		if (player->frame_update_delta < PLAYER_ANIMATION_UPDATE)
-			return ;
-		player->frame_update_delta = 0;
-		update_weapon(weapon, game);
-		if (player->curr_weapon->curr_frame == player->curr_weapon->frame_default)
-			player->weapon_state = WEAPON_STATE_IDLE;
-	}
-
-}
-
 void	update_player(t_game *game, float delta_time)
 {
 	update_look(&game->player, delta_time);
 	update_position(&game->player, &game->map, delta_time, game->entities);
-	update_player_weapon(&game->player, game->player.curr_weapon, game, \
-		delta_time);
+	update_player_weapon(&game->player.weapon_info, \
+		game->player.weapon_info.curr_weapon, game, delta_time);
 }

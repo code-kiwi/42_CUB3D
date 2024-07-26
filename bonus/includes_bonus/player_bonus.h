@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/26 15:59:49 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/26 17:48:52 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 
 typedef struct s_game				t_game;
 typedef struct s_player				t_player;
+typedef struct s_player_weapon		t_player_weapon;
 typedef struct s_map				t_map;
 typedef struct s_ray				t_ray;
 typedef struct s_list				t_list;
@@ -47,9 +48,20 @@ typedef enum e_player_weapon_state	t_weapon_state;
 enum e_player_weapon_state
 {
 	WEAPON_STATE_IDLE,
-    WEAPON_STATE_HOLSTERING,
-    WEAPON_STATE_DRAWING,
+	WEAPON_STATE_HOLSTERING,
+	WEAPON_STATE_DRAWING,
 	WEAPON_STATE_USING
+};
+
+struct s_player_weapon
+{
+	t_weapon		*weapons[NB_TOT_WEAPONS + 1];
+	size_t			curr_weapon_index;
+	t_weapon		*curr_weapon;
+	t_mlx_coords	draw_offset;
+	size_t			next_weapon_index;
+	t_weapon_state	weapon_state;
+	float			frame_update_delta;
 };
 
 struct s_player
@@ -66,27 +78,22 @@ struct s_player
 	t_door			*last_door_seen;
 	t_sprite		*aimed_sprite;
 	size_t			health_point;
-	float			frame_update_delta;
-
-	t_weapon		*weapons[NB_TOT_WEAPONS + 1];
-	size_t			curr_weapon_index;
-	t_weapon		*curr_weapon;
-	t_mlx_coords	draw_offset;
-	size_t			next_weapon_index;
-	t_weapon_state	weapon_state;
+	t_player_weapon	weapon_info;
 };
 
 // t_player functions
 bool	t_player_init(t_player *player, t_map *map, t_game *game);
 void	destroy_player(t_player *player);
 void	update_player(t_game *game, float delta_time);
+void	update_player_weapon(t_player_weapon *weapon_info, t_weapon *weapon, \
+			t_game *game, float delta_time);
 void	player_get_damage(t_game *game, size_t damage);
-void	draw_player(t_game *game, t_player *player);
+void	draw_player(t_game *game, t_player_weapon *weapon_info);
 
 // Weapons utils
-bool	init_player_weapons(t_game *game, t_player *player);
-void	player_select_prev_weapon(t_player *player);
-void	player_select_next_weapon(t_player *player);
-void	player_weapon_use(t_player *player, t_game *game);
+bool	init_player_weapons(t_game *game, t_player_weapon *weapon_info);
+void	player_select_prev_weapon(t_player_weapon *weapon_info);
+void	player_select_next_weapon(t_player_weapon *weapon_info);
+void	player_weapon_use(t_player_weapon *weapon_info, t_game *game);
 
 #endif
