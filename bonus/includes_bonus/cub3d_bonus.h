@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 14:58:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/27 12:26:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,8 +143,6 @@ void	game_pause_close(t_game *game);
 
 // Render functions
 void	draw_walls(t_game *game);
-void	draw_ground_ceiling(t_column *column, int end, t_game *game, \
-			t_ray *ray);
 void	draw_texture_column(t_image *screen, t_column *column,
 			t_image *texture, float distance);
 void	render_all_sprites(t_game *game);
@@ -152,6 +150,8 @@ void	draw_player(t_game *game);
 void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 			t_player *player, float scale);
 bool	is_sprite_aimed(t_sprite *sprite, int left_x);
+void	draw_ground(int x, int start, t_game *game, t_ray *ray);
+void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray);
 
 // Utils functions
 void	error_print(char *err_msg);
