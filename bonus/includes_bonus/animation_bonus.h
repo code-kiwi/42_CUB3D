@@ -3,23 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   animation_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 12:35:15 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/09 10:58:18 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/26 13:57:58 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMATION_BONUS_H
 # define ANIMATION_BONUS_H
 
-typedef struct s_list	t_list;
-typedef struct s_image	t_image;
+# include <stdbool.h>
+# include <stdlib.h>
 
-# define ANIMATION_UPDATE	0.1
+typedef struct s_list		t_list;
+typedef struct s_image		t_image;
+typedef struct s_animation	t_animation;
+typedef struct s_game		t_game;
+typedef struct s_sprite		t_sprite;
+typedef struct s_mlx_coords	t_mlx_coords;
 
-void	destroy_animation(t_list *anim, void *mlx_ptr, bool is_circular);
-t_list	*create_animation(t_image *texture, t_mlx_coords *size, void *mlx_ptr);
-void	update_animations(t_game *game, float delta_time);
+struct s_animation
+{
+	t_list	*textures;
+	float	wait;
+	bool	(*on_end)(t_game *, t_sprite *);
+};
+
+void	destroy_animation_textures(t_list *textures, void *mlx_ptr);
+t_list	*create_animation_textures(t_image *texture, t_mlx_coords *size, \
+			void *mlx_ptr, char *texture_name);
+bool	update_animations(t_game *game, float delta_time);
+void	set_animation(t_sprite *sprite, t_animation *animation);
 
 #endif

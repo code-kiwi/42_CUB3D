@@ -6,7 +6,7 @@
 #    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/19 16:23:51 by root             ###   ########.fr        #
+#    Updated: 2024/07/24 10:11:37 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -173,10 +173,20 @@ ENTITIES_BONUS				=	$(addprefix $(ENTITIES_DIR_BONUS), $(ENTITIES_FILES_BONUS))
 # ENTITY_TYPE
 ENTITY_TYPE_DIR_BONUS		=	entity_type_bonus/
 ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
-								demon_update_bonus.c			\
 								imp_bonus.c						\
-								imp_update_bonus.c				\
-								init_entity_type_bonus.c
+								caco_bonus.c					\
+								boh_bonus.c						\
+								lost_soul_bonus.c				\
+								pain_elem_bonus.c				\
+								cyber_bonus.c					\
+								revenant_bonus.c				\
+								mancubus_bonus.c				\
+								arch_vile_bonus.c				\
+								sergeant_bonus.c				\
+								commando_bonus.c				\
+								init_entity_type_bonus.c		\
+								entities_actions_bonus.c		\
+								entities_attack_bonus.c
 ENTITY_TYPE_BONUS			=	$(addprefix $(ENTITY_TYPE_DIR_BONUS), $(ENTITY_TYPE_FILES_BONUS))
 
 # ITEMS
@@ -195,7 +205,8 @@ RADAR_BONUS					=	$(addprefix $(RADAR_DIR_BONUS), $(RADAR_FILES_BONUS))
 ANIMATION_DIR_BONUS			=	animation_bonus/
 ANIMATION_FILES_BONUS		=	create_animation_bonus.c		\
 								destroy_animation_bonus.c		\
-								update_animations_bonus.c
+								update_animations_bonus.c		\
+								set_animation_bonus.c
 ANIMATION_BONUS				=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
 
 # UTILS
@@ -213,9 +224,14 @@ UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
 
 # BULLETS
 BULLETS_DIR_BONUS			=	bullets_bonus/
-BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c	\
-								update_bullet_bonus.c	\
-								bullet_use_bonus.c
+BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c			\
+								update_bullet_bonus.c			\
+								caco_projectile_bonus.c			\
+								imp_projectile_bonus.c			\
+								boh_projectile_bonus.c			\
+								mancubus_projectile_bonus.c		\
+								rocket_bonus.c					\
+								revenant_projectile_bonus.c
 BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
 
 # SOURCES GENERAL

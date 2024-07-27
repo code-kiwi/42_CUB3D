@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy_animation_bonus.c                          :+:      :+:    :+:   */
+/*   set_animation_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 12:32:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 10:15:12 by brappo           ###   ########.fr       */
+/*   Created: 2024/07/23 12:54:21 by brappo            #+#    #+#             */
+/*   Updated: 2024/07/23 14:59:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "mlx_api_bonus.h"
 #include "animation_bonus.h"
+#include "sprite_bonus.h"
 
-void	destroy_animation_textures(t_list *textures, void *mlx_ptr)
+void	set_animation(t_sprite *sprite, t_animation *animation)
 {
-	t_list	*previous;
-
-	while (textures)
-	{
-		t_image_destroy(mlx_ptr, textures->content, true);
-		previous = textures;
-		textures = textures->next;
-		free(previous);
-	}
+	if (sprite == NULL)
+		return ;
+	sprite->animation = animation;
+	if (animation != NULL)
+		sprite->texture = animation->textures;
+	sprite->frame_update_delta = 0;
+	sprite->animate = true;
 }

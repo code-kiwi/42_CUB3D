@@ -6,12 +6,22 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:52:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 12:09:53 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/22 11:13:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "libft.h"
+
+/**
+ * @brief print a formated string err_msg containing a variable str
+ */
+void	error_print_string(char *err_msg, char *str)
+{
+	if (err_msg == NULL || str == NULL)
+		return ;
+	ft_dprintf(STDERR_FILENO, err_msg, str);
+}
 
 /**
  * @brief Prints an error message on the appropriate file descriptor

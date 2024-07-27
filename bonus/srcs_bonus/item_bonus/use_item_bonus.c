@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 10:03:22 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 12:03:55 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 09:36:18 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
-static int	is_sprite_of_entity(void *entity_void, void *sprite_void)
+int	is_sprite_of_entity(void *entity_void, void *sprite_void)
 {
 	t_entity	*entity;
 	t_sprite	*sprite;
@@ -30,15 +30,11 @@ void	use_gun(t_game *game)
 	t_list		*aimed_entity;
 	t_entity	*entity;
 	t_player	*player;
-	t_vector	direction;
 
 	if (game == NULL)
 		return ;
 	player = &game->player;
 	player_shoot(game);
-	t_vector_get_slope(&direction, player->orientation);
-	direction.y *= -1;
-	shoot_bullet(game, &player->position, &direction, imp_projectile_use);
 	aimed_entity = ft_lstfind(game->entities, game->player.aimed_sprite,
 			is_sprite_of_entity);
 	if (aimed_entity == NULL)

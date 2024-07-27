@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_entities_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/19 10:48:13 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/26 13:48:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	init_entity(t_entity *new_entity, t_sprite *new_sprite)
 	new_entity->see_player = false;
 }
 
-static void	*add_entity(t_game *game, float x, float y, char id)
+void	*add_entity(t_game *game, float x, float y, char id)
 {
 	t_list		*new_node;
 	t_entity	*new_entity;
@@ -37,8 +37,7 @@ static void	*add_entity(t_game *game, float x, float y, char id)
 	if (new_entity == NULL)
 		return (NULL);
 	init_entity(new_entity, new_sprite);
-	if (!init_entity_type(new_entity, id, game->textures))
-		return (free(new_entity), NULL);
+	init_entity_type(new_entity, id, game->anim);
 	new_node = ft_lstnew(new_entity);
 	if (new_node == NULL)
 		return (t_entity_destroy(new_entity), NULL);
