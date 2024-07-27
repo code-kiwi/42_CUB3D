@@ -40,10 +40,10 @@ bool	update_animations(t_game *game, float delta_time)
 	t_list		*current;
 	t_sprite	*sprite;
 
-	if (game == NULL || game->sprites == NULL)
+	if (game == NULL)
 		return (false);
 	current = game->sprites;
-	while (current)
+	while (current != NULL)
 	{
 		sprite = current->content;
 		current = current->next;
