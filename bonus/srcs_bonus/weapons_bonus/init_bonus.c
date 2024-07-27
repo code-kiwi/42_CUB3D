@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/27 01:40:49 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/27 16:06:28 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	init_w1_hand(t_weapon *weapon, t_game *game)
 	weapon->frames_action = game->textures[IDX_TXTR_W1_PUNCH];
 	weapon->frames_bullet = NULL;
 	weapon->target = NULL;
+	weapon->animation_update = 0.1f;
 	weapon->num_loads = 0;
 	weapon->load_capacity = 0;
 	weapon->remaining_use = 0;
@@ -34,6 +35,7 @@ static void	init_w1_hand(t_weapon *weapon, t_game *game)
 	weapon->is_use_continuous = false;
 	weapon->id = 'M';
 	weapon->action = use_weapon_no_bullet;
+	weapon->using = false;
 }
 
 static void	init_w2_pistol(t_weapon *weapon, t_game *game)
@@ -45,6 +47,7 @@ static void	init_w2_pistol(t_weapon *weapon, t_game *game)
 	weapon->frames_action = game->textures[IDX_TXTR_W2_PISTOL]->next;
 	weapon->frames_bullet = NULL;
 	weapon->target = (t_image *) game->textures[IDX_TXTR_TARGET1]->content;
+	weapon->animation_update = 0.1f;
 	weapon->num_loads = 2;
 	weapon->load_capacity = 5;
 	weapon->remaining_use = 5;
@@ -54,6 +57,7 @@ static void	init_w2_pistol(t_weapon *weapon, t_game *game)
 	weapon->is_use_continuous = false;
 	weapon->id = 'N';
 	weapon->action = use_gun_classic;
+	weapon->using = false;
 }
 
 static void	init_w3_chaingun(t_weapon *weapon, t_game *game)
@@ -65,15 +69,17 @@ static void	init_w3_chaingun(t_weapon *weapon, t_game *game)
 	weapon->frames_action = game->textures[IDX_TXTR_W3_CHAINGUN]->next;
 	weapon->frames_bullet = NULL;
 	weapon->target = (t_image *) game->textures[IDX_TXTR_TARGET1]->content;
+	weapon->animation_update = 0.05f;
 	weapon->num_loads = 1;
 	weapon->load_capacity = 100;
-	weapon->remaining_use = 50;
+	weapon->remaining_use = 100;
 	weapon->damage = 1;
 	weapon->range = 10.0f;
 	weapon->is_limited = true;
-	weapon->is_use_continuous = false;
+	weapon->is_use_continuous = true;
 	weapon->id = 'O';
 	weapon->action = use_gun_classic;
+	weapon->using = false;
 }
 
 bool	init_weapons(t_game *game)

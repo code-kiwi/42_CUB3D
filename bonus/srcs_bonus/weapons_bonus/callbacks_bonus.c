@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 13:07:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 14:09:03 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/27 15:09:57 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ void	use_gun_classic(t_weapon *weapon, t_game *game)
 	t_player	*player;
 	t_vector	direction;
 
-	if (game == NULL)
+	if (game == NULL || weapon == NULL
+		|| (weapon->is_limited && weapon->remaining_use == 0))
 		return ;
+	weapon->remaining_use--;
 	player = &game->player;
 	t_vector_get_slope(&direction, player->orientation);
 	direction.y *= -1;

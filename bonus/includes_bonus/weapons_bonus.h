@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   weapons_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/27 01:26:08 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/27 15:57:51 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ struct s_weapon
 	t_list			*frames_action;
 	t_list			*frames_bullet;
 	t_image			*target;
+	float			animation_update;
 	size_t			num_loads;
 	size_t			load_capacity;
 	size_t			remaining_use;
@@ -43,7 +44,7 @@ struct s_weapon
 	float			range;
 	bool			is_limited;
 	bool			is_use_continuous;
-	bool			active;
+	bool			using;
 	char			id;
 	t_mlx_coords	coords;
 	t_mlx_coords	size;
@@ -60,6 +61,7 @@ void	update_weapon(t_weapon *weapon, t_game *game);
 void	set_weapon_position(t_weapon *weapon, t_mlx *mlx);
 void	set_weapon_target_position(t_weapon *weapon, t_mlx *mlx);
 void	use_weapon(t_weapon *weapon, t_game *game);
+void	stop_weapon(t_weapon *weapon);
 
 // Weapon callbacks
 void	use_gun_classic(t_weapon *weapon, t_game *game);

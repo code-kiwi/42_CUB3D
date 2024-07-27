@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/27 01:18:08 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/27 16:04:18 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@
 # define PLAYER_SPEED_RIGHT				3
 # define PLAYER_INTERACTION_DISTANCE	1.5
 # define PLAYER_HEALTH_POINT			100
-# define PLAYER_ANIMATION_UPDATE		0.1f
 
-# define PLAYER_WEAPON_ANIMATION_UPDATE	0.015f
-# define PLAYER_WEAPON_MOVE_UPDATE		0.04f
+# define PLAYER_WEAPON_V_MOVE_UPDATE	0.02f
+# define PLAYER_WEAPON_H_MOVE_UPDATE	0.04f
 # define PLAYER_WEAPON_SWITCH_V_OFFSET	30
 # define PLAYER_WEAPON_H_OFFSET_STEP	10
 # define PLAYER_WEAPON_H_OFFSET_MAX		50
@@ -101,5 +100,6 @@ bool	init_player_weapons(t_game *game, t_player_weapon *weapon_info);
 void	player_select_prev_weapon(t_player_weapon *weapon_info);
 void	player_select_next_weapon(t_player_weapon *weapon_info);
 void	player_weapon_use(t_player_weapon *weapon_info, t_game *game);
+void	player_weapon_use_stop(t_player_weapon *weapon_info, t_game *game);
 
 #endif

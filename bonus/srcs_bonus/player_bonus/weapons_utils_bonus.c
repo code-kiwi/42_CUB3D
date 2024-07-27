@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   weapons_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:04:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/27 01:31:33 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/27 15:28:22 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,17 @@ void	player_weapon_use(t_player_weapon *weapon_info, t_game *game)
 	weapon_info->frame_update_delta = 0;
 	weapon_info->weapon_state = WEAPON_STATE_USING;
 	use_weapon(weapon_info->curr_weapon, game);
+}
+
+void	player_weapon_use_stop(t_player_weapon *weapon_info, t_game *game)
+{
+	if (
+		weapon_info == NULL || game == NULL
+		|| !weapon_info->curr_weapon->is_use_continuous
+		|| !weapon_info->curr_weapon->using
+	)
+		return ;
+	stop_weapon(weapon_info->curr_weapon);
 }
 
 bool	init_player_weapons(t_game *game, t_player_weapon *weapon_info)

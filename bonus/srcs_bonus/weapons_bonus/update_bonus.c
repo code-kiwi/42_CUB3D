@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 14:31:20 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 12:41:46 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/27 16:01:07 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,15 @@ void	update_weapon(t_weapon *weapon, t_game *game)
 			weapon->curr_frame = (t_image *) weapon->curr_frame_link->content;
 		else
 		{
-			weapon->curr_frame = weapon->frame_default;
-			set_weapon_position(weapon, &game->mlx);
+			if (weapon->is_use_continuous && weapon->using
+				&& weapon->remaining_use > 0)
+				use_weapon(weapon, game);
+			else
+			{
+				stop_weapon(weapon);
+				weapon->curr_frame = weapon->frame_default;
+				set_weapon_position(weapon, &game->mlx);
+			}
 		}
 	}
 }

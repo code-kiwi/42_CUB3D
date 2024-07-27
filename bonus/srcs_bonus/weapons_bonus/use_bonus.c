@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   use_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 15:18:28 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/25 17:29:03 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/27 16:13:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,13 @@ void	use_weapon(t_weapon *weapon, t_game *game)
 	set_weapon_position(weapon, &game->mlx);
 	if (weapon->action != NULL)
 		weapon->action(weapon, game);
+	if (weapon->is_use_continuous && !weapon->using)
+		weapon->using = true;
+}
+
+void	stop_weapon(t_weapon *weapon)
+{
+	if (weapon == NULL || !weapon->is_use_continuous || !weapon->using)
+		return ;
+	weapon->using = false;
 }

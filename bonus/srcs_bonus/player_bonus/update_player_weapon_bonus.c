@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player_weapon_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/27 01:17:49 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/27 16:13:23 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	update_player_weapon_switching(
 	t_weapon *weapon
 )
 {
-	if (weapon_info->frame_update_delta < PLAYER_WEAPON_ANIMATION_UPDATE)
+	if (weapon_info->frame_update_delta < PLAYER_WEAPON_V_MOVE_UPDATE)
 		return ;
 	weapon_info->frame_update_delta = 0;
 	if (weapon_info->weapon_state == WEAPON_STATE_HOLSTERING)
@@ -49,7 +49,7 @@ static void	update_player_weapon_using(
 	t_game *game
 )
 {
-	if (weapon_info->frame_update_delta < PLAYER_ANIMATION_UPDATE)
+	if (weapon_info->frame_update_delta < weapon->animation_update)
 		return ;
 	weapon_info->frame_update_delta = 0;
 	update_weapon(weapon, game);
@@ -71,7 +71,8 @@ static void	update_player_weapon_h_offset(
 	else
 	{
 		weapon_info->frame_update_delta_h_move += delta_time;
-		if (weapon_info->frame_update_delta_h_move < PLAYER_WEAPON_MOVE_UPDATE)
+		if (weapon_info->frame_update_delta_h_move < \
+			PLAYER_WEAPON_H_MOVE_UPDATE)
 			return ;
 		weapon_info->frame_update_delta_h_move = 0;
 		weapon_info->draw_offset.x += \
