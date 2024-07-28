@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 11:55:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/28 10:10:35 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ struct s_player
 {
 	float				fov_angle;
 	t_vector			position;
-	float				orientation;
+	t_vector			orientation;
 	bool				is_walking[4];
 	float				move_speed[4];
-	float				rotation_speed;
+	t_vector			rotation_speed;
 	float				leftmost_angle;
 	float				pixel_by_angle;
 	t_ray				*look_ray;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:37:57 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/19 12:16:25 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/28 10:15:22 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ void	draw_radar(t_game *game, t_radar *radar, t_mlx *mlx)
 	if (game == NULL || radar == NULL || mlx == NULL)
 		return ;
 	update_tiles(&game->map, radar, &game->player);
-	new_orientation = game->player.orientation - PI / 2;
+	new_orientation = game->player.orientation.x - PI / 2;
 	if (
 		!radar->needs_update
 		&& fabs(new_orientation - radar->orientation) > RADAR_ROT_SENSIBILIY

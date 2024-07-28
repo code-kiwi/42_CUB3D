@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_screen_position_bonus.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/07/26 17:59:14 by root             ###   ########.fr       */
+/*   Updated: 2024/07/28 10:11:05 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 
 	entity_angle = get_entity_angle(&sprite->position, &player->position);
 	relative_angle = player->leftmost_angle - entity_angle;
-	if (player->orientation > PI / 2 * 3 && entity_angle < PI / 2)
+	if (player->orientation.x > PI / 2 * 3 && entity_angle < PI / 2)
 		relative_angle -= 2 * PI;
-	else if (player->orientation < PI / 2 && entity_angle > PI / 2 * 3)
+	else if (player->orientation.x < PI / 2 && entity_angle > PI / 2 * 3)
 		relative_angle += 2 * PI;
 	sprite_screen->x = relative_angle * player->pixel_by_angle;
 	sprite_screen->x -= sprite->height / 2 * scale;
