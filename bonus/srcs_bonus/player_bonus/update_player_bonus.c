@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/28 10:14:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/28 10:25:35 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,6 @@ static void	update_look(t_player *player, float delta_time)
 		player->orientation.y += player->rotation_speed.y * delta_time;
 		player->rotation_speed.y = 0.0f;
 	}
-	if (player->orientation.y > 2 * PI)
-		player->orientation.y -= 2 * PI;
-	else if (player->orientation.y < 0)
-		player->orientation.y += 2 * PI;
 }
 
 static void	update_position(t_player *player, t_map *map, float delta_time,
