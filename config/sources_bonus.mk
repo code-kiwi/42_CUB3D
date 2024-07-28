@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/28 10:06:04 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/07/28 17:36:43 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,7 +95,8 @@ MAP_FILES_BONUS				=	read_map_bonus.c				\
 								is_valid_bonus.c				\
 								free_map_bonus.c				\
 								get_elem_bonus.c				\
-								init_identifier_bonus.c			\
+								init_identifier1_bonus.c		\
+								init_identifier2_bonus.c		\
 								update_bonus.c					\
 								draw_bonus.c					\
 								draw_entities_bonus.c			\

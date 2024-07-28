@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/28 00:04:58 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/28 17:36:12 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -266,6 +266,7 @@ bool	get_elem_into_list(t_game *game, t_list **dest, char *ids,
 			void *add_elem(t_game *, float, float, char));
 void	update_map(t_map *map, t_game *game);
 void	init_identifier(char **identifier);
+void	init_weapons_identifier(char **identifier);
 
 // Draw map functions
 void	draw_map(t_map_draw *map_draw, t_map *map, t_game *game);

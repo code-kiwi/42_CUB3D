@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   callbacks_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 13:07:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/28 10:10:56 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/28 17:32:40 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	use_gun_classic(t_weapon *weapon, t_game *game)
 	t_entity	*entity;
 	t_player	*player;
 	t_vector	direction;
+	t_vector	position;
 
 	if (game == NULL || weapon == NULL
 		|| (weapon->is_limited && weapon->remaining_use == 0))
@@ -28,7 +29,9 @@ void	use_gun_classic(t_weapon *weapon, t_game *game)
 	player = &game->player;
 	t_vector_get_slope(&direction, player->orientation);
 	direction.y *= -1;
-	shoot_bullet(game, &player->position, &direction, imp_proj_init);
+	position.x = player->position.x + direction.x;
+	position.y = player->position.y + direction.y;
+	shoot_bullet(game, &position, &direction, imp_proj_init);
 	aimed_entity = ft_lstfind(game->entities, game->player.aimed_sprite, \
 		is_sprite_of_entity);
 	if (aimed_entity == NULL)
