@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/28 22:25:42 by root             ###   ########.fr       */
+/*   Updated: 2024/07/28 22:29:18 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ void	draw_texture_column(t_image *screen, t_column *column,
 void	render_all_sprites(t_game *game);
 void	draw_player(t_game *game);
 void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
-			t_player *player, float scale);
+			t_game *game, float scale);
 bool	is_sprite_aimed(t_sprite *sprite, int left_x);
 void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray);
 void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray);
