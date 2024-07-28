@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/28 11:05:08 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/28 15:05:42 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	color = *(unsigned int *)(texture->addr + \
 		color_coords.y * texture->line_len \
 		+ (color_coords.x * texture->bpp_factor));
-	// multiply_color(&color, 1 - distance / MAX_VISION_DISTANCE);
+	multiply_color(&color, 1 - distance / MAX_VISION_DISTANCE);
 	*(unsigned int *)addr = color;
 }
 
@@ -63,14 +63,14 @@ void	draw_ground(int x, int start, t_game *game, t_ray *ray, int real_start)
 	}
 }
 
-void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray, int real_end)
+void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray, int real_start)
 {
 	float		inv_distance;
 	float		inv_distance_unit;
 	t_vector	pixel_position;
 	char		*addr;
 
-	inv_distance = (real_end * ray->cos_angle_from_orientation) \
+	inv_distance = (real_start * ray->cos_angle_from_orientation) \
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
 	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2);
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);

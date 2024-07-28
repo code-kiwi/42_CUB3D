@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/28 11:43:58 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/28 15:53:23 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,21 +67,21 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
 	t_column	column;
 	t_image		*texture;
+	int			real_start;
 
 	column.coords.x = column_index;
 	column.perceived_height = WIN_HEIGHT
 		/ (ray->length * ray->cos_angle_from_orientation);
-	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2) + game->player.orientation.y * 10;
-	column.end = ceilf((WIN_HEIGHT + column.perceived_height) / 2) + game->player.orientation.y * 10;
-	column.end = range(column.end, 0, WIN_HEIGHT);
-	column.coords.y = column.start;
-	column.coords.y = range(column.coords.y, 0, WIN_HEIGHT);
+	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2) + game->player.orientation.y * 100;
+	real_start = range(column.start, 0, WIN_HEIGHT);
+	column.end = range(ceilf((WIN_HEIGHT + column.perceived_height) / 2 ) + game->player.orientation.y * 100, 0, WIN_HEIGHT);
+	column.coords.y = range(column.start, 0, WIN_HEIGHT);
 	column.texture_start = column.coords.y - column.start;
 	texture = get_texture(game->anim, ray);
 	column.texture_column = pixel_column_on_texture(ray, texture->width);
-	draw_ceiling(&column, column.coords.y - 1, game, ray, column.end - game->player.orientation.y * 10);
+	draw_ceiling(&column, column.coords.y - 1, game, ray, (int)(WIN_HEIGHT - real_start + game->player.orientation.y * 100));
 	draw_texture_column(game->mlx.img_buff, &column, texture, ray->length);
-	draw_ground(column_index, column.end, game, ray, column.end - game->player.orientation.y * 10);
+	draw_ground(column_index, column.coords.y, game, ray, column.end - game->player.orientation.y * 100);
 }
 
 void	draw_walls(t_game *game)

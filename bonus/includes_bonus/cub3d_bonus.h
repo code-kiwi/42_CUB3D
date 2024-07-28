@@ -140,7 +140,7 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 			t_player *player, float scale);
 bool	is_sprite_aimed(t_sprite *sprite, int left_x);
 void	draw_ground(int x, int start, t_game *game, t_ray *ray, int real_start);
-void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray, int real_end);
+void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray, int real_start);
 
 // Utils functions
 void	error_print(char *err_msg);
