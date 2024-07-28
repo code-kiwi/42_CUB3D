@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/27 12:26:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/28 10:59:50brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ typedef struct s_game			t_game;
 typedef struct s_mlx			t_mlx;
 typedef struct s_column			t_column;
 typedef struct s_sprite			t_sprite;
-typedef struct s_ground_celing	t_ground_ceiling;
 typedef struct s_door			t_door;
 typedef struct s_list			t_list;
 
@@ -123,16 +122,6 @@ struct	s_column
 	int				texture_column;
 };
 
-struct s_ground_celing
-{
-	t_vector	pixel_pos;
-	int			ceiling_y;
-	char		*ground_addr;
-	char		*ceiling_addr;
-	float		unit;
-	float		inv_dist;
-};
-
 // Game functions
 int		game_loop(t_game *game);
 bool	t_game_init(t_game *game);
@@ -150,8 +139,8 @@ void	draw_player(t_game *game);
 void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 			t_player *player, float scale);
 bool	is_sprite_aimed(t_sprite *sprite, int left_x);
-void	draw_ground(int x, int start, t_game *game, t_ray *ray);
-void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray);
+void	draw_ground(int x, int start, t_game *game, t_ray *ray, int real_start);
+void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray, int real_end);
 
 // Utils functions
 void	error_print(char *err_msg);
