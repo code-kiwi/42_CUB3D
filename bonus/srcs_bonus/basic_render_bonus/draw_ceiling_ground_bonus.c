@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_ceiling_ground_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/28 15:05:42 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/28 22:23:09 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,17 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	*(unsigned int *)addr = color;
 }
 
-void	draw_ground(int x, int start, t_game *game, t_ray *ray, int real_start)
+void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 {
 	float		inv_distance;
 	float		inv_distance_unit;
 	t_vector	pixel_position;
 	char		*addr;
 
-	inv_distance = (real_start * ray->cos_angle_from_orientation) \
+	inv_distance = column->real_ground_start * ray->cos_angle_from_orientation
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
 	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2);
-	addr = t_mlx_get_pixel(game->mlx.img_buff, x, start);
+	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start < WIN_HEIGHT)
 	{
 		get_pixel_position_in_tile(ray, &game->player.position,
@@ -63,14 +63,14 @@ void	draw_ground(int x, int start, t_game *game, t_ray *ray, int real_start)
 	}
 }
 
-void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray, int real_start)
+void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 {
 	float		inv_distance;
 	float		inv_distance_unit;
 	t_vector	pixel_position;
 	char		*addr;
 
-	inv_distance = (real_start * ray->cos_angle_from_orientation) \
+	inv_distance = column->real_ceiling_start * ray->cos_angle_from_orientation
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
 	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2);
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
