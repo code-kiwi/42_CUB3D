@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/28 17:36:43 by mhotting         ###   ########.fr        #
+#    Updated: 2024/07/28 17:52:35 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,7 +116,6 @@ PLAYER_DIR_BONUS			=	player_bonus/
 PLAYER_FILES_BONUS			=	t_player_init_bonus.c			\
 								update_player_bonus.c			\
 								update_player_weapon_bonus.c	\
-								t_player_destroy_bonus.c		\
 								player_get_damage_bonus.c		\
 								weapons_utils_bonus.c			\
 								draw_bonus.c

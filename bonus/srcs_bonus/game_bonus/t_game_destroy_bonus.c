@@ -32,7 +32,6 @@ void	t_game_destroy(t_game *game)
 		return ;
 	index = 0;
 	destroy_all_ui(game);
-	destroy_player(&game->player);
 	while (index < MAP_NB_IDS)
 	{
 		animation_textures = game->anim[index].textures;
