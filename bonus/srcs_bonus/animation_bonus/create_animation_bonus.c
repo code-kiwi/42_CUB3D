@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:52:44 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 09:26:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/23 10:23:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,18 @@ static bool	add_anim_sprite(
 	return (true);
 }
 
-t_list	*create_animation(
+t_list	*create_animation_textures(
 	t_image *texture,
 	t_mlx_coords *size,
-	void *mlx_ptr
+	void *mlx_ptr,
+	char *texture_name
 )
 {
 	t_list			*anim;
 	t_dimension		dim;
 
 	if (texture->width % size->x != 0 || texture->height % size->y != 0)
-		return (error_print(ERR_TEXTURE_SIZE), NULL);
+		return (error_print_string(ERR_TEXTURE_SIZE, texture_name), NULL);
 	dim.size = *size;
 	dim.coords.y = 0;
 	anim = NULL;
@@ -85,7 +86,7 @@ t_list	*create_animation(
 		while (dim.coords.x < texture->width)
 		{
 			if (!add_anim_sprite(&anim, texture, &dim, mlx_ptr))
-				return (destroy_animation(anim, mlx_ptr, false), NULL);
+				return (destroy_animation_textures(anim, mlx_ptr), NULL);
 			dim.coords.x += size->x;
 		}
 		dim.coords.y += size->y;

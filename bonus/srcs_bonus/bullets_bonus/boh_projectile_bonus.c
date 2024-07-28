@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bullet_use_bonus.c                                 :+:      :+:    :+:   */
+/*   boh_projectile_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:09:39 by root              #+#    #+#             */
-/*   Updated: 2024/07/19 16:09:15 by root             ###   ########.fr       */
+/*   Updated: 2024/07/24 09:59:16 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,24 @@
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
-void	imp_projectile_use(t_game *game, t_bullet *bullet)
+static void	boh_projectile_use(t_game *game, t_bullet *bullet)
 {
 	t_sprite	*sprite;
+	t_vector	*player_pos;
 
 	if (game == NULL || bullet == NULL)
 		return ;
 	sprite = bullet->sprite;
-	sprite->animation = game->textures[IDX_TXTR_IMP_PROJ_DEATH];
+	set_animation(sprite, &game->anim[IDX_TXTR_BOH_PROJ_DEATH]);
 	sprite->next_animation = NULL;
+	player_pos = &game->player.position;
+	if (get_distance(player_pos, &bullet->sprite->position) < PLAYER_RADIUS)
+		player_get_damage(game, BOH_RANGE_DAMAGE);
 	ft_lst_remove_if(&game->bullets, bullet, equal, free);
+}
+
+void	boh_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
+{
+	t_sprite_init(bullet->sprite, &anim[IDX_TXTR_BOH_PROJ_LIVE], WIN_HEIGHT);
+	bullet->use = boh_projectile_use;
 }

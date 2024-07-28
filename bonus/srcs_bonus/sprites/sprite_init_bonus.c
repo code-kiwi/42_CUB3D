@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_init_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:09:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 12:15:15 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 11:24:48 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,12 @@ void	*add_sprite(t_game *game, float x, float y, char id)
 	return (new_sprite);
 }
 
-void	t_sprite_init(t_sprite *sprite, t_list *animation, size_t height)
+void	t_sprite_init(t_sprite *sprite, t_animation *animation, size_t height)
 {
 	if (sprite == NULL)
 		return ;
 	sprite->animation = animation;
+	sprite->texture = animation->textures;
 	sprite->next_animation = animation;
 	sprite->distance = 0;
 	sprite->height = height;
@@ -59,7 +60,7 @@ bool	init_sprites(t_game *game)
 	while (current)
 	{
 		sprite = current->content;
-		t_sprite_init(sprite, game->textures[IDX_TXTR_S], WIN_HEIGHT);
+		t_sprite_init(sprite, &game->anim[IDX_TXTR_S], WIN_HEIGHT);
 		current = current->next;
 	}
 	return (true);

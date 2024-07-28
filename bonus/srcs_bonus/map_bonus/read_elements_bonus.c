@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/19 16:11:48 by root             ###   ########.fr       */
+/*   Updated: 2024/07/23 13:36:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,29 @@ static bool	get_texture_size(t_mlx_coords *out, char *size)
 	return (true);
 }
 
-static bool	parse_element(t_map *map, char *element, char **identifier)
+static bool	read_animation_wait(float *out, char *wait_time)
+{
+	int	value;
+
+	if (!is_number(wait_time))
+		return (error_print(ERR_BAD_ANIM_TIME), false);
+	if (ft_strlen(wait_time) >= 5)
+		return (error_print(ERR_ANIM_TIME_TOO_BIG), false);
+	value = ft_atoi(wait_time);
+	if (value <= 0)
+		return (error_print(ERR_ANIM_TIME_NEGATIVE), false);
+	*out = (float)value / 1000;
+	return (true);
+}
+
+static bool	parse_element(t_map *map, char *element, char **identifier, \
+	t_animation anim[MAP_NB_IDS])
 {
 	char	**infos;
 	ssize_t	identifier_index;
 
-	if (map == NULL || element == NULL || identifier == NULL)
-		return (false);
 	infos = ft_split(element, " ");
-	if (array_length((void **)infos) != 3)
+	if (array_length((void **)infos) != 4)
 	{
 		ft_free_str_array(&infos);
 		return (error_print(ERR_MISSING_COMPONENT), false);
@@ -56,19 +70,22 @@ static bool	parse_element(t_map *map, char *element, char **identifier)
 	identifier_index = find_str_in_array(identifier, infos[0], MAP_NB_IDS);
 	if (identifier_index == -1)
 	{
+		ft_dprintf(STDERR_FILENO, ERR_IDENTIFIER, infos[0]);
 		ft_free_str_array(&infos);
-		return (error_print(ERR_IDENTIFIER), false);
+		return (false);
 	}
-	if (!get_texture_size(&map->texture_size[identifier_index], infos[2]))
+	if (!get_texture_size(&map->texture_size[identifier_index], infos[2])
+		|| !read_animation_wait(&anim[identifier_index].wait, infos[3]))
 		return (ft_free_str_array(&infos), false);
 	free(infos[2]);
+	free(infos[3]);
 	map->textures[identifier_index] = infos[1];
 	identifier[identifier_index] = "";
 	free_array(infos, 1, true);
 	return (true);
 }
 
-bool	read_elements(t_map *map, int fd)
+bool	read_elements(t_map *map, int fd, t_animation anim[MAP_NB_IDS])
 {
 	char			*line;
 	unsigned int	elements_read;
@@ -85,7 +102,7 @@ bool	read_elements(t_map *map, int fd)
 		remove_last_breakline(line);
 		if (line[0] != '\0')
 		{
-			if (!parse_element(map, line, identifier))
+			if (!parse_element(map, line, identifier, anim))
 			{
 				free(line);
 				return (false);

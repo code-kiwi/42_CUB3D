@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_player_destroy_bonus.c                           :+:      :+:    :+:   */
+/*   is_sprite_of_entity_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/26 10:07:50 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/28 00:13:34 by codekiwi         ###   ########.fr       */
+/*   Created: 2024/07/28 10:04:52 by codekiwi          #+#    #+#             */
+/*   Updated: 2024/07/28 10:05:34 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
+#include "cub3d_bonus.h"
+#include "sprite_bonus.h"
+#include "entities_bonus.h"
 
-#include "player_bonus.h"
-#include "mlx_api_bonus.h"
-#include "animation_bonus.h"
-
-void	destroy_player(t_player *player)
+int	is_sprite_of_entity(void *entity_void, void *sprite_void)
 {
-	if (player == NULL)
-		return ;
+	t_entity	*entity;
+	t_sprite	*sprite;
+
+	entity = entity_void;
+	sprite = sprite_void;
+	return (!(entity->sprite == sprite));
 }

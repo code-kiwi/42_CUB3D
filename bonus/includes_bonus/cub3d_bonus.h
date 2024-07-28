@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/27 14:42:49 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/28 00:02:35 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "player_bonus.h"
 # include "ray_bonus.h"
 # include "ui_bonus.h"
+# include "animation_bonus.h"
 # include "radar_bonus.h"
 # include "weapons_bonus.h"
 
@@ -51,7 +52,7 @@
 
 # define ERR_WALLS				"Map not surrounded by walls"
 # define ERR_ELEM				"Map elements not valid"
-# define ERR_IDENTIFIER			"Map unknown identifier"
+# define ERR_IDENTIFIER			"Map unknown identifier : %s"
 # define ERR_EMPTY_LINE			"Empty line in the map content"
 # define ERR_MAP_EXTENSION		"Bad map extension, expected '.cub'"
 # define ERR_MULTIPLE_PLAYERS	"Multiple players on the map"
@@ -61,7 +62,7 @@
 # define ERR_PLAYER_QUIT_MAP	"Player out of bounds of the map"
 # define ERR_MAP_OPEN			"Impossible to open the given map file"
 # define ERR_MAP_CONTENT		"Reading failed, check the map content"
-# define ERR_MISSING_TEXTURES	"Missing textures"
+# define ERR_MISSING_TEXTURES	"Missing texture : %s"
 # define ERR_MAP_READ			"Map: read failed"
 # define ERR_BAD_SIZE			"Wrong or missing texture size"
 # define ERR_SIZE_TOO_BIG		"Size too big, max 4 characters"
@@ -74,12 +75,16 @@
 # define ERR_WEAPONS_RESIZE		"Weapon resizing failed"
 # define ERR_P_WEAPONS_CREATION	"Player weapons creation failed"
 
-# define ERR_INIT_TEXTURES		"Can't open textures"
-# define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
+# define ERR_INIT_TEXTURES		"Can't open texture : %s"
+# define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm' : %s"
 # define ERR_MISSING_COMPONENT	"Missing element component"
-# define ERR_TEXTURE_SIZE		"Wrong texture size"
+# define ERR_TEXTURE_SIZE		"Wrong texture size : %s"
 
 # define ERR_RECTANGLE			"You tried to draw an invalid rectangle"
+
+# define ERR_BAD_ANIM_TIME		"The animation wait time is not a number"	
+# define ERR_ANIM_TIME_TOO_BIG	"The animation wait time is too big"
+# define ERR_ANIM_TIME_NEGATIVE	"The animation wait time is negative"
 
 typedef struct s_game			t_game;
 typedef struct s_mlx			t_mlx;
@@ -94,12 +99,10 @@ struct s_game
 	t_mlx		mlx;
 	t_player	player;
 	t_map		map;
-	t_vector	player_position;
 	t_ray		rays[WIN_WIDTH];
-	float		player_rotation_rad;
 	long		frame_time_usec;
 	long		tick_last_frame;
-	t_list		*textures[MAP_NB_IDS];
+	t_animation	anim[MAP_NB_IDS];
 	size_t		door_count;
 	t_door		*doors;
 	t_door		*last_door_seen;
@@ -132,7 +135,7 @@ struct s_ground_celing
 	char		*ground_addr;
 	char		*ceiling_addr;
 	float		unit;
-	float		inverse_dist;
+	float		inv_dist;
 };
 
 // Game functions
@@ -156,6 +159,7 @@ bool	is_sprite_aimed(t_sprite *sprite, int left_x);
 
 // Utils functions
 void	error_print(char *err_msg);
+void	error_print_string(char *err_msg, char *str);
 void	error_exit(t_game *game, char *err_msg);
 size_t	array_length(void **array);
 int		sign(float value);

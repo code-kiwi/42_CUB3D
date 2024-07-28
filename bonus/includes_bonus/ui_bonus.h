@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ui_bonus.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 16:22:49 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	destroy_all_ui(t_game *game);
 void	destroy_ui(t_ui *ui, void *mlx_ptr);
 void	draw_ui(t_ui *ui, t_image *img);
 bool	init_ui_pause(t_ui *ui_pause, void *mlx_ptr, \
-			t_list *textures[MAP_NB_IDS]);
+			t_animation anim[MAP_NB_IDS]);
 void	disable_buttons_ui(t_ui *ui);
 
 // label functions

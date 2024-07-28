@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_player_destroy_bonus.c                           :+:      :+:    :+:   */
+/*   set_animation_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/26 10:07:50 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/28 00:13:34 by codekiwi         ###   ########.fr       */
+/*   Created: 2024/07/23 12:54:21 by brappo            #+#    #+#             */
+/*   Updated: 2024/07/23 14:59:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-
-#include "player_bonus.h"
-#include "mlx_api_bonus.h"
 #include "animation_bonus.h"
+#include "sprite_bonus.h"
 
-void	destroy_player(t_player *player)
+void	set_animation(t_sprite *sprite, t_animation *animation)
 {
-	if (player == NULL)
+	if (sprite == NULL)
 		return ;
+	sprite->animation = animation;
+	if (animation != NULL)
+		sprite->texture = animation->textures;
+	sprite->frame_update_delta = 0;
+	sprite->animate = true;
 }

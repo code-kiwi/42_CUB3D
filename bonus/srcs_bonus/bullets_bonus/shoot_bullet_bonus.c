@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:06:25 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/17 12:05:34 by root             ###   ########.fr       */
+/*   Updated: 2024/07/26 15:14:08 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft.h"
 
 bool	shoot_bullet(t_game *game, t_vector *position, t_vector *direction,
-	void (*use)(t_game *, t_bullet *))
+	void (*init_bullet)(t_animation anim[MAP_NB_IDS], t_bullet *))
 {
 	t_bullet	*new_bullet;
 	t_list		*new_node;
@@ -27,8 +27,6 @@ bool	shoot_bullet(t_game *game, t_vector *position, t_vector *direction,
 	new_sprite = add_sprite(game, position->x, position->y, 'c');
 	if (new_sprite == NULL)
 		return (false);
-	t_sprite_init(new_sprite, game->textures[IDX_TXTR_IMP_PROJ_LIVE],
-		WIN_HEIGHT);
 	new_bullet = ft_calloc(1, sizeof(t_bullet));
 	if (new_bullet == NULL)
 		return (false);
@@ -38,6 +36,8 @@ bool	shoot_bullet(t_game *game, t_vector *position, t_vector *direction,
 		return (free(new_bullet), false);
 	ft_lstadd_front(&game->bullets, new_node);
 	new_bullet->move = *direction;
-	new_bullet->use = use;
+	init_bullet(game->anim, new_bullet);
+	new_sprite->distance = get_distance(position, &game->player.position);
+	new_sprite->height = BULLET_HEIGHT_WINDOW_RATIO * WIN_HEIGHT;
 	return (true);
 }

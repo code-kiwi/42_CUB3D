@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 11:00:31 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/28 00:12:21 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	ft_memset(&game, 0, sizeof(t_game));
-	if (!read_map(&game.map, argv[1]) || !t_game_init(&game))
+	if (!read_map(&game.map, argv[1], game.anim)
+		|| !t_game_init(&game))
 	{
 		t_game_destroy(&game);
 		return (EXIT_FAILURE);

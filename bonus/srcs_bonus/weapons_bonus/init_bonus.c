@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/27 16:06:28 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/28 00:18:26 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 static void	init_w1_hand(t_weapon *weapon, t_game *game)
 {
 	weapon->frame_default = \
-		(t_image *) game->textures[IDX_TXTR_W1_HAND]->content;
+		(t_image *) game->anim[IDX_TXTR_W1_HAND].textures->content;
 	weapon->curr_frame = weapon->frame_default;
 	weapon->curr_frame_link = NULL;
-	weapon->frames_action = game->textures[IDX_TXTR_W1_PUNCH];
+	weapon->frames_action = game->anim[IDX_TXTR_W1_PUNCH].textures;
 	weapon->frames_bullet = NULL;
 	weapon->target = NULL;
 	weapon->animation_update = 0.1f;
@@ -41,12 +41,12 @@ static void	init_w1_hand(t_weapon *weapon, t_game *game)
 static void	init_w2_pistol(t_weapon *weapon, t_game *game)
 {
 	weapon->frame_default = \
-		(t_image *) game->textures[IDX_TXTR_W2_PISTOL]->content;
+		(t_image *) game->anim[IDX_TXTR_W2_PISTOL].textures->content;
 	weapon->curr_frame = weapon->frame_default;
 	weapon->curr_frame_link = NULL;
-	weapon->frames_action = game->textures[IDX_TXTR_W2_PISTOL]->next;
+	weapon->frames_action = game->anim[IDX_TXTR_W2_PISTOL].textures->next;
 	weapon->frames_bullet = NULL;
-	weapon->target = (t_image *) game->textures[IDX_TXTR_TARGET1]->content;
+	weapon->target = (t_image *) game->anim[IDX_TXTR_TARGET1].textures->content;
 	weapon->animation_update = 0.1f;
 	weapon->num_loads = 2;
 	weapon->load_capacity = 5;
@@ -63,12 +63,12 @@ static void	init_w2_pistol(t_weapon *weapon, t_game *game)
 static void	init_w3_chaingun(t_weapon *weapon, t_game *game)
 {
 	weapon->frame_default = \
-		(t_image *) game->textures[IDX_TXTR_W3_CHAINGUN]->content;
+		(t_image *) game->anim[IDX_TXTR_W3_CHAINGUN].textures->content;
 	weapon->curr_frame = weapon->frame_default;
 	weapon->curr_frame_link = NULL;
-	weapon->frames_action = game->textures[IDX_TXTR_W3_CHAINGUN]->next;
+	weapon->frames_action = game->anim[IDX_TXTR_W3_CHAINGUN].textures->next;
 	weapon->frames_bullet = NULL;
-	weapon->target = (t_image *) game->textures[IDX_TXTR_TARGET1]->content;
+	weapon->target = (t_image *) game->anim[IDX_TXTR_TARGET1].textures->content;
 	weapon->animation_update = 0.05f;
 	weapon->num_loads = 1;
 	weapon->load_capacity = 100;
