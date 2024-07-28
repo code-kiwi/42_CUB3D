@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_move_handler_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:15 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/28 10:26:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/28 19:46:34 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	mouse_move_handler(int x, int y, t_game *game)
 		player = &game->player;
 		x_delta = game->mlx.width_half - x;
 		y_delta = game->mlx.height_half - y;
-		player->rotation_speed.x = (float)x_delta / MOTION_X_DECREASE_FACTOR;
-		player->rotation_speed.y = (float)y_delta / MOTION_X_DECREASE_FACTOR;
+		player->rotation_speed.x = (float)x_delta * MOTION_X_FACTOR;
+		player->rotation_speed.y = (float)y_delta * MOTION_Y_FACTOR;
 	}
 	return (1);
 }
