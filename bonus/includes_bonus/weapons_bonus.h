@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/27 15:57:51 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/28 18:23:56 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,32 @@
 
 # include "mlx_api_bonus.h"
 
-# define WEAPONS_H_RATIO	0.5f
-# define NB_TOT_WEAPONS		3
-# define IDX_W1_HAND		0
-# define IDX_W2_PISTOL		1
-# define IDX_W3_CHAINGUN	2
+# define WEAPONS_H_RATIO			0.5f
+# define NB_TOT_WEAPONS				3
+# define IDX_W1_HAND				0
+# define IDX_W2_PISTOL				1
+# define IDX_W3_CHAINGUN			2
+
+# define W1_HAND_FRAME_UPDATE		0.1f
+# define W1_HAND_NUM_LOADS			0
+# define W1_HAND_LOAD_CAPACITY		0
+# define W1_HAND_INITIAL_USES		0
+# define W1_HAND_DAMAGES			5
+# define W1_HAND_RANGE				1.5f
+
+# define W2_PISTOL_FRAME_UPDATE		0.05f
+# define W2_PISTOL_NUM_LOADS		2
+# define W2_PISTOL_LOAD_CAPACITY	5
+# define W2_PISTOL_INITIAL_USES		5
+# define W2_PISTOL_DAMAGES			2
+# define W2_PISTOL_RANGE			10.0f
+
+# define W3_CHAINGUN_FRAME_UPDATE	0.05f
+# define W3_CHAINGUN_NUM_LOADS		1
+# define W3_CHAINGUN_LOAD_CAPACITY	100
+# define W3_CHAINGUN_INITIAL_USES	50
+# define W3_CHAINGUN_DAMAGES		1
+# define W3_CHAINGUN_RANGE			5.0f
 
 typedef struct s_weapon	t_weapon;
 typedef struct s_list	t_list;
@@ -45,7 +66,6 @@ struct s_weapon
 	bool			is_limited;
 	bool			is_use_continuous;
 	bool			using;
-	char			id;
 	t_mlx_coords	coords;
 	t_mlx_coords	size;
 	t_mlx_coords	target_coords;
