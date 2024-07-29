@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_screen_position_bonus.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 12:09:00 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/29 11:34:43 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,28 @@ static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
 }
 
 void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
-	t_player *player, float scale)
+	t_game *game, float scale)
 {
 	float		entity_angle;
 	float		relative_angle;
+	t_player	*player;
 
+	player = &game->player;
 	entity_angle = get_entity_angle(&sprite->position, &player->position);
 	relative_angle = player->leftmost_angle - entity_angle;
-	if (player->orientation > PI / 2 * 3 && entity_angle < PI / 2)
+	if (player->orientation.x > PI / 2 * 3 && entity_angle < PI / 2)
 		relative_angle -= 2 * PI;
-	else if (player->orientation < PI / 2 && entity_angle > PI / 2 * 3)
+	else if (player->orientation.x < PI / 2 && entity_angle > PI / 2 * 3)
 		relative_angle += 2 * PI;
 	sprite_screen->x = relative_angle * player->pixel_by_angle;
 	sprite_screen->x -= sprite->height / 2 * scale;
 	sprite_screen->y = WIN_HEIGHT / 2;
 	sprite_screen->y -= sprite->height / 2 * scale;
+	if (sprite->on_ground)
+		sprite_screen->y += (WIN_HEIGHT - sprite->height) / 2 * scale;
+	else if (sprite->on_ceiling)
+		sprite_screen->y -= (WIN_HEIGHT - sprite->height) / 2 * scale;
+	sprite_screen->y += game->player.orientation.y;
 }
 
 bool	is_sprite_aimed(t_sprite *sprite, int left_x)
