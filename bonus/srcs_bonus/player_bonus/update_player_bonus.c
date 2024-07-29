@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/29 13:22:34 by root             ###   ########.fr       */
+/*   Updated: 2024/07/29 16:51:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	update_look(t_player *player, float delta_time)
 		player->orientation.x += 2 * PI;
 	new_y_rot = player->orientation.y + player->rotation_speed.y * delta_time;
 	if (player->rotation_speed.y != 0.0f
-			&& abs((int)new_y_rot) < MAX_Y_ROTATION_RATIO * WIN_HEIGHT)
+		&& abs((int)new_y_rot) < MAX_Y_ROTATION_RATIO * WIN_HEIGHT)
 	{
 		player->orientation.y = new_y_rot;
 		player->rotation_speed.y = 0.0f;
