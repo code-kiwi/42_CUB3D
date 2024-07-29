@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/29 11:34:34 by root             ###   ########.fr       */
+/*   Updated: 2024/07/29 13:16:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define PLAYER_INTERACTION_DISTANCE	1.5
 # define PLAYER_HEALTH_POINT			100
 # define PLAYER_RADIUS					0.5
+
+# define MAX_Y_ROTATION_RATIO			0.7
 
 # define PLAYER_TEXTURE_FILE			"./assets/test_textures/hands.xpm"
 # define PLAYER_TEXTURE_WIDTH			300

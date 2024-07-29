@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/28 10:25:35 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/29 13:22:34 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 static void	update_look(t_player *player, float delta_time)
 {
+	float	new_y_rot;
+
 	if (player->rotation_speed.x != 0.0f)
 	{
 		player->orientation.x += player->rotation_speed.x * delta_time;
@@ -27,9 +29,11 @@ static void	update_look(t_player *player, float delta_time)
 		player->orientation.x -= 2 * PI;
 	else if (player->orientation.x < 0)
 		player->orientation.x += 2 * PI;
-	if (player->rotation_speed.y != 0.0f)
+	new_y_rot = player->orientation.y + player->rotation_speed.y * delta_time;
+	if (player->rotation_speed.y != 0.0f
+			&& abs((int)new_y_rot) < MAX_Y_ROTATION_RATIO * WIN_HEIGHT)
 	{
-		player->orientation.y += player->rotation_speed.y * delta_time;
+		player->orientation.y = new_y_rot;
 		player->rotation_speed.y = 0.0f;
 	}
 }
