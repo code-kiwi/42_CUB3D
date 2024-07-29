@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/26 22:15:12 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/29 17:45:16 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,24 @@ static bool	is_walking(t_player *player)
 
 static void	update_look(t_player *player, float delta_time)
 {
-	if (player->rotation_speed != 0.0f)
+	float	new_y_rot;
+
+	if (player->rotation_speed.x != 0.0f)
 	{
-		player->orientation += player->rotation_speed * delta_time;
-		player->rotation_speed = 0.0f;
+		player->orientation.x += player->rotation_speed.x * delta_time;
+		player->rotation_speed.x = 0.0f;
 	}
-	if (player->orientation > 2 * PI)
-		player->orientation -= 2 * PI;
-	else if (player->orientation < 0)
-		player->orientation += 2 * PI;
+	if (player->orientation.x > 2 * PI)
+		player->orientation.x -= 2 * PI;
+	else if (player->orientation.x < 0)
+		player->orientation.x += 2 * PI;
+	new_y_rot = player->orientation.y + player->rotation_speed.y * delta_time;
+	if (player->rotation_speed.y != 0.0f
+		&& abs((int)new_y_rot) < MAX_Y_ROTATION_RATIO * WIN_HEIGHT)
+	{
+		player->orientation.y = new_y_rot;
+		player->rotation_speed.y = 0.0f;
+	}
 }
 
 static void	update_position(t_player *player, t_map *map, float delta_time,
@@ -52,7 +61,7 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 		if (player->walk_direction[index] != false
 			&& player->walk_direction[(index + 2) % 4] == false)
 		{
-			new_angle = player->orientation + index * PI / 2;
+			new_angle = player->orientation.x + index * PI / 2;
 			move.x = cos(new_angle) * player->move_speed[index] * delta_time;
 			move.y = -sin(new_angle) * player->move_speed[index] * delta_time;
 			move_entity(entities, &player->position, &move, map);

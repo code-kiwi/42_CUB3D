@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/28 17:52:16 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/29 17:45:47 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@
 # define PLAYER_WEAPON_SWITCH_V_OFFSET	30
 # define PLAYER_WEAPON_H_OFFSET_STEP	10
 # define PLAYER_WEAPON_H_OFFSET_MAX		50
+
+# define MAX_Y_ROTATION_RATIO			0.7
 
 typedef struct s_game				t_game;
 typedef struct s_player				t_player;
@@ -73,10 +75,10 @@ struct s_player
 {
 	float			fov_angle;
 	t_vector		position;
-	float			orientation;
+	t_vector		orientation;
 	bool			walk_direction[4];
 	float			move_speed[4];
-	float			rotation_speed;
+	t_vector		rotation_speed;
 	float			leftmost_angle;
 	float			pixel_by_angle;
 	t_ray			*look_ray;

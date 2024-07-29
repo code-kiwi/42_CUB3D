@@ -62,4 +62,6 @@ void	imp_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->squared_radius = IMP_SQUARED_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_IMP_WALK], WIN_HEIGHT);
+	entity->sprite->on_ground = true;
+	entity->sprite->height = WIN_HEIGHT * IMP_HEIGHT_RATIO;
 }

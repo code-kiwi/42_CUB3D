@@ -6,14 +6,15 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:11:00 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 10:47:51 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/29 16:50:13 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EVENT_HANDLERS_BONUS_H
 # define EVENT_HANDLERS_BONUS_H
 
-# define MOTION_X_DECREASE_FACTOR   20.0f
+# define MOTION_X_FACTOR	0.05f
+# define MOTION_Y_FACTOR	20.0f
 
 typedef struct s_game	t_game;
 

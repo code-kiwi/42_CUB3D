@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/28 00:02:35 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/29 17:39:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ typedef struct s_game			t_game;
 typedef struct s_mlx			t_mlx;
 typedef struct s_column			t_column;
 typedef struct s_sprite			t_sprite;
-typedef struct s_ground_celing	t_ground_ceiling;
 typedef struct s_door			t_door;
 typedef struct s_list			t_list;
 
@@ -125,17 +124,9 @@ struct	s_column
 	float			perceived_height;
 	int				start;
 	int				end;
+	int				real_ground_start;
+	int				real_ceiling_start;
 	int				texture_column;
-};
-
-struct s_ground_celing
-{
-	t_vector	pixel_pos;
-	int			ceiling_y;
-	char		*ground_addr;
-	char		*ceiling_addr;
-	float		unit;
-	float		inv_dist;
 };
 
 // Game functions
@@ -148,14 +139,14 @@ void	game_pause_close(t_game *game);
 
 // Render functions
 void	draw_walls(t_game *game);
-void	draw_ground_ceiling(t_column *column, int end, t_game *game, \
-			t_ray *ray);
 void	draw_texture_column(t_image *screen, t_column *column,
 			t_image *texture, float distance);
 void	render_all_sprites(t_game *game);
 void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
-			t_player *player, float scale);
+			t_game *game, float scale);
 bool	is_sprite_aimed(t_sprite *sprite, int left_x);
+void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray);
+void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray);
 
 // Utils functions
 void	error_print(char *err_msg);
