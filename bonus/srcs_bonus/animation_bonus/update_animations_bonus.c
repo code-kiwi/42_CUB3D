@@ -43,7 +43,7 @@ bool	update_animations(t_game *game, float delta_time)
 	if (game == NULL)
 		return (false);
 	current = game->sprites;
-	while (current)
+	while (current != NULL)
 	{
 		sprite = current->content;
 		current = current->next;

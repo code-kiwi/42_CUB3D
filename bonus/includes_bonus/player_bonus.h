@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/28 10:10:35 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/29 11:34:34 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define PLAYER_SPEED_LEFT				3
 # define PLAYER_SPEED_RIGHT				3
 # define PLAYER_INTERACTION_DISTANCE	1.5
-# define PLAYER_HEALTH_POINT			6
+# define PLAYER_HEALTH_POINT			100
 # define PLAYER_RADIUS					0.5
 
 # define PLAYER_TEXTURE_FILE			"./assets/test_textures/hands.xpm"
