@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/29 11:29:40 by root             ###   ########.fr       */
+/*   Updated: 2024/07/29 13:16:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define PLAYER_INTERACTION_DISTANCE	1.5
 # define PLAYER_HEALTH_POINT			100
 # define PLAYER_RADIUS					0.5
+
+# define MAX_Y_ROTATION_RATIO			0.7
 
 # define PLAYER_TEXTURE_FILE			"./assets/test_textures/hands.xpm"
 # define PLAYER_TEXTURE_WIDTH			300
@@ -64,10 +66,10 @@ struct s_player
 {
 	float				fov_angle;
 	t_vector			position;
-	float				orientation;
+	t_vector			orientation;
 	bool				is_walking[4];
 	float				move_speed[4];
-	float				rotation_speed;
+	t_vector			rotation_speed;
 	float				leftmost_angle;
 	float				pixel_by_angle;
 	t_ray				*look_ray;

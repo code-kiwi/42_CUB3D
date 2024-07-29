@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/29 11:29:49 by root             ###   ########.fr       */
+/*   Updated: 2024/07/29 11:34:39 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,26 +54,36 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 	return (column);
 }
 
+static float	range(float value)
+{
+	if (value < 0)
+		return (0);
+	if (value > WIN_HEIGHT)
+		return (WIN_HEIGHT);
+	return (value);
+}
+
 static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
 	t_column	column;
 	t_image		*texture;
+	int			offset;
 
+	offset = game->player.orientation.y;
 	column.coords.x = column_index;
 	column.perceived_height = WIN_HEIGHT
 		/ (ray->length * ray->cos_angle_from_orientation);
-	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2);
-	column.end = ceilf((WIN_HEIGHT + column.perceived_height) / 2);
-	if (column.end > WIN_HEIGHT)
-		column.end = WIN_HEIGHT;
-	column.coords.y = column.start;
-	if (column.coords.y < 0)
-		column.coords.y = 0;
+	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2) + offset;
+	column.end = range((WIN_HEIGHT + column.perceived_height) / 2 + offset);
+	column.coords.y = range(column.start);
 	column.texture_start = column.coords.y - column.start;
 	texture = get_texture(game->anim, ray);
 	column.texture_column = pixel_column_on_texture(ray, texture->width);
+	column.real_ceiling_start = WIN_HEIGHT - (column.coords.y - offset);
+	column.real_ground_start = column.end - offset;
+	draw_ceiling(&column, column.coords.y - 1, game, ray);
 	draw_texture_column(game->mlx.img_buff, &column, texture, ray->length);
-	draw_ground_ceiling(&column, WIN_HEIGHT, game, ray);
+	draw_ground(&column, column.coords.y, game, ray);
 }
 
 void	draw_walls(t_game *game)
