@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:24:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/16 13:42:52 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/07/23 14:42:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,32 +108,33 @@ void	t_mlx_draw_rectangle_alphap(
 
 void	t_mlx_draw_rect_texture(
 	t_image *img,
-	t_mlx_coords *coords,
+	t_mlx_coords *pos,
 	t_mlx_coords *size,
 	t_image *txtr
 )
 {
-	int			i;
-	int			j;
-	char		*dest_row;
-	uint32_t	color;
+	int				i;
+	int				j;
+	unsigned int	*img_addr;
+	unsigned int	*txtr_addr;
+	unsigned int	color;
 
-	if (!t_mlx_is_rect_valid(coords, size))
-		return (error_print(ERR_RECTANGLE));
-	j = 0;
-	while (j < size->y)
+	if (img == NULL || txtr == NULL || pos == NULL || size == NULL)
+		return ;
+	img_addr = (unsigned int *) img->addr;
+	txtr_addr = (unsigned int *) txtr->addr;
+	i = 0;
+	while (i < size->y && i + pos->y < img->height)
 	{
-		dest_row = img->addr + ((coords->y + j) * img->line_len) \
-			+ (coords->x * img->bpp_factor);
-		i = 0;
-		while (i < size->x)
+		j = 0;
+		while (j < size->x && j + pos->x < img->width)
 		{
-			color = *(uint32_t *)t_mlx_get_pixel(txtr, i % txtr->width, \
-				j % txtr->height);
+			color = *(txtr_addr + ((i % txtr->height) * txtr->width) + \
+				(j % txtr->width));
 			if (color != 0xFF000000)
-				*(uint32_t *)(dest_row + (i * img->bpp_factor)) = color;
-			i++;
+				*(img_addr + (i + pos->y) * img->width + j + pos->x) = color;
+			j++;
 		}
-		j++;
+		i++;
 	}
 }

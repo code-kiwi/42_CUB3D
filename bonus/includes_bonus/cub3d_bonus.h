@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/28 22:29:18 by root             ###   ########.fr       */
+/*   Updated: 2024/07/29 17:39:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "ui_bonus.h"
 # include "animation_bonus.h"
 # include "radar_bonus.h"
+# include "weapons_bonus.h"
 
 # define PI						3.14159265358
 # define FPS					100
@@ -70,6 +71,9 @@
 # define ERR_RADAR_CREATION		"Radar creation failed"
 # define ERR_MAP_DRAW_CREATION	"Map drawing cannot be created"
 # define ERR_MAP_DRAW_SIZE		"Map drawing cannot be initialized: map too big"
+# define ERR_WEAPONS_CREATION	"Weapons creation failed"
+# define ERR_WEAPONS_RESIZE		"Weapon resizing failed"
+# define ERR_P_WEAPONS_CREATION	"Player weapons creation failed"
 
 # define ERR_INIT_TEXTURES		"Can't open texture : %s"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm' : %s"
@@ -105,6 +109,7 @@ struct s_game
 	t_list		*entities;
 	t_list		*bullets;
 	t_list		*last_entity_updated;
+	t_weapon	weapons[NB_TOT_WEAPONS];
 	bool		pause;
 	t_ui		ui_pause;
 	bool		mouse_hidden;
@@ -137,7 +142,6 @@ void	draw_walls(t_game *game);
 void	draw_texture_column(t_image *screen, t_column *column,
 			t_image *texture, float distance);
 void	render_all_sprites(t_game *game);
-void	draw_player(t_game *game);
 void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 			t_game *game, float scale);
 bool	is_sprite_aimed(t_sprite *sprite, int left_x);
