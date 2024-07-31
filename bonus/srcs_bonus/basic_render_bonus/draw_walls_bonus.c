@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/31 11:22:17 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/31 12:20:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "libft.h"
 #include "door_bonus.h"
 
-# define PLAYER_HEIGHT	2 * WIN_HEIGHT / 5
+# define PLAYER_HEIGHT WIN_HEIGHT / 4
 
 static t_image	*get_texture(t_animation anim[MAP_NB_IDS], t_ray *ray)
 {

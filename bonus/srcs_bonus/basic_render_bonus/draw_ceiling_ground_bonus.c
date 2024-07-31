@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/31 11:23:44 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/31 12:07:48by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "mlx_api_bonus.h"
 #include "cub3d_bonus.h"
 #include "libft.h"
+
+# define PLAYER_HEIGHT - WIN_HEIGHT / 4
 
 static	void	get_pixel_position_in_tile(t_ray *ray,
 	t_vector *player_position, t_vector *result, float inv_dist)
@@ -49,15 +51,14 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 
 	inv_distance = column->real_ground_start * ray->cos_angle_from_orientation
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
-	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2);
+	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 + PLAYER_HEIGHT);
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start < WIN_HEIGHT)
 	{
-		// get_pixel_position_in_tile(ray, &game->player.position,
-		// 	&pixel_position, inv_distance);
-		// draw_pixel_from_texture(&pixel_position, addr,
-		// 	game->anim[IDX_TXTR_FLOOR].textures->content, 1 / inv_distance);
-		* (unsigned int *)addr = 0x0000FF00;
+		get_pixel_position_in_tile(ray, &game->player.position,
+			&pixel_position, inv_distance);
+		draw_pixel_from_texture(&pixel_position, addr,
+			game->anim[IDX_TXTR_FLOOR].textures->content, 1 / inv_distance);
 		start++;
 		inv_distance += inv_distance_unit;
 		addr += game->mlx.img_buff->line_len;
@@ -73,15 +74,14 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 
 	inv_distance = column->real_ceiling_start * ray->cos_angle_from_orientation
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
-	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2);
+	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 - PLAYER_HEIGHT);
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start >= 0)
 	{
-		// get_pixel_position_in_tile(ray, &game->player.position,
-		// 	&pixel_position, inv_distance);
-		// draw_pixel_from_texture(&pixel_position, addr,
-		// 	game->anim[IDX_TXTR_CEIL].textures->content, 1 / inv_distance);
-		* (unsigned int *)addr = 0x00FF0000;
+		get_pixel_position_in_tile(ray, &game->player.position,
+			&pixel_position, inv_distance);
+		draw_pixel_from_texture(&pixel_position, addr,
+			game->anim[IDX_TXTR_CEIL].textures->content, 1 / inv_distance);
 		start--;
 		inv_distance += inv_distance_unit;
 		addr -= game->mlx.img_buff->line_len;
