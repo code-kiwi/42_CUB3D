@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_ceiling_ground_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/28 22:23:09 by root             ###   ########.fr       */
+/*   Updated: 2024/07/31 11:23:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,11 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start < WIN_HEIGHT)
 	{
-		get_pixel_position_in_tile(ray, &game->player.position,
-			&pixel_position, inv_distance);
-		draw_pixel_from_texture(&pixel_position, addr,
-			game->anim[IDX_TXTR_FLOOR].textures->content, 1 / inv_distance);
+		// get_pixel_position_in_tile(ray, &game->player.position,
+		// 	&pixel_position, inv_distance);
+		// draw_pixel_from_texture(&pixel_position, addr,
+		// 	game->anim[IDX_TXTR_FLOOR].textures->content, 1 / inv_distance);
+		* (unsigned int *)addr = 0x0000FF00;
 		start++;
 		inv_distance += inv_distance_unit;
 		addr += game->mlx.img_buff->line_len;
@@ -76,10 +77,11 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start >= 0)
 	{
-		get_pixel_position_in_tile(ray, &game->player.position,
-			&pixel_position, inv_distance);
-		draw_pixel_from_texture(&pixel_position, addr,
-			game->anim[IDX_TXTR_CEIL].textures->content, 1 / inv_distance);
+		// get_pixel_position_in_tile(ray, &game->player.position,
+		// 	&pixel_position, inv_distance);
+		// draw_pixel_from_texture(&pixel_position, addr,
+		// 	game->anim[IDX_TXTR_CEIL].textures->content, 1 / inv_distance);
+		* (unsigned int *)addr = 0x00FF0000;
 		start--;
 		inv_distance += inv_distance_unit;
 		addr -= game->mlx.img_buff->line_len;
