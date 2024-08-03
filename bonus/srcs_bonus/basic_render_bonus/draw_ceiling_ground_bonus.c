@@ -16,13 +16,13 @@
 #include "cub3d_bonus.h"
 #include "libft.h"
 
-# define PLAYER_HEIGHT - WIN_HEIGHT / 4
+# define PLAYER_HEIGHT WIN_HEIGHT / 4
 
 static	void	get_pixel_position_in_tile(t_ray *ray,
-	t_vector *player_position, t_vector *result, float inv_dist)
+	t_vector *player_position, t_vector *result, float dist)
 {
-	result->x = player_position->x + ray->slope.x / inv_dist;
-	result->y = player_position->y - ray->slope.y / inv_dist;
+	result->x = player_position->x + ray->slope.x * dist;
+	result->y = player_position->y - ray->slope.y * dist;
 	result->x -= (int)result->x;
 	result->y -= (int)result->y;
 }
@@ -48,6 +48,7 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	float		inv_distance_unit;
 	t_vector	pixel_position;
 	char		*addr;
+	float		distance;
 
 	inv_distance = column->real_ground_start * ray->cos_angle_from_orientation
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
@@ -55,10 +56,14 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start < WIN_HEIGHT)
 	{
+		distance = WIN_HEIGHT / 2 - PLAYER_HEIGHT;
+		distance /= (column->real_ground_start - WIN_HEIGHT / 2);
+		distance /= ray->cos_angle_from_orientation;
 		get_pixel_position_in_tile(ray, &game->player.position,
-			&pixel_position, inv_distance);
+			&pixel_position, distance);
 		draw_pixel_from_texture(&pixel_position, addr,
-			game->anim[IDX_TXTR_FLOOR].textures->content, 1 / inv_distance);
+			game->anim[IDX_TXTR_FLOOR].textures->content, distance);
+		column->real_ground_start++;
 		start++;
 		inv_distance += inv_distance_unit;
 		addr += game->mlx.img_buff->line_len;
@@ -71,6 +76,7 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 	float		inv_distance_unit;
 	t_vector	pixel_position;
 	char		*addr;
+	float		distance;
 
 	inv_distance = column->real_ceiling_start * ray->cos_angle_from_orientation
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
@@ -78,11 +84,15 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start >= 0)
 	{
+		distance = WIN_HEIGHT / 2 - PLAYER_HEIGHT;
+		distance /= (column->real_ceiling_start - WIN_HEIGHT / 2);
+		distance /= ray->cos_angle_from_orientation;
 		get_pixel_position_in_tile(ray, &game->player.position,
-			&pixel_position, inv_distance);
+			&pixel_position, distance);
 		draw_pixel_from_texture(&pixel_position, addr,
-			game->anim[IDX_TXTR_CEIL].textures->content, 1 / inv_distance);
+			game->anim[IDX_TXTR_CEIL].textures->content, distance);
 		start--;
+		column->real_ceiling_start++;
 		inv_distance += inv_distance_unit;
 		addr -= game->mlx.img_buff->line_len;
 	}
