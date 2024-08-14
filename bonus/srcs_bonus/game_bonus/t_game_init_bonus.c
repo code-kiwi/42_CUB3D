@@ -74,6 +74,8 @@ bool	t_game_init(t_game *game)
 		&& init_entities(game)
 		&& init_map_draw(&game->map.draw, &game->map, game)
 		&& init_radar(&game->radar, &game->mlx)
+		&& init_weapons(game)
+		&& init_player_weapons(game, &game->player.weapon_info)
 		&& t_mlx_launch(&game->mlx)
 		&& add_event_handlers(game)
 	);

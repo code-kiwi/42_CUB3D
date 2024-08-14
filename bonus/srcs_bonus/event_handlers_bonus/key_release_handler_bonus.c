@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:15:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/18 03:50:17 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/07/26 22:03:31 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	key_release_handler(int key, t_game *game)
 	if (game == NULL)
 		error_exit(NULL, ERR_ARG);
 	if (key == KEY_W)
-		game->player.is_walking[FRONT] = false;
+		game->player.walk_direction[FRONT] = false;
 	else if (key == KEY_S)
-		game->player.is_walking[BACK] = false;
+		game->player.walk_direction[BACK] = false;
 	else if (key == KEY_A)
-		game->player.is_walking[LEFT] = false;
+		game->player.walk_direction[LEFT] = false;
 	else if (key == KEY_D)
-		game->player.is_walking[RIGHT] = false;
+		game->player.walk_direction[RIGHT] = false;
 	else if (!game->pause && key == KEY_M)
 		game->map_opened = !game->map_opened;
 	else if (key == KEY_ESC)

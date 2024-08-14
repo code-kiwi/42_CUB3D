@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_identifier_bonus.c                            :+:      :+:    :+:   */
+/*   init_identifier1_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/07/24 10:06:00 by root             ###   ########.fr       */
+/*   Updated: 2024/07/28 17:35:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,5 @@ void	init_identifier(char **identifier)
 	init_enemies_identifier(identifier);
 	init_simple_enemies_identifier(identifier);
 	init_bullets_identifier(identifier);
+	init_weapons_identifier(identifier);
 }

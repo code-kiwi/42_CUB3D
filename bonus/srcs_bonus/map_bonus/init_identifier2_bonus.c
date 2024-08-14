@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mouse_release_handler_bonus.c                      :+:      :+:    :+:   */
+/*   init_identifier2_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/27 16:12:40 by mhotting         ###   ########.fr       */
+/*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
+/*   Updated: 2024/07/28 17:35:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
-#include "event_handlers_bonus.h"
-#include "ui_bonus.h"
+#include "map_bonus.h"
 
-int	mouse_release_handler(int button, int x, int y, t_game *game)
+void	init_weapons_identifier(char **identifier)
 {
-	if (button == MOUSE_LEFT && game->pause)
-		mouse_release_pause_handler(x, y, game);
-	if (button == MOUSE_LEFT && !game->pause)
-		player_weapon_use_stop(&game->player.weapon_info, game);
-	return (1);
+	identifier[IDX_TXTR_TARGET1] = ID_TEXTURE_TARGET1;
+	identifier[IDX_TXTR_W1_HAND] = ID_TEXTURE_W1_HAND;
+	identifier[IDX_TXTR_W1_PUNCH] = ID_TEXTURE_W1_PUNCH;
+	identifier[IDX_TXTR_W2_PISTOL] = ID_TEXTURE_W2_PISTOL;
+	identifier[IDX_TXTR_W3_CHAINGUN] = ID_TEXTURE_W3_CHAINGUN;
 }

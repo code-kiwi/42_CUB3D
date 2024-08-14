@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/29 11:31:27 by root             ###   ########.fr       */
+/*   Updated: 2024/07/29 17:41:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	game_render(t_game *game, float delta_time)
 	update_bullets(game, delta_time);
 	if (!update_animations(game, delta_time))
 		error_exit(game, NULL);
-	update_player(&game->player, &game->map, delta_time, game->entities);
+	update_player(game, delta_time);
 	update_doors(game, delta_time);
 	update_map(&game->map, game);
 	if (!is_in_bounds(&game->player.position, &game->map))
@@ -70,7 +70,7 @@ static void	game_render(t_game *game, float delta_time)
 		error_exit(game, ERR_CAST_RAYS);
 	draw_walls(game);
 	render_all_sprites(game);
-	draw_player(game);
+	draw_player(game, &game->player.weapon_info);
 	if (game->map_opened)
 		draw_map(&game->map.draw, &game->map, game);
 	else
@@ -91,6 +91,6 @@ int	game_loop(t_game *game)
 		draw_ui(&game->ui_pause, game->mlx.img_buff);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
-	printf("fps : %d\n", (int)(1.0f / delta_time));
+	// printf("fps : %d\n", (int)(1.0f / delta_time));
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 18:16:06 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/26 22:03:31 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ struct s_player
 	float		fov_angle;
 	t_vector	position;
 	float		orientation;
-	bool		is_walking[4];
+	bool		walk_direction[4];
 	int			turn_direction[2];
 	float		move_speed[4];
 	float		rotation_speed;
