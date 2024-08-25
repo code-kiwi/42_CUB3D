@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 17:46:33 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/25 18:51:31 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/25 19:31:40 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "mlx_api_bonus.h"
 
-# define HUD_W_RATIO		0.2f
-# define HUD_H_RATIO		0.1f
+# define HUD_W_RATIO		0.25f
+# define HUD_H_RATIO		0.25f
 
 typedef struct s_hud	t_hud;
 typedef struct s_game	t_game;
@@ -41,7 +41,7 @@ struct s_hud
 };
 
 // HUD functions
-bool	init_hud(t_game *game);
-void	draw_hud(t_game *game);
+bool	init_hud(t_game *game, t_hud *hud);
+void	draw_hud(t_game *game, t_hud *hud);
 
 #endif

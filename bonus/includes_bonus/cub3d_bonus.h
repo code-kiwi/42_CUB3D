@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/29 17:39:37 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/25 19:07:45 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include "animation_bonus.h"
 # include "radar_bonus.h"
 # include "weapons_bonus.h"
+# include "hud_bonus.h"
 
 # define PI						3.14159265358
 # define FPS					100
@@ -115,6 +116,7 @@ struct s_game
 	bool		mouse_hidden;
 	t_radar		radar;
 	bool		map_opened;
+	t_hud		hud;
 };
 
 struct	s_column
