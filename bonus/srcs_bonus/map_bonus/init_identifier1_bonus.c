@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/07/28 17:35:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/25 18:41:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,5 @@ void	init_identifier(char **identifier)
 	init_simple_enemies_identifier(identifier);
 	init_bullets_identifier(identifier);
 	init_weapons_identifier(identifier);
+	init_hud_identifier(identifier);
 }
