@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 17:46:33 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/25 17:56:57 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/25 18:51:31 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define HUD_H_RATIO		0.1f
 
 typedef struct s_hud	t_hud;
+typedef struct s_game	t_game;
 
 struct s_hud
 {
@@ -38,5 +39,9 @@ struct s_hud
 	t_image			*texture_dig_8;
 	t_image			*texture_dig_9;
 };
+
+// HUD functions
+bool	init_hud(t_game *game);
+void	draw_hud(t_game *game);
 
 #endif

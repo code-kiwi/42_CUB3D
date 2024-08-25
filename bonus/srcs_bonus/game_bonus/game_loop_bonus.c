@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/29 17:41:15 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/25 18:54:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include "animation_bonus.h"
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
+#include "hud_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {
@@ -71,6 +72,7 @@ static void	game_render(t_game *game, float delta_time)
 	draw_walls(game);
 	render_all_sprites(game);
 	draw_player(game, &game->player.weapon_info);
+	draw_hud(game);
 	if (game->map_opened)
 		draw_map(&game->map.draw, &game->map, game);
 	else

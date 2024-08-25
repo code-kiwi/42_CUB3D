@@ -23,6 +23,7 @@
 #include "mlx.h"
 #include "entities_bonus.h"
 #include "radar_bonus.h"
+#include "hud_bonus.h"
 
 static bool	init_textures(t_game *game)
 {
@@ -76,6 +77,7 @@ bool	t_game_init(t_game *game)
 		&& init_radar(&game->radar, &game->mlx)
 		&& init_weapons(game)
 		&& init_player_weapons(game, &game->player.weapon_info)
+		&& init_hud(game)
 		&& t_mlx_launch(&game->mlx)
 		&& add_event_handlers(game)
 	);
