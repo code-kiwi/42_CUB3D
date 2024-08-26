@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 16:00:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 17:55:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define PLAYER_SPEED_LEFT				3
 # define PLAYER_SPEED_RIGHT				3
 # define PLAYER_INTERACTION_DISTANCE	1.5
-# define PLAYER_HEALTH_POINT			10
+# define PLAYER_HEALTH_POINT			1000
 # define PLAYER_RADIUS					0.5
 
 # define PLAYER_WEAPON_V_MOVE_UPDATE	0.02f
@@ -93,6 +93,8 @@ struct s_player
 // t_player functions
 bool	t_player_init(t_player *player, t_map *map, t_game *game);
 void	update_player(t_game *game, float delta_time);
+void	move_player(t_list *entities, t_vector *position, t_vector *move, \
+			t_map *map);
 void	update_player_weapon(t_player_weapon *weapon_info, \
 			bool is_player_walking, t_game *game, float delta_time);
 void	player_get_damage(t_game *game, size_t damage);
