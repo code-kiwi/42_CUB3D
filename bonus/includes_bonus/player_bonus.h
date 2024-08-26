@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 13:07:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 13:33:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define PLAYER_SPEED_LEFT				3
 # define PLAYER_SPEED_RIGHT				3
 # define PLAYER_INTERACTION_DISTANCE	1.5
-# define PLAYER_HEALTH_POINT			1
+# define PLAYER_HEALTH_POINT			10
 # define PLAYER_RADIUS					0.5
 
 # define PLAYER_WEAPON_V_MOVE_UPDATE	0.02f

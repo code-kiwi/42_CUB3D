@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 13:28:35 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 14:46:49 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 
 # define ERR_BASIC				"Error\n"
 # define ERR_LITERALS			"Error\n%s\n"
+# define ERR_LITERALS_STR		"Error\n%s %s\n"
 # define ERR_ARG				"Bad argument given to the function"
 # define ERR_PROG_ARGS			"Bad arguments, expected one argument"
 # define ERR_GAME_INIT			"Impossible to intialize the t_game structure"
@@ -53,7 +54,7 @@
 
 # define ERR_WALLS				"Map not surrounded by walls"
 # define ERR_ELEM				"Map elements not valid"
-# define ERR_IDENTIFIER			"Map unknown identifier : %s"
+# define ERR_IDENTIFIER			"Map unknown identifier"
 # define ERR_EMPTY_LINE			"Empty line in the map content"
 # define ERR_MAP_EXTENSION		"Bad map extension, expected '.cub'"
 # define ERR_MULTIPLE_PLAYERS	"Multiple players on the map"
@@ -63,7 +64,7 @@
 # define ERR_PLAYER_QUIT_MAP	"Player out of bounds of the map"
 # define ERR_MAP_OPEN			"Impossible to open the given map file"
 # define ERR_MAP_CONTENT		"Reading failed, check the map content"
-# define ERR_MISSING_TEXTURES	"Missing texture : %s"
+# define ERR_MISSING_TEXTURES	"Missing texture"
 # define ERR_MAP_READ			"Map: read failed"
 # define ERR_BAD_SIZE			"Wrong or missing texture size"
 # define ERR_SIZE_TOO_BIG		"Size too big, max 4 characters"
@@ -76,10 +77,10 @@
 # define ERR_WEAPONS_RESIZE		"Weapon resizing failed"
 # define ERR_P_WEAPONS_CREATION	"Player weapons creation failed"
 
-# define ERR_INIT_TEXTURES		"Can't open texture : %s"
-# define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm' : %s"
+# define ERR_INIT_TEXTURES		"Can't open texture"
+# define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
 # define ERR_MISSING_COMPONENT	"Missing element component"
-# define ERR_TEXTURE_SIZE		"Wrong texture size : %s"
+# define ERR_TEXTURE_SIZE		"Wrong texture size"
 
 # define ERR_RECTANGLE			"You tried to draw an invalid rectangle"
 
