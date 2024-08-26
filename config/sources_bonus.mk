@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/08/25 18:56:56 by mhotting         ###   ########.fr        #
+#    Updated: 2024/08/26 11:32:35 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -188,7 +188,6 @@ ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
 								cyber_bonus.c					\
 								revenant_bonus.c				\
 								mancubus_bonus.c				\
-								arch_vile_bonus.c				\
 								sergeant_bonus.c				\
 								commando_bonus.c				\
 								init_entity_type_bonus.c		\
@@ -246,7 +245,6 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 								get_tick_bonus.c				\
 								sort_bonus.c
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
-
 
 # SOURCES GENERAL
 SRCS_MAIN_SUBDIR_BONUS		=	srcs_bonus/
