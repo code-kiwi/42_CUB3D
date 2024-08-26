@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/07/23 12:08:52 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/26 08:15:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 	float		scale;
 
 	scale = 1 / sprite->distance;
-	get_sprite_screen_pos(&column.coords, sprite, &game->player, scale);
+	get_sprite_screen_pos(&column.coords, sprite, game, scale);
 	column.start = column.coords.y;
 	column.end = column.coords.y + sprite->height * scale;
 	if (column.coords.y < 0)

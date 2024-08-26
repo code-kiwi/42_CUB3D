@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/30 09:41:29 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/28 10:14:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static bool	set_ray(t_ray *result, float angle, t_game *game)
 	intersection_x = player->position.x + result->slope.x * result->length;
 	intersection_y = player->position.y - result->slope.y * result->length;
 	t_vector_init(&result->intersection, intersection_x, intersection_y);
-	result->angle_from_orientation = fabsf(player->orientation - angle);
+	result->angle_from_orientation = fabsf(player->orientation.x - angle);
 	result->cos_angle_from_orientation = cos(result->angle_from_orientation);
 	if (!result->is_door)
 		result->door = NULL;
@@ -45,7 +45,7 @@ bool	cast_rays(t_game *game)
 	index = 0;
 	player = &game->player;
 	angle_by_pixel = player->fov_angle / (WIN_WIDTH - 1);
-	angle = player->orientation + (player->fov_angle / 2);
+	angle = player->orientation.x + (player->fov_angle / 2);
 	player->leftmost_angle = angle;
 	while (index < WIN_WIDTH)
 	{

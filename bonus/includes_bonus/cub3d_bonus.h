@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 14:58:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/26 08:14:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "ui_bonus.h"
 # include "animation_bonus.h"
 # include "radar_bonus.h"
+# include "weapons_bonus.h"
 
 # define PI						3.14159265358
 # define FPS					100
@@ -70,6 +71,9 @@
 # define ERR_RADAR_CREATION		"Radar creation failed"
 # define ERR_MAP_DRAW_CREATION	"Map drawing cannot be created"
 # define ERR_MAP_DRAW_SIZE		"Map drawing cannot be initialized: map too big"
+# define ERR_WEAPONS_CREATION	"Weapons creation failed"
+# define ERR_WEAPONS_RESIZE		"Weapon resizing failed"
+# define ERR_P_WEAPONS_CREATION	"Player weapons creation failed"
 
 # define ERR_INIT_TEXTURES		"Can't open texture : %s"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm' : %s"
@@ -86,7 +90,6 @@ typedef struct s_game			t_game;
 typedef struct s_mlx			t_mlx;
 typedef struct s_column			t_column;
 typedef struct s_sprite			t_sprite;
-typedef struct s_ground_celing	t_ground_ceiling;
 typedef struct s_door			t_door;
 typedef struct s_list			t_list;
 
@@ -106,6 +109,7 @@ struct s_game
 	t_list		*entities;
 	t_list		*bullets;
 	t_list		*last_entity_updated;
+	t_weapon	weapons[NB_TOT_WEAPONS];
 	bool		pause;
 	t_ui		ui_pause;
 	bool		mouse_hidden;
@@ -120,17 +124,9 @@ struct	s_column
 	float			perceived_height;
 	int				start;
 	int				end;
+	int				real_ground_start;
+	int				real_ceiling_start;
 	int				texture_column;
-};
-
-struct s_ground_celing
-{
-	t_vector	pixel_pos;
-	int			ceiling_y;
-	char		*ground_addr;
-	char		*ceiling_addr;
-	float		unit;
-	float		inv_dist;
 };
 
 // Game functions
@@ -143,15 +139,14 @@ void	game_pause_close(t_game *game);
 
 // Render functions
 void	draw_walls(t_game *game);
-void	draw_ground_ceiling(t_column *column, int end, t_game *game, \
-			t_ray *ray);
 void	draw_texture_column(t_image *screen, t_column *column,
 			t_image *texture, float distance);
 void	render_all_sprites(t_game *game);
-void	draw_player(t_game *game);
 void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
-			t_player *player, float scale);
+			t_game *game, float scale);
 bool	is_sprite_aimed(t_sprite *sprite, int left_x);
+void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray);
+void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray);
 
 // Utils functions
 void	error_print(char *err_msg);

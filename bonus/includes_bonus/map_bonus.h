@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/24 10:27:12 by root             ###   ########.fr       */
+/*   Updated: 2024/08/26 08:14:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,12 @@
 # define ID_TEXTURE_REV_PROJ_LIVE		"REV_PROJECTILE_LIVE"
 # define ID_TEXTURE_REV_PROJ_DEATH		"REV_PROJECTILE_DEATH"
 
+# define ID_TEXTURE_TARGET1				"W_TARGET1"
+# define ID_TEXTURE_W1_HAND				"W1_HAND"
+# define ID_TEXTURE_W1_PUNCH			"W1_PUNCH"
+# define ID_TEXTURE_W2_PISTOL			"W2_PISTOL"
+# define ID_TEXTURE_W3_CHAINGUN			"W3_CHAINGUN"
+
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
 # define IDX_TXTR_W						2
@@ -177,6 +183,12 @@
 # define IDX_TXTR_REV_PROJ_LIVE			71
 # define IDX_TXTR_REV_PROJ_DEATH		72
 
+# define IDX_TXTR_TARGET1				73
+# define IDX_TXTR_W1_HAND				74
+# define IDX_TXTR_W1_PUNCH				75
+# define IDX_TXTR_W2_PISTOL				76
+# define IDX_TXTR_W3_CHAINGUN			77
+
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
 # define ID_MAP_CACO					'c'
@@ -192,7 +204,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
-# define MAP_NB_IDS						73
+# define MAP_NB_IDS						78
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
@@ -254,6 +266,7 @@ bool	get_elem_into_list(t_game *game, t_list **dest, char *ids,
 			void *add_elem(t_game *, float, float, char));
 void	update_map(t_map *map, t_game *game);
 void	init_identifier(char **identifier);
+void	init_weapons_identifier(char **identifier);
 
 // Draw map functions
 void	draw_map(t_map_draw *map_draw, t_map *map, t_game *game);

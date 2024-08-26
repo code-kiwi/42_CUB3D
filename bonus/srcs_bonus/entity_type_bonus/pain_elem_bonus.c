@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pain_elem_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/07/26 13:53:06 by root             ###   ########.fr       */
+/*   Updated: 2024/08/26 08:16:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ void	pain_elem_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_PAIN_ELEM_WALK],
 		WIN_HEIGHT);
+	entity->sprite->height = WIN_HEIGHT * PAIN_ELEM_HEIGHT_RATIO;
 }

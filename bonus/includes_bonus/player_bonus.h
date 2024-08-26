@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/27 16:51:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 08:14:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "vector_bonus.h"
 # include "mlx_api_bonus.h"
+# include "weapons_bonus.h"
 
 # define PLAYER_POS_ORDERED				"ENWS"
 # define FOV_ANGLE_DEFAULT				1.05
@@ -31,61 +32,76 @@
 # define PLAYER_HEALTH_POINT			100
 # define PLAYER_RADIUS					0.5
 
-# define PLAYER_TEXTURE_FILE			"./assets/test_textures/hands.xpm"
-# define PLAYER_TEXTURE_WIDTH			300
-# define PLAYER_TEXTURE_HEIGHT			400
-# define PLAYER_ANIMATION_UPDATE		0.1
-# define PLAYER_TARGET_TEXTURE_FILE		"./assets/test_textures/target.xpm"
-# define PLAYER_TEXTURE_X_OFFSET		200
+# define PLAYER_WEAPON_V_MOVE_UPDATE	0.02f
+# define PLAYER_WEAPON_H_MOVE_UPDATE	0.04f
+# define PLAYER_WEAPON_SWITCH_V_OFFSET	30
+# define PLAYER_WEAPON_H_OFFSET_STEP	10
+# define PLAYER_WEAPON_H_OFFSET_MAX		50
 
-typedef struct s_game			t_game;
-typedef struct s_player			t_player;
-typedef struct s_player_display	t_player_display;
-typedef struct s_map			t_map;
-typedef struct s_ray			t_ray;
-typedef struct s_list			t_list;
-typedef struct s_door			t_door;
-typedef struct s_item			t_item;
-typedef struct s_sprite			t_sprite;
+# define MAX_Y_ROTATION_RATIO			0.7
 
-struct s_player_display
+typedef struct s_game				t_game;
+typedef struct s_player				t_player;
+typedef struct s_player_weapon		t_player_weapon;
+typedef struct s_map				t_map;
+typedef struct s_ray				t_ray;
+typedef struct s_list				t_list;
+typedef struct s_door				t_door;
+typedef struct s_sprite				t_sprite;
+typedef enum e_player_weapon_state	t_weapon_state;
+
+enum e_player_weapon_state
 {
-	t_list			*frame_curr;
-	t_list			*frames;
-	t_mlx_coords	coords;
-	t_mlx_coords	size;
+	WEAPON_STATE_IDLE,
+	WEAPON_STATE_HOLSTERING,
+	WEAPON_STATE_DRAWING,
+	WEAPON_STATE_USING
+};
+
+struct s_player_weapon
+{
+	t_weapon		*weapons[NB_TOT_WEAPONS + 1];
+	size_t			curr_weapon_index;
+	t_weapon		*curr_weapon;
+	t_mlx_coords	draw_offset;
+	size_t			next_weapon_index;
+	t_weapon_state	weapon_state;
 	float			frame_update_delta;
-	t_mlx_coords	target_coords;
-	t_mlx_coords	target_size;
-	t_image			target_texture;
+	float			frame_update_delta_h_move;
+	int				draw_offset_sign;
 };
 
 struct s_player
 {
-	float				fov_angle;
-	t_vector			position;
-	float				orientation;
-	bool				is_walking[4];
-	float				move_speed[4];
-	float				rotation_speed;
-	float				leftmost_angle;
-	float				pixel_by_angle;
-	t_ray				*look_ray;
-	t_door				*last_door_seen;
-	t_player_display	display;
-	t_sprite			*aimed_sprite;
-	t_item				*item_in_hand;
-	size_t				health_point;
+	float			fov_angle;
+	t_vector		position;
+	t_vector		orientation;
+	bool			walk_direction[4];
+	float			move_speed[4];
+	t_vector		rotation_speed;
+	float			leftmost_angle;
+	float			pixel_by_angle;
+	t_ray			*look_ray;
+	t_door			*last_door_seen;
+	t_sprite		*aimed_sprite;
+	size_t			health_point;
+	bool			is_walking;
+	t_player_weapon	weapon_info;
 };
 
 // t_player functions
 bool	t_player_init(t_player *player, t_map *map, t_game *game);
-bool	t_player_init_display(t_player_display *display, void *mlx_ptr);
-void	player_shoot(t_game *game);
-void	destroy_player(t_player *player, void *mlx_ptr);
-void	player_shoot(t_game *game);
-void	update_player(t_player *player, t_map *map, float delta_time,
-			t_list *entities);
+void	update_player(t_game *game, float delta_time);
+void	update_player_weapon(t_player_weapon *weapon_info, \
+			bool is_player_walking, t_game *game, float delta_time);
 void	player_get_damage(t_game *game, size_t damage);
+void	draw_player(t_game *game, t_player_weapon *weapon_info);
+
+// Weapons utils
+bool	init_player_weapons(t_game *game, t_player_weapon *weapon_info);
+void	player_select_prev_weapon(t_player_weapon *weapon_info);
+void	player_select_next_weapon(t_player_weapon *weapon_info);
+void	player_weapon_use(t_player_weapon *weapon_info, t_game *game);
+void	player_weapon_use_stop(t_player_weapon *weapon_info, t_game *game);
 
 #endif
