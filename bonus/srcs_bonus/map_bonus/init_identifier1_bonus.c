@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_identifier1_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/07/28 17:35:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 08:29:04 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,6 @@ static void	init_enemies_identifier(char **identifier)
 	identifier[IDX_TXTR_MANC_PAIN] = ID_TEXTURE_MANC_PAIN;
 	identifier[IDX_TXTR_MANC_ATTACK] = ID_TEXTURE_MANC_ATTACK;
 	identifier[IDX_TXTR_MANC_DEATH] = ID_TEXTURE_MANC_DEATH;
-	identifier[IDX_TXTR_ARCH_VILE_WALK] = ID_TEXTURE_ARCH_VILE_WALK;
-	identifier[IDX_TXTR_ARCH_VILE_PAIN] = ID_TEXTURE_ARCH_VILE_PAIN;
-	identifier[IDX_TXTR_ARCH_VILE_ATTACK] = ID_TEXTURE_ARCH_VILE_ATTACK;
-	identifier[IDX_TXTR_ARCH_VILE_DEATH] = ID_TEXTURE_ARCH_VILE_DEATH;
 }
 
 static void	init_bullets_identifier(char **identifier)
@@ -96,7 +92,6 @@ static void	init_bullets_identifier(char **identifier)
 	identifier[IDX_TXTR_ROCKET_DEATH] = ID_TEXTURE_ROCKET_DEATH;
 	identifier[IDX_TXTR_ROCKET_LIVE] = ID_TEXTURE_ROCKET_LIVE;
 	identifier[IDX_TXTR_MANC_FIREBALL] = ID_TEXTURE_MANC_FIREBALL;
-	identifier[IDX_TXTR_ARCH_VILE_FLAMES] = ID_TEXTURE_ARCH_VILE_FLAMES;
 	identifier[IDX_TXTR_REV_PROJ_DEATH] = ID_TEXTURE_REV_PROJ_DEATH;
 	identifier[IDX_TXTR_REV_PROJ_LIVE] = ID_TEXTURE_REV_PROJ_LIVE;
 }

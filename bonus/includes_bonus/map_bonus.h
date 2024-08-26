@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/26 08:14:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/26 08:28:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define ID_MAP_DOOR_OPENED				'O'
 
 # define IDS_MAP_SPRITE					"s"
-# define IDS_MAP_ENTITY					"dicblpyrmafo"
+# define IDS_MAP_ENTITY					"dicblpyrmfo"
 # define ID_MAP_PLAYER					'P'
 # define ID_MAP_ENTITY					'e'
 
@@ -87,11 +87,6 @@
 # define ID_TEXTURE_MANC_ATTACK			"MANC_ATTACK"
 # define ID_TEXTURE_MANC_DEATH			"MANC_DEATH"
 # define ID_TEXTURE_MANC_FIREBALL		"MANC_FIREBALL"
-# define ID_TEXTURE_ARCH_VILE_WALK		"ARCH_VILE_WALK"
-# define ID_TEXTURE_ARCH_VILE_PAIN		"ARCH_VILE_PAIN"
-# define ID_TEXTURE_ARCH_VILE_ATTACK	"ARCH_VILE_ATTACK"
-# define ID_TEXTURE_ARCH_VILE_DEATH		"ARCH_VILE_DEATH"
-# define ID_TEXTURE_ARCH_VILE_FLAMES	"ARCH_VILE_FLAMES"
 # define ID_TEXTURE_SERGEANT_WALK		"SERGEANT_WALK"
 # define ID_TEXTURE_SERGEANT_PAIN		"SERGEANT_PAIN"
 # define ID_TEXTURE_SERGEANT_ATTACK		"SERGEANT_ATTACK"
@@ -167,27 +162,22 @@
 # define IDX_TXTR_MANC_ATTACK			55
 # define IDX_TXTR_MANC_DEATH			56
 # define IDX_TXTR_MANC_FIREBALL			57
-# define IDX_TXTR_ARCH_VILE_WALK		58
-# define IDX_TXTR_ARCH_VILE_PAIN		59
-# define IDX_TXTR_ARCH_VILE_ATTACK		60
-# define IDX_TXTR_ARCH_VILE_DEATH		61
-# define IDX_TXTR_ARCH_VILE_FLAMES		62
-# define IDX_TXTR_SERGEANT_WALK			63
-# define IDX_TXTR_SERGEANT_PAIN			64
-# define IDX_TXTR_SERGEANT_ATTACK		65
-# define IDX_TXTR_SERGEANT_DEATH		66
-# define IDX_TXTR_COMMANDO_WALK			67
-# define IDX_TXTR_COMMANDO_PAIN			68
-# define IDX_TXTR_COMMANDO_ATTACK		69
-# define IDX_TXTR_COMMANDO_DEATH		70
-# define IDX_TXTR_REV_PROJ_LIVE			71
-# define IDX_TXTR_REV_PROJ_DEATH		72
+# define IDX_TXTR_SERGEANT_WALK			58
+# define IDX_TXTR_SERGEANT_PAIN			59
+# define IDX_TXTR_SERGEANT_ATTACK		60
+# define IDX_TXTR_SERGEANT_DEATH		61
+# define IDX_TXTR_COMMANDO_WALK			62
+# define IDX_TXTR_COMMANDO_PAIN			63
+# define IDX_TXTR_COMMANDO_ATTACK		64
+# define IDX_TXTR_COMMANDO_DEATH		65
+# define IDX_TXTR_REV_PROJ_LIVE			66
+# define IDX_TXTR_REV_PROJ_DEATH		67
 
-# define IDX_TXTR_TARGET1				73
-# define IDX_TXTR_W1_HAND				74
-# define IDX_TXTR_W1_PUNCH				75
-# define IDX_TXTR_W2_PISTOL				76
-# define IDX_TXTR_W3_CHAINGUN			77
+# define IDX_TXTR_TARGET1				68
+# define IDX_TXTR_W1_HAND				69
+# define IDX_TXTR_W1_PUNCH				70
+# define IDX_TXTR_W2_PISTOL				71
+# define IDX_TXTR_W3_CHAINGUN			72
 
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
@@ -198,13 +188,12 @@
 # define ID_MAP_CYBER					'y'
 # define ID_MAP_REV						'r'
 # define ID_MAP_MANC					'm'
-# define ID_MAP_ARCH_VILE				'a'
 # define ID_MAP_COMMANDO				'o'
 # define ID_MAP_SERGEANT				'f'
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
-# define MAP_NB_IDS						78
+# define MAP_NB_IDS						73
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 

@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/08/26 08:18:02 by brappo           ###   ########.fr        #
+#    Updated: 2024/08/26 08:29:32 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -182,7 +182,6 @@ ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
 								cyber_bonus.c					\
 								revenant_bonus.c				\
 								mancubus_bonus.c				\
-								arch_vile_bonus.c				\
 								sergeant_bonus.c				\
 								commando_bonus.c				\
 								init_entity_type_bonus.c		\
