@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/26 11:30:08 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 16:05:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,19 @@
 # define ID_TEXTURE_CEILING				"C"
 # define ID_TEXTURE_DOOR				"D"
 # define ID_TEXTURE_SPRITE				"S"
+
 # define ID_TEXTURE_UI_PAUSE_BG			"UI_PAUSE_BG"
 # define ID_TEXTURE_UI_PAUSE_LABEL		"UI_PAUSE_LABEL"
 # define ID_TEXTURE_UI_PAUSE_BTNR_OFF	"UI_PAUSE_BTN_RESUME_OFF"
 # define ID_TEXTURE_UI_PAUSE_BTNR_ON	"UI_PAUSE_BTN_RESUME_ON"
 # define ID_TEXTURE_UI_PAUSE_BTNQ_OFF	"UI_PAUSE_BTN_QUIT_OFF"
 # define ID_TEXTURE_UI_PAUSE_BTNQ_ON	"UI_PAUSE_BTN_QUIT_ON"
+
+# define ID_TEXTURE_UI_GAMEOVER_BG		"UI_GAMEOVER_BG"
+# define ID_TEXTURE_UI_GAMEOVER_LABEL	"UI_GAMEOVER_LABEL"
+# define ID_TEXTURE_UI_GAMEOVER_BTN_OFF	"UI_GAMEOVER_BTN_QUIT_OFF"
+# define ID_TEXTURE_UI_GAMEOVER_BTN_ON	"UI_GAMEOVER_BTN_QUIT_ON"
+
 # define ID_TEXTURE_DEMON_WALK			"DEMON_WALK"
 # define ID_TEXTURE_DEMON_PAIN			"DEMON_PAIN"
 # define ID_TEXTURE_DEMON_ATTACK		"DEMON_ATTACK"
@@ -187,6 +194,11 @@
 # define IDX_TXTR_HUD_HEALTH_LBL		74
 # define IDX_TXTR_HUD_WEAPON_LBL		75
 
+# define IDX_TXTR_UI_GAMEOVER_BG		76
+# define IDX_TXTR_UI_GAMEOVER_LABEL		77
+# define IDX_TXTR_UI_GAMEOVER_BTN_OFF	78
+# define IDX_TXTR_UI_GAMEOVER_BTN_ON	79
+
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
 # define ID_MAP_CACO					'c'
@@ -201,7 +213,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
-# define MAP_NB_IDS						76
+# define MAP_NB_IDS						80
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 

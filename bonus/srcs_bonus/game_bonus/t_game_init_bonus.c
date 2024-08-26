@@ -64,6 +64,7 @@ bool	t_game_init(t_game *game)
 		return (false);
 	game->frame_time_usec = 1000000 / FPS;
 	game->tick_last_frame = 0;
+	game->game_over = false;
 	game->bullets = NULL;
 	return (
 		t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE)

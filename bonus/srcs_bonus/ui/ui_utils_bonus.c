@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ui_utils_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:36:13 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/26 15:43:36 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ bool	init_all_ui(t_game *game)
 {
 	if (game == NULL)
 		return (error_print(ERR_UI_CREATION), false);
-	if (!init_ui_pause(&game->ui_pause, game->mlx.mlx_ptr, game->anim))
+	if (
+		!init_ui_pause(&game->ui_pause, game->mlx.mlx_ptr, game->anim)
+		|| !init_ui_gameover(&game->ui_game_over, game->mlx.mlx_ptr, game->anim)
+	)
 		return (error_print(ERR_UI_CREATION), false);
 	return (true);
 }
