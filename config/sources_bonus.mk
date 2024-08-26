@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/08/26 08:29:32 by brappo           ###   ########.fr        #
+#    Updated: 2024/08/26 11:25:49 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -239,18 +239,6 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 								get_tick_bonus.c				\
 								sort_bonus.c
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
-
-# BULLETS
-BULLETS_DIR_BONUS			=	bullets_bonus/
-BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c			\
-								update_bullet_bonus.c			\
-								caco_projectile_bonus.c			\
-								imp_projectile_bonus.c			\
-								boh_projectile_bonus.c			\
-								mancubus_projectile_bonus.c		\
-								rocket_bonus.c					\
-								revenant_projectile_bonus.c
-BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
 
 # SOURCES GENERAL
 SRCS_MAIN_SUBDIR_BONUS		=	srcs_bonus/
