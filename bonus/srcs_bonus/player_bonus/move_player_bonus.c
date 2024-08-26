@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 17:39:40 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 17:53:40 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:01:39 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static float	calc_gap(float move_value)
 		gap = -1.0f;
 	else
 		gap = 1.0f;
-	gap *= 0.05f;
+	gap *= PLAYER_MIN_DIST_TO_WALL;
 	return (gap);
 }
 

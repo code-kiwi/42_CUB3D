@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 17:55:37 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:02:17 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define PLAYER_SPEED_LEFT				3
 # define PLAYER_SPEED_RIGHT				3
 # define PLAYER_INTERACTION_DISTANCE	1.5
-# define PLAYER_HEALTH_POINT			1000
+# define PLAYER_HEALTH_POINT			25
 # define PLAYER_RADIUS					0.5
 
 # define PLAYER_WEAPON_V_MOVE_UPDATE	0.02f
@@ -39,6 +39,8 @@
 # define PLAYER_WEAPON_H_OFFSET_MAX		50
 
 # define MAX_Y_ROTATION_RATIO			0.7
+
+# define PLAYER_MIN_DIST_TO_WALL		0.05f
 
 typedef struct s_game				t_game;
 typedef struct s_player				t_player;
