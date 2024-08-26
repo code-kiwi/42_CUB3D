@@ -71,12 +71,6 @@ MANC_PAIN ./assets/textures/doom/entities/mancubus/mancubus_pain.xpm 74,67 250
 MANC_DEATH ./assets/textures/doom/entities/mancubus/mancubus_death.xpm 103,76 100
 MANC_FIREBALL ./assets/textures/doom/effects/mancubus_fireball/mancubus_fireball_live.xpm 34,34 100
 
-ARCH_VILE_WALK ./assets/textures/doom/entities/arch_vile/arch_vile_walk.xpm 79,90 150
-ARCH_VILE_ATTACK ./assets/textures/doom/entities/arch_vile/arch_vile_attack.xpm 79,97 400
-ARCH_VILE_PAIN ./assets/textures/doom/entities/arch_vile/arch_vile_pain.xpm 38,74 200
-ARCH_VILE_DEATH ./assets/textures/doom/entities/arch_vile/arch_vile_death.xpm 79,96 100
-ARCH_VILE_FLAMES ./assets/textures/doom/effects/arch_vile_flames/arch_vile_flames.xpm 45,78 100
-
 COMMANDO_WALK ./assets/textures/doom/entities/former_commando/former_commando_walk.xpm 45,60 100
 COMMANDO_ATTACK ./assets/textures/doom/entities/former_commando/former_commando_attack.xpm 43,58 200
 COMMANDO_PAIN ./assets/textures/doom/entities/former_commando/former_commando_pain.xpm 43,58 250
@@ -99,9 +93,7 @@ W3_CHAINGUN assets/textures/doom/weapons/chaingun.xpm 114,151 10
 100N1010101010101001
 10000000000000000001
 100000000000b0001001
-10000000000000001001
-10000000000000001001
-10000000000000001001
+1000000p000000001001
 10000000000000001001
 101110000000011D1001
 10001000000000000001
