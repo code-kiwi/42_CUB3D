@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/08/26 11:25:49 by mhotting         ###   ########.fr        #
+#    Updated: 2024/08/26 11:32:35 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -148,6 +148,12 @@ UI_FILES_BONUS				=	ui_utils_bonus.c				\
 								button_utils_bonus.c
 UI_BONUS					=	$(addprefix $(UI_DIR_BONUS), $(UI_FILES_BONUS))
 
+# HUD
+HUD_DIR_BONUS				=	hud_bonus/
+HUD_FILES_BONUS				=	init_bonus.c					\
+								draw_bonus.c
+HUD_BONUS					=	$(addprefix $(HUD_DIR_BONUS), $(HUD_FILES_BONUS))
+
 # PATHFINDING
 PATHFINDING_DIR_BONUS		=	pathfinding_bonus/
 PATHFINDING_FILES_BONUS		=	add_path_node_bonus.c			\
@@ -249,7 +255,8 @@ SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(RAY_BONUS) $(DOOR_BONUS) $(SPRITES_BONUS)				\
 								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)					\
 								$(ENTITIES_BONUS) $(UI_BONUS) $(WEAPONS_BONUS)			\
-								$(BULLETS_BONUS) $(ENTITY_TYPE_BONUS) $(RADAR_BONUS)
+								$(BULLETS_BONUS) $(ENTITY_TYPE_BONUS) $(RADAR_BONUS)	\
+								$(HUD_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 08:14:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/26 11:28:18 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include "animation_bonus.h"
 # include "radar_bonus.h"
 # include "weapons_bonus.h"
+# include "hud_bonus.h"
 
 # define PI						3.14159265358
 # define FPS					100
@@ -115,6 +116,7 @@ struct s_game
 	bool		mouse_hidden;
 	t_radar		radar;
 	bool		map_opened;
+	t_hud		hud;
 };
 
 struct	s_column
@@ -159,6 +161,7 @@ void	free_array(char **array, size_t length, bool free_container);
 void	print_str_array(char **array, size_t length);
 char	**create_str_array(size_t nb_row, size_t nb_col, char default_value);
 int		min(int a, int b);
+int		max_int(int a, int b);
 bool	is_number(char *str);
 void	remove_last_breakline(char *str);
 void	remove_last_spaces(char *str);

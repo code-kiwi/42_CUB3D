@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/26 08:28:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/26 11:30:08 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,10 @@
 # define ID_TEXTURE_W2_PISTOL			"W2_PISTOL"
 # define ID_TEXTURE_W3_CHAINGUN			"W3_CHAINGUN"
 
+# define ID_TEXTURE_HUD_BG				"HUD_BG"
+# define ID_TEXTURE_HUD_HEALTH_LBL		"HUD_HEALTH_LBL"
+# define ID_TEXTURE_HUD_WEAPON_LBL		"HUD_WEAPON_LBL"
+
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
 # define IDX_TXTR_W						2
@@ -179,6 +183,10 @@
 # define IDX_TXTR_W2_PISTOL				71
 # define IDX_TXTR_W3_CHAINGUN			72
 
+# define IDX_TXTR_HUD_BG				73
+# define IDX_TXTR_HUD_HEALTH_LBL		74
+# define IDX_TXTR_HUD_WEAPON_LBL		75
+
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
 # define ID_MAP_CACO					'c'
@@ -193,7 +201,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
-# define MAP_NB_IDS						73
+# define MAP_NB_IDS						76
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
@@ -256,6 +264,7 @@ bool	get_elem_into_list(t_game *game, t_list **dest, char *ids,
 void	update_map(t_map *map, t_game *game);
 void	init_identifier(char **identifier);
 void	init_weapons_identifier(char **identifier);
+void	init_hud_identifier(char **identifier);
 
 // Draw map functions
 void	draw_map(t_map_draw *map_draw, t_map *map, t_game *game);
