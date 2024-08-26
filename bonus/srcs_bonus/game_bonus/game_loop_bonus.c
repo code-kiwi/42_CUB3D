@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 15:56:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 16:07:14 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ static void	game_over_handler(t_game *game)
 	if (!game->game_over)
 	{
 		game->game_over = true;
+		draw_hud(game, &game->hud);
 		t_mlx_mouse_show(&game->mlx, &game->mouse_hidden);
 		t_mlx_sync_images(&game->mlx);
 	}
