@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 13:24:37 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 15:56:01 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static void	game_over_handler(t_game *game)
 		game->game_over_loop_count++;
 		t_image_multiply_each_px(game->mlx.img_buff, GAMEOVER_DARKNESS);
 	}
-	draw_ui(&game->ui_pause, game->mlx.img_buff);
+	draw_ui(&game->ui_game_over, game->mlx.img_buff);
 }
 
 int	game_loop(t_game *game)
