@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 17:46:33 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/25 19:31:40 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 10:07:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,16 @@
 
 # include "mlx_api_bonus.h"
 
-# define HUD_W_RATIO		0.25f
-# define HUD_H_RATIO		0.25f
+# define HUD_W_RATIO			0.25f
+# define HUD_H_RATIO			0.25f
+# define HUD_LABEL_H_RATIO		0.2f
+# define HUD_LABEL_W_RATIO		0.3f
+# define HUD_BAR_H_RATIO		0.2f
+# define HUD_BAR_W_RATIO		0.6f
+# define HUD_HEALTH_BAR_COL		0xFF0000
+# define HUD_HEALTH_BAR_COL_BG	0x990000
+# define HUD_WEAPON_BAR_COL		0x0000FF
+# define HUD_WEAPON_BAR_COL_BG	0x000099
 
 typedef struct s_hud	t_hud;
 typedef struct s_game	t_game;
@@ -25,19 +33,17 @@ struct s_hud
 {
 	t_mlx_coords	pos;
 	t_mlx_coords	size;
+	t_mlx_coords	health_lbl_size;
+	t_mlx_coords	health_lbl_pos;
+	t_mlx_coords	health_bar_size;
+	t_mlx_coords	health_bar_pos;
+	t_mlx_coords	weapon_lbl_size;
+	t_mlx_coords	weapon_lbl_pos;
+	t_mlx_coords	weapon_bar_size;
+	t_mlx_coords	weapon_bar_pos;
 	t_image			*texture_bg;
 	t_image			*texture_lbl_health;
 	t_image			*texture_lbl_weapon;
-	t_image			*texture_dig_0;
-	t_image			*texture_dig_1;
-	t_image			*texture_dig_2;
-	t_image			*texture_dig_3;
-	t_image			*texture_dig_4;
-	t_image			*texture_dig_5;
-	t_image			*texture_dig_6;
-	t_image			*texture_dig_7;
-	t_image			*texture_dig_8;
-	t_image			*texture_dig_9;
 };
 
 // HUD functions

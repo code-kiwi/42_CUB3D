@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/25 18:42:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 08:14:19 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,16 +112,6 @@
 # define ID_TEXTURE_HUD_BG				"HUD_BG"
 # define ID_TEXTURE_HUD_HEALTH_LBL		"HUD_HEALTH_LBL"
 # define ID_TEXTURE_HUD_WEAPON_LBL		"HUD_WEAPON_LBL"
-# define ID_TEXTURE_HUD_DIGIT_0			"HUD_DIGIT_0"
-# define ID_TEXTURE_HUD_DIGIT_1			"HUD_DIGIT_1"
-# define ID_TEXTURE_HUD_DIGIT_2			"HUD_DIGIT_2"
-# define ID_TEXTURE_HUD_DIGIT_3			"HUD_DIGIT_3"
-# define ID_TEXTURE_HUD_DIGIT_4			"HUD_DIGIT_4"
-# define ID_TEXTURE_HUD_DIGIT_5			"HUD_DIGIT_5"
-# define ID_TEXTURE_HUD_DIGIT_6			"HUD_DIGIT_6"
-# define ID_TEXTURE_HUD_DIGIT_7			"HUD_DIGIT_7"
-# define ID_TEXTURE_HUD_DIGIT_8			"HUD_DIGIT_8"
-# define ID_TEXTURE_HUD_DIGIT_9			"HUD_DIGIT_9"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -206,16 +196,6 @@
 # define IDX_TXTR_HUD_BG				78
 # define IDX_TXTR_HUD_HEALTH_LBL		79
 # define IDX_TXTR_HUD_WEAPON_LBL		80
-# define IDX_TXTR_HUD_DIGIT_0			81
-# define IDX_TXTR_HUD_DIGIT_1			82
-# define IDX_TXTR_HUD_DIGIT_2			83
-# define IDX_TXTR_HUD_DIGIT_3			84
-# define IDX_TXTR_HUD_DIGIT_4			85
-# define IDX_TXTR_HUD_DIGIT_5			86
-# define IDX_TXTR_HUD_DIGIT_6			87
-# define IDX_TXTR_HUD_DIGIT_7			88
-# define IDX_TXTR_HUD_DIGIT_8			89
-# define IDX_TXTR_HUD_DIGIT_9			90
 
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
@@ -232,7 +212,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
-# define MAP_NB_IDS						91
+# define MAP_NB_IDS						81
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
