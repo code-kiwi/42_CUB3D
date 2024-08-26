@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 08:14:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/26 13:07:20 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define PLAYER_SPEED_LEFT				3
 # define PLAYER_SPEED_RIGHT				3
 # define PLAYER_INTERACTION_DISTANCE	1.5
-# define PLAYER_HEALTH_POINT			100
+# define PLAYER_HEALTH_POINT			1
 # define PLAYER_RADIUS					0.5
 
 # define PLAYER_WEAPON_V_MOVE_UPDATE	0.02f
@@ -86,6 +86,7 @@ struct s_player
 	t_sprite		*aimed_sprite;
 	size_t			health_point;
 	bool			is_walking;
+	bool			is_dead;
 	t_player_weapon	weapon_info;
 };
 

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 11:28:18 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 13:28:35 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,9 @@
 # define ERR_ANIM_TIME_TOO_BIG	"The animation wait time is too big"
 # define ERR_ANIM_TIME_NEGATIVE	"The animation wait time is negative"
 
+# define GAMEOVER_DARKNESS		0.999999f
+# define GAMEOVER_DARKNESS_LOOP	1000
+
 typedef struct s_game			t_game;
 typedef struct s_mlx			t_mlx;
 typedef struct s_column			t_column;
@@ -113,10 +116,13 @@ struct s_game
 	t_weapon	weapons[NB_TOT_WEAPONS];
 	bool		pause;
 	t_ui		ui_pause;
+	t_ui		ui_game_over;
 	bool		mouse_hidden;
 	t_radar		radar;
 	bool		map_opened;
 	t_hud		hud;
+	bool		game_over;
+	int			game_over_loop_count;
 };
 
 struct	s_column

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press_handler_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/26 22:03:31 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/08/26 13:31:17 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	key_press_handler(int key, t_game *game)
 {
 	if (game == NULL)
 		error_exit(NULL, ERR_ARG);
+	else if (game->game_over)
+		return (0);
 	else if (key == KEY_W)
 		game->player.walk_direction[FRONT] = true;
 	else if (key == KEY_S)

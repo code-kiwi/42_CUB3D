@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/29 17:45:06 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 12:18:14 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ bool	t_player_init(t_player *player, t_map *map, t_game *game)
 	ft_memset(player->walk_direction, 0, 4 * sizeof(bool));
 	player->look_ray = &game->rays[(int)WIN_WIDTH / 2];
 	player->is_walking = false;
+	player->is_dead = false;
 	return (true);
 }

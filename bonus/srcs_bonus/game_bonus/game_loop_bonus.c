@@ -6,12 +6,13 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 11:30:25 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 13:24:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <math.h>
 #include <stdio.h>
 
 #include "cub3d_bonus.h"
@@ -79,6 +80,22 @@ static void	game_render(t_game *game, float delta_time)
 		draw_radar(game, &game->radar, &game->mlx);
 }
 
+static void	game_over_handler(t_game *game)
+{
+	if (!game->game_over)
+	{
+		game->game_over = true;
+		t_mlx_mouse_show(&game->mlx, &game->mouse_hidden);
+		t_mlx_sync_images(&game->mlx);
+	}
+	if (game->game_over_loop_count < GAMEOVER_DARKNESS_LOOP)
+	{
+		game->game_over_loop_count++;
+		t_image_multiply_each_px(game->mlx.img_buff, GAMEOVER_DARKNESS);
+	}
+	draw_ui(&game->ui_pause, game->mlx.img_buff);
+}
+
 int	game_loop(t_game *game)
 {
 	float	delta_time;
@@ -87,10 +104,12 @@ int	game_loop(t_game *game)
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
 	game_loop_handle_fps(game, &delta_time);
-	if (!game->pause)
-		game_render(game, delta_time);
-	else
+	if (game->player.is_dead)
+		game_over_handler(game);
+	else if (game->pause)
 		draw_ui(&game->ui_pause, game->mlx.img_buff);
+	else
+		game_render(game, delta_time);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
 	// printf("fps : %d\n", (int)(1.0f / delta_time));
