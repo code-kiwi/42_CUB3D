@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 14:30:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 15:46:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int	game_loop(t_game *game)
 		update_player(&game->player, &game->map);
 		if (!is_in_bounds(&game->player.position, &game->map))
 			error_exit(game, ERR_PLAYER_QUIT_MAP);
-		if (!cast_rays(&game->player, &game->map, game->rays))
-			error_exit(game, ERR_CAST_RAYS);
+		cast_rays(&game->player, &game->map, game->rays);
 		draw_walls(game);
 		if (!t_mlx_render(&game->mlx))
 			error_exit(game, ERR_RENDER);

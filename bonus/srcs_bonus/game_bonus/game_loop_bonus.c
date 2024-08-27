@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 14:02:06 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 15:47:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ static void	game_render(t_game *game, float delta_time)
 	update_map(&game->map, game);
 	if (!is_in_bounds(&game->player.position, &game->map))
 		error_exit(game, ERR_PLAYER_QUIT_MAP);
-	if (!cast_rays(game))
-		error_exit(game, ERR_CAST_RAYS);
+	cast_rays(game);
 	draw_walls(game);
 	render_all_sprites(game);
 	draw_player(game, &game->player.weapon_info);

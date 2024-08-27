@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:57:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 13:16:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 15:47:07 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ struct s_raycast
 };
 
 // Raycasting functions
-float		raycast(t_vector position, t_game *game, t_ray *ray,
-				int max_distance);
-bool		cast_rays(t_game *game);
-bool		is_door(t_vector *pos, t_game *game, t_ray *ray,
-				t_raycast *raycast);
+float	raycast(t_vector position, t_game *game, t_ray *ray,
+			int max_distance);
+void	cast_rays(t_game *game);
+bool	is_door(t_vector *pos, t_game *game, t_ray *ray,
+			t_raycast *raycast);
 
 #endif
