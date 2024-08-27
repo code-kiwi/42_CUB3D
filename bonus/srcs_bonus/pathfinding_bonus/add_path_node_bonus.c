@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 10:58:53y brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 12:28:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ static size_t	get_start_distance(t_stack_path *previous, size_t distance)
 	return (previous->start_distance + distance);
 }
 
-static bool	update_existing_node(t_stack_path *new_node, size_t total_cost, t_stack_path **stack)
+static bool	update_existing_node(t_stack_path *new_node, size_t total_cost,
+	t_stack_path **stack)
 {
 	if (new_node->total_cost < total_cost)
 		return (true);
@@ -76,7 +77,8 @@ bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 	new_node = search_in_stack(pathfinding->stack, position);
 	if (new_node == NULL)
 		new_node = add_new_node(position);
-	else if (update_existing_node(new_node, start_distance + end_distance, &pathfinding->stack))
+	else if (update_existing_node(new_node, start_distance + end_distance,
+			&pathfinding->stack))
 		return (true);
 	if (new_node == NULL)
 		return (false);
