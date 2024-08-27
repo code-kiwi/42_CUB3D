@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 16:07:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 12:52:57 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,39 @@ static void	game_over_handler(t_game *game)
 		t_mlx_mouse_show(&game->mlx, &game->mouse_hidden);
 		t_mlx_sync_images(&game->mlx);
 	}
-	if (game->game_over_loop_count < GAMEOVER_DARKNESS_LOOP)
+	if (game->game_end_loop_count < GAMEOVER_DARKNESS_LOOP)
 	{
-		game->game_over_loop_count++;
+		game->game_end_loop_count++;
 		t_image_multiply_each_px(game->mlx.img_buff, GAMEOVER_DARKNESS);
 	}
 	draw_ui(&game->ui_game_over, game->mlx.img_buff);
+}
+
+static void	game_win_handler(t_game *game, float delta_time)
+{
+	static float	inc = 0.01f;
+
+	if (game->sprites != NULL)
+		game_render(game, delta_time);
+	else
+	{
+		if (!game->game_won)
+		{
+			game->game_won = true;
+			draw_hud(game, &game->hud);
+			t_mlx_mouse_show(&game->mlx, &game->mouse_hidden);
+			t_mlx_sync_images(&game->mlx);
+		}
+		if (game->game_end_loop_count < GAMEWON_BRIGHT_LOOP)
+		{
+			game->game_end_loop_count++;
+			t_image_multiply_each_px(game->mlx.img_buff, GAMEWON_BRIGHTNESS \
+				+ inc);
+			inc += 0.0001f;
+		}
+		t_mlx_sync_images(&game->mlx);
+		draw_ui(&game->ui_game_over, game->mlx.img_buff);
+	}
 }
 
 int	game_loop(t_game *game)
@@ -107,6 +134,8 @@ int	game_loop(t_game *game)
 	game_loop_handle_fps(game, &delta_time);
 	if (game->player.is_dead)
 		game_over_handler(game);
+	else if (game->entities == NULL)
+		game_win_handler(game, delta_time);
 	else if (game->pause)
 		draw_ui(&game->ui_pause, game->mlx.img_buff);
 	else

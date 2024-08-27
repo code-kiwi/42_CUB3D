@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 11:48:55 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 12:43:33 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,10 @@
 
 # define GAMEOVER_DARKNESS		0.999999f
 # define GAMEOVER_DARKNESS_LOOP	1000
+# define GAMEWON_BRIGHTNESS		1.01f
+# define GAMEWON_BRIGHT_LOOP	1000
 
-# define NB_MAX_ENTITIES		30
+# define NB_MAX_ENTITIES		100
 
 typedef struct s_game			t_game;
 typedef struct s_mlx			t_mlx;
@@ -128,7 +130,8 @@ struct s_game
 	bool		map_opened;
 	t_hud		hud;
 	bool		game_over;
-	int			game_over_loop_count;
+	int			game_end_loop_count;
+	bool		game_won;
 };
 
 struct	s_column

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:15:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 13:31:26 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 12:28:30 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	key_release_handler(int key, t_game *game)
 {
 	if (game == NULL)
 		error_exit(NULL, ERR_ARG);
-	else if (game->game_over)
+	else if (game->game_over || game->game_won)
 		return (0);
 	else if (key == KEY_W)
 		game->player.walk_direction[FRONT] = false;
