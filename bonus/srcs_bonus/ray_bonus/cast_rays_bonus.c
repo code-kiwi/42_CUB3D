@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 14:20:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 15:26:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "cub3d_bonus.h"
 
-static bool	set_ray(t_ray *result, float angle, t_game *game)
+static void	set_ray(t_ray *result, float angle, t_game *game)
 {
 	float		intersection_x;
 	float		intersection_y;
@@ -31,7 +31,6 @@ static bool	set_ray(t_ray *result, float angle, t_game *game)
 	result->cos_angle_from_orientation = cos(result->angle_from_orientation);
 	if (!result->is_door)
 		result->door = NULL;
-	return (true);
 }
 
 bool	cast_rays(t_game *game)
@@ -48,8 +47,7 @@ bool	cast_rays(t_game *game)
 	player->leftmost_angle = angle;
 	while (index < WIN_WIDTH)
 	{
-		if (!set_ray(&game->rays[index], angle, game))
-			return (false);
+		set_ray(&game->rays[index], angle, game);
 		angle -= angle_by_pixel;
 		index++;
 	}

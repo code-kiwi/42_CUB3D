@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 15:05:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 13:52:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 15:41:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ static void	update_path(t_entity *entity, t_game *game)
 	entity->path = find_path(&start, &end, &game->map);
 }
 
-bool	update_entities_path(t_game *game)
+void	update_entities_path(t_game *game)
 {
 	t_list		*current;
 	t_entity	*entity;
 	size_t		entity_updated;
 
 	if (game == NULL || game->entities == NULL)
-		return (false);
+		return ;
 	current = game->last_entity_updated;
 	if (current == NULL)
 		current = game->entities;
@@ -69,5 +69,4 @@ bool	update_entities_path(t_game *game)
 		entity_updated++;
 	}
 	game->last_entity_updated = current;
-	return (true);
 }
