@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 17:12:38 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:35:10 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@
 # define ERR_WEAPONS_RESIZE		"Weapon resizing failed"
 # define ERR_P_WEAPONS_CREATION	"Player weapons creation failed"
 # define ERR_ENTITY_CREATION	"Impossible to create the entity list"
-# define ERR_NO_ENTITY			"The map does not contain any ennemy"
 # define ERR_TOO_MUCH_ENTITIES	"The map contains too much entities"
 
 # define ERR_INIT_TEXTURES		"Can't open texture"
