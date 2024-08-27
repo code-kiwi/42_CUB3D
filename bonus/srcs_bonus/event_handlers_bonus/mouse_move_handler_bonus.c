@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:15 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/27 12:28:52 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 16:12:18 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	mouse_move_handler(int x, int y, t_game *game)
 	if (game->game_over)
 		mouse_move_gameover_handler(x, y, game);
 	else if (game->game_won)
-		mouse_move_gameover_handler(x, y, game);
+		mouse_move_gamewon_handler(x, y, game);
 	else if (game->pause)
 		mouse_move_pause_handler(x, y, game);
 	else

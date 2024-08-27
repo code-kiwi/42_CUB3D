@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 12:52:57 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 16:15:55 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,6 @@ static void	game_over_handler(t_game *game)
 
 static void	game_win_handler(t_game *game, float delta_time)
 {
-	static float	inc = 0.01f;
-
 	if (game->sprites != NULL)
 		game_render(game, delta_time);
 	else
@@ -115,12 +113,10 @@ static void	game_win_handler(t_game *game, float delta_time)
 		if (game->game_end_loop_count < GAMEWON_BRIGHT_LOOP)
 		{
 			game->game_end_loop_count++;
-			t_image_multiply_each_px(game->mlx.img_buff, GAMEWON_BRIGHTNESS \
-				+ inc);
-			inc += 0.0001f;
+			t_image_multiply_each_px(game->mlx.img_buff, GAMEWON_BRIGHTNESS);
 		}
 		t_mlx_sync_images(&game->mlx);
-		draw_ui(&game->ui_game_over, game->mlx.img_buff);
+		draw_ui(&game->ui_win, game->mlx.img_buff);
 	}
 }
 

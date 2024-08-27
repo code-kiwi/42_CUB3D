@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 12:43:33 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 16:16:49 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@
 
 # define GAMEOVER_DARKNESS		0.999999f
 # define GAMEOVER_DARKNESS_LOOP	1000
-# define GAMEWON_BRIGHTNESS		1.01f
+# define GAMEWON_BRIGHTNESS		1.025f
 # define GAMEWON_BRIGHT_LOOP	1000
 
 # define NB_MAX_ENTITIES		100
@@ -125,6 +125,7 @@ struct s_game
 	bool		pause;
 	t_ui		ui_pause;
 	t_ui		ui_game_over;
+	t_ui		ui_win;
 	bool		mouse_hidden;
 	t_radar		radar;
 	bool		map_opened;
