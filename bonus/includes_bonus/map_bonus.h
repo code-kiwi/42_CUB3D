@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/27 15:40:08 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:27:32 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,11 @@
 # define ID_TEXTURE_W1_PUNCH			"W1_PUNCH"
 # define ID_TEXTURE_W2_PISTOL			"W2_PISTOL"
 # define ID_TEXTURE_W3_CHAINGUN			"W3_CHAINGUN"
+# define ID_TEXTURE_W4_BF_GUN			"W4_BF_GUN"
+# define ID_TEXTURE_W5_CHAINSAW			"W5_CHAINSAW"
+# define ID_TEXTURE_W6_PLASMA			"W6_PLASMA"
+# define ID_TEXTURE_W7_SHOTGUN			"W7_SHOTGUN"
+# define ID_TEXTURE_W8_ROCKET			"W8_ROCKET"
 
 # define ID_TEXTURE_HUD_BG				"HUD_BG"
 # define ID_TEXTURE_HUD_HEALTH_LBL		"HUD_HEALTH_LBL"
@@ -195,21 +200,26 @@
 # define IDX_TXTR_W1_PUNCH				70
 # define IDX_TXTR_W2_PISTOL				71
 # define IDX_TXTR_W3_CHAINGUN			72
+# define IDX_TXTR_W4_BF_GUN				73
+# define IDX_TXTR_W5_CHAINSAW			74
+# define IDX_TXTR_W6_PLASMA				75
+# define IDX_TXTR_W7_SHOTGUN			76
+# define IDX_TXTR_W8_ROCKET				77
 
-# define IDX_TXTR_HUD_BG				73
-# define IDX_TXTR_HUD_HEALTH_LBL		74
-# define IDX_TXTR_HUD_WEAPON_LBL		75
+# define IDX_TXTR_HUD_BG				78
+# define IDX_TXTR_HUD_HEALTH_LBL		79
+# define IDX_TXTR_HUD_WEAPON_LBL		80
 
-# define IDX_TXTR_UI_GAMEOVER_BG		76
-# define IDX_TXTR_UI_GAMEOVER_LABEL		77
-# define IDX_TXTR_UI_GAMEOVER_BTN_OFF	78
-# define IDX_TXTR_UI_GAMEOVER_BTN_ON	79
+# define IDX_TXTR_UI_GAMEOVER_BG		81
+# define IDX_TXTR_UI_GAMEOVER_LABEL		82
+# define IDX_TXTR_UI_GAMEOVER_BTN_OFF	83
+# define IDX_TXTR_UI_GAMEOVER_BTN_ON	84
 
-# define IDX_TXTR_UI_WIN_BG				80
-# define IDX_TXTR_UI_WIN_LABEL			81
-# define IDX_TXTR_UI_WIN_TROPHY			82
-# define IDX_TXTR_UI_WIN_BTN_OFF		83
-# define IDX_TXTR_UI_WIN_BTN_ON			84
+# define IDX_TXTR_UI_WIN_BG				85
+# define IDX_TXTR_UI_WIN_LABEL			86
+# define IDX_TXTR_UI_WIN_TROPHY			87
+# define IDX_TXTR_UI_WIN_BTN_OFF		88
+# define IDX_TXTR_UI_WIN_BTN_ON			89
 
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
@@ -225,7 +235,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
-# define MAP_NB_IDS						85
+# define MAP_NB_IDS						90
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
