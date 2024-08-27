@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   array.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:43:57 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/16 17:46:39 by root             ###   ########.fr       */
+/*   Updated: 2024/08/27 13:36:41 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 #include "libft.h"
 
@@ -25,18 +24,6 @@ size_t	array_length(void **array)
 	while (array[index] != NULL)
 		index++;
 	return (index);
-}
-
-void	print_str_array(char **array, size_t length)
-{
-	size_t	index;
-
-	index = 0;
-	while (index < length)
-	{
-		printf("%s\n", array[index]);
-		index++;
-	}
 }
 
 void	free_array(char **array, size_t length, bool free_container)
