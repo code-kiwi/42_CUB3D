@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 15:46:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 16:27:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	game_loop(t_game *game)
 	game->mlx.event_loop_counter++;
 	if (game->mlx.event_loop_counter >= EVENT_LOOP_FRAME_TARGET)
 	{
-		display_delta_time();
 		update_player(&game->player, &game->map);
 		if (!is_in_bounds(&game->player.position, &game->map))
 			error_exit(game, ERR_PLAYER_QUIT_MAP);

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 15:57:56 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 16:25:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,6 @@ bool	is_number(char *str);
 void	remove_last_breakline(char *str);
 void	remove_last_spaces(char *str);
 void	skip_next_spaces(char **str);
-void	display_delta_time(void);
 long	get_tick(void);
 void	sort_list(t_list *lst, float compare(void *, void *));
 
