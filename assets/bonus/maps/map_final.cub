@@ -1,10 +1,10 @@
-NO ./assets/textures/walls/wall_1.xpm 64,64 10
-SO ./assets/textures/walls/wall_2.xpm 64,64 10
-WE ./assets/textures/walls/wall_3.xpm 64,64 10
-EA ./assets/textures/walls/wall_4.xpm 64,64 10
+NO ./assets/textures/walls/3.xpm 64,64 10
+SO ./assets/textures/walls/3.xpm 64,64 10
+WE ./assets/textures/walls/4.xpm 64,64 10
+EA ./assets/textures/walls/3.xpm 64,64 10
 
-F ./assets/textures/floors/sand.xpm 64,64 10
-C ./assets/textures/ceilings/ceiling.xpm 64,64 10
+F ./assets/textures/walls/5.xpm 64,64 10
+C ./assets/textures/walls/6.xpm 64,64 10
 D ./assets/textures/doors/door.xpm 64,64 10
 S ./assets/textures/entities/flying/flying.xpm 64,64 150
 
