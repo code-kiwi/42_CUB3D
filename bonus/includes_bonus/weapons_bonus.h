@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 19:38:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 20:18:07 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,18 @@
 # define IDX_W2_PISTOL				1
 # define IDX_W3_CHAINGUN			2
 
-# define W1_HAND_FRAME_UPDATE		0.1f
 # define W1_HAND_NUM_LOADS			0
 # define W1_HAND_LOAD_CAPACITY		0
 # define W1_HAND_INITIAL_USES		0
 # define W1_HAND_DAMAGES			5
 # define W1_HAND_RANGE				1.05f
 
-# define W2_PISTOL_FRAME_UPDATE		0.05f
 # define W2_PISTOL_NUM_LOADS		2
 # define W2_PISTOL_LOAD_CAPACITY	5
 # define W2_PISTOL_INITIAL_USES		5
 # define W2_PISTOL_DAMAGES			2
 # define W2_PISTOL_RANGE			10.0f
 
-# define W3_CHAINGUN_FRAME_UPDATE	0.05f
 # define W3_CHAINGUN_NUM_LOADS		1
 # define W3_CHAINGUN_LOAD_CAPACITY	100
 # define W3_CHAINGUN_INITIAL_USES	50

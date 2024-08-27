@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 18:40:48 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 20:18:40 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	init_w1_hand(t_weapon *weapon, t_game *game)
 	weapon->frames_action = game->anim[IDX_TXTR_W1_PUNCH].textures;
 	weapon->frames_bullet = NULL;
 	weapon->target = NULL;
-	weapon->animation_update = W1_HAND_FRAME_UPDATE;
+	weapon->animation_update = game->anim[IDX_TXTR_W1_HAND].wait;
 	weapon->num_loads = W1_HAND_NUM_LOADS;
 	weapon->load_capacity = W1_HAND_LOAD_CAPACITY;
 	weapon->remaining_use = W1_HAND_INITIAL_USES;
@@ -43,7 +43,7 @@ static void	init_w2_pistol(t_weapon *weapon, t_game *game)
 	weapon->frames_action = game->anim[IDX_TXTR_W2_PISTOL].textures->next;
 	weapon->frames_bullet = NULL;
 	weapon->target = (t_image *) game->anim[IDX_TXTR_TARGET1].textures->content;
-	weapon->animation_update = W2_PISTOL_FRAME_UPDATE;
+	weapon->animation_update = game->anim[IDX_TXTR_W2_PISTOL].wait;
 	weapon->num_loads = W2_PISTOL_NUM_LOADS;
 	weapon->load_capacity = W2_PISTOL_LOAD_CAPACITY;
 	weapon->remaining_use = W2_PISTOL_INITIAL_USES;
@@ -64,7 +64,7 @@ static void	init_w3_chaingun(t_weapon *weapon, t_game *game)
 	weapon->frames_action = game->anim[IDX_TXTR_W3_CHAINGUN].textures->next;
 	weapon->frames_bullet = NULL;
 	weapon->target = (t_image *) game->anim[IDX_TXTR_TARGET1].textures->content;
-	weapon->animation_update = W3_CHAINGUN_FRAME_UPDATE;
+	weapon->animation_update = game->anim[IDX_TXTR_W3_CHAINGUN].wait;
 	weapon->num_loads = W3_CHAINGUN_NUM_LOADS;
 	weapon->load_capacity = W3_CHAINGUN_LOAD_CAPACITY;
 	weapon->remaining_use = W3_CHAINGUN_INITIAL_USES;
