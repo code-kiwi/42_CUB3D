@@ -6,13 +6,12 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/27 16:12:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:13:28 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "event_handlers_bonus.h"
-#include "ui_bonus.h"
 
 int	mouse_release_handler(int button, int x, int y, t_game *game)
 {

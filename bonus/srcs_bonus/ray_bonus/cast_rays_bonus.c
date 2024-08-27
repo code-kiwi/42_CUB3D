@@ -6,16 +6,15 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 18:50:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/28 10:14:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 15:46:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <math.h>
 
 #include "cub3d_bonus.h"
 
-static bool	set_ray(t_ray *result, float angle, t_game *game)
+static void	set_ray(t_ray *result, float angle, t_game *game)
 {
 	float		intersection_x;
 	float		intersection_y;
@@ -32,10 +31,9 @@ static bool	set_ray(t_ray *result, float angle, t_game *game)
 	result->cos_angle_from_orientation = cos(result->angle_from_orientation);
 	if (!result->is_door)
 		result->door = NULL;
-	return (true);
 }
 
-bool	cast_rays(t_game *game)
+void	cast_rays(t_game *game)
 {
 	size_t		index;
 	float		angle;
@@ -49,10 +47,8 @@ bool	cast_rays(t_game *game)
 	player->leftmost_angle = angle;
 	while (index < WIN_WIDTH)
 	{
-		if (!set_ray(&game->rays[index], angle, game))
-			return (false);
+		set_ray(&game->rays[index], angle, game);
 		angle -= angle_by_pixel;
 		index++;
 	}
-	return (true);
 }

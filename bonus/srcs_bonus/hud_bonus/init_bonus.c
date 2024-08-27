@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 18:47:38 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 10:02:15 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:05:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-
 #include "cub3d_bonus.h"
-#include "hud_bonus.h"
 #include "libft.h"
 
 static void	init_hud_sizes(t_game *game, t_hud *hud)

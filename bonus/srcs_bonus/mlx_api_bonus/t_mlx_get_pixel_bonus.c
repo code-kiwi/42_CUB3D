@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_get_pixel_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 11:38:25 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/06/21 18:05:22 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:13:18 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_api_bonus.h"
-#include "mlx.h"
 
 /**
  * @return The pixel adresses

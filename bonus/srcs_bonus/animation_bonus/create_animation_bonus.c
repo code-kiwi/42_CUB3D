@@ -6,14 +6,11 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:52:44 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 10:23:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:40:26 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "mlx_api_bonus.h"
-#include "sprite_bonus.h"
-#include "animation_bonus.h"
 #include "cub3d_bonus.h"
 
 static void	copy_image(

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_rays.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 16:06:07 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 16:06:13 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:45:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "cub3d.h"
 
-static bool	set_ray(t_ray *result, float angle, t_player *player, t_map *map)
+static void	set_ray(t_ray *result, float angle, t_player *player, t_map *map)
 {
 	float	intersection_x;
 	float	intersection_y;
@@ -26,10 +26,9 @@ static bool	set_ray(t_ray *result, float angle, t_player *player, t_map *map)
 	intersection_y = player->position.y - result->slope.y * result->length;
 	t_vector_init(&result->intersection, intersection_x, intersection_y);
 	result->angle_from_orientation = fabsf(player->orientation - angle);
-	return (true);
 }
 
-bool	cast_rays(t_player *player, t_map *map, t_ray *rays)
+void	cast_rays(t_player *player, t_map *map, t_ray *rays)
 {
 	size_t		index;
 	float		angle_by_pixel;
@@ -40,10 +39,8 @@ bool	cast_rays(t_player *player, t_map *map, t_ray *rays)
 	angle = player->orientation + (player->fov_angle / 2);
 	while (index < WIN_WIDTH)
 	{
-		if (!set_ray(&rays[index], angle, player, map))
-			return (false);
+		set_ray(&rays[index], angle, player, map);
 		angle -= angle_by_pixel;
 		index++;
 	}
-	return (true);
 }

@@ -6,11 +6,10 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:42:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 12:45:06 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:36:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <math.h>
 
 #include "cub3d_bonus.h"

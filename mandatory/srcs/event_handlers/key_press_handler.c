@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   key_press_handler.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/26 22:03:31 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:30:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
 #include "cub3d.h"
-#include "event_handlers.h"
-#include "libft.h"
 
 /**
  * @brief Handles the keyboard press key events

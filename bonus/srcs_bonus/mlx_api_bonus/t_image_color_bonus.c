@@ -3,15 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   t_image_color_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 10:24:47 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/19 11:38:45 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:10:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
-#include <stdint.h>
 
 #include "mlx_api_bonus.h"
 

@@ -6,14 +6,12 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 11:46:55 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:13:09 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
-#include "map_bonus.h"
 #include "cub3d_bonus.h"
-#include "libft.h"
 
 static void	init_entity(t_entity *new_entity, t_sprite *new_sprite)
 {

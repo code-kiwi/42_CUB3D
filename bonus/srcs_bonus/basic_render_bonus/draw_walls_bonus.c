@@ -6,14 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/26 08:15:17 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:46:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <math.h>
 
-#include "cub3d_bonus.h"
 #include "libft.h"
 #include "door_bonus.h"
 

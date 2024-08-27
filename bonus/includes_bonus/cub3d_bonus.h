@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 16:16:49 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:12:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@
 # define ERR_RENDER				"Rendering error"
 # define ERR_CAST_RAYS			"Ran in a wall"
 
+# define ERR_FPS				"Error calculating fps"
+# define INVALID_DOOR			"Door should be between two walls."
 # define ERR_WALLS				"Map not surrounded by walls"
 # define ERR_ELEM				"Map elements not valid"
 # define ERR_IDENTIFIER			"Map unknown identifier"
@@ -174,7 +176,6 @@ size_t	array_length(void **array);
 int		sign(float value);
 ssize_t	find_str_in_array(char **array, char *str, size_t length);
 void	free_array(char **array, size_t length, bool free_container);
-void	print_str_array(char **array, size_t length);
 char	**create_str_array(size_t nb_row, size_t nb_col, char default_value);
 int		min(int a, int b);
 int		max_int(int a, int b);
@@ -182,7 +183,6 @@ bool	is_number(char *str);
 void	remove_last_breakline(char *str);
 void	remove_last_spaces(char *str);
 void	skip_next_spaces(char **str);
-void	display_delta_time(void);
 long	get_tick(void);
 void	sort_list(t_list *lst, float compare(void *, void *));
 

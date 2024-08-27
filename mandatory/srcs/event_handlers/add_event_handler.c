@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   add_event_handler.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:25:06 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 11:06:22 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:30:14 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
 #include "cub3d.h"
 #include "event_handlers.h"
-#include "mlx_api.h"
-#include "libft.h"
 
 /**
  * @brief Adds all the event handlers to the given t_game structure

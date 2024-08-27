@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   move_entity_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 17:22:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/26 17:47:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:49:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
-#include "mlx_api_bonus.h"
-#include "map_bonus.h"
 
 bool	collide_entity(t_list *entities, t_vector *position)
 {

@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   use_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 15:18:28 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/27 16:13:38 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:26:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "weapons_bonus.h"
 #include "libft.h"
-#include "mlx_api_bonus.h"
 
 void	use_weapon(t_weapon *weapon, t_game *game)
 {

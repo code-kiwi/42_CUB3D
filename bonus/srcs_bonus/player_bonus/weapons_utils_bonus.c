@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   weapons_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:04:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/27 15:28:22 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:19:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdbool.h>
-
 #include "cub3d_bonus.h"
-#include "player_bonus.h"
-#include "weapons_bonus.h"
 #include "libft.h"
 
 void	player_select_prev_weapon(t_player_weapon *weapon_info)

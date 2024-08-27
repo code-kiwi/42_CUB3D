@@ -6,15 +6,11 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:15:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 12:28:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:13:14 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
 #include "cub3d_bonus.h"
-#include "event_handlers_bonus.h"
-#include "libft.h"
 
 /**
  * @brief Handles the keyboard release key events

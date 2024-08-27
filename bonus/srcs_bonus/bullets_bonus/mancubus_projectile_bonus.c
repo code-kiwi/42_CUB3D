@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   mancubus_projectile_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:50:01 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/24 10:06:54 by root             ###   ########.fr       */
+/*   Updated: 2024/08/27 13:47:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 

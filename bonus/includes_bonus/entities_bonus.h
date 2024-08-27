@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/26 08:14:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:53:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,7 @@ struct s_entity
 
 void	t_entity_destroy(void *data);
 bool	init_entities(t_game *game);
-bool	update_entities_path(t_game *game);
+void	update_entities_path(t_game *game);
 bool	move_entity(t_list *entities, t_vector *position, t_vector *move,
 			t_map *map);
 bool	update_entities(t_game *game, float delta_time);

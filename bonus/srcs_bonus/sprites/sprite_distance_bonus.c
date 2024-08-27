@@ -6,11 +6,10 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:42:11 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 21:53:20 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:21:27 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "sprite_bonus.h"
 
 void	get_sprites_distances(t_list *sprites, t_vector *pos)

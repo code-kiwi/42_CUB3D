@@ -3,20 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   t_image_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/19 11:41:29 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:11:57 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdbool.h>
-#include <stdlib.h>
 
 #include "mlx_api_bonus.h"
 #include "mlx.h"
 #include "libft.h"
-#include "vector_bonus.h"
 
 /**
  * @brief Allocates and initializes a t_image_instance using the mlx

@@ -6,12 +6,11 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/27 12:29:09 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:13:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
 
 int	mouse_press_handler(int button, int x, int y, t_game *game)
 {

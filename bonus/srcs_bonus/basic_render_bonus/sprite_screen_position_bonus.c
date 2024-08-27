@@ -6,14 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/08/26 08:15:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:46:49 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
+
 #include "sprite_bonus.h"
 #include "cub3d_bonus.h"
-
-#include <math.h>
 
 static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
 {
