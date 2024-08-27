@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 15:05:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/19 10:48:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:16:49 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ static bool	can_see(t_vector *position, t_vector *point, t_game *game)
 	ray.slope.x = point->x - position->x;
 	ray.slope.y = position->y - point->y;
 	distance = get_vector_length(&ray.slope);
-	if (distance >= MAX_ENTITY_VISION)
+	if (distance >= MAX_DISTANCE)
 		return (false);
 	ray.slope.x /= distance;
 	ray.slope.y /= distance;
-	ray_length = raycast(*position, game, &ray, MAX_ENTITY_VISION);
+	ray_length = raycast(*position, game, &ray, MAX_DISTANCE);
 	return (ray_length >= distance);
 }
 

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 13:13:48 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:27:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static bool	is_door_valid(t_map *map, size_t x, size_t y)
 		return (false);
 	if (x == map->lines_lengths[y] - 1 || y == map->lines_count - 1)
 		return (false);
-	if (map->tiles[x][y - 1] == 1 && map->tiles[x][y + 1])
+	if (map->tiles[y][x - 1] == '1' && map->tiles[y][x + 1] == '1')
 		return (true);
-	if (map->tiles[x - 1][y] == 1 && map->tiles[x + 1][y])
+	if (map->tiles[y - 1][x] == '1' && map->tiles[y + 1][x] == '1')
 		return (true);
 	return (false);
 }

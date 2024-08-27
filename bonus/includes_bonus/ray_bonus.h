@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:57:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/30 09:42:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:16:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <stdbool.h>
 # include "vector_bonus.h"
-
-# define MAX_ENTITY_VISION	5
 
 typedef struct s_ray		t_ray;
 typedef struct s_player		t_player;
