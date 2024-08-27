@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   t_player_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/26 22:03:31 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:35:52 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdbool.h>
-
 #include "cub3d.h"
-#include "player.h"
-#include "map.h"
 #include "libft.h"
 
 static void	set_player_orientation(t_player *player, t_map *map)

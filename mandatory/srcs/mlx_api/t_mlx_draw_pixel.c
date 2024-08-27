@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_draw_pixel.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:08:26 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 18:17:18 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:34:26 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_api.h"
-#include "mlx.h"
 
 /**
  * @brief Draws a pixel a the given coordinates of the given color onto img
