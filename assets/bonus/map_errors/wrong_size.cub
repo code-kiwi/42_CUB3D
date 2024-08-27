@@ -25,6 +25,12 @@ UI_GAMEOVER_LABEL ./assets/textures/ui/labels/label_gameover.xpm 366,100 10
 UI_GAMEOVER_BTN_QUIT_OFF ./assets/textures/ui/buttons/btn_quit_off.xpm 400,100 10
 UI_GAMEOVER_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on.xpm 409,100 10
 
+UI_WIN_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297 10
+UI_WIN_LABEL ./assets/textures/ui/labels/label_win.xpm 224,100 10
+UI_WIN_TROPHY assets/textures/ui/labels/trophy.xpm 300,300 10
+UI_WIN_BTN_QUIT_OFF ./assets/textures/ui/buttons/btn_quit_off.xpm 400,100 10
+UI_WIN_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on.xpm 400,100 10
+
 IMP_WALK ./assets/textures/doom/entities/imp/imp_walk.xpm 39,60 150
 IMP_ATTACK ./assets/textures/doom/entities/imp/imp_attack.xpm 49,60 250
 IMP_PAIN ./assets/textures/doom/entities/imp/imp_pain.xpm 41,55 250
