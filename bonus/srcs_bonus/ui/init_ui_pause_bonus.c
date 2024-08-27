@@ -6,16 +6,11 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:23:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 11:14:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:22:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdbool.h>
-
 #include "cub3d_bonus.h"
-#include "event_handlers_bonus.h"
-#include "ui_bonus.h"
 #include "libft.h"
 
 static bool	init_ui_pause_btn1(

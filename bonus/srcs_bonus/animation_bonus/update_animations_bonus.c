@@ -11,9 +11,6 @@
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "animation_bonus.h"
-#include "libft.h"
-#include "sprite_bonus.h"
 #include "entities_bonus.h"
 
 static bool	update_sprite_anim(t_sprite *sprite, t_game *game)

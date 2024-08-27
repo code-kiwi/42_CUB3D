@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   t_player_init_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 12:18:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:17:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdbool.h>
-
 #include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
-#include "player_bonus.h"
-#include "map_bonus.h"
 #include "libft.h"
 
 static void	set_player_orientation(t_player *player, t_map *map)

@@ -6,11 +6,9 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 12:28:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:15:53 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <math.h>
 
 #include "cub3d_bonus.h"
 #include "pathfinding_bonus.h"

@@ -6,11 +6,10 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 16:24:20 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 10:18:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:48:22 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "door_bonus.h"
 
 t_door	*find_door_at_position(t_mlx_coords *position, t_game *game)

@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   update_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 14:31:20 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/27 16:01:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:26:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-
 #include "cub3d_bonus.h"
-#include "weapons_bonus.h"
 #include "libft.h"
 
 void	update_weapon(t_weapon *weapon, t_game *game)

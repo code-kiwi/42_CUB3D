@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   gameover_handlers_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 09:39:00 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/26 15:51:36 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 13:57:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "ui_bonus.h"
 
 void	mouse_release_gameover_handler(int x, int y, t_game *game)
 {

@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   callbacks_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 13:07:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/29 17:47:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:25:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 

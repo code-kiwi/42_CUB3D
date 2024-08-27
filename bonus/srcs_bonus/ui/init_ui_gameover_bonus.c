@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_ui_gameover_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:23:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 16:01:29 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:22:25 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdbool.h>
-
 #include "cub3d_bonus.h"
-#include "event_handlers_bonus.h"
-#include "ui_bonus.h"
 #include "libft.h"
 
 static bool	init_ui_gameover_btn(

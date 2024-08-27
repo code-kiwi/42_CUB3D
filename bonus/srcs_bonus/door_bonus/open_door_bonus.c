@@ -6,11 +6,10 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:54:08 by root              #+#    #+#             */
-/*   Updated: 2024/06/29 13:55:07 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:49:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "door_bonus.h"
 
 void	open_looked_door(t_ray *look_ray, t_map *map)

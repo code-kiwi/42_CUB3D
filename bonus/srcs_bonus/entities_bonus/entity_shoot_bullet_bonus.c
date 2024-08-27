@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   entity_shoot_bullet_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:39:12 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/26 15:06:32 by root             ###   ########.fr       */
+/*   Updated: 2024/08/27 13:50:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
-#include "cub3d_bonus.h"
 #include "bullets_bonus.h"
 
 #include <math.h>

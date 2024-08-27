@@ -6,16 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 12:28:53 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:06:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <errno.h>
-#include <stdio.h>
-
 #include "libft.h"
 #include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
 #include "mlx.h"
 
 int	main(int argc, char **argv)

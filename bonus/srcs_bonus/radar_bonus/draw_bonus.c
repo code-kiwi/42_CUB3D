@@ -6,14 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:37:57 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/28 10:15:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:19:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
 #include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
 
 /**
  * Draws a tile onto the radar at the given position

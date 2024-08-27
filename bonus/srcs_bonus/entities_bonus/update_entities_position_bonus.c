@@ -6,14 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:41:57 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 11:10:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:53:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
-#include "entities_bonus.h"
-
 #include <math.h>
+
+#include "entities_bonus.h"
 
 static void	change_destination(t_entity *entity)
 {

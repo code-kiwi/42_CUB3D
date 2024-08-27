@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
-#include "sprite_bonus.h"
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 

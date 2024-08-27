@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_draw_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:34:59 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 13:24:32 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:07:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "map_bonus.h"
 
 /**
  * @brief Returns the number of tiles of the longest line of the map

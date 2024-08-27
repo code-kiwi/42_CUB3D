@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   label_utils_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:22:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 16:19:25 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:22:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdbool.h>
-
 #include "ui_bonus.h"
-#include "mlx_api_bonus.h"
 
 bool	init_label(
 	t_label *label,

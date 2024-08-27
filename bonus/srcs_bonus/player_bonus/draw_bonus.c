@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:57:37 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/26 17:47:04 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:17:18 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "player_bonus.h"
-#include "weapons_bonus.h"
-#include "libft.h"
 
 void	draw_player(t_game *game, t_player_weapon *weapon_info)
 {

@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_move_handler_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:15 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/26 15:46:02 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 13:59:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-
 #include "cub3d_bonus.h"
 #include "event_handlers_bonus.h"
-#include "ui_bonus.h"
 
 int	mouse_move_handler(int x, int y, t_game *game)
 {

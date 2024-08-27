@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
-#include "cub3d_bonus.h"
 #include "bullets_bonus.h"
 
 bool	cyber_update(t_game *game, t_entity *entity, float delta_time)

@@ -6,15 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/30 09:40:52 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:21:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
 #include "cub3d_bonus.h"
-#include "vector_bonus.h"
-#include "map_bonus.h"
 
 static void	calculate_unit_length(t_raycast *ray_x, t_raycast *ray_y,
 	t_vector *slope)

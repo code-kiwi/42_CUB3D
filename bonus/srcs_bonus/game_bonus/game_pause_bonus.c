@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   game_pause_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 07:19:29 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 11:03:02 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:02:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "ui_bonus.h"
 
 void	game_pause_switch(t_game *game)
 {

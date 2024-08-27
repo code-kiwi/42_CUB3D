@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   key_release_handler_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:15:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 13:31:26 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 13:58:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
 #include "cub3d_bonus.h"
-#include "event_handlers_bonus.h"
-#include "libft.h"
 
 /**
  * @brief Handles the keyboard release key events

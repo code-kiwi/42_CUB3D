@@ -11,19 +11,10 @@
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "player_bonus.h"
 #include "event_handlers_bonus.h"
-#include "libft.h"
-#include "mlx_api_bonus.h"
 #include "door_bonus.h"
-#include "map_bonus.h"
-#include "sprite_bonus.h"
-#include "ui_bonus.h"
-#include "animation_bonus.h"
 #include "mlx.h"
 #include "entities_bonus.h"
-#include "radar_bonus.h"
-#include "hud_bonus.h"
 
 static bool	init_textures(t_game *game)
 {
