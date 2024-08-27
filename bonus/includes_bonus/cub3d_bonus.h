@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 16:05:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 11:48:55 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,9 @@
 # define ERR_WEAPONS_CREATION	"Weapons creation failed"
 # define ERR_WEAPONS_RESIZE		"Weapon resizing failed"
 # define ERR_P_WEAPONS_CREATION	"Player weapons creation failed"
+# define ERR_ENTITY_CREATION	"Impossible to create the entity list"
+# define ERR_NO_ENTITY			"The map does not contain any ennemy"
+# define ERR_TOO_MUCH_ENTITIES	"The map contains too much entities"
 
 # define ERR_INIT_TEXTURES		"Can't open texture"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
@@ -90,6 +93,8 @@
 
 # define GAMEOVER_DARKNESS		0.999999f
 # define GAMEOVER_DARKNESS_LOOP	1000
+
+# define NB_MAX_ENTITIES		30
 
 typedef struct s_game			t_game;
 typedef struct s_mlx			t_mlx;
