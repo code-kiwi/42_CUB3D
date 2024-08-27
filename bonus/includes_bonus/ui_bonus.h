@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 15:57:10 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 17:54:59 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 
 # define UI_GAMEOVER_NB_BTN			1
 # define UI_GAMEOVER_BTN_W_RATIO	0.4f
-# define UI_GAMEOVER_BTN_H_RATIO	0.25f
+# define UI_GAMEOVER_BTN_H_RATIO	0.175f
 
 typedef struct s_game		t_game;
 typedef struct s_ui			t_ui;

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:36:13 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 14:22:57 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:50:08 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	destroy_all_ui(t_game *game)
 	if (game == NULL)
 		return ;
 	destroy_ui(&game->ui_pause, game->mlx.mlx_ptr);
+	destroy_ui(&game->ui_game_over, game->mlx.mlx_ptr);
 }
 
 bool	init_all_ui(t_game *game)
