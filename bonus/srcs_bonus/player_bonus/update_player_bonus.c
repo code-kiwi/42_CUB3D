@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/29 17:45:16 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 17:40:11 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 			new_angle = player->orientation.x + index * PI / 2;
 			move.x = cos(new_angle) * player->move_speed[index] * delta_time;
 			move.y = -sin(new_angle) * player->move_speed[index] * delta_time;
-			move_entity(entities, &player->position, &move, map);
+			move_player(entities, &player->position, &move, map);
 		}
 		index++;
 	}

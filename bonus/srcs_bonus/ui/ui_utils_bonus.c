@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:36:13 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 15:43:36 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/26 17:49:17 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	destroy_all_ui(t_game *game)
 	if (game == NULL)
 		return ;
 	destroy_ui(&game->ui_pause, game->mlx.mlx_ptr);
+	destroy_ui(&game->ui_game_over, game->mlx.mlx_ptr);
 }
 
 bool	init_all_ui(t_game *game)
