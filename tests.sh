@@ -9,6 +9,12 @@ if [ -z "$1" ] ; then
 fi
 
 for f in "$2"/*; do
-	valgrind ./"$1" "$f"
+	echo "$f"
+	if [ -n "$3" ]; then
+		valgrind ./"$1" "$f"
+	else 
+		./"$1" "$f"
+	sleep 1
+	fi
 done
 	
