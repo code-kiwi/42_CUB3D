@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:09:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 08:28:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 11:25:58y brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,16 @@ static void	lock_tile(t_pathfinding *pathfinding)
 
 	new_stack = pathfinding->stack->next;
 	pathfinding->stack->next = pathfinding->locked_tiles;
+	if (pathfinding->locked_tiles != NULL)
+		pathfinding->locked_tiles->previous = pathfinding->stack;
 	pathfinding->locked_tiles = pathfinding->stack;
 	pathfinding->stack = new_stack;
+	if (new_stack != NULL)
+	{
+		new_stack->previous = NULL;
+		if (new_stack->next != NULL)
+			new_stack->next->previous = new_stack;
+	}
 }
 
 /**
