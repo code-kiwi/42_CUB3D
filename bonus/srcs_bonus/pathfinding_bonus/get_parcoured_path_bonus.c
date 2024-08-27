@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:58:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 10:41:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 08:19:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ static bool	add_position_node(t_list **path, t_mlx_coords *position)
 	return (true);
 }
 
+/**
+ * @brief Each node has a previous variable, when the algorithm has found the 
+ * @brief end coordinates, we can get all the previous until reaching the start 
+ * @brief coordinates, it gives us the best path.
+ * @return Returns the final, shortest path.
+ */
 t_list	*get_parcoured_path(t_pathfinding *pathfinding)
 {
 	t_stack_path	*current;

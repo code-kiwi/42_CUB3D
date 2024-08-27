@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/30 10:05:29 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 08:18:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ static t_stack_path	*add_new_node(t_mlx_coords *position)
 	return (new_node);
 }
 
+/**
+ * @brief Add the node to the stack. If a node with the same positions exists, 
+ * @brief we replace it only if the new node has a better score.
+ */
 bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 	t_stack_path *previous, size_t distance)
 {
