@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:09:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 08:18:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 08:28:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 	to end (de) and the addition of the two previous (a).The neighbors are then 
 	inserted in a stack, sorted by "a", or if they'r equal, by "de".
 	It locks the best coordinates ( the one on top) so that it can't be reused,
-	and the start again with this locked coordinates as the start.
+	and start again with this locked coordinates as the start.
 */
 
 /**
