@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 13:55:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:13:48 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,20 @@
 #include "door_bonus.h"
 #include "libft.h"
 
-static size_t	count_doors(t_map *map)
+static bool	is_door_valid(t_map *map, size_t x, size_t y)
+{
+	if (x == 0 || y == 0)
+		return (false);
+	if (x == map->lines_lengths[y] - 1 || y == map->lines_count - 1)
+		return (false);
+	if (map->tiles[x][y - 1] == 1 && map->tiles[x][y + 1])
+		return (true);
+	if (map->tiles[x - 1][y] == 1 && map->tiles[x + 1][y])
+		return (true);
+	return (false);
+}
+
+static ssize_t	count_doors(t_map *map)
 {
 	size_t	y;
 	size_t	x;
@@ -28,7 +41,11 @@ static size_t	count_doors(t_map *map)
 		while (x < map->lines_lengths[y])
 		{
 			if (map->tiles[y][x] == ID_MAP_DOOR_CLOSED)
+			{
+				if (!is_door_valid(map, x, y))
+					return (-1);
 				doors_count++;
+			}
 			x++;
 		}
 		y++;
@@ -67,7 +84,15 @@ static void	find_doors(t_map *map, size_t door_count, t_door *doors)
 
 bool	init_doors(t_game *game)
 {
-	game->door_count = count_doors(&game->map);
+	ssize_t	door_count;
+
+	door_count = count_doors(&game->map);
+	if (door_count == -1)
+	{
+		error_print(INVALID_DOOR);
+		return (false);
+	}
+	game->door_count = door_count;
 	if (game->door_count != 0)
 	{
 		game->doors = ft_calloc(game->door_count, sizeof(t_door));
