@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_entities_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 13:50:48 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 17:31:29 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,10 @@ void	*add_entity(t_game *game, float x, float y, char id)
 
 bool	init_entities(t_game *game)
 {
-	if (!get_elem_into_list(game, &game->entities, IDS_MAP_ENTITY, \
-			add_entity))
-		return (false);
+	if (!get_elem_into_list(game, &game->entities, IDS_MAP_ENTITY, add_entity))
+		return (error_print(ERR_ENTITY_CREATION), false);
+	if (ft_lstsize(game->entities) > NB_MAX_ENTITIES)
+		return (error_print(ERR_TOO_MUCH_ENTITIES), false);
 	game->last_entity_updated = game->entities;
 	return (true);
 }

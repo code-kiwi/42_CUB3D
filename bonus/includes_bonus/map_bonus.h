@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/26 16:05:38 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:40:08 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@
 # define ID_TEXTURE_UI_GAMEOVER_LABEL	"UI_GAMEOVER_LABEL"
 # define ID_TEXTURE_UI_GAMEOVER_BTN_OFF	"UI_GAMEOVER_BTN_QUIT_OFF"
 # define ID_TEXTURE_UI_GAMEOVER_BTN_ON	"UI_GAMEOVER_BTN_QUIT_ON"
+
+# define ID_TEXTURE_UI_WIN_BG			"UI_WIN_BG"
+# define ID_TEXTURE_UI_WIN_LABEL		"UI_WIN_LABEL"
+# define ID_TEXTURE_UI_WIN_TROPHY		"UI_WIN_TROPHY"
+# define ID_TEXTURE_UI_WIN_BTN_OFF		"UI_WIN_BTN_QUIT_OFF"
+# define ID_TEXTURE_UI_WIN_BTN_ON		"UI_WIN_BTN_QUIT_ON"
 
 # define ID_TEXTURE_DEMON_WALK			"DEMON_WALK"
 # define ID_TEXTURE_DEMON_PAIN			"DEMON_PAIN"
@@ -199,6 +205,12 @@
 # define IDX_TXTR_UI_GAMEOVER_BTN_OFF	78
 # define IDX_TXTR_UI_GAMEOVER_BTN_ON	79
 
+# define IDX_TXTR_UI_WIN_BG				80
+# define IDX_TXTR_UI_WIN_LABEL			81
+# define IDX_TXTR_UI_WIN_TROPHY			82
+# define IDX_TXTR_UI_WIN_BTN_OFF		83
+# define IDX_TXTR_UI_WIN_BTN_ON			84
+
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
 # define ID_MAP_CACO					'c'
@@ -213,7 +225,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
-# define MAP_NB_IDS						80
+# define MAP_NB_IDS						85
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_move_handler_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:15 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/27 13:59:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 17:13:20 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	mouse_move_handler(int x, int y, t_game *game)
 
 	if (game->game_over)
 		mouse_move_gameover_handler(x, y, game);
+	else if (game->game_won)
+		mouse_move_gamewon_handler(x, y, game);
 	else if (game->pause)
 		mouse_move_pause_handler(x, y, game);
 	else

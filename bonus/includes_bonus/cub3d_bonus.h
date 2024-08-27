@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 16:25:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 17:35:10 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@
 # define ERR_WEAPONS_CREATION	"Weapons creation failed"
 # define ERR_WEAPONS_RESIZE		"Weapon resizing failed"
 # define ERR_P_WEAPONS_CREATION	"Player weapons creation failed"
+# define ERR_ENTITY_CREATION	"Impossible to create the entity list"
+# define ERR_TOO_MUCH_ENTITIES	"The map contains too much entities"
 
 # define ERR_INIT_TEXTURES		"Can't open texture"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
@@ -92,6 +94,10 @@
 
 # define GAMEOVER_DARKNESS		0.999999f
 # define GAMEOVER_DARKNESS_LOOP	1000
+# define GAMEWON_BRIGHTNESS		1.025f
+# define GAMEWON_BRIGHT_LOOP	1000
+
+# define NB_MAX_ENTITIES		100
 
 typedef struct s_game			t_game;
 typedef struct s_mlx			t_mlx;
@@ -120,12 +126,14 @@ struct s_game
 	bool		pause;
 	t_ui		ui_pause;
 	t_ui		ui_game_over;
+	t_ui		ui_win;
 	bool		mouse_hidden;
 	t_radar		radar;
 	bool		map_opened;
 	t_hud		hud;
 	bool		game_over;
-	int			game_over_loop_count;
+	int			game_end_loop_count;
+	bool		game_won;
 };
 
 struct	s_column
@@ -167,7 +175,6 @@ size_t	array_length(void **array);
 int		sign(float value);
 ssize_t	find_str_in_array(char **array, char *str, size_t length);
 void	free_array(char **array, size_t length, bool free_container);
-void	print_str_array(char **array, size_t length);
 char	**create_str_array(size_t nb_row, size_t nb_col, char default_value);
 int		min(int a, int b);
 int		max_int(int a, int b);

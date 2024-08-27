@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/08/27 16:26:17 by brappo           ###   ########.fr        #
+#    Updated: 2024/08/27 17:14:28 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,8 @@ EVENT_HANDLERS_FILES_BONUS	=	add_event_handler_bonus.c		\
 								mouse_release_handler_bonus.c	\
 								mouse_move_handler_bonus.c		\
 								pause_handlers_bonus.c			\
-								gameover_handlers_bonus.c
+								gameover_handlers_bonus.c		\
+								gamewon_handlers_bonus.c
 EVENT_HANDLERS_BONUS		=	$(addprefix $(EVENT_HANDLERS_DIR_BONUS), $(EVENT_HANDLERS_FILES_BONUS))
 
 # BASIC_RENDER
@@ -147,6 +148,7 @@ UI_DIR_BONUS				=	ui/
 UI_FILES_BONUS				=	ui_utils_bonus.c				\
 								init_ui_pause_bonus.c			\
 								init_ui_gameover_bonus.c		\
+								init_ui_win_bonus.c				\
 								label_utils_bonus.c				\
 								button_utils_bonus.c
 UI_BONUS					=	$(addprefix $(UI_DIR_BONUS), $(UI_FILES_BONUS))

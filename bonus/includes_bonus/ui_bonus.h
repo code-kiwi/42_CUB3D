@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 17:54:59 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 16:07:12 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 # define UI_GAMEOVER_W_RATIO		0.5f
 # define UI_GAMEOVER_H_RATIO		0.5f
 
+# define UI_WIN_W_RATIO				0.5f
+# define UI_WIN_H_RATIO				0.75f
+
 # define UI_PAUSE_NB_LBL			1
 # define UI_PAUSE_LBL_W_RATIO		0.3f
 # define UI_PAUSE_LBL_H_RATIO		0.2f
@@ -29,6 +32,12 @@
 # define UI_GAMEOVER_NB_LBL			1
 # define UI_GAMEOVER_LBL_W_RATIO	0.75f
 # define UI_GAMEOVER_LBL_H_RATIO	0.3f
+
+# define UI_WIN_NB_LBL				2
+# define UI_WIN_LBL_W_RATIO			0.75f
+# define UI_WIN_LBL_H_RATIO			0.25f
+# define UI_WIN_LBL_TROPHY_W_RATIO	0.25f
+# define UI_WIN_LBL_TROPHY_H_RATIO	0.3f
 
 # define UI_PAUSE_NB_BTN			2
 # define UI_PAUSE_BTN1_W_RATIO		0.4f
@@ -39,6 +48,10 @@
 # define UI_GAMEOVER_NB_BTN			1
 # define UI_GAMEOVER_BTN_W_RATIO	0.4f
 # define UI_GAMEOVER_BTN_H_RATIO	0.175f
+
+# define UI_WIN_NB_BTN				1
+# define UI_WIN_BTN_W_RATIO			0.4f
+# define UI_WIN_BTN_H_RATIO			0.125f
 
 typedef struct s_game		t_game;
 typedef struct s_ui			t_ui;
@@ -83,6 +96,7 @@ bool	init_ui_pause(t_ui *ui_pause, void *mlx_ptr, \
 			t_animation anim[MAP_NB_IDS]);
 bool	init_ui_gameover(t_ui *ui_gameover, void *mlx_ptr, \
 			t_animation anim[MAP_NB_IDS]);
+bool	init_ui_win(t_ui *ui_win, void *mlx_ptr, t_animation anim[MAP_NB_IDS]);
 void	disable_buttons_ui(t_ui *ui);
 
 // label functions
