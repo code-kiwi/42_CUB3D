@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 15:47:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 15:58:00 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ int	game_loop(t_game *game)
 	delta_time = 0.1f;
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
-	game_loop_handle_fps(game, &delta_time);
+	if (!game_loop_handle_fps(game, &delta_time))
+		error_exit(game, ERR_FPS);
 	if (game->player.is_dead)
 		game_over_handler(game);
 	else if (game->pause)
