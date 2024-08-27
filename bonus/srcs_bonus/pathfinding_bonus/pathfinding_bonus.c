@@ -26,7 +26,7 @@
 */
 
 /**
- * @brief add the top node to the locked tiles.
+ * @brief add the top node to the locked tiles and removed it from the stack.
  */
 static void	lock_tile(t_pathfinding *pathfinding)
 {

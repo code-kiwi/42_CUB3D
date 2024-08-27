@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 22:32:49 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/30 10:06:17 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 12:19:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # include "mlx_api_bonus.h"
 
-# define MAX_ALLOCATION_FOR_PATH	200
+# define MAX_ALLOCATION_FOR_PATH	20000
 
 typedef struct s_path_stack		t_stack_path;
 typedef struct s_pathfinding	t_pathfinding;
