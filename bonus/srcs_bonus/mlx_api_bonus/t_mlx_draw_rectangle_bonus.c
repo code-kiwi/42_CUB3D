@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_draw_rectangle_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:24:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 14:42:38 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:13:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdint.h>
-
 #include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
 
 static bool	t_mlx_is_rect_valid(t_mlx_coords *coords, t_mlx_coords *size)
 {

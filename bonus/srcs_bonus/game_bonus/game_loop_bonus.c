@@ -3,27 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 16:07:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:58:00 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <math.h>
-#include <stdio.h>
-
-#include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
-#include "libft.h"
 #include "door_bonus.h"
-#include "sprite_bonus.h"
-#include "animation_bonus.h"
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
-#include "hud_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {
@@ -68,8 +57,7 @@ static void	game_render(t_game *game, float delta_time)
 	update_map(&game->map, game);
 	if (!is_in_bounds(&game->player.position, &game->map))
 		error_exit(game, ERR_PLAYER_QUIT_MAP);
-	if (!cast_rays(game))
-		error_exit(game, ERR_CAST_RAYS);
+	cast_rays(game);
 	draw_walls(game);
 	render_all_sprites(game);
 	draw_player(game, &game->player.weapon_info);
@@ -104,7 +92,8 @@ int	game_loop(t_game *game)
 	delta_time = 0.1f;
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
-	game_loop_handle_fps(game, &delta_time);
+	if (!game_loop_handle_fps(game, &delta_time))
+		error_exit(game, ERR_FPS);
 	if (game->player.is_dead)
 		game_over_handler(game);
 	else if (game->pause)
@@ -113,6 +102,5 @@ int	game_loop(t_game *game)
 		game_render(game, delta_time);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
-	// printf("fps : %d\n", (int)(1.0f / delta_time));
 	return (0);
 }

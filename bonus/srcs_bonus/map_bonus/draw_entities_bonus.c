@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw_entities_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 14:01:37 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:07:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
 #include "entities_bonus.h"
 
 /**

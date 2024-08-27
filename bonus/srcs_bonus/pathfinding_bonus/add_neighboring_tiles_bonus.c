@@ -6,13 +6,18 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:30:42 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/29 17:09:00 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:15:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinding_bonus.h"
 #include "cub3d_bonus.h"
 
+/**
+ * @param x neighbor x relative to pos
+ * @param y neighbor y relative to pos
+ * @return Return if the neighboring tile is walkable
+ */
 static bool	is_neighbor_valid(t_map *map, t_mlx_coords *pos, int x, int y)
 {
 	t_mlx_coords	neighbor_pos;
@@ -22,6 +27,9 @@ static bool	is_neighbor_valid(t_map *map, t_mlx_coords *pos, int x, int y)
 	return (is_walkable(map, &neighbor_pos));
 }
 
+/**
+ * @brief Add a single tile to the stack if this coordinate is valid.
+ */
 static bool	add_neighbor(t_pathfinding *pathfinding, t_stack_path *top, \
 	t_mlx_coords *relative_coords, t_map *map)
 {
@@ -50,6 +58,9 @@ static bool	add_neighbor(t_pathfinding *pathfinding, t_stack_path *top, \
 	return (add_path_node(&neighbor_pos, pathfinding, top, distance));
 }
 
+/**
+ * @brief Add the neighboring tiles to the stack, sorted.
+ */
 bool	add_neighboring_tiles(t_pathfinding *pathfinding, t_map *map)
 {
 	t_mlx_coords	relative_coords;

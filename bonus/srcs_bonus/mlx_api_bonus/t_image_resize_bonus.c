@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   t_image_resize_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 14:28:56 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 15:49:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:11:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-#include <stdlib.h>
-
 #include "mlx_api_bonus.h"
 #include "mlx.h"
-#include "libft.h"
 #include "vector_bonus.h"
 
 static void	t_image_resize_replace_old(

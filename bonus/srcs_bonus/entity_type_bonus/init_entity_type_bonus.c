@@ -6,13 +6,11 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:26:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/26 08:30:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:55:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "entities_bonus.h"
-#include "map_bonus.h"
 
 void	init_entity_type(t_entity *entity, char id, \
 	t_animation anim[MAP_NB_IDS])

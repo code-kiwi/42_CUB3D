@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   vector.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:42:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/14 01:12:40 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/08/27 13:36:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <math.h>
 
 #include "cub3d.h"
@@ -28,14 +27,6 @@ t_vector	t_vector_error(void)
 	error.x = -1;
 	error.y = -1;
 	return (error);
-}
-
-void	t_vector_print(char *prefix, t_vector *vector)
-{
-	if (prefix != NULL)
-		printf("%s", prefix);
-	printf("x : %f, y : %f\n", vector->x, vector->y);
-	fflush(stdout);
 }
 
 void	t_vector_init(t_vector *vector, float x, float y)

@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/28 18:23:39 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:35:41 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-
 #include "cub3d_bonus.h"
-#include "weapons_bonus.h"
 #include "libft.h"
 
 static void	init_w1_hand(t_weapon *weapon, t_game *game)

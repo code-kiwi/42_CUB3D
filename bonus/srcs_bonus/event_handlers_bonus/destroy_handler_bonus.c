@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   destroy_handler_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:45:49 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/26 07:31:17 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/08/27 13:57:17 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
 
 #include "cub3d_bonus.h"
 

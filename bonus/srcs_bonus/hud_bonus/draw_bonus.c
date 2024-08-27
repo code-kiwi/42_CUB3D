@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 18:47:29 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 10:42:12 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:05:00 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-
 #include "cub3d_bonus.h"
-#include "hud_bonus.h"
 
 static void	draw_hud_health(t_game *game, t_hud *hud)
 {

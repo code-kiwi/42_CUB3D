@@ -6,14 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:09:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 11:24:48 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:21:42 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sprite_bonus.h"
-#include "libft.h"
 #include "cub3d_bonus.h"
-#include "map_bonus.h"
 
 void	*add_sprite(t_game *game, float x, float y, char id)
 {

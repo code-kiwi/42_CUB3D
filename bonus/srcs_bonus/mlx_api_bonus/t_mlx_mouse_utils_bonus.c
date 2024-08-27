@@ -3,15 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_mouse_utils_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:38:35 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 11:09:33 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:14:23 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdbool.h>
-#include <stdlib.h>
 
 #include "cub3d_bonus.h"
 #include "mlx.h"

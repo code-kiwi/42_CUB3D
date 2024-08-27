@@ -6,12 +6,10 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:04:21 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/19 11:08:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:12:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdint.h>
-#include <stdbool.h>
 #include <math.h>
 
 #include "mlx_api_bonus.h"

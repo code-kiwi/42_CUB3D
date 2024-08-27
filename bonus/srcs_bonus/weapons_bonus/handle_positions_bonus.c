@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   handle_positions_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 14:32:58 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/27 01:41:59 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:25:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-
-#include "cub3d_bonus.h"
 #include "weapons_bonus.h"
-#include "libft.h"
 
 void	set_weapon_position(t_weapon *weapon, t_mlx *mlx)
 {

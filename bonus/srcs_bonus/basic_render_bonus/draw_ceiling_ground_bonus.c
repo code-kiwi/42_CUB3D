@@ -6,13 +6,10 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/26 08:15:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:42:56 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-
-#include "mlx_api_bonus.h"
 #include "cub3d_bonus.h"
 #include "libft.h"
 

@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   init_entities_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/26 13:48:26 by root             ###   ########.fr       */
+/*   Updated: 2024/08/27 13:50:48 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
-#include "map_bonus.h"
 #include "cub3d_bonus.h"
-#include "libft.h"
 
 static void	init_entity(t_entity *new_entity, t_sprite *new_sprite)
 {

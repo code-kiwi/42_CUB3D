@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_resize_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 12:05:48 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/23 12:51:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:36:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
-
 #include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
-#include "weapons_bonus.h"
 #include "libft.h"
 
 static bool	resize_weapon_img(t_image *img, int height, void *mlx_ptr)

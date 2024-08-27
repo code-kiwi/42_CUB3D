@@ -11,11 +11,8 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "player.h"
 #include "event_handlers.h"
 #include "libft.h"
-#include "mlx.h"
-#include "mlx_api.h"
 
 static bool	init_textures(t_game *game)
 {

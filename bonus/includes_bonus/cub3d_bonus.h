@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 16:05:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 16:25:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@
 # define ERR_RENDER				"Rendering error"
 # define ERR_CAST_RAYS			"Ran in a wall"
 
+# define ERR_FPS				"Error calculating fps"
+# define INVALID_DOOR			"Door should be between two walls."
 # define ERR_WALLS				"Map not surrounded by walls"
 # define ERR_ELEM				"Map elements not valid"
 # define ERR_IDENTIFIER			"Map unknown identifier"
@@ -173,7 +175,6 @@ bool	is_number(char *str);
 void	remove_last_breakline(char *str);
 void	remove_last_spaces(char *str);
 void	skip_next_spaces(char **str);
-void	display_delta_time(void);
 long	get_tick(void);
 void	sort_list(t_list *lst, float compare(void *, void *));
 
