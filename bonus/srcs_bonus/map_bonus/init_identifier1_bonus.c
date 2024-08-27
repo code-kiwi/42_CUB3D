@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/08/26 16:05:59 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:41:57 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ static void	init_world_identifier(char **identifier)
 	identifier[IDX_TXTR_UI_GAMEOVER_LABEL] = ID_TEXTURE_UI_GAMEOVER_LABEL;
 	identifier[IDX_TXTR_UI_GAMEOVER_BTN_OFF] = ID_TEXTURE_UI_GAMEOVER_BTN_OFF;
 	identifier[IDX_TXTR_UI_GAMEOVER_BTN_ON] = ID_TEXTURE_UI_GAMEOVER_BTN_ON;
+	identifier[IDX_TXTR_UI_WIN_BG] = ID_TEXTURE_UI_WIN_BG;
+	identifier[IDX_TXTR_UI_WIN_LABEL] = ID_TEXTURE_UI_WIN_LABEL;
+	identifier[IDX_TXTR_UI_WIN_TROPHY] = ID_TEXTURE_UI_WIN_TROPHY;
+	identifier[IDX_TXTR_UI_WIN_BTN_OFF] = ID_TEXTURE_UI_WIN_BTN_OFF;
+	identifier[IDX_TXTR_UI_WIN_BTN_ON] = ID_TEXTURE_UI_WIN_BTN_ON;
 }
 
 static void	init_simple_enemies_identifier(char **identifier)
