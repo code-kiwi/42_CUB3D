@@ -2,6 +2,7 @@ NO ./assets/textures/walls/wall_1.xpm
 SO ./assets/textures/walls/wall_2.xpm
 WE ./assets/textures/walls/wall_3.xpm
 EA ./assets/textures/walls/wall_4.xpm
+VA ./assets/textures/walls/wall_5.xpm
 
 F 255,255,255
 C 255,0,0
