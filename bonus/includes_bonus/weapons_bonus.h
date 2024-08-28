@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/28 19:33:05 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/28 21:50:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ struct s_weapon
 	t_list			*curr_frame_link;
 	t_image			*frame_default;
 	t_list			*frames_action;
-	t_list			*frames_bullet;
+	t_list			*frames_bullet_live;
+	t_list			*frames_bullet_death;
 	t_image			*target;
 	float			animation_update;
 	size_t			load_capacity;

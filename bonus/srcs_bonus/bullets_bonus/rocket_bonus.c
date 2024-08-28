@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rocket_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:09:39 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 13:47:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/28 23:16:33 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	rocket_projectile_use(t_game *game, t_bullet *bullet)
 	sprite->next_animation = NULL;
 	player_pos = &game->player.position;
 	if (get_distance(player_pos, &bullet->sprite->position) < PLAYER_RADIUS)
-		player_get_damage(game, ROCKET_DAMAGE);
+		player_get_damage(game, bullet->damage);
 	ft_lst_remove_if(&game->bullets, bullet, equal, free);
 }
 
@@ -33,4 +33,6 @@ void	rocket_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
 {
 	t_sprite_init(bullet->sprite, &anim[IDX_TXTR_ROCKET_LIVE], WIN_HEIGHT);
 	bullet->use = rocket_projectile_use;
+	bullet->speed = BULLET_SPEED;
+	bullet->damage = ROCKET_DAMAGE;
 }

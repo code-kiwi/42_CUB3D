@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bullets_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/26 15:13:56 by root             ###   ########.fr       */
+/*   Updated: 2024/08/28 23:15:01 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ struct	s_bullet
 	t_vector	move;
 	void		(*use)(t_game *, t_bullet *);
 	t_sprite	*sprite;
+	float		speed;
+	int			damage;
 };
 
 void	update_bullets(t_game *game, float delta_time);
