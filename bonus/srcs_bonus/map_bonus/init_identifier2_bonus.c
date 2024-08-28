@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 18:26:48 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/28 21:39:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ void	init_weapons_identifier(char **identifier)
 	identifier[IDX_TXTR_W6_PLASMA] = ID_TEXTURE_W6_PLASMA;
 	identifier[IDX_TXTR_W7_SHOTGUN] = ID_TEXTURE_W7_SHOTGUN;
 	identifier[IDX_TXTR_W8_ROCKET] = ID_TEXTURE_W8_ROCKET;
+	identifier[IDX_TXTR_W_BUL_BASIC_LIVE] = ID_TEXTURE_W_BUL_BASIC_LIVE;
+	identifier[IDX_TXTR_W_BUL_BASIC_DEATH] = ID_TEXTURE_W_BUL_BASIC_DEATH;
+	identifier[IDX_TXTR_W_BUL_ROCKET_LIVE] = ID_TEXTURE_W_BUL_ROCKET_LIVE;
+	identifier[IDX_TXTR_W_BUL_ROCKET_DEATH] = ID_TEXTURE_W_BUL_ROCKET_DEATH;
+	identifier[IDX_TXTR_W_BUL_PLASMA_LIVE] = ID_TEXTURE_W_BUL_PLASMA_LIVE;
+	identifier[IDX_TXTR_W_BUL_PLASMA_DEATH] = ID_TEXTURE_W_BUL_PLASMA_DEATH;
 }
 
 void	init_hud_identifier(char **identifier)

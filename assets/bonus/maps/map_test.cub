@@ -27,7 +27,7 @@ UI_GAMEOVER_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on.xpm 400,100 10
 
 UI_WIN_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297 10
 UI_WIN_LABEL ./assets/textures/ui/labels/label_win.xpm 224,100 10
-UI_WIN_TROPHY assets/textures/ui/labels/trophy.xpm 300,300 10
+UI_WIN_TROPHY ./assets/textures/ui/labels/trophy.xpm 300,300 10
 UI_WIN_BTN_QUIT_OFF ./assets/textures/ui/buttons/btn_quit_off.xpm 400,100 10
 UI_WIN_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on.xpm 400,100 10
 
@@ -97,15 +97,22 @@ W1_HAND ./assets/textures/doom/weapons/hand.xpm 113,151 100
 W1_PUNCH ./assets/textures/doom/weapons/punch.xpm 147,151 10
 W2_PISTOL ./assets/textures/doom/weapons/pistol.xpm 79,151 100
 W3_CHAINGUN ./assets/textures/doom/weapons/chaingun.xpm 114,151 80
-W4_BF_GUN assets/textures/doom/weapons/big_fucking_gun.xpm 170,151 40
-W5_CHAINSAW assets/textures/doom/weapons/chainsaw.xpm 155,151 150
-W6_PLASMA assets/textures/doom/weapons/plasma_rifle.xpm 85,151 150
-W7_SHOTGUN assets/textures/doom/weapons/shotgun.xpm 119,151 120
-W8_ROCKET assets/textures/doom/weapons/rocket_launcher.xpm 105,151 200
+W4_BF_GUN ./assets/textures/doom/weapons/big_fucking_gun.xpm 170,151 40
+W5_CHAINSAW ./assets/textures/doom/weapons/chainsaw.xpm 155,151 150
+W6_PLASMA ./assets/textures/doom/weapons/plasma_rifle.xpm 85,151 150
+W7_SHOTGUN ./assets/textures/doom/weapons/shotgun.xpm 119,151 120
+W8_ROCKET ./assets/textures/doom/weapons/rocket_launcher.xpm 105,151 200
 
-HUD_BG assets/textures/ui/hud/bg.xpm 244,173 10
-HUD_HEALTH_LBL assets/textures/ui/hud/hud_health_label.xpm 150,150 10
-HUD_WEAPON_LBL assets/textures/ui/hud/hud_weapon_label.xpm 150,150 10
+W_BULLET_BASIC_LIVE ./assets/textures/doom/effects/basic_projectile/basic_projectile_live.xpm 50,44 100
+W_BULLET_BASIC_DEATH ./assets/textures/doom/effects/basic_projectile/basic_projectile_death.xpm 50,44 100
+W_BULLET_ROCKET_LIVE ./assets/textures/doom/effects/rocket/rocket_live.xpm 15,14 100
+W_BULLET_ROCKET_DEATH ./assets/textures/doom/effects/rocket/rocket_death.xpm 103,86 100
+W_BULLET_PLASMA_LIVE ./assets/textures/doom/effects/plasma/plasma_live.xpm 15,14 100
+W_BULLET_PLASMA_DEATH ./assets/textures/doom/effects/plasma/plasma_death.xpm 39,41 100
+
+HUD_BG ./assets/textures/ui/hud/bg.xpm 244,173 10
+HUD_HEALTH_LBL ./assets/textures/ui/hud/hud_health_label.xpm 150,150 10
+HUD_WEAPON_LBL ./assets/textures/ui/hud/hud_weapon_label.xpm 150,150 10
 
 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001

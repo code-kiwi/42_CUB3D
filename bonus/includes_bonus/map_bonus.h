@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/27 18:27:32 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/28 21:36:39 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,13 @@
 # define ID_TEXTURE_W7_SHOTGUN			"W7_SHOTGUN"
 # define ID_TEXTURE_W8_ROCKET			"W8_ROCKET"
 
+# define ID_TEXTURE_W_BUL_BASIC_LIVE	"W_BULLET_BASIC_LIVE"
+# define ID_TEXTURE_W_BUL_BASIC_DEATH	"W_BULLET_BASIC_DEATH"
+# define ID_TEXTURE_W_BUL_ROCKET_LIVE	"W_BULLET_ROCKET_LIVE"
+# define ID_TEXTURE_W_BUL_ROCKET_DEATH	"W_BULLET_ROCKET_DEATH"
+# define ID_TEXTURE_W_BUL_PLASMA_LIVE	"W_BULLET_PLASMA_LIVE"
+# define ID_TEXTURE_W_BUL_PLASMA_DEATH	"W_BULLET_PLASMA_DEATH"
+
 # define ID_TEXTURE_HUD_BG				"HUD_BG"
 # define ID_TEXTURE_HUD_HEALTH_LBL		"HUD_HEALTH_LBL"
 # define ID_TEXTURE_HUD_WEAPON_LBL		"HUD_WEAPON_LBL"
@@ -206,20 +213,27 @@
 # define IDX_TXTR_W7_SHOTGUN			76
 # define IDX_TXTR_W8_ROCKET				77
 
-# define IDX_TXTR_HUD_BG				78
-# define IDX_TXTR_HUD_HEALTH_LBL		79
-# define IDX_TXTR_HUD_WEAPON_LBL		80
+# define IDX_TXTR_W_BUL_BASIC_LIVE		78
+# define IDX_TXTR_W_BUL_BASIC_DEATH		79
+# define IDX_TXTR_W_BUL_ROCKET_LIVE		80
+# define IDX_TXTR_W_BUL_ROCKET_DEATH	81
+# define IDX_TXTR_W_BUL_PLASMA_LIVE		82
+# define IDX_TXTR_W_BUL_PLASMA_DEATH	83
 
-# define IDX_TXTR_UI_GAMEOVER_BG		81
-# define IDX_TXTR_UI_GAMEOVER_LABEL		82
-# define IDX_TXTR_UI_GAMEOVER_BTN_OFF	83
-# define IDX_TXTR_UI_GAMEOVER_BTN_ON	84
+# define IDX_TXTR_HUD_BG				84
+# define IDX_TXTR_HUD_HEALTH_LBL		85
+# define IDX_TXTR_HUD_WEAPON_LBL		86
 
-# define IDX_TXTR_UI_WIN_BG				85
-# define IDX_TXTR_UI_WIN_LABEL			86
-# define IDX_TXTR_UI_WIN_TROPHY			87
-# define IDX_TXTR_UI_WIN_BTN_OFF		88
-# define IDX_TXTR_UI_WIN_BTN_ON			89
+# define IDX_TXTR_UI_GAMEOVER_BG		87
+# define IDX_TXTR_UI_GAMEOVER_LABEL		88
+# define IDX_TXTR_UI_GAMEOVER_BTN_OFF	89
+# define IDX_TXTR_UI_GAMEOVER_BTN_ON	90
+
+# define IDX_TXTR_UI_WIN_BG				91
+# define IDX_TXTR_UI_WIN_LABEL			92
+# define IDX_TXTR_UI_WIN_TROPHY			93
+# define IDX_TXTR_UI_WIN_BTN_OFF		94
+# define IDX_TXTR_UI_WIN_BTN_ON			95
 
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
@@ -235,7 +249,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
-# define MAP_NB_IDS						90
+# define MAP_NB_IDS						96
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
