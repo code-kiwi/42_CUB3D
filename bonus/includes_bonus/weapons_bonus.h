@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 23:29:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 23:38:54 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@
 # include "mlx_api_bonus.h"
 
 # define WEAPONS_H_RATIO				0.5f
-# define NB_TOT_WEAPONS					3
+# define NB_TOT_WEAPONS					4
 # define IDX_W1_HAND					0
 # define IDX_W2_PISTOL					1
 # define IDX_W3_CHAINGUN				2
+# define IDX_W4_BF_GUN					3
 
 # define W1_HAND_LOAD_CAPACITY			0
 # define W1_HAND_INITIAL_USES			0
@@ -34,14 +35,22 @@
 # define W2_PISTOL_INITIAL_USES			5
 # define W2_PISTOL_DAMAGES				3
 # define W2_PISTOL_RANGE				10.0f
-# define W2_PISTOL_COOLDOWN_EFFECT		0.6f
+# define W2_PISTOL_BULLET_SPEED			0
+# define W2_PISTOL_COOLDOWN_EFFECT		0.3f
 
 # define W3_CHAINGUN_LOAD_CAPACITY		100
 # define W3_CHAINGUN_INITIAL_USES		50
 # define W3_CHAINGUN_DAMAGES			1
-# define W3_CHAINGUN_RANGE				5.0f
+# define W3_CHAINGUN_RANGE				6.0f
 # define W3_CHAINGUN_BULLET_SPEED		25
 # define W3_CHAINGUN_COOLDOWN_EFFECT	0
+
+# define W4_BF_GUN_LOAD_CAPACITY		40
+# define W4_BF_GUN_INITIAL_USES			30
+# define W4_BF_GUN_DAMAGES				2
+# define W4_BF_GUN_RANGE				8.0f
+# define W4_BF_GUN_BULLET_SPEED			30
+# define W4_BF_GUN_COOLDOWN_EFFECT		0
 
 typedef struct s_weapon		t_weapon;
 typedef struct s_list		t_list;
