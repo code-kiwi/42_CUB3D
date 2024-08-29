@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lost_soul_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/26 08:16:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/29 18:24:11 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	lost_soul_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->health_point = 0;
 	entity->speed = LOST_SOUL_SPEED;
 	entity->squared_radius = LOST_SOUL_SQUARED_RADIUS;
+	entity->bullet_sensibility_radius = LOST_SOUL_SENSIBILITY_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_LOST_SOUL_WALK],
 		WIN_HEIGHT);

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 16:54:13 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 18:11:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ struct	s_bullet
 };
 
 void	update_bullets(t_game *game, float delta_time);
+bool	move_bullet(t_list *entities, t_bullet *bullet, t_vector *move, \
+			t_map *map);
 bool	shoot_bullet_from_entity(t_game *game, t_vector *position, \
 			t_vector *direction, \
 			void (*init_bullet)(t_animation anim[MAP_NB_IDS], t_bullet *));

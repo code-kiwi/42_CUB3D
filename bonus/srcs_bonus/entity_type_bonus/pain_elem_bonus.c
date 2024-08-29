@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pain_elem_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 13:56:21 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/29 18:23:40 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	pain_elem_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->health_point = PAIN_ELEM_HEALTH_POINT;
 	entity->speed = PAIN_ELEM_SPEED;
 	entity->squared_radius = PAIN_ELEM_SQUARED_RADIUS;
+	entity->bullet_sensibility_radius = PAIN_ELEM_SENSIBILITY_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_PAIN_ELEM_WALK],
 		WIN_HEIGHT);

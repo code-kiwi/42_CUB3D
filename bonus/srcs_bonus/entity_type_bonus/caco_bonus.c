@@ -53,6 +53,7 @@ void	caco_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->health_point = CACO_HEALTH_POINT;
 	entity->speed = CACO_SPEED;
 	entity->squared_radius = CACO_SQUARED_RADIUS;
+	entity->bullet_sensibility_radius = CACO_SENSIBILITY_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_CACO_WALK], WIN_HEIGHT);
 	entity->sprite->height = WIN_HEIGHT * CACO_HEIGHT_RATIO;

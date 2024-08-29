@@ -6,40 +6,43 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 12:26:22 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 19:05:04 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ENTITIES_BONUS_H
 # define ENTITIES_BONUS_H
 
+# include <stdbool.h>
+
 # include "sprite_bonus.h"
 # include "map_bonus.h"
-
-# include <stdbool.h>
 
 # define ENTITY_UPDATE_PER_FRAME		1
 
 # define DEMON_SPEED					2
-# define DEMON_SQUARED_RADIUS			1
+# define DEMON_SQUARED_RADIUS			0.5
+# define DEMON_SENSIBILITY_RADIUS		0.05
 # define DEMON_HEALTH_POINT				3
 # define DEMON_ATTACK_RANGE				1.5
 # define DEMON_PAUSE					2
 # define DEMON_DAMAGE					2
-# define DEMON_HEIGHT_RATIO				0.6
+# define DEMON_HEIGHT_RATIO				0.7
 
 # define IMP_SPEED						2
 # define IMP_SQUARED_RADIUS				0.5
+# define IMP_SENSIBILITY_RADIUS			0.05
 # define IMP_HEALTH_POINT				2
 # define IMP_CLOSE_ATTACK_RANGE			1.5
 # define IMP_CLOSE_PAUSE				2
 # define IMP_RANGE_PAUSE				1
 # define IMP_CLOSE_DAMAGE				1
 # define IMP_RANGE_DAMAGE				1
-# define IMP_HEIGHT_RATIO				0.5
+# define IMP_HEIGHT_RATIO				0.4
 
 # define CACO_SPEED						2
-# define CACO_SQUARED_RADIUS			0.5
+# define CACO_SQUARED_RADIUS			0.25
+# define CACO_SENSIBILITY_RADIUS		0.025
 # define CACO_HEALTH_POINT				2
 # define CACO_CLOSE_ATTACK_RANGE		1.5
 # define CACO_CLOSE_PAUSE				2
@@ -50,6 +53,7 @@
 
 # define BOH_SPEED						2
 # define BOH_SQUARED_RADIUS				0.5
+# define BOH_SENSIBILITY_RADIUS			0.05
 # define BOH_HEALTH_POINT				6
 # define BOH_CLOSE_ATTACK_RANGE			1.5
 # define BOH_CLOSE_PAUSE				2
@@ -59,12 +63,14 @@
 # define BOH_HEIGHT_RATIO				0.8
 
 # define LOST_SOUL_SPEED				2
-# define LOST_SOUL_SQUARED_RADIUS		0.25
+# define LOST_SOUL_SQUARED_RADIUS		0.1
+# define LOST_SOUL_SENSIBILITY_RADIUS	0.01
 # define LOST_SOUL_RANGE				1
 # define LOST_SOUL_HEIGHT_RATIO			0.5
 
 # define PAIN_ELEM_SPEED				1
-# define PAIN_ELEM_SQUARED_RADIUS		1
+# define PAIN_ELEM_SQUARED_RADIUS		0.75
+# define PAIN_ELEM_SENSIBILITY_RADIUS	0.075
 # define PAIN_ELEM_DAMAGE				3
 # define PAIN_ELEM_ATTACK_RANGE			1.5
 # define PAIN_ELEM_PAUSE				1
@@ -74,6 +80,7 @@
 
 # define CYBER_SPEED					0.5
 # define CYBER_SQUARED_RADIUS			0.7
+# define CYBER_SENSIBILITY_RADIUS		0.075
 # define CYBER_HEALTH_POINT				20
 # define CYBER_RANGE_PAUSE				3
 # define CYBER_RANGE_DAMAGE				2
@@ -83,6 +90,7 @@
 
 # define REV_SPEED						2
 # define REV_SQUARED_RADIUS				0.5
+# define REV_SENSIBILITY_RADIUS			0.03
 # define REV_HEALTH_POINT				4
 # define REV_CLOSE_ATTACK_RANGE			1.5
 # define REV_CLOSE_PAUSE				2
@@ -93,6 +101,7 @@
 
 # define MANC_SPEED						2
 # define MANC_SQUARED_RADIUS			0.5
+# define MANC_SENSIBILITY_RADIUS		0.05
 # define MANC_HEALTH_POINT				8
 # define MANC_CLOSE_ATTACK_RANGE		1.5
 # define MANC_CLOSE_PAUSE				2
@@ -101,26 +110,20 @@
 # define MANC_RANGE_DAMAGE				1
 # define MANC_HEIGHT_RATIO				0.9
 
-# define ARCH_VILE_SPEED				1
-# define ARCH_VILE_SQUARED_RADIUS		1
-# define ARCH_VILE_DAMAGE				3
-# define ARCH_VILE_ATTACK_RANGE			1.5
-# define ARCH_VILE_PAUSE				1
-# define ARCH_VILE_SPAWN_PAUSE			20
-# define ARCH_VILE_HEALTH_POINT			10
-# define ARCH_VILE_HEIGHT_RATIO			0.6
+# define COMMANDO_PAUSE					1
+# define COMMANDO_SPEED					1
+# define COMMANDO_SQUARED_RADIUS		0.25
+# define COMMANDO_SENSIBILITY_RADIUS	0.025
+# define COMMANDO_HEALTH_POINT			2
+# define COMMANDO_HEIGHT_RATIO			0.65f
 
 # define SERGEANT_PAUSE					1
 # define SERGEANT_SPEED					1
-# define SERGEANT_SQUARED_RADIUS		1
+# define SERGEANT_SQUARED_RADIUS		0.25
+# define SERGEANT_SENSIBILITY_RADIUS	0.025
 # define SERGEANT_HEALTH_POINT			2
-# define SERGEANT_HEIGHT_RATIO			0.5
+# define SERGEANT_HEIGHT_RATIO			0.625
 
-# define COMMANDO_PAUSE					1
-# define COMMANDO_SPEED					1
-# define COMMANDO_SQUARED_RADIUS		1
-# define COMMANDO_HEALTH_POINT			2
-# define COMMANDO_HEIGHT_RATIO			0.5
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;
@@ -134,6 +137,7 @@ struct s_entity
 	t_list		*path;
 	t_sprite	*sprite;
 	float		squared_radius;
+	float		bullet_sensibility_radius;
 	size_t		health_point;
 	bool		(*update)(t_game *, t_entity *, float );
 	void		(*get_damage)(t_game *, t_entity *, size_t);

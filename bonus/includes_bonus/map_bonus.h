@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/29 10:26:03 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 18:34:39 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define ID_MAP_DOOR_OPENED				'O'
 
 # define IDS_MAP_SPRITE					"s"
-# define IDS_MAP_ENTITY					"dicblpyrmfo"
+# define IDS_MAP_ENTITY					"dicblpyrmof"
 # define ID_MAP_PLAYER					'P'
 # define ID_MAP_ENTITY					'e'
 

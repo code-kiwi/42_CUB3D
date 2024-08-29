@@ -54,6 +54,7 @@ void	demon_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->health_point = DEMON_HEALTH_POINT;
 	entity->speed = DEMON_SPEED;
 	entity->squared_radius = DEMON_SQUARED_RADIUS;
+	entity->bullet_sensibility_radius = DEMON_SENSIBILITY_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_DEMON_WALK], WIN_HEIGHT);
 	entity->sprite->on_ground = true;

@@ -44,6 +44,7 @@ void	cyber_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->health_point = CYBER_HEALTH_POINT;
 	entity->speed = CYBER_SPEED;
 	entity->squared_radius = CYBER_SQUARED_RADIUS;
+	entity->bullet_sensibility_radius = CYBER_SENSIBILITY_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_CYBER_WALK], WIN_HEIGHT);
 	entity->sprite->on_ground = true;

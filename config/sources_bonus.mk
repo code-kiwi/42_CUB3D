@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/08/29 14:55:56 by mhotting         ###   ########.fr        #
+#    Updated: 2024/08/29 18:01:15 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -133,8 +133,8 @@ RAY_BONUS					=	$(addprefix $(RAY_DIR_BONUS), $(RAY_FILES_BONUS))
 
 # VECTOR
 VECTOR_DIR_BONUS			=	vector_bonus/
-VECTOR_FILES_BONUS			=	vector_bonus.c					\
-								t_vector_utils.c
+VECTOR_FILES_BONUS			=	vector_utils1_bonus.c			\
+								vector_utils2_bonus.c
 VECTOR_BONUS				=	$(addprefix $(VECTOR_DIR_BONUS), $(VECTOR_FILES_BONUS))
 
 # SPRITES
@@ -220,6 +220,7 @@ ANIMATION_BONUS				=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS
 BULLETS_DIR_BONUS			=	bullets_bonus/
 BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c			\
 								update_bullet_bonus.c			\
+								move_bullet_bonus.c				\
 								projectile_use_bonus.c			\
 								caco_projectile_bonus.c			\
 								imp_projectile_bonus.c			\

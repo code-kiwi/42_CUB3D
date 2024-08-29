@@ -50,6 +50,7 @@ void	sergeant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->health_point = SERGEANT_HEALTH_POINT;
 	entity->speed = SERGEANT_SPEED;
 	entity->squared_radius = SERGEANT_SQUARED_RADIUS;
+	entity->bullet_sensibility_radius = SERGEANT_SENSIBILITY_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_SERGEANT_WALK],
 		WIN_HEIGHT);
