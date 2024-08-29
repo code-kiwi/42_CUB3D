@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 13:18:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 15:25:07 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,7 @@ bool	shoot_bullet_from_entity(t_game *game, t_vector *position, \
 			t_vector *direction, \
 			void (*init_bullet)(t_animation anim[MAP_NB_IDS], t_bullet *));
 bool	shoot_bullet_from_player(t_game *game, t_vector *position, \
-			t_vector *direction, \
-			void (*init_bullet)(\
-				t_animation anim[MAP_NB_IDS], t_bullet *, t_weapon *)\
-			);
+			t_vector *direction, void (*init_bullet)(t_bullet *, t_weapon *));
 void	caco_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	imp_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	boh_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
@@ -47,5 +44,7 @@ void	rocket_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	manc_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	rev_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	entity_projectile_use(t_game *game, t_bullet *bullet);
+
+void	player_gun_proj_init(t_bullet *bullet, t_weapon *weapon);
 
 #endif

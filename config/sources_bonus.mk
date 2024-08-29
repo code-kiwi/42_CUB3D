@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/08/29 13:28:00 by mhotting         ###   ########.fr        #
+#    Updated: 2024/08/29 14:55:56 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -226,7 +226,8 @@ BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c			\
 								boh_projectile_bonus.c			\
 								mancubus_projectile_bonus.c		\
 								rocket_bonus.c					\
-								revenant_projectile_bonus.c
+								revenant_projectile_bonus.c		\
+								player_basic_projectile_bonus.c
 BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
 
 # WEAPONS

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 13:46:37 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 15:24:06 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,13 @@
 # define W3_CHAINGUN_INITIAL_USES	50
 # define W3_CHAINGUN_DAMAGES		1
 # define W3_CHAINGUN_RANGE			5.0f
+# define W3_CHAINGUN_BULLET_SPEED	15
 
-typedef struct s_weapon	t_weapon;
-typedef struct s_list	t_list;
-typedef struct s_game	t_game;
+typedef struct s_weapon		t_weapon;
+typedef struct s_list		t_list;
+typedef struct s_game		t_game;
+typedef struct s_bullet		t_bullet;
+typedef struct s_animation	t_animation;
 
 struct s_weapon
 {
@@ -49,8 +52,6 @@ struct s_weapon
 	t_list			*curr_frame_link;
 	t_image			*frame_default;
 	t_list			*frames_action;
-	t_list			*frames_bullet_live;
-	t_list			*frames_bullet_death;
 	t_image			*target;
 	float			animation_update;
 	size_t			load_capacity;
@@ -60,11 +61,16 @@ struct s_weapon
 	bool			is_limited;
 	bool			is_use_continuous;
 	bool			using;
+	int				bullet_speed;
+	t_animation		*bullet_live_anim;
+	t_animation		*bullet_death_anim;
 	t_mlx_coords	coords;
 	t_mlx_coords	size;
 	t_mlx_coords	target_coords;
 	t_mlx_coords	target_size;
 	void			(*action)(t_weapon *, t_game *);
+	void			(*bullet_init)(t_bullet *, t_weapon *);
+	void			(*bullet_use)(t_game *game, t_bullet *);
 };
 
 // Weapon functions

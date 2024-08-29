@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 13:07:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 13:47:06 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 15:13:33 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	use_weapon_bullet(t_weapon *weapon, t_game *game)
 	direction.y *= -1;
 	position.x = player->position.x + direction.x;
 	position.y = player->position.y + direction.y;
-	shoot_bullet_from_entity(game, &position, &direction, imp_proj_init);
+	shoot_bullet_from_player(game, &position, &direction, weapon->bullet_init);
 }
 
 void	use_weapon_hand(t_weapon *weapon, t_game *game)

@@ -6,12 +6,13 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 13:46:32 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 15:24:55 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "libft.h"
+#include "bullets_bonus.h"
 
 static void	init_w1_hand(t_weapon *weapon, t_game *game)
 {
@@ -20,8 +21,6 @@ static void	init_w1_hand(t_weapon *weapon, t_game *game)
 	weapon->curr_frame = weapon->frame_default;
 	weapon->curr_frame_link = NULL;
 	weapon->frames_action = game->anim[IDX_TXTR_W1_PUNCH].textures;
-	weapon->frames_bullet_live = NULL;
-	weapon->frames_bullet_death = NULL;
 	weapon->target = NULL;
 	weapon->animation_update = game->anim[IDX_TXTR_W1_HAND].wait;
 	weapon->load_capacity = W1_HAND_LOAD_CAPACITY;
@@ -32,6 +31,11 @@ static void	init_w1_hand(t_weapon *weapon, t_game *game)
 	weapon->is_use_continuous = false;
 	weapon->action = use_weapon_hand;
 	weapon->using = false;
+	weapon->bullet_speed = 0;
+	weapon->bullet_init = NULL;
+	weapon->bullet_live_anim = NULL;
+	weapon->bullet_death_anim = NULL;
+	weapon->bullet_use = NULL;
 }
 
 static void	init_w2_pistol(t_weapon *weapon, t_game *game)
@@ -41,8 +45,6 @@ static void	init_w2_pistol(t_weapon *weapon, t_game *game)
 	weapon->curr_frame = weapon->frame_default;
 	weapon->curr_frame_link = NULL;
 	weapon->frames_action = game->anim[IDX_TXTR_W2_PISTOL].textures->next;
-	weapon->frames_bullet_live = game->anim[IDX_TXTR_W_BUL_BASIC_LIVE].textures;
-	weapon->frames_bullet_death = game->anim[IDX_TXTR_W_BUL_BASIC_DEATH].textures;
 	weapon->target = (t_image *) game->anim[IDX_TXTR_TARGET1].textures->content;
 	weapon->animation_update = game->anim[IDX_TXTR_W2_PISTOL].wait;
 	weapon->load_capacity = W2_PISTOL_LOAD_CAPACITY;
@@ -53,6 +55,11 @@ static void	init_w2_pistol(t_weapon *weapon, t_game *game)
 	weapon->is_use_continuous = false;
 	weapon->action = use_weapon_no_bullet;
 	weapon->using = false;
+	weapon->bullet_speed = 0;
+	weapon->bullet_init = NULL;
+	weapon->bullet_live_anim = NULL;
+	weapon->bullet_death_anim = NULL;
+	weapon->bullet_use = NULL;
 }
 
 static void	init_w3_chaingun(t_weapon *weapon, t_game *game)
@@ -62,8 +69,6 @@ static void	init_w3_chaingun(t_weapon *weapon, t_game *game)
 	weapon->curr_frame = weapon->frame_default;
 	weapon->curr_frame_link = NULL;
 	weapon->frames_action = game->anim[IDX_TXTR_W3_CHAINGUN].textures->next;
-	weapon->frames_bullet_live = NULL;
-	weapon->frames_bullet_death = NULL;
 	weapon->target = (t_image *) game->anim[IDX_TXTR_TARGET1].textures->content;
 	weapon->animation_update = game->anim[IDX_TXTR_W3_CHAINGUN].wait;
 	weapon->load_capacity = W3_CHAINGUN_LOAD_CAPACITY;
@@ -74,6 +79,11 @@ static void	init_w3_chaingun(t_weapon *weapon, t_game *game)
 	weapon->is_use_continuous = true;
 	weapon->action = use_weapon_bullet;
 	weapon->using = false;
+	weapon->bullet_speed = W3_CHAINGUN_BULLET_SPEED;
+	weapon->bullet_init = player_gun_proj_init;
+	weapon->bullet_live_anim = &game->anim[IDX_TXTR_W_BUL_BASIC_LIVE];
+	weapon->bullet_death_anim = &game->anim[IDX_TXTR_W_BUL_BASIC_DEATH];
+	weapon->bullet_use = entity_projectile_use;
 }
 
 bool	init_weapons(t_game *game)
