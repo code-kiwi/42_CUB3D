@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:04:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 23:40:12 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/30 00:00:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,10 @@ bool	init_player_weapons(t_game *game, t_player_weapon *weapon_info)
 	weapon_info->weapons[IDX_W2_PISTOL] = &game->weapons[IDX_W2_PISTOL];
 	weapon_info->weapons[IDX_W3_CHAINGUN] = &game->weapons[IDX_W3_CHAINGUN];
 	weapon_info->weapons[IDX_W4_BF_GUN] = &game->weapons[IDX_W4_BF_GUN];
+	weapon_info->weapons[IDX_W5_PLASMA] = &game->weapons[IDX_W5_PLASMA];
+	weapon_info->weapons[IDX_W6_SHOTGUN] = &game->weapons[IDX_W6_SHOTGUN];
+	weapon_info->weapons[IDX_W7_ROCKET] = &game->weapons[IDX_W7_ROCKET];
+	weapon_info->weapons[IDX_W8_CHAINSAW] = &game->weapons[IDX_W8_CHAINSAW];
 	weapon_info->curr_weapon_index = 0;
 	weapon_info->next_weapon_index = 0;
 	weapon_info->curr_weapon = \

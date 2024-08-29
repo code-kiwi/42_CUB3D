@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 23:38:54 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/30 00:01:50 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,15 @@
 # include "mlx_api_bonus.h"
 
 # define WEAPONS_H_RATIO				0.5f
-# define NB_TOT_WEAPONS					4
+# define NB_TOT_WEAPONS					8
 # define IDX_W1_HAND					0
 # define IDX_W2_PISTOL					1
 # define IDX_W3_CHAINGUN				2
 # define IDX_W4_BF_GUN					3
+# define IDX_W5_PLASMA					4
+# define IDX_W6_SHOTGUN					5
+# define IDX_W7_ROCKET					6
+# define IDX_W8_CHAINSAW				7
 
 # define W1_HAND_LOAD_CAPACITY			0
 # define W1_HAND_INITIAL_USES			0
@@ -51,6 +55,34 @@
 # define W4_BF_GUN_RANGE				8.0f
 # define W4_BF_GUN_BULLET_SPEED			30
 # define W4_BF_GUN_COOLDOWN_EFFECT		0
+
+# define W5_PLASMA_LOAD_CAPACITY		10
+# define W5_PLASMA_INITIAL_USES			4
+# define W5_PLASMA_DAMAGES				0
+# define W5_PLASMA_RANGE				20.0f
+# define W5_PLASMA_BULLET_SPEED			5.0f
+# define W5_PLASMA_COOLDOWN_EFFECT		2.0f
+
+# define W6_SHOTGUN_LOAD_CAPACITY		10
+# define W6_SHOTGUN_INITIAL_USES		8
+# define W6_SHOTGUN_DAMAGES				4
+# define W6_SHOTGUN_RANGE				4.0f
+# define W6_SHOTGUN_BULLET_SPEED		15.0f
+# define W6_SHOTGUN_COOLDOWN_EFFECT		1.0f
+
+# define W7_ROCKET_LOAD_CAPACITY		3
+# define W7_ROCKET_INITIAL_USES			1
+# define W7_ROCKET_DAMAGES				50
+# define W7_ROCKET_RANGE				20.0f
+# define W7_ROCKET_BULLET_SPEED			5.0f
+# define W7_ROCKET_COOLDOWN_EFFECT		5.0f
+
+# define W8_CHAINSAW_LOAD_CAPACITY		0
+# define W8_CHAINSAW_INITIAL_USES		0
+# define W8_CHAINSAW_DAMAGES			5
+# define W8_CHAINSAW_RANGE				1.05f
+# define W8_CHAINSAW_BULLET_SPEED		0
+# define W8_CHAINSAW_COOLDOWN_EFFECT	0
 
 typedef struct s_weapon		t_weapon;
 typedef struct s_list		t_list;

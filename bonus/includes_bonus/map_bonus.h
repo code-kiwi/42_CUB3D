@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/29 18:34:39 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 23:49:39 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,10 +117,10 @@
 # define ID_TEXTURE_W2_PISTOL			"W2_PISTOL"
 # define ID_TEXTURE_W3_CHAINGUN			"W3_CHAINGUN"
 # define ID_TEXTURE_W4_BF_GUN			"W4_BF_GUN"
-# define ID_TEXTURE_W5_CHAINSAW			"W5_CHAINSAW"
-# define ID_TEXTURE_W6_PLASMA			"W6_PLASMA"
-# define ID_TEXTURE_W7_SHOTGUN			"W7_SHOTGUN"
-# define ID_TEXTURE_W8_ROCKET			"W8_ROCKET"
+# define ID_TEXTURE_W5_PLASMA			"W5_PLASMA"
+# define ID_TEXTURE_W6_SHOTGUN			"W6_SHOTGUN"
+# define ID_TEXTURE_W7_ROCKET			"W7_ROCKET"
+# define ID_TEXTURE_W8_CHAINSAW			"W8_CHAINSAW"
 
 # define ID_TEXTURE_W_BUL_BASIC_LIVE	"W_BULLET_BASIC_LIVE"
 # define ID_TEXTURE_W_BUL_BASIC_DEATH	"W_BULLET_BASIC_DEATH"
@@ -208,10 +208,10 @@
 # define IDX_TXTR_W2_PISTOL				71
 # define IDX_TXTR_W3_CHAINGUN			72
 # define IDX_TXTR_W4_BF_GUN				73
-# define IDX_TXTR_W5_CHAINSAW			74
-# define IDX_TXTR_W6_PLASMA				75
-# define IDX_TXTR_W7_SHOTGUN			76
-# define IDX_TXTR_W8_ROCKET				77
+# define IDX_TXTR_W5_PLASMA				74
+# define IDX_TXTR_W6_SHOTGUN			75
+# define IDX_TXTR_W7_ROCKET				76
+# define IDX_TXTR_W8_CHAINSAW			77
 
 # define IDX_TXTR_W_BUL_BASIC_LIVE		78
 # define IDX_TXTR_W_BUL_BASIC_DEATH		79
