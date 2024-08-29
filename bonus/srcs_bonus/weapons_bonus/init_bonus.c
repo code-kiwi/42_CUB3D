@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 22:56:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 23:12:36 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static void	init_w1_hand(t_weapon *weapon, t_game *game)
 	weapon->bullet_death_anim = NULL;
 	weapon->bullet_use = NULL;
 	weapon->bullet_cooldown_effect = 0;
+	weapon->cooldown_curr = 0;
+	weapon->cooldown_effect = W1_HAND_COOLDOWN_EFFECT;
 }
 
 static void	init_w2_pistol(t_weapon *weapon, t_game *game)
@@ -62,6 +64,8 @@ static void	init_w2_pistol(t_weapon *weapon, t_game *game)
 	weapon->bullet_death_anim = NULL;
 	weapon->bullet_use = NULL;
 	weapon->bullet_cooldown_effect = 0;
+	weapon->cooldown_curr = 0;
+	weapon->cooldown_effect = W2_PISTOL_COOLDOWN_EFFECT;
 }
 
 static void	init_w3_chaingun(t_weapon *weapon, t_game *game)
@@ -87,6 +91,8 @@ static void	init_w3_chaingun(t_weapon *weapon, t_game *game)
 	weapon->bullet_death_anim = &game->anim[IDX_TXTR_W_BUL_BASIC_DEATH];
 	weapon->bullet_use = player_basic_projectile_use;
 	weapon->bullet_cooldown_effect = 0;
+	weapon->cooldown_curr = 0;
+	weapon->cooldown_effect = W3_CHAINGUN_COOLDOWN_EFFECT;
 }
 
 bool	init_weapons(t_game *game)
