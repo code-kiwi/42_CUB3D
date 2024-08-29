@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entities_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 14:53:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/29 12:26:22 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,4 +205,4 @@ bool	commando_update(t_game *game, t_entity *entity, float delta_time);
 void	init_entity_type(t_entity *entity, char id, \
 			t_animation anim[MAP_NB_IDS]);
 
-#endif // !ENTITIES_BONUS_H
+#endif

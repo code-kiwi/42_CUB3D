@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 13:07:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/28 23:06:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 13:04:07 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	use_gun_classic2(t_weapon *weapon, t_game *game)
 	position.y = player->position.y + direction.y;
 	direction.x += (direction.x < 0 ? -0.5f : 0.5f);
 	direction.y += (direction.y < 0 ? -0.5f : 0.5f);
-	shoot_bullet(game, &position, &direction, imp_proj_init);
+	shoot_bullet_from_entity(game, &position, &direction, imp_proj_init);
 }
 
 void	use_weapon_no_bullet(t_weapon *weapon, t_game *game)

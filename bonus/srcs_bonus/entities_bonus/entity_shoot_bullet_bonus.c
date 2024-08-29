@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entity_shoot_bullet_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:39:12 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 13:50:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/29 13:04:42 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ bool	entity_shoot_bullet(t_game *game, t_sprite *entity_sprite)
 		&entity->sprite->position);
 	if (!get_spawn_position(&position, entity, &direction, game))
 		return (true);
-	return (shoot_bullet(game, &position, &direction, entity->bullet_init));
+	return (shoot_bullet_from_entity(game, &position, &direction, \
+		entity->bullet_init));
 }
