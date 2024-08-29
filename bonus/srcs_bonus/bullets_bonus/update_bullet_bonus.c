@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:17:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 15:50:47 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 16:54:30 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	update_bullet(t_game *game, t_bullet *bullet, float delta_time)
 		&& (
 			!move_entity(game->entities, sprite_pos, &realtime_move, &game->map)
 			|| (
-				!bullet->from_player
+				!bullet->player_protected
 				&& bullet->sprite->distance < PLAYER_RADIUS
 			)
 		)

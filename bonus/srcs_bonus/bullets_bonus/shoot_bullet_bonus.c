@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:06:25 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 15:47:16 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 16:54:25 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static t_bullet	*bullet_create(
 	}
 	bullet->sprite = sprite;
 	bullet->move = *direction;
-	bullet->from_player = false;
+	bullet->player_protected = false;
 	return (bullet);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 15:46:42 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 16:54:13 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ struct	s_bullet
 	t_sprite	*sprite;
 	float		speed;
 	int			damage;
-	bool		from_player;
+	bool		player_protected;
 	t_animation	*animation;	
 };
 
