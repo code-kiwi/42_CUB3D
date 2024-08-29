@@ -101,7 +101,7 @@ W4_BF_GUN ./assets/textures/doom/weapons/big_fucking_gun.xpm 170,151 40
 W5_PLASMA ./assets/textures/doom/weapons/plasma_rifle.xpm 85,151 150
 W6_SHOTGUN ./assets/textures/doom/weapons/shotgun.xpm 119,151 180
 W7_ROCKET ./assets/textures/doom/weapons/rocket_launcher.xpm 105,151 200
-W8_CHAINSAW ./assets/textures/doom/weapons/chainsaw.xpm 155,151 150
+W8_CHAINSAW ./assets/textures/doom/weapons/chainsaw.xpm 155,151 200
 
 W_BULLET_BASIC_LIVE ./assets/textures/doom/effects/basic_projectile/basic_projectile_live.xpm 50,44 100
 W_BULLET_BASIC_DEATH ./assets/textures/doom/effects/basic_projectile/basic_projectile_death.xpm 50,44 100
