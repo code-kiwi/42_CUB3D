@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 15:25:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 15:46:42 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ struct	s_bullet
 	t_sprite	*sprite;
 	float		speed;
 	int			damage;
+	bool		from_player;
 	t_animation	*animation;	
 };
 
@@ -44,6 +45,7 @@ void	rocket_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	manc_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	rev_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	entity_projectile_use(t_game *game, t_bullet *bullet);
+void	player_basic_projectile_use(t_game *game, t_bullet *bullet);
 
 void	player_gun_proj_init(t_bullet *bullet, t_weapon *weapon);
 

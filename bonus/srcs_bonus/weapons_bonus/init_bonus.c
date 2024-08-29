@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 15:24:55 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 15:38:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void	init_w3_chaingun(t_weapon *weapon, t_game *game)
 	weapon->bullet_init = player_gun_proj_init;
 	weapon->bullet_live_anim = &game->anim[IDX_TXTR_W_BUL_BASIC_LIVE];
 	weapon->bullet_death_anim = &game->anim[IDX_TXTR_W_BUL_BASIC_DEATH];
-	weapon->bullet_use = entity_projectile_use;
+	weapon->bullet_use = player_basic_projectile_use;
 }
 
 bool	init_weapons(t_game *game)

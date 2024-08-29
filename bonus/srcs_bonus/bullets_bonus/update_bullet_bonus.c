@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:17:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/28 22:17:50 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 15:50:47 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
 
+
+#include <stdio.h>
 static void	update_bullet(t_game *game, t_bullet *bullet, float delta_time)
 {
 	t_vector	realtime_move;
@@ -24,9 +26,16 @@ static void	update_bullet(t_game *game, t_bullet *bullet, float delta_time)
 	realtime_move.x = bullet->move.x * delta_time * bullet->speed;
 	realtime_move.y = bullet->move.y * delta_time * bullet->speed;
 	sprite_pos = &bullet->sprite->position;
-	if ((!move_entity(game->entities, sprite_pos, &realtime_move, &game->map)
-			|| bullet->sprite->distance < PLAYER_RADIUS)
-		&& bullet->use != NULL)
+	if (
+		bullet->use != NULL
+		&& (
+			!move_entity(game->entities, sprite_pos, &realtime_move, &game->map)
+			|| (
+				!bullet->from_player
+				&& bullet->sprite->distance < PLAYER_RADIUS
+			)
+		)
+	)
 	{
 		bullet->use(game, bullet);
 	}

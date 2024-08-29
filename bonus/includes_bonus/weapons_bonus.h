@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 15:24:06 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 15:49:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # define W3_CHAINGUN_INITIAL_USES	50
 # define W3_CHAINGUN_DAMAGES		1
 # define W3_CHAINGUN_RANGE			5.0f
-# define W3_CHAINGUN_BULLET_SPEED	15
+# define W3_CHAINGUN_BULLET_SPEED	1
 
 typedef struct s_weapon		t_weapon;
 typedef struct s_list		t_list;

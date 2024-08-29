@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:50:01 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 15:31:17 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 15:47:51 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	player_gun_proj_init(
 )
 {
 	t_sprite_init(bullet->sprite, weapon->bullet_live_anim, WIN_HEIGHT);
+	bullet->from_player = true;
 	bullet->use = weapon->bullet_use;
 	bullet->speed = weapon->bullet_speed;
 	bullet->damage = weapon->damage;
