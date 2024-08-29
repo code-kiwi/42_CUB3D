@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/28 23:15:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 10:40:18 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ struct	s_bullet
 	t_sprite	*sprite;
 	float		speed;
 	int			damage;
+	t_animation	*animation;	
 };
 
 void	update_bullets(t_game *game, float delta_time);
@@ -37,9 +38,8 @@ void	caco_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	imp_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	boh_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
 void	rocket_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
-void	manc_proj_init(t_animation anim[MAP_NB_IDS], \
-			t_bullet *bullet);
-void	rev_proj_init(t_animation anim[MAP_NB_IDS], \
-			t_bullet *bullet);
+void	manc_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
+void	rev_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet);
+void	entity_projectile_use(t_game *game, t_bullet *bullet);
 
-#endif // !BULLETS_BONUS_H
+#endif
