@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/08/29 10:41:29 by mhotting         ###   ########.fr        #
+#    Updated: 2024/08/29 13:28:00 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -220,7 +220,7 @@ ANIMATION_BONUS				=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS
 BULLETS_DIR_BONUS			=	bullets_bonus/
 BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c			\
 								update_bullet_bonus.c			\
-								entity_projectile_use_bonus.c	\
+								projectile_use_bonus.c			\
 								caco_projectile_bonus.c			\
 								imp_projectile_bonus.c			\
 								boh_projectile_bonus.c			\

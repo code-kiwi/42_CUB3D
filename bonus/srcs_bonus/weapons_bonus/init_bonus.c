@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/28 22:00:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 13:46:32 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	init_w1_hand(t_weapon *weapon, t_game *game)
 	weapon->range = W1_HAND_RANGE;
 	weapon->is_limited = false;
 	weapon->is_use_continuous = false;
-	weapon->action = use_weapon_no_bullet;
+	weapon->action = use_weapon_hand;
 	weapon->using = false;
 }
 
@@ -51,7 +51,7 @@ static void	init_w2_pistol(t_weapon *weapon, t_game *game)
 	weapon->range = W2_PISTOL_RANGE;
 	weapon->is_limited = true;
 	weapon->is_use_continuous = false;
-	weapon->action = use_gun_classic;
+	weapon->action = use_weapon_no_bullet;
 	weapon->using = false;
 }
 
@@ -72,7 +72,7 @@ static void	init_w3_chaingun(t_weapon *weapon, t_game *game)
 	weapon->range = W3_CHAINGUN_RANGE;
 	weapon->is_limited = true;
 	weapon->is_use_continuous = true;
-	weapon->action = use_gun_classic;
+	weapon->action = use_weapon_bullet;
 	weapon->using = false;
 }
 

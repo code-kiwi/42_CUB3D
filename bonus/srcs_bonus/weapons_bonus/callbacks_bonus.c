@@ -6,14 +6,14 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 13:07:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 13:04:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 13:47:06 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
-void	use_gun_classic(t_weapon *weapon, t_game *game)
+void	use_weapon_no_bullet(t_weapon *weapon, t_game *game)
 {
 	t_list		*aimed_entity;
 	t_entity	*entity;
@@ -35,7 +35,7 @@ void	use_gun_classic(t_weapon *weapon, t_game *game)
 	player->aimed_sprite = NULL;
 }
 
-void	use_gun_classic2(t_weapon *weapon, t_game *game)
+void	use_weapon_bullet(t_weapon *weapon, t_game *game)
 {
 	t_player	*player;
 	t_vector	direction;
@@ -50,12 +50,10 @@ void	use_gun_classic2(t_weapon *weapon, t_game *game)
 	direction.y *= -1;
 	position.x = player->position.x + direction.x;
 	position.y = player->position.y + direction.y;
-	direction.x += (direction.x < 0 ? -0.5f : 0.5f);
-	direction.y += (direction.y < 0 ? -0.5f : 0.5f);
 	shoot_bullet_from_entity(game, &position, &direction, imp_proj_init);
 }
 
-void	use_weapon_no_bullet(t_weapon *weapon, t_game *game)
+void	use_weapon_hand(t_weapon *weapon, t_game *game)
 {
 	t_list		*aimed_entity;
 	t_entity	*entity;

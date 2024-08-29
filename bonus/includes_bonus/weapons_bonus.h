@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/28 21:50:44 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 13:46:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ void	use_weapon(t_weapon *weapon, t_game *game);
 void	stop_weapon(t_weapon *weapon);
 
 // Weapon callbacks
-void	use_gun_classic(t_weapon *weapon, t_game *game);
+void	use_weapon_hand(t_weapon *weapon, t_game *game);
 void	use_weapon_no_bullet(t_weapon *weapon, t_game *game);
+void	use_weapon_bullet(t_weapon *weapon, t_game *game);
 
 #endif

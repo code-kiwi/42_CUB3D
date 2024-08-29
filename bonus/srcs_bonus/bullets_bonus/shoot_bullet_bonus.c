@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:06:25 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 13:04:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 13:18:42 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,38 @@ bool	shoot_bullet_from_entity(
 {
 	t_bullet	*bullet;
 
+	if (
+		game == NULL || position == NULL \
+		|| direction == NULL || init_bullet == NULL
+	)
+		return (false);
 	bullet = bullet_create(game, position, direction);
 	if (bullet == NULL)
 		return (false);
 	init_bullet(game->anim, bullet);
+	if (!bullet_config_and_save(game, bullet))
+		return (free(bullet), false);
+	return (true);
+}
+
+bool	shoot_bullet_from_player(
+	t_game *game,
+	t_vector *position,
+	t_vector *direction,
+	void (*init_bullet)(t_animation anim[MAP_NB_IDS], t_bullet *, t_weapon *)
+)
+{
+	t_bullet	*bullet;
+
+	if (
+		game == NULL || position == NULL \
+		|| direction == NULL || init_bullet == NULL
+	)
+		return (false);
+	bullet = bullet_create(game, position, direction);
+	if (bullet == NULL)
+		return (false);
+	init_bullet(game->anim, bullet, game->player.weapon_info.curr_weapon);
 	if (!bullet_config_and_save(game, bullet))
 		return (free(bullet), false);
 	return (true);
