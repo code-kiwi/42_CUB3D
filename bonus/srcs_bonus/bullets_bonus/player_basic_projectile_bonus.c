@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:50:01 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 16:54:17 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 22:54:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	player_gun_proj_init(
 	bullet->speed = weapon->bullet_speed;
 	bullet->damage = weapon->damage;
 	bullet->animation = weapon->bullet_death_anim;
+	bullet->cooldown_time = weapon->bullet_cooldown_effect;
 }

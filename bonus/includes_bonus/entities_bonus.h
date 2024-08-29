@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 19:05:04 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 21:59:12 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define CACO_SPEED						2
 # define CACO_SQUARED_RADIUS			0.25
 # define CACO_SENSIBILITY_RADIUS		0.025
-# define CACO_HEALTH_POINT				2
+# define CACO_HEALTH_POINT				5
 # define CACO_CLOSE_ATTACK_RANGE		1.5
 # define CACO_CLOSE_PAUSE				2
 # define CACO_RANGE_PAUSE				2
@@ -123,7 +123,6 @@
 # define SERGEANT_SENSIBILITY_RADIUS	0.025
 # define SERGEANT_HEALTH_POINT			2
 # define SERGEANT_HEIGHT_RATIO			0.625
-
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;

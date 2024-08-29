@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 18:11:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 22:29:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define BULLET_HEIGHT_WINDOW_RATIO	0.25
 
 typedef struct s_bullet	t_bullet;
+typedef struct s_entity	t_entity;
 
 struct	s_bullet
 {
@@ -29,7 +30,9 @@ struct	s_bullet
 	float		speed;
 	int			damage;
 	bool		player_protected;
+	t_entity	*collided_entity;
 	t_animation	*animation;	
+	float		cooldown_time;
 };
 
 void	update_bullets(t_game *game, float delta_time);

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:58:30 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 18:27:06 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/29 22:32:28 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ bool	move_bullet(
 		|| collided_entity != NULL
 	)
 	{
+		if (collided_entity != NULL)
+			bullet->collided_entity = collided_entity;
 		position->x = save.x;
 		position->y = save.y;
 		return (false);
