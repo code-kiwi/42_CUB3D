@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/31 00:49:56 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 01:13:14 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,16 @@ void	set_weapon_target_position(t_weapon *weapon, t_mlx *mlx);
 void	use_weapon(t_weapon *weapon, t_game *game);
 void	stop_weapon(t_weapon *weapon);
 void	weapon_update_cooldown(t_weapon *weapon, float delta_time);
+
+// Weapon initializers
+void	init_w1_hand(t_weapon *weapon, t_game *game);
+void	init_w2_pistol(t_weapon *weapon, t_game *game);
+void	init_w3_chaingun(t_weapon *weapon, t_game *game);
+void	init_w4_bf_gun(t_weapon *weapon, t_game *game);
+void	init_w5_plasma(t_weapon *weapon, t_game *game);
+void	init_w6_shotgun(t_weapon *weapon, t_game *game);
+void	init_w7_rocket(t_weapon *weapon, t_game *game);
+void	init_w8_chainsaw(t_weapon *weapon, t_game *game);
 
 // Weapon callbacks
 void	use_weapon_hand(t_weapon *weapon, t_game *game);

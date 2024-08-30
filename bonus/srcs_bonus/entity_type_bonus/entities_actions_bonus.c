@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entities_actions_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 19:30:35 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 13:54:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/31 01:20:32 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	entity_get_killed(t_game *game, t_entity *entity)
 		return ;
 	if (game->last_entity_updated->content == entity)
 		game->last_entity_updated = game->last_entity_updated->next;
+	entity->sprite->locked = false;
 	set_animation(entity->sprite, entity->death);
 	entity->sprite->next_animation = NULL;
 	ft_lst_remove_if(&game->entities, entity, equal, t_entity_destroy);
