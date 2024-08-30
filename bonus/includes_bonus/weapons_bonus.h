@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/30 00:01:50 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 00:15:05 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@
 
 # define W8_CHAINSAW_LOAD_CAPACITY		0
 # define W8_CHAINSAW_INITIAL_USES		0
-# define W8_CHAINSAW_DAMAGES			5
+# define W8_CHAINSAW_DAMAGES			3
 # define W8_CHAINSAW_RANGE				1.05f
 # define W8_CHAINSAW_BULLET_SPEED		0
 # define W8_CHAINSAW_COOLDOWN_EFFECT	0

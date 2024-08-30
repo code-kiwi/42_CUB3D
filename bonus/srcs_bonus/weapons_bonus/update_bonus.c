@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 14:31:20 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 14:26:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/30 23:55:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ void	update_weapon(t_weapon *weapon, t_game *game)
 			weapon->curr_frame = (t_image *) weapon->curr_frame_link->content;
 		else
 		{
-			if (weapon->is_use_continuous && weapon->using
-				&& weapon->remaining_use > 0)
+			if (
+				weapon->is_use_continuous && weapon->using \
+				&& (weapon->remaining_use > 0 || !weapon->is_limited)
+			)
 				use_weapon(weapon, game);
 			else
 			{
