@@ -17,8 +17,6 @@ bool	sergeant_update(t_game *game, t_entity *entity, float delta_time)
 {
 	t_sprite	*sprite;
 
-	if (entity->cooldown > 0)
-		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
 	sprite->animate = true;
 	if (!entity->see_player)

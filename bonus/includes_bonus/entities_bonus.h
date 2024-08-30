@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 21:59:12 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 00:27:31 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ struct s_entity
 	void		(*get_chainsawed)(t_game *, t_entity *);
 	void		*type;
 	float		cooldown;
+	float		cooldown_from_player;
 	bool		see_player;
 	t_animation	*walk;
 	t_animation	*pain;

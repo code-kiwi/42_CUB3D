@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:06:05 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 22:52:49 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 00:47:07 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void	player_basic_projectile_use(t_game *game, t_bullet *bullet)
 		if (bullet->damage > 0)
 			entity_get_damage(game, bullet->collided_entity, bullet->damage);
 		if (bullet->cooldown_time > 0.0f)
-			bullet->collided_entity->cooldown = bullet->cooldown_time;
+			bullet->collided_entity->cooldown_from_player = \
+				bullet->cooldown_time;
 	}
 	ft_lst_remove_if(&game->bullets, bullet, equal, free);
 }

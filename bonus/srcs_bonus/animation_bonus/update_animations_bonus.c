@@ -44,6 +44,8 @@ bool	update_animations(t_game *game, float delta_time)
 	{
 		sprite = current->content;
 		current = current->next;
+		if (sprite->locked)
+			continue ;
 		sprite->frame_update_delta += delta_time;
 		if (sprite->animation
 			&& sprite->frame_update_delta >= sprite->animation->wait

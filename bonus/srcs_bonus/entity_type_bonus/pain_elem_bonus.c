@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/08/29 18:23:40 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 00:35:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ bool	pain_elem_update(t_game *game, t_entity *entity, float delta_time)
 	float		distance;
 	t_sprite	*sprite;
 
-	if (entity->cooldown > 0)
-		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
 	distance = get_distance(&sprite->position, &game->player.position);
 	sprite->animate = true;

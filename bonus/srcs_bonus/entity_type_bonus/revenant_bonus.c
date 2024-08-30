@@ -18,8 +18,6 @@ bool	revenant_update(t_game *game, t_entity *entity, float delta_time)
 	float		distance;
 	t_sprite	*sprite;
 
-	if (entity->cooldown > 0)
-		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
 	distance = get_distance(&sprite->position, &game->player.position);
 	sprite->animate = true;

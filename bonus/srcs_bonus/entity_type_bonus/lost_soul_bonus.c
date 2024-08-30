@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 18:24:11 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 00:35:42 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ bool	lost_soul_update(t_game *game, t_entity *entity, float delta_time)
 	float		distance;
 	t_sprite	*sprite;
 
-	if (entity->cooldown > 0)
-		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
 	player = &game->player;
 	distance = get_distance(&sprite->position, &player->position);

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:09:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 17:20:21 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 01:03:05 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	t_sprite_init(t_sprite *sprite, t_animation *animation, size_t height)
 	sprite->distance = 0;
 	sprite->height = height;
 	sprite->animate = true;
+	sprite->locked = false;
 }
 
 bool	init_sprites(t_game *game)

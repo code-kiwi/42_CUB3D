@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/30 00:17:18 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 00:46:51 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	init_w1_hand(t_weapon *weapon, t_game *game)
 	weapon->bullet_live_anim = NULL;
 	weapon->bullet_death_anim = NULL;
 	weapon->bullet_use = NULL;
-	weapon->bullet_cooldown_effect = 0;
+	weapon->bullet_cooldown_effect = W1_HAND_BULLET_COOLDOWN_EFFECT;
 	weapon->cooldown_curr = 0;
 	weapon->cooldown_effect = W1_HAND_COOLDOWN_EFFECT;
 }
@@ -63,7 +63,7 @@ static void	init_w2_pistol(t_weapon *weapon, t_game *game)
 	weapon->bullet_live_anim = NULL;
 	weapon->bullet_death_anim = NULL;
 	weapon->bullet_use = NULL;
-	weapon->bullet_cooldown_effect = 0;
+	weapon->bullet_cooldown_effect = W2_PISTOL_BULLET_COOLDOWN_EFFECT;
 	weapon->cooldown_curr = 0;
 	weapon->cooldown_effect = W2_PISTOL_COOLDOWN_EFFECT;
 }
@@ -90,7 +90,7 @@ static void	init_w3_chaingun(t_weapon *weapon, t_game *game)
 	weapon->bullet_live_anim = NULL;
 	weapon->bullet_death_anim = NULL;
 	weapon->bullet_use = NULL;
-	weapon->bullet_cooldown_effect = 0;
+	weapon->bullet_cooldown_effect = W3_CHAINGUN_BULLET_COOLDOWN_EFFECT;
 	weapon->cooldown_curr = 0;
 	weapon->cooldown_effect = W3_CHAINGUN_COOLDOWN_EFFECT;
 }
@@ -117,7 +117,7 @@ static void	init_w4_bf_gun(t_weapon *weapon, t_game *game)
 	weapon->bullet_live_anim = &game->anim[IDX_TXTR_W_BUL_BASIC_LIVE];
 	weapon->bullet_death_anim = &game->anim[IDX_TXTR_W_BUL_BASIC_DEATH];
 	weapon->bullet_use = player_basic_projectile_use;
-	weapon->bullet_cooldown_effect = 0;
+	weapon->bullet_cooldown_effect = W4_BF_GUN_BULLET_COOLDOWN_EFFECT;
 	weapon->cooldown_curr = 0;
 	weapon->cooldown_effect = W4_BF_GUN_COOLDOWN_EFFECT;
 }
@@ -144,7 +144,7 @@ static void	init_w5_plasma(t_weapon *weapon, t_game *game)
 	weapon->bullet_live_anim = &game->anim[IDX_TXTR_W_BUL_PLASMA_LIVE];
 	weapon->bullet_death_anim = &game->anim[IDX_TXTR_W_BUL_PLASMA_DEATH];
 	weapon->bullet_use = player_basic_projectile_use;
-	weapon->bullet_cooldown_effect = 0;
+	weapon->bullet_cooldown_effect = W5_PLASMA_BULLET_COOLDOWN_EFFECT;
 	weapon->cooldown_curr = 0;
 	weapon->cooldown_effect = W5_PLASMA_COOLDOWN_EFFECT;
 }
@@ -171,7 +171,7 @@ static void	init_w6_shotgun(t_weapon *weapon, t_game *game)
 	weapon->bullet_live_anim = &game->anim[IDX_TXTR_W_BUL_BASIC_LIVE];
 	weapon->bullet_death_anim = &game->anim[IDX_TXTR_W_BUL_BASIC_DEATH];
 	weapon->bullet_use = player_basic_projectile_use;
-	weapon->bullet_cooldown_effect = 0;
+	weapon->bullet_cooldown_effect = W6_SHOTGUN_BULLET_COOLDOWN_EFFECT;
 	weapon->cooldown_curr = 0;
 	weapon->cooldown_effect = W6_SHOTGUN_COOLDOWN_EFFECT;
 }
@@ -198,7 +198,7 @@ static void	init_w7_rocket(t_weapon *weapon, t_game *game)
 	weapon->bullet_live_anim = &game->anim[IDX_TXTR_W_BUL_ROCKET_LIVE];
 	weapon->bullet_death_anim = &game->anim[IDX_TXTR_W_BUL_ROCKET_DEATH];
 	weapon->bullet_use = player_basic_projectile_use;
-	weapon->bullet_cooldown_effect = 0;
+	weapon->bullet_cooldown_effect = W7_ROCKET_BULLET_COOLDOWN_EFFECT;
 	weapon->cooldown_curr = 0;
 	weapon->cooldown_effect = W7_ROCKET_COOLDOWN_EFFECT;
 }
@@ -225,7 +225,7 @@ static void	init_w8_chainsaw(t_weapon *weapon, t_game *game)
 	weapon->bullet_live_anim = NULL;
 	weapon->bullet_death_anim = NULL;
 	weapon->bullet_use = NULL;
-	weapon->bullet_cooldown_effect = 0;
+	weapon->bullet_cooldown_effect = W8_CHAINSAW_BULLET_COOLDOWN_EFFECT;
 	weapon->cooldown_curr = 0;
 	weapon->cooldown_effect = W8_CHAINSAW_COOLDOWN_EFFECT;
 }
