@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 19:05:46 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 20:49:09 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ static void	game_win_handler(t_game *game, float delta_time)
 	draw_ui(&game->ui_win, game->mlx.img_buff);
 }
 
+#include <stdio.h>
 int	game_loop(t_game *game)
 {
 	float	delta_time;
@@ -114,6 +115,7 @@ int	game_loop(t_game *game)
 		error_exit(game, ERR_GAME_LOOP);
 	if (!game_loop_handle_fps(game, &delta_time))
 		error_exit(game, ERR_FPS);
+	printf("fps : %d\n", (int)(1.0f / delta_time));
 	if (game->player.is_dead)
 		game_over_handler(game);
 	else if (game->entities == NULL)

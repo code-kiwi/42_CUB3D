@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/28 17:18:43 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 21:16:11 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,66 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	draw_ground(&column, column.coords.y, game, ray);
 }
 
+void	draw_walls_part(t_game *game, size_t start, size_t end)
+{
+	size_t	i;
+
+	i = start;
+	while (i < end)
+	{
+		draw_wall_column(i, &game->rays[i], game);
+		i++;
+	}
+}
+
+typedef struct s_test
+{
+	t_game *game;
+	size_t	start;
+	size_t	end;
+} t_test;
+
+#include <stdio.h>
+void	*routine(void *param)
+{
+	t_test	*test;
+
+	test = (t_test *) param;
+	draw_walls_part(test->game, test->start, test->end);
+	return (NULL);
+}
+
+#include <pthread.h>
 void	draw_walls(t_game *game)
 {
-	size_t			index;
+	pthread_t	thread1;
+	pthread_t	thread2;
+	pthread_t	thread3;
+	pthread_t	thread4;
+	t_test		test_array[4];
 
-	index = 0;
-	while (index < WIN_WIDTH)
-	{
-		draw_wall_column(index, &game->rays[index], game);
-		index++;
-	}
+	test_array[0].game = game;
+	test_array[0].start = 0;
+	test_array[0].end = WIN_WIDTH / 4;
+	test_array[1].game = game;
+	test_array[1].start = test_array[0].end;
+	test_array[1].end = WIN_WIDTH / 2;
+	test_array[2].game = game;
+	test_array[2].start = test_array[1].end;
+	test_array[2].end = 3 * WIN_WIDTH / 4;
+	test_array[3].game = game;
+	test_array[3].start = test_array[2].end;
+	test_array[3].end = WIN_WIDTH;
+	if (pthread_create(&thread1, NULL, routine, &test_array[0]) != 0)
+		printf("ERROR\n");
+	if (pthread_create(&thread2, NULL, routine, &test_array[1]) != 0)
+		printf("ERROR\n");
+	if (pthread_create(&thread3, NULL, routine, &test_array[2]) != 0)
+		printf("ERROR\n");
+	if (pthread_create(&thread4, NULL, routine, &test_array[3]) != 0)
+		printf("ERROR\n");
+	pthread_join(thread1, NULL);
+	pthread_join(thread2, NULL);
+	pthread_join(thread3, NULL);
+	pthread_join(thread4, NULL);
 }
