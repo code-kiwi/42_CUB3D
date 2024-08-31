@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 19:30:35 by root              #+#    #+#             */
-/*   Updated: 2024/08/31 16:58:17 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 17:25:26 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	entity_get_chainsawed(t_game *game, t_entity *entity, size_t damage)
 	entity->sprite->next_animation = entity->walk;
 	if (entity->health_point <= damage)
 	{
-		reload_weapons_randomly(game->weapons, 1.0f, 1.0f);
+		reload_weapons_randomly(game->weapons, entity->reload_ratio, \
+			entity->reload_probability);
 		entity->get_killed(game, entity);
 	}
 	else

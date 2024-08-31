@@ -47,4 +47,6 @@ void	cyber_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_CYBER_WALK], WIN_HEIGHT);
 	entity->sprite->on_ground = true;
 	entity->sprite->height = WIN_HEIGHT * CYBER_HEIGHT_RATIO;
+	entity->reload_probability = CYBER_RELOAD_PROBABILITY;
+	entity->reload_ratio = CYBER_RELOAD_RATIO;
 }

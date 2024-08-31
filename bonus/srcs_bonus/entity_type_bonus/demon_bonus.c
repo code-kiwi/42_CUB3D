@@ -57,4 +57,6 @@ void	demon_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_DEMON_WALK], WIN_HEIGHT);
 	entity->sprite->on_ground = true;
 	entity->sprite->height = WIN_HEIGHT * DEMON_HEIGHT_RATIO;
+	entity->reload_probability = DEMON_RELOAD_PROBABILITY;
+	entity->reload_ratio = DEMON_RELOAD_RATIO;
 }

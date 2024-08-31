@@ -60,4 +60,6 @@ void	boh_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_BOH_WALK], WIN_HEIGHT);
 	entity->sprite->on_ground = true;
 	entity->sprite->height = WIN_HEIGHT * BOH_HEIGHT_RATIO;
+	entity->reload_probability = BOH_RELOAD_PROBABILITY;
+	entity->reload_ratio = BOH_RELOAD_RATIO;
 }

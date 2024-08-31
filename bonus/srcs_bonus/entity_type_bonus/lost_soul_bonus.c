@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 11:28:43 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 17:47:09 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,6 @@ void	lost_soul_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_LOST_SOUL_WALK],
 		WIN_HEIGHT);
 	entity->sprite->height = WIN_HEIGHT * LOST_SOUL_HEIGHT_RATIO;
+	entity->reload_probability = LOST_SOUL_RELOAD_PROBABILITY;
+	entity->reload_ratio = LOST_SOUL_RELOAD_RATIO;
 }

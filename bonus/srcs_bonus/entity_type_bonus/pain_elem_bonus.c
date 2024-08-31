@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/08/31 00:35:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 17:49:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,6 @@ void	pain_elem_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_PAIN_ELEM_WALK],
 		WIN_HEIGHT);
 	entity->sprite->height = WIN_HEIGHT * PAIN_ELEM_HEIGHT_RATIO;
+	entity->reload_probability = PAIN_ELEM_RELOAD_PROBABILITY;
+	entity->reload_ratio = PAIN_ELEM_RELOAD_RATIO;
 }

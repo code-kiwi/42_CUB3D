@@ -54,4 +54,6 @@ void	sergeant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 		WIN_HEIGHT);
 	entity->sprite->on_ground = true;
 	entity->sprite->height = WIN_HEIGHT * SERGEANT_HEIGHT_RATIO;
+	entity->reload_probability = SERGEANT_RELOAD_PROBABILITY;
+	entity->reload_ratio = SERGEANT_RELOAD_RATIO;
 }

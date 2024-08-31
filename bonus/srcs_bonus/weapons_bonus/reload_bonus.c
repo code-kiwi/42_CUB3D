@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 14:00:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/31 14:38:50 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 17:52:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	reload_weapons_randomly(
 {
 	size_t	i;
 
+	if (weapons == NULL || reload_ratio == 0 || reload_probability == 0)
+		return ;
 	i = 0;
 	while (i < NB_TOT_WEAPONS)
 	{

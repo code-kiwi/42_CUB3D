@@ -54,4 +54,6 @@ void	commando_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 		WIN_HEIGHT);
 	entity->sprite->on_ground = true;
 	entity->sprite->height = WIN_HEIGHT * COMMANDO_HEIGHT_RATIO;
+	entity->reload_probability = COMMANDO_RELOAD_PROBABILITY;
+	entity->reload_ratio = COMMANDO_RELOAD_RATIO;
 }
