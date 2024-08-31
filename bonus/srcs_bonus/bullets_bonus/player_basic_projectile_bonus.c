@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:50:01 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 22:54:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 19:53:30 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	player_gun_proj_init(
 	t_weapon *weapon
 )
 {
+	if (bullet == NULL || weapon == NULL)
+		return ;
 	t_sprite_init(bullet->sprite, weapon->bullet_live_anim, WIN_HEIGHT);
 	bullet->player_protected = true;
 	bullet->use = weapon->bullet_use;

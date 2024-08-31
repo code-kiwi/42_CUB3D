@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:58:30 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/29 22:32:28 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 19:54:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ bool	move_bullet(
 	t_vector		*position;
 	t_entity		*collided_entity;
 
+	if (entities == NULL || bullet == NULL || move == NULL || map == NULL)
+		return (false);
 	position = &bullet->sprite->position;
 	save.x = position->x;
 	save.y = position->y;
@@ -53,10 +55,7 @@ bool	move_bullet(
 	tile_pos.x = position->x;
 	tile_pos.y = position->y;
 	collided_entity = bullet_collide_entity(entities, position);
-	if (
-		!is_walkable(map, &tile_pos)
-		|| collided_entity != NULL
-	)
+	if (!is_walkable(map, &tile_pos) || collided_entity != NULL)
 	{
 		if (collided_entity != NULL)
 			bullet->collided_entity = collided_entity;
