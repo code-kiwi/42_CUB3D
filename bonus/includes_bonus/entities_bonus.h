@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 17:47:40 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 18:18:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 # define DEMON_PAUSE					2
 # define DEMON_DAMAGE					2
 # define DEMON_HEIGHT_RATIO				0.7
-# define DEMON_RELOAD_PROBABILITY		1.0f
-# define DEMON_RELOAD_RATIO				1.0f
+# define DEMON_RELOAD_PROBABILITY		0.25f
+# define DEMON_RELOAD_RATIO				0.1f
 
 # define IMP_SPEED						2
 # define IMP_SQUARED_RADIUS				0.5
@@ -43,8 +43,8 @@
 # define IMP_CLOSE_DAMAGE				1
 # define IMP_RANGE_DAMAGE				1
 # define IMP_HEIGHT_RATIO				0.4
-# define IMP_RELOAD_PROBABILITY			1.0f
-# define IMP_RELOAD_RATIO				1.0f
+# define IMP_RELOAD_PROBABILITY			0.25f
+# define IMP_RELOAD_RATIO				0.1f
 
 # define CACO_SPEED						2
 # define CACO_SQUARED_RADIUS			0.25
@@ -56,8 +56,8 @@
 # define CACO_CLOSE_DAMAGE				2
 # define CACO_RANGE_DAMAGE				1
 # define CACO_HEIGHT_RATIO				0.5
-# define CACO_RELOAD_PROBABILITY		1.0f
-# define CACO_RELOAD_RATIO				1.0f
+# define CACO_RELOAD_PROBABILITY		0.33f
+# define CACO_RELOAD_RATIO				0.2f
 
 # define BOH_SPEED						2
 # define BOH_SQUARED_RADIUS				0.5
@@ -70,15 +70,15 @@
 # define BOH_RANGE_DAMAGE				1
 # define BOH_HEIGHT_RATIO				0.8
 # define BOH_RELOAD_PROBABILITY			1.0f
-# define BOH_RELOAD_RATIO				1.0f
+# define BOH_RELOAD_RATIO				0.2f
 
 # define LOST_SOUL_SPEED				2
 # define LOST_SOUL_SQUARED_RADIUS		0.1
 # define LOST_SOUL_SENSIBILITY_RADIUS	0.01
 # define LOST_SOUL_RANGE				1
 # define LOST_SOUL_HEIGHT_RATIO			0.5
-# define LOST_SOUL_RELOAD_PROBABILITY	1.0f
-# define LOST_SOUL_RELOAD_RATIO			1.0f
+# define LOST_SOUL_RELOAD_PROBABILITY	0
+# define LOST_SOUL_RELOAD_RATIO			0
 
 # define PAIN_ELEM_SPEED				1
 # define PAIN_ELEM_SQUARED_RADIUS		0.75
@@ -89,8 +89,8 @@
 # define PAIN_ELEM_SPAWN_PAUSE			3
 # define PAIN_ELEM_HEALTH_POINT			5
 # define PAIN_ELEM_HEIGHT_RATIO			0.8
-# define PAIN_ELEM_RELOAD_PROBABILITY	1.0f
-# define PAIN_ELEM_RELOAD_RATIO			1.0f
+# define PAIN_ELEM_RELOAD_PROBABILITY	0.33f
+# define PAIN_ELEM_RELOAD_RATIO			0.2f
 
 # define CYBER_SPEED					0.5
 # define CYBER_SQUARED_RADIUS			0.7
@@ -100,7 +100,7 @@
 # define CYBER_RANGE_DAMAGE				2
 # define CYBER_HEIGHT_RATIO				1
 # define CYBER_RELOAD_PROBABILITY		1.0f
-# define CYBER_RELOAD_RATIO				1.0f
+# define CYBER_RELOAD_RATIO				0.5f
 
 # define REV_SPEED						2
 # define REV_SQUARED_RADIUS				0.5
@@ -112,8 +112,8 @@
 # define REV_CLOSE_DAMAGE				1
 # define REV_RANGE_DAMAGE				1
 # define REV_HEIGHT_RATIO				0.7
-# define REV_RELOAD_PROBABILITY			1.0f
-# define REV_RELOAD_RATIO				1.0f
+# define REV_RELOAD_PROBABILITY			0.25f
+# define REV_RELOAD_RATIO				0.15f
 
 # define MANC_SPEED						2
 # define MANC_SQUARED_RADIUS			0.5
@@ -125,8 +125,8 @@
 # define MANC_CLOSE_DAMAGE				1
 # define MANC_RANGE_DAMAGE				1
 # define MANC_HEIGHT_RATIO				0.9
-# define MANC_RELOAD_PROBABILITY		1.0f
-# define MANC_RELOAD_RATIO				1.0f
+# define MANC_RELOAD_PROBABILITY		0.5f
+# define MANC_RELOAD_RATIO				0.2f
 
 # define COMMANDO_PAUSE					1
 # define COMMANDO_SPEED					1
@@ -134,8 +134,8 @@
 # define COMMANDO_SENSIBILITY_RADIUS	0.025
 # define COMMANDO_HEALTH_POINT			2
 # define COMMANDO_HEIGHT_RATIO			0.65f
-# define COMMANDO_RELOAD_PROBABILITY	1.0f
-# define COMMANDO_RELOAD_RATIO			1.0f
+# define COMMANDO_RELOAD_PROBABILITY	0.25f
+# define COMMANDO_RELOAD_RATIO			0.15f
 
 # define SERGEANT_PAUSE					1
 # define SERGEANT_SPEED					1
@@ -143,8 +143,8 @@
 # define SERGEANT_SENSIBILITY_RADIUS	0.025
 # define SERGEANT_HEALTH_POINT			2
 # define SERGEANT_HEIGHT_RATIO			0.625
-# define SERGEANT_RELOAD_PROBABILITY	1.0f
-# define SERGEANT_RELOAD_RATIO			1.0f
+# define SERGEANT_RELOAD_PROBABILITY	0.33f
+# define SERGEANT_RELOAD_RATIO			0.2f
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;
