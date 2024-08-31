@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 21:16:11 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/01 01:09:05 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,10 +116,7 @@ void	*routine(void *param)
 #include <pthread.h>
 void	draw_walls(t_game *game)
 {
-	pthread_t	thread1;
-	pthread_t	thread2;
-	pthread_t	thread3;
-	pthread_t	thread4;
+	pthread_t	threads[4];
 	t_test		test_array[4];
 
 	test_array[0].game = game;
@@ -134,16 +131,16 @@ void	draw_walls(t_game *game)
 	test_array[3].game = game;
 	test_array[3].start = test_array[2].end;
 	test_array[3].end = WIN_WIDTH;
-	if (pthread_create(&thread1, NULL, routine, &test_array[0]) != 0)
+	if (pthread_create(&threads[0], NULL, routine, &test_array[0]) != 0)
 		printf("ERROR\n");
-	if (pthread_create(&thread2, NULL, routine, &test_array[1]) != 0)
+	if (pthread_create(&threads[1], NULL, routine, &test_array[1]) != 0)
 		printf("ERROR\n");
-	if (pthread_create(&thread3, NULL, routine, &test_array[2]) != 0)
+	if (pthread_create(&threads[2], NULL, routine, &test_array[2]) != 0)
 		printf("ERROR\n");
-	if (pthread_create(&thread4, NULL, routine, &test_array[3]) != 0)
+	if (pthread_create(&threads[4], NULL, routine, &test_array[3]) != 0)
 		printf("ERROR\n");
-	pthread_join(thread1, NULL);
-	pthread_join(thread2, NULL);
-	pthread_join(thread3, NULL);
-	pthread_join(thread4, NULL);
+	pthread_join(threads[0], NULL);
+	pthread_join(threads[1], NULL);
+	pthread_join(threads[2], NULL);
+	pthread_join(threads[3], NULL);
 }
