@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 18:02:17 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 11:41:27 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 
 # define PLAYER_WEAPON_V_MOVE_UPDATE	0.02f
 # define PLAYER_WEAPON_H_MOVE_UPDATE	0.04f
-# define PLAYER_WEAPON_SWITCH_V_OFFSET	30
+# define PLAYER_WEAPON_V_OFFSET_RATIO	0.06f
 # define PLAYER_WEAPON_H_OFFSET_STEP	10
 # define PLAYER_WEAPON_H_OFFSET_MAX		50
 
@@ -71,6 +71,7 @@ struct s_player_weapon
 	float			frame_update_delta;
 	float			frame_update_delta_h_move;
 	int				draw_offset_sign;
+	int				switch_vert_offset;
 };
 
 struct s_player

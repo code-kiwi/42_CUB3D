@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:04:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/30 00:00:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 11:43:08 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,7 @@ bool	init_player_weapons(t_game *game, t_player_weapon *weapon_info)
 	weapon_info->frame_update_delta = 0;
 	weapon_info->frame_update_delta_h_move = 0;
 	weapon_info->draw_offset_sign = 1;
+	weapon_info->switch_vert_offset = \
+		PLAYER_WEAPON_V_OFFSET_RATIO * game->mlx.height;
 	return (true);
 }

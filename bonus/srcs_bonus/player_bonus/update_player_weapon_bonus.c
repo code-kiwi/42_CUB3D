@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 23:24:54 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 11:43:42 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	update_player_weapon_switching(
 	weapon_info->frame_update_delta = 0;
 	if (weapon_info->weapon_state == WEAPON_STATE_HOLSTERING)
 	{
-		weapon_info->draw_offset.y += PLAYER_WEAPON_SWITCH_V_OFFSET;
+		weapon_info->draw_offset.y += weapon_info->switch_vert_offset;
 		if (weapon_info->draw_offset.y >= weapon->curr_frame->height)
 		{
 			weapon_info->weapon_state = WEAPON_STATE_DRAWING;
@@ -33,7 +33,7 @@ static void	update_player_weapon_switching(
 	}
 	if (weapon_info->weapon_state == WEAPON_STATE_DRAWING)
 	{
-		weapon_info->draw_offset.y -= PLAYER_WEAPON_SWITCH_V_OFFSET;
+		weapon_info->draw_offset.y -= weapon_info->switch_vert_offset;
 		if (weapon_info->draw_offset.y <= 0)
 			weapon_info->weapon_state = WEAPON_STATE_IDLE;
 	}
