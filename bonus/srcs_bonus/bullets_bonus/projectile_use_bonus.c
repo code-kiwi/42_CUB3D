@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   projectile_use_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:06:05 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/31 00:47:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 22:36:13 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	entity_projectile_use(t_game *game, t_bullet *bullet)
 void	player_basic_projectile_use(t_game *game, t_bullet *bullet)
 {
 	t_sprite	*sprite;
-	t_vector	*player_pos;
 
 	if (game == NULL || bullet == NULL)
 		return ;
@@ -41,7 +40,6 @@ void	player_basic_projectile_use(t_game *game, t_bullet *bullet)
 	if (bullet->animation != NULL)
 		set_animation(sprite, bullet->animation);
 	sprite->next_animation = NULL;
-	player_pos = &game->player.position;
 	if (bullet->collided_entity != NULL)
 	{
 		if (bullet->damage > 0)
