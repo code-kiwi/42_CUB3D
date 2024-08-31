@@ -6,14 +6,14 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:39:12 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 13:04:42 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 20:21:43 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
+
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
-
-#include <math.h>
 
 bool	get_spawn_position(t_vector *result, t_entity *entity,
 	t_vector *direction, t_game *game)

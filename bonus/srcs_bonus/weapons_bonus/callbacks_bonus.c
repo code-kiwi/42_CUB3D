@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 13:07:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/31 16:57:45 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 20:17:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ void	use_weapon_no_bullet(t_weapon *weapon, t_game *game)
 
 void	use_weapon_hand(t_weapon *weapon, t_game *game)
 {
-	if (game == NULL)
+	if (weapon == NULL || game == NULL)
 		return ;
 	damage_target_entity(game, weapon, false);
 }
 
 void	use_weapon_chainsaw(t_weapon *weapon, t_game *game)
 {
-	if (game == NULL)
+	if (weapon == NULL || game == NULL)
 		return ;
 	damage_target_entity(game, weapon, true);
 }
