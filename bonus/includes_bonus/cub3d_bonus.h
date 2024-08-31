@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/31 11:45:11 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 14:35:33 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,6 +178,7 @@ void	free_array(char **array, size_t length, bool free_container);
 char	**create_str_array(size_t nb_row, size_t nb_col, char default_value);
 int		min(int a, int b);
 int		max_int(int a, int b);
+bool	get_random_bool(float probability);
 bool	is_number(char *str);
 void	remove_last_breakline(char *str);
 void	remove_last_spaces(char *str);

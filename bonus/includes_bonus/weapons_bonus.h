@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/31 01:13:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 14:37:54 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@
 # define W7_ROCKET_DAMAGES					50
 # define W7_ROCKET_RANGE					20.0f
 # define W7_ROCKET_BULLET_SPEED				5.0f
-# define W7_ROCKET_COOLDOWN_EFFECT			5.0f
+# define W7_ROCKET_COOLDOWN_EFFECT			2.0f
 # define W7_ROCKET_BULLET_COOLDOWN_EFFECT	0.5f
 
 # define W8_CHAINSAW_LOAD_CAPACITY			0
@@ -138,6 +138,8 @@ void	set_weapon_target_position(t_weapon *weapon, t_mlx *mlx);
 void	use_weapon(t_weapon *weapon, t_game *game);
 void	stop_weapon(t_weapon *weapon);
 void	weapon_update_cooldown(t_weapon *weapon, float delta_time);
+void	reload_weapons_randomly(t_weapon weapons[NB_TOT_WEAPONS], \
+			float reload_ratio, float reload_probability);
 
 // Weapon initializers
 void	init_w1_hand(t_weapon *weapon, t_game *game);

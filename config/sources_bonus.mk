@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/08/31 01:11:43 by mhotting         ###   ########.fr        #
+#    Updated: 2024/08/31 14:23:57 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -234,6 +234,7 @@ BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
 # WEAPONS
 WEAPONS_DIR_BONUS			=	weapons_bonus/
 WEAPONS_FILES_BONUS			=	init_bonus.c					\
+								reload_bonus.c					\
 								weapon_init1_bonus.c			\
 								weapon_init2_bonus.c			\
 								init_resize_bonus.c				\

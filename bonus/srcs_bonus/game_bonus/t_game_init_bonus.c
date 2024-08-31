@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <time.h>
+
 #include "cub3d_bonus.h"
 #include "event_handlers_bonus.h"
 #include "door_bonus.h"
@@ -53,6 +55,7 @@ bool	t_game_init(t_game *game)
 {
 	if (game == NULL)
 		return (false);
+	srand(time(NULL));
 	game->frame_time_usec = 1000000 / FPS;
 	game->tick_last_frame = 0;
 	game->game_over = false;
