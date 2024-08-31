@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 19:30:35 by root              #+#    #+#             */
-/*   Updated: 2024/08/31 01:20:32 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 16:58:17 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,19 @@ void	entity_get_damage(t_game *game, t_entity *entity, size_t damage)
 	return ;
 }
 
-void	entity_get_chainsawed(t_game *game, t_entity *entity)
+void	entity_get_chainsawed(t_game *game, t_entity *entity, size_t damage)
 {
-	(void)game;
-	(void)entity;
+	if (game == NULL || entity == NULL || game->entities == NULL)
+		return ;
+	set_animation(entity->sprite, entity->pain);
+	entity->sprite->next_animation = entity->walk;
+	if (entity->health_point <= damage)
+	{
+		reload_weapons_randomly(game->weapons, 1.0f, 1.0f);
+		entity->get_killed(game, entity);
+	}
+	else
+		entity->health_point -= damage;
 }
 
 void	stop_walk_animation(t_entity *entity)

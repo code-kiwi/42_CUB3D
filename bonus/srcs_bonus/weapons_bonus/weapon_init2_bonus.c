@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/31 01:10:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 16:49:54 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	init_w8_chainsaw(t_weapon *weapon, t_game *game)
 	weapon->range = W8_CHAINSAW_RANGE;
 	weapon->is_limited = false;
 	weapon->is_use_continuous = true;
-	weapon->action = use_weapon_hand;
+	weapon->action = use_weapon_chainsaw;
 	weapon->using = false;
 	weapon->bullet_speed = W8_CHAINSAW_BULLET_SPEED;
 	weapon->bullet_init = NULL;

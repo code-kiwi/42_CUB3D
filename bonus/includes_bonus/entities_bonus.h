@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 00:27:31 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 16:34:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ struct s_entity
 	bool		(*update)(t_game *, t_entity *, float );
 	void		(*get_damage)(t_game *, t_entity *, size_t);
 	void		(*get_killed)(t_game *, t_entity *);
-	void		(*get_chainsawed)(t_game *, t_entity *);
+	void		(*get_chainsawed)(t_game *, t_entity *, size_t);
 	void		*type;
 	float		cooldown;
 	float		cooldown_from_player;
@@ -174,7 +174,7 @@ bool	get_spawn_position(t_vector *result, t_entity *entity,
 			t_vector *direction, t_game *game);
 void	entity_get_killed(t_game *game, t_entity *entity);
 void	entity_get_damage(t_game *game, t_entity *entity, size_t damage);
-void	entity_get_chainsawed(t_game *game, t_entity *entity);
+void	entity_get_chainsawed(t_game *game, t_entity *entity, size_t damage);
 void	stop_walk_animation(t_entity *entity);
 void	range_attack(t_entity *entity, t_game *game, size_t cooldown);
 void	close_attack(t_entity *entity, t_game *game, size_t cooldown);

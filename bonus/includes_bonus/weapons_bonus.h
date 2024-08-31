@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/31 14:37:54 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/31 16:49:29 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,7 @@ void	init_w8_chainsaw(t_weapon *weapon, t_game *game);
 
 // Weapon callbacks
 void	use_weapon_hand(t_weapon *weapon, t_game *game);
+void	use_weapon_chainsaw(t_weapon *weapon, t_game *game);
 void	use_weapon_no_bullet(t_weapon *weapon, t_game *game);
 void	use_weapon_bullet(t_weapon *weapon, t_game *game);
 
