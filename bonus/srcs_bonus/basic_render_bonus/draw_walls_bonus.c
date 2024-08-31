@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/01 01:09:05 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/01 01:16:21 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,19 +96,19 @@ void	draw_walls_part(t_game *game, size_t start, size_t end)
 	}
 }
 
-typedef struct s_test
+typedef struct s_thread_routine_arg
 {
 	t_game *game;
 	size_t	start;
 	size_t	end;
-} t_test;
+} t_thread_routine_arg;
 
 #include <stdio.h>
 void	*routine(void *param)
 {
-	t_test	*test;
+	t_thread_routine_arg	*test;
 
-	test = (t_test *) param;
+	test = (t_thread_routine_arg *) param;
 	draw_walls_part(test->game, test->start, test->end);
 	return (NULL);
 }
@@ -116,31 +116,55 @@ void	*routine(void *param)
 #include <pthread.h>
 void	draw_walls(t_game *game)
 {
-	pthread_t	threads[4];
-	t_test		test_array[4];
+	pthread_t	threads[8];
+	t_thread_routine_arg		test_array[8];
 
 	test_array[0].game = game;
 	test_array[0].start = 0;
-	test_array[0].end = WIN_WIDTH / 4;
+	test_array[0].end = WIN_WIDTH / 8;
 	test_array[1].game = game;
 	test_array[1].start = test_array[0].end;
-	test_array[1].end = WIN_WIDTH / 2;
+	test_array[1].end = 2 * WIN_WIDTH / 8;
 	test_array[2].game = game;
 	test_array[2].start = test_array[1].end;
-	test_array[2].end = 3 * WIN_WIDTH / 4;
+	test_array[2].end = 3 * WIN_WIDTH / 8;
 	test_array[3].game = game;
 	test_array[3].start = test_array[2].end;
-	test_array[3].end = WIN_WIDTH;
+	test_array[3].end = 4 * WIN_WIDTH / 8;
+	test_array[4].game = game;
+	test_array[4].start = test_array[3].end;
+	test_array[4].end = 5 * WIN_WIDTH / 8;
+	test_array[5].game = game;
+	test_array[5].start = test_array[4].end;
+	test_array[5].end = 6 * WIN_WIDTH / 8;
+	test_array[6].game = game;
+	test_array[6].start = test_array[5].end;
+	test_array[6].end = 7 * WIN_WIDTH / 8;
+	test_array[7].game = game;
+	test_array[7].start = test_array[6].end;
+	test_array[7].end = WIN_WIDTH;
 	if (pthread_create(&threads[0], NULL, routine, &test_array[0]) != 0)
 		printf("ERROR\n");
 	if (pthread_create(&threads[1], NULL, routine, &test_array[1]) != 0)
 		printf("ERROR\n");
 	if (pthread_create(&threads[2], NULL, routine, &test_array[2]) != 0)
 		printf("ERROR\n");
-	if (pthread_create(&threads[4], NULL, routine, &test_array[3]) != 0)
+	if (pthread_create(&threads[3], NULL, routine, &test_array[3]) != 0)
+		printf("ERROR\n");
+	if (pthread_create(&threads[4], NULL, routine, &test_array[4]) != 0)
+		printf("ERROR\n");
+	if (pthread_create(&threads[5], NULL, routine, &test_array[5]) != 0)
+		printf("ERROR\n");
+	if (pthread_create(&threads[6], NULL, routine, &test_array[6]) != 0)
+		printf("ERROR\n");
+	if (pthread_create(&threads[7], NULL, routine, &test_array[7]) != 0)
 		printf("ERROR\n");
 	pthread_join(threads[0], NULL);
 	pthread_join(threads[1], NULL);
 	pthread_join(threads[2], NULL);
 	pthread_join(threads[3], NULL);
+	pthread_join(threads[4], NULL);
+	pthread_join(threads[5], NULL);
+	pthread_join(threads[6], NULL);
+	pthread_join(threads[7], NULL);
 }
