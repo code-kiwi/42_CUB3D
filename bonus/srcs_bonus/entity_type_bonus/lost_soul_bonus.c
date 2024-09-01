@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/01 11:11:30 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/01 11:22:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ bool	lost_soul_update(t_game *game, t_entity *entity, float delta_time)
 	sprite = entity->sprite;
 	player = &game->player;
 	distance = get_distance(&sprite->position, &player->position);
-	sprite->animate = true;
 	if (distance < LOST_SOUL_RANGE)
 		entity->get_killed(game, entity);
 	else
