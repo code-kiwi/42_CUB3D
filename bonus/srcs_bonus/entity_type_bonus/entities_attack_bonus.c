@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:10:55 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 13:54:29 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/01 10:47:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	range_attack(t_entity *entity, t_game *game, size_t cooldown)
 		return ;
 	if (entity->cooldown > 0)
 		return ;
-	set_animation(entity->sprite, entity->close_attack);
+	set_animation(entity->sprite, entity->range_attack);
 	entity->sprite->next_animation = entity->walk;
 	entity->cooldown = cooldown;
 	entity->range_attack->on_end = entity_shoot_bullet;
