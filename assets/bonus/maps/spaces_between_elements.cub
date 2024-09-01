@@ -72,7 +72,7 @@ BOH_PROJECTILE_LIVE ./assets/textures/doom/effects/baron_of_hell_projectile/baro
 BOH_PROJECTILE_DEATH ./assets/textures/doom/effects/baron_of_hell_projectile/baron_of_hell_projectile_death.xpm 45,40 100
 
 LOST_SOUL_WALK ./assets/textures/doom/entities/lost_soul/lost_soul_idle.xpm 77,69 200
-LOST_SOUL_DEATH ./assets/textures/doom/entities/lost_soul/lost_soul_death.xpm 78,69 100
+LOST_SOUL_DEATH ./assets/textures/doom/entities/lost_soul/lost_soul_death.xpm 78,69 40
 
 PAIN_ELEM_WALK ./assets/textures/doom/entities/pain_elemental/pain_elemental_walk.xpm 77,57 150
 PAIN_ELEM_ATTACK ./assets/textures/doom/entities/pain_elemental/pain_elemental_attack.xpm 89,65 300
