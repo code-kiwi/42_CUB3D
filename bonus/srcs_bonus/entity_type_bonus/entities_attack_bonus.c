@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:10:55 by root              #+#    #+#             */
-/*   Updated: 2024/09/01 10:47:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/01 10:59:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,15 @@ void	range_attack(t_entity *entity, t_game *game, size_t cooldown)
 
 bool	entity_damage_player(t_game *game, t_sprite *entity_sprite)
 {
-	t_list	*entity;
+	t_list		*node;
+	t_entity	*entity;
 
-	entity = ft_lstfind(game->entities, entity_sprite, is_sprite_of_entity);
+	node = ft_lstfind(game->entities, entity_sprite, is_sprite_of_entity);
+	if (node == NULL)
+		return (false);
+	entity = node->content;
 	if (entity == NULL)
 		return (false);
-	player_get_damage(game, ((t_entity *)entity->content)->close_damage);
+	player_get_damage(game, entity->close_damage);
 	return (true);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pain_elem_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/08/31 17:49:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/01 11:04:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static bool	pain_elem_spawn(t_entity *entity, t_sprite *sprite, t_game *game)
 	new_lost_soul->sprite->position.x = position.x;
 	new_lost_soul->sprite->position.y = position.y;
 	set_animation(entity->sprite, &game->anim[IDX_TXTR_PAIN_ELEM_ATTACK]);
+	game->anim[IDX_TXTR_PAIN_ELEM_ATTACK].on_end = NULL;
 	sprite->next_animation = &game->anim[IDX_TXTR_PAIN_ELEM_WALK];
 	return (true);
 }
@@ -70,7 +71,6 @@ void	pain_elem_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_PAIN_ELEM_DEATH];
 	entity->close_attack = &animation[IDX_TXTR_PAIN_ELEM_ATTACK];
 	entity->range_attack = NULL;
-	entity->close_attack->on_end = entity_damage_player;
 	entity->close_damage = PAIN_ELEM_DAMAGE;
 	entity->health_point = PAIN_ELEM_HEALTH_POINT;
 	entity->speed = PAIN_ELEM_SPEED;

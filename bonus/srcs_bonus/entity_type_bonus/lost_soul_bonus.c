@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lost_soul_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 17:47:09 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/01 11:11:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,16 @@ static void	lost_soul_get_killed(t_game *game, t_entity *entity)
 	ft_lst_remove_if(&game->entities, entity, equal, t_entity_destroy);
 }
 
+static bool	lost_soul_suicide(t_game *game, t_sprite *entity_sprite)
+{
+	float	distance;
+
+	distance = get_distance(&entity_sprite->position, &game->player.position);
+	if (distance < LOST_SOUL_RANGE)
+		player_get_damage(game, LOST_SOUL_SUICIDE_DAMAGE);
+	return (true);
+}
+
 void	lost_soul_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 {
 	entity->update = lost_soul_update;
@@ -51,6 +61,7 @@ void	lost_soul_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->walk = &animation[IDX_TXTR_LOST_SOUL_WALK];
 	entity->pain = NULL;
 	entity->death = &animation[IDX_TXTR_LOST_SOUL_DEATH];
+	entity->death->on_end = lost_soul_suicide;
 	entity->close_attack = NULL;
 	entity->range_attack = NULL;
 	entity->health_point = 0;
