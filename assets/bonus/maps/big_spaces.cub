@@ -133,18 +133,12 @@ W_TARGET1 ./assets/textures/targets/target_red1.xpm 100,100 10
 W1_HAND ./assets/textures/doom/weapons/hand.xpm 113,151 100
 W1_PUNCH ./assets/textures/doom/weapons/punch.xpm 147,151 10
 W2_PISTOL ./assets/textures/doom/weapons/pistol.xpm 79,151 100
-
-
-
 W3_CHAINGUN ./assets/textures/doom/weapons/chaingun.xpm 114,151 80
 W4_BF_GUN ./assets/textures/doom/weapons/big_fucking_gun.xpm 170,151 40
-W5_CHAINSAW ./assets/textures/doom/weapons/chainsaw.xpm 155,151 150
-W6_PLASMA ./assets/textures/doom/weapons/plasma_rifle.xpm 85,151 150
-
-
-
-W7_SHOTGUN ./assets/textures/doom/weapons/shotgun.xpm 119,151 120
-W8_ROCKET ./assets/textures/doom/weapons/rocket_launcher.xpm 105,151 200
+W5_PLASMA ./assets/textures/doom/weapons/plasma_rifle.xpm 85,151 150
+W6_SHOTGUN ./assets/textures/doom/weapons/shotgun.xpm 119,151 180
+W7_ROCKET ./assets/textures/doom/weapons/rocket_launcher.xpm 105,151 200
+W8_CHAINSAW ./assets/textures/doom/weapons/chainsaw.xpm 155,151 200
 
 W_BULLET_BASIC_LIVE ./assets/textures/doom/effects/basic_projectile/basic_projectile_live.xpm 50,44 100
 W_BULLET_BASIC_DEATH ./assets/textures/doom/effects/basic_projectile/basic_projectile_death.xpm 50,44 100
