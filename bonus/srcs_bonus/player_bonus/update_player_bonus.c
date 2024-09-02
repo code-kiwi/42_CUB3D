@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 14:49:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/02 17:00:43 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	update_player(t_game *game, float delta_time)
 		return ;
 	game->player.is_walking = is_walking(&game->player);
 	update_look(&game->player, delta_time);
-	update_position(&game->player, &game->map, delta_time, game->entities);
+	update_position(&game->player, game->map, delta_time, game->entities);
 	update_player_weapon(&game->player.weapon_info, game->player.is_walking, \
 		game, delta_time);
 }

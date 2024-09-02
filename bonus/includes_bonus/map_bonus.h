@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/29 23:49:39 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:53:32 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 
 # include "mlx_api_bonus.h"
 # include "animation_bonus.h"
+
+# define NB_MAPS						3
+# define MAP0_PATH						"./assets/bonus/maps/map_final.cub"
+# define MAP1_PATH						"./assets/bonus/maps/map_island.cub"
+# define MAP2_PATH						"./assets/bonus/maps/map_rooms.cub"
 
 # define ID_MAP_WALL					'1'
 # define ID_MAP_TILE					'0'
@@ -298,6 +303,7 @@ struct s_map
 };
 
 // Map functions
+bool	read_maps(t_game *game);
 bool	read_map(t_map *map, char *filename,
 			t_animation anim[MAP_NB_IDS]);
 bool	is_map_valid(t_map *map);

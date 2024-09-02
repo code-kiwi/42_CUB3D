@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 17:13:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/02 17:00:04 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int	key_press_handler(int key, t_game *game)
 	else if (key == KEY_D)
 		game->player.walk_direction[RIGHT] = true;
 	else if (key == KEY_E)
-		open_looked_door(game->player.look_ray, &game->map);
+		open_looked_door(game->player.look_ray, game->map);
 	return (0);
 }

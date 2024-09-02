@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pain_elem_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/09/01 11:04:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/02 17:00:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ bool	pain_elem_update(t_game *game, t_entity *entity, float delta_time)
 		close_attack(entity, game, PAIN_ELEM_PAUSE);
 	}
 	else if (!entity->see_player)
-		update_entity_position(entity, delta_time, game->entities, &game->map);
+		update_entity_position(entity, delta_time, game->entities, game->map);
 	else
 	{
 		stop_walk_animation(entity);

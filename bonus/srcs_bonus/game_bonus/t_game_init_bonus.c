@@ -28,8 +28,8 @@ static bool	init_textures(t_game *game)
 	index = 0;
 	while (index < MAP_NB_IDS)
 	{
-		filename = game->map.textures[index];
-		texture_size = &game->map.texture_size[index];
+		filename = game->map->textures[index];
+		texture_size = &game->map->texture_size[index];
 		if (filename == NULL || filename[0] == '\0')
 			return (error_print_string(ERR_MISSING_TEXTURES, filename), false);
 		if (!check_extension(filename, ".xpm"))
@@ -99,13 +99,13 @@ bool	t_game_init(t_game *game)
 	return (
 		t_game_init_params(game)
 		&& t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE)
-		&& t_player_init(&game->player, &game->map, game)
+		&& t_player_init(&game->player, game->map, game)
 		&& init_textures(game)
 		&& init_sprites(game)
 		&& init_all_ui(game)
 		&& init_doors(game)
 		&& init_entities(game)
-		&& init_map_draw(&game->map.draw, &game->map, game)
+		&& init_map_draw(&game->map->draw, game->map, game)
 		&& init_radar(&game->radar, &game->mlx)
 		&& init_weapons(game)
 		&& init_player_weapons(game, &game->player.weapon_info)

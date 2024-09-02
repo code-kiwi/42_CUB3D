@@ -32,7 +32,7 @@ bool	boh_update(t_game *game, t_entity *entity, float delta_time)
 	{
 		if (entity->see_player)
 			range_attack(entity, game, BOH_RANGE_PAUSE);
-		update_entity_position(entity, delta_time, game->entities, &game->map);
+		update_entity_position(entity, delta_time, game->entities, game->map);
 		if (entity->path == NULL)
 			stop_walk_animation(entity);
 	}

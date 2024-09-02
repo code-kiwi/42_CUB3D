@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lost_soul_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/01 11:22:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/02 17:00:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	lost_soul_update(t_game *game, t_entity *entity, float delta_time)
 	if (distance < LOST_SOUL_RANGE)
 		entity->get_killed(game, entity);
 	else
-		update_entity_position(entity, delta_time, game->entities, &game->map);
+		update_entity_position(entity, delta_time, game->entities, game->map);
 	return (true);
 }
 

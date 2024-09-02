@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/02 15:56:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:56:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define ERR_LITERALS			"Error\n%s\n"
 # define ERR_LITERALS_STR		"Error\n%s %s\n"
 # define ERR_ARG				"Bad argument given to the function"
-# define ERR_PROG_ARGS			"Bad arguments, expected one argument"
+# define ERR_PROG_ARGS			"Bad arguments, no argument expected"
 # define ERR_GAME_INIT			"Impossible to intialize the t_game structure"
 # define ERR_MLX_INIT			"Impossible to intialize the t_mlx structure"
 # define ERR_GAME_LOOP			"Game loop failed"
@@ -124,11 +124,13 @@ struct s_game
 {
 	t_mlx				mlx;
 	t_player			player;
-	t_map				map;
+	t_map				*map;
+	t_map				maps[NB_MAPS];
 	t_ray				rays[WIN_WIDTH];
 	long				frame_time_usec;
 	long				tick_last_frame;
-	t_animation			anim[MAP_NB_IDS];
+	t_animation			*anim;
+	t_animation			anims[NB_MAPS][MAP_NB_IDS];
 	size_t				door_count;
 	t_door				*doors;
 	t_door				*last_door_seen;

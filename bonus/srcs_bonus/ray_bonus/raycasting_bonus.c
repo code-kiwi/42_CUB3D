@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 14:21:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/02 17:00:58 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ float	raycast_progress(t_raycast *raycast, t_game *game, t_vector *position,
 	t_ray *ray)
 {
 	*raycast->position += raycast->sign;
-	if (!is_in_bounds(position, &game->map)
-		|| is_character(position, &game->map, ID_MAP_WALL))
+	if (!is_in_bounds(position, game->map)
+		|| is_character(position, game->map, ID_MAP_WALL))
 	{
 		ray->is_vertical = raycast->is_vertical;
 		return (raycast->sum_length);

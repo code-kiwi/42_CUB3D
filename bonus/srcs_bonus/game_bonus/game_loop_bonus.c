@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/02 16:07:51 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/02 17:02:10 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ static void	game_render(t_game *game, float delta_time)
 		error_exit(game, ERR_UPDATE_ANIMATIONS);
 	update_player(game, delta_time);
 	update_doors(game, delta_time);
-	update_map(&game->map, game);
-	if (!is_in_bounds(&game->player.position, &game->map))
+	update_map(game->map, game);
+	if (!is_in_bounds(&game->player.position, game->map))
 		error_exit(game, ERR_PLAYER_QUIT_MAP);
 	cast_rays(game);
 	if (!draw_walls(game))
@@ -64,7 +64,7 @@ static void	game_render(t_game *game, float delta_time)
 	draw_player(game, &game->player.weapon_info);
 	draw_hud(game, &game->hud);
 	if (game->map_opened)
-		draw_map(&game->map.draw, &game->map, game);
+		draw_map(&game->map->draw, game->map, game);
 	else
 		draw_radar(game, &game->radar, &game->mlx);
 }

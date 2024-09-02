@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_doors_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 13:49:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/02 16:59:46 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ bool	init_doors(t_game *game)
 {
 	ssize_t	door_count;
 
-	door_count = count_doors(&game->map);
+	door_count = count_doors(game->map);
 	if (door_count == -1)
 	{
 		error_print(INVALID_DOOR);
@@ -97,7 +97,7 @@ bool	init_doors(t_game *game)
 		game->doors = ft_calloc(game->door_count, sizeof(t_door));
 		if (game->doors == NULL)
 			return (false);
-		find_doors(&game->map, game->door_count, game->doors);
+		find_doors(game->map, game->door_count, game->doors);
 	}
 	else
 		game->doors = NULL;

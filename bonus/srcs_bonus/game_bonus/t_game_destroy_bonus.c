@@ -34,7 +34,13 @@ void	t_game_destroy(t_game *game)
 	}
 	destroy_radar(&game->radar, game->mlx.mlx_ptr);
 	t_mlx_destroy(&game->mlx);
-	free_map(&game->map);
+
+
+	free_map(&game->maps[0]);
+	free_map(&game->maps[1]);
+	free_map(&game->maps[2]);
+
+
 	if (game->doors != NULL)
 		free(game->doors);
 	ft_lstclear(&game->sprites, free);

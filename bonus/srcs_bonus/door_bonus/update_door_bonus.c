@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_door_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:54:13 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 13:49:14 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/02 16:59:49 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	update_doors(t_game *game, float delta_time)
 	index = 0;
 	while (index < game->door_count)
 	{
-		update_door(&game->doors[index], delta_time, &game->map,
+		update_door(&game->doors[index], delta_time, game->map,
 			&game->player.position);
 		index++;
 	}
