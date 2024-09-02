@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entities_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 18:18:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/01 11:08:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@
 # define LOST_SOUL_HEIGHT_RATIO			0.5
 # define LOST_SOUL_RELOAD_PROBABILITY	0
 # define LOST_SOUL_RELOAD_RATIO			0
+# define LOST_SOUL_SUICIDE_DAMAGE		4
 
 # define PAIN_ELEM_SPEED				1
 # define PAIN_ELEM_SQUARED_RADIUS		0.75
