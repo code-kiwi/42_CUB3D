@@ -46,6 +46,41 @@ static bool	init_textures(t_game *game)
 	return (true);
 }
 
+static void	init_draw_thread_args(
+	t_game *game,
+	t_draw_thread_arg draw_thread_args[NB_DRAW_THREADS]
+)
+{
+	size_t	i;
+
+	draw_thread_args[0].game = game;
+	draw_thread_args[0].start = 0;
+	draw_thread_args[0].end = WIN_WIDTH / NB_DRAW_THREADS;
+	i = 1;
+	while (i < NB_DRAW_THREADS - 1)
+	{
+		draw_thread_args[i].game = game;
+		draw_thread_args[i].start = draw_thread_args[i - 1].end;
+		draw_thread_args[i].end = (i + 1) * WIN_WIDTH / NB_DRAW_THREADS;
+		i++;
+	}
+	draw_thread_args[NB_DRAW_THREADS - 1].game = game;
+	draw_thread_args[NB_DRAW_THREADS - 1].start = \
+		draw_thread_args[NB_DRAW_THREADS - 2].end;
+	draw_thread_args[NB_DRAW_THREADS - 1].end = WIN_WIDTH;
+}
+
+static void	t_game_init_params(t_game *game)
+{
+	game->frame_time_usec = 1000000 / FPS;
+	game->tick_last_frame = 0;
+	game->game_over = false;
+	game->game_end_loop_count = 0;
+	game->game_won = false;
+	game->bullets = NULL;
+	init_draw_thread_args(game, game->draw_thread_args);
+}
+
 /**
  * @brief Initializes the given t_game
  * @param game The structure to init
@@ -56,12 +91,7 @@ bool	t_game_init(t_game *game)
 	if (game == NULL)
 		return (false);
 	srand(time(NULL));
-	game->frame_time_usec = 1000000 / FPS;
-	game->tick_last_frame = 0;
-	game->game_over = false;
-	game->game_end_loop_count = 0;
-	game->game_won = false;
-	game->bullets = NULL;
+	t_game_init_params(game);
 	return (
 		t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE)
 		&& t_player_init(&game->player, &game->map, game)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/01 01:05:56 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/02 13:07:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stddef.h>
 # include <sys/types.h>
 # include <stdbool.h>
+# include <pthread.h>
 
 # include "mlx_api_bonus.h"
 # include "map_bonus.h"
@@ -31,10 +32,11 @@
 
 # define PI						3.14159265358
 # define FPS					100
+# define NB_DRAW_THREADS		8
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				1920
-# define WIN_HEIGHT				1080
+# define WIN_WIDTH				1280
+# define WIN_HEIGHT				720
 # define MAX_DISTANCE			10
 # define PAUSE_BG_DARK_FACTOR	0.4f
 
@@ -92,6 +94,8 @@
 # define ERR_ANIM_TIME_TOO_BIG	"The animation wait time is too big"
 # define ERR_ANIM_TIME_NEGATIVE	"The animation wait time is negative"
 
+# define ERR_DRAW_WALL			"The wall drawing failed"
+
 # define GAMEOVER_DARKNESS		0.999999f
 # define GAMEOVER_DARKNESS_LOOP	1000
 # define GAMEWON_BRIGHTNESS		1.025f
@@ -99,41 +103,51 @@
 
 # define NB_MAX_ENTITIES		100
 
-typedef struct s_game			t_game;
-typedef struct s_mlx			t_mlx;
-typedef struct s_column			t_column;
-typedef struct s_sprite			t_sprite;
-typedef struct s_door			t_door;
-typedef struct s_list			t_list;
+typedef struct s_game				t_game;
+typedef struct s_draw_thread_arg	t_draw_thread_arg;
+typedef struct s_mlx				t_mlx;
+typedef struct s_column				t_column;
+typedef struct s_sprite				t_sprite;
+typedef struct s_door				t_door;
+typedef struct s_list				t_list;
+
+struct s_draw_thread_arg
+{
+	t_game	*game;
+	size_t	start;
+	size_t	end;
+};
 
 struct s_game
 {
-	t_mlx		mlx;
-	t_player	player;
-	t_map		map;
-	t_ray		rays[WIN_WIDTH];
-	long		frame_time_usec;
-	long		tick_last_frame;
-	t_animation	anim[MAP_NB_IDS];
-	size_t		door_count;
-	t_door		*doors;
-	t_door		*last_door_seen;
-	t_list		*sprites;
-	t_list		*entities;
-	t_list		*bullets;
-	t_list		*last_entity_updated;
-	t_weapon	weapons[NB_TOT_WEAPONS];
-	bool		pause;
-	t_ui		ui_pause;
-	t_ui		ui_game_over;
-	t_ui		ui_win;
-	bool		mouse_hidden;
-	t_radar		radar;
-	bool		map_opened;
-	t_hud		hud;
-	bool		game_over;
-	int			game_end_loop_count;
-	bool		game_won;
+	t_mlx				mlx;
+	t_player			player;
+	t_map				map;
+	t_ray				rays[WIN_WIDTH];
+	long				frame_time_usec;
+	long				tick_last_frame;
+	t_animation			anim[MAP_NB_IDS];
+	size_t				door_count;
+	t_door				*doors;
+	t_door				*last_door_seen;
+	t_list				*sprites;
+	t_list				*entities;
+	t_list				*bullets;
+	t_list				*last_entity_updated;
+	t_weapon			weapons[NB_TOT_WEAPONS];
+	bool				pause;
+	t_ui				ui_pause;
+	t_ui				ui_game_over;
+	t_ui				ui_win;
+	bool				mouse_hidden;
+	t_radar				radar;
+	bool				map_opened;
+	t_hud				hud;
+	bool				game_over;
+	int					game_end_loop_count;
+	bool				game_won;
+	pthread_t			threads[NB_DRAW_THREADS];
+	t_draw_thread_arg	draw_thread_args[NB_DRAW_THREADS];
 };
 
 struct	s_column
@@ -157,7 +171,8 @@ void	game_pause_switch(t_game *game);
 void	game_pause_close(t_game *game);
 
 // Render functions
-void	draw_walls(t_game *game);
+bool	draw_walls(t_game *game);
+void	draw_walls_part(t_game *game, size_t start, size_t end);
 void	draw_texture_column(t_image *screen, t_column *column,
 			t_image *texture, float distance);
 void	render_all_sprites(t_game *game);
