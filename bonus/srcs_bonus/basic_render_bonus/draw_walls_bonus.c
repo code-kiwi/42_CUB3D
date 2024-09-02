@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/02 16:00:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:12:33 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static void	*draw_thread_routine(void *param)
 
 bool	draw_walls(t_game *game)
 {
-	size_t				i;
-	size_t				j;
-	bool				error;
+	size_t	i;
+	size_t	j;
+	bool	error;
 
 	error = false;
 	i = 0;
