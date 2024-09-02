@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/02 13:43:48 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/02 15:56:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@
 # define ERR_ANIM_TIME_NEGATIVE	"The animation wait time is negative"
 
 # define ERR_DRAW_WALL			"The wall drawing failed"
+# define ERR_UPDATE_ENTITIES	"The entity updating process failed"
+# define ERR_UPDATE_ANIMATIONS	"The animation updatig process failed"
 
 # define GAMEOVER_DARKNESS		0.999999f
 # define GAMEOVER_DARKNESS_LOOP	1000

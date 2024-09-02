@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/02 13:41:17 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:07:51 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ static void	game_render(t_game *game, float delta_time)
 	if (!game->mouse_hidden)
 		t_mlx_mouse_hide(&game->mlx, &game->mouse_hidden);
 	if (!update_entities(game, delta_time))
-		error_exit(game, NULL);
+		error_exit(game, ERR_UPDATE_ENTITIES);
 	update_bullets(game, delta_time);
 	if (!update_animations(game, delta_time))
-		error_exit(game, NULL);
+		error_exit(game, ERR_UPDATE_ANIMATIONS);
 	update_player(game, delta_time);
 	update_doors(game, delta_time);
 	update_map(&game->map, game);
@@ -59,7 +59,7 @@ static void	game_render(t_game *game, float delta_time)
 		error_exit(game, ERR_PLAYER_QUIT_MAP);
 	cast_rays(game);
 	if (!draw_walls(game))
-		error_exit(game, ERR_DRAW_WALL);	
+		error_exit(game, ERR_DRAW_WALL);
 	render_all_sprites(game);
 	draw_player(game, &game->player.weapon_info);
 	draw_hud(game, &game->hud);
@@ -106,7 +106,6 @@ static void	game_win_handler(t_game *game, float delta_time)
 	draw_ui(&game->ui_win, game->mlx.img_buff);
 }
 
-#include <stdio.h>
 int	game_loop(t_game *game)
 {
 	float	delta_time;
@@ -116,7 +115,6 @@ int	game_loop(t_game *game)
 		error_exit(game, ERR_GAME_LOOP);
 	if (!game_loop_handle_fps(game, &delta_time))
 		error_exit(game, ERR_FPS);
-	// printf("fps : %d\n", (int)(1.0f / delta_time));
 	if (game->player.is_dead)
 		game_over_handler(game);
 	else if (game->entities == NULL)
