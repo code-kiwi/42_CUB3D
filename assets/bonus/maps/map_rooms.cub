@@ -53,7 +53,7 @@ BOH_PROJECTILE_LIVE ./assets/textures/doom/effects/baron_of_hell_projectile/baro
 BOH_PROJECTILE_DEATH ./assets/textures/doom/effects/baron_of_hell_projectile/baron_of_hell_projectile_death.xpm 45,40 100
 
 LOST_SOUL_WALK ./assets/textures/doom/entities/lost_soul/lost_soul_idle.xpm 77,69 200
-LOST_SOUL_DEATH ./assets/textures/doom/entities/lost_soul/lost_soul_death.xpm 78,69 100
+LOST_SOUL_DEATH ./assets/textures/doom/entities/lost_soul/lost_soul_death.xpm 78,69 40
 
 PAIN_ELEM_WALK ./assets/textures/doom/entities/pain_elemental/pain_elemental_walk.xpm 77,57 150
 PAIN_ELEM_ATTACK ./assets/textures/doom/entities/pain_elemental/pain_elemental_attack.xpm 89,65 300
@@ -125,7 +125,7 @@ HUD_WEAPON_LBL ./assets/textures/ui/hud/hud_weapon_label.xpm 150,150 10
         1111111111111111D11111111D111111111111111111111111
         100000000000D0000000000000000000D00000000000000001
         10111111111110000000000000000000111111100000l00001
-        101         1000000000f0000000001     100l00000001  1111111111111
+        101         1000000000p0000000001     100l00000001  1111111111111
 1111111110111111    100000000000000000001     111111111111  1000000000001
 1000000000000001    100000000000000000001                   10000000p0001
 100000b000000001    1000000000N000000000111111111111111111111000000000001

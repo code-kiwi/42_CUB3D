@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/31 11:41:27 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/01 11:20:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define PLAYER_SPEED_RIGHT				3
 # define PLAYER_INTERACTION_DISTANCE	1.5
 # define PLAYER_HEALTH_POINT			25
-# define PLAYER_RADIUS					0.5
+# define PLAYER_RADIUS					0.3
 
 # define PLAYER_WEAPON_V_MOVE_UPDATE	0.02f
 # define PLAYER_WEAPON_H_MOVE_UPDATE	0.04f
