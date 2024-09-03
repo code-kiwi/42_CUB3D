@@ -81,7 +81,7 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 		get_pixel_position_in_tile(ray, &game->player.position,
 			&pixel_position, inv_distance);
 		draw_pixel_from_texture(&pixel_position, addr,
-			game->anim[IDX_TXTR_CEIL].textures->content, 1 / inv_distance);
+			game->anim[IDX_TXTR_CEIL].textures->content, inv_distance);
 		start--;
 		inv_distance += inv_distance_unit;
 		addr -= game->mlx.img_buff->line_len;
