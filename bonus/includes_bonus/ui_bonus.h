@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 13:54:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:22:43 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,89 @@
 
 # include "mlx_api_bonus.h"
 # include "map_bonus.h"
+
+# define UI_TEXTURES_PATH			"./assets/textures/ui/ui_textures_list.txt"
+# define UI_NB_TEXTURES				37
+
+# define UI_TXTR_PAUSE_BG					"UI_PAUSE_BG"
+# define UI_TXTR_PAUSE_LABEL				"UI_PAUSE_LABEL"
+# define UI_TXTR_PAUSE_BTN_RESUME_OFF		"UI_PAUSE_BTN_RESUME_OFF"
+# define UI_TXTR_PAUSE_BTN_RESUME_ON		"UI_PAUSE_BTN_RESUME_ON"
+# define UI_TXTR_PAUSE_BTN_QUIT_OFF			"UI_PAUSE_BTN_QUIT_OFF"
+# define UI_TXTR_PAUSE_BTN_QUIT_ON			"UI_PAUSE_BTN_QUIT_ON"
+
+# define UI_TXTR_GAMEOVER_BG				"UI_GAMEOVER_BG"
+# define UI_TXTR_GAMEOVER_LABEL				"UI_GAMEOVER_LABEL"
+# define UI_TXTR_GAMEOVER_BTN_QUIT_OFF		"UI_GAMEOVER_BTN_QUIT_OFF"
+# define UI_TXTR_GAMEOVER_BTN_QUIT_ON		"UI_GAMEOVER_BTN_QUIT_ON"
+# define UI_TXTR_GAMEOVER_BTN_RESTART_OFF	"UI_GAMEOVER_BTN_RESTART_OFF"
+# define UI_TXTR_GAMEOVER_BTN_RESTART_ON	"UI_GAMEOVER_BTN_RESTART_ON"
+
+# define UI_TXTR_WIN_BG						"UI_WIN_BG"
+# define UI_TXTR_WIN_LABEL					"UI_WIN_LABEL"
+# define UI_TXTR_WIN_TROPHY					"UI_WIN_TROPHY"
+# define UI_TXTR_WIN_BTN_QUIT_OFF			"UI_WIN_BTN_QUIT_OFF"
+# define UI_TXTR_WIN_BTN_QUIT_ON			"UI_WIN_BTN_QUIT_ON"
+
+# define UI_TXTR_HOME_BG					"UI_HOME_BG"
+# define UI_TXTR_HOME_LABEL					"UI_HOME_LABEL"
+# define UI_TXTR_HOME_BTN_PLAY_OFF			"UI_HOME_BTN_PLAY_OFF"
+# define UI_TXTR_HOME_BTN_PLAY_ON			"UI_HOME_BTN_PLAY_ON"
+# define UI_TXTR_HOME_BTN_QUIT_OFF			"UI_HOME_BTN_QUIT_OFF"
+# define UI_TXTR_HOME_BTN_QUIT_ON			"UI_HOME_BTN_QUIT_ON"
+
+# define UI_TXTR_LVL_BG						"UI_LVL_BG"
+# define UI_TXTR_LVL_LABEL					"UI_LVL_LABEL"
+# define UI_TXTR_LVL_BTN_LVL1_OFF			"UI_LVL_BTN_LVL1_OFF"
+# define UI_TXTR_LVL_BTN_LVL1_ON			"UI_LVL_BTN_LVL1_ON"
+# define UI_TXTR_LVL_BTN_LVL2_OFF			"UI_LVL_BTN_LVL2_OFF"
+# define UI_TXTR_LVL_BTN_LVL2_ON			"UI_LVL_BTN_LVL2_ON"
+# define UI_TXTR_LVL_BTN_LVL3_OFF			"UI_LVL_BTN_LVL3_OFF"
+# define UI_TXTR_LVL_BTN_LVL3_ON			"UI_LVL_BTN_LVL3_ON"
+# define UI_TXTR_LVL_BTN_LVL4_OFF			"UI_LVL_BTN_LVL4_OFF"
+# define UI_TXTR_LVL_BTN_LVL4_ON			"UI_LVL_BTN_LVL4_ON"
+# define UI_TXTR_LVL_BTN_LVL5_OFF			"UI_LVL_BTN_LVL5_OFF"
+# define UI_TXTR_LVL_BTN_LVL5_ON			"UI_LVL_BTN_LVL5_ON"
+# define UI_TXTR_LVL_BTN_PREV_OFF			"UI_LVL_BTN_PREV_OFF"
+# define UI_TXTR_LVL_BTN_PREV_ON			"UI_LVL_BTN_PREV_ON"
+
+# define UI_TXTR_IDX_PAUSE_BG					0
+# define UI_TXTR_IDX_PAUSE_LABEL				1
+# define UI_TXTR_IDX_PAUSE_BTN_RESUME_OFF		2
+# define UI_TXTR_IDX_PAUSE_BTN_RESUME_ON		3
+# define UI_TXTR_IDX_PAUSE_BTN_QUIT_OFF			4
+# define UI_TXTR_IDX_PAUSE_BTN_QUIT_ON			5
+# define UI_TXTR_IDX_GAMEOVER_BG				6
+# define UI_TXTR_IDX_GAMEOVER_LABEL				7
+# define UI_TXTR_IDX_GAMEOVER_BTN_QUIT_OFF		8
+# define UI_TXTR_IDX_GAMEOVER_BTN_QUIT_ON		9
+# define UI_TXTR_IDX_GAMEOVER_BTN_RESTART_OFF	10
+# define UI_TXTR_IDX_GAMEOVER_BTN_RESTART_ON	11
+# define UI_TXTR_IDX_WIN_BG						12
+# define UI_TXTR_IDX_WIN_LABEL					13
+# define UI_TXTR_IDX_WIN_TROPHY					14
+# define UI_TXTR_IDX_WIN_BTN_QUIT_OFF			15
+# define UI_TXTR_IDX_WIN_BTN_QUIT_ON			16
+# define UI_TXTR_IDX_HOME_BG					17
+# define UI_TXTR_IDX_HOME_LABEL					18
+# define UI_TXTR_IDX_HOME_BTN_PLAY_OFF			19
+# define UI_TXTR_IDX_HOME_BTN_PLAY_ON			20
+# define UI_TXTR_IDX_HOME_BTN_QUIT_OFF			21
+# define UI_TXTR_IDX_HOME_BTN_QUIT_ON			22
+# define UI_TXTR_IDX_LVL_BG						23
+# define UI_TXTR_IDX_LVL_LABEL					24
+# define UI_TXTR_IDX_LVL_BTN_LVL1_OFF			25
+# define UI_TXTR_IDX_LVL_BTN_LVL1_ON			26
+# define UI_TXTR_IDX_LVL_BTN_LVL2_OFF			27
+# define UI_TXTR_IDX_LVL_BTN_LVL2_ON			28
+# define UI_TXTR_IDX_LVL_BTN_LVL3_OFF			29
+# define UI_TXTR_IDX_LVL_BTN_LVL3_ON			30
+# define UI_TXTR_IDX_LVL_BTN_LVL4_OFF			31
+# define UI_TXTR_IDX_LVL_BTN_LVL4_ON			32
+# define UI_TXTR_IDX_LVL_BTN_LVL5_OFF			33
+# define UI_TXTR_IDX_LVL_BTN_LVL5_ON			34
+# define UI_TXTR_IDX_LVL_BTN_PREV_OFF			35
+# define UI_TXTR_IDX_LVL_BTN_PREV_ON			36
 
 # define UI_PAUSE_W_RATIO			0.5f
 # define UI_PAUSE_H_RATIO			0.5f
@@ -66,10 +149,22 @@
 # define UI_LVL_BTN_H_RATIO			0.0925f
 
 typedef struct s_game		t_game;
+typedef struct s_game_uis	t_game_uis;
 typedef struct s_ui			t_ui;
 typedef struct s_button		t_button;
 typedef struct s_label		t_label;
 typedef struct s_list		t_list;
+
+struct s_game_uis
+{
+	t_ui	ui_pause;
+	t_ui	ui_game_over;
+	t_ui	ui_win;
+	t_ui	ui_home;
+	t_ui	ui_level_selection;
+	t_image	*ui_textures[UI_NB_TEXTURES];
+	char	*ui_texture_ids[UI_NB_TEXTURES];
+};
 
 struct s_ui
 {
