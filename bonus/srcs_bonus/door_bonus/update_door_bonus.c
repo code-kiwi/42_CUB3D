@@ -6,11 +6,10 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:54:13 by root              #+#    #+#             */
-/*   Updated: 2024/06/29 13:55:29 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:49:14 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "door_bonus.h"
 
 static void	close_door(t_door *door, float delta_time)

@@ -3,17 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_screen_position_bonus.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/07/29 11:34:43 by root             ###   ########.fr       */
+/*   Updated: 2024/09/03 15:12:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <math.h>
 
 #include "sprite_bonus.h"
 #include "cub3d_bonus.h"
 
-#include <math.h>
+# define PLAYER_HEIGHT_DIFF WIN_HEIGHT / 4
+// # define PLAYER_HEIGHT_DIFF 0
 
 static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
 {
@@ -34,8 +37,10 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 	float		entity_angle;
 	float		relative_angle;
 	t_player	*player;
+	int			player_height_offset;
 
 	player = &game->player;
+	player_height_offset = PLAYER_HEIGHT_DIFF - PLAYER_HEIGHT_DIFF * sprite->height * scale / WIN_HEIGHT;
 	entity_angle = get_entity_angle(&sprite->position, &player->position);
 	relative_angle = player->leftmost_angle - entity_angle;
 	if (player->orientation.x > PI / 2 * 3 && entity_angle < PI / 2)
@@ -51,6 +56,7 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 	else if (sprite->on_ceiling)
 		sprite_screen->y -= (WIN_HEIGHT - sprite->height) / 2 * scale;
 	sprite_screen->y += game->player.orientation.y;
+	sprite_screen->y += player_height_offset;
 }
 
 bool	is_sprite_aimed(t_sprite *sprite, int left_x)

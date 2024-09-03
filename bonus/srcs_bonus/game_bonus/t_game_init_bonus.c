@@ -10,19 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <time.h>
+
 #include "cub3d_bonus.h"
-#include "player_bonus.h"
 #include "event_handlers_bonus.h"
-#include "libft.h"
-#include "mlx_api_bonus.h"
 #include "door_bonus.h"
-#include "map_bonus.h"
-#include "sprite_bonus.h"
-#include "ui_bonus.h"
-#include "animation_bonus.h"
 #include "mlx.h"
 #include "entities_bonus.h"
-#include "radar_bonus.h"
 
 static bool	init_textures(t_game *game)
 {
@@ -61,8 +55,12 @@ bool	t_game_init(t_game *game)
 {
 	if (game == NULL)
 		return (false);
+	srand(time(NULL));
 	game->frame_time_usec = 1000000 / FPS;
 	game->tick_last_frame = 0;
+	game->game_over = false;
+	game->game_end_loop_count = 0;
+	game->game_won = false;
 	game->bullets = NULL;
 	return (
 		t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE)
@@ -74,6 +72,9 @@ bool	t_game_init(t_game *game)
 		&& init_entities(game)
 		&& init_map_draw(&game->map.draw, &game->map, game)
 		&& init_radar(&game->radar, &game->mlx)
+		&& init_weapons(game)
+		&& init_player_weapons(game, &game->player.weapon_info)
+		&& init_hud(game, &game->hud)
 		&& t_mlx_launch(&game->mlx)
 		&& add_event_handlers(game)
 	);

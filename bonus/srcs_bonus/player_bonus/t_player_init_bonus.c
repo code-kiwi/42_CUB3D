@@ -6,17 +6,11 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/28 10:12:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:17:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdbool.h>
-
 #include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
-#include "player_bonus.h"
-#include "map_bonus.h"
 #include "libft.h"
 
 static void	set_player_orientation(t_player *player, t_map *map)
@@ -79,9 +73,9 @@ bool	t_player_init(t_player *player, t_map *map, t_game *game)
 	player->move_speed[3] = PLAYER_SPEED_RIGHT;
 	t_vector_init(&player->rotation_speed, 0.0f, 0.0f);
 	player->health_point = PLAYER_HEALTH_POINT;
-	ft_memset(player->is_walking, 0, 4 * sizeof(bool));
+	ft_memset(player->walk_direction, 0, 4 * sizeof(bool));
 	player->look_ray = &game->rays[(int)WIN_WIDTH / 2];
-	if (!t_player_init_display(&player->display, game->mlx.mlx_ptr))
-		return (error_print(ERR_PLAYER_CREATION), false);
+	player->is_walking = false;
+	player->is_dead = false;
 	return (true);
 }

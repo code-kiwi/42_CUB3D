@@ -6,13 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 12:32:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 10:15:12 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:41:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "mlx_api_bonus.h"
-#include "animation_bonus.h"
 
 void	destroy_animation_textures(t_list *textures, void *mlx_ptr)
 {

@@ -19,8 +19,6 @@ bool	demon_update(t_game *game, t_entity *entity, float delta_time)
 	float		distance;
 	t_sprite	*sprite;
 
-	if (entity->cooldown > 0)
-		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
 	player = &game->player;
 	distance = get_distance(&sprite->position, &player->position);
@@ -54,8 +52,11 @@ void	demon_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->health_point = DEMON_HEALTH_POINT;
 	entity->speed = DEMON_SPEED;
 	entity->squared_radius = DEMON_SQUARED_RADIUS;
+	entity->bullet_sensibility_radius = DEMON_SENSIBILITY_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_DEMON_WALK], WIN_HEIGHT);
 	entity->sprite->on_ground = true;
 	entity->sprite->height = WIN_HEIGHT * DEMON_HEIGHT_RATIO;
+	entity->reload_probability = DEMON_RELOAD_PROBABILITY;
+	entity->reload_ratio = DEMON_RELOAD_RATIO;
 }

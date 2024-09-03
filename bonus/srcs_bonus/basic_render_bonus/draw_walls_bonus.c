@@ -17,7 +17,7 @@
 #include "libft.h"
 #include "door_bonus.h"
 
-# define PLAYER_HEIGHT - WIN_HEIGHT / 4
+# define PLAYER_HEIGHT WIN_HEIGHT / 4
 
 static t_image	*get_texture(t_animation anim[MAP_NB_IDS], t_ray *ray)
 {

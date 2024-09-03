@@ -3,15 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_init_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:36:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/17 19:47:37 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:14:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdbool.h>
-#include <stdlib.h>
 
 #include "mlx.h"
 #include "mlx_api_bonus.h"

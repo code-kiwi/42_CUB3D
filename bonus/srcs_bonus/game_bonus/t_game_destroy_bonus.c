@@ -10,13 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
 #include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
-#include "mlx.h"
-#include "sprite_bonus.h"
-#include "animation_bonus.h"
 #include "entities_bonus.h"
 
 /**
@@ -32,7 +26,6 @@ void	t_game_destroy(t_game *game)
 		return ;
 	index = 0;
 	destroy_all_ui(game);
-	destroy_player(&game->player, game->mlx.mlx_ptr);
 	while (index < MAP_NB_IDS)
 	{
 		animation_textures = game->anim[index].textures;

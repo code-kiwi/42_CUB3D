@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/26 20:47:25 by root             ###   ########.fr       */
+/*   Updated: 2024/08/27 16:25:27 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,5 @@ bool		is_number(char *str);
 void		remove_last_breakline(char *str);
 void		remove_last_spaces(char *str);
 void		skip_next_spaces(char **str);
-void		display_delta_time(void);
 
 #endif

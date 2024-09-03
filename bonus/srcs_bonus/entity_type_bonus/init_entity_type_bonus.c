@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_entity_type_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:26:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/26 13:48:12 by root             ###   ########.fr       */
+/*   Updated: 2024/08/27 13:55:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "entities_bonus.h"
-#include "map_bonus.h"
 
 void	init_entity_type(t_entity *entity, char id, \
 	t_animation anim[MAP_NB_IDS])
@@ -21,8 +19,8 @@ void	init_entity_type(t_entity *entity, char id, \
 	static char	*ids = IDS_MAP_ENTITY;
 	static void	(*inits[12])(t_entity *, t_animation[MAP_NB_IDS]) = {
 		demon_init, imp_init, caco_init, boh_init, lost_soul_init, \
-	pain_elem_init, cyber_init, revenant_init, mancubus_init, arch_vile_init, \
-	commando_init, sergeant_init};
+	pain_elem_init, cyber_init, revenant_init, mancubus_init, commando_init, \
+	sergeant_init};
 
 	id_pos = ft_strchr(ids, id);
 	if (id_pos == NULL || id_pos - ids >= 12)

@@ -6,15 +6,11 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 18:16:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:30:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
 #include "cub3d.h"
-#include "event_handlers.h"
-#include "libft.h"
 
 /**
  * @brief Handles the keyboard press key events
@@ -31,12 +27,12 @@ int	key_press_handler(int key, t_game *data)
 	else if (key == KEY_LEFT)
 		data->player.turn_direction[0] = true;
 	else if (key == KEY_W)
-		data->player.is_walking[FRONT] = true;
+		data->player.walk_direction[FRONT] = true;
 	else if (key == KEY_S)
-		data->player.is_walking[BACK] = true;
+		data->player.walk_direction[BACK] = true;
 	else if (key == KEY_A)
-		data->player.is_walking[LEFT] = true;
+		data->player.walk_direction[LEFT] = true;
 	else if (key == KEY_D)
-		data->player.is_walking[RIGHT] = true;
+		data->player.walk_direction[RIGHT] = true;
 	return (0);
 }

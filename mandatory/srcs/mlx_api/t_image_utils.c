@@ -3,15 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   t_image_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/21 18:13:22 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:33:48 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdbool.h>
-#include <stdlib.h>
 
 #include "mlx_api.h"
 #include "mlx.h"

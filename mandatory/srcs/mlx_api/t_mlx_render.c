@@ -3,15 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_render.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:49:37 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/16 14:54:37 by root             ###   ########.fr       */
+/*   Updated: 2024/08/27 14:35:26 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
-#include <stdbool.h>
 
 #include "mlx_api.h"
 #include "mlx.h"

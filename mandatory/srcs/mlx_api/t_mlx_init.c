@@ -3,15 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:36:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 12:02:45 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:35:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdbool.h>
-#include <stdlib.h>
 
 #include "mlx.h"
 #include "mlx_api.h"

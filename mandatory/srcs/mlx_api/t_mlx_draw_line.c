@@ -3,16 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_draw_line.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:04:21 by mhotting          #+#    #+#             */
-/*   Updated: 2024/06/18 12:03:08 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:34:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdint.h>
-#include <stdbool.h>
-#include <math.h>
 
 #include "mlx_api.h"
 

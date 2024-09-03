@@ -6,15 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/06/17 13:56:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:36:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
 #include "cub3d.h"
-#include "vector.h"
-#include "map.h"
 
 static void	calculate_unit_length(t_vector *unit_length, t_vector *slope)
 {

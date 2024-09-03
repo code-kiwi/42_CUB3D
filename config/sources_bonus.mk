@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/24 10:11:37 by root             ###   ########.fr        #
+#    Updated: 2024/08/31 14:23:57 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,9 @@ EVENT_HANDLERS_FILES_BONUS	=	add_event_handler_bonus.c		\
 								mouse_press_handler_bonus.c		\
 								mouse_release_handler_bonus.c	\
 								mouse_move_handler_bonus.c		\
-								pause_handlers_bonus.c
+								pause_handlers_bonus.c			\
+								gameover_handlers_bonus.c		\
+								gamewon_handlers_bonus.c
 EVENT_HANDLERS_BONUS		=	$(addprefix $(EVENT_HANDLERS_DIR_BONUS), $(EVENT_HANDLERS_FILES_BONUS))
 
 # BASIC_RENDER
@@ -84,8 +86,7 @@ BASIC_RENDER_FILES_BONUS	=	draw_walls_bonus.c				\
 								draw_column_bonus.c				\
 								draw_ceiling_ground_bonus.c		\
 								draw_sprite_bonus.c				\
-								sprite_screen_position_bonus.c	\
-								draw_player_bonus.c
+								sprite_screen_position_bonus.c
 BASIC_RENDER_BONUS			=	$(addprefix $(BASIC_RENDER_DIR_BONUS), $(BASIC_RENDER_FILES_BONUS))
 
 # MAP
@@ -96,7 +97,8 @@ MAP_FILES_BONUS				=	read_map_bonus.c				\
 								is_valid_bonus.c				\
 								free_map_bonus.c				\
 								get_elem_bonus.c				\
-								init_identifier_bonus.c			\
+								init_identifier1_bonus.c		\
+								init_identifier2_bonus.c		\
 								update_bonus.c					\
 								draw_bonus.c					\
 								draw_entities_bonus.c			\
@@ -114,11 +116,12 @@ DOOR_BONUS					=	$(addprefix $(DOOR_DIR_BONUS), $(DOOR_FILES_BONUS))
 # PLAYER
 PLAYER_DIR_BONUS			=	player_bonus/
 PLAYER_FILES_BONUS			=	t_player_init_bonus.c			\
-								t_player_init_display_bonus.c	\
 								update_player_bonus.c			\
-								t_player_destroy_bonus.c		\
-								player_shoot_bonus.c			\
-								player_get_damage_bonus.c
+								move_player_bonus.c				\
+								update_player_weapon_bonus.c	\
+								player_get_damage_bonus.c		\
+								weapons_utils_bonus.c			\
+								draw_bonus.c
 PLAYER_BONUS				=	$(addprefix $(PLAYER_DIR_BONUS), $(PLAYER_FILES_BONUS))
 
 # RAY
@@ -130,8 +133,8 @@ RAY_BONUS					=	$(addprefix $(RAY_DIR_BONUS), $(RAY_FILES_BONUS))
 
 # VECTOR
 VECTOR_DIR_BONUS			=	vector_bonus/
-VECTOR_FILES_BONUS			=	vector_bonus.c					\
-								t_vector_utils.c
+VECTOR_FILES_BONUS			=	vector_utils1_bonus.c			\
+								vector_utils2_bonus.c
 VECTOR_BONUS				=	$(addprefix $(VECTOR_DIR_BONUS), $(VECTOR_FILES_BONUS))
 
 # SPRITES
@@ -144,9 +147,17 @@ SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
 UI_DIR_BONUS				=	ui/
 UI_FILES_BONUS				=	ui_utils_bonus.c				\
 								init_ui_pause_bonus.c			\
+								init_ui_gameover_bonus.c		\
+								init_ui_win_bonus.c				\
 								label_utils_bonus.c				\
 								button_utils_bonus.c
 UI_BONUS					=	$(addprefix $(UI_DIR_BONUS), $(UI_FILES_BONUS))
+
+# HUD
+HUD_DIR_BONUS				=	hud_bonus/
+HUD_FILES_BONUS				=	init_bonus.c					\
+								draw_bonus.c
+HUD_BONUS					=	$(addprefix $(HUD_DIR_BONUS), $(HUD_FILES_BONUS))
 
 # PATHFINDING
 PATHFINDING_DIR_BONUS		=	pathfinding_bonus/
@@ -167,6 +178,7 @@ ENTITIES_FILES_BONUS		=	update_entities_bonus.c			\
 								move_entity_bonus.c				\
 								damage_entity_bonus.c			\
 								entity_shoot_bullet_bonus.c		\
+								is_sprite_of_entity_bonus.c		\
 								update_entities_position_bonus.c
 ENTITIES_BONUS				=	$(addprefix $(ENTITIES_DIR_BONUS), $(ENTITIES_FILES_BONUS))
 
@@ -181,7 +193,6 @@ ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
 								cyber_bonus.c					\
 								revenant_bonus.c				\
 								mancubus_bonus.c				\
-								arch_vile_bonus.c				\
 								sergeant_bonus.c				\
 								commando_bonus.c				\
 								init_entity_type_bonus.c		\
@@ -189,10 +200,6 @@ ENTITY_TYPE_FILES_BONUS		=	demon_bonus.c					\
 								entities_attack_bonus.c
 ENTITY_TYPE_BONUS			=	$(addprefix $(ENTITY_TYPE_DIR_BONUS), $(ENTITY_TYPE_FILES_BONUS))
 
-# ITEMS
-ITEMS_DIR_BONUS				=	item_bonus/
-ITEMS_FILES_BONUS			=	use_item_bonus.c
-ITEMS_BONUS					=	$(addprefix $(ITEMS_DIR_BONUS), $(ITEMS_FILES_BONUS))
 # RADAR
 RADAR_DIR_BONUS				=	radar_bonus/
 RADAR_FILES_BONUS			=	utils_bonus.c					\
@@ -209,6 +216,35 @@ ANIMATION_FILES_BONUS		=	create_animation_bonus.c		\
 								set_animation_bonus.c
 ANIMATION_BONUS				=	$(addprefix $(ANIMATION_DIR_BONUS), $(ANIMATION_FILES_BONUS))
 
+# BULLETS
+BULLETS_DIR_BONUS			=	bullets_bonus/
+BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c			\
+								update_bullet_bonus.c			\
+								move_bullet_bonus.c				\
+								projectile_use_bonus.c			\
+								caco_projectile_bonus.c			\
+								imp_projectile_bonus.c			\
+								boh_projectile_bonus.c			\
+								mancubus_projectile_bonus.c		\
+								rocket_bonus.c					\
+								revenant_projectile_bonus.c		\
+								player_basic_projectile_bonus.c
+BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
+
+# WEAPONS
+WEAPONS_DIR_BONUS			=	weapons_bonus/
+WEAPONS_FILES_BONUS			=	init_bonus.c					\
+								reload_bonus.c					\
+								weapon_init1_bonus.c			\
+								weapon_init2_bonus.c			\
+								init_resize_bonus.c				\
+								handle_positions_bonus.c		\
+								update_bonus.c					\
+								use_bonus.c						\
+								callbacks_bonus.c				\
+								update_cooldown_bonus.c
+WEAPONS_BONUS				=	$(addprefix $(WEAPONS_DIR_BONUS), $(WEAPONS_FILES_BONUS))
+
 # UTILS
 UTILS_DIR_BONUS				=	utils_bonus/
 UTILS_FILES_BONUS			=	math_bonus.c					\
@@ -217,22 +253,9 @@ UTILS_FILES_BONUS			=	math_bonus.c					\
 								number_bonus.c					\
 								check_extension_bonus.c			\
 								string_bonus.c					\
-								display_delta_time_bonus.c		\
 								get_tick_bonus.c				\
 								sort_bonus.c
 UTILS_BONUS					=	$(addprefix $(UTILS_DIR_BONUS), $(UTILS_FILES_BONUS))
-
-# BULLETS
-BULLETS_DIR_BONUS			=	bullets_bonus/
-BULLETS_FILES_BONUS			=	shoot_bullet_bonus.c			\
-								update_bullet_bonus.c			\
-								caco_projectile_bonus.c			\
-								imp_projectile_bonus.c			\
-								boh_projectile_bonus.c			\
-								mancubus_projectile_bonus.c		\
-								rocket_bonus.c					\
-								revenant_projectile_bonus.c
-BULLETS_BONUS				=	$(addprefix $(BULLETS_DIR_BONUS), $(BULLETS_FILES_BONUS))
 
 # SOURCES GENERAL
 SRCS_MAIN_SUBDIR_BONUS		=	srcs_bonus/
@@ -242,8 +265,9 @@ SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
 								$(RAY_BONUS) $(DOOR_BONUS) $(SPRITES_BONUS)				\
 								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)					\
-								$(ENTITIES_BONUS) $(ITEMS_BONUS) $(UI_BONUS)			\
-								$(BULLETS_BONUS) $(ENTITY_TYPE_BONUS) $(RADAR_BONUS)
+								$(ENTITIES_BONUS) $(UI_BONUS) $(WEAPONS_BONUS)			\
+								$(BULLETS_BONUS) $(ENTITY_TYPE_BONUS) $(RADAR_BONUS)	\
+								$(HUD_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

@@ -6,13 +6,11 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 17:22:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/22 14:09:18 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:49:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
-#include "mlx_api_bonus.h"
-#include "map_bonus.h"
 
 bool	collide_entity(t_list *entities, t_vector *position)
 {

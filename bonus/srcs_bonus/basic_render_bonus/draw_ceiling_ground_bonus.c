@@ -16,7 +16,7 @@
 #include "cub3d_bonus.h"
 #include "libft.h"
 
-# define PLAYER_HEIGHT - WIN_HEIGHT / 4
+# define PLAYER_HEIGHT WIN_HEIGHT / 4
 
 static	void	get_pixel_position_in_tile(t_ray *ray,
 	t_vector *player_position, t_vector *result, float inv_dist)
@@ -49,10 +49,9 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	t_vector	pixel_position;
 	char		*addr;
 
-	inv_distance = column->real_ground_start * ray->cos_angle_from_orientation \
+	inv_distance = column->real_ground_start * ray->cos_angle_from_orientation
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
-	inv_distance_unit = ray->cos_angle_from_orientation \
-		/ (WIN_HEIGHT / 2 - PLAYER_HEIGHT);
+	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 - PLAYER_HEIGHT);
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start < WIN_HEIGHT)
 	{

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/18 12:35:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 14:32:57 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "map.h"
 #include "libft.h"
 
 static bool	parse_element(t_map *map, char *element, char **identifier)

@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   add_event_handler_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:25:06 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/14 19:00:14 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/08/27 13:57:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
 #include "cub3d_bonus.h"
 #include "event_handlers_bonus.h"
-#include "mlx_api_bonus.h"
-#include "libft.h"
 
 /**
  * @brief Adds all the event handlers to the given t_game structure

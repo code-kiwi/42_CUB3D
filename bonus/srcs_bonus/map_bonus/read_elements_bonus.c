@@ -6,12 +6,11 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 13:36:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:08:48 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "map_bonus.h"
 #include "libft.h"
 
 static bool	get_texture_size(t_mlx_coords *out, char *size)
@@ -70,7 +69,7 @@ static bool	parse_element(t_map *map, char *element, char **identifier, \
 	identifier_index = find_str_in_array(identifier, infos[0], MAP_NB_IDS);
 	if (identifier_index == -1)
 	{
-		ft_dprintf(STDERR_FILENO, ERR_IDENTIFIER, infos[0]);
+		error_print_string(ERR_IDENTIFIER, infos[0]);
 		ft_free_str_array(&infos);
 		return (false);
 	}
