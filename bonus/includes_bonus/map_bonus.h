@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/03 09:32:18 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 10:01:36 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -352,8 +352,7 @@ struct s_map
 
 // Map functions
 bool	read_maps(t_game *game);
-bool	read_map(t_map *map, char *filename,
-			t_animation anim[MAP_NB_IDS]);
+bool	read_map(t_map *map, char *filename, t_animation anim[MAP_NB_IDS]);
 bool	is_map_valid(t_map *map);
 bool	read_elements(t_map *map, int fd, t_animation anim[MAP_NB_IDS]);
 bool	is_in_bounds(t_vector *position, t_map *map);

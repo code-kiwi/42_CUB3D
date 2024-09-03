@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 09:45:13 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 11:08:19 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 # define NB_DRAW_THREADS		8
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				960
-# define WIN_HEIGHT				500
+# define WIN_WIDTH				1920
+# define WIN_HEIGHT				1080
 # define MAX_DISTANCE			10
 # define PAUSE_BG_DARK_FACTOR	0.4f
 
@@ -112,6 +112,7 @@ typedef struct s_column				t_column;
 typedef struct s_sprite				t_sprite;
 typedef struct s_door				t_door;
 typedef struct s_list				t_list;
+typedef enum e_game_state			t_game_state;
 
 struct s_draw_thread_arg
 {
@@ -120,8 +121,18 @@ struct s_draw_thread_arg
 	size_t	end;
 };
 
+enum e_game_state
+{
+	GAMEOVER,
+	GAMEWIN,
+	HOME,
+	LEVEL_SELECTION,
+	PLAYING,
+};
+
 struct s_game
 {
+	t_game_state		state;
 	t_mlx				mlx;
 	t_player			player;
 	t_map				*map;
@@ -143,6 +154,8 @@ struct s_game
 	t_ui				ui_pause;
 	t_ui				ui_game_over;
 	t_ui				ui_win;
+	t_ui				ui_home;
+	t_ui				ui_level_selection;
 	bool				mouse_hidden;
 	t_radar				radar;
 	bool				map_opened;
