@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:04:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 09:29:24 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/03 09:37:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	player_select_weapon(t_player_weapon *weapon_info, int index)
 	)
 		return ;
 	if (index == NB_TOT_WEAPONS)
-		 index = 0;
+		index = 0;
 	if (index == -1)
 		index = NB_TOT_WEAPONS - 1;
 	weapon_info->weapon_state = WEAPON_STATE_HOLSTERING;
