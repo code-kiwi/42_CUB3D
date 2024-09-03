@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 15:41:57 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 09:33:26 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,7 @@ static void	init_world_identifier(char **identifier)
 	identifier[IDX_TXTR_FLOOR] = ID_TEXTURE_FLOOR;
 	identifier[IDX_TXTR_CEIL] = ID_TEXTURE_CEILING;
 	identifier[IDX_TXTR_DOOR] = ID_TEXTURE_DOOR;
-	identifier[IDX_TXTR_SPRITE] = ID_TEXTURE_SPRITE;
-	identifier[IDX_TXTR_UIP_BG] = ID_TEXTURE_UI_PAUSE_BG;
-	identifier[IDX_TXTR_UIP_LBL] = ID_TEXTURE_UI_PAUSE_LABEL;
-	identifier[IDX_TXTR_UIP_B1_ON] = ID_TEXTURE_UI_PAUSE_BTNR_OFF;
-	identifier[IDX_TXTR_UIP_B1_OFF] = ID_TEXTURE_UI_PAUSE_BTNR_ON;
-	identifier[IDX_TXTR_UIP_B2_ON] = ID_TEXTURE_UI_PAUSE_BTNQ_OFF;
-	identifier[IDX_TXTR_UIP_B2_OFF] = ID_TEXTURE_UI_PAUSE_BTNQ_ON;
-	identifier[IDX_TXTR_UI_GAMEOVER_BG] = ID_TEXTURE_UI_GAMEOVER_BG;
-	identifier[IDX_TXTR_UI_GAMEOVER_LABEL] = ID_TEXTURE_UI_GAMEOVER_LABEL;
-	identifier[IDX_TXTR_UI_GAMEOVER_BTN_OFF] = ID_TEXTURE_UI_GAMEOVER_BTN_OFF;
-	identifier[IDX_TXTR_UI_GAMEOVER_BTN_ON] = ID_TEXTURE_UI_GAMEOVER_BTN_ON;
-	identifier[IDX_TXTR_UI_WIN_BG] = ID_TEXTURE_UI_WIN_BG;
-	identifier[IDX_TXTR_UI_WIN_LABEL] = ID_TEXTURE_UI_WIN_LABEL;
-	identifier[IDX_TXTR_UI_WIN_TROPHY] = ID_TEXTURE_UI_WIN_TROPHY;
-	identifier[IDX_TXTR_UI_WIN_BTN_OFF] = ID_TEXTURE_UI_WIN_BTN_OFF;
-	identifier[IDX_TXTR_UI_WIN_BTN_ON] = ID_TEXTURE_UI_WIN_BTN_ON;
+	identifier[IDX_TXTR_SPRITE] = ID_TEXTURE_SPRITE;	
 }
 
 static void	init_simple_enemies_identifier(char **identifier)
@@ -113,6 +98,5 @@ void	init_identifier(char **identifier)
 	init_enemies_identifier(identifier);
 	init_simple_enemies_identifier(identifier);
 	init_bullets_identifier(identifier);
-	init_weapons_identifier(identifier);
-	init_hud_identifier(identifier);
+	init_identifier2(identifier);
 }

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/02 16:53:32 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 09:32:18 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include "animation_bonus.h"
 
 # define NB_MAPS						3
-# define MAP0_PATH						"./assets/bonus/maps/map_final.cub"
-# define MAP1_PATH						"./assets/bonus/maps/map_island.cub"
+# define MAP0_PATH						"./assets/bonus/maps/map_rooms.cub"
+# define MAP1_PATH						"./assets/bonus/maps/map_rooms.cub"
 # define MAP2_PATH						"./assets/bonus/maps/map_rooms.cub"
 
 # define ID_MAP_WALL					'1'
@@ -50,16 +50,40 @@
 # define ID_TEXTURE_UI_PAUSE_BTNQ_OFF	"UI_PAUSE_BTN_QUIT_OFF"
 # define ID_TEXTURE_UI_PAUSE_BTNQ_ON	"UI_PAUSE_BTN_QUIT_ON"
 
-# define ID_TEXTURE_UI_GAMEOVER_BG		"UI_GAMEOVER_BG"
-# define ID_TEXTURE_UI_GAMEOVER_LABEL	"UI_GAMEOVER_LABEL"
-# define ID_TEXTURE_UI_GAMEOVER_BTN_OFF	"UI_GAMEOVER_BTN_QUIT_OFF"
-# define ID_TEXTURE_UI_GAMEOVER_BTN_ON	"UI_GAMEOVER_BTN_QUIT_ON"
+# define ID_TEXTURE_UI_GAMEOVER_BG			"UI_GAMEOVER_BG"
+# define ID_TEXTURE_UI_GAMEOVER_LABEL		"UI_GAMEOVER_LABEL"
+# define ID_TEXTURE_UI_GAMEOVER_BTN_OFF		"UI_GAMEOVER_BTN_QUIT_OFF"
+# define ID_TEXTURE_UI_GAMEOVER_BTN_ON		"UI_GAMEOVER_BTN_QUIT_ON"
+# define ID_TEXTURE_UI_GAMEOVER_BTN2_OFF	"UI_GAMEOVER_BTN_RESTART_OFF"
+# define ID_TEXTURE_UI_GAMEOVER_BTN2_ON		"UI_GAMEOVER_BTN_RESTART_ON"
 
 # define ID_TEXTURE_UI_WIN_BG			"UI_WIN_BG"
 # define ID_TEXTURE_UI_WIN_LABEL		"UI_WIN_LABEL"
 # define ID_TEXTURE_UI_WIN_TROPHY		"UI_WIN_TROPHY"
 # define ID_TEXTURE_UI_WIN_BTN_OFF		"UI_WIN_BTN_QUIT_OFF"
 # define ID_TEXTURE_UI_WIN_BTN_ON		"UI_WIN_BTN_QUIT_ON"
+
+# define ID_TEXTURE_UI_HOME_BG			"UI_HOME_BG"
+# define ID_TEXTURE_UI_HOME_LBL			"UI_HOME_LABEL"
+# define ID_TEXTURE_UI_HOME_BTN1_OFF	"UI_HOME_BTN_PLAY_OFF"
+# define ID_TEXTURE_UI_HOME_BTN1_ON		"UI_HOME_BTN_PLAY_ON"
+# define ID_TEXTURE_UI_HOME_BTN2_OFF	"UI_HOME_BTN_QUIT_OFF"
+# define ID_TEXTURE_UI_HOME_BTN2_ON		"UI_HOME_BTN_QUIT_ON"
+
+# define ID_TEXTURE_UI_LVL_BG			"UI_LVL_BG"
+# define ID_TEXTURE_UI_LVL_LBL			"UI_LVL_LABEL"
+# define ID_TEXTURE_UI_LVL_BTN1_OFF		"UI_LVL_BTN_LVL1_OFF"
+# define ID_TEXTURE_UI_LVL_BTN1_ON		"UI_LVL_BTN_LVL1_ON"
+# define ID_TEXTURE_UI_LVL_BTN2_OFF		"UI_LVL_BTN_LVL2_OFF"
+# define ID_TEXTURE_UI_LVL_BTN2_ON		"UI_LVL_BTN_LVL2_ON"
+# define ID_TEXTURE_UI_LVL_BTN3_OFF		"UI_LVL_BTN_LVL3_OFF"
+# define ID_TEXTURE_UI_LVL_BTN3_ON		"UI_LVL_BTN_LVL3_ON"
+# define ID_TEXTURE_UI_LVL_BTN4_OFF		"UI_LVL_BTN_LVL4_OFF"
+# define ID_TEXTURE_UI_LVL_BTN4_ON		"UI_LVL_BTN_LVL4_ON"
+# define ID_TEXTURE_UI_LVL_BTN5_OFF		"UI_LVL_BTN_LVL5_OFF"
+# define ID_TEXTURE_UI_LVL_BTN5_ON		"UI_LVL_BTN_LVL5_ON"
+# define ID_TEXTURE_UI_LVL_BTN_PREV_OFF	"UI_LVL_BTN_PREV_OFF"
+# define ID_TEXTURE_UI_LVL_BTN_PREV_ON	"UI_LVL_BTN_PREV_ON"
 
 # define ID_TEXTURE_DEMON_WALK			"DEMON_WALK"
 # define ID_TEXTURE_DEMON_PAIN			"DEMON_PAIN"
@@ -233,12 +257,36 @@
 # define IDX_TXTR_UI_GAMEOVER_LABEL		88
 # define IDX_TXTR_UI_GAMEOVER_BTN_OFF	89
 # define IDX_TXTR_UI_GAMEOVER_BTN_ON	90
+# define IDX_TXTR_UI_GAMEOVER_BTN2_OFF	91	
+# define IDX_TXTR_UI_GAMEOVER_BTN2_ON	92
 
-# define IDX_TXTR_UI_WIN_BG				91
-# define IDX_TXTR_UI_WIN_LABEL			92
-# define IDX_TXTR_UI_WIN_TROPHY			93
-# define IDX_TXTR_UI_WIN_BTN_OFF		94
-# define IDX_TXTR_UI_WIN_BTN_ON			95
+# define IDX_TXTR_UI_WIN_BG				93
+# define IDX_TXTR_UI_WIN_LABEL			94
+# define IDX_TXTR_UI_WIN_TROPHY			95
+# define IDX_TXTR_UI_WIN_BTN_OFF		96
+# define IDX_TXTR_UI_WIN_BTN_ON			97
+
+# define IDX_TXTR_UI_HOME_BG			98
+# define IDX_TXTR_UI_HOME_LBL			99
+# define IDX_TXTR_UI_HOME_BTN1_OFF		100
+# define IDX_TXTR_UI_HOME_BTN1_ON		101
+# define IDX_TXTR_UI_HOME_BTN2_OFF		102
+# define IDX_TXTR_UI_HOME_BTN2_ON		103
+
+# define IDX_TXTR_UI_LVL_BG				104
+# define IDX_TXTR_UI_LVL_LBL			105
+# define IDX_TXTR_UI_LVL_BTN1_OFF		106
+# define IDX_TXTR_UI_LVL_BTN1_ON		107
+# define IDX_TXTR_UI_LVL_BTN2_OFF		108
+# define IDX_TXTR_UI_LVL_BTN2_ON		109
+# define IDX_TXTR_UI_LVL_BTN3_OFF		110
+# define IDX_TXTR_UI_LVL_BTN3_ON		111
+# define IDX_TXTR_UI_LVL_BTN4_OFF		112
+# define IDX_TXTR_UI_LVL_BTN4_ON		113
+# define IDX_TXTR_UI_LVL_BTN5_OFF		114
+# define IDX_TXTR_UI_LVL_BTN5_ON		115
+# define IDX_TXTR_UI_LVL_BTN_PREV_OFF	116
+# define IDX_TXTR_UI_LVL_BTN_PREV_ON	117
 
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
@@ -254,7 +302,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
-# define MAP_NB_IDS						96
+# define MAP_NB_IDS						118
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
@@ -317,8 +365,7 @@ bool	get_elem_into_list(t_game *game, t_list **dest, char *ids,
 			void *add_elem(t_game *, float, float, char));
 void	update_map(t_map *map, t_game *game);
 void	init_identifier(char **identifier);
-void	init_weapons_identifier(char **identifier);
-void	init_hud_identifier(char **identifier);
+void	init_identifier2(char **identifier);
 
 // Draw map functions
 void	draw_map(t_map_draw *map_draw, t_map *map, t_game *game);
