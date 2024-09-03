@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/03 08:39:51 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/03 09:16:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@
 # define MANC_HEALTH_POINT				15
 # define MANC_CLOSE_ATTACK_RANGE		1.5
 # define MANC_CLOSE_PAUSE				2
-# define MANC_RANGE_PAUSE				4
+# define MANC_RANGE_PAUSE				2
 # define MANC_CLOSE_DAMAGE				6
 # define MANC_RANGE_DAMAGE				5
 # define MANC_HEIGHT_RATIO				0.9
