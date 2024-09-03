@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/03 09:16:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/03 09:19:10 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@
 # define BOH_CLOSE_ATTACK_RANGE			1.5
 # define BOH_CLOSE_PAUSE				5
 # define BOH_RANGE_PAUSE				2
-# define BOH_CLOSE_DAMAGE				2
+# define BOH_CLOSE_DAMAGE				5
 # define BOH_RANGE_DAMAGE				4
 # define BOH_HEIGHT_RATIO				0.8
 # define BOH_RELOAD_PROBABILITY			0.8f
