@@ -49,7 +49,7 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start < WIN_HEIGHT)
 	{
-		distance = WIN_HEIGHT / 2 - PLAYER_HEIGHT_DIFF;
+		distance = WIN_HEIGHT / 2;
 		distance /= (column->real_ground_start - WIN_HEIGHT / 2);
 		distance /= ray->cos_angle_from_orientation;
 		get_pixel_position_in_tile(ray, &game->player.position,
@@ -71,7 +71,7 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start >= 0)
 	{
-		distance = WIN_HEIGHT / 2 - PLAYER_HEIGHT_DIFF;
+		distance = WIN_HEIGHT / 2;
 		distance /= (column->real_ceiling_start - WIN_HEIGHT / 2);
 		distance /= ray->cos_angle_from_orientation;
 		get_pixel_position_in_tile(ray, &game->player.position,
