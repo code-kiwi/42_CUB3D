@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:15 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/03 14:11:31 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:38:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int	mouse_move_handler(int x, int y, t_game *game)
 		mouse_move_gamewon_handler(x, y, game);
 	else if (game->state == STATE_PAUSE)
 		mouse_move_pause_handler(x, y, game);
+	else if (game->state == STATE_HOME)
+		mouse_move_home_handler(x, y, game);
+	else if (game->state == STATE_LEVEL_SELECTION)
+		mouse_move_level_selection_handler(x, y, game);
 	else
 	{
 		player = &game->player;

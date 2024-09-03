@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 10:52:16 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 13:55:16 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:53:03 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static bool	init_ui_lvl_btn6(
 	)
 		return (false);
 	btn->texture_active = btn->texture_off;
-	btn->callback = (void (*)(void *)) t_game_destroy_and_exit;
+	btn->callback = (void (*)(void *)) game_reach_home;
 	return (true);
 }
 

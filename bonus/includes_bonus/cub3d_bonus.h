@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 14:07:38 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:52:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,8 @@ void	t_game_destroy(t_game *game);
 void	t_game_destroy_and_exit(t_game *game);
 void	game_pause_switch(t_game *game);
 void	game_pause_close(t_game *game);
+void	game_reach_level_selection(t_game *game);
+void	game_reach_home(t_game *game);
 
 // Render functions
 bool	draw_walls(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 14:08:29 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:43:30 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,10 @@ int	game_loop(t_game *game)
 		game_win_handler(game, delta_time);
 	else if (game->state == STATE_PAUSE)
 		draw_ui(&game->ui_pause, game->mlx.img_buff);
+	else if (game->state == STATE_HOME)
+		draw_ui(&game->ui_home, game->mlx.img_buff);
+	else if (game->state == STATE_LEVEL_SELECTION)
+		draw_ui(&game->ui_level_selection, game->mlx.img_buff);
 	else
 		game_render(game, delta_time);
 	if (!t_mlx_render(&game->mlx))
