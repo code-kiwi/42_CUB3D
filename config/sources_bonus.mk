@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/03 10:58:06 by mhotting         ###   ########.fr        #
+#    Updated: 2024/09/03 13:55:27 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -152,6 +152,8 @@ UI_FILES_BONUS				=	ui_utils_bonus.c				\
 								init_ui_gameover_bonus.c		\
 								init_ui_win_bonus.c				\
 								init_ui_home_bonus.c			\
+								init_ui_lvl1_bonus.c			\
+								init_ui_lvl2_bonus.c			\
 								label_utils_bonus.c				\
 								button_utils_bonus.c
 UI_BONUS					=	$(addprefix $(UI_DIR_BONUS), $(UI_FILES_BONUS))

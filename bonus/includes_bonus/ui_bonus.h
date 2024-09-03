@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 10:59:22 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 13:54:20 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,17 @@
 # define UI_HOME_LBL_W_RATIO		0.39f
 # define UI_HOME_LBL_H_RATIO		0.31f
 # define UI_HOME_NB_BTN				2
-# define UI_HOME_BTN_W_RATIO		0.21f	
+# define UI_HOME_BTN_W_RATIO		0.21f
 # define UI_HOME_BTN_H_RATIO		0.0925f
+
+# define UI_LVL_W_RATIO				1.0f
+# define UI_LVL_H_RATIO				1.0f
+# define UI_LVL_NB_LBL				1
+# define UI_LVL_LBL_W_RATIO			0.414f
+# define UI_LVL_LBL_H_RATIO			0.1435f
+# define UI_LVL_NB_BTN				6
+# define UI_LVL_BTN_W_RATIO			0.21f
+# define UI_LVL_BTN_H_RATIO			0.0925f
 
 typedef struct s_game		t_game;
 typedef struct s_ui			t_ui;
@@ -102,6 +111,17 @@ bool	init_ui_gameover(t_ui *ui_gameover, void *mlx_ptr, \
 bool	init_ui_win(t_ui *ui_win, void *mlx_ptr, t_animation anim[MAP_NB_IDS]);
 bool	init_ui_home(t_ui *ui_home, void *mlx_ptr, \
 			t_animation anim[MAP_NB_IDS]);
+bool	init_ui_lvl(t_ui *ui_lvl, void *mlx_ptr, t_animation anim[MAP_NB_IDS]);
+bool	init_ui_lvl_btn1(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
+	t_animation anim[MAP_NB_IDS]);
+bool	init_ui_lvl_btn2(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
+	t_animation anim[MAP_NB_IDS]);
+bool	init_ui_lvl_btn3(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
+	t_animation anim[MAP_NB_IDS]);
+bool	init_ui_lvl_btn4(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
+	t_animation anim[MAP_NB_IDS]);
+bool	init_ui_lvl_btn5(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
+	t_animation anim[MAP_NB_IDS]);
 void	disable_buttons_ui(t_ui *ui);
 
 // label functions

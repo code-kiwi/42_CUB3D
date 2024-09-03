@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/09/03 09:33:26 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 13:57:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	init_world_identifier(char **identifier)
 	identifier[IDX_TXTR_FLOOR] = ID_TEXTURE_FLOOR;
 	identifier[IDX_TXTR_CEIL] = ID_TEXTURE_CEILING;
 	identifier[IDX_TXTR_DOOR] = ID_TEXTURE_DOOR;
-	identifier[IDX_TXTR_SPRITE] = ID_TEXTURE_SPRITE;	
+	identifier[IDX_TXTR_SPRITE] = ID_TEXTURE_SPRITE;
 }
 
 static void	init_simple_enemies_identifier(char **identifier)
