@@ -17,7 +17,7 @@
 #include "libft.h"
 #include "door_bonus.h"
 
-# define PLAYER_HEIGHT WIN_HEIGHT / 4
+# define PLAYER_HEIGHT_DIFF WIN_HEIGHT / 5
 
 static t_image	*get_texture(t_animation anim[MAP_NB_IDS], t_ray *ray)
 {
@@ -65,6 +65,8 @@ static float	range(float value)
 	return (value);
 }
 
+#include <stdio.h>
+
 static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
 	t_column	column;
@@ -76,7 +78,7 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	column.coords.x = column_index;
 	column.perceived_height = WIN_HEIGHT
 		/ (ray->length * ray->cos_angle_from_orientation);
-	player_height_offset = PLAYER_HEIGHT - PLAYER_HEIGHT * column.perceived_height / WIN_HEIGHT;
+	player_height_offset = PLAYER_HEIGHT_DIFF - PLAYER_HEIGHT_DIFF * column.perceived_height / WIN_HEIGHT;
 	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2) + offset + player_height_offset;
 	column.end = range((WIN_HEIGHT + column.perceived_height) / 2 + offset + player_height_offset);
 	column.coords.y = range(column.start);

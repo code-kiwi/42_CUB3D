@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/09/03 15:12:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/03 16:02:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "sprite_bonus.h"
 #include "cub3d_bonus.h"
 
-# define PLAYER_HEIGHT_DIFF WIN_HEIGHT / 4
+# define PLAYER_HEIGHT_DIFF WIN_HEIGHT / 5
 // # define PLAYER_HEIGHT_DIFF 0
 
 static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
