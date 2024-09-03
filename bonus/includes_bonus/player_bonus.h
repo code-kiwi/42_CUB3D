@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 15:15:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/03 22:01:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define PLAYER_INTERACTION_DISTANCE	1.5
 # define PLAYER_HEALTH_POINT			25
 # define PLAYER_RADIUS					0.3
+# define PLAYER_HEIGHT					0.25
 
 # define PLAYER_WEAPON_V_MOVE_UPDATE	0.02f
 # define PLAYER_WEAPON_H_MOVE_UPDATE	0.04f
@@ -38,7 +39,7 @@
 # define PLAYER_WEAPON_H_OFFSET_STEP	10
 # define PLAYER_WEAPON_H_OFFSET_MAX		50
 
-# define MAX_Y_ROTATION_RATIO			0.7
+# define MAX_Y_ROTATION_RATIO			2
 
 # define PLAYER_MIN_DIST_TO_WALL		0.05f
 
@@ -91,6 +92,7 @@ struct s_player
 	bool			is_walking;
 	bool			is_dead;
 	t_player_weapon	weapon_info;
+	int				camera_y_diff;
 };
 
 // t_player functions

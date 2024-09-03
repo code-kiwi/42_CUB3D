@@ -16,8 +16,6 @@
 #include "cub3d_bonus.h"
 #include "libft.h"
 
-# define PLAYER_HEIGHT_DIFF WIN_HEIGHT / 5
-
 static	void	get_pixel_position_in_tile(t_ray *ray,
 	t_vector *player_position, t_vector *result, float inv_dist)
 {
@@ -42,16 +40,19 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	*(unsigned int *)addr = color;
 }
 
-void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
+void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray, int diff)
 {
 	float		inv_distance;
 	float		inv_distance_unit;
 	t_vector	pixel_position;
 	char		*addr;
+	int			player_height_diff;
 
+	player_height_diff = game->player.camera_y_diff;
 	inv_distance = column->real_ground_start * ray->cos_angle_from_orientation
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
-	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 - PLAYER_HEIGHT_DIFF);
+	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 - player_height_diff);
+	inv_distance += diff * inv_distance_unit;
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start < WIN_HEIGHT)
 	{
@@ -65,16 +66,19 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	}
 }
 
-void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
+void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray, int diff)
 {
 	float		inv_distance;
 	float		inv_distance_unit;
 	t_vector	pixel_position;
 	char		*addr;
+	int			player_height_diff;
 
+	player_height_diff = game->player.camera_y_diff;
 	inv_distance = column->real_ceiling_start * ray->cos_angle_from_orientation
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
-	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 + PLAYER_HEIGHT_DIFF);
+	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 + player_height_diff);
+	inv_distance += diff * inv_distance_unit;
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start >= 0)
 	{
