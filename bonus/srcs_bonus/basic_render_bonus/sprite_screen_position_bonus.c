@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_screen_position_bonus.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/07/29 11:34:43 by root             ###   ########.fr       */
+/*   Updated: 2024/08/27 13:46:49 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
+
 #include "sprite_bonus.h"
 #include "cub3d_bonus.h"
-
-#include <math.h>
 
 static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
 {

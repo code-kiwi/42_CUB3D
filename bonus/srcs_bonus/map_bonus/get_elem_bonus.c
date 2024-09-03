@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_elem_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:22:06 by root              #+#    #+#             */
-/*   Updated: 2024/07/17 09:52:30 by root             ###   ########.fr       */
+/*   Updated: 2024/08/27 14:07:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "sprite_bonus.h"
 #include "libft.h"
 
 bool	get_elem_into_list(t_game *game, t_list **dest, char *ids,

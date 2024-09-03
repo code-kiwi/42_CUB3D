@@ -3,21 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/07/28 22:29:19 by root             ###   ########.fr       */
+/*   Updated: 2024/08/27 13:45:23 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-
 #include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
-#include "player_bonus.h"
-#include "vector_bonus.h"
 #include "sprite_bonus.h"
-#include "libft.h"
 
 static void	draw_all_columns(
 	t_column *column,

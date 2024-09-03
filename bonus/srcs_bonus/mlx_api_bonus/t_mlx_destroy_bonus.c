@@ -3,16 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_destroy_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:36:36 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/17 19:48:30 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:17:49 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-#include "mlx_api_bonus.h"
 #include "mlx.h"
 #include "cub3d_bonus.h"
 
@@ -36,6 +33,7 @@ void	t_mlx_destroy(t_mlx *mlx)
 	{
 		mlx_destroy_display(mlx->mlx_ptr);
 		free(mlx->mlx_ptr);
+		mlx->mlx_ptr = NULL;
 	}
 	free(mlx->title);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/18 18:18:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/26 22:03:31 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void	update_position(t_player *player, t_map *map)
 	index = 0;
 	while (index < 4)
 	{
-		if (player->is_walking[index] != false
-			&& player->is_walking[(index + 2) % 4] == false)
+		if (player->walk_direction[index] != false
+			&& player->walk_direction[(index + 2) % 4] == false)
 		{
 			save_position = player->position;
 			new_angle = player->orientation + index * PI / 2;

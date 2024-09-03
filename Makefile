@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 10:35:12 by mhotting          #+#    #+#              #
-#    Updated: 2024/07/19 10:59:04 by mhotting         ###   ########.fr        #
+#    Updated: 2024/08/26 10:49:28 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,10 +48,10 @@ $(MLX): init_submodule FORCE
 
 FORCE:
 
-fsanitize: fclean $(LIBFT) $(OBJS)
+fsanitize: fclean $(LIBFT) $(MLX) $(OBJS)
 	$(CC) $(CFLAGS) $(HFLAGS) $(FSFLAGS) $(OBJS) $(LIBFT_FLAGS) $(MLX_FLAGS) $(EXT_LIB_FLAGS) -o $(NAME)
 
-fsanitize-bonus: fclean $(LIBFT) $(OBJS_BONUS)
+fsanitize-bonus: fclean $(LIBFT) $(MLX) $(OBJS_BONUS)
 	$(CC) $(CFLAGS) $(HFLAGS_BONUS) $(FSFLAGS) $(OBJS_BONUS) $(LIBFT_FLAGS) $(MLX_FLAGS) $(EXT_LIB_FLAGS) -o $(NAME_BONUS)
 
 init_submodule:

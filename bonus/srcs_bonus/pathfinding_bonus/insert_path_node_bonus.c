@@ -6,13 +6,16 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:31:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/27 10:48:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:16:21 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "pathfinding_bonus.h"
 
+/**
+ * @brief Compare a and by by "a" (see pathfinding_bonus.c), or, if they'r
+ * @brief equals, "de".
+ */
 static int	compare_path_node(t_stack_path *a, t_stack_path *b)
 {
 	int	total_cost_diff;
@@ -23,6 +26,9 @@ static int	compare_path_node(t_stack_path *a, t_stack_path *b)
 	return (total_cost_diff);
 }
 
+/**
+ * @brief Insert the node new_node into stack, sorted.
+ */
 void	insert_path_node(t_stack_path **stack, t_stack_path *new_node)
 {
 	t_stack_path	*current;

@@ -6,12 +6,9 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:38:35 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/10 11:09:33 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:13:57 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdbool.h>
-#include <stdlib.h>
 
 #include "cub3d_bonus.h"
 #include "mlx.h"

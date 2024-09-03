@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_get_damage_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:10:51 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/16 14:31:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/26 12:19:39 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,8 @@ void	player_get_damage(t_game *game, size_t damage)
 	if (player->health_point > damage)
 		player->health_point -= damage;
 	else
-		t_game_destroy_and_exit(game);
+	{
+		player->health_point = 0;
+		player->is_dead = true;
+	}
 }

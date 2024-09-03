@@ -6,12 +6,9 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 15:21:14 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/18 10:06:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:36:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdbool.h>
-#include <stdlib.h>
 
 #include "libft.h"
 

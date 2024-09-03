@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:52:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/22 11:13:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:24:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	error_print_string(char *err_msg, char *str)
 {
 	if (err_msg == NULL || str == NULL)
 		return ;
-	ft_dprintf(STDERR_FILENO, err_msg, str);
+	ft_dprintf(STDERR_FILENO, ERR_LITERALS_STR, err_msg, str);
 }
 
 /**

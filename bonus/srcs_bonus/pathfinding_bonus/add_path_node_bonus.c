@@ -6,11 +6,9 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/06/30 10:05:29 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 14:15:53 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <math.h>
 
 #include "cub3d_bonus.h"
 #include "pathfinding_bonus.h"
@@ -32,10 +30,13 @@ static size_t	get_start_distance(t_stack_path *previous, size_t distance)
 	return (previous->start_distance + distance);
 }
 
-static bool	update_existing_node(t_stack_path *new_node, size_t total_cost)
+static bool	update_existing_node(t_stack_path *new_node, size_t total_cost,
+	t_stack_path **stack)
 {
 	if (new_node->total_cost < total_cost)
 		return (true);
+	if (new_node == *stack)
+		*stack = new_node->next;
 	if (new_node->previous != NULL)
 		new_node->previous->next = new_node->next;
 	if (new_node->next != NULL)
@@ -55,6 +56,10 @@ static t_stack_path	*add_new_node(t_mlx_coords *position)
 	return (new_node);
 }
 
+/**
+ * @brief Add the node to the stack. If a node with the same positions exists, 
+ * @brief we replace it only if the new node has a better score.
+ */
 bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 	t_stack_path *previous, size_t distance)
 {
@@ -70,7 +75,8 @@ bool	add_path_node(t_mlx_coords *position, t_pathfinding *pathfinding,
 	new_node = search_in_stack(pathfinding->stack, position);
 	if (new_node == NULL)
 		new_node = add_new_node(position);
-	else if (update_existing_node(new_node, start_distance + end_distance))
+	else if (update_existing_node(new_node, start_distance + end_distance,
+			&pathfinding->stack))
 		return (true);
 	if (new_node == NULL)
 		return (false);

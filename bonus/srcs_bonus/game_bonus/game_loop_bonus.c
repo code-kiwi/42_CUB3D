@@ -3,23 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/29 11:31:27 by root             ###   ########.fr       */
+/*   Updated: 2024/08/29 19:05:46 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-
-#include "cub3d_bonus.h"
-#include "mlx_api_bonus.h"
-#include "libft.h"
 #include "door_bonus.h"
-#include "sprite_bonus.h"
-#include "animation_bonus.h"
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
@@ -61,20 +52,57 @@ static void	game_render(t_game *game, float delta_time)
 	update_bullets(game, delta_time);
 	if (!update_animations(game, delta_time))
 		error_exit(game, NULL);
-	update_player(&game->player, &game->map, delta_time, game->entities);
+	update_player(game, delta_time);
 	update_doors(game, delta_time);
 	update_map(&game->map, game);
 	if (!is_in_bounds(&game->player.position, &game->map))
 		error_exit(game, ERR_PLAYER_QUIT_MAP);
-	if (!cast_rays(game))
-		error_exit(game, ERR_CAST_RAYS);
+	cast_rays(game);
 	draw_walls(game);
 	render_all_sprites(game);
-	draw_player(game);
+	draw_player(game, &game->player.weapon_info);
+	draw_hud(game, &game->hud);
 	if (game->map_opened)
 		draw_map(&game->map.draw, &game->map, game);
 	else
 		draw_radar(game, &game->radar, &game->mlx);
+}
+
+static void	game_over_handler(t_game *game)
+{
+	if (!game->game_over)
+	{
+		game->game_over = true;
+		draw_hud(game, &game->hud);
+		t_mlx_mouse_show(&game->mlx, &game->mouse_hidden);
+		t_mlx_sync_images(&game->mlx);
+	}
+	if (game->game_end_loop_count < GAMEOVER_DARKNESS_LOOP)
+	{
+		game->game_end_loop_count++;
+		t_image_multiply_each_px(game->mlx.img_buff, GAMEOVER_DARKNESS);
+	}
+	draw_ui(&game->ui_game_over, game->mlx.img_buff);
+}
+
+static void	game_win_handler(t_game *game, float delta_time)
+{
+	if (!game->game_won)
+	{
+		game->game_won = true;
+		ft_lstclear(&game->sprites, free);
+		game_render(game, delta_time);
+		draw_hud(game, &game->hud);
+		t_mlx_mouse_show(&game->mlx, &game->mouse_hidden);
+		t_mlx_sync_images(&game->mlx);
+	}
+	if (game->game_end_loop_count < GAMEWON_BRIGHT_LOOP)
+	{
+		game->game_end_loop_count++;
+		t_image_multiply_each_px(game->mlx.img_buff, GAMEWON_BRIGHTNESS);
+	}
+	t_mlx_sync_images(&game->mlx);
+	draw_ui(&game->ui_win, game->mlx.img_buff);
 }
 
 int	game_loop(t_game *game)
@@ -84,13 +112,17 @@ int	game_loop(t_game *game)
 	delta_time = 0.1f;
 	if (game == NULL)
 		error_exit(game, ERR_GAME_LOOP);
-	game_loop_handle_fps(game, &delta_time);
-	if (!game->pause)
-		game_render(game, delta_time);
-	else
+	if (!game_loop_handle_fps(game, &delta_time))
+		error_exit(game, ERR_FPS);
+	if (game->player.is_dead)
+		game_over_handler(game);
+	else if (game->entities == NULL)
+		game_win_handler(game, delta_time);
+	else if (game->pause)
 		draw_ui(&game->ui_pause, game->mlx.img_buff);
+	else
+		game_render(game, delta_time);
 	if (!t_mlx_render(&game->mlx))
 		error_exit(game, ERR_RENDER);
-	printf("fps : %d\n", (int)(1.0f / delta_time));
 	return (0);
 }

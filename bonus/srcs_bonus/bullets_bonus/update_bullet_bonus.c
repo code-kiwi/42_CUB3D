@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_bullet_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:17:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/23 11:22:08 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/29 18:12:29 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,22 @@
 static void	update_bullet(t_game *game, t_bullet *bullet, float delta_time)
 {
 	t_vector	realtime_move;
-	t_vector	*sprite_pos;
 
 	if (game == NULL || bullet == NULL || bullet->sprite == NULL)
 		return ;
-	realtime_move.x = bullet->move.x * delta_time * BULLET_SPEED;
-	realtime_move.y = bullet->move.y * delta_time * BULLET_SPEED;
-	sprite_pos = &bullet->sprite->position;
-	if ((!move_entity(game->entities, sprite_pos, &realtime_move, &game->map)
-			|| bullet->sprite->distance < PLAYER_RADIUS)
-		&& bullet->use != NULL)
-	{
+	realtime_move.x = bullet->move.x * delta_time * bullet->speed;
+	realtime_move.y = bullet->move.y * delta_time * bullet->speed;
+	if (
+		bullet->use != NULL
+		&& (
+			!move_bullet(game->entities, bullet, &realtime_move, &game->map)
+			|| (
+				!bullet->player_protected
+				&& bullet->sprite->distance < PLAYER_RADIUS
+			)
+		)
+	)
 		bullet->use(game, bullet);
-	}
 }
 
 void	update_bullets(t_game *game, float delta_time)

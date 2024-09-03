@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
-#include "sprite_bonus.h"
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
@@ -19,8 +17,6 @@ bool	sergeant_update(t_game *game, t_entity *entity, float delta_time)
 {
 	t_sprite	*sprite;
 
-	if (entity->cooldown > 0)
-		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
 	sprite->animate = true;
 	if (!entity->see_player)
@@ -47,14 +43,17 @@ void	sergeant_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->pain = &animation[IDX_TXTR_SERGEANT_PAIN];
 	entity->death = &animation[IDX_TXTR_SERGEANT_DEATH];
 	entity->close_attack = NULL;
-	entity->range_attack = &animation[IDX_TXTR_COMMANDO_ATTACK];
+	entity->range_attack = &animation[IDX_TXTR_SERGEANT_ATTACK];
 	entity->bullet_init = imp_proj_init;
 	entity->health_point = SERGEANT_HEALTH_POINT;
 	entity->speed = SERGEANT_SPEED;
 	entity->squared_radius = SERGEANT_SQUARED_RADIUS;
+	entity->bullet_sensibility_radius = SERGEANT_SENSIBILITY_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_SERGEANT_WALK],
 		WIN_HEIGHT);
 	entity->sprite->on_ground = true;
 	entity->sprite->height = WIN_HEIGHT * SERGEANT_HEIGHT_RATIO;
+	entity->reload_probability = SERGEANT_RELOAD_PROBABILITY;
+	entity->reload_ratio = SERGEANT_RELOAD_RATIO;
 }

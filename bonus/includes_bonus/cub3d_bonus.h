@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/28 22:29:18 by root             ###   ########.fr       */
+/*   Updated: 2024/08/31 22:34:25 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,15 @@
 # include "ui_bonus.h"
 # include "animation_bonus.h"
 # include "radar_bonus.h"
+# include "weapons_bonus.h"
+# include "hud_bonus.h"
 
 # define PI						3.14159265358
 # define FPS					100
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				960
-# define WIN_HEIGHT				500
+# define WIN_WIDTH				1920
+# define WIN_HEIGHT				1080
 # define MAX_DISTANCE			10
 # define PAUSE_BG_DARK_FACTOR	0.4f
 
@@ -40,6 +42,7 @@
 
 # define ERR_BASIC				"Error\n"
 # define ERR_LITERALS			"Error\n%s\n"
+# define ERR_LITERALS_STR		"Error\n%s %s\n"
 # define ERR_ARG				"Bad argument given to the function"
 # define ERR_PROG_ARGS			"Bad arguments, expected one argument"
 # define ERR_GAME_INIT			"Impossible to intialize the t_game structure"
@@ -49,9 +52,11 @@
 # define ERR_RENDER				"Rendering error"
 # define ERR_CAST_RAYS			"Ran in a wall"
 
+# define ERR_FPS				"Error calculating fps"
+# define INVALID_DOOR			"Door should be between two walls."
 # define ERR_WALLS				"Map not surrounded by walls"
 # define ERR_ELEM				"Map elements not valid"
-# define ERR_IDENTIFIER			"Map unknown identifier : %s"
+# define ERR_IDENTIFIER			"Map unknown identifier"
 # define ERR_EMPTY_LINE			"Empty line in the map content"
 # define ERR_MAP_EXTENSION		"Bad map extension, expected '.cub'"
 # define ERR_MULTIPLE_PLAYERS	"Multiple players on the map"
@@ -61,7 +66,7 @@
 # define ERR_PLAYER_QUIT_MAP	"Player out of bounds of the map"
 # define ERR_MAP_OPEN			"Impossible to open the given map file"
 # define ERR_MAP_CONTENT		"Reading failed, check the map content"
-# define ERR_MISSING_TEXTURES	"Missing texture : %s"
+# define ERR_MISSING_TEXTURES	"Missing texture"
 # define ERR_MAP_READ			"Map: read failed"
 # define ERR_BAD_SIZE			"Wrong or missing texture size"
 # define ERR_SIZE_TOO_BIG		"Size too big, max 4 characters"
@@ -70,17 +75,29 @@
 # define ERR_RADAR_CREATION		"Radar creation failed"
 # define ERR_MAP_DRAW_CREATION	"Map drawing cannot be created"
 # define ERR_MAP_DRAW_SIZE		"Map drawing cannot be initialized: map too big"
+# define ERR_WEAPONS_CREATION	"Weapons creation failed"
+# define ERR_WEAPONS_RESIZE		"Weapon resizing failed"
+# define ERR_P_WEAPONS_CREATION	"Player weapons creation failed"
+# define ERR_ENTITY_CREATION	"Impossible to create the entity list"
+# define ERR_TOO_MUCH_ENTITIES	"The map contains too much entities"
 
-# define ERR_INIT_TEXTURES		"Can't open texture : %s"
-# define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm' : %s"
+# define ERR_INIT_TEXTURES		"Can't open texture"
+# define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
 # define ERR_MISSING_COMPONENT	"Missing element component"
-# define ERR_TEXTURE_SIZE		"Wrong texture size : %s"
+# define ERR_TEXTURE_SIZE		"Wrong texture size"
 
 # define ERR_RECTANGLE			"You tried to draw an invalid rectangle"
 
 # define ERR_BAD_ANIM_TIME		"The animation wait time is not a number"	
 # define ERR_ANIM_TIME_TOO_BIG	"The animation wait time is too big"
 # define ERR_ANIM_TIME_NEGATIVE	"The animation wait time is negative"
+
+# define GAMEOVER_DARKNESS		0.999999f
+# define GAMEOVER_DARKNESS_LOOP	1000
+# define GAMEWON_BRIGHTNESS		1.025f
+# define GAMEWON_BRIGHT_LOOP	1000
+
+# define NB_MAX_ENTITIES		100
 
 typedef struct s_game			t_game;
 typedef struct s_mlx			t_mlx;
@@ -105,11 +122,18 @@ struct s_game
 	t_list		*entities;
 	t_list		*bullets;
 	t_list		*last_entity_updated;
+	t_weapon	weapons[NB_TOT_WEAPONS];
 	bool		pause;
 	t_ui		ui_pause;
+	t_ui		ui_game_over;
+	t_ui		ui_win;
 	bool		mouse_hidden;
 	t_radar		radar;
 	bool		map_opened;
+	t_hud		hud;
+	bool		game_over;
+	int			game_end_loop_count;
+	bool		game_won;
 };
 
 struct	s_column
@@ -137,7 +161,6 @@ void	draw_walls(t_game *game);
 void	draw_texture_column(t_image *screen, t_column *column,
 			t_image *texture, float distance);
 void	render_all_sprites(t_game *game);
-void	draw_player(t_game *game);
 void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 			t_game *game, float scale);
 bool	is_sprite_aimed(t_sprite *sprite, int left_x);
@@ -152,14 +175,14 @@ size_t	array_length(void **array);
 int		sign(float value);
 ssize_t	find_str_in_array(char **array, char *str, size_t length);
 void	free_array(char **array, size_t length, bool free_container);
-void	print_str_array(char **array, size_t length);
 char	**create_str_array(size_t nb_row, size_t nb_col, char default_value);
 int		min(int a, int b);
+int		max_int(int a, int b);
+bool	get_random_bool(float probability);
 bool	is_number(char *str);
 void	remove_last_breakline(char *str);
 void	remove_last_spaces(char *str);
 void	skip_next_spaces(char **str);
-void	display_delta_time(void);
 long	get_tick(void);
 void	sort_list(t_list *lst, float compare(void *, void *));
 

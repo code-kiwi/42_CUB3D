@@ -11,9 +11,6 @@
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "animation_bonus.h"
-#include "libft.h"
-#include "sprite_bonus.h"
 #include "entities_bonus.h"
 
 static bool	update_sprite_anim(t_sprite *sprite, t_game *game)
@@ -47,6 +44,8 @@ bool	update_animations(t_game *game, float delta_time)
 	{
 		sprite = current->content;
 		current = current->next;
+		if (sprite->locked)
+			continue ;
 		sprite->frame_update_delta += delta_time;
 		if (sprite->animation
 			&& sprite->frame_update_delta >= sprite->animation->wait

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/24 10:27:12 by root             ###   ########.fr       */
+/*   Updated: 2024/08/29 23:49:39 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define ID_MAP_DOOR_OPENED				'O'
 
 # define IDS_MAP_SPRITE					"s"
-# define IDS_MAP_ENTITY					"dicblpyrmafo"
+# define IDS_MAP_ENTITY					"dicblpyrmof"
 # define ID_MAP_PLAYER					'P'
 # define ID_MAP_ENTITY					'e'
 
@@ -37,12 +37,25 @@
 # define ID_TEXTURE_CEILING				"C"
 # define ID_TEXTURE_DOOR				"D"
 # define ID_TEXTURE_SPRITE				"S"
+
 # define ID_TEXTURE_UI_PAUSE_BG			"UI_PAUSE_BG"
 # define ID_TEXTURE_UI_PAUSE_LABEL		"UI_PAUSE_LABEL"
 # define ID_TEXTURE_UI_PAUSE_BTNR_OFF	"UI_PAUSE_BTN_RESUME_OFF"
 # define ID_TEXTURE_UI_PAUSE_BTNR_ON	"UI_PAUSE_BTN_RESUME_ON"
 # define ID_TEXTURE_UI_PAUSE_BTNQ_OFF	"UI_PAUSE_BTN_QUIT_OFF"
 # define ID_TEXTURE_UI_PAUSE_BTNQ_ON	"UI_PAUSE_BTN_QUIT_ON"
+
+# define ID_TEXTURE_UI_GAMEOVER_BG		"UI_GAMEOVER_BG"
+# define ID_TEXTURE_UI_GAMEOVER_LABEL	"UI_GAMEOVER_LABEL"
+# define ID_TEXTURE_UI_GAMEOVER_BTN_OFF	"UI_GAMEOVER_BTN_QUIT_OFF"
+# define ID_TEXTURE_UI_GAMEOVER_BTN_ON	"UI_GAMEOVER_BTN_QUIT_ON"
+
+# define ID_TEXTURE_UI_WIN_BG			"UI_WIN_BG"
+# define ID_TEXTURE_UI_WIN_LABEL		"UI_WIN_LABEL"
+# define ID_TEXTURE_UI_WIN_TROPHY		"UI_WIN_TROPHY"
+# define ID_TEXTURE_UI_WIN_BTN_OFF		"UI_WIN_BTN_QUIT_OFF"
+# define ID_TEXTURE_UI_WIN_BTN_ON		"UI_WIN_BTN_QUIT_ON"
+
 # define ID_TEXTURE_DEMON_WALK			"DEMON_WALK"
 # define ID_TEXTURE_DEMON_PAIN			"DEMON_PAIN"
 # define ID_TEXTURE_DEMON_ATTACK		"DEMON_ATTACK"
@@ -87,11 +100,6 @@
 # define ID_TEXTURE_MANC_ATTACK			"MANC_ATTACK"
 # define ID_TEXTURE_MANC_DEATH			"MANC_DEATH"
 # define ID_TEXTURE_MANC_FIREBALL		"MANC_FIREBALL"
-# define ID_TEXTURE_ARCH_VILE_WALK		"ARCH_VILE_WALK"
-# define ID_TEXTURE_ARCH_VILE_PAIN		"ARCH_VILE_PAIN"
-# define ID_TEXTURE_ARCH_VILE_ATTACK	"ARCH_VILE_ATTACK"
-# define ID_TEXTURE_ARCH_VILE_DEATH		"ARCH_VILE_DEATH"
-# define ID_TEXTURE_ARCH_VILE_FLAMES	"ARCH_VILE_FLAMES"
 # define ID_TEXTURE_SERGEANT_WALK		"SERGEANT_WALK"
 # define ID_TEXTURE_SERGEANT_PAIN		"SERGEANT_PAIN"
 # define ID_TEXTURE_SERGEANT_ATTACK		"SERGEANT_ATTACK"
@@ -102,6 +110,28 @@
 # define ID_TEXTURE_COMMANDO_DEATH		"COMMANDO_DEATH"
 # define ID_TEXTURE_REV_PROJ_LIVE		"REV_PROJECTILE_LIVE"
 # define ID_TEXTURE_REV_PROJ_DEATH		"REV_PROJECTILE_DEATH"
+
+# define ID_TEXTURE_TARGET1				"W_TARGET1"
+# define ID_TEXTURE_W1_HAND				"W1_HAND"
+# define ID_TEXTURE_W1_PUNCH			"W1_PUNCH"
+# define ID_TEXTURE_W2_PISTOL			"W2_PISTOL"
+# define ID_TEXTURE_W3_CHAINGUN			"W3_CHAINGUN"
+# define ID_TEXTURE_W4_BF_GUN			"W4_BF_GUN"
+# define ID_TEXTURE_W5_PLASMA			"W5_PLASMA"
+# define ID_TEXTURE_W6_SHOTGUN			"W6_SHOTGUN"
+# define ID_TEXTURE_W7_ROCKET			"W7_ROCKET"
+# define ID_TEXTURE_W8_CHAINSAW			"W8_CHAINSAW"
+
+# define ID_TEXTURE_W_BUL_BASIC_LIVE	"W_BULLET_BASIC_LIVE"
+# define ID_TEXTURE_W_BUL_BASIC_DEATH	"W_BULLET_BASIC_DEATH"
+# define ID_TEXTURE_W_BUL_ROCKET_LIVE	"W_BULLET_ROCKET_LIVE"
+# define ID_TEXTURE_W_BUL_ROCKET_DEATH	"W_BULLET_ROCKET_DEATH"
+# define ID_TEXTURE_W_BUL_PLASMA_LIVE	"W_BULLET_PLASMA_LIVE"
+# define ID_TEXTURE_W_BUL_PLASMA_DEATH	"W_BULLET_PLASMA_DEATH"
+
+# define ID_TEXTURE_HUD_BG				"HUD_BG"
+# define ID_TEXTURE_HUD_HEALTH_LBL		"HUD_HEALTH_LBL"
+# define ID_TEXTURE_HUD_WEAPON_LBL		"HUD_WEAPON_LBL"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -161,21 +191,49 @@
 # define IDX_TXTR_MANC_ATTACK			55
 # define IDX_TXTR_MANC_DEATH			56
 # define IDX_TXTR_MANC_FIREBALL			57
-# define IDX_TXTR_ARCH_VILE_WALK		58
-# define IDX_TXTR_ARCH_VILE_PAIN		59
-# define IDX_TXTR_ARCH_VILE_ATTACK		60
-# define IDX_TXTR_ARCH_VILE_DEATH		61
-# define IDX_TXTR_ARCH_VILE_FLAMES		62
-# define IDX_TXTR_SERGEANT_WALK			63
-# define IDX_TXTR_SERGEANT_PAIN			64
-# define IDX_TXTR_SERGEANT_ATTACK		65
-# define IDX_TXTR_SERGEANT_DEATH		66
-# define IDX_TXTR_COMMANDO_WALK			67
-# define IDX_TXTR_COMMANDO_PAIN			68
-# define IDX_TXTR_COMMANDO_ATTACK		69
-# define IDX_TXTR_COMMANDO_DEATH		70
-# define IDX_TXTR_REV_PROJ_LIVE			71
-# define IDX_TXTR_REV_PROJ_DEATH		72
+# define IDX_TXTR_SERGEANT_WALK			58
+# define IDX_TXTR_SERGEANT_PAIN			59
+# define IDX_TXTR_SERGEANT_ATTACK		60
+# define IDX_TXTR_SERGEANT_DEATH		61
+# define IDX_TXTR_COMMANDO_WALK			62
+# define IDX_TXTR_COMMANDO_PAIN			63
+# define IDX_TXTR_COMMANDO_ATTACK		64
+# define IDX_TXTR_COMMANDO_DEATH		65
+# define IDX_TXTR_REV_PROJ_LIVE			66
+# define IDX_TXTR_REV_PROJ_DEATH		67
+
+# define IDX_TXTR_TARGET1				68
+# define IDX_TXTR_W1_HAND				69
+# define IDX_TXTR_W1_PUNCH				70
+# define IDX_TXTR_W2_PISTOL				71
+# define IDX_TXTR_W3_CHAINGUN			72
+# define IDX_TXTR_W4_BF_GUN				73
+# define IDX_TXTR_W5_PLASMA				74
+# define IDX_TXTR_W6_SHOTGUN			75
+# define IDX_TXTR_W7_ROCKET				76
+# define IDX_TXTR_W8_CHAINSAW			77
+
+# define IDX_TXTR_W_BUL_BASIC_LIVE		78
+# define IDX_TXTR_W_BUL_BASIC_DEATH		79
+# define IDX_TXTR_W_BUL_ROCKET_LIVE		80
+# define IDX_TXTR_W_BUL_ROCKET_DEATH	81
+# define IDX_TXTR_W_BUL_PLASMA_LIVE		82
+# define IDX_TXTR_W_BUL_PLASMA_DEATH	83
+
+# define IDX_TXTR_HUD_BG				84
+# define IDX_TXTR_HUD_HEALTH_LBL		85
+# define IDX_TXTR_HUD_WEAPON_LBL		86
+
+# define IDX_TXTR_UI_GAMEOVER_BG		87
+# define IDX_TXTR_UI_GAMEOVER_LABEL		88
+# define IDX_TXTR_UI_GAMEOVER_BTN_OFF	89
+# define IDX_TXTR_UI_GAMEOVER_BTN_ON	90
+
+# define IDX_TXTR_UI_WIN_BG				91
+# define IDX_TXTR_UI_WIN_LABEL			92
+# define IDX_TXTR_UI_WIN_TROPHY			93
+# define IDX_TXTR_UI_WIN_BTN_OFF		94
+# define IDX_TXTR_UI_WIN_BTN_ON			95
 
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
@@ -186,18 +244,17 @@
 # define ID_MAP_CYBER					'y'
 # define ID_MAP_REV						'r'
 # define ID_MAP_MANC					'm'
-# define ID_MAP_ARCH_VILE				'a'
 # define ID_MAP_COMMANDO				'o'
 # define ID_MAP_SERGEANT				'f'
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
-# define MAP_NB_IDS						73
+# define MAP_NB_IDS						96
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 
 # define MAP_BG_DARK_FACTOR				0.6f
-# define MAP_DRAW_SIZE_RATIO			0.90f
+# define MAP_DRAW_SIZE_RATIO			0.95f
 # define MAP_DRAW_ELT_MAX_RADIUS		8
 # define MAP_DRAW_MIN_TILE_SIZE			2
 # define MAP_DRAW_COL_BG				0x002801
@@ -254,6 +311,8 @@ bool	get_elem_into_list(t_game *game, t_list **dest, char *ids,
 			void *add_elem(t_game *, float, float, char));
 void	update_map(t_map *map, t_game *game);
 void	init_identifier(char **identifier);
+void	init_weapons_identifier(char **identifier);
+void	init_hud_identifier(char **identifier);
 
 // Draw map functions
 void	draw_map(t_map_draw *map_draw, t_map *map, t_game *game);

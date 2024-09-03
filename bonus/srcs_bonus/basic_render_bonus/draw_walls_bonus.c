@@ -6,14 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/07/31 12:20:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/03 10:12:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <math.h>
 
-#include "cub3d_bonus.h"
 #include "libft.h"
 #include "door_bonus.h"
 
@@ -28,14 +26,14 @@ static t_image	*get_texture(t_animation anim[MAP_NB_IDS], t_ray *ray)
 		if (ray->slope.x > 0)
 			return (anim[IDX_TXTR_E].textures->content);
 		else
-			return (anim[IDX_TXTR_S].textures->content);
+			return (anim[IDX_TXTR_W].textures->content);
 	}
 	else
 	{
 		if (ray->slope.y > 0)
-			return (anim[IDX_TXTR_W].textures->content);
-		else
 			return (anim[IDX_TXTR_N].textures->content);
+		else
+			return (anim[IDX_TXTR_S].textures->content);
 	}
 }
 
