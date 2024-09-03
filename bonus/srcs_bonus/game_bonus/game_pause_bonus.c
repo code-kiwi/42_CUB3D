@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_pause_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 07:19:29 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/27 14:02:20 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/03 14:09:49 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@ void	game_pause_switch(t_game *game)
 {
 	if (game == NULL)
 		return ;
-	game->pause = !game->pause;
-	if (game->pause)
+	if (game->state == STATE_PAUSE)
+		game->state = STATE_PLAYING;
+	else
+		game->state = STATE_PAUSE;
+	if (game->state == STATE_PAUSE)
 	{
 		t_image_multiply_each_px(game->mlx.img_buff, PAUSE_BG_DARK_FACTOR);
 		t_mlx_mouse_show(&game->mlx, &game->mouse_hidden);
@@ -31,7 +34,7 @@ void	game_pause_close(t_game *game)
 {
 	if (game == NULL)
 		return ;
-	game->pause = false;
+	game->state = STATE_PLAYING;
 	disable_buttons_ui(&game->ui_pause);
 	t_mlx_mouse_hide(&game->mlx, &game->mouse_hidden);
 }

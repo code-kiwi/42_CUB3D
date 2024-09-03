@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 13:29:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:07:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,11 +123,12 @@ struct s_draw_thread_arg
 
 enum e_game_state
 {
-	GAMEOVER,
-	GAMEWIN,
-	HOME,
-	LEVEL_SELECTION,
-	PLAYING,
+	STATE_GAMEOVER,
+	STATE_GAMEWIN,
+	STATE_HOME,
+	STATE_LEVEL_SELECTION,
+	STATE_PLAYING,
+	STATE_PAUSE,
 };
 
 struct s_game
@@ -150,7 +151,6 @@ struct s_game
 	t_list				*bullets;
 	t_list				*last_entity_updated;
 	t_weapon			weapons[NB_TOT_WEAPONS];
-	bool				pause;
 	t_ui				ui_pause;
 	t_ui				ui_game_over;
 	t_ui				ui_win;
@@ -160,9 +160,7 @@ struct s_game
 	t_radar				radar;
 	bool				map_opened;
 	t_hud				hud;
-	bool				game_over;
 	int					game_end_loop_count;
-	bool				game_won;
 	pthread_t			threads[NB_DRAW_THREADS];
 	t_draw_thread_arg	draw_thread_args[NB_DRAW_THREADS];
 };

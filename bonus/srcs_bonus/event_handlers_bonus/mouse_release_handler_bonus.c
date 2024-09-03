@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/27 17:13:28 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:13:05 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 int	mouse_release_handler(int button, int x, int y, t_game *game)
 {
-	if (button == MOUSE_LEFT && game->pause)
+	if (button == MOUSE_LEFT && game->state == STATE_PAUSE)
 		mouse_release_pause_handler(x, y, game);
-	else if (button == MOUSE_LEFT && game->game_over)
+	else if (button == MOUSE_LEFT && game->state == STATE_GAMEOVER)
 		mouse_release_gameover_handler(x, y, game);
-	else if (button == MOUSE_LEFT && game->game_won)
+	else if (button == MOUSE_LEFT && game->state == STATE_GAMEWIN)
 		mouse_release_gamewon_handler(x, y, game);
 	else if (button == MOUSE_LEFT)
 		player_weapon_use_stop(&game->player.weapon_info, game);

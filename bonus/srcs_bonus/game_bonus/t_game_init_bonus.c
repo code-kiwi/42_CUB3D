@@ -79,9 +79,8 @@ static bool	t_game_init_params(t_game *game)
 {
 	game->frame_time_usec = 1000000 / FPS;
 	game->tick_last_frame = 0;
-	game->game_over = false;
+	game->state = STATE_PLAYING;
 	game->game_end_loop_count = 0;
-	game->game_won = false;
 	game->bullets = NULL;
 	return (init_draw_thread_args(game, game->draw_thread_args));
 }

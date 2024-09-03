@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 13:58:16 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:08:29 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ static void	game_render(t_game *game, float delta_time)
 
 static void	game_over_handler(t_game *game)
 {
-	if (!game->game_over)
+	if (game->state != STATE_GAMEOVER)
 	{
-		game->game_over = true;
+		game->state = STATE_GAMEOVER;
 		draw_hud(game, &game->hud);
 		t_mlx_mouse_show(&game->mlx, &game->mouse_hidden);
 		t_mlx_sync_images(&game->mlx);
@@ -88,9 +88,9 @@ static void	game_over_handler(t_game *game)
 
 static void	game_win_handler(t_game *game, float delta_time)
 {
-	if (!game->game_won)
+	if (game->state != STATE_GAMEWIN)
 	{
-		game->game_won = true;
+		game->state = STATE_GAMEWIN;
 		ft_lstclear(&game->sprites, free);
 		game_render(game, delta_time);
 		draw_hud(game, &game->hud);
@@ -119,7 +119,7 @@ int	game_loop(t_game *game)
 		game_over_handler(game);
 	else if (game->entities == NULL)
 		game_win_handler(game, delta_time);
-	else if (game->pause)
+	else if (game->state == STATE_PAUSE)
 		draw_ui(&game->ui_pause, game->mlx.img_buff);
 	else
 		game_render(game, delta_time);
