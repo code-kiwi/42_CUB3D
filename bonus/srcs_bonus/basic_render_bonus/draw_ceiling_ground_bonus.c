@@ -28,7 +28,7 @@ static	void	get_pixel_position_in_tile(t_ray *ray,
 }
 
 static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
-	t_image *texture, float distance)
+	t_image *texture, float inv_distance)
 {
 	t_mlx_coords	color_coords;
 	unsigned int	color;
@@ -38,7 +38,7 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	color = *(unsigned int *)(texture->addr + \
 		color_coords.y * texture->line_len \
 		+ (color_coords.x * texture->bpp_factor));
-	multiply_color(&color, 1 - distance / MAX_VISION_DISTANCE);
+	multiply_color(&color, 1 - 1 / (inv_distance * MAX_VISION_DISTANCE));
 	*(unsigned int *)addr = color;
 }
 
@@ -49,16 +49,17 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	t_vector	pixel_position;
 	char		*addr;
 
-	inv_distance = column->real_ground_start * ray->cos_angle_from_orientation
+	inv_distance = column->real_ground_start * ray->cos_angle_from_orientation \
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
-	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 + PLAYER_HEIGHT);
+	inv_distance_unit = ray->cos_angle_from_orientation \
+		/ (WIN_HEIGHT / 2 - PLAYER_HEIGHT);
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start < WIN_HEIGHT)
 	{
 		get_pixel_position_in_tile(ray, &game->player.position,
 			&pixel_position, inv_distance);
 		draw_pixel_from_texture(&pixel_position, addr,
-			game->anim[IDX_TXTR_FLOOR].textures->content, 1 / inv_distance);
+			game->anim[IDX_TXTR_FLOOR].textures->content, inv_distance);
 		start++;
 		inv_distance += inv_distance_unit;
 		addr += game->mlx.img_buff->line_len;
@@ -74,7 +75,7 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 
 	inv_distance = column->real_ceiling_start * ray->cos_angle_from_orientation
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
-	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 - PLAYER_HEIGHT);
+	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 + PLAYER_HEIGHT);
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start >= 0)
 	{
