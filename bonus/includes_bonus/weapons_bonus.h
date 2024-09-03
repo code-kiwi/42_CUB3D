@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   weapons_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 11:09:22 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/31 16:49:29 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 08:43:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@
 # define W1_HAND_INITIAL_USES				0
 # define W1_HAND_DAMAGES					5
 # define W1_HAND_RANGE						1.05f
-# define W1_HAND_COOLDOWN_EFFECT			0
+# define W1_HAND_COOLDOWN_EFFECT			0.5
 # define W1_HAND_BULLET_COOLDOWN_EFFECT		0
 
-# define W2_PISTOL_LOAD_CAPACITY			5
-# define W2_PISTOL_INITIAL_USES				5
+# define W2_PISTOL_LOAD_CAPACITY			20
+# define W2_PISTOL_INITIAL_USES				15
 # define W2_PISTOL_DAMAGES					3
-# define W2_PISTOL_RANGE					10.0f
+# define W2_PISTOL_RANGE					20.0f
 # define W2_PISTOL_BULLET_SPEED				0
 # define W2_PISTOL_COOLDOWN_EFFECT			0.3f
 # define W2_PISTOL_BULLET_COOLDOWN_EFFECT	0
@@ -64,23 +64,23 @@
 # define W5_PLASMA_INITIAL_USES				4
 # define W5_PLASMA_DAMAGES					0
 # define W5_PLASMA_RANGE					20.0f
-# define W5_PLASMA_BULLET_SPEED				5.0f
+# define W5_PLASMA_BULLET_SPEED				8.0f
 # define W5_PLASMA_COOLDOWN_EFFECT			2.0f
 # define W5_PLASMA_BULLET_COOLDOWN_EFFECT	3.0f
 
 # define W6_SHOTGUN_LOAD_CAPACITY			10
 # define W6_SHOTGUN_INITIAL_USES			8
-# define W6_SHOTGUN_DAMAGES					4
-# define W6_SHOTGUN_RANGE					4.0f
-# define W6_SHOTGUN_BULLET_SPEED			15.0f
+# define W6_SHOTGUN_DAMAGES					8
+# define W6_SHOTGUN_RANGE					3.0f
+# define W6_SHOTGUN_BULLET_SPEED			25.0f
 # define W6_SHOTGUN_COOLDOWN_EFFECT			1.0f
 # define W6_SHOTGUN_BULLET_COOLDOWN_EFFECT	0.25f
 
 # define W7_ROCKET_LOAD_CAPACITY			3
 # define W7_ROCKET_INITIAL_USES				1
-# define W7_ROCKET_DAMAGES					50
+# define W7_ROCKET_DAMAGES					15
 # define W7_ROCKET_RANGE					20.0f
-# define W7_ROCKET_BULLET_SPEED				5.0f
+# define W7_ROCKET_BULLET_SPEED				7.0f
 # define W7_ROCKET_COOLDOWN_EFFECT			2.0f
 # define W7_ROCKET_BULLET_COOLDOWN_EFFECT	0.5f
 
