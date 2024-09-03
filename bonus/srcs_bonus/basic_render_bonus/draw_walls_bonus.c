@@ -6,92 +6,51 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/28 17:18:43 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:12:33 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
+#include <pthread.h>
 
 #include "libft.h"
 #include "door_bonus.h"
 
-static t_image	*get_texture(t_animation anim[MAP_NB_IDS], t_ray *ray)
+static void	*draw_thread_routine(void *param)
 {
-	if (ray->is_door)
-		return (anim[IDX_TXTR_DOOR].textures->content);
-	if (ray->is_vertical)
+	t_draw_thread_arg	*thread_arg;
+
+	if (param == NULL)
+		return (NULL);
+	thread_arg = (t_draw_thread_arg *) param;
+	draw_walls_part(thread_arg->game, thread_arg->start, thread_arg->end);
+	return (NULL);
+}
+
+bool	draw_walls(t_game *game)
+{
+	size_t	i;
+	size_t	j;
+	bool	error;
+
+	error = false;
+	i = 0;
+	while (i < NB_DRAW_THREADS)
 	{
-		if (ray->slope.x > 0)
-			return (anim[IDX_TXTR_E].textures->content);
-		else
-			return (anim[IDX_TXTR_W].textures->content);
+		if (pthread_create(&game->threads[i], NULL, draw_thread_routine, \
+			&game->draw_thread_args[i]) != 0)
+		{
+			error = true;
+			break ;
+		}
+		i++;
 	}
-	else
+	j = 0;
+	while (j < i)
 	{
-		if (ray->slope.y > 0)
-			return (anim[IDX_TXTR_N].textures->content);
-		else
-			return (anim[IDX_TXTR_S].textures->content);
+		if (pthread_join(game->threads[j], NULL))
+			error = true;
+		j++;
 	}
-}
-
-static int	pixel_column_on_texture(t_ray *ray, int texture_width)
-{
-	int		column;
-	float	texture_relative_position;
-	double	temp;
-
-	if (ray->is_vertical)
-		texture_relative_position = modf(ray->intersection.y, &temp);
-	else
-		texture_relative_position = modf(ray->intersection.x, &temp);
-	if (ray->is_door)
-		texture_relative_position = ray->door->transition \
-			- texture_relative_position;
-	column = floorf(texture_relative_position * texture_width);
-	return (column);
-}
-
-static float	range(float value)
-{
-	if (value < 0)
-		return (0);
-	if (value > WIN_HEIGHT)
-		return (WIN_HEIGHT);
-	return (value);
-}
-
-static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
-{
-	t_column	column;
-	t_image		*texture;
-	int			offset;
-
-	offset = game->player.orientation.y;
-	column.coords.x = column_index;
-	column.perceived_height = WIN_HEIGHT
-		/ (ray->length * ray->cos_angle_from_orientation);
-	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2) + offset;
-	column.end = range((WIN_HEIGHT + column.perceived_height) / 2 + offset);
-	column.coords.y = range(column.start);
-	column.texture_start = column.coords.y - column.start;
-	texture = get_texture(game->anim, ray);
-	column.texture_column = pixel_column_on_texture(ray, texture->width);
-	column.real_ceiling_start = WIN_HEIGHT - (column.coords.y - offset);
-	column.real_ground_start = column.end - offset;
-	draw_ceiling(&column, column.coords.y - 1, game, ray);
-	draw_texture_column(game->mlx.img_buff, &column, texture, ray->length);
-	draw_ground(&column, column.coords.y, game, ray);
-}
-
-void	draw_walls(t_game *game)
-{
-	size_t			index;
-
-	index = 0;
-	while (index < WIN_WIDTH)
-	{
-		draw_wall_column(index, &game->rays[index], game);
-		index++;
-	}
+	return (i == NB_DRAW_THREADS && !error);
 }
