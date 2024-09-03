@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/03 10:12:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/03 10:54:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include "libft.h"
 #include "door_bonus.h"
 
-# define PLAYER_HEIGHT WIN_HEIGHT / 4
+# define PLAYER_HEIGHT_DIFF WIN_HEIGHT / 4
+// # define PLAYER_HEIGHT_DIFF 0
 
 static t_image	*get_texture(t_animation anim[MAP_NB_IDS], t_ray *ray)
 {
@@ -74,7 +75,7 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	column.coords.x = column_index;
 	column.perceived_height = WIN_HEIGHT
 		/ (ray->length * ray->cos_angle_from_orientation);
-	player_height_offset = PLAYER_HEIGHT - PLAYER_HEIGHT * column.perceived_height / WIN_HEIGHT;
+	player_height_offset = PLAYER_HEIGHT_DIFF - PLAYER_HEIGHT_DIFF * column.perceived_height / WIN_HEIGHT;
 	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2) + offset + player_height_offset;
 	column.end = range((WIN_HEIGHT + column.perceived_height) / 2 + offset + player_height_offset);
 	column.coords.y = range(column.start);

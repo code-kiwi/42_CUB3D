@@ -6,14 +6,15 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/03 10:12:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/07/31 12:07:48by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "libft.h"
 
-# define PLAYER_HEIGHT WIN_HEIGHT / 4
+# define PLAYER_HEIGHT_DIFF WIN_HEIGHT / 4
+// # define PLAYER_HEIGHT_DIFF 0
 
 static	void	get_pixel_position_in_tile(t_ray *ray,
 	t_vector *player_position, t_vector *result, float dist)
@@ -41,19 +42,14 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 
 void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 {
-	float		inv_distance;
-	float		inv_distance_unit;
 	t_vector	pixel_position;
 	char		*addr;
 	float		distance;
 
-	inv_distance = column->real_ground_start * ray->cos_angle_from_orientation
-		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
-	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 + PLAYER_HEIGHT);
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start < WIN_HEIGHT)
 	{
-		distance = WIN_HEIGHT / 2 - PLAYER_HEIGHT;
+		distance = WIN_HEIGHT / 2 - PLAYER_HEIGHT_DIFF;
 		distance /= (column->real_ground_start - WIN_HEIGHT / 2);
 		distance /= ray->cos_angle_from_orientation;
 		get_pixel_position_in_tile(ray, &game->player.position,
@@ -62,26 +58,20 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 			game->anim[IDX_TXTR_FLOOR].textures->content, distance);
 		column->real_ground_start++;
 		start++;
-		inv_distance += inv_distance_unit;
 		addr += game->mlx.img_buff->line_len;
 	}
 }
 
 void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 {
-	float		inv_distance;
-	float		inv_distance_unit;
 	t_vector	pixel_position;
 	char		*addr;
 	float		distance;
 
-	inv_distance = column->real_ceiling_start * ray->cos_angle_from_orientation
-		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
-	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 - PLAYER_HEIGHT);
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start >= 0)
 	{
-		distance = WIN_HEIGHT / 2 - PLAYER_HEIGHT;
+		distance = WIN_HEIGHT / 2 - PLAYER_HEIGHT_DIFF;
 		distance /= (column->real_ceiling_start - WIN_HEIGHT / 2);
 		distance /= ray->cos_angle_from_orientation;
 		get_pixel_position_in_tile(ray, &game->player.position,
@@ -90,7 +80,6 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 			game->anim[IDX_TXTR_CEIL].textures->content, distance);
 		start--;
 		column->real_ceiling_start++;
-		inv_distance += inv_distance_unit;
 		addr -= game->mlx.img_buff->line_len;
 	}
 }
