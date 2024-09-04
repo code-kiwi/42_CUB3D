@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 13:23:14 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 13:27:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ ranged_start / ranged_end :
 
 /// @brief Draw a column of the screen
 /// @param column_index The index of the column to draw [0,WIn_HEIGHT]
-/// @param ray The ray which come from the player to the wall
-/// @param game The game structure
 static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
 	t_column	column;

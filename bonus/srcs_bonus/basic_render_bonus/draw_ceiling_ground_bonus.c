@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 10:16:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 13:32:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,20 @@ static float	get_inv_dist(int start, float cos_angle)
 	return (inv_dist);
 }
 
+/*
+	To draw the ground we need the world position of the pixel, for that, we
+	need to know his distance from the player.
+	I calculate the inverse distance because it allows me to just add a variable
+	each loop instead of recalculating the whole thing.
+	inv_dist = inverse distance
+	inv_dist_unit = inverse_distance_unit
+	When the ground start is out of the screen, we need to add those out of the
+	screen pixel to the distance, otherwise the ground would move with the
+	screen border.
+*/
+/// @brief Draw the ground texture from start to WIN_HEIGHT
+/// @param column The column data to draw
+/// @param start The pixel y start
 void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 {
 	float		inv_dist;
@@ -73,6 +87,12 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	}
 }
 
+/*
+Look at the commentary of draw_ground
+*/
+/// @brief Draw the ground texture from 0 to start
+/// @param column The column data to draw
+/// @param start The pixel y start
 void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 {
 	float		inv_dist;
