@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 09:43:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 09:59:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	int			player_height_diff;
 
 	player_height_diff = game->player.camera_y_diff;
-	inv_dist = get_inv_dist(column->real_ground_start, ray->cos_angle);
+	inv_dist = get_inv_dist(column->real_end, ray->cos_angle);
 	inv_dist_unit = ray->cos_angle / (WIN_HEIGHT / 2 - player_height_diff);
 	inv_dist += max_int(-column->save_end, 0) * inv_dist_unit;
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
@@ -82,7 +82,7 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 	int			player_height_diff;
 
 	player_height_diff = game->player.camera_y_diff;
-	inv_dist = get_inv_dist(column->real_ceiling_start, ray->cos_angle);
+	inv_dist = get_inv_dist(column->real_start, ray->cos_angle);
 	inv_dist_unit = ray->cos_angle / (WIN_HEIGHT / 2 + player_height_diff);
 	inv_dist += max_int(column->start - WIN_HEIGHT, 0) * inv_dist_unit;
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);

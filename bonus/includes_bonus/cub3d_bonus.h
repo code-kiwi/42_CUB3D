@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/04 09:53:24 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 09:59:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,8 +143,8 @@ struct	s_column
 	float			perceived_height;
 	int				start;
 	int				end;
-	int				real_ground_start;
-	int				real_ceiling_start;
+	int				real_end;
+	int				real_start;
 	int				texture_column;
 	int				save_end;
 };
