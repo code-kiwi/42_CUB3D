@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 22:01:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 18:28:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@
 # define MAX_Y_ROTATION_RATIO			2
 
 # define PLAYER_MIN_DIST_TO_WALL		0.05f
+
+# define PLAYER_JUMP_FORCE				1.0f
+# define GRAVITY_FORCE					0.5f
 
 typedef struct s_game				t_game;
 typedef struct s_player				t_player;
@@ -92,7 +95,9 @@ struct s_player
 	bool			is_walking;
 	bool			is_dead;
 	t_player_weapon	weapon_info;
-	int				camera_y_diff;
+	float			camera_y;
+	float			camera_y_diff;
+	float			vertical_move;
 };
 
 // t_player functions
@@ -104,6 +109,9 @@ void	update_player_weapon(t_player_weapon *weapon_info, \
 			bool is_player_walking, t_game *game, float delta_time);
 void	player_get_damage(t_game *game, size_t damage);
 void	draw_player(t_game *game, t_player_weapon *weapon_info);
+void	jump(t_player *player);
+float	get_camera_height_diff(float camera_height);
+void	apply_vertical_move(t_player *player, float delta_time);
 
 // Weapons utils
 bool	init_player_weapons(t_game *game, t_player_weapon *weapon_info);
