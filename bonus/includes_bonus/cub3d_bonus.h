@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/04 08:07:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 08:55:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,7 @@ struct	s_column
 	int				real_ground_start;
 	int				real_ceiling_start;
 	int				texture_column;
+	int				saveEnd;
 };
 
 // Game functions
@@ -164,8 +165,8 @@ void	render_all_sprites(t_game *game);
 void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 			t_game *game, float scale);
 bool	is_sprite_aimed(t_sprite *sprite, int left_x);
-void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray, int diff);
-void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray, int diff);
+void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray);
+void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray);
 int		get_height_offset(float perceived_height, int camera_y_diff);
 
 // Utils functions

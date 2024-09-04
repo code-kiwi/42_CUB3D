@@ -40,7 +40,7 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	*(unsigned int *)addr = color;
 }
 
-void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray, int diff)
+void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 {
 	float		inv_distance;
 	float		inv_distance_unit;
@@ -52,7 +52,7 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray, int diff
 	inv_distance = column->real_ground_start * ray->cos_angle_from_orientation
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
 	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 - player_height_diff);
-	inv_distance += diff * inv_distance_unit;
+	inv_distance += max_int(-column->saveEnd, 0) * inv_distance_unit;
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start < WIN_HEIGHT)
 	{
@@ -66,7 +66,7 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray, int diff
 	}
 }
 
-void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray, int diff)
+void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 {
 	float		inv_distance;
 	float		inv_distance_unit;
@@ -78,7 +78,7 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray, int dif
 	inv_distance = column->real_ceiling_start * ray->cos_angle_from_orientation
 		/ (WIN_HEIGHT / 2) - ray->cos_angle_from_orientation;
 	inv_distance_unit = ray->cos_angle_from_orientation / (WIN_HEIGHT / 2 + player_height_diff);
-	inv_distance += diff * inv_distance_unit;
+	inv_distance += max_int(column->start - WIN_HEIGHT, 0) * inv_distance_unit;
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start >= 0)
 	{
