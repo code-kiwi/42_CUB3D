@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 10:11:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 10:16:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,10 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	column.start = column.ceiling_start + offset;
 	column.ceiling_start = WIN_HEIGHT - column.ceiling_start;
 	column.ground_start = (WIN_HEIGHT + column.perceived_height) / 2;
-	column.save_end = column.ground_start + offset;
-	column.end = range(column.save_end, 0, WIN_HEIGHT);
-	column.coords.y = range(column.start, 0, WIN_HEIGHT);
+	column.end = column.ground_start + offset;
+	column.ranged_end = range(column.end, 0, WIN_HEIGHT);
+	column.ranged_start = range(column.start, 0, WIN_HEIGHT);
+	column.coords.y = column.ranged_start;
 	column.texture_start = column.coords.y - column.start;
 	texture = get_texture(game->anim, ray);
 	column.texture_column = pixel_column_on_texture(ray, texture->width);

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/04 10:11:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 10:15:17 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,14 +139,15 @@ struct s_game
 struct	s_column
 {
 	size_t			texture_start;
+	int				texture_column;
 	t_mlx_coords	coords;
 	float			perceived_height;
 	int				start;
 	int				end;
 	int				ground_start;
 	int				ceiling_start;
-	int				texture_column;
-	int				save_end;
+	int				ranged_end;
+	int				ranged_start;
 };
 
 // Game functions
