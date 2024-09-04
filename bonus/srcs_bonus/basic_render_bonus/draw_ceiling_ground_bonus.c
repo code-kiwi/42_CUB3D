@@ -26,7 +26,7 @@ static	void	get_pixel_position_in_tile(t_ray *ray,
 }
 
 static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
-	t_image *texture, float inv_distance)
+	t_image *texture, float inv_dist)
 {
 	t_mlx_coords	color_coords;
 	unsigned int	color;
@@ -36,72 +36,72 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	color = *(unsigned int *)(texture->addr + \
 		color_coords.y * texture->line_len \
 		+ (color_coords.x * texture->bpp_factor));
-	multiply_color(&color, 1 - 1 / (inv_distance * MAX_VISION_DISTANCE));
+	multiply_color(&color, 1 - 1 / (inv_dist * MAX_VISION_DISTANCE));
 	*(unsigned int *)addr = color;
 }
 
-static float	get_inv_distance(int real_start, float cos_angle)
+static float	get_inv_dist(int real_start, float cos_angle)
 {
-	float	inv_distance;
+	float	inv_dist;
 
-	inv_distance = real_start * cos_angle / (WIN_HEIGHT / 2) - cos_angle;
-	return (inv_distance);
+	inv_dist = real_start * cos_angle / (WIN_HEIGHT / 2) - cos_angle;
+	return (inv_dist);
 }
 
-static float	get_inv_distance_unit(int player_height_diff, float cos_angle)
+static float	get_inv_dist_unit(int player_height_diff, float cos_angle)
 {
-	float	inv_distance_unit;
+	float	inv_dist_unit;
 
-	inv_distance_unit = cos_angle / (WIN_HEIGHT / 2 - player_height_diff);
-	return (inv_distance_unit);
+	inv_dist_unit = cos_angle / (WIN_HEIGHT / 2 - player_height_diff);
+	return (inv_dist_unit);
 }
 
 void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 {
-	float		inv_distance;
-	float		inv_distance_unit;
+	float		inv_dist;
+	float		inv_dist_unit;
 	t_vector	pixel_position;
 	char		*addr;
 	int			player_height_diff;
 
 	player_height_diff = game->player.camera_y_diff;
-	inv_distance = get_inv_distance(column->real_ground_start, ray->cos_angle_from_orientation);
-	inv_distance_unit = get_inv_distance_unit(player_height_diff, ray->cos_angle_from_orientation);
-	inv_distance += max_int(-column->saveEnd, 0) * inv_distance_unit;
+	inv_dist = get_inv_dist(column->real_ground_start, ray->cos_angle);
+	inv_dist_unit = get_inv_dist_unit(player_height_diff, ray->cos_angle);
+	inv_dist += max_int(-column->saveEnd, 0) * inv_dist_unit;
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start < WIN_HEIGHT)
 	{
 		get_pixel_position_in_tile(ray, &game->player.position,
-			&pixel_position, inv_distance);
+			&pixel_position, inv_dist);
 		draw_pixel_from_texture(&pixel_position, addr,
-			game->anim[IDX_TXTR_FLOOR].textures->content, inv_distance);
+			game->anim[IDX_TXTR_FLOOR].textures->content, inv_dist);
 		start++;
-		inv_distance += inv_distance_unit;
+		inv_dist += inv_dist_unit;
 		addr += game->mlx.img_buff->line_len;
 	}
 }
 
 void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 {
-	float		inv_distance;
-	float		inv_distance_unit;
+	float		inv_dist;
+	float		inv_dist_unit;
 	t_vector	pixel_position;
 	char		*addr;
 	int			player_height_diff;
 
 	player_height_diff = game->player.camera_y_diff;
-	inv_distance = get_inv_distance(column->real_ceiling_start, ray->cos_angle_from_orientation);
-	inv_distance_unit = get_inv_distance_unit(-player_height_diff, ray->cos_angle_from_orientation);
-	inv_distance += max_int(column->start - WIN_HEIGHT, 0) * inv_distance_unit;
+	inv_dist = get_inv_dist(column->real_ceiling_start, ray->cos_angle);
+	inv_dist_unit = get_inv_dist_unit(-player_height_diff, ray->cos_angle);
+	inv_dist += max_int(column->start - WIN_HEIGHT, 0) * inv_dist_unit;
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start >= 0)
 	{
 		get_pixel_position_in_tile(ray, &game->player.position,
-			&pixel_position, inv_distance);
+			&pixel_position, inv_dist);
 		draw_pixel_from_texture(&pixel_position, addr,
-			game->anim[IDX_TXTR_CEIL].textures->content, inv_distance);
+			game->anim[IDX_TXTR_CEIL].textures->content, inv_dist);
 		start--;
-		inv_distance += inv_distance_unit;
+		inv_dist += inv_dist_unit;
 		addr -= game->mlx.img_buff->line_len;
 	}
 }

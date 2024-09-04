@@ -73,7 +73,7 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	camera_offset = game->player.orientation.y;
 	column.coords.x = column_index;
 	column.perceived_height = WIN_HEIGHT
-		/ (ray->length * ray->cos_angle_from_orientation);
+		/ (ray->length * ray->cos_angle);
 	height_offset = get_height_offset(column.perceived_height, game->player.camera_y_diff);
 	column.real_ceiling_start = (WIN_HEIGHT - column.perceived_height) / 2;
 	column.start = column.real_ceiling_start + camera_offset + height_offset;
