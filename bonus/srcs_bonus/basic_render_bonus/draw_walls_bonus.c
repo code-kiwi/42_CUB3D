@@ -77,18 +77,19 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	column.perceived_height = WIN_HEIGHT
 		/ (ray->length * ray->cos_angle_from_orientation);
 	height_offset = get_height_offset(column.perceived_height, game->player.camera_y_diff);
-	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2) + camera_offset + height_offset;
-	saveEnd = (WIN_HEIGHT + column.perceived_height) / 2 + camera_offset + height_offset;
+	column.real_ceiling_start = (WIN_HEIGHT - column.perceived_height) / 2;
+	column.start = column.real_ceiling_start + camera_offset + height_offset;
+	column.real_ceiling_start = WIN_HEIGHT - column.real_ceiling_start;
+	column.real_ground_start = (WIN_HEIGHT + column.perceived_height) / 2;
+	saveEnd = column.real_ground_start + camera_offset + height_offset;
 	column.end = range(saveEnd);
 	column.coords.y = range(column.start);
 	column.texture_start = column.coords.y - column.start;
 	texture = get_texture(game->anim, ray);
 	column.texture_column = pixel_column_on_texture(ray, texture->width);
-	column.real_ceiling_start = WIN_HEIGHT - (WIN_HEIGHT - column.perceived_height) / 2;
 	diff = max_int(column.start - WIN_HEIGHT, 0);
 	draw_ceiling(&column, column.coords.y - 1, game, ray, diff);
 	draw_texture_column(game->mlx.img_buff, &column, texture, ray->length);
-	column.real_ground_start = (WIN_HEIGHT + column.perceived_height) / 2;
 	diff = max_int(-saveEnd, 0);
 	draw_ground(&column, column.coords.y, game, ray, diff);
 }
