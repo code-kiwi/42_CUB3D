@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 10:41:48 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 13:23:14 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,22 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 	return (column);
 }
 
+/*
+ceiling start / ground start : 
+	represents the ceiling start / wall start or ground start /wall  end, except
+	they are not affected by the offsets.
+	They are used to calculate the pixel position of the wall or ground.
+start / end : 
+	It's the position of the start/end but affected by the offsets.
+ranged_start / ranged_end :
+	Those are the real position the drawing start or end by, they'r between 
+	[0,WIN_HEIGHT].
+*/
+
+/// @brief Draw a column of the screen
+/// @param column_index The index of the column to draw [0,WIn_HEIGHT]
+/// @param ray The ray which come from the player to the wall
+/// @param game The game structure
 static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
 	t_column	column;
