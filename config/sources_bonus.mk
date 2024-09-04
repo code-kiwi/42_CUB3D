@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/04 09:48:27 by brappo           ###   ########.fr        #
+#    Updated: 2024/09/04 16:54:31 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,15 +80,15 @@ EVENT_HANDLERS_FILES_BONUS	=	add_event_handler_bonus.c		\
 								gamewon_handlers_bonus.c
 EVENT_HANDLERS_BONUS		=	$(addprefix $(EVENT_HANDLERS_DIR_BONUS), $(EVENT_HANDLERS_FILES_BONUS))
 
-# BASIC_RENDER
-BASIC_RENDER_DIR_BONUS		=	basic_render_bonus/
-BASIC_RENDER_FILES_BONUS	=	draw_walls_bonus.c				\
+# RENDER
+RENDER_DIR_BONUS			=	render_bonus/
+RENDER_FILES_BONUS			=	draw_walls_bonus.c				\
 								draw_column_bonus.c				\
 								draw_ceiling_ground_bonus.c		\
 								draw_sprite_bonus.c				\
 								sprite_screen_position_bonus.c	\
 								offset_bonus.c
-BASIC_RENDER_BONUS			=	$(addprefix $(BASIC_RENDER_DIR_BONUS), $(BASIC_RENDER_FILES_BONUS))
+RENDER_BONUS				=	$(addprefix $(RENDER_DIR_BONUS), $(RENDER_FILES_BONUS))
 
 # MAP
 MAP_DIR_BONUS				=	map_bonus/
@@ -263,7 +263,7 @@ SRCS_MAIN_SUBDIR_BONUS		=	srcs_bonus/
 SRCS_MAIN_DIR_BONUS			=	$(addprefix $(BONUS_DIR), $(SRCS_MAIN_SUBDIR_BONUS))
 SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(GAME_BONUS) $(VECTOR_BONUS) $(EVENT_HANDLERS_BONUS) 	\
-								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
+								$(MAP_BONUS) $(RENDER_BONUS) $(PLAYER_BONUS) 			\
 								$(RAY_BONUS) $(DOOR_BONUS) $(SPRITES_BONUS)				\
 								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)					\
 								$(ENTITIES_BONUS) $(UI_BONUS) $(WEAPONS_BONUS)			\
