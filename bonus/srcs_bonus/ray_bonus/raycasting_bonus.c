@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 14:21:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 17:37:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 #include "cub3d_bonus.h"
 
+/// @brief set the size of a segment of slope, when x is 1 or y is 1
+/// @param slope The slope of the vector
 static void	calculate_unit_length(t_raycast *ray_x, t_raycast *ray_y,
 	t_vector *slope)
 {
@@ -56,6 +58,10 @@ float	raycast_progress(t_raycast *raycast, t_game *game, t_vector *position,
 	return (-1);
 }
 
+/// @brief Cast a ray and return the distance of the wall hit
+/// @param position The player position
+/// @param max_distance The max distance a ray can travel
+/// @note This function also set the is_door and is_vertical values
 float	raycast(t_vector position, t_game *game, t_ray *ray, int max_distance)
 {
 	t_raycast	ray_x;
