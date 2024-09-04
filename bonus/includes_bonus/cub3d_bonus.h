@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/04 07:46:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 08:07:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,7 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 bool	is_sprite_aimed(t_sprite *sprite, int left_x);
 void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray, int diff);
 void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray, int diff);
-int		get_player_height_offset(float perceived_height, int camera_y_diff);
+int		get_height_offset(float perceived_height, int camera_y_diff);
 
 // Utils functions
 void	error_print(char *err_msg);

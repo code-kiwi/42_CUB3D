@@ -68,7 +68,7 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	t_column	column;
 	t_image		*texture;
 	int			camera_offset;
-	int			player_height_offset;
+	int			height_offset;
 	int			diff;
 	int			saveEnd;
 
@@ -76,10 +76,10 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	column.coords.x = column_index;
 	column.perceived_height = WIN_HEIGHT
 		/ (ray->length * ray->cos_angle_from_orientation);
-	player_height_offset = get_player_height_offset(column.perceived_height, game->player.camera_y_diff);
-	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2) + camera_offset + player_height_offset;
-	column.end = range((WIN_HEIGHT + column.perceived_height) / 2 + camera_offset + player_height_offset);
-	saveEnd = (WIN_HEIGHT + column.perceived_height) / 2 + camera_offset + player_height_offset;
+	height_offset = get_height_offset(column.perceived_height, game->player.camera_y_diff);
+	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2) + camera_offset + height_offset;
+	column.end = range((WIN_HEIGHT + column.perceived_height) / 2 + camera_offset + height_offset);
+	saveEnd = (WIN_HEIGHT + column.perceived_height) / 2 + camera_offset + height_offset;
 	column.coords.y = range(column.start);
 	column.texture_start = column.coords.y - column.start;
 	texture = get_texture(game->anim, ray);
