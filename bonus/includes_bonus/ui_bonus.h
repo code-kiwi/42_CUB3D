@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ui_bonus.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 17:22:43 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/04 19:21:09 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,17 +155,6 @@ typedef struct s_button		t_button;
 typedef struct s_label		t_label;
 typedef struct s_list		t_list;
 
-struct s_game_uis
-{
-	t_ui	ui_pause;
-	t_ui	ui_game_over;
-	t_ui	ui_win;
-	t_ui	ui_home;
-	t_ui	ui_level_selection;
-	t_image	*ui_textures[UI_NB_TEXTURES];
-	char	*ui_texture_ids[UI_NB_TEXTURES];
-};
-
 struct s_ui
 {
 	t_mlx_coords	pos;
@@ -175,6 +164,16 @@ struct s_ui
 	t_button		*buttons;
 	size_t			nb_labels;
 	t_label			*labels;
+};
+
+struct s_game_uis
+{
+	t_ui	pause;
+	t_ui	game_over;
+	t_ui	win;
+	t_ui	home;
+	t_ui	level_selection;
+	t_image	*textures[UI_NB_TEXTURES];
 };
 
 struct s_button
@@ -193,6 +192,9 @@ struct s_label
 	t_mlx_coords	size;
 	t_image			*texture;
 };
+
+// uis functions
+bool	init_game_uis(t_game *game, t_game_uis *uis);
 
 // ui functions
 bool	init_all_ui(t_game *game);

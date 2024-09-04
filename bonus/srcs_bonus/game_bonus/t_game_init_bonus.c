@@ -90,26 +90,37 @@ static bool	t_game_init_params(t_game *game)
  * @param game The structure to init
  * @return true on SUCCESS, false on ERROR
 */
+
+
+#include <stdio.h>
 bool	t_game_init(t_game *game)
 {
 	if (game == NULL)
 		return (false);
 	srand(time(NULL));
-	return (
-		t_game_init_params(game)
-		&& t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE)
-		&& t_player_init(&game->player, game->map, game)
-		&& init_textures(game)
-		&& init_sprites(game)
-		&& init_all_ui(game)
-		&& init_doors(game)
-		&& init_entities(game)
-		&& init_map_draw(&game->map->draw, game->map, game)
-		&& init_radar(&game->radar, &game->mlx)
-		&& init_weapons(game)
-		&& init_player_weapons(game, &game->player.weapon_info)
-		&& init_hud(game, &game->hud)
-		&& t_mlx_launch(&game->mlx)
-		&& add_event_handlers(game)
-	);
+	t_game_init_params(game);
+	t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE);
+	init_game_uis(game, &game->uis);
+	printf("REACHED THIS POINT\n");
+	init_textures(game);
+	return (false);
+
+	// return (
+	// 	t_game_init_params(game)
+	// 	&& t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE)
+	// 	&& init_game_uis(game, &game->uis)
+	// 	&& t_player_init(&game->player, game->map, game)
+	// 	&& init_textures(game)
+	// 	&& init_sprites(game)
+	// 	&& init_all_ui(game)
+	// 	&& init_doors(game)
+	// 	&& init_entities(game)
+	// 	&& init_map_draw(&game->map->draw, game->map, game)
+	// 	&& init_radar(&game->radar, &game->mlx)
+	// 	&& init_weapons(game)
+	// 	&& init_player_weapons(game, &game->player.weapon_info)
+	// 	&& init_hud(game, &game->hud)
+	// 	&& t_mlx_launch(&game->mlx)
+	// 	&& add_event_handlers(game)
+	// );
 }

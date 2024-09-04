@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 14:52:37 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/04 20:58:00 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@
 # define ERR_BAD_SIZE			"Wrong or missing texture size"
 # define ERR_SIZE_TOO_BIG		"Size too big, max 4 characters"
 # define ERR_NEGATIVE_SIZE		"Invalid negative size"
-# define ERR_UI_CREATION		"UI creation failed"
 # define ERR_RADAR_CREATION		"Radar creation failed"
 # define ERR_MAP_DRAW_CREATION	"Map drawing cannot be created"
 # define ERR_MAP_DRAW_SIZE		"Map drawing cannot be initialized: map too big"
@@ -82,6 +81,15 @@
 # define ERR_P_WEAPONS_CREATION	"Player weapons creation failed"
 # define ERR_ENTITY_CREATION	"Impossible to create the entity list"
 # define ERR_TOO_MUCH_ENTITIES	"The map contains too much entities"
+
+# define ERR_UIS_CREATION		"UIs could not be created"
+# define ERR_UIS_IDS_CREATION	"UIs identifiers could not be set"
+# define ERR_UIS_TXTR_PATH		"The UIs texture file couuld not be opened"
+# define ERR_UIS_READ			"Impossible to read the texture file for UIs"
+# define ERR_UIS_READ_ELEMENT	"Impossible to read one of the UIs textures"
+# define ERR_UIS_IDENTIFIER		"Invalid or duplicated identifier for UIs"
+# define ERR_UIS_IMG_INIT		"Impossible to init image from file"
+# define ERR_UI_CREATION		"UI creation failed"
 
 # define ERR_INIT_TEXTURES		"Can't open texture"
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
@@ -151,6 +159,7 @@ struct s_game
 	t_list				*bullets;
 	t_list				*last_entity_updated;
 	t_weapon			weapons[NB_TOT_WEAPONS];
+	t_game_uis			uis;
 	t_ui				ui_pause;
 	t_ui				ui_game_over;
 	t_ui				ui_win;
