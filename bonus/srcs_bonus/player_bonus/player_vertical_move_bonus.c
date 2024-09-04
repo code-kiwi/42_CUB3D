@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 17:48:40 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 18:28:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 18:31:27 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ void	apply_vertical_move(t_player *player, float delta_time)
 		player->vertical_move = 0;
 	}
 	if (!grounded)
-		move_vertically(player, -GRAVITY_FORCE * delta_time);
+		player->vertical_move -= GRAVITY_FORCE * delta_time;
 }
