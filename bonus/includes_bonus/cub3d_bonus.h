@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/04 10:41:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 11:22:04 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 # define FPS					100
 
 # define WIN_TITLE				"Cub3D"
-# define WIN_WIDTH				1920
-# define WIN_HEIGHT				1080
+# define WIN_WIDTH				1700
+# define WIN_HEIGHT				900
 # define MAX_DISTANCE			10
 # define PAUSE_BG_DARK_FACTOR	0.4f
 
@@ -163,8 +163,7 @@ void	draw_walls(t_game *game);
 void	draw_texture_column(t_image *screen, t_column *column,
 			t_image *texture, float distance);
 void	render_all_sprites(t_game *game);
-void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
-			t_game *game, float scale);
+void	get_sprite_screen_pos(t_column *column, t_sprite *sprite, t_game *game, float scale);
 bool	is_sprite_aimed(t_sprite *sprite, int left_x);
 void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray);
 void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray);

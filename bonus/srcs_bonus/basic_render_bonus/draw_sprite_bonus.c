@@ -61,15 +61,15 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 	float		scale;
 
 	scale = 1 / sprite->distance;
-	get_sprite_screen_pos(&column.coords, sprite, game, scale);
+	column.perceived_height = sprite->height * scale;
+	get_sprite_screen_pos(&column, sprite, game, scale);
 	column.start = column.coords.y;
-	column.end = column.coords.y + sprite->height * scale;
+	column.end = column.coords.y + column.perceived_height;
 	column.ranged_end = range(column.end, 0, WIN_HEIGHT);
 	column.ranged_start = range(column.start, 0, WIN_HEIGHT);
 	column.texture_start = column.ranged_start - column.start;
 	column.texture_x = 0;
 	column.coords.y = column.ranged_start;
-	column.perceived_height = sprite->height * scale;
 	if (is_sprite_aimed(sprite, column.coords.x))
 	{
 		game->player.aimed_sprite = sprite;

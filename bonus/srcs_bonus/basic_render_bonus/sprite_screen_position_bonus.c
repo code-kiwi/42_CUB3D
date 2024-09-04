@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/09/04 09:54:58 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 11:21:52 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
 	return (entity_angle);
 }
 
-void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
+void	get_sprite_screen_pos(t_column *column, t_sprite *sprite,
 	t_game *game, float scale)
 {
 	float		entity_angle;
@@ -37,22 +37,21 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 	int			offset;
 
 	player = &game->player;
-	offset = get_offset(sprite->height * scale, player);
+	offset = get_offset(column->perceived_height, player);
 	entity_angle = get_entity_angle(&sprite->position, &player->position);
 	relative_angle = player->leftmost_angle - entity_angle;
 	if (player->orientation.x > PI / 2 * 3 && entity_angle < PI / 2)
 		relative_angle -= 2 * PI;
 	else if (player->orientation.x < PI / 2 && entity_angle > PI / 2 * 3)
 		relative_angle += 2 * PI;
-	sprite_screen->x = relative_angle * player->pixel_by_angle;
-	sprite_screen->x -= sprite->height / 2 * scale;
-	sprite_screen->y = WIN_HEIGHT / 2;
-	sprite_screen->y -= sprite->height / 2 * scale;
+	column->coords.x = relative_angle * player->pixel_by_angle;
+	column->coords.x -= column->perceived_height / 2;
+	column->coords.y = (WIN_HEIGHT - column->perceived_height) / 2;
 	if (sprite->on_ground)
-		sprite_screen->y += (WIN_HEIGHT - sprite->height) / 2 * scale;
+		column->coords.y += (WIN_HEIGHT - sprite->height) / 2 * scale;
 	else if (sprite->on_ceiling)
-		sprite_screen->y -= (WIN_HEIGHT - sprite->height) / 2 * scale;
-	sprite_screen->y += offset;
+		column->coords.y -= (WIN_HEIGHT - sprite->height) / 2 * scale;
+	column->coords.y += offset;
 }
 
 bool	is_sprite_aimed(t_sprite *sprite, int left_x)
