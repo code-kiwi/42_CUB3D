@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/04 20:58:00 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/05 00:21:03 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 
 # define ERR_BASIC				"Error\n"
 # define ERR_LITERALS			"Error\n%s\n"
-# define ERR_LITERALS_STR		"Error\n%s %s\n"
+# define ERR_LITERALS_STR		"Error\n%s \"%s\"\n"
 # define ERR_ARG				"Bad argument given to the function"
 # define ERR_PROG_ARGS			"Bad arguments, no argument expected"
 # define ERR_GAME_INIT			"Impossible to intialize the t_game structure"

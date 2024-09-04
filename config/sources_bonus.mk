@@ -6,7 +6,7 @@
 #    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/04 13:52:39 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/09/05 00:47:09 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -153,6 +153,8 @@ SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
 UI_DIR_BONUS				=	ui/
 UI_FILES_BONUS				=	ui_utils_bonus.c				\
 								init_bonus.c					\
+								read_elements_bonus.c			\
+								destroy_bonus.c					\
 								init_ui_pause_bonus.c			\
 								init_ui_gameover_bonus.c		\
 								init_ui_win_bonus.c				\

@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/04 19:21:09 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/05 00:52:21 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,7 +173,7 @@ struct s_game_uis
 	t_ui	win;
 	t_ui	home;
 	t_ui	level_selection;
-	t_image	*textures[UI_NB_TEXTURES];
+	t_image	textures[UI_NB_TEXTURES];
 };
 
 struct s_button
@@ -195,6 +195,11 @@ struct s_label
 
 // uis functions
 bool	init_game_uis(t_game *game, t_game_uis *uis);
+bool	init_uis_txtr_identifiers(char *identifiers[UI_NB_TEXTURES]);
+bool	read_ui_elements(char *identifiers[UI_NB_TEXTURES], \
+			t_image textures[UI_NB_TEXTURES], int fd, void *mlx_ptr);
+void	free_ui_textures(void *mlx_ptr, t_image textures[UI_NB_TEXTURES]);
+void	destroy_game_uis(t_game *game, t_game_uis *uis);
 
 // ui functions
 bool	init_all_ui(t_game *game);
