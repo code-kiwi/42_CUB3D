@@ -71,14 +71,12 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	int			player_height_offset;
 	int			diff;
 	int			saveEnd;
-	int			player_height_diff;
 
-	player_height_diff = game->player.camera_y_diff;
 	offset = game->player.orientation.y;
 	column.coords.x = column_index;
 	column.perceived_height = WIN_HEIGHT
 		/ (ray->length * ray->cos_angle_from_orientation);
-	player_height_offset = player_height_diff - player_height_diff * column.perceived_height / WIN_HEIGHT;
+	player_height_offset = get_player_height_offset(column.perceived_height, game->player.camera_y_diff);
 	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2) + offset + player_height_offset;
 	column.end = range((WIN_HEIGHT + column.perceived_height) / 2 + offset + player_height_offset);
 	saveEnd = (WIN_HEIGHT + column.perceived_height) / 2 + offset + player_height_offset;

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/09/03 22:15:07 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 07:46:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,10 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 	float		entity_angle;
 	float		relative_angle;
 	t_player	*player;
-	int			player_height_diff;
 	int			player_height_offset;
 
 	player = &game->player;
-	player_height_diff = game->player.camera_y_diff;
-	player_height_offset = player_height_diff - player_height_diff * sprite->height * scale / WIN_HEIGHT;
+	player_height_offset = get_player_height_offset(sprite->height * scale, game->player.camera_y_diff);
 	entity_angle = get_entity_angle(&sprite->position, &player->position);
 	relative_angle = player->leftmost_angle - entity_angle;
 	if (player->orientation.x > PI / 2 * 3 && entity_angle < PI / 2)
