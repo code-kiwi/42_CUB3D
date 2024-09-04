@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 13:45:23by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 11:27:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static float	get_texture_x(t_column *column, t_image *texture)
 
 	if (column->coords.x < 0)
 	{
-		texture_x = -column->coords.x * texture->width / column->perceived_height;
+		texture_x = -column->coords.x * texture->width;
+		texture_x /= column->perceived_height;
 		column->coords.x = 0;
 		column->texture_x = texture_x;
 	}
