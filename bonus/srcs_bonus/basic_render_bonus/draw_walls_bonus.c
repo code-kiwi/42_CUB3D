@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 09:59:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 10:11:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	column.coords.x = column_index;
 	column.perceived_height = WIN_HEIGHT / (ray->length * ray->cos_angle);
 	offset = get_offset(column.perceived_height, &game->player);
-	column.real_start = (WIN_HEIGHT - column.perceived_height) / 2;
-	column.start = column.real_start + offset;
-	column.real_start = WIN_HEIGHT - column.real_start;
-	column.real_end = (WIN_HEIGHT + column.perceived_height) / 2;
-	column.save_end = column.real_end + offset;
+	column.ceiling_start = (WIN_HEIGHT - column.perceived_height) / 2;
+	column.start = column.ceiling_start + offset;
+	column.ceiling_start = WIN_HEIGHT - column.ceiling_start;
+	column.ground_start = (WIN_HEIGHT + column.perceived_height) / 2;
+	column.save_end = column.ground_start + offset;
 	column.end = range(column.save_end, 0, WIN_HEIGHT);
 	column.coords.y = range(column.start, 0, WIN_HEIGHT);
 	column.texture_start = column.coords.y - column.start;

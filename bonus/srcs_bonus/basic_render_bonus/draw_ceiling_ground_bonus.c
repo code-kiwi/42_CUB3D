@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 09:59:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 10:11:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	*(unsigned int *)addr = color;
 }
 
-static float	get_inv_dist(int real_start, float cos_angle)
+static float	get_inv_dist(int start, float cos_angle)
 {
 	float	inv_dist;
 
-	inv_dist = real_start * cos_angle / (WIN_HEIGHT / 2) - cos_angle;
+	inv_dist = start * cos_angle / (WIN_HEIGHT / 2) - cos_angle;
 	return (inv_dist);
 }
 
@@ -54,11 +54,11 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	float		inv_dist_unit;
 	t_vector	pixel_position;
 	char		*addr;
-	int			player_height_diff;
+	int			height_diff;
 
-	player_height_diff = game->player.camera_y_diff;
-	inv_dist = get_inv_dist(column->real_end, ray->cos_angle);
-	inv_dist_unit = ray->cos_angle / (WIN_HEIGHT / 2 - player_height_diff);
+	height_diff = game->player.camera_y_diff;
+	inv_dist = get_inv_dist(column->ground_start, ray->cos_angle);
+	inv_dist_unit = ray->cos_angle / (WIN_HEIGHT / 2 - height_diff);
 	inv_dist += max_int(-column->save_end, 0) * inv_dist_unit;
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start < WIN_HEIGHT)
@@ -79,11 +79,11 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 	float		inv_dist_unit;
 	t_vector	pixel_position;
 	char		*addr;
-	int			player_height_diff;
+	int			height_diff;
 
-	player_height_diff = game->player.camera_y_diff;
-	inv_dist = get_inv_dist(column->real_start, ray->cos_angle);
-	inv_dist_unit = ray->cos_angle / (WIN_HEIGHT / 2 + player_height_diff);
+	height_diff = game->player.camera_y_diff;
+	inv_dist = get_inv_dist(column->ceiling_start, ray->cos_angle);
+	inv_dist_unit = ray->cos_angle / (WIN_HEIGHT / 2 + height_diff);
 	inv_dist += max_int(column->start - WIN_HEIGHT, 0) * inv_dist_unit;
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start >= 0)
