@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/09/04 09:40:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 09:54:58 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,10 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 	float		entity_angle;
 	float		relative_angle;
 	t_player	*player;
-	int			height_offset;
+	int			offset;
 
 	player = &game->player;
-	height_offset = get_height_offset(sprite->height * scale, \
-		game->player.camera_y_diff);
+	offset = get_offset(sprite->height * scale, player);
 	entity_angle = get_entity_angle(&sprite->position, &player->position);
 	relative_angle = player->leftmost_angle - entity_angle;
 	if (player->orientation.x > PI / 2 * 3 && entity_angle < PI / 2)
@@ -53,8 +52,7 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 		sprite_screen->y += (WIN_HEIGHT - sprite->height) / 2 * scale;
 	else if (sprite->on_ceiling)
 		sprite_screen->y -= (WIN_HEIGHT - sprite->height) / 2 * scale;
-	sprite_screen->y += game->player.orientation.y;
-	sprite_screen->y += height_offset;
+	sprite_screen->y += offset;
 }
 
 bool	is_sprite_aimed(t_sprite *sprite, int left_x)

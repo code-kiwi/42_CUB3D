@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 09:46:25 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 09:54:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,16 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
 	t_column	column;
 	t_image		*texture;
-	int			camera_offset;
-	int			height_offset;
+	int			offset;
 
-	camera_offset = game->player.orientation.y;
 	column.coords.x = column_index;
-	column.perceived_height = WIN_HEIGHT
-		/ (ray->length * ray->cos_angle);
-	height_offset = get_height_offset(column.perceived_height, \
-		game->player.camera_y_diff);
+	column.perceived_height = WIN_HEIGHT / (ray->length * ray->cos_angle);
+	offset = get_offset(column.perceived_height, &game->player);
 	column.real_ceiling_start = (WIN_HEIGHT - column.perceived_height) / 2;
-	column.start = column.real_ceiling_start + camera_offset + height_offset;
+	column.start = column.real_ceiling_start + offset;
 	column.real_ceiling_start = WIN_HEIGHT - column.real_ceiling_start;
 	column.real_ground_start = (WIN_HEIGHT + column.perceived_height) / 2;
-	column.save_end = column.real_ground_start + camera_offset + height_offset;
+	column.save_end = column.real_ground_start + offset;
 	column.end = range(column.save_end, 0, WIN_HEIGHT);
 	column.coords.y = range(column.start, 0, WIN_HEIGHT);
 	column.texture_start = column.coords.y - column.start;
