@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/09/04 14:03:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 17:28:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,12 @@ void	get_sprite_screen_pos(t_column *column, t_sprite *sprite, \
 	column->coords.y += offset;
 }
 
+/*
+The sprite is in the middle of the screen if his left is at the left of the
+middle point and his right at the right of the middle point.
+We then get the pixel at the middle of the screen, if it's transparent, it
+returns false
+*/
 /// @brief Check if the player aimed at the sprite passed as argument
 /// @param left_x The x screen position of the left of the sprite
 /// @return Return if the sprite passed as argument is at the center of the

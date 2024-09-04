@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 13:27:01 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 17:32:22 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 #include "libft.h"
 #include "door_bonus.h"
 
+/// @brief Return the texture of the wall, based on the direction or if the wall
+/// is a door
+/// @param anim All the game animations / textures
+/// @return A pointer on the texture
 static t_image	*get_texture(t_animation anim[MAP_NB_IDS], t_ray *ray)
 {
 	if (ray->is_door)
@@ -37,6 +41,7 @@ static t_image	*get_texture(t_animation anim[MAP_NB_IDS], t_ray *ray)
 	}
 }
 
+/// @return The x index of the pixel on that texture
 static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 {
 	int		column;

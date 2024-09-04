@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 13:32:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 17:04:35 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 #include "cub3d_bonus.h"
 #include "libft.h"
 
+/*
+To calculate the pixel position in tile we get his world position using his
+inverse distance, we then only need to take the decimal part
+*/
+/// @brief Get the pixel position, relative to the tile it's in.
+/// @param result the vector whose value will be set to the pixel position
+/// @param inv_dist THe inverse distance of the pixel from the player
 static	void	get_pixel_position_in_tile(t_ray *ray,
 	t_vector *player_position, t_vector *result, float inv_dist)
 {
@@ -25,6 +32,11 @@ static	void	get_pixel_position_in_tile(t_ray *ray,
 	result->y -= (int)result->y;
 }
 
+/// @brief Draw a ground or ceiling pixel
+/// @param pos_in_tile The position of the pixel in the texture
+/// @param addr The address the pixel will be drawn into
+/// @param texture the texture of the ground/ceiling
+/// @param inv_dist the inverse distanc eof the pixel from the player
 static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	t_image *texture, float inv_dist)
 {
@@ -40,6 +52,12 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	*(unsigned int *)addr = color;
 }
 
+/// @brief Return the initial inverse distance of a pixel, it does only work for
+/// the first ground / ceiling pixel of the column
+/// @param start the y pixel position of the wall / ground start
+/// @param cos_angle the cosinus of the angle of this row from the player 
+/// orientation
+/// @return The inverse distance
 static float	get_inv_dist(int start, float cos_angle)
 {
 	float	inv_dist;

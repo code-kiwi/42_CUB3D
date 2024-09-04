@@ -6,13 +6,17 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/09/04 13:33:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 17:26:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "sprite_bonus.h"
 
+/// @brief Return the x index of the first column to be drawn
+/// @param column The data of the first column
+/// @note The sprite can begin out of the screen, this function return the first
+/// column index that is in the screen
 static float	get_texture_x(t_column *column, t_image *texture)
 {
 	float	texture_x;
@@ -29,6 +33,11 @@ static float	get_texture_x(t_column *column, t_image *texture)
 	return (texture_x);
 }
 
+/// @brief Draw all the columns of the sprite
+/// @param column The data of the first column
+/// @param sprite The sprite to draw
+/// @param img The img in which to draw the sprite
+/// @param rays All the rays thrown this frame
 static void	draw_all_columns(
 	t_column *column,
 	t_sprite *sprite,
@@ -56,6 +65,12 @@ static void	draw_all_columns(
 	}
 }
 
+/*
+The variable start, end, ranged_start and ranged_end has the same meaning of
+the one in the draw_walls functions. Except there is no ground_start and
+ceiling_start
+*/
+/// @brief Draw a sprite
 static void	draw_sprite(t_sprite *sprite, t_game *game)
 {
 	t_column	column;
