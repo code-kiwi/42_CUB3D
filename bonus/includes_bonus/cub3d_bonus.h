@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/04 09:38:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 09:46:21 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,5 +187,6 @@ void	remove_last_spaces(char *str);
 void	skip_next_spaces(char **str);
 long	get_tick(void);
 void	sort_list(t_list *lst, float compare(void *, void *));
+float	range(float value, float min, float max);
 
 #endif

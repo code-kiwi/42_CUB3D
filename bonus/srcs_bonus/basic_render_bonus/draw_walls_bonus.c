@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 09:40:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 09:46:25 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,6 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 	return (column);
 }
 
-static float	range(float value)
-{
-	if (value < 0)
-		return (0);
-	if (value > WIN_HEIGHT)
-		return (WIN_HEIGHT);
-	return (value);
-}
-
 static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
 	t_column	column;
@@ -81,8 +72,8 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	column.real_ceiling_start = WIN_HEIGHT - column.real_ceiling_start;
 	column.real_ground_start = (WIN_HEIGHT + column.perceived_height) / 2;
 	column.save_end = column.real_ground_start + camera_offset + height_offset;
-	column.end = range(column.save_end);
-	column.coords.y = range(column.start);
+	column.end = range(column.save_end, 0, WIN_HEIGHT);
+	column.coords.y = range(column.start, 0, WIN_HEIGHT);
 	column.texture_start = column.coords.y - column.start;
 	texture = get_texture(game->anim, ray);
 	column.texture_column = pixel_column_on_texture(ray, texture->width);
