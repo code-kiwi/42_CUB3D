@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 13:45:23 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 10:20:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,12 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 
 	scale = 1 / sprite->distance;
 	get_sprite_screen_pos(&column.coords, sprite, game, scale);
-	column.start = column.coords.y;
 	column.end = column.coords.y + sprite->height * scale;
-	if (column.coords.y < 0)
-		column.coords.y = 0;
-	if (column.end > WIN_HEIGHT)
-		column.end = WIN_HEIGHT;
+	column.coords.y = range(column.coords.y, 0, WIN_HEIGHT);
+	column.start = column.coords.y;
+	column.end = range(column.coords.y, 0, WIN_HEIGHT);
 	column.texture_start = column.coords.y - column.start;
 	column.texture_column = 0;
-	if (column.start < 0)
-		column.start = 0;
 	column.perceived_height = sprite->height * scale;
 	if (is_sprite_aimed(sprite, column.coords.x))
 	{
