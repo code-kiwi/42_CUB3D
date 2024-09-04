@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/09/04 10:20:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/27 13:45:23by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	draw_all_columns(
 		texture_x += sprite->distance * texture->width / sprite->height;
 		column->texture_column = texture_x;
 		column->coords.x++;
-		column->coords.y = column->start;
+		column->coords.y = column->ranged_start;
 	}
 }
 
@@ -54,12 +54,13 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 
 	scale = 1 / sprite->distance;
 	get_sprite_screen_pos(&column.coords, sprite, game, scale);
-	column.end = column.coords.y + sprite->height * scale;
-	column.coords.y = range(column.coords.y, 0, WIN_HEIGHT);
 	column.start = column.coords.y;
-	column.end = range(column.coords.y, 0, WIN_HEIGHT);
-	column.texture_start = column.coords.y - column.start;
+	column.end = column.coords.y + sprite->height * scale;
+	column.ranged_end = range(column.end, 0, WIN_HEIGHT);
+	column.ranged_start = range(column.start, 0, WIN_HEIGHT);
+	column.texture_start = column.ranged_start - column.start;
 	column.texture_column = 0;
+	column.coords.y = column.ranged_start;
 	column.perceived_height = sprite->height * scale;
 	if (is_sprite_aimed(sprite, column.coords.x))
 	{
