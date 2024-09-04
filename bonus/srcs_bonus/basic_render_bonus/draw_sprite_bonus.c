@@ -13,6 +13,21 @@
 #include "cub3d_bonus.h"
 #include "sprite_bonus.h"
 
+static float	get_texture_x(t_column *column, t_image *texture)
+{
+	float	texture_x;
+
+	if (column->coords.x < 0)
+	{
+		texture_x = -column->coords.x * texture->width / column->perceived_height;
+		column->coords.x = 0;
+		column->texture_x = texture_x;
+	}
+	else
+		texture_x = 0;
+	return (texture_x);
+}
+
 static void	draw_all_columns(
 	t_column *column,
 	t_sprite *sprite,
@@ -25,15 +40,8 @@ static void	draw_all_columns(
 	float	distance;
 
 	texture = sprite->texture->content;
-	texture_x = 0;
-	if (column->coords.x < 0)
-	{
-		texture_x -= column->coords.x * sprite->distance \
-			* texture->width / sprite->height;
-		column->coords.x = 0;
-		column->texture_column = texture_x;
-	}
-	while (column->texture_column < texture->width)
+	texture_x = get_texture_x(column, texture);
+	while (column->texture_x < texture->width)
 	{
 		if (column->coords.x >= img->width)
 			return ;
@@ -41,7 +49,7 @@ static void	draw_all_columns(
 		if (distance > sprite->distance)
 			draw_texture_column(img, column, texture, sprite->distance);
 		texture_x += sprite->distance * texture->width / sprite->height;
-		column->texture_column = texture_x;
+		column->texture_x = texture_x;
 		column->coords.x++;
 		column->coords.y = column->ranged_start;
 	}
@@ -59,7 +67,7 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 	column.ranged_end = range(column.end, 0, WIN_HEIGHT);
 	column.ranged_start = range(column.start, 0, WIN_HEIGHT);
 	column.texture_start = column.ranged_start - column.start;
-	column.texture_column = 0;
+	column.texture_x = 0;
 	column.coords.y = column.ranged_start;
 	column.perceived_height = sprite->height * scale;
 	if (is_sprite_aimed(sprite, column.coords.x))

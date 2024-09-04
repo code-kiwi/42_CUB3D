@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 10:16:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 10:41:48 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	column.coords.y = column.ranged_start;
 	column.texture_start = column.coords.y - column.start;
 	texture = get_texture(game->anim, ray);
-	column.texture_column = pixel_column_on_texture(ray, texture->width);
+	column.texture_x = pixel_column_on_texture(ray, texture->width);
 	draw_ceiling(&column, column.coords.y - 1, game, ray);
 	draw_texture_column(game->mlx.img_buff, &column, texture, ray->length);
 	draw_ground(&column, column.coords.y, game, ray);
