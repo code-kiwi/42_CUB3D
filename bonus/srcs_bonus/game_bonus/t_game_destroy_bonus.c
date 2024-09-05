@@ -25,7 +25,6 @@ void	t_game_destroy(t_game *game)
 	if (game == NULL)
 		return ;
 	index = 0;
-	destroy_all_ui(game);
 	destroy_game_uis(game, &game->uis);
 	while (index < MAP_NB_IDS)
 	{

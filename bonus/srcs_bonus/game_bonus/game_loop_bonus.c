@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 14:43:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 00:58:43 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void	game_over_handler(t_game *game)
 		game->game_end_loop_count++;
 		t_image_multiply_each_px(game->mlx.img_buff, GAMEOVER_DARKNESS);
 	}
-	draw_ui(&game->ui_game_over, game->mlx.img_buff);
+	draw_ui(&game->uis.game_over, game->mlx.img_buff);
 }
 
 static void	game_win_handler(t_game *game, float delta_time)
@@ -103,7 +103,7 @@ static void	game_win_handler(t_game *game, float delta_time)
 		t_image_multiply_each_px(game->mlx.img_buff, GAMEWON_BRIGHTNESS);
 	}
 	t_mlx_sync_images(&game->mlx);
-	draw_ui(&game->ui_win, game->mlx.img_buff);
+	draw_ui(&game->uis.win, game->mlx.img_buff);
 }
 
 int	game_loop(t_game *game)
@@ -120,11 +120,11 @@ int	game_loop(t_game *game)
 	else if (game->entities == NULL)
 		game_win_handler(game, delta_time);
 	else if (game->state == STATE_PAUSE)
-		draw_ui(&game->ui_pause, game->mlx.img_buff);
+		draw_ui(&game->uis.pause, game->mlx.img_buff);
 	else if (game->state == STATE_HOME)
-		draw_ui(&game->ui_home, game->mlx.img_buff);
+		draw_ui(&game->uis.home, game->mlx.img_buff);
 	else if (game->state == STATE_LEVEL_SELECTION)
-		draw_ui(&game->ui_level_selection, game->mlx.img_buff);
+		draw_ui(&game->uis.level_selection, game->mlx.img_buff);
 	else
 		game_render(game, delta_time);
 	if (!t_mlx_render(&game->mlx))

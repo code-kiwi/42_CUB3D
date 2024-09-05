@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:46:29 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 00:54:12 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/05 02:22:10 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,16 @@ bool	init_game_uis(t_game *game, t_game_uis *uis)
 		return (error_print(ERR_UIS_CREATION), false);
 	if (!uis_init_textures(game, uis))
 		return (false);
+	if (
+		!init_ui_pause(&uis->pause, game->mlx.mlx_ptr, uis->textures)
+		|| !init_ui_gameover(&uis->game_over, game->mlx.mlx_ptr, uis->textures)
+		|| !init_ui_win(&uis->win, game->mlx.mlx_ptr, uis->textures)
+		|| !init_ui_home(&uis->home, game->mlx.mlx_ptr, uis->textures)
+		|| !init_ui_lvl(&uis->level_selection, game->mlx.mlx_ptr, uis->textures)
+	)
+	{
+		free_ui_textures(game->mlx.mlx_ptr, uis->textures);
+		return (error_print(ERR_UI_CREATION), false);
+	}
 	return (true);
 }

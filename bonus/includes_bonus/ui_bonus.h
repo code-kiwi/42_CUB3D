@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 00:52:21 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/05 01:42:21 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,23 +67,27 @@
 # define UI_TXTR_IDX_PAUSE_BTN_RESUME_ON		3
 # define UI_TXTR_IDX_PAUSE_BTN_QUIT_OFF			4
 # define UI_TXTR_IDX_PAUSE_BTN_QUIT_ON			5
+
 # define UI_TXTR_IDX_GAMEOVER_BG				6
 # define UI_TXTR_IDX_GAMEOVER_LABEL				7
 # define UI_TXTR_IDX_GAMEOVER_BTN_QUIT_OFF		8
 # define UI_TXTR_IDX_GAMEOVER_BTN_QUIT_ON		9
 # define UI_TXTR_IDX_GAMEOVER_BTN_RESTART_OFF	10
 # define UI_TXTR_IDX_GAMEOVER_BTN_RESTART_ON	11
+
 # define UI_TXTR_IDX_WIN_BG						12
 # define UI_TXTR_IDX_WIN_LABEL					13
 # define UI_TXTR_IDX_WIN_TROPHY					14
 # define UI_TXTR_IDX_WIN_BTN_QUIT_OFF			15
 # define UI_TXTR_IDX_WIN_BTN_QUIT_ON			16
+
 # define UI_TXTR_IDX_HOME_BG					17
 # define UI_TXTR_IDX_HOME_LABEL					18
 # define UI_TXTR_IDX_HOME_BTN_PLAY_OFF			19
 # define UI_TXTR_IDX_HOME_BTN_PLAY_ON			20
 # define UI_TXTR_IDX_HOME_BTN_QUIT_OFF			21
 # define UI_TXTR_IDX_HOME_BTN_QUIT_ON			22
+
 # define UI_TXTR_IDX_LVL_BG						23
 # define UI_TXTR_IDX_LVL_LABEL					24
 # define UI_TXTR_IDX_LVL_BTN_LVL1_OFF			25
@@ -202,29 +206,29 @@ void	free_ui_textures(void *mlx_ptr, t_image textures[UI_NB_TEXTURES]);
 void	destroy_game_uis(t_game *game, t_game_uis *uis);
 
 // ui functions
-bool	init_all_ui(t_game *game);
-void	destroy_all_ui(t_game *game);
 void	destroy_ui(t_ui *ui, void *mlx_ptr);
 void	draw_ui(t_ui *ui, t_image *img);
-bool	init_ui_pause(t_ui *ui_pause, void *mlx_ptr, \
-			t_animation anim[MAP_NB_IDS]);
-bool	init_ui_gameover(t_ui *ui_gameover, void *mlx_ptr, \
-			t_animation anim[MAP_NB_IDS]);
-bool	init_ui_win(t_ui *ui_win, void *mlx_ptr, t_animation anim[MAP_NB_IDS]);
-bool	init_ui_home(t_ui *ui_home, void *mlx_ptr, \
-			t_animation anim[MAP_NB_IDS]);
-bool	init_ui_lvl(t_ui *ui_lvl, void *mlx_ptr, t_animation anim[MAP_NB_IDS]);
-bool	init_ui_lvl_btn1(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
-	t_animation anim[MAP_NB_IDS]);
-bool	init_ui_lvl_btn2(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
-	t_animation anim[MAP_NB_IDS]);
-bool	init_ui_lvl_btn3(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
-	t_animation anim[MAP_NB_IDS]);
-bool	init_ui_lvl_btn4(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
-	t_animation anim[MAP_NB_IDS]);
-bool	init_ui_lvl_btn5(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
-	t_animation anim[MAP_NB_IDS]);
 void	disable_buttons_ui(t_ui *ui);
+bool	init_ui_pause(t_ui *ui_pause, void *mlx_ptr, \
+			t_image textures[UI_NB_TEXTURES]);
+bool	init_ui_gameover(t_ui *ui_gameover, void *mlx_ptr, \
+			t_image textures[UI_NB_TEXTURES]);
+bool	init_ui_win(t_ui *ui_win, void *mlx_ptr, \
+			t_image textures[UI_NB_TEXTURES]);
+bool	init_ui_home(t_ui *ui_home, void *mlx_ptr, \
+			t_image textures[UI_NB_TEXTURES]);
+bool	init_ui_lvl(t_ui *ui_lvl, void *mlx_ptr, \
+			t_image textures[UI_NB_TEXTURES]);
+bool	init_ui_lvl_btn1(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
+			t_image textures[UI_NB_TEXTURES]);
+bool	init_ui_lvl_btn2(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
+			t_image textures[UI_NB_TEXTURES]);
+bool	init_ui_lvl_btn3(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
+			t_image textures[UI_NB_TEXTURES]);
+bool	init_ui_lvl_btn4(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
+			t_image textures[UI_NB_TEXTURES]);
+bool	init_ui_lvl_btn5(t_ui *ui_lvl, t_button *btn, void *mlx_ptr, \
+			t_image textures[UI_NB_TEXTURES]);
 
 // label functions
 bool	init_label(t_label *label, t_dimension	*dim, t_image *texture, \

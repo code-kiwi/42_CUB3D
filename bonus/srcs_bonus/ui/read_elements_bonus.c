@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 00:40:32 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 00:44:13 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/05 02:26:29 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,8 @@ bool	read_ui_elements(
 
 	if (textures == NULL || fd < 0)
 		return (error_print(ERR_UIS_CREATION), false);
-	count = -1;
-	while (++count < UI_NB_TEXTURES)
+	count = 0;
+	while (count < UI_NB_TEXTURES)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
@@ -129,11 +129,9 @@ bool	read_ui_elements(
 		}
 		remove_last_breakline(line);
 		if (!read_ui_element(identifiers, textures, line, mlx_ptr))
-		{
-			free(line);
-			return (false);
-		}
+			return (free(line), false);
 		free(line);
+		count++;
 	}
 	return (true);
 }

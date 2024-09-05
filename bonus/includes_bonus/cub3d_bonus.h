@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 00:21:03 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/05 00:57:18 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,11 +160,6 @@ struct s_game
 	t_list				*last_entity_updated;
 	t_weapon			weapons[NB_TOT_WEAPONS];
 	t_game_uis			uis;
-	t_ui				ui_pause;
-	t_ui				ui_game_over;
-	t_ui				ui_win;
-	t_ui				ui_home;
-	t_ui				ui_level_selection;
 	bool				mouse_hidden;
 	t_radar				radar;
 	bool				map_opened;

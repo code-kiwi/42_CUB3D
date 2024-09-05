@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   level_selection_handlers_bonus.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 09:39:00 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/03 15:01:05 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 01:00:29 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	mouse_release_level_selection_handler(int x, int y, t_game *game)
 	i = 0;
 	while (i < UI_LVL_NB_BTN)
 	{
-		lvl_btns[i] = &game->ui_level_selection.buttons[i];
+		lvl_btns[i] = &game->uis.level_selection.buttons[i];
 		if (is_over_button(lvl_btns[i], x, y))
 		{
 			lvl_btns[i]->callback((void *)game);
@@ -38,7 +38,7 @@ void	mouse_move_level_selection_handler(int x, int y, t_game *game)
 	i = 0;
 	while (i < UI_LVL_NB_BTN)
 	{
-		lvl_btns[i] = &game->ui_level_selection.buttons[i];
+		lvl_btns[i] = &game->uis.level_selection.buttons[i];
 		if (is_over_button(lvl_btns[i], x, y))
 			lvl_btns[i]->texture_active = lvl_btns[i]->texture_on;
 		else

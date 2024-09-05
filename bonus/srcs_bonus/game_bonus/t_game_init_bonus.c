@@ -95,14 +95,14 @@ bool	t_game_init(t_game *game)
 	if (game == NULL)
 		return (false);
 	srand(time(NULL));
+	
 	return (
 		t_game_init_params(game)
 		&& t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE)
+		&& init_textures(game)
 		&& init_game_uis(game, &game->uis)
 		&& t_player_init(&game->player, game->map, game)
-		&& init_textures(game)
 		&& init_sprites(game)
-		&& init_all_ui(game)
 		&& init_doors(game)
 		&& init_entities(game)
 		&& init_map_draw(&game->map->draw, game->map, game)
