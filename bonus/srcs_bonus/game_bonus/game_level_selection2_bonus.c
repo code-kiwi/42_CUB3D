@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:47:03 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 10:22:15 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 12:42:23 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ bool	game_load_map(t_game *game, size_t map_index)
 
 void	game_unload_map(t_game *game)
 {
+	size_t	i;
+
 	if (game == NULL)
 		return ;
 	destroy_radar(&game->radar, game->mlx.mlx_ptr);
@@ -80,6 +82,12 @@ void	game_unload_map(t_game *game)
 	ft_lstclear(&game->sprites, free);
 	ft_lstclear(&game->bullets, free);
 	ft_lstclear(&game->entities, t_entity_destroy);
+	i = 0;
+	while (i < game->map->lines_count)
+	{
+		ft_strlcpy(game->map->tiles[i], game->map->tiles_save[i], ft_strlen(game->map->tiles[i]) + 1);
+		i++;
+	}
 	game->map = NULL;
 	game->anim = NULL;
 }

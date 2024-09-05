@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_maps_bonus.c                                  :+:      :+:    :+:   */
+/*   save_tiles_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 16:41:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 11:34:02 by mhotting         ###   ########.fr       */
+/*   Created: 2024/09/05 11:59:27 by mhotting          #+#    #+#             */
+/*   Updated: 2024/09/05 12:08:26 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+#include "libft.h"
 
-bool	read_maps(t_game *game)
+bool	save_map_tiles(t_map *map)
 {
-	if (game == NULL)
-		return (error_print("ERR READ MAPS"), false);
-	read_map(&game->maps[0], MAP0_PATH, game->anims[0]);
-	read_map(&game->maps[1], MAP1_PATH, game->anims[1]);
-	read_map(&game->maps[2], MAP2_PATH, game->anims[2]);
-	read_map(&game->maps[3], MAP3_PATH, game->anims[3]);
-	read_map(&game->maps[4], MAP4_PATH, game->anims[4]);
+	char	**save;
+	size_t	i;
+
+	if (map == NULL || map->tiles == NULL)
+		return (false);
+	save = (char **) ft_calloc(map->lines_count + 1, sizeof(char *));
+	if (save == NULL)
+		return (false);
+	i = 0;
+	while (i < map->lines_count)
+	{
+		save[i] = ft_strdup(map->tiles[i]);
+		if (save[i] == NULL)
+		{
+			ft_free_str_array(&save);
+			return (false);
+		}
+		i++;
+	}
+	map->tiles_save = save;
 	return (true);
 }

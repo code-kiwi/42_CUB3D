@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 10:10:03 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 12:08:45 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -266,6 +266,7 @@ struct s_map_draw
 
 struct s_map
 {
+	char			**tiles_save;
 	char			**tiles;
 	size_t			*lines_lengths;
 	size_t			lines_count;
@@ -277,12 +278,14 @@ struct s_map
 // Map functions
 bool	read_maps(t_game *game);
 bool	read_map(t_map *map, char *filename, t_animation anim[MAP_NB_IDS]);
+bool	save_map_tiles(t_map *map);
 bool	is_map_valid(t_map *map);
 bool	read_elements(t_map *map, int fd, t_animation anim[MAP_NB_IDS]);
 bool	is_in_bounds(t_vector *position, t_map *map);
 bool	is_character(t_vector *position, t_map *map, char character);
 bool	check_extension(char *filename, char *extension);
 void	free_map(t_map *map);
+void	free_maps(t_map maps[NB_MAPS]);
 bool	is_walkable(t_map *map, t_mlx_coords *coords);
 bool	get_elem_into_list(t_game *game, t_list **dest, char *ids,
 			void *add_elem(t_game *, float, float, char));

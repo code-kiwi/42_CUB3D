@@ -12,6 +12,7 @@
 
 #include "cub3d_bonus.h"
 #include "entities_bonus.h"
+#include "animation_bonus.h"
 
 /**
  * @brief Destroys the given t_game
@@ -19,30 +20,22 @@
 */
 void	t_game_destroy(t_game *game)
 {
-	size_t	index;
-	t_list	*animation_textures;
+	size_t		index;
+	t_animation	*anim;
 
 	if (game == NULL)
 		return ;
 	index = 0;
 	destroy_game_uis(game, &game->uis);
-	while (index < MAP_NB_IDS)
+	while (index < NB_MAPS)
 	{
-		animation_textures = game->anim[index].textures;
-		destroy_animation_textures(animation_textures, game->mlx.mlx_ptr);
+		anim = game->anims[index];
+		destroy_animation_textures(anim->textures, game->mlx.mlx_ptr);
 		index++;
 	}
 	destroy_radar(&game->radar, game->mlx.mlx_ptr);
 	t_mlx_destroy(&game->mlx);
-
-
-	free_map(&game->maps[0]);
-	free_map(&game->maps[1]);
-	free_map(&game->maps[2]);
-	free_map(&game->maps[2]);
-	free_map(&game->maps[2]);
-
-
+	free_maps(game->maps);
 	if (game->doors != NULL)
 		free(game->doors);
 	ft_lstclear(&game->sprites, free);
