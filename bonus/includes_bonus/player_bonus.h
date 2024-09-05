@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 15:05:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 16:49:48 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "mlx_api_bonus.h"
 # include "weapons_bonus.h"
 
-# define PLAYER_POS_ORDERED				"ENWS"
+# define PLAYER_POS_ORDERED				"ENWSenws"
 # define FOV_ANGLE_DEFAULT				1.05
 # define FRONT 							0
 # define LEFT 							1
