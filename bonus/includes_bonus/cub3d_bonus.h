@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 11:34:56 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 14:34:58 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@
 # define ERR_MISSING_COMPONENT	"Missing element component"
 # define ERR_TEXTURE_SIZE		"Wrong texture size"
 # define ERR_MAP_LOAD			"Impossible to load the map"
+# define ERR_MAP_UNLOAD			"Impossible to unload the map"
 
 # define ERR_RECTANGLE			"You tried to draw an invalid rectangle"
 
@@ -211,6 +212,8 @@ void	select_level3(t_game *game);
 void	select_level4(t_game *game);
 void	select_level5(t_game *game);
 void	quit_level(t_game *game);
+bool	game_load_map(t_game *game, size_t map_index);
+void	game_unload_map(t_game *game);
 
 // Utils functions
 void	error_print(char *err_msg);

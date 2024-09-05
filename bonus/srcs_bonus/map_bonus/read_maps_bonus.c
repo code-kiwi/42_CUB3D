@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:41:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 11:34:02 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 14:18:45 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 
 bool	read_maps(t_game *game)
 {
+	size_t		i;
+	static char	*filenames[NB_MAPS] = {
+		MAP0_PATH, MAP1_PATH, MAP2_PATH, MAP3_PATH, MAP4_PATH
+	};
+
 	if (game == NULL)
 		return (error_print("ERR READ MAPS"), false);
-	read_map(&game->maps[0], MAP0_PATH, game->anims[0]);
-	read_map(&game->maps[1], MAP1_PATH, game->anims[1]);
-	read_map(&game->maps[2], MAP2_PATH, game->anims[2]);
-	read_map(&game->maps[3], MAP3_PATH, game->anims[3]);
-	read_map(&game->maps[4], MAP4_PATH, game->anims[4]);
+	i = 0;
+	while (i < NB_MAPS)
+	{
+		if (!read_map(&game->maps[i], filenames[i], game->anims[i]))
+			return (false);
+		i++;
+	}
 	return (true);
 }

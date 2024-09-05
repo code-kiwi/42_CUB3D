@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/05 12:09:17 by mhotting         ###   ########.fr        #
+#    Updated: 2024/09/05 14:34:06 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ GAME_FILES_BONUS			=	t_game_destroy_bonus.c			\
 								game_pause_bonus.c				\
 								game_level_selection1_bonus.c	\
 								game_level_selection2_bonus.c	\
+								game_level_selection_utils_bonus.c	\
 								game_home_bonus.c
 GAME_BONUS					=	$(addprefix $(GAME_DIR_BONUS), $(GAME_FILES_BONUS))
 

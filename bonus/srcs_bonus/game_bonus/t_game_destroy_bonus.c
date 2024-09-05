@@ -14,25 +14,35 @@
 #include "entities_bonus.h"
 #include "animation_bonus.h"
 
+void	destroy_all_anims(t_game *game)
+{
+	size_t		i;
+	size_t		j;
+
+	i = 0;
+	while (i < NB_MAPS)
+	{
+		j = 0;
+		while (j < MAP_NB_IDS)
+		{
+			destroy_animation_textures(game->anims[i][j].textures, \
+				game->mlx.mlx_ptr);
+			j++;
+		}
+		i++;
+	}
+}
+
 /**
  * @brief Destroys the given t_game
  * @param game The structure to destroy
 */
 void	t_game_destroy(t_game *game)
 {
-	size_t		index;
-	t_animation	*anim;
-
 	if (game == NULL)
 		return ;
-	index = 0;
 	destroy_game_uis(game, &game->uis);
-	while (index < NB_MAPS)
-	{
-		anim = game->anims[index];
-		destroy_animation_textures(anim->textures, game->mlx.mlx_ptr);
-		index++;
-	}
+	destroy_all_anims(game);
 	destroy_radar(&game->radar, game->mlx.mlx_ptr);
 	t_mlx_destroy(&game->mlx);
 	free_maps(game->maps);
