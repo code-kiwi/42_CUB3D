@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 15:22:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 15:49:04 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@
 
 # define IDS_MAP_SPRITE					"s"
 # define IDS_MAP_ENTITY					"dicblpyrmof"
-# define ID_MAP_PLAYER					'P'
-# define ID_MAP_ENTITY					'e'
+# define ID_MAP_PLAYER_SKY				'P'
+# define ID_MAP_PLAYER_CEILING			'p'
+# define ID_MAP_ENTITY_SKY				'E'
+# define ID_MAP_ENTITY_CEILING			'e'
 
 # define ID_TEXTURE_NORTH				"NO"
 # define ID_TEXTURE_SOUTH				"SO"
