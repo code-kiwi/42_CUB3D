@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 17:48:40 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 09:33:14 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 09:39:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static bool	is_grounded(t_player *player)
 {
-	return (player->camera_y <= PLAYER_HEIGHT * WIN_HEIGHT + GROUND_MIN_DISTANCE);
+	return (player->camera_y <= player->height + GROUND_MIN_DISTANCE);
 }
 
 static bool	is_under_ceiling(t_player *player)
@@ -39,7 +39,7 @@ float	get_camera_height_diff(float camera_height)
 void	jump(t_player *player)
 {
 	if (is_grounded(player))
-		player->vertical_move = PLAYER_JUMP_FORCE * WIN_HEIGHT;
+		player->vertical_move = player->jump_force;
 }
 
 void	apply_vertical_move(t_player *player, float delta_time)
@@ -53,5 +53,5 @@ void	apply_vertical_move(t_player *player, float delta_time)
 	if (grounded || is_under_ceiling(player))
 		player->vertical_move = 0;
 	if (!grounded)
-		player->vertical_move -= GRAVITY_FORCE * WIN_HEIGHT * delta_time;
+		player->vertical_move -= player->gravity_force * delta_time;
 }

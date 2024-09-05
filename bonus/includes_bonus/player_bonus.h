@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 09:34:44 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 09:39:07 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define PLAYER_INTERACTION_DISTANCE	1.5
 # define PLAYER_HEALTH_POINT			25
 # define PLAYER_RADIUS					0.3
-# define PLAYER_HEIGHT					0.25
+# define PLAYER_HEIGHT_RATIO			0.25
 
 # define PLAYER_WEAPON_V_MOVE_UPDATE	0.02f
 # define PLAYER_WEAPON_H_MOVE_UPDATE	0.04f
@@ -43,8 +43,8 @@
 
 # define PLAYER_MIN_DIST_TO_WALL		0.05f
 
-# define PLAYER_JUMP_FORCE				1.5f
-# define GRAVITY_FORCE					2.0f
+# define PLAYER_JUMP_FORCE_RATIO		1.5f
+# define GRAVITY_FORCE_RATIO			2.0f
 # define GROUND_MIN_DISTANCE			10.0f
 # define CEILING_MIN_DISTANCE			100.0f
 
@@ -100,6 +100,9 @@ struct s_player
 	float			camera_y;
 	float			camera_y_diff;
 	float			vertical_move;
+	float			jump_force;
+	float			gravity_force;
+	float			height;
 };
 
 // t_player functions
