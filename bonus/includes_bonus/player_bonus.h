@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 10:37:06 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 15:05:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 # define PLAYER_WEAPON_H_OFFSET_STEP	10
 # define PLAYER_WEAPON_H_OFFSET_MAX		50
 
-# define MAX_Y_ROTATION_RATIO			2
+# define MAX_Y_ROTATION_RATIO			0.8
 
 # define PLAYER_MIN_DIST_TO_WALL		0.05f
 
