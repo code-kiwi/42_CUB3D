@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/05 08:57:55 by brappo           ###   ########.fr        #
+#    Updated: 2024/09/05 11:14:48 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,8 @@ RENDER_FILES_BONUS			=	draw_walls_bonus.c				\
 								draw_ceiling_ground_bonus.c		\
 								draw_sprite_bonus.c				\
 								sprite_screen_position_bonus.c	\
-								offset_bonus.c
+								offset_bonus.c					\
+								draw_sky_bonus.c
 RENDER_BONUS				=	$(addprefix $(RENDER_DIR_BONUS), $(RENDER_FILES_BONUS))
 
 # MAP

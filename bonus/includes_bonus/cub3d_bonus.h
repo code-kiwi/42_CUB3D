@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/04 11:24:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 11:36:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,7 @@ bool	is_sprite_aimed(t_sprite *sprite, int left_x);
 void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray);
 void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray);
 int		get_offset(float perceived_height, t_player *player);
+void	draw_sky(t_game *game);
 
 // Utils functions
 void	error_print(char *err_msg);
