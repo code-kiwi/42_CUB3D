@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 09:55:06 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 10:37:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@
 # define BACK 							2
 # define RIGHT 							3
 
-# define PLAYER_SPEED_FORWARD			5
-# define PLAYER_SPEED_BACKWARD			3
-# define PLAYER_SPEED_LEFT				3
-# define PLAYER_SPEED_RIGHT				3
-# define PLAYER_INTERACTION_DISTANCE	1.5
+# define PLAYER_SPEED_FORWARD			3
+# define PLAYER_SPEED_BACKWARD			2
+# define PLAYER_SPEED_LEFT				2
+# define PLAYER_SPEED_RIGHT				2
+# define PLAYER_INTERACTION_DISTANCE	2
 # define PLAYER_HEALTH_POINT			25
 # define PLAYER_RADIUS					0.3
 # define PLAYER_HEIGHT_RATIO			0.25
@@ -43,7 +43,7 @@
 
 # define PLAYER_MIN_DIST_TO_WALL		0.05f
 
-# define PLAYER_JUMP_FORCE_RATIO		1.5f
+# define PLAYER_JUMP_FORCE_RATIO		1.0f
 # define GRAVITY_FORCE_RATIO			2.0f
 # define GROUND_MIN_DISTANCE			10.0f
 # define CEILING_MIN_DISTANCE			100.0f
