@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bullets_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 22:29:02 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 08:29:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "vector_bonus.h"
 # include "cub3d_bonus.h"
 
-# define BULLET_SPEED				5
+# define BULLET_SPEED				13
 # define BULLET_HEIGHT_WINDOW_RATIO	0.25
 
 typedef struct s_bullet	t_bullet;
