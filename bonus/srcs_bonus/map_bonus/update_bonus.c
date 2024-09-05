@@ -12,6 +12,7 @@
 
 #include "entities_bonus.h"
 #include "door_bonus.h"
+#include "libft.h"
 
 /**
  * @brief Removes all the moving characters from the map
@@ -30,7 +31,12 @@ static void	clear_map(t_map *map)
 		while (j < map->lines_lengths[i])
 		{
 			if (ft_strchr(MAP_MOVING_CHARS, map->tiles[i][j]) != NULL)
-				map->tiles[i][j] = ID_MAP_TILE;
+			{
+				if (map->tiles[i][j] >= 'A' && map->tiles[i][j] <= 'Z')
+					map->tiles[i][j] = ID_MAP_SKY;
+				else
+					map->tiles[i][j] = ID_MAP_TILE;
+			}
 			j++;
 		}
 		i++;
