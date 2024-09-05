@@ -61,9 +61,9 @@ static void	add_player_to_map(t_map *map, t_player *player)
 	player_coords.y = (int) player->position.y;
 	character = &map->tiles[player_coords.y][player_coords.x];
 	if (*character >= 'A' && *character <= 'Z')
-		*character = ID_MAP_PLAYER_SKY;
+		*character = ID_MAP_PLAYER - 32;
 	else
-		*character = ID_MAP_PLAYER_CEILING;
+		*character = ID_MAP_PLAYER;
 }
 
 /**
@@ -86,9 +86,9 @@ static void	add_entities_to_map(t_map *map, t_list *entities)
 			entity_coords.y = (int) entity->sprite->position.y;
 			character = &map->tiles[entity_coords.y][entity_coords.x];
 			if (*character >= 'A' && *character <= 'Z')
-				*character = ID_MAP_ENTITY_SKY;
+				*character = ID_MAP_ENTITY - 32;
 			else
-				*character = ID_MAP_ENTITY_CEILING;
+				*character = ID_MAP_ENTITY;
 		}
 		entities = entities->next;
 	}

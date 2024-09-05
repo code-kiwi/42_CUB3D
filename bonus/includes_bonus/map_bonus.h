@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 15:49:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 15:58:26 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,13 @@
 # define ID_MAP_WALL					'1'
 # define ID_MAP_TILE					'0'
 # define ID_MAP_SPACE					' '
-# define ID_MAP_DOOR_CLOSED				'D'
-# define ID_MAP_DOOR_OPENED				'O'
+# define ID_MAP_DOOR_CLOSED				'd'
+# define ID_MAP_DOOR_OPENED				'0'
 # define ID_MAP_SKY						'2'
 
-# define IDS_MAP_SPRITE					"s"
-# define IDS_MAP_ENTITY					"dicblpyrmof"
-# define ID_MAP_PLAYER_SKY				'P'
-# define ID_MAP_PLAYER_CEILING			'p'
-# define ID_MAP_ENTITY_SKY				'E'
-# define ID_MAP_ENTITY_CEILING			'e'
+# define IDS_MAP_SPRITE					"t"
+# define ID_MAP_PLAYER					'p'
+# define ID_MAP_ENTITY					'e'
 
 # define ID_TEXTURE_NORTH				"NO"
 # define ID_TEXTURE_SOUTH				"SO"
@@ -242,7 +239,7 @@
 
 # define IDX_TXTR_SKY					96
 
-# define ID_MAP_DEMON					'd'
+# define ID_MAP_DEMON					'z'
 # define ID_MAP_IMP						'i'
 # define ID_MAP_CACO					'c'
 # define ID_MAP_BOH						'b'
@@ -251,14 +248,15 @@
 # define ID_MAP_CYBER					'y'
 # define ID_MAP_REV						'r'
 # define ID_MAP_MANC					'm'
-# define ID_MAP_COMMANDO				'o'
+# define ID_MAP_COMMANDO				'v'
 # define ID_MAP_SERGEANT				'f'
+# define IDS_MAP_ENTITY					"zicblpyrmvf"
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS				" 012spdicblayrmofNSEWD"
+# define MAP_ALLOWED_CHARS				" 012zicblpyrmvftnsewd"
 # define MAP_NB_IDS						97
 
-# define MAP_MOVING_CHARS				"PNSEWe"
+# define MAP_MOVING_CHARS				"pnsewo"
 
 # define MAP_BG_DARK_FACTOR				0.6f
 # define MAP_DRAW_SIZE_RATIO			0.95f
