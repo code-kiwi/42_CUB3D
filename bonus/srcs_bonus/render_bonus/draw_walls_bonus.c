@@ -3,24 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 17:32:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 17:32:04 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <math.h>
 
 #include "cub3d_bonus.h"
 #include "libft.h"
 #include "door_bonus.h"
 
-/// @brief Return the texture of the wall, based on the direction or if the wall
-/// is a door
-/// @param anim All the game animations / textures
-/// @return A pointer on the texture
+/**
+ * @brief Return the texture of the wall, based on the direction or if the wall
+ * is a door
+ * @param anim All the game animations / textures
+ * @return A pointer on the texture
+ */
 static t_image	*get_texture(t_animation anim[MAP_NB_IDS], t_ray *ray)
 {
 	if (ray->is_door)
@@ -41,7 +42,9 @@ static t_image	*get_texture(t_animation anim[MAP_NB_IDS], t_ray *ray)
 	}
 }
 
-/// @return The x index of the pixel on that texture
+/**
+ * @return The x index of the pixel on that texture
+ */
 static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 {
 	int		column;
@@ -59,20 +62,19 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 	return (column);
 }
 
-/*
-ceiling start / ground start : 
-	represents the ceiling start / wall start or ground start /wall  end, except
-	they are not affected by the offsets.
-	They are used to calculate the pixel position of the wall or ground.
-start / end : 
-	It's the position of the start/end but affected by the offsets.
-ranged_start / ranged_end :
-	Those are the real position the drawing start or end by, they'r between 
-	[0,WIN_HEIGHT].
-*/
-
-/// @brief Draw a column of the screen
-/// @param column_index The index of the column to draw [0,WIn_HEIGHT]
+/**
+ * ceiling start / ground start :
+ * Represent the ceiling start / wall start or ground start / wall end, except
+ * they are not affected by the offsets.
+ * They are used to calculate the pixel position of the wall or ground.
+ * start / end : 
+ * It's the position of the start/end but affected by the offsets.
+ * ranged_start / ranged_end :
+ * Those are the real position the drawing start or end by, they'r between
+ * [0,WIN_HEIGHT].
+ * @brief Draw a column of the screen
+ * @param column_index The index of the column to draw [0,WIn_HEIGHT]
+ */
 static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
 	t_column	column;

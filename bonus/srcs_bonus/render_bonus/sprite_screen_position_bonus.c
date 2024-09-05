@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_screen_position_bonus.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/09/05 10:13:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 17:31:40 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 #include "sprite_bonus.h"
 #include "cub3d_bonus.h"
 
-/// @brief Calculate the entity angle of the sprite, relative to the x axis
-/// @return The angle in range : [0, 2 * PI]
+/**
+ * @brief Calculate the entity angle of the sprite, relative to the x axis
+ * @return The angle in range : [0, 2 * PI]
+ */
 static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
 {
 	float		entity_angle;
@@ -30,19 +32,19 @@ static float	get_entity_angle(t_vector *sprite_pos, t_vector *player_pos)
 	return (entity_angle);
 }
 
-/*
-	quadrant 1 : [0, 90]
-	quadrant 4 : [270, 360]
-	If the player is in the quadrant 1 and the entity in the quadrant 4, the 
-	relative angle will be [0, 90] - [270, 360].It will be negative so we need
-	to add 2 * PI;
-	Same thing if the entity is in quadrant 1 and the player in quadrant 4, the
-	relative angle will be [270, 360] - [0, 90], that means a whole turn around
-	the circle so we need to remove 2 * PI;
-*/
-/// @brief Calculate the angle between the entity and the player
-/// @param entity_angle The angle between the entity and the x axis
-/// @return The angle between in range [0, 360]
+/**
+ * quadrant 1 : [0, 90]
+ * quadrant 4 : [270, 360]
+ * If the player is in the quadrant 1 and the entity in the quadrant 4, the 
+ * relative angle will be [0, 90] - [270, 360].It will be negative so we need
+ * to add 2 * PI;
+ * Same thing if the entity is in quadrant 1 and the player in quadrant 4, the
+ * relative angle will be [270, 360] - [0, 90], that means a whole turn around
+ * the circle so we need to remove 2 * PI;
+ * @brief Calculate the angle between the entity and the player
+ * @param entity_angle The angle between the entity and the x axis
+ * @return The angle between in range [0, 360]
+ */
 static float	get_relative_angle(float entity_angle, t_player *player)
 {
 	float	relative_angle;
@@ -55,9 +57,11 @@ static float	get_relative_angle(float entity_angle, t_player *player)
 	return (relative_angle);
 }
 
-/// @brief Set the sprite left up corner screen position in the coords variable
-/// @param column The column whose coordinates are set.
-/// @note Only the perceived height needs to be set in the column variable
+/**
+ * @brief Set the sprite left up corner screen position in the coords variable
+ * @param column The column whose coordinates are set.
+ * @note Only the perceived height needs to be set in the column variable
+ */
 void	get_sprite_screen_pos(t_column *column, t_sprite *sprite, \
 	t_game *game, float scale)
 {
@@ -80,16 +84,16 @@ void	get_sprite_screen_pos(t_column *column, t_sprite *sprite, \
 	column->coords.y += offset;
 }
 
-/*
-The sprite is in the middle of the screen if his left is at the left of the
-middle point and his right at the right of the middle point.
-We then get the pixel at the middle of the screen, if it's transparent, it
-returns false
-*/
-/// @brief Check if the player aimed at the sprite passed as argument
-/// @param left_x The x screen position of the left of the sprite
-/// @return Return if the sprite passed as argument is at the center of the
-/// screen and the current aimed pixel is non transparent
+/**
+ * The sprite is in the middle of the screen if his left is at the left of the
+ * middle point and his right at the right of the middle point.
+ * We then get the pixel at the middle of the screen, if it's transparent, it
+ * returns false
+ * @brief Check if the player aimed at the sprite passed as argument
+ * @param left_x The x screen position of the left of the sprite
+ * @return Return if the sprite passed as argument is at the center of the
+ * screen and the current aimed pixel is non transparent
+ */
 bool	is_sprite_aimed(t_sprite *sprite, int left_x)
 {
 	int		aimed_column;
