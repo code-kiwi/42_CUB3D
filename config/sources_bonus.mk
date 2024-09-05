@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/04 17:54:07 by brappo           ###   ########.fr        #
+#    Updated: 2024/09/05 08:57:55 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -140,13 +140,13 @@ VECTOR_FILES_BONUS			=	vector_utils1_bonus.c			\
 VECTOR_BONUS				=	$(addprefix $(VECTOR_DIR_BONUS), $(VECTOR_FILES_BONUS))
 
 # SPRITES
-SPRITES_DIR_BONUS			=	sprites/
+SPRITES_DIR_BONUS			=	sprites_bonus/
 SPRITES_FILES_BONUS			=	sprite_distance_bonus.c			\
 								sprite_init_bonus.c
 SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
 
 # UI
-UI_DIR_BONUS				=	ui/
+UI_DIR_BONUS				=	ui_bonus/
 UI_FILES_BONUS				=	ui_utils_bonus.c				\
 								init_ui_pause_bonus.c			\
 								init_ui_gameover_bonus.c		\
