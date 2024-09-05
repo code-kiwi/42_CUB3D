@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 10:20:51 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 14:22:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ inverse distance, we then only need to take the decimal part
 */
 /// @brief Get the pixel position, relative to the tile it's in.
 /// @param result the vector whose value will be set to the pixel position
-/// @param inv_dist THe inverse distance of the pixel from the player
+/// @param inv_dist The inverse distance of the pixel from the player
 static	void	get_pixel_position_in_tile(t_ray *ray,
 	t_vector *player_position, t_vector *result, float inv_dist)
 {
@@ -36,7 +36,7 @@ static	void	get_pixel_position_in_tile(t_ray *ray,
 /// @param pos_in_tile The position of the pixel in the texture
 /// @param addr The address the pixel will be drawn into
 /// @param texture the texture of the ground/ceiling
-/// @param inv_dist the inverse distanc eof the pixel from the player
+/// @param inv_dist the inverse distance of the pixel from the player
 static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	t_image *texture, float inv_dist)
 {

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:14:16 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 14:20:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 14:22:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	draw_sky_column_temp(size_t column_index, t_ray *ray, t_game *game)
 	column.ranged_end = WIN_HEIGHT;
 	scale_y = texture->height / column.perceived_height;
 	column.texture_start = offset + texture->height / 3 / scale_y;
-	draw_texture_column(screen, &column, texture, ray->length);
+	draw_texture_column(screen, &column, texture, 0);
 }
 
 void	draw_sky(t_game *game)
