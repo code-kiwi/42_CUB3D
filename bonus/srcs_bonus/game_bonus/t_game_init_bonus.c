@@ -98,6 +98,7 @@ static bool	t_game_init_params(t_game *game)
 	game->state = STATE_HOME;
 	game->game_end_loop_count = 0;
 	game->bullets = NULL;
+	game->curr_map_index = NO_MAP_LOADED_INDEX;
 	return (init_draw_thread_args(game, game->draw_thread_args));
 }
 

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 14:34:58 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 16:10:44 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@
 # define GAMEWON_BRIGHT_LOOP	1000
 
 # define NB_MAX_ENTITIES		100
+# define NO_MAP_LOADED_INDEX	-1
 
 typedef struct s_game				t_game;
 typedef struct s_draw_thread_arg	t_draw_thread_arg;
@@ -146,6 +147,7 @@ struct s_game
 	t_game_state		state;
 	t_mlx				mlx;
 	t_player			player;
+	ssize_t				curr_map_index;
 	t_map				*map;
 	t_map				maps[NB_MAPS];
 	t_ray				rays[WIN_WIDTH];
@@ -214,6 +216,7 @@ void	select_level5(t_game *game);
 void	quit_level(t_game *game);
 bool	game_load_map(t_game *game, size_t map_index);
 void	game_unload_map(t_game *game);
+void	reload_level(t_game *game);
 
 // Utils functions
 void	error_print(char *err_msg);

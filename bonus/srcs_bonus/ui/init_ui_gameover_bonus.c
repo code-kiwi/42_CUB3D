@@ -6,14 +6,14 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:23:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 10:23:57 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 16:29:01 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "libft.h"
 
-static bool	init_ui_gameover_btn(
+static bool	init_ui_gameover_btn1(
 	t_ui *ui_gameover,
 	t_button *btn,
 	void *mlx_ptr,
@@ -24,7 +24,31 @@ static bool	init_ui_gameover_btn(
 	btn->size.y = UI_GAMEOVER_BTN_H_RATIO * ui_gameover->size.y;
 	btn->pos.x = ui_gameover->pos.x \
 		+ (ui_gameover->size.x / 2 - btn->size.x / 2);
-	btn->pos.y = ui_gameover->pos.y + 3 * ui_gameover->size.y / 5;
+	btn->pos.y = ui_gameover->pos.y + 13 * ui_gameover->size.y / 24;
+	btn->texture_off = &textures[UI_TXTR_IDX_GAMEOVER_BTN_RESTART_OFF];
+	btn->texture_on = &textures[UI_TXTR_IDX_GAMEOVER_BTN_RESTART_ON];
+	if (
+		!t_image_resize(mlx_ptr, btn->texture_off, &btn->size)
+		|| !t_image_resize(mlx_ptr, btn->texture_on, &btn->size)
+	)
+		return (false);
+	btn->texture_active = btn->texture_off;
+	btn->callback = (void (*)(void *)) reload_level;
+	return (true);
+}
+
+static bool	init_ui_gameover_btn2(
+	t_ui *ui_gameover,
+	t_button *btn,
+	void *mlx_ptr,
+	t_image textures[UI_NB_TEXTURES]
+)
+{
+	btn->size.x = UI_GAMEOVER_BTN_W_RATIO * ui_gameover->size.x;
+	btn->size.y = UI_GAMEOVER_BTN_H_RATIO * ui_gameover->size.y;
+	btn->pos.x = ui_gameover->pos.x \
+		+ (ui_gameover->size.x / 2 - btn->size.x / 2);
+	btn->pos.y = ui_gameover->pos.y + 18 * ui_gameover->size.y / 24;
 	btn->texture_off = &textures[UI_TXTR_IDX_GAMEOVER_BTN_QUIT_OFF];
 	btn->texture_on = &textures[UI_TXTR_IDX_GAMEOVER_BTN_QUIT_ON];
 	if (
@@ -37,7 +61,7 @@ static bool	init_ui_gameover_btn(
 	return (true);
 }
 
-static bool	init_ui_gameover_button(
+static bool	init_ui_gameover_buttons(
 	t_ui *ui_gameover,
 	void *mlx,
 	t_image textures[UI_NB_TEXTURES]
@@ -47,8 +71,12 @@ static bool	init_ui_gameover_button(
 		sizeof(t_button));
 	if (ui_gameover->buttons == NULL)
 		return (false);
-	if (!init_ui_gameover_btn(ui_gameover, &ui_gameover->buttons[0], mlx, \
-		textures))
+	if (
+		!init_ui_gameover_btn1(ui_gameover, &ui_gameover->buttons[0], mlx, \
+		textures)
+		|| !init_ui_gameover_btn2(ui_gameover, &ui_gameover->buttons[1], mlx, \
+		textures)
+	)
 	{
 		free(ui_gameover->buttons);
 		ui_gameover->buttons = NULL;
@@ -98,7 +126,7 @@ bool	init_ui_gameover(
 	ui_gameover->pos.x = (WIN_WIDTH - ui_gameover->size.x) / 2;
 	ui_gameover->pos.y = (WIN_HEIGHT - ui_gameover->size.y) / 2;
 	ui_gameover->nb_buttons = UI_GAMEOVER_NB_BTN;
-	if (!init_ui_gameover_button(ui_gameover, mlx_ptr, textures))
+	if (!init_ui_gameover_buttons(ui_gameover, mlx_ptr, textures))
 	{
 		destroy_ui(ui_gameover, mlx_ptr);
 		return (false);

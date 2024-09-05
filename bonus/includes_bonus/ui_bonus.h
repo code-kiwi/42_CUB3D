@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ui_bonus.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 01:42:21 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/05 16:11:22 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@
 # define UI_GAMEOVER_NB_LBL			1
 # define UI_GAMEOVER_LBL_W_RATIO	0.75f
 # define UI_GAMEOVER_LBL_H_RATIO	0.3f
-# define UI_GAMEOVER_NB_BTN			1
+# define UI_GAMEOVER_NB_BTN			2
 # define UI_GAMEOVER_BTN_W_RATIO	0.4f
 # define UI_GAMEOVER_BTN_H_RATIO	0.175f
 

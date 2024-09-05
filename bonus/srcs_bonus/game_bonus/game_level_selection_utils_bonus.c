@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:47:03 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 14:36:54 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 16:08:33 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ bool	game_load_map(t_game *game, size_t map_index)
 	if (!load_ok)
 		error_exit(game, ERR_MAP_LOAD);
 	game->state = STATE_PLAYING;
+	game->curr_map_index = map_index;
 	return (true);
 }
 
@@ -63,4 +64,5 @@ void	game_unload_map(t_game *game)
 	}
 	game->map = NULL;
 	game->anim = NULL;
+	game->curr_map_index = NO_MAP_LOADED_INDEX;
 }
