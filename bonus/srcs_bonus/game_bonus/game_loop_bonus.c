@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 00:58:43 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/05 08:52:09 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,16 +115,16 @@ int	game_loop(t_game *game)
 		error_exit(game, ERR_GAME_LOOP);
 	if (!game_loop_handle_fps(game, &delta_time))
 		error_exit(game, ERR_FPS);
-	if (game->player.is_dead)
+	if (game->state == STATE_HOME)
+		draw_ui(&game->uis.home, game->mlx.img_buff);
+	else if (game->state == STATE_LEVEL_SELECTION)
+		draw_ui(&game->uis.level_selection, game->mlx.img_buff);
+	else if (game->player.is_dead)
 		game_over_handler(game);
 	else if (game->entities == NULL)
 		game_win_handler(game, delta_time);
 	else if (game->state == STATE_PAUSE)
 		draw_ui(&game->uis.pause, game->mlx.img_buff);
-	else if (game->state == STATE_HOME)
-		draw_ui(&game->uis.home, game->mlx.img_buff);
-	else if (game->state == STATE_LEVEL_SELECTION)
-		draw_ui(&game->uis.level_selection, game->mlx.img_buff);
 	else
 		game_render(game, delta_time);
 	if (!t_mlx_render(&game->mlx))

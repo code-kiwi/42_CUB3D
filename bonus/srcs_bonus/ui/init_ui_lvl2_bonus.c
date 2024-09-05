@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_ui_lvl2_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 10:52:16 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 02:27:18 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/05 09:46:29 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ bool	init_ui_lvl_btn1(
 	)
 		return (false);
 	btn->texture_active = btn->texture_off;
-	btn->callback = (void (*)(void *)) t_game_destroy_and_exit;
+	btn->callback = (void (*)(void *)) select_level1;
 	return (true);
 }
 
@@ -57,7 +57,7 @@ bool	init_ui_lvl_btn2(
 	)
 		return (false);
 	btn->texture_active = btn->texture_off;
-	btn->callback = (void (*)(void *)) t_game_destroy_and_exit;
+	btn->callback = (void (*)(void *)) select_level2;
 	return (true);
 }
 
@@ -81,7 +81,7 @@ bool	init_ui_lvl_btn3(
 	)
 		return (false);
 	btn->texture_active = btn->texture_off;
-	btn->callback = (void (*)(void *)) t_game_destroy_and_exit;
+	btn->callback = (void (*)(void *)) select_level3;
 	return (true);
 }
 
@@ -105,7 +105,7 @@ bool	init_ui_lvl_btn4(
 	)
 		return (false);
 	btn->texture_active = btn->texture_off;
-	btn->callback = (void (*)(void *)) t_game_destroy_and_exit;
+	btn->callback = (void (*)(void *)) select_level4;
 	return (true);
 }
 
@@ -129,6 +129,6 @@ bool	init_ui_lvl_btn5(
 	)
 		return (false);
 	btn->texture_active = btn->texture_off;
-	btn->callback = (void (*)(void *)) t_game_destroy_and_exit;
+	btn->callback = (void (*)(void *)) select_level5;
 	return (true);
 }

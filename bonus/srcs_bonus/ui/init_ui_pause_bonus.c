@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_ui_pause_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:23:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 01:25:20 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/05 10:23:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static bool	init_ui_pause_btn1(
 	btn->size.y = UI_PAUSE_BTN1_H_RATIO * ui_pause->size.y;
 	btn->pos.x = ui_pause->pos.x + (ui_pause->size.x / 2 - btn->size.x / 2);
 	btn->pos.y = ui_pause->pos.y + 2 * ui_pause->size.y / 5;
-	btn->texture_off = &textures[UI_TXTR_IDX_PAUSE_BTN_RESUME_ON];
-	btn->texture_on = &textures[UI_TXTR_IDX_PAUSE_BTN_RESUME_OFF];
+	btn->texture_off = &textures[UI_TXTR_IDX_PAUSE_BTN_RESUME_OFF];
+	btn->texture_on = &textures[UI_TXTR_IDX_PAUSE_BTN_RESUME_ON];
 	if (
 		!t_image_resize(mlx_ptr, btn->texture_off, &btn->size)
 		|| !t_image_resize(mlx_ptr, btn->texture_on, &btn->size)
@@ -47,15 +47,15 @@ static bool	init_ui_pause_btn2(
 	btn->size.y = UI_PAUSE_BTN2_H_RATIO * ui_pause->size.y;
 	btn->pos.x = ui_pause->pos.x + (ui_pause->size.x / 2 - btn->size.x / 2);
 	btn->pos.y = ui_pause->pos.y + 3 * ui_pause->size.y / 5;
-	btn->texture_off = &textures[UI_TXTR_IDX_PAUSE_BTN_QUIT_ON];
-	btn->texture_on = &textures[UI_TXTR_IDX_PAUSE_BTN_QUIT_OFF];
+	btn->texture_off = &textures[UI_TXTR_IDX_PAUSE_BTN_QUIT_OFF];
+	btn->texture_on = &textures[UI_TXTR_IDX_PAUSE_BTN_QUIT_ON];
 	if (
 		!t_image_resize(mlx_ptr, btn->texture_off, &btn->size)
 		|| !t_image_resize(mlx_ptr, btn->texture_on, &btn->size)
 	)
 		return (false);
 	btn->texture_active = btn->texture_off;
-	btn->callback = (void (*)(void *)) t_game_destroy_and_exit;
+	btn->callback = (void (*)(void *)) quit_level;
 	return (true);
 }
 

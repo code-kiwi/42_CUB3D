@@ -39,6 +39,8 @@ void	t_game_destroy(t_game *game)
 	free_map(&game->maps[0]);
 	free_map(&game->maps[1]);
 	free_map(&game->maps[2]);
+	free_map(&game->maps[2]);
+	free_map(&game->maps[2]);
 
 
 	if (game->doors != NULL)

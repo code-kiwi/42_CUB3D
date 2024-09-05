@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 00:57:18 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/05 10:22:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@
 # define ERR_TEXTURE_EXTENSION	"Bad texture extension, expected '.xpm'"
 # define ERR_MISSING_COMPONENT	"Missing element component"
 # define ERR_TEXTURE_SIZE		"Wrong texture size"
+# define ERR_MAP_LOAD			"Impossible to load the map"
 
 # define ERR_RECTANGLE			"You tried to draw an invalid rectangle"
 
@@ -202,6 +203,14 @@ void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
 bool	is_sprite_aimed(t_sprite *sprite, int left_x);
 void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray);
 void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray);
+
+// Map selection
+void	select_level1(t_game *game);
+void	select_level2(t_game *game);
+void	select_level3(t_game *game);
+void	select_level4(t_game *game);
+void	select_level5(t_game *game);
+void	quit_level(t_game *game);
 
 // Utils functions
 void	error_print(char *err_msg);

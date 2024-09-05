@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_ui_gameover_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:23:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 01:31:10 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/05 10:23:57 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static bool	init_ui_gameover_btn(
 	)
 		return (false);
 	btn->texture_active = btn->texture_off;
-	btn->callback = (void (*)(void *)) t_game_destroy_and_exit;
+	btn->callback = (void (*)(void *)) quit_level;
 	return (true);
 }
 

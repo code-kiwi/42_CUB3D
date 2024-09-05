@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/05 00:47:09 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/09/05 09:47:39 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ GAME_FILES_BONUS			=	t_game_destroy_bonus.c			\
 								t_game_init_bonus.c				\
 								game_loop_bonus.c				\
 								game_pause_bonus.c				\
-								game_level_selection_bonus.c	\
+								game_level_selection1_bonus.c	\
+								game_level_selection2_bonus.c	\
 								game_home_bonus.c
 GAME_BONUS					=	$(addprefix $(GAME_DIR_BONUS), $(GAME_FILES_BONUS))
 

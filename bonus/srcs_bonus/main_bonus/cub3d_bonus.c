@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 16:06:25 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 10:16:14 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	game.map = &game.maps[0];
-	game.anim = game.anims[0];
 	if (!t_game_init(&game))
 	{
 		t_game_destroy(&game);

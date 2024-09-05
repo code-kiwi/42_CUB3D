@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 02:45:11 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/05 10:10:03 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,17 @@
 # include "mlx_api_bonus.h"
 # include "animation_bonus.h"
 
-# define NB_MAPS						3
+# define NB_MAPS						5
 # define MAP0_PATH						"./assets/bonus/maps/map_final.cub"
 # define MAP1_PATH						"./assets/bonus/maps/map_rooms.cub"
-# define MAP2_PATH						"./assets/bonus/maps/map_rooms.cub"
+# define MAP2_PATH						"./assets/bonus/maps/map_rooms2.cub"
+# define MAP3_PATH						"./assets/bonus/maps/map_final.cub"
+# define MAP4_PATH						"./assets/bonus/maps/map_test.cub"
+# define MAP0_IDX						0
+# define MAP1_IDX						1
+# define MAP2_IDX						2
+# define MAP3_IDX						3
+# define MAP4_IDX						4
 
 # define ID_MAP_WALL					'1'
 # define ID_MAP_TILE					'0'
