@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/29 23:49:39 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 12:04:26 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,8 @@
 # define ID_TEXTURE_HUD_HEALTH_LBL		"HUD_HEALTH_LBL"
 # define ID_TEXTURE_HUD_WEAPON_LBL		"HUD_WEAPON_LBL"
 
+# define ID_TEXTURE_SKY					"SKY"
+
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
 # define IDX_TXTR_W						2
@@ -235,6 +237,8 @@
 # define IDX_TXTR_UI_WIN_BTN_OFF		94
 # define IDX_TXTR_UI_WIN_BTN_ON			95
 
+# define IDX_TXTR_SKY					96
+
 # define ID_MAP_DEMON					'd'
 # define ID_MAP_IMP						'i'
 # define ID_MAP_CACO					'c'
@@ -249,7 +253,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
-# define MAP_NB_IDS						96
+# define MAP_NB_IDS						97
 
 # define MAP_MOVING_CHARS				"PNSEWe"
 

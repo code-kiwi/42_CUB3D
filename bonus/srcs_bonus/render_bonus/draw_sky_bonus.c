@@ -6,12 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:14:16 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 11:55:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 12:00:05 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "libft.h"
+
+#include <math.h>
 
 void	draw_sky_column(t_image *screen, float angle, t_image *texture, \
 	int column_index)
@@ -51,7 +53,7 @@ void	draw_sky(t_game *game)
 	sky_texture = game->anim[IDX_TXTR_W].textures->content;
 	while (index < WIN_WIDTH)
 	{
-		column_angle = game->rays[index].angle_from_orientation;
+		column_angle = atan2f(-game->rays[index].slope.y, game->rays[index].slope.x);
 		draw_sky_column(screen, column_angle, sky_texture, index);
 		index++;
 	}
