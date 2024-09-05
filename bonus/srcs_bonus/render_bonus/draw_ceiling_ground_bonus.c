@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/04 17:04:35 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 10:20:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ static float	get_inv_dist(int start, float cos_angle)
 	each loop instead of recalculating the whole thing.
 	inv_dist = inverse distance
 	inv_dist_unit = inverse_distance_unit
-	When the ground start is out of the screen, we need to add those out of the
-	screen pixel to the distance, otherwise the ground would move with the
-	screen border.
+	When the ground start is out of the screen, we need to increase the initial
+	distance, due to those out of the screen pixels.We just multiply the unit by
+	the amount of pixels that are out of the screen : (-column->end).
 */
 /// @brief Draw the ground texture from start to WIN_HEIGHT
 /// @param column The column data to draw
