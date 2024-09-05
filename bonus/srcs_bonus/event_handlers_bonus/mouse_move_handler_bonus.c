@@ -6,12 +6,31 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:15 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 08:40:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 15:54:27 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "event_handlers_bonus.h"
+
+static void	mouse_move_buttons_handler(int x, int y, t_game *game, t_ui *ui)
+{
+	t_button	*lvl_btn;
+	size_t		i;
+
+	if (game == NULL || ui == NULL)
+		return ;
+	i = 0;
+	while (i < ui->nb_buttons)
+	{
+		lvl_btn = &ui->buttons[i];
+		if (is_over_button(lvl_btn, x, y))
+			lvl_btn->texture_active = lvl_btn->texture_on;
+		else
+			lvl_btn->texture_active = lvl_btn->texture_off;
+		i++;
+	}
+}
 
 int	mouse_move_handler(int x, int y, t_game *game)
 {
@@ -20,15 +39,15 @@ int	mouse_move_handler(int x, int y, t_game *game)
 	t_player	*player;
 
 	if (game->state == STATE_GAMEOVER)
-		mouse_move_gameover_handler(x, y, game);
+		mouse_move_buttons_handler(x, y, game, &game->uis.game_over);
 	else if (game->state == STATE_GAMEWIN)
-		mouse_move_gamewon_handler(x, y, game);
+		mouse_move_buttons_handler(x, y, game, &game->uis.win);
 	else if (game->state == STATE_PAUSE)
-		mouse_move_pause_handler(x, y, game);
+		mouse_move_buttons_handler(x, y, game, &game->uis.pause);
 	else if (game->state == STATE_HOME)
-		mouse_move_home_handler(x, y, game);
+		mouse_move_buttons_handler(x, y, game, &game->uis.home);
 	else if (game->state == STATE_LEVEL_SELECTION)
-		mouse_move_level_selection_handler(x, y, game);
+		mouse_move_buttons_handler(x, y, game, &game->uis.level_selection);
 	else
 	{
 		player = &game->player;
