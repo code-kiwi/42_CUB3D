@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 09:55:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 11:02:05 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	key_press_handler(int key, t_game *game)
 		open_looked_door(player->look_ray, &game->map);
 	else if (key >= FIRST_WEAPON_KEY && key <= LAST_WEAPON_KEY)
 		player_select_weapon(weapon_info, key - FIRST_WEAPON_KEY);
-	else if (key == KEY_SPACE)
+	else if (key == KEY_SPACE && is_grounded(player))
 		player->vertical_move = player->jump_force;
 	else if (key == KEY_W)
 		player->next_walk_direction[FRONT] = true;
