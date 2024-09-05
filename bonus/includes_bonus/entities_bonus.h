@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/03 09:19:10 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 10:34:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define IMP_RANGE_PAUSE				1
 # define IMP_CLOSE_DAMAGE				2
 # define IMP_RANGE_DAMAGE				1
-# define IMP_HEIGHT_RATIO				0.4
+# define IMP_HEIGHT_RATIO				0.45f
 # define IMP_RELOAD_PROBABILITY			0.4f
 # define IMP_RELOAD_RATIO				0.25f
 
@@ -68,7 +68,7 @@
 # define BOH_RANGE_PAUSE				2
 # define BOH_CLOSE_DAMAGE				5
 # define BOH_RANGE_DAMAGE				4
-# define BOH_HEIGHT_RATIO				0.8
+# define BOH_HEIGHT_RATIO				0.7
 # define BOH_RELOAD_PROBABILITY			0.8f
 # define BOH_RELOAD_RATIO				0.8f
 
@@ -106,13 +106,13 @@
 # define REV_SPEED						2
 # define REV_SQUARED_RADIUS				0.5
 # define REV_SENSIBILITY_RADIUS			0.03
-# define REV_HEALTH_POINT				12
+# define REV_HEALTH_POINT				25
 # define REV_CLOSE_ATTACK_RANGE			1.5
 # define REV_CLOSE_PAUSE				2
 # define REV_RANGE_PAUSE				1
 # define REV_CLOSE_DAMAGE				1
 # define REV_RANGE_DAMAGE				1
-# define REV_HEIGHT_RATIO				0.7
+# define REV_HEIGHT_RATIO				0.65
 # define REV_RELOAD_PROBABILITY			0.7f
 # define REV_RELOAD_RATIO				0.7f
 
@@ -125,7 +125,7 @@
 # define MANC_RANGE_PAUSE				2
 # define MANC_CLOSE_DAMAGE				6
 # define MANC_RANGE_DAMAGE				5
-# define MANC_HEIGHT_RATIO				0.9
+# define MANC_HEIGHT_RATIO				0.8
 # define MANC_RELOAD_PROBABILITY		0.8f
 # define MANC_RELOAD_RATIO				0.6f
 
@@ -134,7 +134,7 @@
 # define COMMANDO_SQUARED_RADIUS		0.25
 # define COMMANDO_SENSIBILITY_RADIUS	0.025
 # define COMMANDO_HEALTH_POINT			5
-# define COMMANDO_HEIGHT_RATIO			0.65f
+# define COMMANDO_HEIGHT_RATIO			0.35f
 # define COMMANDO_RELOAD_PROBABILITY	0.6f
 # define COMMANDO_RELOAD_RATIO			0.5f
 
@@ -143,7 +143,7 @@
 # define SERGEANT_SQUARED_RADIUS		0.25
 # define SERGEANT_SENSIBILITY_RADIUS	0.025
 # define SERGEANT_HEALTH_POINT			5
-# define SERGEANT_HEIGHT_RATIO			0.625
+# define SERGEANT_HEIGHT_RATIO			0.35f
 # define SERGEANT_RELOAD_PROBABILITY	0.6f
 # define SERGEANT_RELOAD_RATIO			0.5f
 
