@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:14:16 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 13:25:30 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 13:30:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	draw_sky_column(t_image *screen, float angle, t_image *texture, \
 
 	index = 0;
 	addr = t_mlx_get_pixel(screen, column_index, 0);
-	color_addr = t_mlx_get_pixel(texture, angle * (float)texture->width / (PI * 2), texture->height / 3);
 	scale_y = (float)texture->height / 3 / WIN_HEIGHT;
+	color_addr = t_mlx_get_pixel(texture, angle * (float)texture->width / (PI * 2), texture->height / 3);
 	texture_pos = diff * scale_y;
 	while (index < WIN_HEIGHT)
 	{
