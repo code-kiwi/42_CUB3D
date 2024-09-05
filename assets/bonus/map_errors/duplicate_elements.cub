@@ -13,48 +13,6 @@ DEMON_ATTACK ./assets/textures/doom/entities/demon/demon_attack.xpm 44,55 150
 DEMON_PAIN ./assets/textures/doom/entities/demon/demon_pain.xpm 39,55 250
 DEMON_DEATH ./assets/textures/doom/entities/demon/demon_death.xpm 52,57 100
 
-UI_PAUSE_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297 10
-UI_PAUSE_LABEL ./assets/textures/ui/labels/label_pause.xpm 200,100 10
-UI_PAUSE_BTN_RESUME_OFF ./assets/textures/ui/buttons/btn_resume_off.xpm 400,100 10
-UI_PAUSE_BTN_RESUME_ON ./assets/textures/ui/buttons/btn_resume_on.xpm 400,100 10
-UI_PAUSE_BTN_QUIT_OFF ./assets/textures/ui/buttons/btn_quit_off.xpm 400,100 10
-UI_PAUSE_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on.xpm 400,100 10
-
-UI_GAMEOVER_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297 10
-UI_GAMEOVER_LABEL ./assets/textures/ui/labels/label_gameover.xpm 366,100 10
-UI_GAMEOVER_BTN_QUIT_OFF ./assets/textures/ui/buttons/btn_quit_off.xpm 400,100 10
-UI_GAMEOVER_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on.xpm 400,100 10
-UI_GAMEOVER_BTN_RESTART_OFF assets/textures/ui/buttons/btn_restart_off.xpm 400,100 10
-UI_GAMEOVER_BTN_RESTART_ON assets/textures/ui/buttons/btn_restart_on.xpm 400,100 10
-
-UI_WIN_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297 10
-UI_WIN_LABEL ./assets/textures/ui/labels/label_win.xpm 224,100 10
-UI_WIN_TROPHY ./assets/textures/ui/labels/trophy.xpm 300,300 10
-UI_WIN_BTN_QUIT_OFF ./assets/textures/ui/buttons/btn_quit_off.xpm 400,100 10
-UI_WIN_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on.xpm 400,100 10
-
-UI_HOME_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297 10
-UI_HOME_LABEL assets/textures/ui/labels/Cub3D.xpm 750,335 10
-UI_HOME_BTN_PLAY_OFF assets/textures/ui/buttons/btn_play_off.xpm 400,100 10
-UI_HOME_BTN_PLAY_ON assets/textures/ui/buttons/btn_play_on.xpm 400,100 10
-UI_HOME_BTN_QUIT_OFF assets/textures/ui/buttons/btn_quit_off.xpm 400,100 10
-UI_HOME_BTN_QUIT_ON assets/textures/ui/buttons/btn_quit_on.xpm 400,100 10
-
-UI_LVL_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297 10
-UI_LVL_LABEL assets/textures/ui/labels/level_selection.xpm 795,155 10
-UI_LVL_BTN_LVL1_OFF assets/textures/ui/buttons/btn_lvl1_off.xpm 400,100 10
-UI_LVL_BTN_LVL1_ON assets/textures/ui/buttons/btn_lvl1_on.xpm 400,100 10
-UI_LVL_BTN_LVL2_OFF assets/textures/ui/buttons/btn_lvl2_off.xpm 400,100 10
-UI_LVL_BTN_LVL2_ON assets/textures/ui/buttons/btn_lvl2_on.xpm 400,100 10
-UI_LVL_BTN_LVL3_OFF assets/textures/ui/buttons/btn_lvl3_off.xpm 400,100 10
-UI_LVL_BTN_LVL3_ON assets/textures/ui/buttons/btn_lvl3_on.xpm 400,100 10
-UI_LVL_BTN_LVL4_OFF assets/textures/ui/buttons/btn_lvl4_off.xpm 400,100 10
-UI_LVL_BTN_LVL4_ON assets/textures/ui/buttons/btn_lvl4_on.xpm 400,100 10
-UI_LVL_BTN_LVL5_OFF assets/textures/ui/buttons/btn_lvl5_off.xpm 400,100 10
-UI_LVL_BTN_LVL5_ON assets/textures/ui/buttons/btn_lvl5_on.xpm 400,100 10
-UI_LVL_BTN_PREV_OFF assets/textures/ui/buttons/btn_previous_off.xpm 400,100 10
-UI_LVL_BTN_PREV_ON assets/textures/ui/buttons/btn_previous_on.xpm 400,100 10
-
 IMP_WALK ./assets/textures/doom/entities/imp/imp_walk.xpm 39,60 150
 IMP_ATTACK ./assets/textures/doom/entities/imp/imp_attack.xpm 49,60 250
 IMP_PAIN ./assets/textures/doom/entities/imp/imp_pain.xpm 41,55 250
