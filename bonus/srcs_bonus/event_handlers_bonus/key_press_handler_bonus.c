@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 09:34:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 09:02:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	key_press_handler(int key, t_game *game)
 	weapon_info = &game->player.weapon_info;
 	if (game == NULL)
 		error_exit(NULL, ERR_ARG);
-	else if (game->game_over || game->game_won)
+	else if (game->game_over || game->game_won || game->pause)
 		return (0);
 	else if (key == KEY_W)
 		game->player.walk_direction[FRONT] = true;
@@ -38,10 +38,9 @@ int	key_press_handler(int key, t_game *game)
 		game->player.walk_direction[RIGHT] = true;
 	else if (key == KEY_E)
 		open_looked_door(game->player.look_ray, &game->map);
-	else if (key >= FIRST_WEAPON_KEY && key <= LAST_WEAPON_KEY
-		&& !game->pause)
-	{
+	else if (key >= FIRST_WEAPON_KEY && key <= LAST_WEAPON_KEY)
 		player_select_weapon(weapon_info, key - FIRST_WEAPON_KEY);
-	}
+	else if (key == KEY_SPACE)
+		jump(&game->player);
 	return (0);
 }

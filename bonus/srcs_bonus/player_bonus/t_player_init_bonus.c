@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/04 18:21:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 09:29:27 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ bool	t_player_init(t_player *player, t_map *map, t_game *game)
 	player->is_walking = false;
 	player->is_dead = false;
 	player->vertical_move = 0;
-	player->camera_y = PLAYER_HEIGHT;
-	player->camera_y_diff = get_camera_height_diff(PLAYER_HEIGHT);
+	player->camera_y = PLAYER_HEIGHT * WIN_HEIGHT;
+	player->camera_y_diff = get_camera_height_diff(player->camera_y);
 	return (true);
 }
