@@ -115,8 +115,8 @@ bool	t_game_init(t_game *game)
 		t_game_init_params(game)
 		&& t_mlx_init(&game->mlx, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE)
 		&& init_game_uis(game, &game->uis)
+		&& init_all_map_textures(game)
 		&& t_mlx_launch(&game->mlx)
 		&& add_event_handlers(game)
-		&& init_all_map_textures(game)
 	);
 }
