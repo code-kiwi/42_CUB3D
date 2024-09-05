@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 11:36:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 16:11:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@
 # define ERR_FPS				"Error calculating fps"
 # define INVALID_DOOR			"Door should be between two walls."
 # define ERR_WALLS				"Map not surrounded by walls"
-# define ERR_ELEM				"Map elements not valid"
+# define ERR_ELEM				"Map elements not valid : %c"
 # define ERR_IDENTIFIER			"Map unknown identifier"
 # define ERR_EMPTY_LINE			"Empty line in the map content"
 # define ERR_MAP_EXTENSION		"Bad map extension, expected '.cub'"

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 15:58:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 16:08:18 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,7 +253,7 @@
 # define IDS_MAP_ENTITY					"zicblpyrmvf"
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS				" 012zicblpyrmvftnsewd"
+# define MAP_ALLOWED_CHARS				" 012zicblpyrmvftnsewdZICBLPYRMVFTNSEWD"
 # define MAP_NB_IDS						97
 
 # define MAP_MOVING_CHARS				"pnsewo"
