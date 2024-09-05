@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 16:40:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 16:42:49 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -256,7 +256,7 @@
 # define MAP_ALLOWED_CHARS				" 012zicblpyrmvftnsewdZICBLPYRMVFTNSEWD"
 # define MAP_NB_IDS						97
 
-# define MAP_MOVING_CHARS				"pnsewo"
+# define MAP_MOVING_CHARS				"pnsewoPNSEWO"
 
 # define MAP_BG_DARK_FACTOR				0.6f
 # define MAP_DRAW_SIZE_RATIO			0.95f

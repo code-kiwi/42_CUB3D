@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 15:26:44 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 16:47:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,14 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	}
 }
 
+bool	is_sky(t_vector *pixel_pos, t_map *map)
+{
+	char	character;
+
+	character = map->tiles[(int)pixel_pos->y][(int)pixel_pos->x];
+	return (character == ID_MAP_SKY || (character >= 'A' && character <= 'Z'));
+}
+
 /*
 Look at the commentary of draw_ground
 */
@@ -119,7 +127,7 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 	while (start >= 0)
 	{
 		get_pixel_world_pos(ray, &game->player.position, &pixel_pos, inv_dist);
-		if (!is_character(&pixel_pos, &game->map, ID_MAP_SKY))
+		if (!is_sky(&pixel_pos, &game->map))
 		{
 			pixel_pos.x -= (int)pixel_pos.x;
 			pixel_pos.y -= (int)pixel_pos.y;
