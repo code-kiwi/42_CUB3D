@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 17:48:40 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 10:25:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 13:38:49 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,9 @@ void	apply_vertical_move(t_player *player, float delta_time)
 		return ;
 	move_vertically(player, player->vertical_move * delta_time);
 	grounded = is_grounded(player);
-	if (grounded || is_under_ceiling(player))
+	if (grounded && player->vertical_move < 0)
+		player->vertical_move = 0;
+	if (is_under_ceiling(player) && player->vertical_move > 0)
 		player->vertical_move = 0;
 	if (!grounded)
 		player->vertical_move -= player->gravity_force * delta_time;
