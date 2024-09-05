@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 12:04:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 15:22:26 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define ID_MAP_SPACE					' '
 # define ID_MAP_DOOR_CLOSED				'D'
 # define ID_MAP_DOOR_OPENED				'O'
+# define ID_MAP_SKY						'2'
 
 # define IDS_MAP_SPRITE					"s"
 # define IDS_MAP_ENTITY					"dicblpyrmof"
@@ -252,7 +253,7 @@
 # define ID_MAP_SERGEANT				'f'
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
+# define MAP_ALLOWED_CHARS				" 012spdicblayrmofNSEWD"
 # define MAP_NB_IDS						97
 
 # define MAP_MOVING_CHARS				"PNSEWe"

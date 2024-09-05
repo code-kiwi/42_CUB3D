@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 14:22:12 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 15:20:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,12 @@
 #include "cub3d_bonus.h"
 #include "libft.h"
 
-/*
-To calculate the pixel position in tile we get his world position using his
-inverse distance, we then only need to take the decimal part
-*/
-/// @brief Get the pixel position, relative to the tile it's in.
-/// @param result the vector whose value will be set to the pixel position
-/// @param inv_dist The inverse distance of the pixel from the player
-static	void	get_pixel_position_in_tile(t_ray *ray,
+static	void	get_pixel_world_position(t_ray *ray,
 	t_vector *player_position, t_vector *result, float inv_dist)
 {
 	result->x = player_position->x + ray->slope.x / inv_dist;
 	result->y = player_position->y - ray->slope.y / inv_dist;
-	result->x -= (int)result->x;
-	result->y -= (int)result->y;
+
 }
 
 /// @brief Draw a ground or ceiling pixel
@@ -95,8 +87,10 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start < WIN_HEIGHT)
 	{
-		get_pixel_position_in_tile(ray, &game->player.position,
+		get_pixel_world_position(ray, &game->player.position,
 			&pixel_position, inv_dist);
+		pixel_position.x -= (int)pixel_position.x;
+		pixel_position.y -= (int)pixel_position.y;
 		draw_pixel_from_texture(&pixel_position, addr,
 			game->anim[IDX_TXTR_FLOOR].textures->content, inv_dist);
 		start++;
@@ -126,10 +120,15 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 	addr = t_mlx_get_pixel(game->mlx.img_buff, column->coords.x, start);
 	while (start >= 0)
 	{
-		get_pixel_position_in_tile(ray, &game->player.position,
+		get_pixel_world_position(ray, &game->player.position,
 			&pixel_position, inv_dist);
-		draw_pixel_from_texture(&pixel_position, addr,
-			game->anim[IDX_TXTR_CEIL].textures->content, inv_dist);
+		if (!is_character(&pixel_position, &game->map, ID_MAP_SKY))
+		{
+			pixel_position.x -= (int)pixel_position.x;
+			pixel_position.y -= (int)pixel_position.y;
+			draw_pixel_from_texture(&pixel_position, addr,
+				game->anim[IDX_TXTR_CEIL].textures->content, inv_dist);
+		}
 		start--;
 		inv_dist += inv_dist_unit;
 		addr -= game->mlx.img_buff->line_len;
