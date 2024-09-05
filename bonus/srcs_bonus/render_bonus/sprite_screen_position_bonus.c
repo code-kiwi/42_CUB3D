@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 11:08:17 by root              #+#    #+#             */
-/*   Updated: 2024/09/04 17:28:20 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 10:13:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	get_sprite_screen_pos(t_column *column, t_sprite *sprite, \
 	int			offset;
 
 	player = &game->player;
-	offset = get_offset(column->perceived_height, player);
+	offset = get_offset(WIN_HEIGHT * scale, player);
 	entity_angle = get_entity_angle(&sprite->position, &player->position);
 	relative_angle = get_relative_angle(entity_angle, player);
 	column->coords.x = relative_angle * player->pixel_by_angle;
