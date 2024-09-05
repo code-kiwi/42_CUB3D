@@ -6,18 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 17:48:40 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 09:39:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 09:45:42 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
 #include <stdio.h>
-
-static bool	is_grounded(t_player *player)
-{
-	return (player->camera_y <= player->height + GROUND_MIN_DISTANCE);
-}
 
 static bool	is_under_ceiling(t_player *player)
 {
@@ -31,15 +26,14 @@ static void	move_vertically(t_player *player, float move)
 	player->orientation.y += move;
 }
 
+bool	is_grounded(t_player *player)
+{
+	return (player->camera_y <= player->height + GROUND_MIN_DISTANCE);
+}
+
 float	get_camera_height_diff(float camera_height)
 {
 	return (WIN_HEIGHT / 2 - camera_height);
-}
-
-void	jump(t_player *player)
-{
-	if (is_grounded(player))
-		player->vertical_move = player->jump_force;
 }
 
 void	apply_vertical_move(t_player *player, float delta_time)

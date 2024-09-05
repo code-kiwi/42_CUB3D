@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 09:39:07 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 09:45:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,9 +114,9 @@ void	update_player_weapon(t_player_weapon *weapon_info, \
 			bool is_player_walking, t_game *game, float delta_time);
 void	player_get_damage(t_game *game, size_t damage);
 void	draw_player(t_game *game, t_player_weapon *weapon_info);
-void	jump(t_player *player);
 float	get_camera_height_diff(float camera_height);
 void	apply_vertical_move(t_player *player, float delta_time);
+bool	is_grounded(t_player *player);
 
 // Weapons utils
 bool	init_player_weapons(t_game *game, t_player_weapon *weapon_info);
