@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 13:49:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 16:27:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static bool	is_door_valid(t_map *map, size_t x, size_t y)
 	return (false);
 }
 
+#include <stdio.h>
+
 static ssize_t	count_doors(t_map *map)
 {
 	size_t	y;
@@ -39,8 +41,10 @@ static ssize_t	count_doors(t_map *map)
 		x = 0 ;
 		while (x < map->lines_lengths[y])
 		{
-			if (map->tiles[y][x] == ID_MAP_DOOR_CLOSED)
+			if (map->tiles[y][x] == ID_MAP_DOOR_CLOSED
+				|| map->tiles[y][x] == ID_MAP_DOOR_CLOSED - 32)
 			{
+				printf("test\n");
 				if (!is_door_valid(map, x, y))
 					return (-1);
 				doors_count++;
