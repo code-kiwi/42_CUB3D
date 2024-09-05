@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:14:16 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 13:58:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 14:20:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,29 +41,46 @@ void	draw_sky_column(t_image *screen, float angle, t_image *texture, \
 	}
 }
 
+void	draw_sky_column_temp(size_t column_index, t_ray *ray, t_game *game)
+{
+	int			offset;
+	float		column_angle;
+	t_column	column;
+	t_image		*screen;
+	t_image		*texture;
+	float		scale_y;
+
+	column_angle = atan2f(-ray->slope.y, ray->slope.x);
+	if (column_angle < 0)
+		column_angle += 2 * PI;
+	else if (column_angle > 2 * PI)
+		column_angle -= 2 * PI;
+	screen = game->mlx.img_buff;
+	texture = game->anim[IDX_TXTR_SKY].textures->content;
+	offset = game->player.camera_y - game->player.height;
+	offset -= game->player.orientation.y;
+	column.perceived_height = WIN_HEIGHT * 3;
+	column.coords.y = 0;
+	column.coords.x = column_index;
+	column.texture_x = column_angle * (float)texture->width / (PI * 2);
+	column.ranged_end = WIN_HEIGHT;
+	scale_y = texture->height / column.perceived_height;
+	column.texture_start = offset + texture->height / 3 / scale_y;
+	draw_texture_column(screen, &column, texture, ray->length);
+}
+
 void	draw_sky(t_game *game)
 {
 	size_t	index;
-	float	column_angle;
 	t_image	*screen;
-	t_image	*sky_texture;
 	t_ray	*ray;
-	int		offset;
 
 	index = 0;
 	screen = game->mlx.img_buff;
-	sky_texture = game->anim[IDX_TXTR_SKY].textures->content;
 	while (index < WIN_WIDTH)
 	{
 		ray = &game->rays[index];
-		column_angle = atan2f(-ray->slope.y, ray->slope.x);
-		if (column_angle < 0)
-			column_angle += 2 * PI;
-		else if (column_angle > 2 * PI)
-			column_angle -= 2 * PI;
-		offset = game->player.camera_y - game->player.height;
-		offset -= game->player.orientation.y;
-		draw_sky_column(screen, column_angle, sky_texture, index, offset);
+		draw_sky_column_temp(index, ray, game);
 		index++;
 	}
 }
