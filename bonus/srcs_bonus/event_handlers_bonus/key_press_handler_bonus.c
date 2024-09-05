@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_press_handler_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 17:13:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 09:34:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 */
 int	key_press_handler(int key, t_game *game)
 {
+	t_player_weapon	*weapon_info;
+
+	weapon_info = &game->player.weapon_info;
 	if (game == NULL)
 		error_exit(NULL, ERR_ARG);
 	else if (game->game_over || game->game_won)
@@ -35,5 +38,10 @@ int	key_press_handler(int key, t_game *game)
 		game->player.walk_direction[RIGHT] = true;
 	else if (key == KEY_E)
 		open_looked_door(game->player.look_ray, &game->map);
+	else if (key >= FIRST_WEAPON_KEY && key <= LAST_WEAPON_KEY
+		&& !game->pause)
+	{
+		player_select_weapon(weapon_info, key - FIRST_WEAPON_KEY);
+	}
 	return (0);
 }
