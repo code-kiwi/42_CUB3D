@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_api_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/07/19 13:47:11 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/03 09:35:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define KEY_E						101
 # define KEY_M						109
 # define KEY_SPACE					32
+# define FIRST_WEAPON_KEY			49
+# define LAST_WEAPON_KEY			56
 # define MOUSE_LEFT					1
 # define MOUSE_RIGHT				3
 # define MOUSE_WHEEL				2
