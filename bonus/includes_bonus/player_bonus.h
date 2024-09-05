@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 09:45:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 09:55:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ struct s_player
 	t_vector		position;
 	t_vector		orientation;
 	bool			walk_direction[4];
+	bool			next_walk_direction[4];
 	float			move_speed[4];
 	t_vector		rotation_speed;
 	float			leftmost_angle;

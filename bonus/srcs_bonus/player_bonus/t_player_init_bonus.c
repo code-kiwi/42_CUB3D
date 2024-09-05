@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 09:53:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 09:55:48 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ bool	t_player_init(t_player *player, t_map *map, t_game *game)
 	t_vector_init(&player->rotation_speed, 0.0f, 0.0f);
 	player->health_point = PLAYER_HEALTH_POINT;
 	ft_memset(player->walk_direction, 0, 4 * sizeof(bool));
+	ft_memset(player->next_walk_direction, 0, 4 * sizeof(bool));
 	player->look_ray = &game->rays[(int)WIN_WIDTH / 2];
 	player->vertical_move = 0;
 	player->height = PLAYER_HEIGHT_RATIO * WIN_HEIGHT;

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 09:53:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 09:55:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ int	key_press_handler(int key, t_game *game)
 	else if (key == KEY_SPACE)
 		player->vertical_move = player->jump_force;
 	else if (key == KEY_W)
-		player->walk_direction[FRONT] = true;
+		player->next_walk_direction[FRONT] = true;
 	else if (key == KEY_S)
-		player->walk_direction[BACK] = true;
+		player->next_walk_direction[BACK] = true;
 	else if (key == KEY_A)
-		player->walk_direction[LEFT] = true;
+		player->next_walk_direction[LEFT] = true;
 	else if (key == KEY_D)
-		player->walk_direction[RIGHT] = true;
+		player->next_walk_direction[RIGHT] = true;
 	return (0);
 }

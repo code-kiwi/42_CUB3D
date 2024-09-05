@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 09:07:10 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 09:58:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 	size_t			index;
 
 	index = 0;
+	if (is_grounded(player))
+	{
+		ft_memcpy(player->walk_direction, player->next_walk_direction, \
+			4 * sizeof(bool));
+	}
 	while (index < 4)
 	{
 		if (player->walk_direction[index] != false
