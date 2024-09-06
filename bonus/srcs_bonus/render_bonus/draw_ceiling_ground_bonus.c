@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 16:47:33 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/06 09:20:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,14 +95,6 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 		inv_dist += inv_dist_unit;
 		addr += game->mlx.img_buff->line_len;
 	}
-}
-
-bool	is_sky(t_vector *pixel_pos, t_map *map)
-{
-	char	character;
-
-	character = map->tiles[(int)pixel_pos->y][(int)pixel_pos->x];
-	return (character == ID_MAP_SKY || (character >= 'A' && character <= 'Z'));
 }
 
 /*

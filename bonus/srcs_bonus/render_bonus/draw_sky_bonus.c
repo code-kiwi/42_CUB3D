@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:14:16 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 15:24:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/06 09:25:22 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,21 @@ static void	draw_sky_column(size_t column_index, t_ray *ray, t_game *game)
 void	draw_sky(t_game *game)
 {
 	size_t	index;
-	t_image	*screen;
 	t_ray	*ray;
 
 	index = 0;
-	screen = game->mlx.img_buff;
 	while (index < WIN_WIDTH)
 	{
 		ray = &game->rays[index];
 		draw_sky_column(index, ray, game);
 		index++;
 	}
+}
+
+bool	is_sky(t_vector *position, t_map *map)
+{
+	char	character;
+
+	character = map->tiles[(int)position->y][(int)position->x];
+	return (character == ID_MAP_SKY || (character >= 'A' && character <= 'Z'));
 }

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 16:40:09 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/06 09:34:27 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,14 @@ static ssize_t	count_doors(t_map *map)
 	return (doors_count);
 }
 
+static void	init_door(t_door *door, size_t x, size_t y)
+{
+	door->position = (t_mlx_coords){x, y};
+	door->state = CLOSED;
+	door->transition = 1;
+	door->time_since_opened = 0;
+}
+
 static void	find_doors(t_map *map, size_t door_count, t_door *doors)
 {
 	size_t		y;
@@ -69,10 +77,7 @@ static void	find_doors(t_map *map, size_t door_count, t_door *doors)
 			if (map->tiles[y][x] == ID_MAP_DOOR_CLOSED
 				|| map->tiles[y][x] == ID_MAP_DOOR_CLOSED - 32)
 			{
-				doors[door_index].position = (t_mlx_coords){x, y};
-				doors[door_index].state = CLOSED;
-				doors[door_index].transition = 1;
-				doors[door_index].time_since_opened = 0;
+				init_door(&doors[door_index], x, y);
 				door_index++;
 				if (door_index == door_count)
 					return ;

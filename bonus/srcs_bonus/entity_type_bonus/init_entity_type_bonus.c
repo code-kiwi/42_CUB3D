@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 10:26:19 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 16:04:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/06 09:26:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_entity_type(t_entity *entity, char id, \
 	size_t		index;
 
 	index = 0;
-	while(index < 12)
+	while (index < 12)
 	{
 		if (id == IDS_MAP_ENTITY[index] || id == IDS_MAP_ENTITY[index] - 32)
 			inits[index](entity, anim);
