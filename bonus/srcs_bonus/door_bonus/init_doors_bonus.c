@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/06 09:34:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/06 17:16:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ static ssize_t	count_doors(t_map *map)
 
 static void	init_door(t_door *door, size_t x, size_t y)
 {
-	door->position = (t_mlx_coords){x, y};
+	door->position.x = x;
+	door->position.y = y;
 	door->state = CLOSED;
 	door->transition = 1;
 	door->time_since_opened = 0;

@@ -83,7 +83,7 @@ static void	add_entities_to_map(t_map *map, t_list *entities)
 		if (entity == NULL || entity->sprite == NULL)
 			continue ;
 		entity_pos = &entity->sprite->position;
-		character = &map->tiles[(int)entity_pos->x][(int)entity_pos->y];
+		character = &map->tiles[(int)entity_pos->y][(int)entity_pos->x];
 		if (is_sky(entity_pos, map))
 			*character = ID_MAP_ENTITY - 32;
 		else
