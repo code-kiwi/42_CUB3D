@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 16:42:49 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/07 14:15:22 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define ID_MAP_TILE					'0'
 # define ID_MAP_SPACE					' '
 # define ID_MAP_DOOR_CLOSED				'd'
-# define ID_MAP_DOOR_OPENED				'0'
+# define ID_MAP_DOOR_OPENED				'o'
 # define ID_MAP_SKY						'2'
 
 # define IDS_MAP_SPRITE					"t"

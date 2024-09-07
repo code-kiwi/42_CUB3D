@@ -12,7 +12,6 @@
 
 #include "entities_bonus.h"
 #include "door_bonus.h"
-#include "libft.h"
 
 /**
  * @brief Removes all the moving characters from the map
