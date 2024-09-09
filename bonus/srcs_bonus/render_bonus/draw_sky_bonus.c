@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:14:16 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/06 09:25:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/09 05:37:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 #include <math.h>
 
+/**
+ * @brief return the angel between the x axis and the ray of this column in
+ * range [0, 2 * PI].
+ * @param The ray of the column.
+ */
 static float	get_column_angle(t_ray *ray)
 {
 	float	column_angle;
@@ -27,6 +32,15 @@ static float	get_column_angle(t_ray *ray)
 	return (column_angle);
 }
 
+/**
+ * When changing the player height, we also rotate his camera to keep a coherent
+ * rendering.
+ * We must not add the additionnal rotation to the offset calculation : 
+ * player->camera_y - player->height does the trick.
+ * We then must have a texture_pos whose equal to one thrid of the texture
+ * height.
+ * @brief Return the texture y start of this column
+ */
 static size_t	get_texture_start(t_player *player, t_image *sky_texture, \
 	float perceived_height)
 {
@@ -41,6 +55,15 @@ static size_t	get_texture_start(t_player *player, t_image *sky_texture, \
 	return (texture_start);
 }
 
+/**
+ * The sky texture is wrapped around the player, each angle corresponding
+ * to a pixel of the sky.
+ * The sky move up or down when the player rotate his camera, but doesn't move
+ * when the player camera height changes.
+ * The sky perceived height is thrice the window height so we can rotate the
+ * camera vertically by +WINDOW_HEIGHT or -WINDOW_HEIGHT.
+ * @brief Draw a column of the sky
+ */
 static void	draw_sky_column(size_t column_index, t_ray *ray, t_game *game)
 {
 	float		column_angle;
@@ -61,6 +84,10 @@ static void	draw_sky_column(size_t column_index, t_ray *ray, t_game *game)
 	draw_texture_column(screen, &column, texture, 0);
 }
 
+/**
+ * @brief Draw the sky
+ * @note The sky has to be drawn before everything else
+ */
 void	draw_sky(t_game *game)
 {
 	size_t	index;
@@ -75,6 +102,10 @@ void	draw_sky(t_game *game)
 	}
 }
 
+/**
+ * @brief return if the position is under a sky
+ * @note A sky is either an ID_MAP_SKY or an uppercase letter
+ */
 bool	is_sky(t_vector *position, t_map *map)
 {
 	char	character;

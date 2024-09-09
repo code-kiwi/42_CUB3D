@@ -3,20 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   draw_column_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/09/04 17:32:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 17:16:36 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-/// @brief Draw a wall with a texture
-/// @param screen The screen to draw to.
-/// @param column The column data to draw
-/// @param texture The texture to apply to the wall
-/// @param distance THe distance of the wall from the player
+/**
+ * @brief Draw a wall with a texture
+ * @param screen The screen to draw to.
+ * @param column The column data to draw
+ * @param texture The texture to apply to the wall
+ * @param distance THe distance of the wall from the player
+ */
 void	draw_texture_column(t_image *screen, t_column *column, t_image *texture,
 	float distance)
 {

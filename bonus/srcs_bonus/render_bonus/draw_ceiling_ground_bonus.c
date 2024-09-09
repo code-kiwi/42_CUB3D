@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/06 09:20:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/09 05:20:36 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 #include "cub3d_bonus.h"
 #include "libft.h"
 
+/**
+ * @brief Return the world position of a pixel
+ * @param ray The ray of the pixel column
+ * @param result The vector in which the pixel position will be written
+ * @param inv_dist the inverse distance from the pixel to the player
+ */
 static	void	get_pixel_world_pos(t_ray *ray,
 	t_vector *player_position, t_vector *result, float inv_dist)
 {
@@ -23,11 +29,13 @@ static	void	get_pixel_world_pos(t_ray *ray,
 	result->y = player_position->y - ray->slope.y / inv_dist;
 }
 
-/// @brief Draw a ground or ceiling pixel
-/// @param pos_in_tile The position of the pixel in the texture
-/// @param addr The address the pixel will be drawn into
-/// @param texture the texture of the ground/ceiling
-/// @param inv_dist the inverse distance of the pixel from the player
+/**
+ * @brief Draw a ground or ceiling pixel
+ * @param pos_in_tile The position of the pixel in the texture
+ * @param addr The address the pixel will be drawn into
+ * @param texture the texture of the ground/ceiling
+ * @param inv_dist the inverse distanc eof the pixel from the player
+ */
 static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	t_image *texture, float inv_dist)
 {
@@ -43,12 +51,14 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	*(unsigned int *)addr = color;
 }
 
-/// @brief Return the initial inverse distance of a pixel, it does only work for
-/// the first ground / ceiling pixel of the column
-/// @param start the y pixel position of the wall / ground start
-/// @param cos_angle the cosinus of the angle of this row from the player 
-/// orientation
-/// @return The inverse distance
+/**
+ * @brief Return the initial inverse distance of a pixel, it does only work for
+ * the first ground / ceiling pixel of the column
+ * @param start the y pixel position of the wall / ground start
+ * @param cos_angle the cosinus of the angle of this row from the player
+ * orientation
+ * @return The inverse distance
+ */
 static float	get_inv_dist(int start, float cos_angle)
 {
 	float	inv_dist;
@@ -57,20 +67,20 @@ static float	get_inv_dist(int start, float cos_angle)
 	return (inv_dist);
 }
 
-/*
-	To draw the ground we need the world position of the pixel, for that, we
-	need to know his distance from the player.
-	I calculate the inverse distance because it allows me to just add a variable
-	each loop instead of recalculating the whole thing.
-	inv_dist = inverse distance
-	inv_dist_unit = inverse_distance_unit
-	When the ground start is out of the screen, we need to increase the initial
-	distance, due to those out of the screen pixels.We just multiply the unit by
-	the amount of pixels that are out of the screen : (-column->end).
+/**
+ * To draw the ground we need the world position of the pixel, for that, we
+ * need to know his distance from the player.
+ * I calculate the inverse distance because it allows me to just add a variable
+ * each loop instead of recalculating the whole thing.
+ * inv_dist = inverse distance
+ * inv_dist_unit = inverse_distance_unit
+ * When the ground start is out of the screen, we need to increase the initial
+ * distance, due to those out of the screen pixels.We just multiply the unit by
+ * the amount of pixels that are out of the screen : (-column->end).
+ * @brief Draw the ground texture from start to WIN_HEIGHT
+ * @param column The column data to draw
+ * @param start The pixel y start
 */
-/// @brief Draw the ground texture from start to WIN_HEIGHT
-/// @param column The column data to draw
-/// @param start The pixel y start
 void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 {
 	float		inv_dist;
@@ -97,12 +107,12 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	}
 }
 
-/*
-Look at the commentary of draw_ground
-*/
-/// @brief Draw the ground texture from 0 to start
-/// @param column The column data to draw
-/// @param start The pixel y start
+/**
+ * Look at the commentary of draw_ground
+ * @brief Draw the ground texture from 0 to start
+ * @param column The column data to draw
+ * @param start The pixel y start
+ */
 void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 {
 	float		inv_dist;
