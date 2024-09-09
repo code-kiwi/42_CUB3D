@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/09 20:47:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 01:19:26 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int	key_press_handler(int key, t_game *game)
 		return (0);
 	else if (key == KEY_E)
 		open_looked_door(player->look_ray, &game->map);
-	else if (key >= FIRST_WEAPON_KEY && key <= LAST_WEAPON_KEY)
-		player_select_weapon(weapon_info, key - FIRST_WEAPON_KEY);
 	else if (key == KEY_SPACE && is_grounded(player))
 		player->vertical_move = player->jump_force;
 	else if (key == KEY_W)
