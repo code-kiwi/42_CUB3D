@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/09 05:59:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/09 13:16:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,7 +254,7 @@
 # define IDS_MAP_ENTITY					"zicbkpyrmvfZICBKPYRMVF"
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS				" 012zicbkpyrmvftnsewdlZICBKPYRMVFTNSEWDL"
+# define MAP_ALLOWED_CHARS			" 012zicbkpyrmvftnsewdlZICBKPYRMVFTNSEWDL"
 # define MAP_NB_IDS						97
 
 # define MAP_MOVING_CHARS				"pnsewoPNSEWO"
@@ -301,6 +301,7 @@ struct s_map
 	char			*textures[MAP_NB_IDS];
 	t_mlx_coords	texture_size[MAP_NB_IDS];
 	t_map_draw		draw;
+	float			**lightmap;
 };
 
 // Map functions

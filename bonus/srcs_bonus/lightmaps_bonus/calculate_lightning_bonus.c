@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 06:22:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/09 06:31:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/09 13:16:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "cub3d_bonus.h"
 
 static void	calculate_lightning_ray(float angle, t_vector *position, \
-	t_game *game)
+	t_game *game, float **lightmap)
 {
 	t_vector	ray_slope;
 	t_ray		ray;
@@ -22,9 +22,11 @@ static void	calculate_lightning_ray(float angle, t_vector *position, \
 
 	t_vector_get_slope(&ray_slope, angle);
 	distance = raycast(*position, game, &ray, LIGHT_RADIUS);
+	(void)distance;
+	(void)lightmap;
 }
 
-void	calculate_lightning(char **lightmap, size_t x, size_t y, t_game *game)
+void	calculate_lightning(float **lightmap, size_t x, size_t y, t_game *game)
 {
 	float		angle;
 	float		angle_unit;
@@ -36,7 +38,7 @@ void	calculate_lightning(char **lightmap, size_t x, size_t y, t_game *game)
 	angle_unit = 2 * PI / 360;
 	while (angle < 2 * PI)
 	{
-		calculate_lightning_ray(angle, &position, game);
+		calculate_lightning_ray(angle, &position, game, lightmap);
 		angle += angle_unit;
 		angle++;
 	}

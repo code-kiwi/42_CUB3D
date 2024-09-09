@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 05:42:05 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/09 06:30:13 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/09 13:15:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 #include "libft.h"
 #include "lightmaps_bonus.h"
 
-static char	**alloc_lightmap(t_map *map)
+static float	**alloc_lightmap(t_map *map)
 {
-	char	**lightmap;
+	float	**lightmap;
 	size_t	index;
 	size_t	line_length;
 	size_t	lines_count;
 
 	lines_count = map->lines_count * LIGHTMAP_TILE_RATIO;
-	lightmap = ft_calloc(lines_count, sizeof(char *));
+	lightmap = ft_calloc(lines_count, sizeof(float *));
 	if (lightmap == NULL)
 		return (NULL);
 	index = 0;
@@ -30,10 +30,10 @@ static char	**alloc_lightmap(t_map *map)
 	{
 		line_length = map->lines_lengths[(int)(index / LIGHTMAP_TILE_RATIO)];
 		line_length *= LIGHTMAP_TILE_RATIO;
-		lightmap[index] = ft_calloc(line_length, sizeof(char));
+		lightmap[index] = ft_calloc(line_length, sizeof(float));
 		if (lightmap[index] == NULL)
 		{
-			ft_free_str_array(&lightmap);
+			free_array((char **)lightmap, lines_count, true);
 			return (NULL);
 		}
 		index++;
@@ -41,17 +41,16 @@ static char	**alloc_lightmap(t_map *map)
 	return (lightmap);
 }
 
-char	**create_lightmap(t_map *map, t_game *game)
+bool	create_lightmap(t_map *map, t_game *game)
 {
-	char	**lightmap;
 	size_t	x;
 	size_t	y;
 
-	if (map == NULL)
-		return (NULL);
-	lightmap = alloc_lightmap(map);
-	if (lightmap == NULL)
-		return (NULL);
+	if (map == NULL || game == NULL)
+		return (false);
+	map->lightmap = alloc_lightmap(map);
+	if (map->lightmap == NULL)
+		return (false);
 	y = 0;
 	while (y < map->lines_count)
 	{
@@ -59,10 +58,10 @@ char	**create_lightmap(t_map *map, t_game *game)
 		while (x < map->lines_lengths[y])
 		{
 			if (map->tiles[y][x] == ID_MAP_LIGHT)
-				calculate_lightning(lightmap, x, y, game);
+				calculate_lightning(map->lightmap, x, y, game);
 			x++;
 		}
 		y++;
 	}
-	return (lightmap);
+	return (true);
 }

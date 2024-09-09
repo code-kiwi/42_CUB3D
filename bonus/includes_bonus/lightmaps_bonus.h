@@ -6,18 +6,20 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 05:45:43 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/09 06:31:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/09 13:16:24 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIGHTMAPS_BONUS
-# define LIGHTMAPS_BONUS
+#ifndef LIGHTMAPS_BONUS_H
+# define LIGHTMAPS_BONUS_H
 
 # include <stddef.h>
 
 # define LIGHTMAP_TILE_RATIO	10
 # define LIGHT_RADIUS			10
 
-void	calculate_lightning(char **lightmap, size_t x, size_t y, t_game *game);
+typedef struct s_game	t_game;
 
-#endif // !LIGHTMAPS_BONUS
+void	calculate_lightning(float **lightmap, size_t x, size_t y, t_game *game);
+
+#endif // !LIGHTMAPS_BONUS_H
