@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/05 11:14:48 by brappo           ###   ########.fr        #
+#    Updated: 2024/09/09 05:53:15 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ HEADERS_FILES_BONUS			=	cub3d_bonus.h 					\
 								mlx_api_bonus.h					\
 								event_handlers_bonus.h 			\
 								map_bonus.h						\
-								vector_bonus.h
+								vector_bonus.h					\
+								lightmaps_bonus.h
 HEADERS_BONUS				=	$(addprefix $(HEADERS_DIR_BONUS), $(HEADERS_FILES_BONUS))
 
 # MAIN
@@ -248,6 +249,11 @@ WEAPONS_FILES_BONUS			=	init_bonus.c					\
 								update_cooldown_bonus.c
 WEAPONS_BONUS				=	$(addprefix $(WEAPONS_DIR_BONUS), $(WEAPONS_FILES_BONUS))
 
+# LIGHTMAPS
+LIGHTMAPS_DIR_BONUS			=	lightmaps_bonus/
+LIGHTMAPS_FILES_BONUS			=	create_lightmap.c
+LIGHTMAPS_BONUS				=	$(addprefix $(LIGHTMAPS_DIR_BONUS), $(LIGHTMAPS_FILES_BONUS))
+
 # UTILS
 UTILS_DIR_BONUS				=	utils_bonus/
 UTILS_FILES_BONUS			=	math_bonus.c					\
@@ -270,7 +276,7 @@ SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)					\
 								$(ENTITIES_BONUS) $(UI_BONUS) $(WEAPONS_BONUS)			\
 								$(BULLETS_BONUS) $(ENTITY_TYPE_BONUS) $(RADAR_BONUS)	\
-								$(HUD_BONUS)
+								$(HUD_BONUS) $(LIGHTMAPS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

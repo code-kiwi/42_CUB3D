@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/07 14:15:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/09 05:59:26 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define ID_MAP_DOOR_CLOSED				'd'
 # define ID_MAP_DOOR_OPENED				'o'
 # define ID_MAP_SKY						'2'
+# define ID_MAP_LIGHT					'l'
 
 # define IDS_MAP_SPRITE					"t"
 # define ID_MAP_PLAYER					'p'
@@ -243,17 +244,17 @@
 # define ID_MAP_IMP						'i'
 # define ID_MAP_CACO					'c'
 # define ID_MAP_BOH						'b'
-# define ID_MAP_LOST_SOUL				'l'
+# define ID_MAP_LOST_SOUL				'k'
 # define ID_MAP_PAIN_ELEM				'p'
 # define ID_MAP_CYBER					'y'
 # define ID_MAP_REV						'r'
 # define ID_MAP_MANC					'm'
 # define ID_MAP_COMMANDO				'v'
 # define ID_MAP_SERGEANT				'f'
-# define IDS_MAP_ENTITY					"zicblpyrmvfZICBLPYRMVF"
+# define IDS_MAP_ENTITY					"zicbkpyrmvfZICBKPYRMVF"
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS				" 012zicblpyrmvftnsewdZICBLPYRMVFTNSEWD"
+# define MAP_ALLOWED_CHARS				" 012zicbkpyrmvftnsewdlZICBKPYRMVFTNSEWDL"
 # define MAP_NB_IDS						97
 
 # define MAP_MOVING_CHARS				"pnsewoPNSEWO"
