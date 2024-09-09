@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 15:10:12 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/09 20:47:22 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,18 @@ static void	game_render(t_game *game, float delta_time)
 	if (!game->mouse_hidden)
 		t_mlx_mouse_hide(&game->mlx, &game->mouse_hidden);
 	if (!update_entities(game, delta_time))
-		error_exit(game, NULL);
+		error_exit(game, ERR_UPDATE_ENTITIES);
 	update_bullets(game, delta_time);
 	if (!update_animations(game, delta_time))
-		error_exit(game, NULL);
+		error_exit(game, ERR_UPDATE_ANIMATIONS);
 	update_player(game, delta_time);
 	update_doors(game, delta_time);
 	update_map(&game->map, game);
 	if (!is_in_bounds(&game->player.position, &game->map))
 		error_exit(game, ERR_PLAYER_QUIT_MAP);
 	cast_rays(game);
-	draw_walls(game);
+	if (!draw_walls(game))
+		error_exit(game, ERR_DRAW_WALL);
 	render_all_sprites(game);
 	draw_player(game, &game->player.weapon_info);
 	draw_hud(game, &game->hud);

@@ -1,3 +1,19 @@
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Param
+   writev(vector[...])
+   fun:__writev
+   fun:writev
+   obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+   obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+   fun:xcb_writev
+   fun:_XSend
+   fun:_XEventsQueued
+   fun:XPending
+   fun:mlx_loop
+   fun:main
+}
 {
    <insert_a_suppression_name_here>
    Memcheck:Leak
