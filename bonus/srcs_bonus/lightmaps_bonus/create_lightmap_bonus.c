@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 05:42:05 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/09 06:20:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/09 06:30:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,47 +41,28 @@ static char	**alloc_lightmap(t_map *map)
 	return (lightmap);
 }
 
-static void	calculate_lightning(char **lightmap, size_t i, size_t j)
-{
-	float		angle;
-	float		angle_unit;
-	t_vector	ray_slope;
-	float		distance;
-
-	i *= LIGHTMAP_TILE_RATIO + LIGHTMAP_TILE_RATIO / 2;
-	j *= LIGHTMAP_TILE_RATIO + LIGHTMAP_TILE_RATIO / 2;
-	angle = 0;
-	angle_unit = 2 * PI / 360;
-	while (angle < 2 * PI)
-	{
-		t_vector_get_slope(&ray_slope, angle);
-		angle += angle_unit;
-		angle++;
-	}
-}
-
-char	**create_lightmap(t_map *map)
+char	**create_lightmap(t_map *map, t_game *game)
 {
 	char	**lightmap;
-	size_t	i;
-	size_t	j;
+	size_t	x;
+	size_t	y;
 
 	if (map == NULL)
 		return (NULL);
 	lightmap = alloc_lightmap(map);
 	if (lightmap == NULL)
 		return (NULL);
-	i = 0;
-	while (i < map->lines_count)
+	y = 0;
+	while (y < map->lines_count)
 	{
-		j = 0;
-		while (j < map->lines_lengths[i])
+		x = 0;
+		while (x < map->lines_lengths[y])
 		{
-			if (map->tiles[j][i] == ID_MAP_LIGHT)
-				calculate_lightning(lightmap, i, j);
-			j++;
+			if (map->tiles[y][x] == ID_MAP_LIGHT)
+				calculate_lightning(lightmap, x, y, game);
+			x++;
 		}
-		i++;
+		y++;
 	}
 	return (lightmap);
 }
