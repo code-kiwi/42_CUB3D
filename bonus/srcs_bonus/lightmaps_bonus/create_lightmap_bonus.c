@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_lightmap.c                                  :+:      :+:    :+:   */
+/*   create_lightmap_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 05:42:05 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/09 06:02:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/09 06:20:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map_bonus.h"
+#include "cub3d_bonus.h"
 #include "libft.h"
 #include "lightmaps_bonus.h"
 
@@ -43,7 +43,21 @@ static char	**alloc_lightmap(t_map *map)
 
 static void	calculate_lightning(char **lightmap, size_t i, size_t j)
 {
+	float		angle;
+	float		angle_unit;
+	t_vector	ray_slope;
+	float		distance;
 
+	i *= LIGHTMAP_TILE_RATIO + LIGHTMAP_TILE_RATIO / 2;
+	j *= LIGHTMAP_TILE_RATIO + LIGHTMAP_TILE_RATIO / 2;
+	angle = 0;
+	angle_unit = 2 * PI / 360;
+	while (angle < 2 * PI)
+	{
+		t_vector_get_slope(&ray_slope, angle);
+		angle += angle_unit;
+		angle++;
+	}
 }
 
 char	**create_lightmap(t_map *map)
