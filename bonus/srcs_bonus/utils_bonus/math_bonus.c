@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   math_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:42:52 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 14:35:12 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/04 09:46:07 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,13 @@ int	max_int(int a, int b)
 bool	get_random_bool(float probability)
 {
 	return (rand() / (float)RAND_MAX < probability);
+}
+
+float	range(float value, float min, float max)
+{
+	if (value < min)
+		return (min);
+	if (value > max)
+		return (max);
+	return (value);
 }

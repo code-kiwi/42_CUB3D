@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 15:08:32 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 23:45:39 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 # include "animation_bonus.h"
 
 # define NB_MAPS						5
-# define MAP0_PATH						"./assets/bonus/maps/map_final.cub"
+# define MAP0_PATH						"./assets/bonus/maps/map_rooms.cub"
 # define MAP1_PATH						"./assets/bonus/maps/map_rooms.cub"
 # define MAP2_PATH						"./assets/bonus/maps/map_rooms2.cub"
-# define MAP3_PATH						"./assets/bonus/maps/map_final.cub"
+# define MAP3_PATH						"./assets/bonus/maps/map_rooms.cub"
 # define MAP4_PATH						"./assets/bonus/maps/map_test.cub"
 # define MAP0_IDX						0
 # define MAP1_IDX						1
@@ -33,12 +33,12 @@
 # define ID_MAP_WALL					'1'
 # define ID_MAP_TILE					'0'
 # define ID_MAP_SPACE					' '
-# define ID_MAP_DOOR_CLOSED				'D'
-# define ID_MAP_DOOR_OPENED				'O'
+# define ID_MAP_DOOR_CLOSED				'd'
+# define ID_MAP_DOOR_OPENED				'o'
+# define ID_MAP_SKY						'2'
 
-# define IDS_MAP_SPRITE					"s"
-# define IDS_MAP_ENTITY					"dicblpyrmof"
-# define ID_MAP_PLAYER					'P'
+# define IDS_MAP_SPRITE					"t"
+# define ID_MAP_PLAYER					'p'
 # define ID_MAP_ENTITY					'e'
 
 # define ID_TEXTURE_NORTH				"NO"
@@ -127,6 +127,8 @@
 # define ID_TEXTURE_HUD_HEALTH_LBL		"HUD_HEALTH_LBL"
 # define ID_TEXTURE_HUD_WEAPON_LBL		"HUD_WEAPON_LBL"
 
+# define ID_TEXTURE_SKY					"SKY"
+
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
 # define IDX_TXTR_W						2
@@ -212,7 +214,9 @@
 # define IDX_TXTR_HUD_HEALTH_LBL		79
 # define IDX_TXTR_HUD_WEAPON_LBL		80
 
-# define ID_MAP_DEMON					'd'
+# define IDX_TXTR_SKY					81
+
+# define ID_MAP_DEMON					'z'
 # define ID_MAP_IMP						'i'
 # define ID_MAP_CACO					'c'
 # define ID_MAP_BOH						'b'
@@ -221,14 +225,15 @@
 # define ID_MAP_CYBER					'y'
 # define ID_MAP_REV						'r'
 # define ID_MAP_MANC					'm'
-# define ID_MAP_COMMANDO				'o'
+# define ID_MAP_COMMANDO				'v'
 # define ID_MAP_SERGEANT				'f'
+# define IDS_MAP_ENTITY					"zicblpyrmvfZICBLPYRMVF"
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS				" 01spdicblayrmofNSEWD"
-# define MAP_NB_IDS						81
+# define MAP_ALLOWED_CHARS				" 012zicblpyrmvftnsewdZICBLPYRMVFTNSEWD"
+# define MAP_NB_IDS						82
 
-# define MAP_MOVING_CHARS				"PNSEWe"
+# define MAP_MOVING_CHARS				"pnsewoPNSEWO"
 
 # define MAP_BG_DARK_FACTOR				0.6f
 # define MAP_DRAW_SIZE_RATIO			0.95f

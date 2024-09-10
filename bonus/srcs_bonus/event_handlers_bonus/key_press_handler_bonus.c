@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 16:40:27 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 23:56:23 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,30 @@
 int	key_press_handler(int key, t_game *game)
 {
 	t_player_weapon	*weapon_info;
+	t_player		*player;
 
-	weapon_info = &game->player.weapon_info;
+	player = &game->player;
+	weapon_info = &player->weapon_info;
 	if (game == NULL)
 		error_exit(NULL, ERR_ARG);
 	else if (game->state != STATE_PLAYING)
 		return (0);
-	else if (key == KEY_W)
-		game->player.walk_direction[FRONT] = true;
-	else if (key == KEY_S)
-		game->player.walk_direction[BACK] = true;
-	else if (key == KEY_A)
-		game->player.walk_direction[LEFT] = true;
-	else if (key == KEY_D)
-		game->player.walk_direction[RIGHT] = true;
 	else if (key == KEY_E)
-		open_looked_door(game->player.look_ray, game->map);
+		open_looked_door(player->look_ray, game->map);
+	else if (key == KEY_SPACE && player->is_grounded)
+		player->vertical_move = player->jump_force;
+	else if (key == KEY_W)
+		player->next_walk_direction[FRONT] = true;
+	else if (key == KEY_S)
+		player->next_walk_direction[BACK] = true;
+	else if (key == KEY_A)
+		player->next_walk_direction[LEFT] = true;
+	else if (key == KEY_D)
+		player->next_walk_direction[RIGHT] = true;
 	else if (
 		key >= FIRST_WEAPON_KEY && key <= LAST_WEAPON_KEY
 		&& game->state != STATE_PLAYING
 	)
-	{
 		player_select_weapon(weapon_info, key - FIRST_WEAPON_KEY);
-	}
 	return (0);
 }

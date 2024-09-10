@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_error_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:52:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 14:24:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/10 23:28:08 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@ void	error_print_string(char *err_msg, char *str)
 	if (err_msg == NULL || str == NULL)
 		return ;
 	ft_dprintf(STDERR_FILENO, ERR_LITERALS_STR, err_msg, str);
+}
+
+/**
+ * @brief print a formated string err_msg containing a variable str
+ */
+void	error_print_char(char *err_msg, char c)
+{
+	if (err_msg == NULL)
+		return ;
+	ft_dprintf(STDERR_FILENO, ERR_LITERALS_CHAR, err_msg, c);
 }
 
 /**

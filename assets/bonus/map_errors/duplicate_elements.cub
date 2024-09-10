@@ -98,6 +98,8 @@ HUD_WEAPON_LBL ./assets/textures/ui/hud/hud_weapon_label.xpm 150,150 10
 
 DEMON_ATTACK ./assets/textures/doom/entities/demon/demon_attack.xpm 44,55 150
 
+SKY ./assets/textures/skies/sky_doom.xpm 500,100 10
+
 11111111111111111111
 10000000000000000001
 10000000000000000001

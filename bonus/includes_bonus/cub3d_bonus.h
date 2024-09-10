@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 16:10:44 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 23:45:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@
 
 # define ERR_BASIC				"Error\n"
 # define ERR_LITERALS			"Error\n%s\n"
-# define ERR_LITERALS_STR		"Error\n%s \"%s\"\n"
+# define ERR_LITERALS_STR		"Error\n%s %s\n"
+# define ERR_LITERALS_CHAR		"Error\n%s '%c'\n"
+
 # define ERR_ARG				"Bad argument given to the function"
 # define ERR_PROG_ARGS			"Bad arguments, no argument expected"
 # define ERR_GAME_INIT			"Impossible to intialize the t_game structure"
@@ -176,13 +178,15 @@ struct s_game
 struct	s_column
 {
 	size_t			texture_start;
+	int				texture_x;
 	t_mlx_coords	coords;
 	float			perceived_height;
 	int				start;
 	int				end;
-	int				real_ground_start;
-	int				real_ceiling_start;
-	int				texture_column;
+	int				ground_start;
+	int				ceiling_start;
+	int				ranged_end;
+	int				ranged_start;
 };
 
 // Game functions
@@ -201,11 +205,14 @@ void	draw_walls_part(t_game *game, size_t start, size_t end);
 void	draw_texture_column(t_image *screen, t_column *column,
 			t_image *texture, float distance);
 void	render_all_sprites(t_game *game);
-void	get_sprite_screen_pos(t_mlx_coords *sprite_screen, t_sprite *sprite,
+void	get_sprite_screen_pos(t_column *column, t_sprite *sprite, \
 			t_game *game, float scale);
 bool	is_sprite_aimed(t_sprite *sprite, int left_x);
 void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray);
 void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray);
+int		get_offset(float perceived_height, t_player *player);
+void	draw_sky(t_game *game);
+bool	is_sky(t_vector *pixel_pos, t_map *map);
 
 // Map selection
 void	select_level1(t_game *game);
@@ -221,6 +228,7 @@ void	reload_level(t_game *game);
 // Utils functions
 void	error_print(char *err_msg);
 void	error_print_string(char *err_msg, char *str);
+void	error_print_char(char *err_msg, char c);
 void	error_exit(t_game *game, char *err_msg);
 size_t	array_length(void **array);
 int		sign(float value);
@@ -236,5 +244,6 @@ void	remove_last_spaces(char *str);
 void	skip_next_spaces(char **str);
 long	get_tick(void);
 void	sort_list(t_list *lst, float compare(void *, void *));
+float	range(float value, float min, float max);
 
 #endif

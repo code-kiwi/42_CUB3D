@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/02 17:00:43 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 23:57:07 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 	size_t			index;
 
 	index = 0;
+	if (player->is_grounded)
+	{
+		ft_memcpy(player->walk_direction, player->next_walk_direction, \
+			4 * sizeof(bool));
+	}
 	while (index < 4)
 	{
 		if (player->walk_direction[index] != false
@@ -71,11 +76,16 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 
 void	update_player(t_game *game, float delta_time)
 {
+	t_player	*player;
+
 	if (game == NULL)
 		return ;
-	game->player.is_walking = is_walking(&game->player);
-	update_look(&game->player, delta_time);
-	update_position(&game->player, game->map, delta_time, game->entities);
-	update_player_weapon(&game->player.weapon_info, game->player.is_walking, \
+	player = &game->player;
+	player->is_walking = is_walking(player);
+	player->is_grounded = is_grounded(player);
+	update_look(player, delta_time);
+	apply_vertical_move(player, delta_time);
+	update_position(player, game->map, delta_time, game->entities);
+	update_player_weapon(&player->weapon_info, player->is_walking, \
 		game, delta_time);
 }

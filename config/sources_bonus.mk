@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/05 15:56:30 by mhotting         ###   ########.fr        #
+#    Updated: 2024/09/10 23:55:50 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,15 +81,17 @@ EVENT_HANDLERS_FILES_BONUS	=	add_event_handler_bonus.c		\
 								mouse_move_handler_bonus.c
 EVENT_HANDLERS_BONUS		=	$(addprefix $(EVENT_HANDLERS_DIR_BONUS), $(EVENT_HANDLERS_FILES_BONUS))
 
-# BASIC_RENDER
-BASIC_RENDER_DIR_BONUS		=	basic_render_bonus/
-BASIC_RENDER_FILES_BONUS	=	draw_walls_bonus.c				\
+# RENDER
+RENDER_DIR_BONUS			=	render_bonus/
+RENDER_FILES_BONUS			=	draw_walls_bonus.c				\
 								draw_walls_part_bonus.c			\
 								draw_column_bonus.c				\
 								draw_ceiling_ground_bonus.c		\
 								draw_sprite_bonus.c				\
-								sprite_screen_position_bonus.c
-BASIC_RENDER_BONUS			=	$(addprefix $(BASIC_RENDER_DIR_BONUS), $(BASIC_RENDER_FILES_BONUS))
+								sprite_screen_position_bonus.c	\
+								offset_bonus.c					\
+								draw_sky_bonus.c
+RENDER_BONUS				=	$(addprefix $(RENDER_DIR_BONUS), $(RENDER_FILES_BONUS))
 
 # MAP
 MAP_DIR_BONUS				=	map_bonus/
@@ -125,7 +127,8 @@ PLAYER_FILES_BONUS			=	t_player_init_bonus.c			\
 								update_player_weapon_bonus.c	\
 								player_get_damage_bonus.c		\
 								weapons_utils_bonus.c			\
-								draw_bonus.c
+								draw_bonus.c					\
+								player_vertical_move_bonus.c
 PLAYER_BONUS				=	$(addprefix $(PLAYER_DIR_BONUS), $(PLAYER_FILES_BONUS))
 
 # RAY
@@ -142,13 +145,13 @@ VECTOR_FILES_BONUS			=	vector_utils1_bonus.c			\
 VECTOR_BONUS				=	$(addprefix $(VECTOR_DIR_BONUS), $(VECTOR_FILES_BONUS))
 
 # SPRITES
-SPRITES_DIR_BONUS			=	sprites/
+SPRITES_DIR_BONUS			=	sprites_bonus/
 SPRITES_FILES_BONUS			=	sprite_distance_bonus.c			\
 								sprite_init_bonus.c
 SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
 
 # UI
-UI_DIR_BONUS				=	ui/
+UI_DIR_BONUS				=	ui_bonus/
 UI_FILES_BONUS				=	ui_utils_bonus.c				\
 								init_bonus.c					\
 								read_elements_bonus.c			\
@@ -272,7 +275,7 @@ SRCS_MAIN_SUBDIR_BONUS		=	srcs_bonus/
 SRCS_MAIN_DIR_BONUS			=	$(addprefix $(BONUS_DIR), $(SRCS_MAIN_SUBDIR_BONUS))
 SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(GAME_BONUS) $(VECTOR_BONUS) $(EVENT_HANDLERS_BONUS) 	\
-								$(MAP_BONUS) $(BASIC_RENDER_BONUS) $(PLAYER_BONUS) 		\
+								$(MAP_BONUS) $(RENDER_BONUS) $(PLAYER_BONUS) 			\
 								$(RAY_BONUS) $(DOOR_BONUS) $(SPRITES_BONUS)				\
 								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)					\
 								$(ENTITIES_BONUS) $(UI_BONUS) $(WEAPONS_BONUS)			\

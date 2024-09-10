@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:37:57 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/02 17:00:45 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 23:54:55 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ static void	draw_radar_elements(
 	uint32_t	color;
 
 	color = 0;
-	if (tile_char == ID_MAP_ENTITY)
+	if (tile_char == ID_MAP_ENTITY - 32 || tile_char == ID_MAP_ENTITY)
 		color = RAD_COL_ENTITY;
-	else if (tile_char == ID_MAP_PLAYER)
+	else if (tile_char == ID_MAP_PLAYER - 32 || tile_char == ID_MAP_PLAYER)
 		color = RAD_COL_PLAYER;
 	else
 		return ;
