@@ -6,13 +6,12 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:01:44 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/10 16:15:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:16:59 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
-#include "cub3d_bonus.h"
 #include "libft.h"
 #include "door_bonus.h"
 
