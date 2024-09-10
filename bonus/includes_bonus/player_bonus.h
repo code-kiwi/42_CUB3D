@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/10 15:21:03 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 15:52:46 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "mlx_api_bonus.h"
 # include "weapons_bonus.h"
 
-# define PLAYER_POS_ORDERED				"ENWS"
+# define PLAYER_POS_ORDERED				"ENWSenws"
 # define FOV_ANGLE_DEFAULT				1.05
 # define FRONT 							0
 # define LEFT 							1
@@ -39,7 +39,7 @@
 # define PLAYER_WEAPON_H_OFFSET_STEP	10
 # define PLAYER_WEAPON_H_OFFSET_MAX		50
 
-# define MAX_Y_ROTATION_RATIO			2
+# define MAX_Y_ROTATION_RATIO			0.8
 
 # define PLAYER_MIN_DIST_TO_WALL		0.05f
 

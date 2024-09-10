@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_identifier1_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 15:41:57 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 12:05:00 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void	init_world_identifier(char **identifier)
 	identifier[IDX_TXTR_UI_WIN_TROPHY] = ID_TEXTURE_UI_WIN_TROPHY;
 	identifier[IDX_TXTR_UI_WIN_BTN_OFF] = ID_TEXTURE_UI_WIN_BTN_OFF;
 	identifier[IDX_TXTR_UI_WIN_BTN_ON] = ID_TEXTURE_UI_WIN_BTN_ON;
+	identifier[IDX_TXTR_SKY] = ID_TEXTURE_SKY;
 }
 
 static void	init_simple_enemies_identifier(char **identifier)

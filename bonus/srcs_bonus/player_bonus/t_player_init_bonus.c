@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/10 15:29:40 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 15:57:04 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	set_player_orientation(t_player *player, t_map *map)
 	directions = PLAYER_POS_ORDERED;
 	angle = ft_strchr(directions, map->tiles[coords.y][coords.x]) - directions;
 	angle *= PI / 2;
+	if (angle > 2 * PI)
+		angle -= 2 * PI;
 	player->orientation.x = angle;
 	player->orientation.y = 0;
 }

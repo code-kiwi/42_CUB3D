@@ -113,3 +113,5 @@ W_BULLET_PLASMA_DEATH ./assets/textures/doom/effects/plasma/plasma_death.xpm 39,
 HUD_BG ./assets/textures/ui/hud/bg.xpm 244,173 10
 HUD_HEALTH_LBL ./assets/textures/ui/hud/hud_health_label.xpm 150,150 10
 HUD_WEAPON_LBL ./assets/textures/ui/hud/hud_weapon_label.xpm 150,150 10
+
+SKY ./assets/textures/skies/sky_doom.xpm 500,100 10
