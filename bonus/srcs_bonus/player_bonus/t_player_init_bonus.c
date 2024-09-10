@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_player_init_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 09:55:48 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/10 15:29:40 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static bool	find_player_position(t_map *map, t_player *player)
 bool	t_player_init(t_player *player, t_map *map, t_game *game)
 {
 	if (player == NULL || map == NULL)
-		return (false);
+		return (error_print(ERR_PLAYER_CREATION), false);
 	player->fov_angle = FOV_ANGLE_DEFAULT;
 	if (!find_player_position(map, player))
 		return (error_print(ERR_PLAYER_CREATION), false);
@@ -82,5 +82,6 @@ bool	t_player_init(t_player *player, t_map *map, t_game *game)
 	player->camera_y_diff = get_camera_height_diff(player->camera_y);
 	player->jump_force = PLAYER_JUMP_FORCE_RATIO * WIN_HEIGHT;
 	player->gravity_force = GRAVITY_FORCE_RATIO * WIN_HEIGHT;
+	player->is_grounded = true;
 	return (true);
 }

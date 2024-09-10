@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 17:48:40 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 17:09:10 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 15:19:46 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,13 @@ float	get_camera_height_diff(float camera_height)
  */
 void	apply_vertical_move(t_player *player, float delta_time)
 {
-	bool	grounded;
-
 	if (player->vertical_move == 0)
 		return ;
 	move_vertically(player, player->vertical_move * delta_time);
-	grounded = is_grounded(player);
-	if (grounded && player->vertical_move < 0)
+	if (player->is_grounded && player->vertical_move < 0)
 		player->vertical_move = 0;
 	if (is_under_ceiling(player) && player->vertical_move > 0)
 		player->vertical_move = 0;
-	if (!grounded)
+	if (!player->is_grounded)
 		player->vertical_move -= player->gravity_force * delta_time;
 }

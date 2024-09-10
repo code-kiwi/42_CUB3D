@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:04:34 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/10 01:18:29 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 15:21:03 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ struct s_player
 	float			jump_force;
 	float			gravity_force;
 	float			height;
+	bool			is_grounded;
 };
 
 // t_player functions
