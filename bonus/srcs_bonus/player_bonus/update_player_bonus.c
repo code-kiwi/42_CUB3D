@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 09:58:20 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/10 15:57:26 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	update_position(t_player *player, t_map *map, float delta_time,
 	size_t			index;
 
 	index = 0;
-	if (is_grounded(player))
+	if (player->is_grounded)
 	{
 		ft_memcpy(player->walk_direction, player->next_walk_direction, \
 			4 * sizeof(bool));
@@ -82,6 +82,7 @@ void	update_player(t_game *game, float delta_time)
 		return ;
 	player = &game->player;
 	player->is_walking = is_walking(player);
+	player->is_grounded = is_grounded(player);
 	update_look(player, delta_time);
 	apply_vertical_move(player, delta_time);
 	update_position(player, &game->map, delta_time, game->entities);
