@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/10 15:53:08 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 23:30:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@
 # define ERR_BASIC				"Error\n"
 # define ERR_LITERALS			"Error\n%s\n"
 # define ERR_LITERALS_STR		"Error\n%s %s\n"
+# define ERR_LITERALS_CHAR		"Error\n%s '%c'\n"
+
 # define ERR_ARG				"Bad argument given to the function"
 # define ERR_PROG_ARGS			"Bad arguments, expected one argument"
 # define ERR_GAME_INIT			"Impossible to intialize the t_game structure"
@@ -57,7 +59,7 @@
 # define ERR_FPS				"Error calculating fps"
 # define INVALID_DOOR			"Door should be between two walls."
 # define ERR_WALLS				"Map not surrounded by walls"
-# define ERR_ELEM				"Map elements not valid : %c"
+# define ERR_ELEM				"Map elements not valid"
 # define ERR_IDENTIFIER			"Map unknown identifier"
 # define ERR_EMPTY_LINE			"Empty line in the map content"
 # define ERR_MAP_EXTENSION		"Bad map extension, expected '.cub'"
@@ -192,6 +194,7 @@ bool	is_sky(t_vector *pixel_pos, t_map *map);
 // Utils functions
 void	error_print(char *err_msg);
 void	error_print_string(char *err_msg, char *str);
+void	error_print_char(char *err_msg, char c);
 void	error_exit(t_game *game, char *err_msg);
 size_t	array_length(void **array);
 int		sign(float value);

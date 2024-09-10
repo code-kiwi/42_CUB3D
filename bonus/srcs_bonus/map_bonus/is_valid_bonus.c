@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:42:52 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/06 09:18:29 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/10 23:28:50 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ bool	is_map_valid(t_map *map)
 		{
 			if (!ft_strchr(MAP_ALLOWED_CHARS, map->tiles[y][x]))
 			{
-				ft_dprintf(STDERR_FILENO, ERR_ELEM, map->tiles[y][x]);
+				error_print_char(ERR_ELEM, map->tiles[y][x]);
 				return (false);
 			}
 			if (!check_surrounding_tile(map, x, y))
