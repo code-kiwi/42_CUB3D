@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:57:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 15:47:07 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/04 09:35:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ struct s_ray
 	t_vector	intersection;
 	bool		is_vertical;
 	t_vector	slope;
-	float		cos_angle_from_orientation;
+	float		cos_angle;
 	bool		is_door;
 	t_door		*door;
 };

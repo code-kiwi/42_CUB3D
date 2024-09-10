@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/02 12:23:57 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 15:13:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 #include "libft.h"
 #include "door_bonus.h"
 
+/**
+ * @brief Return the texture of the wall, based on the direction or if the wall
+ * is a door
+ * @param anim All the game animations / textures
+ * @return A pointer on the texture
+ */
 static t_image	*get_texture(t_animation anim[MAP_NB_IDS], t_ray *ray)
 {
 	if (ray->is_door)
@@ -35,6 +41,9 @@ static t_image	*get_texture(t_animation anim[MAP_NB_IDS], t_ray *ray)
 	}
 }
 
+/**
+ * @return The x index of the pixel on that texture
+ */
 static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 {
 	int		column;
@@ -52,33 +61,39 @@ static int	pixel_column_on_texture(t_ray *ray, int texture_width)
 	return (column);
 }
 
-static float	range(float value)
-{
-	if (value < 0)
-		return (0);
-	if (value > WIN_HEIGHT)
-		return (WIN_HEIGHT);
-	return (value);
-}
-
+/**
+ * ceiling start / ground start :
+ * Represent the ceiling start / wall start or ground start / wall end, except
+ * they are not affected by the offsets.
+ * They are used to calculate the pixel position of the wall or ground.
+ * start / end : 
+ * It's the position of the start/end but affected by the offsets.
+ * ranged_start / ranged_end :
+ * Those are the real position the drawing start or end by, they'r between
+ * [0,WIN_HEIGHT].
+ * @brief Draw a column of the screen
+ * @param column_index The index of the column to draw [0,WIn_HEIGHT]
+ */
 static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 {
 	t_column	column;
 	t_image		*texture;
 	int			offset;
 
-	offset = game->player.orientation.y;
 	column.coords.x = column_index;
-	column.perceived_height = WIN_HEIGHT
-		/ (ray->length * ray->cos_angle_from_orientation);
-	column.start = floorf((WIN_HEIGHT - column.perceived_height) / 2) + offset;
-	column.end = range((WIN_HEIGHT + column.perceived_height) / 2 + offset);
-	column.coords.y = range(column.start);
+	column.perceived_height = WIN_HEIGHT / (ray->length * ray->cos_angle);
+	offset = get_offset(column.perceived_height, &game->player);
+	column.ceiling_start = (WIN_HEIGHT - column.perceived_height) / 2;
+	column.start = column.ceiling_start + offset;
+	column.ceiling_start = WIN_HEIGHT - column.ceiling_start;
+	column.ground_start = (WIN_HEIGHT + column.perceived_height) / 2;
+	column.end = column.ground_start + offset;
+	column.ranged_end = range(column.end, 0, WIN_HEIGHT);
+	column.ranged_start = range(column.start, 0, WIN_HEIGHT);
+	column.coords.y = column.ranged_start;
 	column.texture_start = column.coords.y - column.start;
 	texture = get_texture(game->anim, ray);
-	column.texture_column = pixel_column_on_texture(ray, texture->width);
-	column.real_ceiling_start = WIN_HEIGHT - (column.coords.y - offset);
-	column.real_ground_start = column.end - offset;
+	column.texture_x = pixel_column_on_texture(ray, texture->width);
 	draw_ceiling(&column, column.coords.y - 1, game, ray);
 	draw_texture_column(game->mlx.img_buff, &column, texture, ray->length);
 	draw_ground(&column, column.coords.y, game, ray);
