@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   entities_actions_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 19:30:35 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 13:54:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/31 17:25:26 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	entity_get_killed(t_game *game, t_entity *entity)
 		return ;
 	if (game->last_entity_updated->content == entity)
 		game->last_entity_updated = game->last_entity_updated->next;
+	entity->sprite->locked = false;
 	set_animation(entity->sprite, entity->death);
 	entity->sprite->next_animation = NULL;
 	ft_lst_remove_if(&game->entities, entity, equal, t_entity_destroy);
@@ -35,10 +36,20 @@ void	entity_get_damage(t_game *game, t_entity *entity, size_t damage)
 	return ;
 }
 
-void	entity_get_chainsawed(t_game *game, t_entity *entity)
+void	entity_get_chainsawed(t_game *game, t_entity *entity, size_t damage)
 {
-	(void)game;
-	(void)entity;
+	if (game == NULL || entity == NULL || game->entities == NULL)
+		return ;
+	set_animation(entity->sprite, entity->pain);
+	entity->sprite->next_animation = entity->walk;
+	if (entity->health_point <= damage)
+	{
+		reload_weapons_randomly(game->weapons, entity->reload_ratio, \
+			entity->reload_probability);
+		entity->get_killed(game, entity);
+	}
+	else
+		entity->health_point -= damage;
 }
 
 void	stop_walk_animation(t_entity *entity)

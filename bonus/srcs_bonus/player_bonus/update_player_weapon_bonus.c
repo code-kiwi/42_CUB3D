@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player_weapon_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 14:18:57 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/31 11:43:42 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	update_player_weapon_switching(
 	weapon_info->frame_update_delta = 0;
 	if (weapon_info->weapon_state == WEAPON_STATE_HOLSTERING)
 	{
-		weapon_info->draw_offset.y += PLAYER_WEAPON_SWITCH_V_OFFSET;
+		weapon_info->draw_offset.y += weapon_info->switch_vert_offset;
 		if (weapon_info->draw_offset.y >= weapon->curr_frame->height)
 		{
 			weapon_info->weapon_state = WEAPON_STATE_DRAWING;
@@ -33,7 +33,7 @@ static void	update_player_weapon_switching(
 	}
 	if (weapon_info->weapon_state == WEAPON_STATE_DRAWING)
 	{
-		weapon_info->draw_offset.y -= PLAYER_WEAPON_SWITCH_V_OFFSET;
+		weapon_info->draw_offset.y -= weapon_info->switch_vert_offset;
 		if (weapon_info->draw_offset.y <= 0)
 			weapon_info->weapon_state = WEAPON_STATE_IDLE;
 	}
@@ -78,6 +78,18 @@ static void	update_player_weapon_h_offset(
 	}
 }
 
+static void	update_player_weapon_cooldowns(t_weapon	**weapons, float delta_time)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < NB_TOT_WEAPONS)
+	{
+		weapon_update_cooldown(weapons[i], delta_time);
+		i++;
+	}
+}
+
 void	update_player_weapon(
 	t_player_weapon *weapon_info,
 	bool is_player_walking,
@@ -85,6 +97,7 @@ void	update_player_weapon(
 	float delta_time
 )
 {
+	update_player_weapon_cooldowns(weapon_info->weapons, delta_time);
 	weapon_info->frame_update_delta += delta_time;
 	if (weapon_info->weapon_state == WEAPON_STATE_USING)
 		update_player_weapon_using(weapon_info, weapon_info->curr_weapon, game);

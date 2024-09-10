@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:41:57 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 13:53:12 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/02 08:19:07 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	update_entity_position(t_entity *entity, float delta_time,
 	move_length = get_vector_length(&move);
 	mutlitply_vector(&move, entity->speed * delta_time / move_length);
 	move_entity(entities, &entity->sprite->position, &move, map);
-	if (move_length < entity->speed)
+	if (move_length < entity->speed && entity->path->next != NULL)
 	{
 		if (entity->is_path_circular)
 			entity->path = entity->path->next;

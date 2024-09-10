@@ -18,8 +18,6 @@ bool	mancubus_update(t_game *game, t_entity *entity, float delta_time)
 	float		distance;
 	t_sprite	*sprite;
 
-	if (entity->cooldown > 0)
-		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
 	distance = get_distance(&sprite->position, &game->player.position);
 	sprite->animate = true;
@@ -30,7 +28,7 @@ bool	mancubus_update(t_game *game, t_entity *entity, float delta_time)
 	}
 	else if (!entity->see_player)
 	{
-		update_entity_position(entity, delta_time, game->entities, &game->map);
+		update_entity_position(entity, delta_time, game->entities, game->map);
 		if (entity->path == NULL)
 			stop_walk_animation(entity);
 	}
@@ -58,8 +56,11 @@ void	mancubus_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->health_point = MANC_HEALTH_POINT;
 	entity->speed = MANC_SPEED;
 	entity->squared_radius = MANC_SQUARED_RADIUS;
+	entity->bullet_sensibility_radius = MANC_SENSIBILITY_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_MANC_WALK], WIN_HEIGHT);
 	entity->sprite->on_ground = true;
 	entity->sprite->height = WIN_HEIGHT * MANC_HEIGHT_RATIO;
+	entity->reload_probability = MANC_RELOAD_PROBABILITY;
+	entity->reload_ratio = MANC_RELOAD_RATIO;
 }

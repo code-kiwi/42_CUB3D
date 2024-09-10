@@ -12,6 +12,26 @@
 
 #include "cub3d_bonus.h"
 #include "entities_bonus.h"
+#include "animation_bonus.h"
+
+void	destroy_all_anims(t_game *game)
+{
+	size_t		i;
+	size_t		j;
+
+	i = 0;
+	while (i < NB_MAPS)
+	{
+		j = 0;
+		while (j < MAP_NB_IDS)
+		{
+			destroy_animation_textures(game->anims[i][j].textures, \
+				game->mlx.mlx_ptr);
+			j++;
+		}
+		i++;
+	}
+}
 
 /**
  * @brief Destroys the given t_game
@@ -19,22 +39,13 @@
 */
 void	t_game_destroy(t_game *game)
 {
-	size_t	index;
-	t_list	*animation_textures;
-
 	if (game == NULL)
 		return ;
-	index = 0;
-	destroy_all_ui(game);
-	while (index < MAP_NB_IDS)
-	{
-		animation_textures = game->anim[index].textures;
-		destroy_animation_textures(animation_textures, game->mlx.mlx_ptr);
-		index++;
-	}
+	destroy_game_uis(game, &game->uis);
+	destroy_all_anims(game);
 	destroy_radar(&game->radar, game->mlx.mlx_ptr);
 	t_mlx_destroy(&game->mlx);
-	free_map(&game->map);
+	free_maps(game->maps);
 	if (game->doors != NULL)
 		free(game->doors);
 	ft_lstclear(&game->sprites, free);

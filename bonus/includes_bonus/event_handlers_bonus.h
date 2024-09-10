@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:11:00 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 16:14:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 15:56:51 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,5 @@ int		key_press_handler(int key, t_game *game);
 int		mouse_move_handler(int x, int y, t_game *game);
 int		mouse_press_handler(int button, int x, int y, t_game *game);
 int		mouse_release_handler(int button, int x, int y, t_game *game);
-void	mouse_release_pause_handler(int x, int y, t_game *game);
-void	mouse_move_pause_handler(int x, int y, t_game *game);
-void	mouse_release_gameover_handler(int x, int y, t_game *game);
-void	mouse_move_gameover_handler(int x, int y, t_game *game);
-void	mouse_release_gamewon_handler(int x, int y, t_game *game);
-void	mouse_move_gamewon_handler(int x, int y, t_game *game);
 
 #endif

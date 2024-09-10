@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 17:13:44 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 23:52:19 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,31 +48,32 @@ static void	game_render(t_game *game, float delta_time)
 	if (!game->mouse_hidden)
 		t_mlx_mouse_hide(&game->mlx, &game->mouse_hidden);
 	if (!update_entities(game, delta_time))
-		error_exit(game, NULL);
+		error_exit(game, ERR_UPDATE_ENTITIES);
 	update_bullets(game, delta_time);
 	if (!update_animations(game, delta_time))
-		error_exit(game, NULL);
+		error_exit(game, ERR_UPDATE_ANIMATIONS);
 	update_player(game, delta_time);
 	update_doors(game, delta_time);
-	update_map(&game->map, game);
-	if (!is_in_bounds(&game->player.position, &game->map))
+	update_map(game->map, game);
+	if (!is_in_bounds(&game->player.position, game->map))
 		error_exit(game, ERR_PLAYER_QUIT_MAP);
 	cast_rays(game);
+	draw_sky(game);
 	draw_walls(game);
 	render_all_sprites(game);
 	draw_player(game, &game->player.weapon_info);
 	draw_hud(game, &game->hud);
 	if (game->map_opened)
-		draw_map(&game->map.draw, &game->map, game);
+		draw_map(&game->map->draw, game->map, game);
 	else
 		draw_radar(game, &game->radar, &game->mlx);
 }
 
 static void	game_over_handler(t_game *game)
 {
-	if (!game->game_over)
+	if (game->state != STATE_GAMEOVER)
 	{
-		game->game_over = true;
+		game->state = STATE_GAMEOVER;
 		draw_hud(game, &game->hud);
 		t_mlx_mouse_show(&game->mlx, &game->mouse_hidden);
 		t_mlx_sync_images(&game->mlx);
@@ -82,14 +83,14 @@ static void	game_over_handler(t_game *game)
 		game->game_end_loop_count++;
 		t_image_multiply_each_px(game->mlx.img_buff, GAMEOVER_DARKNESS);
 	}
-	draw_ui(&game->ui_game_over, game->mlx.img_buff);
+	draw_ui(&game->uis.game_over, game->mlx.img_buff);
 }
 
 static void	game_win_handler(t_game *game, float delta_time)
 {
-	if (!game->game_won)
+	if (game->state != STATE_GAMEWIN)
 	{
-		game->game_won = true;
+		game->state = STATE_GAMEWIN;
 		ft_lstclear(&game->sprites, free);
 		game_render(game, delta_time);
 		draw_hud(game, &game->hud);
@@ -102,7 +103,7 @@ static void	game_win_handler(t_game *game, float delta_time)
 		t_image_multiply_each_px(game->mlx.img_buff, GAMEWON_BRIGHTNESS);
 	}
 	t_mlx_sync_images(&game->mlx);
-	draw_ui(&game->ui_win, game->mlx.img_buff);
+	draw_ui(&game->uis.win, game->mlx.img_buff);
 }
 
 int	game_loop(t_game *game)
@@ -114,12 +115,16 @@ int	game_loop(t_game *game)
 		error_exit(game, ERR_GAME_LOOP);
 	if (!game_loop_handle_fps(game, &delta_time))
 		error_exit(game, ERR_FPS);
-	if (game->player.is_dead)
+	if (game->state == STATE_HOME)
+		draw_ui(&game->uis.home, game->mlx.img_buff);
+	else if (game->state == STATE_LEVEL_SELECTION)
+		draw_ui(&game->uis.level_selection, game->mlx.img_buff);
+	else if (game->player.is_dead)
 		game_over_handler(game);
 	else if (game->entities == NULL)
 		game_win_handler(game, delta_time);
-	else if (game->pause)
-		draw_ui(&game->ui_pause, game->mlx.img_buff);
+	else if (game->state == STATE_PAUSE)
+		draw_ui(&game->uis.pause, game->mlx.img_buff);
 	else
 		game_render(game, delta_time);
 	if (!t_mlx_render(&game->mlx))

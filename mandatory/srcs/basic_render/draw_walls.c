@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 14:29:49 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/28 17:21:47 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ static t_image	*get_texture(t_image textures[4], t_ray *ray)
 		if (ray->slope.x > 0)
 			return (&textures[3]);
 		else
-			return (&textures[1]);
+			return (&textures[2]);
 	}
 	else
 	{
 		if (ray->slope.y > 0)
-			return (&textures[2]);
-		else
 			return (&textures[0]);
+		else
+			return (&textures[1]);
 	}
 }
 

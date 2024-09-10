@@ -3,124 +3,149 @@
 /*                                                        :::      ::::::::   */
 /*   entities_bonus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 14:53:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/10 15:51:43 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ENTITIES_BONUS_H
 # define ENTITIES_BONUS_H
 
+# include <stdbool.h>
+
 # include "sprite_bonus.h"
 # include "map_bonus.h"
 
-# include <stdbool.h>
-
 # define ENTITY_UPDATE_PER_FRAME		1
 
-# define DEMON_SPEED					2
-# define DEMON_SQUARED_RADIUS			1
-# define DEMON_HEALTH_POINT				3
+# define ROCKET_DAMAGE					2
+
+# define DEMON_SPEED					5
+# define DEMON_SQUARED_RADIUS			0.5
+# define DEMON_SENSIBILITY_RADIUS		0.05
+# define DEMON_HEALTH_POINT				6
 # define DEMON_ATTACK_RANGE				1.5
 # define DEMON_PAUSE					2
-# define DEMON_DAMAGE					2
-# define DEMON_HEIGHT_RATIO				0.6
+# define DEMON_DAMAGE					4
+# define DEMON_HEIGHT_RATIO				0.7
+# define DEMON_RELOAD_PROBABILITY		0.6f
+# define DEMON_RELOAD_RATIO				0.5f
 
 # define IMP_SPEED						2
 # define IMP_SQUARED_RADIUS				0.5
+# define IMP_SENSIBILITY_RADIUS			0.05
 # define IMP_HEALTH_POINT				2
 # define IMP_CLOSE_ATTACK_RANGE			1.5
 # define IMP_CLOSE_PAUSE				2
 # define IMP_RANGE_PAUSE				1
-# define IMP_CLOSE_DAMAGE				1
+# define IMP_CLOSE_DAMAGE				2
 # define IMP_RANGE_DAMAGE				1
-# define IMP_HEIGHT_RATIO				0.5
+# define IMP_HEIGHT_RATIO				0.4
+# define IMP_RELOAD_PROBABILITY			0.4f
+# define IMP_RELOAD_RATIO				0.25f
 
 # define CACO_SPEED						2
-# define CACO_SQUARED_RADIUS			0.5
-# define CACO_HEALTH_POINT				2
+# define CACO_SQUARED_RADIUS			0.25
+# define CACO_SENSIBILITY_RADIUS		0.025
+# define CACO_HEALTH_POINT				5
 # define CACO_CLOSE_ATTACK_RANGE		1.5
 # define CACO_CLOSE_PAUSE				2
 # define CACO_RANGE_PAUSE				2
-# define CACO_CLOSE_DAMAGE				2
-# define CACO_RANGE_DAMAGE				1
+# define CACO_CLOSE_DAMAGE				10
+# define CACO_RANGE_DAMAGE				3
 # define CACO_HEIGHT_RATIO				0.5
+# define CACO_RELOAD_PROBABILITY		0.65f
+# define CACO_RELOAD_RATIO				0.4f
 
 # define BOH_SPEED						2
 # define BOH_SQUARED_RADIUS				0.5
-# define BOH_HEALTH_POINT				6
+# define BOH_SENSIBILITY_RADIUS			0.05
+# define BOH_HEALTH_POINT				30
 # define BOH_CLOSE_ATTACK_RANGE			1.5
-# define BOH_CLOSE_PAUSE				2
+# define BOH_CLOSE_PAUSE				5
 # define BOH_RANGE_PAUSE				2
-# define BOH_CLOSE_DAMAGE				2
-# define BOH_RANGE_DAMAGE				1
+# define BOH_CLOSE_DAMAGE				5
+# define BOH_RANGE_DAMAGE				4
 # define BOH_HEIGHT_RATIO				0.8
+# define BOH_RELOAD_PROBABILITY			0.8f
+# define BOH_RELOAD_RATIO				0.8f
 
 # define LOST_SOUL_SPEED				2
-# define LOST_SOUL_SQUARED_RADIUS		0.25
+# define LOST_SOUL_SQUARED_RADIUS		0.1
+# define LOST_SOUL_SENSIBILITY_RADIUS	0.01
 # define LOST_SOUL_RANGE				1
 # define LOST_SOUL_HEIGHT_RATIO			0.5
+# define LOST_SOUL_RELOAD_PROBABILITY	0
+# define LOST_SOUL_RELOAD_RATIO			0
+# define LOST_SOUL_SUICIDE_DAMAGE		4
 
 # define PAIN_ELEM_SPEED				1
-# define PAIN_ELEM_SQUARED_RADIUS		1
+# define PAIN_ELEM_SQUARED_RADIUS		0.75
+# define PAIN_ELEM_SENSIBILITY_RADIUS	0.075
 # define PAIN_ELEM_DAMAGE				3
 # define PAIN_ELEM_ATTACK_RANGE			1.5
 # define PAIN_ELEM_PAUSE				1
 # define PAIN_ELEM_SPAWN_PAUSE			3
-# define PAIN_ELEM_HEALTH_POINT			5
+# define PAIN_ELEM_HEALTH_POINT			20
 # define PAIN_ELEM_HEIGHT_RATIO			0.8
+# define PAIN_ELEM_RELOAD_PROBABILITY	0.7f
+# define PAIN_ELEM_RELOAD_RATIO			0.6f
 
 # define CYBER_SPEED					0.5
 # define CYBER_SQUARED_RADIUS			0.7
-# define CYBER_HEALTH_POINT				20
-# define CYBER_RANGE_PAUSE				3
-# define CYBER_RANGE_DAMAGE				2
+# define CYBER_SENSIBILITY_RADIUS		0.075
+# define CYBER_HEALTH_POINT				80
+# define CYBER_RANGE_PAUSE				15
+# define CYBER_RANGE_DAMAGE				10
 # define CYBER_HEIGHT_RATIO				1
-
-# define ROCKET_DAMAGE					2
+# define CYBER_RELOAD_PROBABILITY		1.0f
+# define CYBER_RELOAD_RATIO				0.8f
 
 # define REV_SPEED						2
 # define REV_SQUARED_RADIUS				0.5
-# define REV_HEALTH_POINT				4
+# define REV_SENSIBILITY_RADIUS			0.03
+# define REV_HEALTH_POINT				12
 # define REV_CLOSE_ATTACK_RANGE			1.5
 # define REV_CLOSE_PAUSE				2
 # define REV_RANGE_PAUSE				1
 # define REV_CLOSE_DAMAGE				1
 # define REV_RANGE_DAMAGE				1
 # define REV_HEIGHT_RATIO				0.7
+# define REV_RELOAD_PROBABILITY			0.7f
+# define REV_RELOAD_RATIO				0.7f
 
 # define MANC_SPEED						2
 # define MANC_SQUARED_RADIUS			0.5
-# define MANC_HEALTH_POINT				8
+# define MANC_SENSIBILITY_RADIUS		0.05
+# define MANC_HEALTH_POINT				15
 # define MANC_CLOSE_ATTACK_RANGE		1.5
 # define MANC_CLOSE_PAUSE				2
-# define MANC_RANGE_PAUSE				1
-# define MANC_CLOSE_DAMAGE				1
-# define MANC_RANGE_DAMAGE				1
+# define MANC_RANGE_PAUSE				2
+# define MANC_CLOSE_DAMAGE				6
+# define MANC_RANGE_DAMAGE				5
 # define MANC_HEIGHT_RATIO				0.9
+# define MANC_RELOAD_PROBABILITY		0.8f
+# define MANC_RELOAD_RATIO				0.6f
 
-# define ARCH_VILE_SPEED				1
-# define ARCH_VILE_SQUARED_RADIUS		1
-# define ARCH_VILE_DAMAGE				3
-# define ARCH_VILE_ATTACK_RANGE			1.5
-# define ARCH_VILE_PAUSE				1
-# define ARCH_VILE_SPAWN_PAUSE			20
-# define ARCH_VILE_HEALTH_POINT			10
-# define ARCH_VILE_HEIGHT_RATIO			0.6
+# define COMMANDO_PAUSE					2
+# define COMMANDO_SPEED					1
+# define COMMANDO_SQUARED_RADIUS		0.25
+# define COMMANDO_SENSIBILITY_RADIUS	0.025
+# define COMMANDO_HEALTH_POINT			5
+# define COMMANDO_HEIGHT_RATIO			0.65f
+# define COMMANDO_RELOAD_PROBABILITY	0.6f
+# define COMMANDO_RELOAD_RATIO			0.5f
 
 # define SERGEANT_PAUSE					1
 # define SERGEANT_SPEED					1
-# define SERGEANT_SQUARED_RADIUS		1
-# define SERGEANT_HEALTH_POINT			2
-# define SERGEANT_HEIGHT_RATIO			0.5
-
-# define COMMANDO_PAUSE					1
-# define COMMANDO_SPEED					1
-# define COMMANDO_SQUARED_RADIUS		1
-# define COMMANDO_HEALTH_POINT			2
-# define COMMANDO_HEIGHT_RATIO			0.5
+# define SERGEANT_SQUARED_RADIUS		0.25
+# define SERGEANT_SENSIBILITY_RADIUS	0.025
+# define SERGEANT_HEALTH_POINT			5
+# define SERGEANT_HEIGHT_RATIO			0.625
+# define SERGEANT_RELOAD_PROBABILITY	0.6f
+# define SERGEANT_RELOAD_RATIO			0.5f
 
 typedef struct s_entity	t_entity;
 typedef struct s_list	t_list;
@@ -134,13 +159,17 @@ struct s_entity
 	t_list		*path;
 	t_sprite	*sprite;
 	float		squared_radius;
+	float		bullet_sensibility_radius;
 	size_t		health_point;
 	bool		(*update)(t_game *, t_entity *, float );
 	void		(*get_damage)(t_game *, t_entity *, size_t);
 	void		(*get_killed)(t_game *, t_entity *);
-	void		(*get_chainsawed)(t_game *, t_entity *);
+	void		(*get_chainsawed)(t_game *, t_entity *, size_t);
 	void		*type;
 	float		cooldown;
+	float		cooldown_from_player;
+	float		reload_probability;
+	float		reload_ratio;
 	bool		see_player;
 	t_animation	*walk;
 	t_animation	*pain;
@@ -170,7 +199,7 @@ bool	get_spawn_position(t_vector *result, t_entity *entity,
 			t_vector *direction, t_game *game);
 void	entity_get_killed(t_game *game, t_entity *entity);
 void	entity_get_damage(t_game *game, t_entity *entity, size_t damage);
-void	entity_get_chainsawed(t_game *game, t_entity *entity);
+void	entity_get_chainsawed(t_game *game, t_entity *entity, size_t damage);
 void	stop_walk_animation(t_entity *entity);
 void	range_attack(t_entity *entity, t_game *game, size_t cooldown);
 void	close_attack(t_entity *entity, t_game *game, size_t cooldown);
@@ -205,4 +234,4 @@ bool	commando_update(t_game *game, t_entity *entity, float delta_time);
 void	init_entity_type(t_entity *entity, char id, \
 			t_animation anim[MAP_NB_IDS]);
 
-#endif // !ENTITIES_BONUS_H
+#endif

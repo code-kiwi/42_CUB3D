@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   entity_shoot_bullet_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:39:12 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 13:50:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/02 16:59:52 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
+
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
-
-#include <math.h>
 
 bool	get_spawn_position(t_vector *result, t_entity *entity,
 	t_vector *direction, t_game *game)
@@ -26,7 +26,7 @@ bool	get_spawn_position(t_vector *result, t_entity *entity,
 	result->y = entity->sprite->position.y + direction->y * radius;
 	tile_pos.x = result->x;
 	tile_pos.y = result->y;
-	return (is_walkable(&game->map, &tile_pos)
+	return (is_walkable(game->map, &tile_pos)
 		&& !collide_entity(game->entities, result));
 }
 
@@ -54,5 +54,6 @@ bool	entity_shoot_bullet(t_game *game, t_sprite *entity_sprite)
 		&entity->sprite->position);
 	if (!get_spawn_position(&position, entity, &direction, game))
 		return (true);
-	return (shoot_bullet(game, &position, &direction, entity->bullet_init));
+	return (shoot_bullet_from_entity(game, &position, &direction, \
+		entity->bullet_init));
 }

@@ -3,34 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   boh_projectile_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:09:39 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 13:47:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/08/31 19:55:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 
-static void	boh_projectile_use(t_game *game, t_bullet *bullet)
-{
-	t_sprite	*sprite;
-	t_vector	*player_pos;
-
-	if (game == NULL || bullet == NULL)
-		return ;
-	sprite = bullet->sprite;
-	set_animation(sprite, &game->anim[IDX_TXTR_BOH_PROJ_DEATH]);
-	sprite->next_animation = NULL;
-	player_pos = &game->player.position;
-	if (get_distance(player_pos, &bullet->sprite->position) < PLAYER_RADIUS)
-		player_get_damage(game, BOH_RANGE_DAMAGE);
-	ft_lst_remove_if(&game->bullets, bullet, equal, free);
-}
-
 void	boh_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
 {
+	if (anim == NULL || bullet == NULL)
+		return ;
 	t_sprite_init(bullet->sprite, &anim[IDX_TXTR_BOH_PROJ_LIVE], WIN_HEIGHT);
-	bullet->use = boh_projectile_use;
+	bullet->use = entity_projectile_use;
+	bullet->speed = BULLET_SPEED;
+	bullet->damage = BOH_RANGE_DAMAGE;
+	bullet->animation = &anim[IDX_TXTR_BOH_PROJ_DEATH];
 }

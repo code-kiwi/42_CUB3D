@@ -22,6 +22,7 @@ static void	clear_map(t_map *map)
 {
 	size_t	i;
 	size_t	j;
+	char	*character;
 
 	i = 0;
 	while (i < map->lines_count)
@@ -29,8 +30,14 @@ static void	clear_map(t_map *map)
 		j = 0;
 		while (j < map->lines_lengths[i])
 		{
-			if (ft_strchr(MAP_MOVING_CHARS, map->tiles[i][j]) != NULL)
-				map->tiles[i][j] = ID_MAP_TILE;
+			character = &map->tiles[i][j];
+			if (ft_strchr(MAP_MOVING_CHARS, *character) != NULL)
+			{
+				if (*character >= 'A' && map->tiles[i][j] <= 'Z')
+					*character = ID_MAP_SKY;
+				else
+					*character = ID_MAP_TILE;
+			}
 			j++;
 		}
 		i++;
@@ -44,13 +51,17 @@ static void	clear_map(t_map *map)
  */
 static void	add_player_to_map(t_map *map, t_player *player)
 {
-	t_mlx_coords	player_coords;
+	t_vector		*player_pos;
+	char			*character;
 
-	if (!is_in_bounds(&player->position, map))
+	player_pos = &player->position;
+	if (!is_in_bounds(player_pos, map))
 		return ;
-	player_coords.x = (int) player->position.x;
-	player_coords.y = (int) player->position.y;
-	map->tiles[player_coords.y][player_coords.x] = ID_MAP_PLAYER;
+	character = &map->tiles[(int)player_pos->y][(int)player_pos->x];
+	if (is_sky(player_pos, map))
+		*character = ID_MAP_PLAYER - 32;
+	else
+		*character = ID_MAP_PLAYER;
 }
 
 /**
@@ -61,18 +72,21 @@ static void	add_player_to_map(t_map *map, t_player *player)
 static void	add_entities_to_map(t_map *map, t_list *entities)
 {
 	t_entity		*entity;
-	t_mlx_coords	entity_coords;
+	t_vector		*entity_pos;
+	char			*character;
 
 	while (entities != NULL)
 	{
 		entity = (t_entity *) entities->content;
-		if (entity != NULL)
-		{
-			entity_coords.x = (int) entity->sprite->position.x;
-			entity_coords.y = (int) entity->sprite->position.y;
-			map->tiles[entity_coords.y][entity_coords.x] = ID_MAP_ENTITY;
-		}
 		entities = entities->next;
+		if (entity == NULL || entity->sprite == NULL)
+			continue ;
+		entity_pos = &entity->sprite->position;
+		character = &map->tiles[(int)entity_pos->y][(int)entity_pos->x];
+		if (is_sky(entity_pos, map))
+			*character = ID_MAP_ENTITY - 32;
+		else
+			*character = ID_MAP_ENTITY;
 	}
 }
 

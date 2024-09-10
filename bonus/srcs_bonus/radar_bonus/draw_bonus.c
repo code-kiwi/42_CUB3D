@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 13:37:57 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 14:19:33 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/10 23:54:55 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ static void	draw_radar_elements(
 	uint32_t	color;
 
 	color = 0;
-	if (tile_char == ID_MAP_ENTITY)
+	if (tile_char == ID_MAP_ENTITY - 32 || tile_char == ID_MAP_ENTITY)
 		color = RAD_COL_ENTITY;
-	else if (tile_char == ID_MAP_PLAYER)
+	else if (tile_char == ID_MAP_PLAYER - 32 || tile_char == ID_MAP_PLAYER)
 		color = RAD_COL_PLAYER;
 	else
 		return ;
@@ -149,7 +149,7 @@ void	draw_radar(t_game *game, t_radar *radar, t_mlx *mlx)
 
 	if (game == NULL || radar == NULL || mlx == NULL)
 		return ;
-	update_tiles(&game->map, radar, &game->player);
+	update_tiles(game->map, radar, &game->player);
 	new_orientation = game->player.orientation.x - PI / 2;
 	if (
 		!radar->needs_update

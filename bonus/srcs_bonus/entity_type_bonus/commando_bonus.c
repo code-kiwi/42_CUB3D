@@ -17,13 +17,11 @@ bool	commando_update(t_game *game, t_entity *entity, float delta_time)
 {
 	t_sprite	*sprite;
 
-	if (entity->cooldown > 0)
-		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
 	sprite->animate = true;
 	if (!entity->see_player)
 	{
-		update_entity_position(entity, delta_time, game->entities, &game->map);
+		update_entity_position(entity, delta_time, game->entities, game->map);
 		if (entity->path == NULL)
 			stop_walk_animation(entity);
 	}
@@ -50,9 +48,12 @@ void	commando_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->health_point = COMMANDO_HEALTH_POINT;
 	entity->speed = COMMANDO_SPEED;
 	entity->squared_radius = COMMANDO_SQUARED_RADIUS;
+	entity->bullet_sensibility_radius = COMMANDO_SENSIBILITY_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_COMMANDO_WALK],
 		WIN_HEIGHT);
 	entity->sprite->on_ground = true;
 	entity->sprite->height = WIN_HEIGHT * COMMANDO_HEIGHT_RATIO;
+	entity->reload_probability = COMMANDO_RELOAD_PROBABILITY;
+	entity->reload_ratio = COMMANDO_RELOAD_RATIO;
 }

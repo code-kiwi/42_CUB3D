@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pain_elem_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 13:56:21 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/02 17:00:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static bool	pain_elem_spawn(t_entity *entity, t_sprite *sprite, t_game *game)
 	new_lost_soul->sprite->position.x = position.x;
 	new_lost_soul->sprite->position.y = position.y;
 	set_animation(entity->sprite, &game->anim[IDX_TXTR_PAIN_ELEM_ATTACK]);
+	game->anim[IDX_TXTR_PAIN_ELEM_ATTACK].on_end = NULL;
 	sprite->next_animation = &game->anim[IDX_TXTR_PAIN_ELEM_WALK];
 	return (true);
 }
@@ -40,8 +41,6 @@ bool	pain_elem_update(t_game *game, t_entity *entity, float delta_time)
 	float		distance;
 	t_sprite	*sprite;
 
-	if (entity->cooldown > 0)
-		entity->cooldown -= delta_time;
 	sprite = entity->sprite;
 	distance = get_distance(&sprite->position, &game->player.position);
 	sprite->animate = true;
@@ -51,7 +50,7 @@ bool	pain_elem_update(t_game *game, t_entity *entity, float delta_time)
 		close_attack(entity, game, PAIN_ELEM_PAUSE);
 	}
 	else if (!entity->see_player)
-		update_entity_position(entity, delta_time, game->entities, &game->map);
+		update_entity_position(entity, delta_time, game->entities, game->map);
 	else
 	{
 		stop_walk_animation(entity);
@@ -72,13 +71,15 @@ void	pain_elem_init(t_entity *entity, t_animation animation[MAP_NB_IDS])
 	entity->death = &animation[IDX_TXTR_PAIN_ELEM_DEATH];
 	entity->close_attack = &animation[IDX_TXTR_PAIN_ELEM_ATTACK];
 	entity->range_attack = NULL;
-	entity->close_attack->on_end = entity_damage_player;
 	entity->close_damage = PAIN_ELEM_DAMAGE;
 	entity->health_point = PAIN_ELEM_HEALTH_POINT;
 	entity->speed = PAIN_ELEM_SPEED;
 	entity->squared_radius = PAIN_ELEM_SQUARED_RADIUS;
+	entity->bullet_sensibility_radius = PAIN_ELEM_SENSIBILITY_RADIUS;
 	entity->type = NULL;
 	t_sprite_init(entity->sprite, &animation[IDX_TXTR_PAIN_ELEM_WALK],
 		WIN_HEIGHT);
 	entity->sprite->height = WIN_HEIGHT * PAIN_ELEM_HEIGHT_RATIO;
+	entity->reload_probability = PAIN_ELEM_RELOAD_PROBABILITY;
+	entity->reload_ratio = PAIN_ELEM_RELOAD_RATIO;
 }
