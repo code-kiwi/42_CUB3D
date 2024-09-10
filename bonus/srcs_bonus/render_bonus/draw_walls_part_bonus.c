@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:48:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/09 20:52:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 15:13:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ static t_image	*get_texture(t_animation anim[MAP_NB_IDS], t_ray *ray)
 		if (ray->slope.x > 0)
 			return (anim[IDX_TXTR_E].textures->content);
 		else
-			return (anim[IDX_TXTR_S].textures->content);
+			return (anim[IDX_TXTR_W].textures->content);
 	}
 	else
 	{
 		if (ray->slope.y > 0)
-			return (anim[IDX_TXTR_W].textures->content);
-		else
 			return (anim[IDX_TXTR_N].textures->content);
+		else
+			return (anim[IDX_TXTR_S].textures->content);
 	}
 }
 
