@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/10 16:02:45 by mhotting         ###   ########.fr        #
+#    Updated: 2024/09/10 23:55:50 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,11 @@ GAME_DIR_BONUS				=	game_bonus/
 GAME_FILES_BONUS			=	t_game_destroy_bonus.c			\
 								t_game_init_bonus.c				\
 								game_loop_bonus.c				\
-								game_pause_bonus.c
+								game_pause_bonus.c				\
+								game_level_selection1_bonus.c	\
+								game_level_selection2_bonus.c	\
+								game_level_selection_utils_bonus.c	\
+								game_home_bonus.c
 GAME_BONUS					=	$(addprefix $(GAME_DIR_BONUS), $(GAME_FILES_BONUS))
 
 # MLX_API
@@ -74,10 +78,7 @@ EVENT_HANDLERS_FILES_BONUS	=	add_event_handler_bonus.c		\
 								key_press_handler_bonus.c		\
 								mouse_press_handler_bonus.c		\
 								mouse_release_handler_bonus.c	\
-								mouse_move_handler_bonus.c		\
-								pause_handlers_bonus.c			\
-								gameover_handlers_bonus.c		\
-								gamewon_handlers_bonus.c
+								mouse_move_handler_bonus.c
 EVENT_HANDLERS_BONUS		=	$(addprefix $(EVENT_HANDLERS_DIR_BONUS), $(EVENT_HANDLERS_FILES_BONUS))
 
 # RENDER
@@ -95,6 +96,8 @@ RENDER_BONUS				=	$(addprefix $(RENDER_DIR_BONUS), $(RENDER_FILES_BONUS))
 # MAP
 MAP_DIR_BONUS				=	map_bonus/
 MAP_FILES_BONUS				=	read_map_bonus.c				\
+								read_maps_bonus.c				\
+								save_tiles_bonus.c				\
 								is_in_bounds_bonus.c			\
 								read_elements_bonus.c			\
 								is_valid_bonus.c				\
@@ -150,9 +153,15 @@ SPRITES_BONUS				=	$(addprefix $(SPRITES_DIR_BONUS), $(SPRITES_FILES_BONUS))
 # UI
 UI_DIR_BONUS				=	ui_bonus/
 UI_FILES_BONUS				=	ui_utils_bonus.c				\
+								init_bonus.c					\
+								read_elements_bonus.c			\
+								destroy_bonus.c					\
 								init_ui_pause_bonus.c			\
 								init_ui_gameover_bonus.c		\
 								init_ui_win_bonus.c				\
+								init_ui_home_bonus.c			\
+								init_ui_lvl1_bonus.c			\
+								init_ui_lvl2_bonus.c			\
 								label_utils_bonus.c				\
 								button_utils_bonus.c
 UI_BONUS					=	$(addprefix $(UI_DIR_BONUS), $(UI_FILES_BONUS))

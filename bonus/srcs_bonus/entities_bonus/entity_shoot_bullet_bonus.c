@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:39:12 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 20:21:43 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:59:52 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool	get_spawn_position(t_vector *result, t_entity *entity,
 	result->y = entity->sprite->position.y + direction->y * radius;
 	tile_pos.x = result->x;
 	tile_pos.y = result->y;
-	return (is_walkable(&game->map, &tile_pos)
+	return (is_walkable(game->map, &tile_pos)
 		&& !collide_entity(game->entities, result));
 }
 

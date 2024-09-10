@@ -30,7 +30,7 @@ bool	caco_update(t_game *game, t_entity *entity, float delta_time)
 	else
 	{
 		range_attack(entity, game, CACO_RANGE_PAUSE);
-		update_entity_position(entity, delta_time, game->entities, &game->map);
+		update_entity_position(entity, delta_time, game->entities, game->map);
 	}
 	return (true);
 }

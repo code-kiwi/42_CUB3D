@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/10 15:57:26 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 23:57:07 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	update_player(t_game *game, float delta_time)
 	player->is_grounded = is_grounded(player);
 	update_look(player, delta_time);
 	apply_vertical_move(player, delta_time);
-	update_position(player, &game->map, delta_time, game->entities);
+	update_position(player, game->map, delta_time, game->entities);
 	update_player_weapon(&player->weapon_info, player->is_walking, \
 		game, delta_time);
 }

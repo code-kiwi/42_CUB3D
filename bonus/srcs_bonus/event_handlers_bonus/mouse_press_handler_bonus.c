@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_press_handler_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/03 09:37:46 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/05 16:39:48 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	mouse_press_handler(int button, int x, int y, t_game *game)
 	weapon_info = &game->player.weapon_info;
 	if (game == NULL)
 		error_exit(NULL, ERR_ARG);
-	if (game->game_over || game->game_won)
+	if (game->state != STATE_PLAYING)
 		return (0);
-	if (button == MOUSE_LEFT && !game->pause)
+	if (button == MOUSE_LEFT)
 		player_weapon_use(&game->player.weapon_info, game);
-	else if (button == MOUSE_WHEEL_DOWN && !game->pause)
+	else if (button == MOUSE_WHEEL_DOWN)
 		player_select_weapon(weapon_info, weapon_info->curr_weapon_index + 1);
-	else if (button == MOUSE_WHEEL_UP && !game->pause)
+	else if (button == MOUSE_WHEEL_UP)
 		player_select_weapon(weapon_info, weapon_info->curr_weapon_index - 1);
 	return (1);
 }

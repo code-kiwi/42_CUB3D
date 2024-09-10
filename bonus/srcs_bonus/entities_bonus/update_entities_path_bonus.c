@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_entities_path_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 15:05:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 15:41:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/02 16:59:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	update_path(t_entity *entity, t_game *game)
 	start.y = entity->sprite->position.y;
 	end.x = game->player.position.x;
 	end.y = game->player.position.y;
-	entity->path = find_path(&start, &end, &game->map);
+	entity->path = find_path(&start, &end, game->map);
 }
 
 void	update_entities_path(t_game *game)

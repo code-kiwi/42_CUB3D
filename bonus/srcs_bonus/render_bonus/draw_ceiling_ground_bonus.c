@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/10 16:00:25 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/10 23:56:47 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 	while (start >= 0)
 	{
 		get_pixel_world_pos(ray, &game->player.position, &pixel_pos, inv_dist);
-		if (!is_sky(&pixel_pos, &game->map))
+		if (!is_sky(&pixel_pos, game->map))
 		{
 			pixel_pos.x -= (int)pixel_pos.x;
 			pixel_pos.y -= (int)pixel_pos.y;

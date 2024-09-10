@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:23:24 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/10 15:57:04 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/11 00:07:13 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,9 @@ static bool	find_player_position(t_map *map, t_player *player)
 
 bool	t_player_init(t_player *player, t_map *map, t_game *game)
 {
-	if (player == NULL || map == NULL)
+	if (player == NULL || map == NULL || !find_player_position(map, player))
 		return (error_print(ERR_PLAYER_CREATION), false);
 	player->fov_angle = FOV_ANGLE_DEFAULT;
-	if (!find_player_position(map, player))
-		return (error_print(ERR_PLAYER_CREATION), false);
 	set_player_orientation(player, map);
 	player->position.x += 0.5;
 	player->position.y += 0.5;

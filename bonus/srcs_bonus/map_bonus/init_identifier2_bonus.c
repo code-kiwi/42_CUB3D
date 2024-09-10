@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_identifier2_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/08/29 23:50:18 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 02:30:27 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_bonus.h"
 
-void	init_weapons_identifier(char **identifier)
+static void	init_weapons_identifier(char **identifier)
 {
 	identifier[IDX_TXTR_TARGET1] = ID_TEXTURE_TARGET1;
 	identifier[IDX_TXTR_W1_HAND] = ID_TEXTURE_W1_HAND;
@@ -32,9 +32,17 @@ void	init_weapons_identifier(char **identifier)
 	identifier[IDX_TXTR_W_BUL_PLASMA_DEATH] = ID_TEXTURE_W_BUL_PLASMA_DEATH;
 }
 
-void	init_hud_identifier(char **identifier)
+static void	init_hud_identifier(char **identifier)
 {
 	identifier[IDX_TXTR_HUD_BG] = ID_TEXTURE_HUD_BG;
 	identifier[IDX_TXTR_HUD_HEALTH_LBL] = ID_TEXTURE_HUD_HEALTH_LBL;
 	identifier[IDX_TXTR_HUD_WEAPON_LBL] = ID_TEXTURE_HUD_WEAPON_LBL;
+}
+
+void	init_identifier2(char **identifier)
+{
+	if (identifier == NULL)
+		return ;
+	init_weapons_identifier(identifier);
+	init_hud_identifier(identifier);
 }

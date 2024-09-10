@@ -28,7 +28,7 @@ bool	revenant_update(t_game *game, t_entity *entity, float delta_time)
 	}
 	else if (!entity->see_player)
 	{
-		update_entity_position(entity, delta_time, game->entities, &game->map);
+		update_entity_position(entity, delta_time, game->entities, game->map);
 		if (entity->path == NULL)
 			stop_walk_animation(entity);
 	}

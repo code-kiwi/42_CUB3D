@@ -19,31 +19,6 @@ DEMON_ATTACK ./assets/textures/doom/entities/demon/demon_attack.xpm 44,55 150
 DEMON_PAIN ./assets/textures/doom/entities/demon/demon_pain.xpm 39,55 250
 DEMON_DEATH ./assets/textures/doom/entities/demon/demon_death.xpm 52,57 100
 
-
-
-UI_PAUSE_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297 10
-UI_PAUSE_LABEL ./assets/textures/ui/labels/label_pause.xpm 200,100 10
-
-
-
-UI_PAUSE_BTN_RESUME_OFF ./assets/textures/ui/buttons/btn_resume_off.xpm 400,100 10
-
-
-UI_PAUSE_BTN_RESUME_ON ./assets/textures/ui/buttons/btn_resume_on.xpm 400,100 10
-UI_PAUSE_BTN_QUIT_OFF ./assets/textures/ui/buttons/btn_quit_off.xpm 400,100 10
-UI_PAUSE_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on.xpm 400,100 10
-
-UI_GAMEOVER_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297 10
-UI_GAMEOVER_LABEL ./assets/textures/ui/labels/label_gameover.xpm 366,100 10
-UI_GAMEOVER_BTN_QUIT_OFF ./assets/textures/ui/buttons/btn_quit_off.xpm 400,100 10
-UI_GAMEOVER_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on.xpm 400,100 10
-
-UI_WIN_BG ./assets/textures/ui/backgrounds/bg_transparent_pixels.xpm 297,297 10
-UI_WIN_LABEL ./assets/textures/ui/labels/label_win.xpm 224,100 10
-UI_WIN_TROPHY ./assets/textures/ui/labels/trophy.xpm 300,300 10
-UI_WIN_BTN_QUIT_OFF ./assets/textures/ui/buttons/btn_quit_off.xpm 400,100 10
-UI_WIN_BTN_QUIT_ON ./assets/textures/ui/buttons/btn_quit_on.xpm 400,100 10
-
 IMP_WALK ./assets/textures/doom/entities/imp/imp_walk.xpm 39,60 150
 IMP_ATTACK ./assets/textures/doom/entities/imp/imp_attack.xpm 49,60 250
 IMP_PAIN ./assets/textures/doom/entities/imp/imp_pain.xpm 41,55 250

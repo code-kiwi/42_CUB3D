@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 17:22:22 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/05 14:57:26 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,17 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
-	if (argc != 2)
+	(void)argv;
+	if (argc != 1)
+		return (error_print(ERR_PROG_ARGS), EXIT_FAILURE);
+	ft_memset(&game, 0, sizeof(t_game));
+	if (!read_maps(&game))
 	{
-		error_print(ERR_PROG_ARGS);
+		t_game_destroy(&game);
 		return (EXIT_FAILURE);
 	}
-	ft_memset(&game, 0, sizeof(t_game));
-	if (!read_map(&game.map, argv[1], game.anim)
-		|| !t_game_init(&game))
+	game.map = &game.maps[0];
+	if (!t_game_init(&game))
 	{
 		t_game_destroy(&game);
 		return (EXIT_FAILURE);
