@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_api_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:23:46 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 09:35:15 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 00:01:59 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <stdint.h>
-
-# define EVENT_LOOP_FRAME_TARGET	1
 
 # define KEY_ESC 					65307
 # define KEY_LEFT 					65361
@@ -51,7 +49,6 @@ struct s_mlx
 	t_image	*img1;
 	t_image	*img2;
 	t_image	*img_buff;
-	size_t	event_loop_counter;
 	int		width;
 	int		width_half;
 	int		height;

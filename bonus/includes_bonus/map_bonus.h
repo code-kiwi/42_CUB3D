@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/10 23:45:39 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/11 00:08:08 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 # include "animation_bonus.h"
 
 # define NB_MAPS						5
-# define MAP0_PATH						"./assets/bonus/maps/map_rooms.cub"
-# define MAP1_PATH						"./assets/bonus/maps/map_rooms.cub"
-# define MAP2_PATH						"./assets/bonus/maps/map_rooms2.cub"
+# define MAP0_PATH						"./assets/bonus/maps/map_island.cub"
+# define MAP1_PATH						"./assets/bonus/maps/map_enemies.cub"
+# define MAP2_PATH						"./assets/bonus/maps/map_test.cub"
 # define MAP3_PATH						"./assets/bonus/maps/map_rooms.cub"
-# define MAP4_PATH						"./assets/bonus/maps/map_test.cub"
+# define MAP4_PATH						"./assets/bonus/maps/map_rooms2.cub"
 # define MAP0_IDX						0
 # define MAP1_IDX						1
 # define MAP2_IDX						2
