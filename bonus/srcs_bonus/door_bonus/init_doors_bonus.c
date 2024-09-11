@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_doors_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/10 23:46:09 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/11 04:38:56 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,26 +89,27 @@ static void	find_doors(t_map *map, size_t door_count, t_door *doors)
 	}
 }
 
-bool	init_doors(t_game *game)
+bool	init_doors(t_map *map)
 {
 	ssize_t	door_count;
 
-	door_count = count_doors(game->map);
+	if (map == NULL)
+		return (false);
+	door_count = count_doors(map);
 	if (door_count == -1)
 	{
 		error_print(INVALID_DOOR);
 		return (false);
 	}
-	game->door_count = door_count;
-	if (game->door_count != 0)
+	map->door_count = door_count;
+	if (map->door_count != 0)
 	{
-		game->doors = ft_calloc(game->door_count, sizeof(t_door));
-		if (game->doors == NULL)
+		map->doors = ft_calloc(map->door_count, sizeof(t_door));
+		if (map->doors == NULL)
 			return (false);
-		find_doors(game->map, game->door_count, game->doors);
+		find_doors(map, map->door_count, map->doors);
 	}
 	else
-		game->doors = NULL;
-	game->player.last_door_seen = NULL;
+		map->doors = NULL;
 	return (true);
 }

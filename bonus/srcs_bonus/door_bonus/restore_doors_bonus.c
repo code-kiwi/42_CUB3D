@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_maps_bonus.c                                  :+:      :+:    :+:   */
+/*   restore_doors_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 16:41:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/11 04:49:01 by brappo           ###   ########.fr       */
+/*   Created: 2024/09/11 04:41:37 by brappo            #+#    #+#             */
+/*   Updated: 2024/09/11 04:45:22 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "door_bonus.h"
 
-bool	read_maps(t_game *game)
+void	restore_doors(t_door *doors, size_t door_count)
 {
-	size_t		i;
-	static char	*filenames[NB_MAPS] = {
-		MAP0_PATH, MAP1_PATH, MAP2_PATH, MAP3_PATH, MAP4_PATH
-	};
+	size_t	index;
 
-	if (game == NULL)
-		return (error_print("ERR READ MAPS"), false);
-	i = 0;
-	while (i < NB_MAPS)
+	if (doors == NULL)
+		return ;
+	index = 0;
+	while (index < door_count)
 	{
-		if (!read_map(&game->maps[i], filenames[i], game->anims[i]))
-			return (false);
-		if (!init_doors(&game->maps[i]))
-			return (false);
-		i++;
+		doors[index].state = CLOSED;
+		doors[index].transition = 1;
+		doors[index].time_since_opened = 0;
+		index++;
 	}
-	return (true);
 }

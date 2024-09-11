@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:39:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 12:31:25 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/11 04:24:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	free_map(t_map *map)
 {
 	if (map == NULL)
 		return ;
+	if (map->doors != NULL)
+		free(map->doors);
 	free_array(map->textures, MAP_NB_IDS, false);
 	ft_free_str_array(&map->tiles);
 	ft_free_str_array(&map->tiles_save);

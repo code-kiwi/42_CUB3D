@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/10 23:45:02 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/11 04:23:04 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,8 +157,6 @@ struct s_game
 	long				tick_last_frame;
 	t_animation			*anim;
 	t_animation			anims[NB_MAPS][MAP_NB_IDS];
-	size_t				door_count;
-	t_door				*doors;
 	t_door				*last_door_seen;
 	t_list				*sprites;
 	t_list				*entities;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/11 00:08:08 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/11 04:30:57 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -278,6 +278,9 @@ struct s_map
 	char			*textures[MAP_NB_IDS];
 	t_mlx_coords	texture_size[MAP_NB_IDS];
 	t_map_draw		draw;
+	size_t			door_count;
+	t_door			*doors;
+	float			**lightmap;
 };
 
 // Map functions

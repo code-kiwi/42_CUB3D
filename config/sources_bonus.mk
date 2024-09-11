@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/11 04:15:42 by brappo           ###   ########.fr        #
+#    Updated: 2024/09/11 04:44:45 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,7 +117,8 @@ DOOR_DIR_BONUS				=	door_bonus/
 DOOR_FILES_BONUS			=	find_doors_bonus.c				\
 								open_door_bonus.c				\
 								update_door_bonus.c				\
-								init_doors_bonus.c
+								init_doors_bonus.c				\
+								restore_doors_bonus.c
 DOOR_BONUS					=	$(addprefix $(DOOR_DIR_BONUS), $(DOOR_FILES_BONUS))
 
 # PLAYER
