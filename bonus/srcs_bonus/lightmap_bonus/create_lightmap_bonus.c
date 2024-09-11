@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:15:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 05:10:31 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 05:17:23 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,12 @@ bool	create_lightmap(t_map *map, t_game *game)
 		return (false);
 	if (!alloc_lightmap(map))
 		return (false);
-	lights_count  = count_lights(map);
+	lights_count = count_lights(map);
 	if (lights_count == 0)
 		return (true);
 	lights_pos = get_lights_position(map, lights_count);
 	if (lights_pos == NULL)
+		return (false);
 	free(lights_pos);
 	return (true);
 }

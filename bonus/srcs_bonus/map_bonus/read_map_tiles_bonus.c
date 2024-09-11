@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 14:58:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/11 05:15:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ static bool	clean_map(char **tiles)
 	return (true);
 }
 
-bool	read_map(t_map *map, char *filename, t_animation anim[MAP_NB_IDS])
+bool	read_map_tiles(t_map *map, char *filename, t_animation anim[MAP_NB_IDS])
 {
 	int		fd;
 

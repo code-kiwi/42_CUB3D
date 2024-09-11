@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/11 05:11:29 by brappo           ###   ########.fr        #
+#    Updated: 2024/09/11 05:15:22 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,7 @@ RENDER_BONUS				=	$(addprefix $(RENDER_DIR_BONUS), $(RENDER_FILES_BONUS))
 
 # MAP
 MAP_DIR_BONUS				=	map_bonus/
-MAP_FILES_BONUS				=	read_map_bonus.c				\
+MAP_FILES_BONUS				=	read_map_tiles_bonus.c			\
 								read_maps_bonus.c				\
 								save_tiles_bonus.c				\
 								is_in_bounds_bonus.c			\
