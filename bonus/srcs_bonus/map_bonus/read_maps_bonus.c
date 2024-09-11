@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:41:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/11 05:14:56 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 06:32:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,15 @@ bool	read_maps(t_game *game)
 	i = 0;
 	while (i < NB_MAPS)
 	{
-		if (!read_map_tiles(&game->maps[i], filenames[i], game->anims[i]))
+		game->map = &game->maps[i];
+		if (!read_map_tiles(game->map, filenames[i], game->anims[i]))
 			return (false);
-		if (!init_doors(&game->maps[i]))
+		if (!init_doors(game->map))
 			return (false);
-		if (!create_lightmap(&game->maps[i], game))
+		if (!create_lightmap(game))
 			return (false);
 		i++;
 	}
+	game->map = NULL;
 	return (true);
 }
