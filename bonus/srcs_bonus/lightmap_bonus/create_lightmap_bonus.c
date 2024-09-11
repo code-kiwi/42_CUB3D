@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:15:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 06:30:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:28:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,33 +40,6 @@ static bool	alloc_lightmap(t_map *map)
 	return (true);
 }
 
-#include <stdio.h>
-
-static void	print_lightmap(t_map *map)
-{
-	size_t	y;
-	size_t	x;
-	size_t	line_length;
-	size_t	lines_count;
-
-	y = 0;
-	lines_count = map->lines_count * LIGHTMAP_TILE_RATIO;
-	while (y < lines_count)
-	{
-		x = 0;
-		line_length = map->lines_lengths[(int)(y / LIGHTMAP_TILE_RATIO)];
-		line_length *= LIGHTMAP_TILE_RATIO;
-		while (x < line_length)
-		{
-			printf("%d,", (int)(map->lightmap[y][x]));
-			x++;
-		}
-		printf("\n");
-		y++;
-	}
-	printf("\n");
-}
-
 bool	create_lightmap(t_game *game)
 {
 	t_vector	*lights_pos;
@@ -85,7 +58,6 @@ bool	create_lightmap(t_game *game)
 	if (lights_pos == NULL)
 		return (false);
 	set_lightmap_values(game, lights_pos, lights_count);
-	print_lightmap(map);
 	free(lights_pos);
 	return (true);
 }

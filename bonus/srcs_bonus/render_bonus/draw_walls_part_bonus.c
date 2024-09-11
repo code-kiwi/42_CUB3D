@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:01:44 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/11 09:41:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:21:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,7 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	t_vector	position;
 
 	position.x = game->player.position.x + ray->slope.x * ray->length;
-	position.y = game->player.position.y + ray->slope.y * ray->length;
-	column.luminosity = get_luminosity(&position, game->map->lightmap);
+	position.y = game->player.position.y - ray->slope.y * ray->length;
 	column.coords.x = column_index;
 	column.perceived_height = WIN_HEIGHT / (ray->length * ray->cos_angle);
 	offset = get_offset(column.perceived_height, &game->player);
@@ -100,6 +99,8 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	texture = get_texture(game->anim, ray);
 	column.texture_x = pixel_column_on_texture(ray, texture->width);
 	draw_ceiling(&column, column.coords.y - 1, game, ray);
+	column.luminosity = get_luminosity(&position, game->map->lightmap, \
+		ray->length);
 	draw_texture_column(game->mlx.img_buff, &column, texture);
 	draw_ground(&column, column.coords.y, game, ray);
 }
