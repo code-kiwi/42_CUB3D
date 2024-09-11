@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/11 04:23:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 09:40:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,6 +185,7 @@ struct	s_column
 	int				ceiling_start;
 	int				ranged_end;
 	int				ranged_start;
+	float			luminosity;
 };
 
 // Game functions
@@ -201,7 +202,7 @@ void	game_reach_home(t_game *game);
 bool	draw_walls(t_game *game);
 void	draw_walls_part(t_game *game, size_t start, size_t end);
 void	draw_texture_column(t_image *screen, t_column *column,
-			t_image *texture, float distance);
+			t_image *texture);
 void	render_all_sprites(t_game *game);
 void	get_sprite_screen_pos(t_column *column, t_sprite *sprite, \
 			t_game *game, float scale);

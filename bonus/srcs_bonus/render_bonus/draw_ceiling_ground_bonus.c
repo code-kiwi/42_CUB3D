@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_ceiling_ground_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/10 23:56:47 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/11 09:34:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "mlx_api_bonus.h"
 #include "cub3d_bonus.h"
 #include "libft.h"
+#include "lightmap_bonus.h"
 
 /**
  * @brief Return the world position of a pixel
@@ -37,7 +38,7 @@ static	void	get_pixel_world_pos(t_ray *ray,
  * @param inv_dist the inverse distanc eof the pixel from the player
  */
 static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
-	t_image *texture, float inv_dist)
+	t_image *texture, float luminosity)
 {
 	t_mlx_coords	color_coords;
 	unsigned int	color;
@@ -47,7 +48,7 @@ static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
 	color = *(unsigned int *)(texture->addr + \
 		color_coords.y * texture->line_len \
 		+ (color_coords.x * texture->bpp_factor));
-	multiply_color(&color, 1 - 1 / (inv_dist * MAX_VISION_DISTANCE));
+	multiply_color(&color, luminosity);
 	*(unsigned int *)addr = color;
 }
 
@@ -97,10 +98,11 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	while (start < WIN_HEIGHT)
 	{
 		get_pixel_world_pos(ray, &game->player.position, &pixel_pos, inv_dist);
+		column->luminosity = get_luminosity(&pixel_pos, game->map->lightmap);
 		pixel_pos.x -= (int)pixel_pos.x;
 		pixel_pos.y -= (int)pixel_pos.y;
 		draw_pixel_from_texture(&pixel_pos, addr,
-			game->anim[IDX_TXTR_FLOOR].textures->content, inv_dist);
+			game->anim[IDX_TXTR_FLOOR].textures->content, column->luminosity);
 		start++;
 		inv_dist += inv_dist_unit;
 		addr += game->mlx.img_buff->line_len;
@@ -131,10 +133,11 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 		get_pixel_world_pos(ray, &game->player.position, &pixel_pos, inv_dist);
 		if (!is_sky(&pixel_pos, game->map))
 		{
+			column->luminosity = get_luminosity(&pixel_pos, game->map->lightmap);
 			pixel_pos.x -= (int)pixel_pos.x;
 			pixel_pos.y -= (int)pixel_pos.y;
 			draw_pixel_from_texture(&pixel_pos, addr,
-				game->anim[IDX_TXTR_CEIL].textures->content, inv_dist);
+				game->anim[IDX_TXTR_CEIL].textures->content, column->luminosity);
 		}
 		start--;
 		inv_dist += inv_dist_unit;

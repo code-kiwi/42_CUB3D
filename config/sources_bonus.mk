@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/11 05:49:31 by brappo           ###   ########.fr        #
+#    Updated: 2024/09/11 09:28:05 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -264,7 +264,8 @@ WEAPONS_BONUS				=	$(addprefix $(WEAPONS_DIR_BONUS), $(WEAPONS_FILES_BONUS))
 LIGHTMAP_DIR_BONUS			=	lightmap_bonus/
 LIGHTMAP_FILES_BONUS		=	create_lightmap_bonus.c			\
 								get_lights_position_bonus.c		\
-								set_lightmap_values_bonus.c
+								set_lightmap_values_bonus.c		\
+								get_luminosity_bonus.c
 LIGHTMAP_BONUS				=	$(addprefix $(LIGHTMAP_DIR_BONUS), $(LIGHTMAP_FILES_BONUS))
 
 # UTILS
