@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 05:27:28 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 08:58:41 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 09:17:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,22 @@ static float	get_luminosity(t_game *game, t_vector *tile, t_vector *light)
 {
 	float	squared_distance;
 	t_ray	ray;
-	float	distance;
 
-	t_vector_init(&ray.slope, tile->x - light->x, light->y - tile->y);
+	ray.slope.x = tile->x - light->x;
+	if (light->x > tile->x)
+		ray.slope.x += 0.5f / LIGHTMAP_TILE_RATIO;
+	else
+		ray.slope.x -= 0.5f / LIGHTMAP_TILE_RATIO;
+	ray.slope.y = light->y - tile->y;
+	if (light->y > tile->y)
+		ray.slope.y -= 0.5f / LIGHTMAP_TILE_RATIO;
+	else
+		ray.slope.y += 0.5f / LIGHTMAP_TILE_RATIO;
 	squared_distance = ray.slope.x * ray.slope.x + ray.slope.y * ray.slope.y;
 	if (squared_distance >= LIGHT_SQUARED_DISTANCE)
 		return (0.0f);
-	distance = sqrt(squared_distance);
 	ray.length = raycast(*light, game, &ray, LIGHT_SQUARED_DISTANCE);
-	if (ray.length + 1.0f / LIGHTMAP_TILE_RATIO < distance)
+	if (ray.length * ray.length + 0.1f < squared_distance)
 		return (0.0f);
 	return ((1 - squared_distance / LIGHT_SQUARED_DISTANCE) * 10);
 }
