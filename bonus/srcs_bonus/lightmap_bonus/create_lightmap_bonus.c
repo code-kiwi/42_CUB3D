@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:15:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 05:17:23 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 05:47:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static bool	alloc_lightmap(t_map *map)
 	while (index < lines_count)
 	{
 		line_length = map->lines_lengths[(int)(index / LIGHTMAP_TILE_RATIO)];
+		line_length *= LIGHTMAP_TILE_RATIO;
 		map->lightmap[index] = ft_calloc(line_length, sizeof(float));
 		if (map->lightmap[index] == NULL)
 		{
