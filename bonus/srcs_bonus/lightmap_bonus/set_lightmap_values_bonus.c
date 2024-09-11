@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 05:27:28 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 05:55:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 06:03:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@
 
 static float	get_luminosity(t_vector *tile, t_vector *light)
 {
-	(void)tile;
-	(void)light;
+	float	squared_distance;
+
+	squared_distance = get_squared_distance(tile, light);
+	if (squared_distance < LIGHT_SQUARED_DISTANCE)
+		return (1.0f);
 	return (0.0f);
 }
 
