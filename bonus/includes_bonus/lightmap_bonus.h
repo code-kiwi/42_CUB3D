@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:14:23 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 04:31:29 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 05:08:35 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 # define LIGHTMAP_BONUS_H
 
 # define LIGHTMAP_TILE_RATIO 10
+
+t_vector	*get_lights_position(t_map *map, size_t light_count);
+size_t		count_lights(t_map *map);
 
 #endif // !LIGHTMAP_BONUS_H
