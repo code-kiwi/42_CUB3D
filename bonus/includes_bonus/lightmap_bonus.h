@@ -6,14 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:14:23 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 08:40:49 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 08:55:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIGHTMAP_BONUS_H
 # define LIGHTMAP_BONUS_H
 
-# define LIGHTMAP_TILE_RATIO	1
+# define LIGHTMAP_TILE_RATIO	2
 # define LIGHT_SQUARED_DISTANCE	25
 # define LIGHT_DISTANCE			5
 
