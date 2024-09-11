@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 05:16:46 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 08:36:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ static void	find_lights(t_map *map, size_t light_count, t_vector *lights_pos)
 			if (map->tiles[y][x] == ID_MAP_LIGHT
 				|| map->tiles[y][x] == ID_MAP_LIGHT - 32)
 			{
-				lights_pos[light_index].x = x;
-				lights_pos[light_index].y = y;
+				lights_pos[light_index].x = (float)x + 0.5f;
+				lights_pos[light_index].y = (float)y + 0.5f;
 				light_index++;
 				if (light_index == light_count)
 					return ;

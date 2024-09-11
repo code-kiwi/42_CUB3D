@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 05:27:28 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 08:18:17 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 08:48:20 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ static float	get_luminosity(t_game *game, t_vector *tile, t_vector *light)
 	squared_distance = ray.slope.x * ray.slope.x + ray.slope.y * ray.slope.y;
 	if (squared_distance >= LIGHT_SQUARED_DISTANCE)
 		return (0.0f);
-	ray.length = raycast(*light, game, &ray, LIGHT_DISTANCE);
-	if (fabsf(ray.length * ray.length - squared_distance) > LIGHT_ERROR_EPSILON)
+	ray.length = raycast(*light, game, &ray, LIGHT_SQUARED_DISTANCE);
+	if (ray.length * ray.length + 0.1f < squared_distance)
 		return (0.0f);
-	return (squared_distance / LIGHT_SQUARED_DISTANCE);
+	return ((1 - squared_distance / LIGHT_SQUARED_DISTANCE) * 10);
 }
 
 static void	set_tile_value(t_game *game, t_mlx_coords *lightmap_coords, \
@@ -40,8 +40,8 @@ static void	set_tile_value(t_game *game, t_mlx_coords *lightmap_coords, \
 
 	index = 0;
 	map = game->map;
-	tile_pos.x = (float)lightmap_coords->x / LIGHTMAP_TILE_RATIO;
-	tile_pos.y = (float)lightmap_coords->y / LIGHTMAP_TILE_RATIO;
+	tile_pos.x = ((float)lightmap_coords->x + 0.5f) / LIGHTMAP_TILE_RATIO;
+	tile_pos.y = ((float)lightmap_coords->y + 0.5f) / LIGHTMAP_TILE_RATIO;
 	while (index < lights_count)
 	{
 		luminosity = get_luminosity(game, &tile_pos, &lights_pos[index]);
