@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:39:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 05:20:00 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:38:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	free_map(t_map *map)
 		return ;
 	if (map->doors != NULL)
 		free(map->doors);
+	if (map->lights_pos != NULL)
+		free(map->lights_pos);
 	free_array(map->textures, MAP_NB_IDS, false);
 	lightmap_lines_count = map->lines_count * LIGHTMAP_TILE_RATIO;
 	free_array((char **)map->lightmap, lightmap_lines_count, true);

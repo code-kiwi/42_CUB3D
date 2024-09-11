@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 08:36:13 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:43:12 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t	count_lights(t_map *map)
 		while (x < map->lines_lengths[y])
 		{
 			if (map->tiles[y][x] == ID_MAP_LIGHT
-				|| map->tiles[y][x] == ID_MAP_LIGHT)
+				|| map->tiles[y][x] == ID_MAP_LIGHT - 32)
 			{
 				lights_count++;
 			}

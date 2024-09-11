@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:14:23 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 10:26:06 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:50:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void		set_lightmap_values(t_game *game, t_vector *lights_pos, \
 				size_t lights_count);
 float		get_luminosity(t_vector *position, float **lightmap, \
 				float distance);
+float		get_luminosity_bis(t_game *game, t_vector *position, float distance);
 
 #endif // !LIGHTMAP_BONUS_H

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 10:00:35 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:50:56 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	while (start < WIN_HEIGHT)
 	{
 		get_pixel_world_pos(ray, &game->player.position, &pixel_pos, inv_dist);
-		column->luminosity = get_luminosity(&pixel_pos, game->map->lightmap, 1 / inv_dist);
+		column->luminosity = get_luminosity_bis(game, &pixel_pos, 1 / inv_dist);
 		pixel_pos.x -= (int)pixel_pos.x;
 		pixel_pos.y -= (int)pixel_pos.y;
 		draw_pixel_from_texture(&pixel_pos, addr,
@@ -133,7 +133,7 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 		get_pixel_world_pos(ray, &game->player.position, &pixel_pos, inv_dist);
 		if (!is_sky(&pixel_pos, game->map))
 		{
-			column->luminosity = get_luminosity(&pixel_pos, game->map->lightmap, 1 / inv_dist);
+			column->luminosity = get_luminosity_bis(game, &pixel_pos, 1 / inv_dist);
 			pixel_pos.x -= (int)pixel_pos.x;
 			pixel_pos.y -= (int)pixel_pos.y;
 			draw_pixel_from_texture(&pixel_pos, addr,

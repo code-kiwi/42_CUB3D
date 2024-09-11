@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/11 09:40:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:47:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 
 # define PI						3.14159265358
 # define FPS					100
-# define NB_DRAW_THREADS		8
+# define NB_DRAW_THREADS		16
 
 # define WIN_TITLE				"Cub3D"
 # define WIN_WIDTH				1920

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/09/11 10:03:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:51:10 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,7 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 	column.texture_start = column.ranged_start - column.start;
 	column.texture_x = 0;
 	column.coords.y = column.ranged_start;
-	column.luminosity = get_luminosity(&sprite->position, game->map->lightmap, \
-		sprite->distance);
+	column.luminosity = get_luminosity_bis(game, &sprite->position, sprite->distance);
 	if (is_sprite_aimed(sprite, column.coords.x))
 	{
 		game->player.aimed_sprite = sprite;

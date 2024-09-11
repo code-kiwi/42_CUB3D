@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/11 05:16:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:37:00 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -282,6 +282,8 @@ struct s_map
 	size_t			door_count;
 	t_door			*doors;
 	float			**lightmap;
+	size_t			lights_count;
+	t_vector		*lights_pos;
 };
 
 // Map functions

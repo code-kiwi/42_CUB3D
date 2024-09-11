@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 05:27:28 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 09:48:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 10:51:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,28 @@ void	set_lightmap_values(t_game *game, t_vector *lights_pos, \
 		}
 		coords.y++;
 	}
+}
+
+float	get_luminosity_bis(t_game *game, t_vector *position, float distance)
+{
+	size_t		index;
+	float		new_luminosity;
+	float		luminosity;
+	t_map		*map;
+	float		distance_factor;
+
+	index = 0;
+	map = game->map;
+	luminosity = 0.0f;
+	if (distance >= MAX_VISION_DISTANCE)
+		return (0.0f);
+	while (index < map->lights_count)
+	{
+		new_luminosity = get_light_luminosity(game, position, &map->lights_pos[index]);
+		if (new_luminosity > luminosity)
+			luminosity = new_luminosity;
+		index++;
+	}
+	distance_factor = 1 - distance / MAX_VISION_DISTANCE;
+	return (luminosity * distance_factor);
 }
