@@ -6,22 +6,28 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 05:27:28 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 06:31:23 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/11 08:18:17 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "lightmap_bonus.h"
 
+#include <math.h>
+
 static float	get_luminosity(t_game *game, t_vector *tile, t_vector *light)
 {
 	float	squared_distance;
+	t_ray	ray;
 
-	squared_distance = get_squared_distance(tile, light);
-	if (squared_distance < LIGHT_SQUARED_DISTANCE)
-		return (1.0f);
-	(void)game;
-	return (0.0f);
+	t_vector_init(&ray.slope, tile->x - light->x, light->y - tile->y);
+	squared_distance = ray.slope.x * ray.slope.x + ray.slope.y * ray.slope.y;
+	if (squared_distance >= LIGHT_SQUARED_DISTANCE)
+		return (0.0f);
+	ray.length = raycast(*light, game, &ray, LIGHT_DISTANCE);
+	if (fabsf(ray.length * ray.length - squared_distance) > LIGHT_ERROR_EPSILON)
+		return (0.0f);
+	return (squared_distance / LIGHT_SQUARED_DISTANCE);
 }
 
 static void	set_tile_value(t_game *game, t_mlx_coords *lightmap_coords, \
