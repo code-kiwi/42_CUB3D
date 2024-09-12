@@ -6,21 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/12 05:53:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/12 06:06:58 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_bonus.h"
 #include "vector_bonus.h"
 #include "libft.h"
-
-bool	is_light(char character)
-{
-	return (character == ID_MAP_LIGHT
-			|| character == ID_MAP_LIGHT - 32
-			|| character == ID_MAP_DOOR_CLOSED
-			|| character == ID_MAP_DOOR_CLOSED - 32);
-}
 
 size_t	count_lights(t_map *map)
 {
@@ -35,7 +27,8 @@ size_t	count_lights(t_map *map)
 		x = 0 ;
 		while (x < map->lines_lengths[y])
 		{
-			if (is_light(map->tiles[y][x]))
+			if (map->tiles[y][x] == ID_MAP_LIGHT
+				|| map->tiles[y][x] == ID_MAP_LIGHT - 32)
 			{
 				lights_count++;
 			}
@@ -59,7 +52,8 @@ static void	find_lights(t_map *map, size_t light_count, t_vector *lights_pos)
 		x = 0;
 		while (x < map->lines_lengths[y])
 		{
-			if (is_light(map->tiles[y][x]))
+			if (map->tiles[y][x] == ID_MAP_LIGHT
+				|| map->tiles[y][x] == ID_MAP_LIGHT - 32)
 			{
 				lights_pos[light_index].x = (float)x + 0.5f;
 				lights_pos[light_index].y = (float)y + 0.5f;
