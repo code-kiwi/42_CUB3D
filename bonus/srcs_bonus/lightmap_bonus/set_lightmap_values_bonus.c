@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 05:27:28 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/12 05:18:30 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/12 05:59:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,22 @@ static void	set_tile_value(t_game *game, t_mlx_coords *lightmap_coords, \
 	float		luminosity;
 	t_vector	tile_pos;
 	t_map		*map;
+	float		*tile_luminosity;
 
 	index = 0;
 	map = game->map;
+	tile_luminosity = &map->lightmap[lightmap_coords->y][lightmap_coords->x];
 	tile_pos.x = (float)lightmap_coords->x / LIGHTMAP_TILE_RATIO;
 	tile_pos.y = (float)lightmap_coords->y / LIGHTMAP_TILE_RATIO;
+	if (is_sky(&tile_pos, game->map))
+		*tile_luminosity = SKY_LUMINOSITY;
+	else
+		*tile_luminosity = DEFAULT_LUMINOSITY;
 	while (index < lights_count)
 	{
 		luminosity = get_light_luminosity(game, &tile_pos, &lights_pos[index]);
-		if (luminosity > map->lightmap[lightmap_coords->y][lightmap_coords->x])
-			map->lightmap[lightmap_coords->y][lightmap_coords->x] = luminosity;
+		if (luminosity > *tile_luminosity)
+			*tile_luminosity = luminosity;
 		index++;
 	}
 }
