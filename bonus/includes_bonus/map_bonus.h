@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/11 05:16:19 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/12 06:38:58 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@
 # define ID_TEXTURE_HUD_WEAPON_LBL		"HUD_WEAPON_LBL"
 
 # define ID_TEXTURE_SKY					"SKY"
+# define ID_TEXTURE_LIGHT				"LIGHT"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -216,6 +217,7 @@
 # define IDX_TXTR_HUD_WEAPON_LBL		80
 
 # define IDX_TXTR_SKY					81
+# define IDX_TXTR_LIGHT					82
 
 # define ID_MAP_DEMON					'z'
 # define ID_MAP_IMP						'i'
@@ -232,7 +234,7 @@
 
 # define MAP_EXTENSION					".cub"
 # define MAP_ALLOWED_CHARS			" 012zicbkpyrmvftnsewdlZICBKPYRMVFTNSEWDL"
-# define MAP_NB_IDS						82
+# define MAP_NB_IDS						83
 
 # define MAP_MOVING_CHARS				"pnsewoPNSEWO"
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_identifier1_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:11:07 by root              #+#    #+#             */
-/*   Updated: 2024/09/10 23:52:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/12 06:15:17 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	init_world_identifier(char **identifier)
 	identifier[IDX_TXTR_DOOR] = ID_TEXTURE_DOOR;
 	identifier[IDX_TXTR_SPRITE] = ID_TEXTURE_SPRITE;
 	identifier[IDX_TXTR_SKY] = ID_TEXTURE_SKY;
+	identifier[IDX_TXTR_LIGHT] = ID_TEXTURE_LIGHT;
 }
 
 static void	init_simple_enemies_identifier(char **identifier)
