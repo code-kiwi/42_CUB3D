@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:15:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 10:44:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/12 08:45:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ bool	create_lightmap(t_game *game)
 	lights_pos = get_lights_position(map, lights_count);
 	if (lights_pos == NULL)
 		return (false);
-	set_lightmap_values(game, lights_pos, lights_count);
+	// set_lightmap_values(game, lights_pos, lights_count);
 	map->lights_count = lights_count;
 	map->lights_pos = lights_pos;
 	// free(lights_pos);
