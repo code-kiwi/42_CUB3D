@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 05:27:28 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/11 09:48:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/12 05:18:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,19 @@ static float	get_light_luminosity(t_game *game, t_vector *tile, \
 {
 	float	squared_distance;
 	t_ray	ray;
+	char	character;
 
 	ray.slope.x = tile->x - light->x;
-	if (light->x > tile->x)
-		ray.slope.x += 0.5f / LIGHTMAP_TILE_RATIO;
-	else
-		ray.slope.x -= 0.5f / LIGHTMAP_TILE_RATIO;
 	ray.slope.y = light->y - tile->y;
-	if (light->y > tile->y)
-		ray.slope.y -= 0.5f / LIGHTMAP_TILE_RATIO;
-	else
-		ray.slope.y += 0.5f / LIGHTMAP_TILE_RATIO;
+	character = game->map->tiles[(int)tile->y][(int)tile->x];
+	if (character != ID_MAP_DOOR_CLOSED
+		&& character != ID_MAP_DOOR_CLOSED - 32)
+	{
+		if (light->x > tile->x)
+			ray.slope.x += 1.0f / LIGHTMAP_TILE_RATIO;
+		if (light->y > tile->y)
+			ray.slope.y -= 1.0f / LIGHTMAP_TILE_RATIO;
+	}
 	squared_distance = ray.slope.x * ray.slope.x + ray.slope.y * ray.slope.y;
 	if (squared_distance >= LIGHT_SQUARED_DISTANCE)
 		return (0.0f);
@@ -50,8 +52,8 @@ static void	set_tile_value(t_game *game, t_mlx_coords *lightmap_coords, \
 
 	index = 0;
 	map = game->map;
-	tile_pos.x = ((float)lightmap_coords->x + 0.5f) / LIGHTMAP_TILE_RATIO;
-	tile_pos.y = ((float)lightmap_coords->y + 0.5f) / LIGHTMAP_TILE_RATIO;
+	tile_pos.x = (float)lightmap_coords->x / LIGHTMAP_TILE_RATIO;
+	tile_pos.y = (float)lightmap_coords->y / LIGHTMAP_TILE_RATIO;
 	while (index < lights_count)
 	{
 		luminosity = get_light_luminosity(game, &tile_pos, &lights_pos[index]);
