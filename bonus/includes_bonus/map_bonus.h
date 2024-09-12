@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/12 06:38:58 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/12 06:43:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # define ID_MAP_SKY						'2'
 # define ID_MAP_LIGHT					'l'
 
-# define IDS_MAP_SPRITE					"t"
+# define IDS_MAP_SPRITE					"lL"
 # define ID_MAP_PLAYER					'p'
 # define ID_MAP_ENTITY					'e'
 
@@ -233,7 +233,7 @@
 # define IDS_MAP_ENTITY					"zicbkpyrmvfZICBKPYRMVF"
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS			" 012zicbkpyrmvftnsewdlZICBKPYRMVFTNSEWDL"
+# define MAP_ALLOWED_CHARS				" 012zicbkpyrmvfnsewdlZICBKPYRMVFNSEWDL"
 # define MAP_NB_IDS						83
 
 # define MAP_MOVING_CHARS				"pnsewoPNSEWO"

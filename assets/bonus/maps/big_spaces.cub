@@ -138,7 +138,7 @@ HUD_WEAPON_LBL ./assets/textures/ui/hud/hud_weapon_label.xpm 150,150 10
 
 
 SKY ./assets/textures/skies/sky_doom.xpm 500,100 10
-LIGHT ./assets/textures/sprites/light.xpm 400,614 10
+LIGHT ./assets/textures/sprites/light.xpm 200,300 10
 
 
 11111111111111111111

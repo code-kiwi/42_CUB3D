@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_init_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:09:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 01:03:05 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/12 06:45:36 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	t_sprite_init(t_sprite *sprite, t_animation *animation, size_t height)
 	sprite->height = height;
 	sprite->animate = true;
 	sprite->locked = false;
+	sprite->on_ground = true;
 }
 
 bool	init_sprites(t_game *game)
@@ -59,7 +60,7 @@ bool	init_sprites(t_game *game)
 	while (current)
 	{
 		sprite = current->content;
-		t_sprite_init(sprite, &game->anim[IDX_TXTR_SPRITE], WIN_HEIGHT);
+		t_sprite_init(sprite, &game->anim[IDX_TXTR_LIGHT], WIN_HEIGHT);
 		current = current->next;
 	}
 	return (true);
