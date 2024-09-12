@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 05:27:28 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/12 06:12:35 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/12 08:14:53 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,13 @@ static float	get_light_luminosity(t_game *game, t_vector *tile, \
 {
 	float	squared_distance;
 	t_ray	ray;
-	char	character;
 
 	ray.slope.x = tile->x - light->x;
 	ray.slope.y = light->y - tile->y;
-	character = game->map->tiles[(int)tile->y][(int)tile->x];
-	if (character != ID_MAP_DOOR_CLOSED
-		&& character != ID_MAP_DOOR_CLOSED - 32)
-	{
-		if (light->x > tile->x)
-			ray.slope.x += 1.0f / LIGHTMAP_TILE_RATIO;
-		if (light->y > tile->y)
-			ray.slope.y -= 1.0f / LIGHTMAP_TILE_RATIO;
-	}
+	if (light->x > tile->x)
+		ray.slope.x += 1.0f / LIGHTMAP_TILE_RATIO;
+	if (light->y > tile->y)
+		ray.slope.y -= 1.0f / LIGHTMAP_TILE_RATIO;
 	squared_distance = ray.slope.x * ray.slope.x + ray.slope.y * ray.slope.y;
 	if (squared_distance >= LIGHT_SQUARED_DISTANCE)
 		return (0.0f);
