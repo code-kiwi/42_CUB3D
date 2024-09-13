@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:14:23 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/13 03:42:13 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/13 03:48:16 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ struct	s_light
 	float		*rays;
 };
 
-bool		get_lights_position(t_map *map);
-size_t		count_lights(t_map *map);
-bool		init_lights(t_game *game);
-float		get_luminosity(t_vector *position, t_map *map, float distance);
+bool	get_lights_position(t_map *map);
+size_t	count_lights(t_map *map);
+bool	init_lights(t_game *game);
+float	get_luminosity(t_vector *position, t_map *map, float distance);
+bool	set_lights_values(t_game *game);
 
 #endif // !LIGHTS_BONUS_H

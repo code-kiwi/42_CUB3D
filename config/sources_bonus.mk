@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/13 02:54:35 by brappo           ###   ########.fr        #
+#    Updated: 2024/09/13 03:48:35 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -264,7 +264,8 @@ WEAPONS_BONUS				=	$(addprefix $(WEAPONS_DIR_BONUS), $(WEAPONS_FILES_BONUS))
 LIGHTS_DIR_BONUS			=	lights_bonus/
 LIGHTS_FILES_BONUS			=	get_lights_position_bonus.c		\
 								get_luminosity_bonus.c			\
-								init_lights_bonus.c
+								init_lights_bonus.c				\
+								set_lights_values_bonus.c
 LIGHTS_BONUS				=	$(addprefix $(LIGHTS_DIR_BONUS), $(LIGHTS_FILES_BONUS))
 
 # UTILS
