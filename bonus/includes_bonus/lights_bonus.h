@@ -6,15 +6,15 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:14:23 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/13 03:52:00 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/13 04:58:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIGHTS_BONUS_H
 # define LIGHTS_BONUS_H
 
-# define LIGHT_SQUARED_DISTANCE	25
-# define LIGHT_DISTANCE			5
+# define LIGHT_SQUARED_DISTANCE	25.0f
+# define LIGHT_DISTANCE			5.0f
 # define DEFAULT_LUMINOSITY		0.2f
 # define SKY_LUMINOSITY			0.5f
 # define LIGHT_RAY_BY_ANGLE		1
