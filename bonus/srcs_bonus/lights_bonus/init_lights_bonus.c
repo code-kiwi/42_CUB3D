@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:15:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/13 03:29:13 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/13 03:44:25 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,21 @@ static bool	cast_light_rays(t_game *game, t_light *light)
 	float	angle;
 	float	angle_by_unit;
 	t_ray	ray;
+	size_t	lights_ray_count;
 
-	light->rays = ft_calloc(LIGHT_RAYS_COUNT, sizeof(float));
+	lights_ray_count = 360 * LIGHT_RAY_BY_ANGLE;
+	light->rays = ft_calloc(lights_ray_count, sizeof(float));
 	if (light->rays == NULL)
 		return (false);
 	index = 0;
 	angle = 0.0f;
-	angle_by_unit = 2 * PI / LIGHT_RAYS_COUNT;
-	while (index < LIGHT_RAYS_COUNT)
+	angle_by_unit = 2 * PI / lights_ray_count;
+	while (index < lights_ray_count)
 	{
 		t_vector_get_slope(&ray.slope, angle);
 		light->rays[index] = raycast(light->position, game, &ray, \
 			LIGHT_DISTANCE);
+		light->rays[index] *= light->rays[index];
 		angle += angle_by_unit;
 		index++;
 	}

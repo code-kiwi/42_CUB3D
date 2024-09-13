@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:14:23 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/13 03:18:23 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/13 03:42:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define LIGHT_DISTANCE			5
 # define DEFAULT_LUMINOSITY		0.2f
 # define SKY_LUMINOSITY			0.5f
-# define LIGHT_RAYS_COUNT		360
+# define LIGHT_RAY_BY_ANGLE		1
 
 # include "vector_bonus.h"
 
