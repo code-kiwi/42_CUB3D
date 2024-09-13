@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lightmap_bonus.h                                   :+:      :+:    :+:   */
+/*   lights_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:14:23 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/12 08:39:28 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/13 03:02:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIGHTMAP_BONUS_H
-# define LIGHTMAP_BONUS_H
+#ifndef LIGHTS_BONUS_H
+# define LIGHTS_BONUS_H
 
-# define LIGHTMAP_TILE_RATIO	100
 # define LIGHT_SQUARED_DISTANCE	25
 # define LIGHT_DISTANCE			5
 # define DEFAULT_LUMINOSITY		0.2f
@@ -25,13 +24,17 @@
 typedef struct s_map	t_map;
 typedef struct s_game	t_game;
 typedef struct s_vector	t_vector;
+typedef struct s_light	t_light;
+
+struct	s_light
+{
+	t_vector	*position;
+	float		*rays;
+};
 
 t_vector	*get_lights_position(t_map *map, size_t light_count);
 size_t		count_lights(t_map *map);
-bool		create_lightmap(t_game *game);
-void		set_lightmap_values(t_game *game, t_vector *lights_pos, \
-				size_t lights_count);
-float		get_luminosity(t_vector *position, float **lightmap, \
-				float distance);
+bool		init_lights(t_game *game);
+float		get_luminosity(t_vector *position, t_map *map, float distance);
 
-#endif // !LIGHTMAP_BONUS_H
+#endif // !LIGHTS_BONUS_H

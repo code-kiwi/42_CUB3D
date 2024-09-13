@@ -6,13 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 16:41:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/11 06:32:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/13 03:00:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "door_bonus.h"
-#include "lightmap_bonus.h"
+#include "lights_bonus.h"
 
 bool	read_maps(t_game *game)
 {
@@ -31,7 +31,7 @@ bool	read_maps(t_game *game)
 			return (false);
 		if (!init_doors(game->map))
 			return (false);
-		if (!create_lightmap(game))
+		if (!init_lights(game))
 			return (false);
 		i++;
 	}

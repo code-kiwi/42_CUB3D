@@ -6,7 +6,7 @@
 #    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/11 09:28:05 by brappo           ###   ########.fr        #
+#    Updated: 2024/09/13 02:54:35 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -260,13 +260,12 @@ WEAPONS_FILES_BONUS			=	init_bonus.c					\
 								update_cooldown_bonus.c
 WEAPONS_BONUS				=	$(addprefix $(WEAPONS_DIR_BONUS), $(WEAPONS_FILES_BONUS))
 
-# LIGHTMAP
-LIGHTMAP_DIR_BONUS			=	lightmap_bonus/
-LIGHTMAP_FILES_BONUS		=	create_lightmap_bonus.c			\
-								get_lights_position_bonus.c		\
-								set_lightmap_values_bonus.c		\
-								get_luminosity_bonus.c
-LIGHTMAP_BONUS				=	$(addprefix $(LIGHTMAP_DIR_BONUS), $(LIGHTMAP_FILES_BONUS))
+# LIGHTS
+LIGHTS_DIR_BONUS			=	lights_bonus/
+LIGHTS_FILES_BONUS			=	get_lights_position_bonus.c		\
+								get_luminosity_bonus.c			\
+								init_lights_bonus.c
+LIGHTS_BONUS				=	$(addprefix $(LIGHTS_DIR_BONUS), $(LIGHTS_FILES_BONUS))
 
 # UTILS
 UTILS_DIR_BONUS				=	utils_bonus/
@@ -290,7 +289,7 @@ SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)					\
 								$(ENTITIES_BONUS) $(UI_BONUS) $(WEAPONS_BONUS)			\
 								$(BULLETS_BONUS) $(ENTITY_TYPE_BONUS) $(RADAR_BONUS)	\
-								$(HUD_BONUS) $(LIGHTMAP_BONUS)
+								$(HUD_BONUS) $(LIGHTS_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/12 06:43:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/13 02:58:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -262,6 +262,7 @@ typedef struct s_ray		t_ray;
 typedef struct s_sprite		t_sprite;
 typedef struct s_list		t_list;
 typedef struct s_mlx_coords	t_mlx_coords;
+typedef struct s_light		t_light;
 
 struct s_map_draw
 {
@@ -283,7 +284,8 @@ struct s_map
 	t_map_draw		draw;
 	size_t			door_count;
 	t_door			*doors;
-	float			**lightmap;
+	size_t			lights_count;
+	t_light			*lights;
 };
 
 // Map functions

@@ -6,13 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/09/11 10:03:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/13 03:03:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "sprite_bonus.h"
-#include "lightmap_bonus.h"
+#include "lights_bonus.h"
 
 /**
  * @brief Return the x index of the first column to be drawn
@@ -91,7 +91,7 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 	column.texture_start = column.ranged_start - column.start;
 	column.texture_x = 0;
 	column.coords.y = column.ranged_start;
-	column.luminosity = get_luminosity(&sprite->position, game->map->lightmap, \
+	column.luminosity = get_luminosity(&sprite->position, game->map, \
 		sprite->distance);
 	if (is_sprite_aimed(sprite, column.coords.x))
 	{

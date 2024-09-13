@@ -10,18 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lightmap_bonus.h"
+#include "lights_bonus.h"
 #include "cub3d_bonus.h"
 
-float	get_luminosity(t_vector *position, float **lightmap, float distance)
+float	get_luminosity(t_vector *position, t_map *map, float distance)
 {
-	t_mlx_coords	lightmap_coords;
-	float			distance_factor;
-
-	if (distance >= MAX_VISION_DISTANCE)
-		return (0.0f);
-	lightmap_coords.x = position->x * LIGHTMAP_TILE_RATIO;
-	lightmap_coords.y = position->y * LIGHTMAP_TILE_RATIO;
-	distance_factor = 1 - distance / MAX_VISION_DISTANCE;
-	return (lightmap[lightmap_coords.y][lightmap_coords.x] * distance_factor);
+	(void)position;
+	(void)map;
+	(void)distance;
+	return (0.0f);
 }
