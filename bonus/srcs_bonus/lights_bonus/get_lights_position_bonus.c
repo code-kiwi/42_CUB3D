@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/13 03:11:36 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/13 03:55:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,12 @@ static void	find_lights(t_map *map, size_t light_count, t_light *lights)
 
 bool	get_lights_position(t_map *map)
 {
-	t_vector	*lights_pos;
-
 	if (map == NULL)
 		return (false);
 	if (map->lights_count == 0)
 		return (true);
-	lights_pos = ft_calloc(map->lights_count, sizeof(t_light));
-	if (lights_pos == NULL)
+	map->lights = ft_calloc(map->lights_count, sizeof(t_light));
+	if (map->lights == NULL)
 		return (false);
 	find_lights(map, map->lights_count, map->lights);
 	return (true);
