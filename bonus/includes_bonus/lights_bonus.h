@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:14:23 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/13 03:02:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/13 03:12:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,22 @@
 # define DEFAULT_LUMINOSITY		0.2f
 # define SKY_LUMINOSITY			0.5f
 
+# include "vector_bonus.h"
+
 # include <stddef.h>
 # include <stdbool.h>
 
 typedef struct s_map	t_map;
 typedef struct s_game	t_game;
-typedef struct s_vector	t_vector;
 typedef struct s_light	t_light;
 
 struct	s_light
 {
-	t_vector	*position;
+	t_vector	position;
 	float		*rays;
 };
 
-t_vector	*get_lights_position(t_map *map, size_t light_count);
+bool		get_lights_position(t_map *map);
 size_t		count_lights(t_map *map);
 bool		init_lights(t_game *game);
 float		get_luminosity(t_vector *position, t_map *map, float distance);
