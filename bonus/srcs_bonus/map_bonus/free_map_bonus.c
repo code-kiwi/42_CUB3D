@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:39:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/13 03:01:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/13 03:53:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ void	free_map(t_map *map)
 	if (map == NULL)
 		return ;
 	if (map->doors != NULL)
+	{
 		free(map->doors);
-	if (map->lights != NULL)
-		free(map->lights);
+		map->doors = NULL;
+	}
+	free_lights(&map->lights, map->lights_count);
 	free_array(map->textures, MAP_NB_IDS, false);
 	ft_free_str_array(&map->tiles);
 	ft_free_str_array(&map->tiles_save);
