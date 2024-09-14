@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_lights_values_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 03:47:27 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/13 03:48:56 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/14 10:49:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static bool	cast_light_rays(t_game *game, t_light *light)
 	t_ray	ray;
 	size_t	lights_ray_count;
 
-	lights_ray_count = 360 * LIGHT_RAY_BY_ANGLE;
+	lights_ray_count = 2 * PI * LIGHT_RAY_BY_ANGLE;
 	light->rays = ft_calloc(lights_ray_count, sizeof(float));
 	if (light->rays == NULL)
 		return (false);
