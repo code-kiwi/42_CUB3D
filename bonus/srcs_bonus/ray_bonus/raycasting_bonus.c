@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/09/11 04:26:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/14 11:15:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,5 @@ float	raycast(t_vector position, t_game *game, t_ray *ray, int max_distance)
 		if (length != -1)
 			return (length);
 	}
-	return (MAX_DISTANCE);
+	return (max_distance);
 }
