@@ -14,7 +14,6 @@
 #include "cub3d_bonus.h"
 
 #include <math.h>
-#include <stdio.h>
 
 static float	get_light_luminosity(t_light *light, t_vector *position)
 {
@@ -34,7 +33,7 @@ static float	get_light_luminosity(t_light *light, t_vector *position)
 	else if (position_angle > 2 * PI)
 		position_angle -= 2 * PI;
 	ray_index = position_angle * LIGHT_RAY_BY_ANGLE;
-	if (light->rays[ray_index] + 0.5f < squared_distance)
+	if (light->rays[ray_index] + LIGHT_ACCEPTED_ERROR < squared_distance)
 		return (0.0f);
 	return (1.0f - squared_distance / LIGHT_SQUARED_DISTANCE);
 }
