@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls_part_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:01:44 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/13 03:03:14 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/14 11:49:34 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	texture = get_texture(game->anim, ray);
 	column.texture_x = pixel_column_on_texture(ray, texture->width);
 	draw_ceiling(&column, column.coords.y - 1, game, ray);
-	column.luminosity = get_luminosity(&position, game->map, ray->length);
+	column.luminosity = get_luminosity(&position, game->map, 1 / ray->length);
 	draw_texture_column(game->mlx.img_buff, &column, texture);
 	draw_ground(&column, column.coords.y, game, ray);
 }

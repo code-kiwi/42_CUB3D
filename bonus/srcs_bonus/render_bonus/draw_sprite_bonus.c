@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/09/13 03:03:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/14 11:49:24 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 	column.texture_x = 0;
 	column.coords.y = column.ranged_start;
 	column.luminosity = get_luminosity(&sprite->position, game->map, \
-		sprite->distance);
+		1 / sprite->distance);
 	if (is_sprite_aimed(sprite, column.coords.x))
 	{
 		game->player.aimed_sprite = sprite;
