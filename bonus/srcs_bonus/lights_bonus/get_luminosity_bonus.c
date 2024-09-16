@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 09:27:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/16 13:31:56 by root             ###   ########.fr       */
+/*   Updated: 2024/09/16 14:10:53 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 #include <math.h>
 
+/**
+ * @brief Return the angle between the x axis of the light, and the position
+ * @return An angle in range [0, 2 * PI]
+ */
 static float	get_position_angle(t_vector *light_pos, t_vector *position)
 {
 	float		position_angle;
@@ -30,6 +34,11 @@ static float	get_position_angle(t_vector *light_pos, t_vector *position)
 	return (position_angle);
 }
 
+/**
+ * @brief Return the luminosity caused by this light. If the rays are NULL, it
+ * means that the light intersect with nothing, in this case, we only check the
+ * distance.
+ */
 static float	get_light_luminosity(t_light *light, t_vector *position)
 {
 	float		position_angle;
@@ -49,6 +58,13 @@ static float	get_light_luminosity(t_light *light, t_vector *position)
 	return (1.0f - squared_distance / LIGHT_SQUARED_DISTANCE);
 }
 
+/**
+ * @brief Calculate the luminosty at position, checking all the lights of map
+ * @param position The coordinates of the pixel we want the luminosity
+ * @param map The current selected map
+ * @param inv_dist The inverse distance to the player
+ * @return The luminosity in range [0.0f,1.0f]
+ */
 float	get_luminosity(t_vector *position, t_map *map, float inv_dist)
 {
 	float	luminosity;

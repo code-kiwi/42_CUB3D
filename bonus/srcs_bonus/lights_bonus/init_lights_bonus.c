@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:15:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/16 13:48:03 by root             ###   ########.fr       */
+/*   Updated: 2024/09/16 14:11:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include "libft.h"
 #include "lights_bonus.h"
 
+/**
+ * @brief Free the rays of the lights and set lights to NULL
+ * @param lights A pointer on the array of lights
+ * @param lights_count The length of the array
+ */
 void	free_lights(t_light **lights, size_t lights_count)
 {
 	size_t	index;
@@ -29,6 +34,11 @@ void	free_lights(t_light **lights, size_t lights_count)
 	*lights = NULL;
 }
 
+/**
+ * @brief Cast the rays of the lights of the current selected map in game.
+ * @return False if this function failed to allocate the rays or if game or map
+ * are NULL, true otherwise
+ */
 bool	init_lights(t_game *game)
 {
 	t_map		*map;

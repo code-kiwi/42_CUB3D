@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 03:47:27 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/16 13:52:47 by root             ###   ########.fr       */
+/*   Updated: 2024/09/16 14:12:27 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #include "lights_bonus.h"
 #include "libft.h"
 
+/**
+ * @brief Check if a ray of the lights intersect something
+ * @return True if at least one ray intersect
+ */
 static bool	intersect_with_wall(float *rays_distances, size_t ray_count)
 {
 	size_t	index;
@@ -30,6 +34,11 @@ static bool	intersect_with_wall(float *rays_distances, size_t ray_count)
 	return (false);
 }
 
+/**
+ * @brief raycast in all direction, ray_count times and set the resut in
+ * light->rays. The rays will be uniformely distributed in all direction.
+ * @return False if the allocation fail, true otherwise
+ */
 static bool	cast_light_rays(t_game *game, t_light *light, size_t ray_count)
 {
 	size_t	index;
@@ -55,6 +64,11 @@ static bool	cast_light_rays(t_game *game, t_light *light, size_t ray_count)
 	return (true);
 }
 
+/**
+ * @brief cast the rays of all lights.If a lights doesn't intersect with
+ * anything, set rays to NULL
+ * @return False if an allocation failed or game is NULL, true otherwise
+ */
 bool	set_lights_values(t_game *game)
 {
 	size_t	index;
@@ -63,6 +77,8 @@ bool	set_lights_values(t_game *game)
 	t_light	*light;
 
 	index = 0;
+	if (game == NULL)
+		return (false);
 	map = game->map;
 	ray_count = 2 * PI * LIGHT_RAY_BY_ANGLE + 1;
 	while (index < map->lights_count)

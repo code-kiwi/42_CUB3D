@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/14 11:55:50 by root             ###   ########.fr       */
+/*   Updated: 2024/09/16 14:09:43 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ static	void	get_pixel_world_pos(t_ray *ray,
 
 /**
  * @brief Draw a ground or ceiling pixel
- * @param pos_in_tile The position of the pixel in the texture
+ * @param position The world position of the pixel
  * @param addr The address the pixel will be drawn into
  * @param texture the texture of the ground/ceiling
  * @param inv_dist the inverse distanc eof the pixel from the player
+ * @note We remove the integer part of position because we need the decimal part
+ * to calculate the texture coordinate. So position wiil be changed in this
+ * function.
  */
 static void	draw_pixel_from_texture(t_vector *position, char *addr,
 	t_image *texture, float luminosity)

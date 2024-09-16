@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/16 13:47:40 by root             ###   ########.fr       */
+/*   Updated: 2024/09/16 14:10:16 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include "libft.h"
 #include "lights_bonus.h"
 
+/**
+ * @brief Counts the number of light in this map.
+ */
 size_t	count_lights(t_map *map)
 {
 	size_t	y;
@@ -40,6 +43,12 @@ size_t	count_lights(t_map *map)
 	return (lights_count);
 }
 
+/**
+ * @brief Set the lights coordinates
+ * @param map The current selected map
+ * @param light_count The number of lights
+ * @param lights The array of lights whose coordinates will be set
+ */
 static void	find_lights(t_map *map, size_t light_count, t_light *lights)
 {
 	size_t		y;
@@ -68,6 +77,10 @@ static void	find_lights(t_map *map, size_t light_count, t_light *lights)
 	}
 }
 
+/**
+ * @brief Allocate the map->lights variable and set the lights positions.
+ * @return False if the allocation fail, true otherwise
+ */
 bool	get_lights_position(t_map *map, size_t lights_count)
 {
 	if (map == NULL)
