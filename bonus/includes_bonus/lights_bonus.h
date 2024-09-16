@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:14:23 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/16 13:29:04 by root             ###   ########.fr       */
+/*   Updated: 2024/09/16 13:47:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ struct	s_light
 	float		*rays;
 };
 
-bool	get_lights_position(t_map *map);
+bool	get_lights_position(t_map *map, size_t lights_count);
 size_t	count_lights(t_map *map);
 bool	init_lights(t_game *game);
 float	get_luminosity(t_vector *position, t_map *map, float distance);

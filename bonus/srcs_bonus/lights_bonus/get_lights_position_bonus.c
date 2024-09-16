@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_lights_position_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:18:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/13 03:55:37 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/16 13:47:40 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,15 @@ static void	find_lights(t_map *map, size_t light_count, t_light *lights)
 	}
 }
 
-bool	get_lights_position(t_map *map)
+bool	get_lights_position(t_map *map, size_t lights_count)
 {
 	if (map == NULL)
 		return (false);
-	if (map->lights_count == 0)
+	if (lights_count == 0)
 		return (true);
-	map->lights = ft_calloc(map->lights_count, sizeof(t_light));
+	map->lights = ft_calloc(lights_count, sizeof(t_light));
 	if (map->lights == NULL)
 		return (false);
-	find_lights(map, map->lights_count, map->lights);
+	find_lights(map, lights_count, map->lights);
 	return (true);
 }

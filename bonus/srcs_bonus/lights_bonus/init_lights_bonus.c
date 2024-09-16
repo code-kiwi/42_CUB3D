@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_lights_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:15:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/13 03:52:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/09/16 13:48:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ bool	init_lights(t_game *game)
 	map->lights_count = count_lights(map);
 	if (map->lights_count == 0)
 		return (true);
-	if (!get_lights_position(map))
+	if (!get_lights_position(map, map->lights_count))
 		return (false);
 	if (!set_lights_values(game))
 	{
