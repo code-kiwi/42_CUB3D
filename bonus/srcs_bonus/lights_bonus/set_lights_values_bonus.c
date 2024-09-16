@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 03:47:27 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/16 13:42:26 by root             ###   ########.fr       */
+/*   Updated: 2024/09/16 13:52:47 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static bool	intersect_with_wall(float *rays_distances, size_t ray_count)
 	float	ray_max_distance;
 
 	index = 0;
-	ray_max_distance = LIGHT_SQUARED_DISTANCE + LIGHT_ACCEPTED_ERROR;
+	ray_max_distance = LIGHT_SQUARED_DISTANCE - LIGHT_ACCEPTED_ERROR;
 	while (index < ray_count)
 	{
 		if (rays_distances[index] < ray_max_distance)
