@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:14:23 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/14 11:31:10 by root             ###   ########.fr       */
+/*   Updated: 2024/09/16 13:21:22 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 # define LIGHT_SQUARED_DISTANCE	25.0f
 # define LIGHT_DISTANCE			5.0f
 # define DEFAULT_LUMINOSITY		0.2f
-# define SKY_LUMINOSITY			0.5f
-# define LIGHT_RAY_BY_ANGLE		1000
-# define LIGHT_ACCEPTED_ERROR	0.1f
+# define LIGHT_RAY_BY_ANGLE		2000
+# define LIGHT_ACCEPTED_ERROR	0.5f
 # include "vector_bonus.h"
 
 # include <stddef.h>

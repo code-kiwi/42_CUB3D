@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 09:27:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/14 11:49:58 by root             ###   ########.fr       */
+/*   Updated: 2024/09/16 13:21:15 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,7 @@ float	get_luminosity(t_vector *position, t_map *map, float inv_dist)
 	float	distance_factor;
 	size_t	index;
 
-	if (is_sky(position, map))
-		luminosity = SKY_LUMINOSITY;
-	else
-		luminosity = DEFAULT_LUMINOSITY;
+	luminosity = DEFAULT_LUMINOSITY;
 	index = 0;
 	distance_factor = 1 - 1 / (inv_dist * MAX_VISION_DISTANCE);
 	while (index < map->lights_count)
