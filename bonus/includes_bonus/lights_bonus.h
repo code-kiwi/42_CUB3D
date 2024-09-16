@@ -6,17 +6,24 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 04:14:23 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/16 13:47:50 by root             ###   ########.fr       */
+/*   Updated: 2024/09/16 14:20:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIGHTS_BONUS_H
 # define LIGHTS_BONUS_H
 
+// LIGHT_DISTANCE but squared, usefull for more efficient calculations
 # define LIGHT_SQUARED_DISTANCE	25.0f
+// The range of a light
 # define LIGHT_DISTANCE			5.0f
+// The luminosity of a pixel without light
 # define DEFAULT_LUMINOSITY		0.2f
+// Rays count = 2 * PI * LIGHT_RAY_BY_ANGLE, the angle is in radian
+// Increasing this increase the allocation and the precision
 # define LIGHT_RAY_BY_ANGLE		2000
+// Increasing this decreased the black bands but increase the lights precision
+//error in corners
 # define LIGHT_ACCEPTED_ERROR	0.285f
 # include "vector_bonus.h"
 
