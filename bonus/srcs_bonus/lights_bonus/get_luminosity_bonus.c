@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 09:27:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/16 13:21:15 by root             ###   ########.fr       */
+/*   Updated: 2024/09/16 13:31:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,13 @@ static float	get_light_luminosity(t_light *light, t_vector *position)
 	squared_distance = get_squared_distance(&light->position, position);
 	if (squared_distance > LIGHT_SQUARED_DISTANCE)
 		return (0.0f);
-	position_angle = get_position_angle(&light->position, position);
-	ray_index = position_angle * LIGHT_RAY_BY_ANGLE;
-	if (light->rays[ray_index] + LIGHT_ACCEPTED_ERROR < squared_distance)
-		return (0.0f);
+	if (light->rays != NULL)
+	{
+		position_angle = get_position_angle(&light->position, position);
+		ray_index = position_angle * LIGHT_RAY_BY_ANGLE;
+		if (light->rays[ray_index] + LIGHT_ACCEPTED_ERROR < squared_distance)
+			return (0.0f);
+	}
 	return (1.0f - squared_distance / LIGHT_SQUARED_DISTANCE);
 }
 
