@@ -6,12 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/27 14:07:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:14:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "entities_bonus.h"
+#include "libft.h"
+#include "sprite_bonus.h"
 
 /**
  * @brief Sets the coordinates of the given position onto the map drawing

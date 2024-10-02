@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 03:59:54 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:10:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,11 @@
 # include <stdbool.h>
 # include <pthread.h>
 
-# include "map_bonus.h"
 # include "config_bonus.h"
-# include "vector_bonus.h"
 # include "player_bonus.h"
 # include "ray_bonus.h"
 # include "ui_bonus.h"
-# include "animation_bonus.h"
 # include "radar_bonus.h"
-# include "weapons_bonus.h"
 # include "hud_bonus.h"
 
 typedef struct s_game				t_game;

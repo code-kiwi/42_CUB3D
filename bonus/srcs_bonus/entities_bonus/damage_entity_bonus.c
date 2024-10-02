@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   damage_entity_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:53:40 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 16:50:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 04:19:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
+#include "libft.h"
 
 int	equal(void *a, void *b)
 {

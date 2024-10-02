@@ -6,13 +6,15 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:06:05 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 03:54:35 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:21:14 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 #include "cub3d_bonus.h"
+#include "libft.h"
+#include "sprite_bonus.h"
 
 void	entity_projectile_use(t_game *game, t_bullet *bullet)
 {

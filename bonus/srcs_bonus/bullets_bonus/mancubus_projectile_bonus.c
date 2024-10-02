@@ -6,13 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:50:01 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/02 03:55:10 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:21:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 #include "config_bonus.h"
+#include "sprite_bonus.h"
 
 void	manc_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
 {

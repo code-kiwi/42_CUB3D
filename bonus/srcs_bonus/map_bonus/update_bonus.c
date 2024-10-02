@@ -13,6 +13,8 @@
 #include "entities_bonus.h"
 #include "door_bonus.h"
 #include "cub3d_bonus.h"
+#include "libft.h"
+#include "sprite_bonus.h"
 
 /**
  * @brief Removes all the moving characters from the map

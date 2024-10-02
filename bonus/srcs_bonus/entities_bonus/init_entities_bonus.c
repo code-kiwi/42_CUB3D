@@ -6,13 +6,15 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:01:50 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/02 03:48:41 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:17:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
 #include "error_bonus.h"
+#include "libft.h"
+#include "sprite_bonus.h"
 
 static void	init_entity(t_entity *new_entity, t_sprite *new_sprite)
 {

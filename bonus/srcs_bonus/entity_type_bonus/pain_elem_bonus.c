@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/10/02 03:57:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:22:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "bullets_bonus.h"
 #include "config_bonus.h"
 #include "cub3d_bonus.h"
+#include "sprite_bonus.h"
 
 static bool	pain_elem_spawn(t_entity *entity, t_sprite *sprite, t_game *game)
 {

@@ -6,11 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 17:22:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 14:49:51 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:18:53 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
+#include "libft.h"
+#include "sprite_bonus.h"
+#include "vector_bonus.h"
 
 bool	collide_entity(t_list *entities, t_vector *position)
 {

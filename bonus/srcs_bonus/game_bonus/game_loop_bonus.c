@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 04:00:38 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:13:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "cub3d_bonus.h"
 #include "error_bonus.h"
 #include "utils_bonus.h"
+#include "libft.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {

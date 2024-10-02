@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 11:39:12 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/02 03:49:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:19:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 #include "cub3d_bonus.h"
+#include "sprite_bonus.h"
+#include "libft.h"
 
 bool	get_spawn_position(t_vector *result, t_entity *entity,
 	t_vector *direction, t_game *game)

@@ -6,13 +6,15 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 13:07:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 03:50:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:20:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
 #include "cub3d_bonus.h"
+#include "libft.h"
+#include "sprite_bonus.h"
 
 static void	damage_target_entity(t_game *game, t_weapon *weapon, bool chainsaw)
 {

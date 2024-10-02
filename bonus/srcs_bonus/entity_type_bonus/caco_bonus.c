@@ -12,9 +12,9 @@
 
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
-
 #include "config_bonus.h"
 #include "cub3d_bonus.h"
+#include "sprite_bonus.h"
 
 bool	caco_update(t_game *game, t_entity *entity, float delta_time)
 {

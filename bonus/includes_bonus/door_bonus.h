@@ -6,16 +6,17 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 16:42:39 by root              #+#    #+#             */
-/*   Updated: 2024/10/02 03:36:30 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:11:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_api_bonus.h"
 #ifndef DOOR_BONUS_H
 # define DOOR_BONUS_H
 
 # define DOOR_SPEED						1
 # define DOOR_TIME_TO_CLOSE				3
+
+# include "mlx_api_bonus.h"
 
 typedef	enum e_door_state	t_door_state;
 typedef struct s_map		t_map;

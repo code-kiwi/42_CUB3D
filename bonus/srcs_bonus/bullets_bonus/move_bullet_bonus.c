@@ -6,12 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:58:30 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 03:10:36 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:20:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bullets_bonus.h"
 #include "entities_bonus.h"
+#include "sprite_bonus.h"
+#include "libft.h"
 
 static t_entity	*bullet_collide_entity(t_list *entities, t_vector *position)
 {
