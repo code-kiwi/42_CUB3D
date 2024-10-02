@@ -3,20 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   door_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 16:42:39 by root              #+#    #+#             */
-/*   Updated: 2024/07/15 13:59:23 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:36:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "mlx_api_bonus.h"
 #ifndef DOOR_BONUS_H
 # define DOOR_BONUS_H
 
-# include "cub3d_bonus.h"
-
 # define DOOR_SPEED						1
 # define DOOR_TIME_TO_CLOSE				3
+
+typedef	enum e_door_state	t_door_state;
+typedef struct s_map		t_map;
+typedef struct s_game		t_game;
+typedef struct s_ray		t_ray;
+typedef struct s_door		t_door;
 
 enum e_door_state
 {

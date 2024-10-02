@@ -6,12 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 13:04:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/03 09:37:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 03:44:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "libft.h"
+#include "error_bonus.h"
 
 void	player_select_weapon(t_player_weapon *weapon_info, int index)
 {

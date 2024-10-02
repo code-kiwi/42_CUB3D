@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   update_bullet_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:17:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/02 16:59:32 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:54:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bullets_bonus.h"
-#include "entities_bonus.h"
+#include "libft.h"
+#include "sprite_bonus.h"
 #include "cub3d_bonus.h"
 
 static void	update_bullet(t_game *game, t_bullet *bullet, float delta_time)

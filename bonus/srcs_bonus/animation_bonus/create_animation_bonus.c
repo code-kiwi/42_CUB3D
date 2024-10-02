@@ -6,12 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:52:44 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 13:40:26 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 03:47:57 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "cub3d_bonus.h"
+#include "error_bonus.h"
 
 static void	copy_image(
 	t_image *dest,

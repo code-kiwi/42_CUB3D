@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls_part_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:01:44 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/10 16:16:59 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:44:05 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "libft.h"
 #include "door_bonus.h"
+#include <cub3d_bonus.h>
 
 /**
  * @brief Return the texture of the wall, based on the direction or if the wall

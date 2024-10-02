@@ -6,11 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/27 14:06:39 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 03:42:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "door_bonus.h"
+#include "cub3d_bonus.h"
 
 /**
  * @brief Draws map decorations onto the given image

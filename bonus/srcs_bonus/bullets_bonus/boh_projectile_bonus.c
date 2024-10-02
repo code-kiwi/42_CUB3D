@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   boh_projectile_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:09:39 by root              #+#    #+#             */
-/*   Updated: 2024/08/31 19:55:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:55:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
+#include "config_bonus.h"
 
 void	boh_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
 {

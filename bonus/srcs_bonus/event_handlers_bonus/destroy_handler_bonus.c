@@ -6,11 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:45:49 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 13:57:17 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 03:39:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+#include "error_bonus.h"
 
 /**
  * @brief Destroys the given t_game instance and exits the program

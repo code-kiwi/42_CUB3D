@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   read_elements_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 02:45:20 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:41:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "libft.h"
+#include "error_bonus.h"
 
 static bool	get_texture_size(t_mlx_coords *out, char *size)
 {

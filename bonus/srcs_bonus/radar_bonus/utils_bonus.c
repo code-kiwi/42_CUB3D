@@ -6,12 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:53:25 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/27 15:25:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 03:57:50 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "libft.h"
+#include "error_bonus.h"
 
 /**
  * @brief Initializes the radar images

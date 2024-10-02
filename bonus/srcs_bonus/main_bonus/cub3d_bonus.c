@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:36:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 14:57:26 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:25:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "cub3d_bonus.h"
 #include "mlx.h"
+#include "error_bonus.h"
 
 int	main(int argc, char **argv)
 {

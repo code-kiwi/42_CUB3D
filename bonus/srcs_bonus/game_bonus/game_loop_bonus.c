@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/10 23:52:19 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:34:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "door_bonus.h"
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
+#include "cub3d_bonus.h"
+#include "error_bonus.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {

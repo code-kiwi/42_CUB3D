@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   imp_projectile_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:50:01 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 19:56:12 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:55:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
+#include "config_bonus.h"
 
 void	imp_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
 {

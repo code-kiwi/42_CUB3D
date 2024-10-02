@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   pain_elem_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:49:15 by root              #+#    #+#             */
-/*   Updated: 2024/09/02 17:00:02 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:57:26 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
+#include "config_bonus.h"
+#include "cub3d_bonus.h"
 
 static bool	pain_elem_spawn(t_entity *entity, t_sprite *sprite, t_game *game)
 {

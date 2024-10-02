@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   player_basic_projectile_bonus.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 10:50:01 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 19:53:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:55:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "entities_bonus.h"
+#include "sprite_bonus.h"
 #include "bullets_bonus.h"
+#include "config_bonus.h"
+#include "weapons_bonus.h"
 
 void	player_gun_proj_init(
 	t_bullet *bullet,

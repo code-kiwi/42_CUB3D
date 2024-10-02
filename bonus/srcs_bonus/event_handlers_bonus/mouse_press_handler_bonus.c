@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_press_handler_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 16:39:48 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:39:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+#include "error_bonus.h"
 
 int	mouse_press_handler(int button, int x, int y, t_game *game)
 {

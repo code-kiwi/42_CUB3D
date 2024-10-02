@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:47:03 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 02:58:47 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 03:38:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "door_bonus.h"
 #include "mlx.h"
 #include "entities_bonus.h"
+#include "error_bonus.h"
 
 bool	game_load_map(t_game *game, size_t map_index)
 {

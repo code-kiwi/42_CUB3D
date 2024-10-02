@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/03 08:29:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 03:53:09 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 # define BULLETS_BONUS_H
 
 # include "vector_bonus.h"
-# include "cub3d_bonus.h"
+# include "map_bonus.h"
 
 # define BULLET_SPEED				13
 # define BULLET_HEIGHT_WINDOW_RATIO	0.25
 
 typedef struct s_bullet	t_bullet;
 typedef struct s_entity	t_entity;
+typedef struct s_weapon	t_weapon;
+
 
 struct	s_bullet
 {

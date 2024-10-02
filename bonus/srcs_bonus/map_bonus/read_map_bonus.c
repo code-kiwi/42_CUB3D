@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   read_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 14:58:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:40:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <errno.h>
 
-#include "cub3d_bonus.h"
 #include "libft.h"
+#include "map_bonus.h"
+#include "error_bonus.h"
+#include "utils_bonus.h"
 
 static char	**read_tiles(int fd, size_t map_size_y, bool skip_empty_line)
 {

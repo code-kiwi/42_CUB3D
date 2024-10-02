@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   shoot_bullet_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:06:25 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 19:57:02 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:54:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "sprite_bonus.h"
 #include "bullets_bonus.h"
-#include "entities_bonus.h"
+#include "config_bonus.h"
+#include "cub3d_bonus.h"
 
 static t_bullet	*bullet_create(
 	t_game *game,

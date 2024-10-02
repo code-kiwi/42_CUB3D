@@ -6,11 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:24:55 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 14:13:06 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 03:30:25 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "error_bonus.h"
+#include "mlx_api_bonus.h"
+#include "config_bonus.h"
+#include "utils_bonus.h"
 
 static bool	t_mlx_is_rect_valid(t_mlx_coords *coords, t_mlx_coords *size)
 {
