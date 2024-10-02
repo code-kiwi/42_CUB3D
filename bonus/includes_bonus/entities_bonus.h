@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:07:32 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/02 04:12:22 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:30:03 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,10 +146,10 @@
 # define SERGEANT_RELOAD_PROBABILITY	0.6f
 # define SERGEANT_RELOAD_RATIO			0.5f
 
-typedef struct s_entity	t_entity;
-typedef struct s_list	t_list;
-typedef struct s_demon	t_demon;
-typedef struct s_bullet	t_bullet;
+typedef struct s_entity		t_entity;
+typedef struct s_list		t_list;
+typedef struct s_demon		t_demon;
+typedef struct s_bullet		t_bullet;
 
 struct s_entity
 {

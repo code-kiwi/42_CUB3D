@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/31 01:02:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 04:35:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 # include <stdlib.h>
 
 # include "vector_bonus.h"
-# include "animation_bonus.h"
 # include "libft.h"
 
-typedef struct s_game	t_game;
-typedef struct s_sprite	t_sprite;
-typedef struct s_image	t_image;
-typedef struct s_map	t_map;
-typedef struct s_list	t_list;
+typedef struct s_game		t_game;
+typedef struct s_sprite		t_sprite;
+typedef struct s_image		t_image;
+typedef struct s_map		t_map;
+typedef struct s_list		t_list;
+typedef struct s_animation	t_animation;
 
 struct	s_sprite
 {

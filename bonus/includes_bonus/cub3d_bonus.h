@@ -6,17 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 04:10:13 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:36:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_BONUS_H
 # define CUB3D_BONUS_H
 
-# include <stdlib.h>
-# include <stddef.h>
-# include <sys/types.h>
-# include <stdbool.h>
 # include <pthread.h>
 
 # include "config_bonus.h"
@@ -25,6 +21,7 @@
 # include "ui_bonus.h"
 # include "radar_bonus.h"
 # include "hud_bonus.h"
+# include "map_bonus.h"
 
 typedef struct s_game				t_game;
 typedef struct s_draw_thread_arg	t_draw_thread_arg;
