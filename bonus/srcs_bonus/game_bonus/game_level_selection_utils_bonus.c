@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_level_selection_utils_bonus.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:47:03 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/11 00:03:02 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 02:58:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,5 @@ void	game_unload_map(t_game *game)
 	game->map = NULL;
 	game->anim = NULL;
 	game->curr_map_index = NO_MAP_LOADED_INDEX;
+	ft_bzero(&game->player, sizeof(t_player));
 }
