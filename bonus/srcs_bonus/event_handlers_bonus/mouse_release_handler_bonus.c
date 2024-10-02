@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/10/02 05:23:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 10:15:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static void	mouse_release_buttons_handler(int x, int y, t_game *game, t_ui *ui)
 
 int	mouse_release_handler(int button, int x, int y, t_game *game)
 {
+	if (game == NULL)
+		return (0);
 	if (button == MOUSE_LEFT && game->state == STATE_PAUSE)
 		mouse_release_buttons_handler(x, y, game, &game->uis.pause);
 	else if (button == MOUSE_LEFT && game->state == STATE_GAMEOVER)

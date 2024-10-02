@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:45:49 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 03:39:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 10:15:40 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 int	destroy_handler(t_game *game)
 {
 	if (game == NULL)
-		error_exit(NULL, ERR_ARG);
+		return (0);
 	t_game_destroy(game);
 	exit(EXIT_SUCCESS);
 	return (0);

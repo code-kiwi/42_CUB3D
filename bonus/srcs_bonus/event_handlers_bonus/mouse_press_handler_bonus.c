@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/10/02 03:39:34 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 10:15:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	mouse_press_handler(int button, int x, int y, t_game *game)
 	(void) y;
 	weapon_info = &game->player.weapon_info;
 	if (game == NULL)
-		error_exit(NULL, ERR_ARG);
+		return (0);
 	if (game->state != STATE_PLAYING)
 		return (0);
 	if (button == MOUSE_LEFT)

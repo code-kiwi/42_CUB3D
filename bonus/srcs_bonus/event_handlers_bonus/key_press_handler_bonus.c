@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 03:39:52 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 10:15:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	key_press_handler(int key, t_game *game)
 
 	player = &game->player;
 	if (game == NULL)
-		error_exit(NULL, ERR_ARG);
-	else if (game->state != STATE_PLAYING)
+		return (0);
+	if (game->state != STATE_PLAYING)
 		return (0);
 	else if (key == KEY_E)
 		open_looked_door(player->look_ray, game->map);
