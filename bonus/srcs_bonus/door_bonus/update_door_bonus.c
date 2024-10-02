@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   update_door_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:54:13 by root              #+#    #+#             */
-/*   Updated: 2024/09/02 16:59:49 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 02:40:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "door_bonus.h"
+#include "entities_bonus.h"
 
 static void	close_door(t_door *door, float delta_time)
 {
@@ -34,15 +35,32 @@ static void	open_door(t_door *door, float delta_time, t_map *map)
 	}
 }
 
-static void	update_door(t_door *door, float delta_time, t_map *map,
-	t_vector *player_pos)
+static bool	can_door_close(t_vector *player_pos, t_mlx_coords *door_pos,
+	t_list *entities)
 {
+	t_vector	door_center_pos;
+
+	if ((int)player_pos->x == door_pos->x && (int)player_pos->y == door_pos->y)
+		return (false);
+	door_center_pos.x = door_pos->x + 0.5f;
+	door_center_pos.y = door_pos->y + 0.5f;
+	if (collide_entity(entities, &door_center_pos))
+		return (false);
+	return (true);
+}
+
+static void	update_door(t_door *door, float delta_time, t_game *game)
+{
+	t_map		*map;
+	t_vector	*player_pos;
+
+	map = game->map;
 	if (door->state == OPENED)
 	{
+		player_pos = &game->player.position;
 		door->time_since_opened += delta_time;
 		if (door->time_since_opened > DOOR_TIME_TO_CLOSE
-			&& !((int)player_pos->x == door->position.x
-				&& (int)player_pos->y == door->position.y))
+			&& can_door_close(player_pos, &door->position, game->entities))
 		{
 			door->state = CLOSING;
 			map->tiles[door->position.y][door->position.x] = ID_MAP_DOOR_CLOSED;
@@ -61,8 +79,7 @@ void	update_doors(t_game *game, float delta_time)
 	index = 0;
 	while (index < game->door_count)
 	{
-		update_door(&game->doors[index], delta_time, game->map,
-			&game->player.position);
+		update_door(&game->doors[index], delta_time, game);
 		index++;
 	}
 }
