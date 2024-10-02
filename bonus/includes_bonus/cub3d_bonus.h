@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 04:36:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 06:39:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,5 @@ void	quit_level(t_game *game);
 bool	game_load_map(t_game *game, size_t map_index);
 void	game_unload_map(t_game *game);
 void	reload_level(t_game *game);
-
 
 #endif

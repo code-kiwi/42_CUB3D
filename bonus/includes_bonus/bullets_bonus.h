@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 14:42:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/02 04:11:11 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 06:39:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 typedef struct s_bullet	t_bullet;
 typedef struct s_entity	t_entity;
 typedef struct s_weapon	t_weapon;
-
 
 struct	s_bullet
 {

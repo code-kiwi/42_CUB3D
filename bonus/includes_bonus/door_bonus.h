@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 16:42:39 by root              #+#    #+#             */
-/*   Updated: 2024/10/02 04:11:59 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 06:38:52 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # include "mlx_api_bonus.h"
 
-typedef	enum e_door_state	t_door_state;
+typedef enum e_door_state	t_door_state;
 typedef struct s_map		t_map;
 typedef struct s_game		t_game;
 typedef struct s_ray		t_ray;
