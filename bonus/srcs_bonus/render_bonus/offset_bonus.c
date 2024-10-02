@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   offset_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 22:19:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 17:21:52 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 06:14:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "config_bonus.h"
+#include "player_bonus.h"
 
 /**
  * The height offset is relative the the wall/sprite perceived height, when the

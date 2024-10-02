@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   player_vertical_move_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 17:48:40 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/10 16:05:26 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 05:52:08 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "player_bonus.h"
+#include "config_bonus.h"
 
 /**
  * @brief camera_y is not useful for the rendering, only camera_y_diff, but

@@ -6,11 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 09:34:08 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 14:19:53 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 05:59:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "map_bonus.h"
+#include "radar_bonus.h"
+#include "player_bonus.h"
 
 /**
  * @brief Returns the map character at the given position

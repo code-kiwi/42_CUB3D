@@ -6,11 +6,10 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 12:56:04 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/02 04:47:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 06:23:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sprite_bonus.h"
 #include "libft.h"
 
 static t_list	*max(t_list *lst, float compare(void *, void *))

@@ -6,13 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:47:03 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 04:13:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 05:25:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "door_bonus.h"
-#include "mlx.h"
 #include "entities_bonus.h"
 #include "sprite_bonus.h"
 #include "error_bonus.h"

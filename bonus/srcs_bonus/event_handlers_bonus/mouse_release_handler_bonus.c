@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_release_handler_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 20:35:11 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 15:55:28 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 05:23:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "event_handlers_bonus.h"
 
 static void	mouse_release_buttons_handler(int x, int y, t_game *game, t_ui *ui)
 {

@@ -6,14 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 00:40:32 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/10/02 04:05:46 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 06:21:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "libft.h"
 #include "error_bonus.h"
 #include "utils_bonus.h"
+#include "ui_bonus.h"
 
 static void	init_uis_ids1(char *identifiers[UI_NB_TEXTURES])
 {

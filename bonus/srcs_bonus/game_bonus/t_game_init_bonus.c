@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <time.h>
 #include <stdbool.h>
 
 #include "event_handlers_bonus.h"

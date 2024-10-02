@@ -6,15 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:00:39 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 03:43:29 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 06:12:34 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
 #include <pthread.h>
 
-#include "libft.h"
-#include "door_bonus.h"
 #include "cub3d_bonus.h"
 
 static void	*draw_thread_routine(void *param)

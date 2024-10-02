@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   vector_utils1_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:42:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/29 17:49:44 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 06:24:30 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
-#include "cub3d_bonus.h"
+#include "vector_bonus.h"
 
 void	t_vector_get_slope(t_vector *slope, float angle_rad)
 {

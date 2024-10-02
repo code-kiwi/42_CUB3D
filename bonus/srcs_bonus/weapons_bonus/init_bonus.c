@@ -6,13 +6,11 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 12:12:18 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 03:49:55 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 06:26:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-#include "libft.h"
-#include "bullets_bonus.h"
 #include "error_bonus.h"
 
 bool	init_weapons(t_game *game)

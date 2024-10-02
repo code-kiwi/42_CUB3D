@@ -12,7 +12,6 @@
 
 #include "cub3d_bonus.h"
 #include "entities_bonus.h"
-#include "animation_bonus.h"
 #include "libft.h"
 
 void	destroy_all_anims(t_game *game)

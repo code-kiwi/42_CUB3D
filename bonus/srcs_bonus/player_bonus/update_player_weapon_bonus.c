@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   update_player_weapon_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 11:43:42 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 05:54:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "player_bonus.h"
 
 static void	update_player_weapon_switching(
 	t_player_weapon *weapon_info,

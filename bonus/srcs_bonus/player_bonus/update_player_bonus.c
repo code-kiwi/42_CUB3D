@@ -6,14 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/02 04:15:10 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 05:53:28 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
 #include "cub3d_bonus.h"
-#include "entities_bonus.h"
 #include "libft.h"
 
 static bool	is_walking(t_player *player)

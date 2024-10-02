@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:41:57 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/02 04:20:07 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 05:13:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "entities_bonus.h"
 #include "sprite_bonus.h"
 #include "libft.h"
-#include "vector_bonus.h"
 
 static void	change_destination(t_entity *entity)
 {

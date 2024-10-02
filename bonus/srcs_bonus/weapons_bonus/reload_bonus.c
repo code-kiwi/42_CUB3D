@@ -6,11 +6,10 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 14:00:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 04:06:01 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 06:28:11 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "weapons_bonus.h"
 #include "utils_bonus.h"
 

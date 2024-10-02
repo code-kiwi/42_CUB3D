@@ -6,12 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:36:36 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 15:17:49 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 05:43:58 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
-#include "cub3d_bonus.h"
+#include "mlx_api_bonus.h"
 
 /**
  * @brief Destroys properly a t_mlx instance

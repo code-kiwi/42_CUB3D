@@ -12,8 +12,6 @@
 
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
-#include "config_bonus.h"
-#include "cub3d_bonus.h"
 #include "sprite_bonus.h"
 
 bool	demon_update(t_game *game, t_entity *entity, float delta_time)

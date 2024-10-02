@@ -6,14 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:14:16 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/09 05:37:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 06:07:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
+
 #include "cub3d_bonus.h"
 #include "libft.h"
-
-#include <math.h>
 
 /**
  * @brief return the angel between the x axis and the ray of this column in

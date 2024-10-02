@@ -6,12 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 12:05:48 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 15:36:32 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 06:27:56 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "libft.h"
+#include "weapons_bonus.h"
 
 static bool	resize_weapon_img(t_image *img, int height, void *mlx_ptr)
 {

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   t_mlx_mouse_utils_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:38:35 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/02 13:38:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 05:45:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "mlx.h"
+#include "mlx_api_bonus.h"
 
 void	t_mlx_center_cursor(t_mlx *mlx)
 {

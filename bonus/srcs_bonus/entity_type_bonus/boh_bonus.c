@@ -12,7 +12,6 @@
 
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
-#include "config_bonus.h"
 #include "cub3d_bonus.h"
 #include "sprite_bonus.h"
 

@@ -6,13 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:39:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/02 04:02:44 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 05:33:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "get_next_line.h"
 #include "utils_bonus.h"
+#include "map_bonus.h"
 
 void	free_map(t_map *map)
 {

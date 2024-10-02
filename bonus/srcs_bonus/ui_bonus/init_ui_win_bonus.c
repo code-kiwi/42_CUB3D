@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_ui_win_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 16:23:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 10:23:48 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 06:19:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdbool.h>
-
 #include "cub3d_bonus.h"
-#include "event_handlers_bonus.h"
-#include "ui_bonus.h"
 #include "libft.h"
 
 static bool	init_ui_win_btn(

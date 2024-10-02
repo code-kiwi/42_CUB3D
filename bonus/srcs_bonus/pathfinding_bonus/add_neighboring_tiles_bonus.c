@@ -6,12 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:30:42 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/02 04:05:30 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 05:48:47 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinding_bonus.h"
-#include "cub3d_bonus.h"
+#include "map_bonus.h"
 #include "utils_bonus.h"
 
 /**
