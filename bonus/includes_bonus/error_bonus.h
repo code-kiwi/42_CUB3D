@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 03:24:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/02 03:37:42 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 09:28:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@
 
 # define ERR_UIS_CREATION		"UIs could not be created"
 # define ERR_UIS_IDS_CREATION	"UIs identifiers could not be set"
-# define ERR_UIS_TXTR_PATH		"The UIs texture file couuld not be opened"
+# define ERR_UIS_TXTR_PATH		"The UIs texture file could not be opened"
 # define ERR_UIS_READ			"Impossible to read the texture file for UIs"
 # define ERR_UIS_READ_ELEMENT	"Impossible to read one of the UIs textures"
 # define ERR_UIS_IDENTIFIER		"Invalid or duplicated identifier for UIs"
-# define ERR_UIS_IMG_INIT		"Impossible to init image from file"
+# define ERR_UIS_IMG_INIT		"Impossible to initate image from file"
 # define ERR_UI_CREATION		"UI creation failed"
 
 # define ERR_INIT_TEXTURES		"Can't open texture"
@@ -79,7 +79,7 @@
 
 # define ERR_DRAW_WALL			"The wall drawing failed"
 # define ERR_UPDATE_ENTITIES	"The entity updating process failed"
-# define ERR_UPDATE_ANIMATIONS	"The animation updatig process failed"
+# define ERR_UPDATE_ANIMATIONS	"The animation updating process failed"
 
 typedef struct s_game	t_game;
 
