@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 10:38:35 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 05:45:44 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 09:32:15 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ void	t_mlx_center_cursor(t_mlx *mlx)
 
 void	t_mlx_mouse_show(t_mlx *mlx, bool *mouse_hidden)
 {
-	if (mlx == NULL || mouse_hidden == NULL || !*mouse_hidden)
-		return ;
-	*mouse_hidden = false;
-	mlx_mouse_show(mlx->mlx_ptr, mlx->mlx_win);
+	// if (mlx == NULL || mouse_hidden == NULL || !*mouse_hidden)
+	// 	return ;
+	// mlx_mouse_show(mlx->mlx_ptr, mlx->mlx_win);
 	t_mlx_center_cursor(mlx);
+	*mouse_hidden = false;
 }
 
 void	t_mlx_mouse_hide(t_mlx *mlx, bool *mouse_hidden)
 {
-	if (mlx == NULL || mouse_hidden == NULL || *mouse_hidden)
-		return ;
-	*mouse_hidden = true;
-	mlx_mouse_hide(mlx->mlx_ptr, mlx->mlx_win);
+	// if (mlx == NULL || mouse_hidden == NULL || *mouse_hidden)
+	// 	return ;
+	// mlx_mouse_hide(mlx->mlx_ptr, mlx->mlx_win);
 	t_mlx_center_cursor(mlx);
+	*mouse_hidden = true;
 }
