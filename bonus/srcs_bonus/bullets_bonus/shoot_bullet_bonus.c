@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:06:25 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/02 03:54:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:49:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "bullets_bonus.h"
 #include "config_bonus.h"
 #include "cub3d_bonus.h"
+#include "libft.h"
 
 static t_bullet	*bullet_create(
 	t_game *game,

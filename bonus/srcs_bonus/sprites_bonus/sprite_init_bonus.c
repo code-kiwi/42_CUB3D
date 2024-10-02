@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_init_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:09:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 01:03:05 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 04:49:22 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sprite_bonus.h"
 #include "cub3d_bonus.h"
+#include "libft.h"
 
 void	*add_sprite(t_game *game, float x, float y, char id)
 {

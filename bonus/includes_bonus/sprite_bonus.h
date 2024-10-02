@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:11:53 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 04:35:40 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:48:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define SPRITE_BONUS_H
 
 # include <stdlib.h>
+# include <stdbool.h>
 
 # include "vector_bonus.h"
-# include "libft.h"
 
 typedef struct s_game		t_game;
 typedef struct s_sprite		t_sprite;

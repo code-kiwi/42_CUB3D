@@ -6,13 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/10/02 04:04:24 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:48:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "sprite_bonus.h"
 #include "utils_bonus.h"
+#include "libft.h"
 
 /**
  * @brief Return the x index of the first column to be drawn
