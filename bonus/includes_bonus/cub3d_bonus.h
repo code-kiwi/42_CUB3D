@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 06:39:43 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 22:42:42 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ struct s_game
 	long				tick_last_frame;
 	t_animation			*anim;
 	t_animation			anims[NB_MAPS][MAP_NB_IDS];
-	size_t				door_count;
-	t_door				*doors;
 	t_door				*last_door_seen;
 	t_list				*sprites;
 	t_list				*entities;
@@ -92,6 +90,7 @@ struct	s_column
 	int				ceiling_start;
 	int				ranged_end;
 	int				ranged_start;
+	float			luminosity;
 };
 
 // Game functions
@@ -108,7 +107,7 @@ void	game_reach_home(t_game *game);
 bool	draw_walls(t_game *game);
 void	draw_walls_part(t_game *game, size_t start, size_t end);
 void	draw_texture_column(t_image *screen, t_column *column,
-			t_image *texture, float distance);
+			t_image *texture);
 void	render_all_sprites(t_game *game);
 void	get_sprite_screen_pos(t_column *column, t_sprite *sprite, \
 			t_game *game, float scale);

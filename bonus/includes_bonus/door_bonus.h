@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   door_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 16:42:39 by root              #+#    #+#             */
-/*   Updated: 2024/10/02 06:38:52 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 22:42:56 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ struct	s_door
 void		open_looked_door(t_ray *look_ray, t_map *map);
 void		update_doors(t_game *game, float delta_time);
 t_door		*find_door_at_position(t_mlx_coords *position, t_game *game);
-bool		init_doors(t_game *game);
+bool		init_doors(t_map *map);
+void		restore_doors(t_door *doors, size_t door_count);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:43:13 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/10/02 03:42:45 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 22:40:13 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,6 @@ void	draw_map(t_map_draw *draw, t_map *map, t_game *game)
 		MAP_DRAW_COL_BG);
 	draw_map_tiles(draw, map, game->mlx.img_buff);
 	draw_map_entities(draw, game);
-	draw_map_doors(draw, game->doors, game->door_count, game->mlx.img_buff);
+	draw_map_doors(draw, map->doors, map->door_count, game->mlx.img_buff);
 	draw_map_decoration(draw, game->mlx.img_buff);
 }

@@ -97,6 +97,7 @@ HUD_HEALTH_LBL ./assets/textures/ui/hud/hud_health_label.xpm 150,150 10
 HUD_WEAPON_LBL ./assets/textures/ui/hud/hud_weapon_label.xpm 150,150 10
 
 SKY ./assets/textures/skies/seamless_dark_sky.xpm 1000,1000 10
+LIGHT ./assets/textures/sprites/light.xpm 200,300 10
 
 11111111111111111111
 10000000000000000001
@@ -108,6 +109,6 @@ SKY ./assets/textures/skies/seamless_dark_sky.xpm 1000,1000 10
 10000000000000001001
 101110000000011D1001
 12221000000000000001
-1222D000000000000001
-12221000000000000001
+1222D0000000l0000001
+122L1000000000000001
 11111111111111111111
