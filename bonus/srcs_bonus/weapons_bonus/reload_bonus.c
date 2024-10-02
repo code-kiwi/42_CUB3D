@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   reload_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 14:00:17 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/31 17:52:15 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 04:06:01 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "weapons_bonus.h"
+#include "utils_bonus.h"
 
 static void	reaload_weapon(t_weapon *weapon, float reload_ratio)
 {

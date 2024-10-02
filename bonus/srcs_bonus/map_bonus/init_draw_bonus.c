@@ -6,12 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 20:34:59 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/10/02 03:43:04 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:02:57 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "error_bonus.h"
+#include "utils_bonus.h"
 
 /**
  * @brief Returns the number of tiles of the longest line of the map

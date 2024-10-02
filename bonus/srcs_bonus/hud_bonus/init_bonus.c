@@ -6,12 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 18:47:38 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 14:05:20 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:06:44 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "libft.h"
+#include "utils_bonus.h"
 
 static void	init_hud_sizes(t_game *game, t_hud *hud)
 {

@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/09/10 23:55:19 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 04:04:39 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
 #include "cub3d_bonus.h"
+#include "utils_bonus.h"
 
 /**
  * @brief set the size of a segment of slope, when x is 1 or y is 1

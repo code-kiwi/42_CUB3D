@@ -6,13 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:29:56 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/02 03:41:03 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:02:24 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "libft.h"
 #include "error_bonus.h"
+#include "utils_bonus.h"
 
 static bool	get_texture_size(t_mlx_coords *out, char *size)
 {

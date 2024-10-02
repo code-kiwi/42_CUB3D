@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:01:44 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/02 03:44:05 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:03:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 #include "libft.h"
 #include "door_bonus.h"
-#include <cub3d_bonus.h>
+#include "cub3d_bonus.h"
+#include "utils_bonus.h"
 
 /**
  * @brief Return the texture of the wall, based on the direction or if the wall
