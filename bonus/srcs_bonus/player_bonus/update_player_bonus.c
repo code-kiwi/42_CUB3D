@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_player_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:25:35 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/10 23:57:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 02:47:42 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,15 @@ static bool	is_walking(t_player *player)
 	);
 }
 
+static bool	can_rotate(float new_y_rot, float rotation)
+{
+	if (new_y_rot < MAX_Y_ROTATION_RATIO * WIN_HEIGHT && rotation > 0)
+		return (true);
+	if (new_y_rot > -MAX_Y_ROTATION_RATIO * WIN_HEIGHT && rotation < 0)
+		return (true);
+	return (false);
+}
+
 static void	update_look(t_player *player, float delta_time)
 {
 	float	new_y_rot;
@@ -40,7 +49,7 @@ static void	update_look(t_player *player, float delta_time)
 		player->orientation.x += 2 * PI;
 	new_y_rot = player->orientation.y + player->rotation_speed.y * delta_time;
 	if (player->rotation_speed.y != 0.0f
-		&& abs((int)new_y_rot) < MAX_Y_ROTATION_RATIO * WIN_HEIGHT)
+		&& can_rotate(new_y_rot, player->rotation_speed.y))
 	{
 		player->orientation.y = new_y_rot;
 		player->rotation_speed.y = 0.0f;
