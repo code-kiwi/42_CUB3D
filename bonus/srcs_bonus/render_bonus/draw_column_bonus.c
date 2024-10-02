@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_column_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:23:55 by root              #+#    #+#             */
-/*   Updated: 2024/09/05 17:16:36 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/11 09:39:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
  * @param texture The texture to apply to the wall
  * @param distance THe distance of the wall from the player
  */
-void	draw_texture_column(t_image *screen, t_column *column, t_image *texture,
-	float distance)
+void	draw_texture_column(t_image *screen, t_column *column, t_image *texture)
 {
 	char			*color_addr;
 	float			scale_y;
@@ -38,7 +37,7 @@ void	draw_texture_column(t_image *screen, t_column *column, t_image *texture,
 			(int)texture_pos * texture->line_len);
 		if (color != 0xFF000000)
 		{
-			multiply_color(&color, 1 - distance / MAX_VISION_DISTANCE);
+			multiply_color(&color, column->luminosity);
 			*(unsigned int *)addr = color;
 		}
 		addr += screen->line_len;

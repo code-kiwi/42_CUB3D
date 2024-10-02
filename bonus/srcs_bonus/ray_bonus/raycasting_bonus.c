@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 15:01:34 by root              #+#    #+#             */
-/*   Updated: 2024/09/10 23:55:19 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/14 11:15:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ float	raycast_progress(t_raycast *raycast, t_game *game, t_vector *position,
 		ray->is_vertical = raycast->is_vertical;
 		return (raycast->sum_length);
 	}
-	if (game->door_count > 0 && is_door(position, game, ray, raycast))
+	if (game->map->door_count > 0 && is_door(position, game, ray, raycast))
 	{
 		ray->is_vertical = raycast->is_vertical;
 		ray->is_door = true;
@@ -89,5 +89,5 @@ float	raycast(t_vector position, t_game *game, t_ray *ray, int max_distance)
 		if (length != -1)
 			return (length);
 	}
-	return (MAX_DISTANCE);
+	return (max_distance);
 }

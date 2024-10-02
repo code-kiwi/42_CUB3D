@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_level_selection_utils_bonus.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:47:03 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/11 00:03:02 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/11 04:44:19 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ bool	game_load_map(t_game *game, size_t map_index)
 		return (false);
 	game->map = &game->maps[map_index];
 	game->anim = game->anims[map_index];
+	restore_doors(game->map->doors, game->map->door_count);
 	load_ok = \
 		t_player_init(&game->player, game->map, game)
 		&& init_sprites(game)
-		&& init_doors(game)
 		&& init_entities(game)
 		&& init_map_draw(&game->map->draw, game->map, game)
 		&& init_radar(&game->radar, &game->mlx)
@@ -48,11 +48,6 @@ void	game_unload_map(t_game *game)
 	if (game == NULL)
 		return ;
 	destroy_radar(&game->radar, game->mlx.mlx_ptr);
-	if (game->doors != NULL)
-	{
-		free(game->doors);
-		game->doors = NULL;
-	}
 	ft_lstclear(&game->sprites, free);
 	ft_lstclear(&game->bullets, free);
 	ft_lstclear(&game->entities, t_entity_destroy);

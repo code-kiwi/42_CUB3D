@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sprite_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:41:19 by root              #+#    #+#             */
-/*   Updated: 2024/09/05 17:18:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/14 11:49:24 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "sprite_bonus.h"
+#include "lights_bonus.h"
 
 /**
  * @brief Return the x index of the first column to be drawn
@@ -49,9 +50,9 @@ static void	draw_all_columns(
 	t_ray	*rays
 )
 {
-	float	texture_x;
-	t_image	*texture;
-	float	distance;
+	float		texture_x;
+	t_image		*texture;
+	float		distance;
 
 	texture = sprite->texture->content;
 	texture_x = get_texture_x(column, texture);
@@ -61,7 +62,7 @@ static void	draw_all_columns(
 			return ;
 		distance = rays[column->coords.x].length;
 		if (distance > sprite->distance)
-			draw_texture_column(img, column, texture, sprite->distance);
+			draw_texture_column(img, column, texture);
 		texture_x += sprite->distance * texture->width / sprite->height;
 		column->texture_x = texture_x;
 		column->coords.x++;
@@ -90,6 +91,8 @@ static void	draw_sprite(t_sprite *sprite, t_game *game)
 	column.texture_start = column.ranged_start - column.start;
 	column.texture_x = 0;
 	column.coords.y = column.ranged_start;
+	column.luminosity = get_luminosity(&sprite->position, game->map, \
+		1 / sprite->distance);
 	if (is_sprite_aimed(sprite, column.coords.x))
 	{
 		game->player.aimed_sprite = sprite;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:55:44 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/11 00:08:08 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/13 02:58:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@
 # define ID_MAP_DOOR_CLOSED				'd'
 # define ID_MAP_DOOR_OPENED				'o'
 # define ID_MAP_SKY						'2'
+# define ID_MAP_LIGHT					'l'
 
-# define IDS_MAP_SPRITE					"t"
+# define IDS_MAP_SPRITE					"lL"
 # define ID_MAP_PLAYER					'p'
 # define ID_MAP_ENTITY					'e'
 
@@ -128,6 +129,7 @@
 # define ID_TEXTURE_HUD_WEAPON_LBL		"HUD_WEAPON_LBL"
 
 # define ID_TEXTURE_SKY					"SKY"
+# define ID_TEXTURE_LIGHT				"LIGHT"
 
 # define IDX_TXTR_N						0
 # define IDX_TXTR_S						1
@@ -215,23 +217,24 @@
 # define IDX_TXTR_HUD_WEAPON_LBL		80
 
 # define IDX_TXTR_SKY					81
+# define IDX_TXTR_LIGHT					82
 
 # define ID_MAP_DEMON					'z'
 # define ID_MAP_IMP						'i'
 # define ID_MAP_CACO					'c'
 # define ID_MAP_BOH						'b'
-# define ID_MAP_LOST_SOUL				'l'
+# define ID_MAP_LOST_SOUL				'k'
 # define ID_MAP_PAIN_ELEM				'p'
 # define ID_MAP_CYBER					'y'
 # define ID_MAP_REV						'r'
 # define ID_MAP_MANC					'm'
 # define ID_MAP_COMMANDO				'v'
 # define ID_MAP_SERGEANT				'f'
-# define IDS_MAP_ENTITY					"zicblpyrmvfZICBLPYRMVF"
+# define IDS_MAP_ENTITY					"zicbkpyrmvfZICBKPYRMVF"
 
 # define MAP_EXTENSION					".cub"
-# define MAP_ALLOWED_CHARS				" 012zicblpyrmvftnsewdZICBLPYRMVFTNSEWD"
-# define MAP_NB_IDS						82
+# define MAP_ALLOWED_CHARS				" 012zicbkpyrmvfnsewdlZICBKPYRMVFNSEWDL"
+# define MAP_NB_IDS						83
 
 # define MAP_MOVING_CHARS				"pnsewoPNSEWO"
 
@@ -259,6 +262,7 @@ typedef struct s_ray		t_ray;
 typedef struct s_sprite		t_sprite;
 typedef struct s_list		t_list;
 typedef struct s_mlx_coords	t_mlx_coords;
+typedef struct s_light		t_light;
 
 struct s_map_draw
 {
@@ -278,11 +282,16 @@ struct s_map
 	char			*textures[MAP_NB_IDS];
 	t_mlx_coords	texture_size[MAP_NB_IDS];
 	t_map_draw		draw;
+	size_t			door_count;
+	t_door			*doors;
+	size_t			lights_count;
+	t_light			*lights;
 };
 
 // Map functions
 bool	read_maps(t_game *game);
-bool	read_map(t_map *map, char *filename, t_animation anim[MAP_NB_IDS]);
+bool	read_map_tiles(t_map *map, char *filename, \
+			t_animation anim[MAP_NB_IDS]);
 bool	save_map_tiles(t_map *map);
 bool	is_map_valid(t_map *map);
 bool	read_elements(t_map *map, int fd, t_animation anim[MAP_NB_IDS]);
