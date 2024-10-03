@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 03:27:08 by brappo            #+#    #+#             */
-/*   Updated: 2024/10/03 10:09:25 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/03 10:13:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CONFIG_BONUS_H
 
 # define PI						3.14159265358
-# define FPS					100
+# define FPS					40
 # define NB_DRAW_THREADS		16
 
 # define WIN_TITLE				"Cub3D"
