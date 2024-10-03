@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   entities_actions_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 19:30:35 by root              #+#    #+#             */
-/*   Updated: 2024/08/31 17:25:26 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 04:23:27 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "entities_bonus.h"
+#include "libft.h"
+#include "sprite_bonus.h"
 
 void	entity_get_killed(t_game *game, t_entity *entity)
 {

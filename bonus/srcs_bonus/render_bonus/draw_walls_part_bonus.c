@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_walls_part_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 16:01:44 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/10 16:16:59 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 22:41:44 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 #include "libft.h"
 #include "door_bonus.h"
+#include "cub3d_bonus.h"
+#include "utils_bonus.h"
+#include "lights_bonus.h"
 
 /**
  * @brief Return the texture of the wall, based on the direction or if the wall
@@ -79,7 +82,10 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	t_column	column;
 	t_image		*texture;
 	int			offset;
+	t_vector	position;
 
+	position.x = game->player.position.x + ray->slope.x * ray->length;
+	position.y = game->player.position.y - ray->slope.y * ray->length;
 	column.coords.x = column_index;
 	column.perceived_height = WIN_HEIGHT / (ray->length * ray->cos_angle);
 	offset = get_offset(column.perceived_height, &game->player);
@@ -95,7 +101,8 @@ static void	draw_wall_column(size_t column_index, t_ray *ray, t_game *game)
 	texture = get_texture(game->anim, ray);
 	column.texture_x = pixel_column_on_texture(ray, texture->width);
 	draw_ceiling(&column, column.coords.y - 1, game, ray);
-	draw_texture_column(game->mlx.img_buff, &column, texture, ray->length);
+	column.luminosity = get_luminosity(&position, game->map, 1 / ray->length);
+	draw_texture_column(game->mlx.img_buff, &column, texture);
 	draw_ground(&column, column.coords.y, game, ray);
 }
 

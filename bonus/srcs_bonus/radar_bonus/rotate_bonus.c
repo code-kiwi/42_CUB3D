@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 19:11:05 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 12:25:34 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 06:30:43 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
-#include "cub3d_bonus.h"
+#include "radar_bonus.h"
 
 /**
  * @brief Rotates coords and saves the result into res_coords

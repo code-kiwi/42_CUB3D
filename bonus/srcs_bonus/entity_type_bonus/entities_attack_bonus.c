@@ -6,12 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 10:10:55 by root              #+#    #+#             */
-/*   Updated: 2024/09/01 10:59:06 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:23:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
+#include "libft.h"
+#include "sprite_bonus.h"
 
 void	close_attack(t_entity *entity, t_game *game, size_t cooldown)
 {

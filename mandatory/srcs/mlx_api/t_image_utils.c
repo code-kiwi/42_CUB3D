@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 12:03:23 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 14:33:48 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/03 08:56:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	t_image_destroy(void *mlx_ptr, t_image *img)
 	if (mlx_ptr == NULL || img == NULL || img->ptr == NULL)
 		return ;
 	mlx_destroy_image(mlx_ptr, img->ptr);
+	img->ptr = NULL;
 	free(img);
 }
 
@@ -82,6 +83,7 @@ bool	t_image_import_file(t_image *image, char *filename, void *mlx)
 	if (image->addr == NULL)
 	{
 		mlx_destroy_image(mlx, image->ptr);
+		image->ptr = NULL;
 		return (false);
 	}
 	image->bpp_factor = image->bpp / 8;

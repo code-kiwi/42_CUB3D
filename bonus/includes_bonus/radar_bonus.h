@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radar_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 18:52:04 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/07/19 10:16:44 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 06:01:57 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define RADAR_BONUS_H
 
 # include <stdbool.h>
-# include <stdint.h>
+
+# include "mlx_api_bonus.h"
 
 # define RADAR_SIZE_RATIO		10.0f
 # define RADAR_ROT_SENSIBILIY	0.0001f
@@ -33,6 +34,8 @@
 
 typedef struct s_game	t_game;
 typedef struct s_radar	t_radar;
+typedef struct s_map	t_map;
+typedef struct s_player	t_player;
 
 struct s_radar
 {

@@ -6,7 +6,7 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:41:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/27 16:25:27 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/03 09:09:06 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 # include "mlx_api.h"
 # include "map.h"
-# include "vector.h"
 # include "player.h"
 # include "ray.h"
 

@@ -3,16 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:50:52 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/10 23:52:19 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:29:45 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "door_bonus.h"
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
+#include "cub3d_bonus.h"
+#include "error_bonus.h"
+#include "utils_bonus.h"
+#include "libft.h"
 
 static bool	game_loop_handle_fps(t_game *game, float *delta_time)
 {
@@ -59,7 +63,8 @@ static void	game_render(t_game *game, float delta_time)
 		error_exit(game, ERR_PLAYER_QUIT_MAP);
 	cast_rays(game);
 	draw_sky(game);
-	draw_walls(game);
+	if (!draw_walls(game))
+		error_exit(game, ERR_DRAW_WALL);
 	render_all_sprites(game);
 	draw_player(game, &game->player.weapon_info);
 	draw_hud(game, &game->hud);

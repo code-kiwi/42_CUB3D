@@ -6,11 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 15:54:08 by root              #+#    #+#             */
-/*   Updated: 2024/08/27 13:49:12 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 03:46:53 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "door_bonus.h"
+#include "map_bonus.h"
+#include "player_bonus.h"
+#include "ray_bonus.h"
 
 void	open_looked_door(t_ray *look_ray, t_map *map)
 {

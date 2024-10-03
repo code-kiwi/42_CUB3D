@@ -6,12 +6,14 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:09:39 by root              #+#    #+#             */
-/*   Updated: 2024/09/03 08:13:33 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:21:58 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "bullets_bonus.h"
+#include "config_bonus.h"
+#include "sprite_bonus.h"
 
 void	rocket_proj_init(t_animation anim[MAP_NB_IDS], t_bullet *bullet)
 {

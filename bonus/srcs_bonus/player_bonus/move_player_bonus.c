@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   move_player_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 17:39:40 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/26 18:01:39 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 05:51:29 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
-#include "cub3d_bonus.h"
-#include "libft.h"
 #include "entities_bonus.h"
+#include "player_bonus.h"
 
 static float	calc_gap(float move_value)
 {

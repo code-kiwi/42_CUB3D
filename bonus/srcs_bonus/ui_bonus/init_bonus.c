@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:46:29 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 02:22:10 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/10/02 06:17:48 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
-#include <unistd.h>
 
 #include "cub3d_bonus.h"
 #include "libft.h"
+#include "error_bonus.h"
 
 static bool	uis_init_textures(t_game *game, t_game_uis *uis)
 {

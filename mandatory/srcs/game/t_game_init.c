@@ -44,9 +44,9 @@ static bool	set_color_components(unsigned int *color, char *r, char *g, char *b)
 
 	if (!is_number(r) || !is_number(g) || !is_number(b))
 		return (error_print(ERR_COLOR_NAN), false);
-	r_value = atoi(r);
-	g_value = atoi(g);
-	b_value = atoi(b);
+	r_value = ft_atoi(r);
+	g_value = ft_atoi(g);
+	b_value = ft_atoi(b);
 	if (ft_strlen(r) > 3 || ft_strlen(g) > 3 || ft_strlen(b) > 3)
 		return (error_print(ERR_COLOR_RANGE), false);
 	error = !set_color(color, r_value, g_value, b_value);

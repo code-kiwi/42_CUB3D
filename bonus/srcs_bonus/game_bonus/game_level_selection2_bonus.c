@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   game_level_selection2_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:47:03 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 14:33:31 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:36:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+#include "error_bonus.h"
 
 void	select_level1(t_game *game)
 {

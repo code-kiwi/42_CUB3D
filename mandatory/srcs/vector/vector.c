@@ -6,13 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:42:24 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 13:36:50 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/03 09:17:02 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
-#include "cub3d.h"
+#include "vector.h"
 
 void	t_vector_copy(t_vector *dest, t_vector *src)
 {

@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   lost_soul_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 20:26:59 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/02 17:00:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 05:17:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
+#include "sprite_bonus.h"
+#include "libft.h"
 
 bool	lost_soul_update(t_game *game, t_entity *entity, float delta_time)
 {

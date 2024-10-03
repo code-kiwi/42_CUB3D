@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   update_entities_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 10:06:13 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 01:03:37 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 04:17:13 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
 #include "cub3d_bonus.h"
+#include "sprite_bonus.h"
+#include "libft.h"
 
 bool	update_entities(t_game *game, float delta_time)
 {

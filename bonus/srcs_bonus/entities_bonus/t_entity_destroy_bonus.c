@@ -6,11 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 14:19:58 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 13:51:44 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 04:17:51 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entities_bonus.h"
+#include "libft.h"
 
 void	t_entity_destroy(void *data)
 {

@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   draw_ceiling_ground_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:24:21 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/10 23:56:47 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 22:41:18 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 
-#include "mlx_api_bonus.h"
 #include "cub3d_bonus.h"
 #include "libft.h"
+#include "utils_bonus.h"
+#include "lights_bonus.h"
 
 /**
  * @brief Return the world position of a pixel
@@ -31,23 +32,28 @@ static	void	get_pixel_world_pos(t_ray *ray,
 
 /**
  * @brief Draw a ground or ceiling pixel
- * @param pos_in_tile The position of the pixel in the texture
+ * @param position The world position of the pixel
  * @param addr The address the pixel will be drawn into
  * @param texture the texture of the ground/ceiling
  * @param inv_dist the inverse distanc eof the pixel from the player
+ * @note We remove the integer part of position because we need the decimal part
+ * to calculate the texture coordinate. So position wiil be changed in this
+ * function.
  */
-static void	draw_pixel_from_texture(t_vector *pos_in_tile, char *addr,
-	t_image *texture, float inv_dist)
+static void	draw_pixel_from_texture(t_vector *position, char *addr,
+	t_image *texture, float luminosity)
 {
 	t_mlx_coords	color_coords;
 	unsigned int	color;
 
-	color_coords.x = pos_in_tile->x * texture->width;
-	color_coords.y = pos_in_tile->y * texture->height;
+	position->x -= (int)position->x;
+	position->y -= (int)position->y;
+	color_coords.x = position->x * texture->width;
+	color_coords.y = position->y * texture->height;
 	color = *(unsigned int *)(texture->addr + \
 		color_coords.y * texture->line_len \
 		+ (color_coords.x * texture->bpp_factor));
-	multiply_color(&color, 1 - 1 / (inv_dist * MAX_VISION_DISTANCE));
+	multiply_color(&color, luminosity);
 	*(unsigned int *)addr = color;
 }
 
@@ -97,10 +103,9 @@ void	draw_ground(t_column *column, int start, t_game *game, t_ray *ray)
 	while (start < WIN_HEIGHT)
 	{
 		get_pixel_world_pos(ray, &game->player.position, &pixel_pos, inv_dist);
-		pixel_pos.x -= (int)pixel_pos.x;
-		pixel_pos.y -= (int)pixel_pos.y;
+		column->luminosity = get_luminosity(&pixel_pos, game->map, inv_dist);
 		draw_pixel_from_texture(&pixel_pos, addr,
-			game->anim[IDX_TXTR_FLOOR].textures->content, inv_dist);
+			game->anim[IDX_TXTR_FLOOR].textures->content, column->luminosity);
 		start++;
 		inv_dist += inv_dist_unit;
 		addr += game->mlx.img_buff->line_len;
@@ -131,10 +136,9 @@ void	draw_ceiling(t_column *column, int start, t_game *game, t_ray *ray)
 		get_pixel_world_pos(ray, &game->player.position, &pixel_pos, inv_dist);
 		if (!is_sky(&pixel_pos, game->map))
 		{
-			pixel_pos.x -= (int)pixel_pos.x;
-			pixel_pos.y -= (int)pixel_pos.y;
-			draw_pixel_from_texture(&pixel_pos, addr,
-				game->anim[IDX_TXTR_CEIL].textures->content, inv_dist);
+			draw_pixel_from_texture(&pixel_pos, addr, \
+				game->anim[IDX_TXTR_CEIL].textures->content, \
+				get_luminosity(&pixel_pos, game->map, inv_dist));
 		}
 		start--;
 		inv_dist += inv_dist_unit;

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    sources_bonus.mk                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
+#    By: brappo <brappo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 11:26:46 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/10 23:55:50 by mhotting         ###   ########.fr        #
+#    Updated: 2024/09/13 03:48:35 by brappo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ HEADERS_FILES_BONUS			=	cub3d_bonus.h 					\
 								mlx_api_bonus.h					\
 								event_handlers_bonus.h 			\
 								map_bonus.h						\
-								vector_bonus.h
+								vector_bonus.h					\
+								lightmap_bonus.h
 HEADERS_BONUS				=	$(addprefix $(HEADERS_DIR_BONUS), $(HEADERS_FILES_BONUS))
 
 # MAIN
@@ -95,7 +96,7 @@ RENDER_BONUS				=	$(addprefix $(RENDER_DIR_BONUS), $(RENDER_FILES_BONUS))
 
 # MAP
 MAP_DIR_BONUS				=	map_bonus/
-MAP_FILES_BONUS				=	read_map_bonus.c				\
+MAP_FILES_BONUS				=	read_map_tiles_bonus.c			\
 								read_maps_bonus.c				\
 								save_tiles_bonus.c				\
 								is_in_bounds_bonus.c			\
@@ -116,7 +117,8 @@ DOOR_DIR_BONUS				=	door_bonus/
 DOOR_FILES_BONUS			=	find_doors_bonus.c				\
 								open_door_bonus.c				\
 								update_door_bonus.c				\
-								init_doors_bonus.c
+								init_doors_bonus.c				\
+								restore_doors_bonus.c
 DOOR_BONUS					=	$(addprefix $(DOOR_DIR_BONUS), $(DOOR_FILES_BONUS))
 
 # PLAYER
@@ -258,6 +260,14 @@ WEAPONS_FILES_BONUS			=	init_bonus.c					\
 								update_cooldown_bonus.c
 WEAPONS_BONUS				=	$(addprefix $(WEAPONS_DIR_BONUS), $(WEAPONS_FILES_BONUS))
 
+# LIGHTS
+LIGHTS_DIR_BONUS			=	lights_bonus/
+LIGHTS_FILES_BONUS			=	get_lights_position_bonus.c		\
+								get_luminosity_bonus.c			\
+								init_lights_bonus.c				\
+								set_lights_values_bonus.c
+LIGHTS_BONUS				=	$(addprefix $(LIGHTS_DIR_BONUS), $(LIGHTS_FILES_BONUS))
+
 # UTILS
 UTILS_DIR_BONUS				=	utils_bonus/
 UTILS_FILES_BONUS			=	math_bonus.c					\
@@ -280,7 +290,7 @@ SRCS_FILES_BONUS			=	$(MAIN_BONUS) $(MLX_API_BONUS) $(UTILS_BONUS) 			\
 								$(PATHFINDING_BONUS) $(ANIMATION_BONUS)					\
 								$(ENTITIES_BONUS) $(UI_BONUS) $(WEAPONS_BONUS)			\
 								$(BULLETS_BONUS) $(ENTITY_TYPE_BONUS) $(RADAR_BONUS)	\
-								$(HUD_BONUS)
+								$(HUD_BONUS) $(LIGHTS_BONUS)
 SRCS_BONUS					=	$(addprefix $(SRCS_MAIN_DIR_BONUS), $(SRCS_FILES_BONUS))
 
 # OBJECTS GENERAL

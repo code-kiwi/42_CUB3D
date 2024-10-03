@@ -3,20 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   free_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 17:39:48 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/05 12:31:25 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 22:40:33 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "get_next_line.h"
+#include "utils_bonus.h"
+#include "map_bonus.h"
+#include "lights_bonus.h"
 
 void	free_map(t_map *map)
 {
 	if (map == NULL)
 		return ;
+	if (map->doors != NULL)
+	{
+		free(map->doors);
+		map->doors = NULL;
+	}
+	free_lights(&map->lights, map->lights_count);
 	free_array(map->textures, MAP_NB_IDS, false);
 	ft_free_str_array(&map->tiles);
 	ft_free_str_array(&map->tiles_save);

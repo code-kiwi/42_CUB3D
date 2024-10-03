@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sky_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:14:16 by brappo            #+#    #+#             */
-/*   Updated: 2024/09/09 05:37:02 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 22:41:27 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
+
 #include "cub3d_bonus.h"
 #include "libft.h"
-
-#include <math.h>
 
 /**
  * @brief return the angel between the x axis and the ray of this column in
@@ -81,7 +81,8 @@ static void	draw_sky_column(size_t column_index, t_ray *ray, t_game *game)
 	column.ranged_end = WIN_HEIGHT;
 	column.texture_start = get_texture_start(&game->player, texture, \
 		column.perceived_height);
-	draw_texture_column(screen, &column, texture, 0);
+	column.luminosity = 1.0f;
+	draw_texture_column(screen, &column, texture);
 }
 
 /**

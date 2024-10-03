@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map_bonus.c                                   :+:      :+:    :+:   */
+/*   read_map_tiles_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:53:41 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/05 14:58:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 22:40:37 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include <errno.h>
 
-#include "cub3d_bonus.h"
 #include "libft.h"
+#include "map_bonus.h"
+#include "error_bonus.h"
+#include "utils_bonus.h"
 
 static char	**read_tiles(int fd, size_t map_size_y, bool skip_empty_line)
 {
@@ -102,7 +104,7 @@ static bool	clean_map(char **tiles)
 	return (true);
 }
 
-bool	read_map(t_map *map, char *filename, t_animation anim[MAP_NB_IDS])
+bool	read_map_tiles(t_map *map, char *filename, t_animation anim[MAP_NB_IDS])
 {
 	int		fd;
 

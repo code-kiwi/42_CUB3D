@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ui_utils_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:36:13 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 01:07:45 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/10/02 06:21:38 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "ui_bonus.h"
 
 void	draw_ui(t_ui *ui, t_image *img)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ui_bonus.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 09:21:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 16:11:22 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 04:36:32 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define UI_BONUS_H
 
 # include "mlx_api_bonus.h"
-# include "map_bonus.h"
 
 # define UI_TEXTURES_PATH			"./assets/textures/ui/ui_textures_list.txt"
 # define UI_NB_TEXTURES				37

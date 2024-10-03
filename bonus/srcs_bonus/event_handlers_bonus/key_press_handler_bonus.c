@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   key_press_handler_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 15:16:10 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/11 00:05:16 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 10:15:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "door_bonus.h"
+#include "error_bonus.h"
 
 /**
  * @brief Handles the keyboard press key events
@@ -25,8 +26,8 @@ int	key_press_handler(int key, t_game *game)
 
 	player = &game->player;
 	if (game == NULL)
-		error_exit(NULL, ERR_ARG);
-	else if (game->state != STATE_PLAYING)
+		return (0);
+	if (game->state != STATE_PLAYING)
 		return (0);
 	else if (key == KEY_E)
 		open_looked_door(player->look_ray, game->map);

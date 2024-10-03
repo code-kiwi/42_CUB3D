@@ -6,13 +6,15 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 00:54:27 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/08/27 14:32:30 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/03 09:11:59 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
+#include <stdbool.h>
 
-#include "cub3d.h"
+#include "map.h"
+#include "vector.h"
 
 bool	is_in_bounds(t_vector *position, t_map *map)
 {

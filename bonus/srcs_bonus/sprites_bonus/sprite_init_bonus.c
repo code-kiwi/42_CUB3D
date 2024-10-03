@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_init_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:09:07 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/31 01:03:05 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 22:41:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sprite_bonus.h"
 #include "cub3d_bonus.h"
+#include "libft.h"
 
 void	*add_sprite(t_game *game, float x, float y, char id)
 {
@@ -45,6 +46,7 @@ void	t_sprite_init(t_sprite *sprite, t_animation *animation, size_t height)
 	sprite->height = height;
 	sprite->animate = true;
 	sprite->locked = false;
+	sprite->on_ground = true;
 }
 
 bool	init_sprites(t_game *game)
@@ -59,7 +61,7 @@ bool	init_sprites(t_game *game)
 	while (current)
 	{
 		sprite = current->content;
-		t_sprite_init(sprite, &game->anim[IDX_TXTR_SPRITE], WIN_HEIGHT);
+		t_sprite_init(sprite, &game->anim[IDX_TXTR_LIGHT], WIN_HEIGHT);
 		current = current->next;
 	}
 	return (true);

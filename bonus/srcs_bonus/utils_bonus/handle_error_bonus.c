@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   handle_error_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:52:09 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/10 23:28:08 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:32:46 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "libft.h"
+#include "cub3d_bonus.h"
+#include "error_bonus.h"
 
 /**
  * @brief print a formated string err_msg containing a variable str

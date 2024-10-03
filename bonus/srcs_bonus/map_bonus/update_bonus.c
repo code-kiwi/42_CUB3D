@@ -12,6 +12,9 @@
 
 #include "entities_bonus.h"
 #include "door_bonus.h"
+#include "cub3d_bonus.h"
+#include "libft.h"
+#include "sprite_bonus.h"
 
 /**
  * @brief Removes all the moving characters from the map
@@ -125,7 +128,7 @@ void	update_map(t_map *map, t_game *game)
 	if (map == NULL || game == NULL)
 		return ;
 	clear_map(map);
-	add_doors_to_map(map, game->doors, game->door_count);
+	add_doors_to_map(map, map->doors, map->door_count);
 	add_player_to_map(map, &game->player);
 	add_entities_to_map(map, game->entities);
 }

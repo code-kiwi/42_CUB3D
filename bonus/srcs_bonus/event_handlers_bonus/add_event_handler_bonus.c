@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   add_event_handler_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:25:06 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 08:47:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:38:55 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 #include "event_handlers_bonus.h"
+#include "error_bonus.h"
 
 /**
  * @brief Adds all the event handlers to the given t_game structure

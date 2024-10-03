@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <time.h>
+#include <stdbool.h>
 
-#include "cub3d_bonus.h"
 #include "event_handlers_bonus.h"
 #include "mlx.h"
+#include "error_bonus.h"
+#include "cub3d_bonus.h"
 
 static bool	init_textures(
 	t_game *game,

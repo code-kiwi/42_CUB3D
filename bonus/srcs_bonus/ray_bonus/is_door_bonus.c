@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   is_door_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 16:01:43 by root              #+#    #+#             */
-/*   Updated: 2024/09/02 17:00:54 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 03:45:31 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "door_bonus.h"
+#include "cub3d_bonus.h"
 
 inline static float	mod(float value)
 {

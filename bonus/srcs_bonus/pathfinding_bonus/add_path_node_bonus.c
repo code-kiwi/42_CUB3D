@@ -6,12 +6,12 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:30:00 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 14:15:53 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 05:49:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "pathfinding_bonus.h"
+#include "utils_bonus.h"
 
 static size_t	get_end_distance(t_mlx_coords *position, t_mlx_coords *end)
 {

@@ -12,7 +12,7 @@
 
 #include "cub3d_bonus.h"
 #include "entities_bonus.h"
-#include "animation_bonus.h"
+#include "libft.h"
 
 void	destroy_all_anims(t_game *game)
 {
@@ -46,8 +46,6 @@ void	t_game_destroy(t_game *game)
 	destroy_radar(&game->radar, game->mlx.mlx_ptr);
 	t_mlx_destroy(&game->mlx);
 	free_maps(game->maps);
-	if (game->doors != NULL)
-		free(game->doors);
 	ft_lstclear(&game->sprites, free);
 	ft_lstclear(&game->bullets, free);
 	ft_lstclear(&game->entities, t_entity_destroy);

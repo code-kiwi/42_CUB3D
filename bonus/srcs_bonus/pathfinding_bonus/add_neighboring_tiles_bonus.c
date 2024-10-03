@@ -6,12 +6,13 @@
 /*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:30:42 by brappo            #+#    #+#             */
-/*   Updated: 2024/08/27 14:15:16 by brappo           ###   ########.fr       */
+/*   Updated: 2024/10/02 06:49:14 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pathfinding_bonus.h"
-#include "cub3d_bonus.h"
+#include "map_bonus.h"
+#include "utils_bonus.h"
 
 /**
  * @param x neighbor x relative to pos
@@ -46,9 +47,8 @@ static bool	add_neighbor(t_pathfinding *pathfinding, t_stack_path *top, \
 	if (relative_coords->x != 0 && relative_coords->y != 0)
 	{
 		distance = 14;
-		if (!is_neighbor_valid(map, &top->position, sign(relative_coords->x), 0)
-			|| !is_neighbor_valid(map, &top->position, 0,
-				sign(relative_coords->y)))
+		if (!is_neighbor_valid(map, &top->position, relative_coords->x, 0)
+			|| !is_neighbor_valid(map, &top->position, 0, relative_coords->y))
 		{
 			return (true);
 		}

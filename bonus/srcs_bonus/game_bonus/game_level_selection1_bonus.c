@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   game_level_selection1_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:47:03 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 16:10:31 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 10:23:37 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+#include "error_bonus.h"
 
 void	game_reach_level_selection(t_game *game)
 {
@@ -35,5 +36,6 @@ void	reload_level(t_game *game)
 		return ;
 	map_index = game->curr_map_index;
 	game_unload_map(game);
-	game_load_map(game, map_index);
+	if (!game_load_map(game, map_index))
+		error_exit(game, ERR_MAP_LOAD);
 }

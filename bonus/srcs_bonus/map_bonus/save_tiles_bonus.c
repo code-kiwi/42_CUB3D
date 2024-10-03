@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   save_tiles_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:59:27 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/05 14:37:10 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 05:41:54 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "libft.h"
+#include "map_bonus.h"
 
 bool	save_map_tiles(t_map *map)
 {

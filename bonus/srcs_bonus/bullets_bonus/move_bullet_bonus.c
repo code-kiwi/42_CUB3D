@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   move_bullet_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brappo <brappo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:58:30 by mhotting          #+#    #+#             */
-/*   Updated: 2024/08/31 19:59:50 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/02 04:47:33 by brappo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
 #include "bullets_bonus.h"
-#include "sprite_bonus.h"
 #include "entities_bonus.h"
+#include "sprite_bonus.h"
+#include "libft.h"
 
 static t_entity	*bullet_collide_entity(t_list *entities, t_vector *position)
 {
